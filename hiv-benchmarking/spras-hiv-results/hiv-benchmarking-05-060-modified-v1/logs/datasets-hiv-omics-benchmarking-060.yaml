@@ -1,0 +1,7 @@
+data_dir: input
+edge_files:
+- phosphosite-irefindex13.0-uniprot.txt
+label: hiv-omics-benchmarking-060
+node_files:
+- modified_prize_060.txt
+other_files: []
