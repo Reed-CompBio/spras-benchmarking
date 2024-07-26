@@ -1,0 +1,43 @@
+Standard	ORF	TF	Hohmann2007	Hohmann2009	KEGG	Krantz2009	RodriguezPena2010	ScienceSignaling	deNadal2010	Count
+Ptc2	YER089C	N				X				1
+Eft2	YDR385W	N						X		1
+Msn2	YMR037C	Y			X	X	X	X		4
+Rck1	YGL158W	N				X				1
+Ptc1	YDL006W	N	X	X		X		X		4
+Mcm1	YMR043W	Y			X					1
+Sin3	YOL004W	N						X		1
+Act1	YFL039C	N						X		1
+Opy2	YPR075C	N	X			X	X		X	4
+Hog1	YLR113W	N	X	X	X	X	X	X	X	7
+Msn1	YOL116W	Y				X		X		2
+Cdc42	YLR229C	N	X	X		X	X	X	X	6
+Sko1	YNL167C	Y				X	X	X		3
+Ssk1	YLR006C	N	X	X	X	X	X	X	X	7
+Msb2	YGR014W	N		X		X	X	X	X	5
+Rck2	YLR248W	N				X		X		2
+Hot1	YMR172W	Y		X		X	X	X		4
+Ste20	YHL007C	N	X	X	X	X	X	X	X	7
+Cla4	YNL298W	N	X	X						2
+Ste50	YCL032W	N	X			X	X	X	X	5
+Ssn6	YBR112C	N						X		1
+Msn4	YKL062W	Y			X	X	X	X		4
+Ypd1	YDL235C	N	X	X	X	X	X	X	X	7
+Sln1	YIL147C	N	X	X	X	X	X	X	X	7
+Ctt1	YGR088W	N			X					1
+Ste11	YLR362W	N	X	X	X	X	X	X	X	7
+Glo1	YML004C	N			X					1
+Ptp2	YOR208W	N	X	X		X		X		4
+Ssk2	YNR031C	N	X	X	X	X	X	X	X	7
+Eft1	YOR133W	N						X		1
+Pbs2	YJL128C	N	X	X	X	X	X	X	X	7
+Ptp3	YER075C	N	X	X		X		X		4
+Tup1	YCR084C	N						X		1
+Cdc24	YAL041W	N	X			X				2
+Nbp2	YDR162C	N				X				1
+Hkr1	YDR420W	N		X			X		X	3
+Ssk22	YCR073C	N	X	X		X	X	X	X	6
+Sho1	YER118C	N	X	X	X	X	X	X	X	7
+Gpd1	YDL022W	N						X		1
+Ptc3	YBL056W	N				X				1
+Rpd3	YNL330C	N						X		1
+Smp1	YBR182C	Y				X	X			2
