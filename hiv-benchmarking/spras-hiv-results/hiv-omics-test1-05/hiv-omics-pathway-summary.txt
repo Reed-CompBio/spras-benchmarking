@@ -1,4 +1,0 @@
-Name	Number of nodes	Number of undirected edges	Number of connected components	Nodes in prize
-output/egfr/hiv-omics-omicsintegrator1-params-3THRXWW/pathway.txt	26	16	10	26
-output/egfr/hiv-omics-omicsintegrator1-params-5QH767V/pathway.txt	32	20	12	32
-output/egfr/hiv-omics-omicsintegrator1-params-ITO5EQS/pathway.txt	10	5	5	10

@@ -68,10 +68,17 @@ This notebook contains code that loads the ensemble pathway and assigns the high
 - The result produced by this notebook assigns the maximum edge frequency associated with each node to the node, creating a max node frequency list that is saved as a CSV.
 
 
-#### 9. build_prc.ipynb
+#### 9. build_prc_kegg_hiv05.ipynb
 This notebook produces a precision recall curve using `scikitlearn`. This is done through the following steps:
 - Building the PRC uses the max node frequency produced from the ensemble pathway, and the KEGG to Swissprot/Uniprot mapping.
 - A vector of 0s and 1s is built that indicates whether the particular protein in the ensemble pathway is found in the KEGG pathway or not. This vector is called `y_kegg` and is attached to the ensemble pathway dataframe.
+    - The `max_freq` column in the dataframe is considered as the probabilities/scores and the `y_kegg` column in the dataframe is considered as the true label
+- Then, a precision recall curve is built.
+
+
+#### 10. build_prc_gene-ontology_hiv05_hiv060
+This notebook also produces several precision recall curves using `scikitlearn`. These are done from selecting 3 biological processes from the publication's list of observed biological processes and then taking the Uniprot list of all Gene Ontology proteins (for the human taxonomy) for that particular biological process.
+- A vector of 0s and 1s is built that indicates whether the particular protein in the ensemble pathway is found in the Gene Ontology list or not. This vector is called `y_go` and is attached to the ensemble pathway dataframe.
     - The `max_freq` column in the dataframe is considered as the probabilities/scores and the `y_kegg` column in the dataframe is considered as the true label
 - Then, a precision recall curve is built.
 
