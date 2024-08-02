@@ -41,5 +41,12 @@
 - `prize_060.csv` source: https://github.com/gitter-lab/hiv1-aurkb/blob/main/Results/base_analysis/prize_060.csv
 
 
-#### uniprotkb_go_0000398_AND_taxonomy_id_96_2024_07_25.tsv, 
-- todo
+#### uniprotkb_go_0000398_AND_taxonomy_id_96_2024_07_25.tsv, uniprotkb_go_0045944_AND_taxonomy_id_96_2024_07_29.tsv, uniprotkb_go_0051301_AND_taxonomy_id_96_2024_07_29.tsv, & uniprotkb_go_0098609_AND_taxonomy_id_96_2024_07_29.tsv
+- Source: Downloaded from https://www.uniprot.org/ 
+- Process:
+    - Select Advanced in the main text field
+    - Select Gene Ontology in the first blue drop down menu and then select Taxonomy in the second
+    - Enter a selected Gene Ontology IDs and then selecting the human taxonomy.
+    - Download the tsv with the following columns: Entry, Reviewed, Entry Name, Protein names, Gene Names, Gene Ontology (biological process)
+- Selected the following GO IDs: 0000398, 0045944, 0051301, 0098609
+    - These were present in `david5Min.txt` and `david6Min.txt`
