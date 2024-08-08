@@ -20,7 +20,7 @@ The Required_files folder contains my best SPRAS ensemble output, a single param
 
 `File_compare.py` - Optional: I used this script to compare 2 network input files I received to confirm they were in fact the same input I needed for my Omics Integrator input. Can be used to compare any 2 files passed in as paths. This was specific to my case so if you use the input files here you do not need to run this. 
 
-1_Dummy_Node_Add - Run 1st: Determines the largest prize value within our input prizes file and adds 3 dummy nodes all assigned with the highest prize to our input file. Outputs a new prizes file with the nodes added. USE THIS prize1_dummies FILE AS YOUR PRIZE INPUT FILE TO SPRAS
+1_Dummy_Node_Add - Run 1st: Determines the largest prize value within our input prizes file and adds 3 dummy nodes all assigned with the highest prize to our input file. Outputs a new prizes file with the nodes added. Processes raw prizes file into the prize1_dummies file. Use this prize1_dummies file as your input to SPRAS.
 
 2_Node_Summary_Histo - Run 2nd: Takes the pathway-summary file and creates a histogram of the node results that were collected with prizes. Helps begin to understand the outputs. 
 

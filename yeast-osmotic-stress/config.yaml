@@ -102,7 +102,7 @@ algorithms:
 datasets:
     -
       label: data0
-      node_files: ["prizes1_dummies.txt", "sources.txt", "targets.txt"]
+      node_files: ["prizes1_dummies.txt"]
       # DataLoader.py can currently only load a single edge file, which is the primary network
       edge_files: ["network1.txt"]
       # Placeholder
