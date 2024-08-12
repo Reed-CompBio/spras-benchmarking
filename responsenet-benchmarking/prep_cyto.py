@@ -1,10 +1,10 @@
-# Python File that takes in a JSON file and converts it into
-# SPRAS format
+# Python file that prepares input files for cytoscape analysis
 
 import json
 import pandas as pd
 import networkx as nx
 from pybiomart import Server
+import argparse
 
 server = Server(host="http://ensembl.org")
 
@@ -28,7 +28,7 @@ def create_graphs(RNN_file, SN_file):
     global RNN
     global SN
     
-    with open("files/ResponseNetNetwork.json", "r") as net_json:
+    with open(RNN_file, "r") as net_json:
         pre_nx = json.load(net_json)
     
     for edge in pre_nx["elements"]["edges"]:
@@ -51,7 +51,7 @@ def create_graphs(RNN_file, SN_file):
     for t_node in nx.all_neighbors(RNN, 'T'):
         RNN.nodes[t_node]["target_set"] = True
         
-    with open ("files/benchmark_gamma10.txt", "r") as spras_net:
+    with open (SN_file, "r") as spras_net:
         for line in spras_net:
             
             tokens = line.strip().split()
@@ -117,9 +117,9 @@ def compare_graphs():
         
     return n_intersection, e_intersection
         
-def write_cytoscape(out_path, n_int, e_int):
-    RNN_eout = "out_path"+"cyto_edge_out_RNN.txt"
-    RNN_nout = "out_path"+"cyto_node_out_RNN.txt"
+def write_cytoscape(out_path, json, spras, n_int, e_int):
+    RNN_eout = json + "_edges_out" + ".txt"
+    RNN_nout = json + "nodes_out" + ".txt"
     with open(RNN_eout, 'w') as RNN_ef:
         RNN_ef.write("Interactor1" + '\t' + "Interactor2" + '\t' + "Flows" + "\t" + "Intersection" + "\n")
         
@@ -139,8 +139,8 @@ def write_cytoscape(out_path, n_int, e_int):
                 set_type = 0
             RNN_nf.write(node + '\t' + str(set_type) +'\t'+str(n_intersection)+ '\n')
     
-    SN_eout = "out_path"+"cyto_edge_out_SN.txt"
-    SN_nout = "out_path"+"cyto_node_out_SN.txt"
+    SN_eout = spras + "_edges_out" + ".txt"
+    SN_nout = spras + "nodes_out" + ".txt"
     with open(SN_eout, 'w') as SN_ef:
         SN_ef.write("Interactor1" + '\t' + "Interactor2" + '\t' + "Flows" + "\t" + "Intersection" + "\n")
         
@@ -162,10 +162,29 @@ def write_cytoscape(out_path, n_int, e_int):
 
         
     
-def main():
-    create_graphs("foo", "bar")
+def main(args):
+    create_graphs(args.json, args.spras)
     n_int, e_int = compare_graphs()
-    write_cytoscape("output/out", n_int, e_int)
+    write_cytoscape(args.output, args.json, args.spras, n_int, e_int)
     
 if __name__ == "__main__":
-    main()
+    parser = argparse.ArgumentParser(
+        description=__doc__,
+        formatter_class=argparse.RawDescriptionHelpFormatter)
+    parser.add_argument('--json',
+                        help='ResponseNet V.3 Output, file should be in .json format',
+                        type=str,
+                        required=True)
+    parser.add_argument('--spras',
+                        help='SPRAS output, file should be in .txt format',
+                        type=str,
+                        required=True)
+    parser.add_argument('--output',
+                        help='Filepath to where output file should be written',
+                        type=str,
+                        required=True)
+    
+    args = parser.parse_args()
+    print(args)
+
+    main(args)
