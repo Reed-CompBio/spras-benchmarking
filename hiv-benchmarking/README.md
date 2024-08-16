@@ -45,7 +45,7 @@ This notebook preprocesses the original prize files into a SPRAS compatible form
 
 
 #### 5. plot_num_nodes_summary_table.ipynb
-- using the `xx-pathway-summary.txt` file, this notebook produces histograms for the number of nodes present in all the pathways combined
+- using the `XXX-pathway-summary.txt` file, this notebook produces histograms for the number of nodes present in all the pathways combined
     - i.e. Number of Nodes vs. Count, where count represents the number of total pathways that have a particular number of nodes in their pathway
 
 
