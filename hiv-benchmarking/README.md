@@ -5,7 +5,7 @@ This folder contains raw data, processed data, and SPRAS results pertaining to t
 The study examines human immune cells responding to viral infection as well as the changes that take place inside the already infected cells, which is the focus here.
 The data is from protein abundance and phosphorylation experiments, which will be the input to pathway reconstruction.
 
-**Overarching goal:** use SPRAS on a published biological case study on HIV data. This will help in identifying nodes i.e. proteins that are relevant to the disease.
+**Overarching goal:** Recreate published biological case study on HIV data using SPRAS. This will help in identifying nodes i.e. proteins that are relevant to the disease.
 
 
 #### 1. compare_prizes_network.ipynb
