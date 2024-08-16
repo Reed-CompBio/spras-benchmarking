@@ -70,7 +70,7 @@ This notebook contains code that loads the ensemble pathway and assigns the high
 
 
 #### 9. build_prc_kegg_hiv05.ipynb
-This notebook produces a precision recall curve using `scikitlearn`. This is done through the following steps:
+This notebook produces a precision recall curve using `scikit-learn`. This is done through the following steps:
 - Building the PRC uses the max node frequency produced from the ensemble pathway, and the KEGG to Swissprot/Uniprot mapping.
 - A vector of 0s and 1s is built that indicates whether the particular protein in the ensemble pathway is found in the KEGG pathway or not. This vector is called `y_kegg` and is attached to the ensemble pathway dataframe.
     - The `max_freq` column in the dataframe is considered as the probabilities/scores and the `y_kegg` column in the dataframe is considered as the true label
