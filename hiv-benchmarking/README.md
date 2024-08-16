@@ -1,6 +1,6 @@
 ## HIV benchmarking
 
-This folder contains raw data, processed data, and SPRAS results pertaining to the dataset taken from the following research article: **HIV-1 virological synapse formation enhances infection spread by dysregulating Aurora Kinase B** - Bruce JW, Park E, Magnano C, Horswill M, Richards A, Potts G, et al. (2023)
+This folder contains raw data, processed data, and SPRAS results pertaining to the dataset taken from the following research article: **[HIV-1 virological synapse formation enhances infection spread by dysregulating Aurora Kinase B](https://doi.org/10.1371/journal.ppat.1011492)** - Bruce JW, Park E, Magnano C, Horswill M, Richards A, Potts G, et al. (2023)
 
 The data is about human immune cells responding to viral infection and contains data from protein abundance and phosphorylation changes experiments, which will be the input to pathway reconstruction.
 
