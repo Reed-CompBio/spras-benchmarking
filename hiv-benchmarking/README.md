@@ -78,7 +78,7 @@ This notebook produces a precision recall curve using `scikit-learn`. This is do
 
 
 #### 10. build_prc_gene-ontology_hiv05_hiv060
-This notebook also produces several precision recall curves using `scikitlearn`. These are done from selecting 3 biological processes from the publication's list of observed biological processes and then taking the Uniprot list of all Gene Ontology proteins (for the human taxonomy) for that particular biological process.
+This notebook also produces several precision recall curves using `scikit-learn`. These are done from selecting 3 biological processes from the publication's list of observed biological processes and then taking the Uniprot list of all Gene Ontology proteins (for the human taxonomy) for that particular biological process.
 - A vector of 0s and 1s is built that indicates whether the particular protein in the ensemble pathway is found in the Gene Ontology list or not. This vector is called `y_go` and is attached to the ensemble pathway dataframe.
     - The `max_freq` column in the dataframe is considered as the probabilities/scores and the `y_go` column in the dataframe is considered as the true label
 - Then, a precision recall curve is built.
