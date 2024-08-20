@@ -43,12 +43,6 @@ container_registry:
 # careful: too many parameters might make your runs take a long time.
 
 algorithms:
-      - name: "pathlinker"
-        params:
-              include: false
-              run1:
-                  k: range(100,201,100)
-
       - name: "omicsintegrator1"
         params:
               include: true
@@ -57,43 +51,6 @@ algorithms:
                   w: np.linspace(0,1.5,5)
                   d: [10]
                   mu: np.linspace(0,0.9,4)
-
-      - name: "omicsintegrator2"
-        params:
-              include: false
-              run1:
-                  b: [4]
-                  g: [0]
-              run2:
-                  b: [2]
-                  g: [3]
-
-      - name: "meo"
-        params:
-              include: false
-              run1:
-                  max_path_length: [3]
-                  local_search: ["Yes"]
-                  rand_restarts: [10]
-
-      - name: "mincostflow"
-        params:
-              include: false
-              run1:
-                  flow: [1] # The flow must be an int
-                  capacity: [1]
-
-      - name: "allpairs"
-        params:
-              include: false
-
-      - name: "domino"
-        params:
-              include: false
-              run1:
-                  slice_threshold: [0.3]
-                  module_threshold: [0.05]
-
 
 # Here we specify which pathways to run and other file location information.
 # DataLoader.py can currently only load a single dataset

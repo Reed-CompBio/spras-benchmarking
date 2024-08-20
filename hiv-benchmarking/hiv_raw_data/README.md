@@ -1,9 +1,9 @@
 ### Raw Data Sources:
 
 
-#### 1. 5_min_75%_confidence.sif
+#### 1. 5_min_75_confidence.sif
 - Source: https://github.com/gitter-lab/hiv1-aurkb/blob/main/Results/networks/hiv-networks.cys
-- Downloaded the 75% confidence-filtered network at 5 min as a .sif file after opening the file in Cytoscape
+- Downloaded the 75% confidence-filtered network at 5 min as a .sif file after opening the file in Cytoscape and removed the '%' char from the filename to prevent any issues with reading file
 
 
 #### 2. correctedprize_05.csv and correctedprize_060.csv
