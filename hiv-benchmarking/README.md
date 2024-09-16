@@ -7,6 +7,8 @@ The data is from protein abundance and phosphorylation experiments, which will b
 
 **Overarching goal:** Recreate published biological case study on HIV data using SPRAS. This will help in identifying nodes i.e. proteins that are relevant to the disease.
 
+#### requirements.txt:
+- Pins the versions of the important packages for data analysis but assumes the Jupyter notebook environment packages are already available.
 
 #### 1. compare_prizes_network.ipynb
 
