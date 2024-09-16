@@ -7,7 +7,7 @@
 
 
 #### 2. correctedprize_05.csv and correctedprize_060.csv
-- todo
+- These files were provided privately by Anthony Gitter. They are similar to the publicly available files `prize_05.csv` and `prize_060.csv` described below, and the notebook `1_compare_prizes_network.ipynb` is used to explore how the differences are only related to isoform annotations in the UniProt IDs. These files were from the private repository that was cleaned up and became https://github.com/gitter-lab/hiv1-aurkb.
 
 
 #### 3. david5Min.txt and david60Min.txt
