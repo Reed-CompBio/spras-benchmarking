@@ -54,9 +54,9 @@ This notebook preprocesses the original prize files into a SPRAS compatible form
 #### 6. build_kegg-orthology_to_swissprot_map.ipynb
 This notebook creates an output of KEGG Orthology mapped to Uniprot and KEGG Orthology mapped to Swissprot, both saved as CSVs. This is done through:
 - Using the `biopython` KGMLParser module, the downloaded KGML pathway is parsed to produce a dataframe of proteins (KEGG Orthology IDs)
-- Using API calls to the [genome.jp](genome.jp) database, the KEGG orthology IDs are mapped to the KEGG Human protein IDs i.e. the HSA IDs
+- Using API calls to the [genome.jp](https://www.genome.jp/) database, the KEGG orthology IDs are mapped to the KEGG Human protein IDs i.e. the HSA IDs
 - Using the `hsa_uniprot.list` file from [LinkDB](https://www.genome.jp/linkdb/) (this was done by downloading the link information between HSA and Uniprot), the HSA IDs are mapped to all the UniProt IDs corresponding to the HSA IDs. Note that this produced a 1-to-many mapping for some proteins
-- To remove the 1-to-many mapping and produce a 1-to-1 mapping instead, API calls to [genome.jp](genome.jp) are done again to filter out UniProt IDs that *don't* have SwissProt IDs i.e. protein IDs that haven't been 'manually reviewed'.
+- To remove the 1-to-many mapping and produce a 1-to-1 mapping instead, API calls to [genome.jp](https://www.genome.jp/) are done again to filter out UniProt IDs that *don't* have SwissProt IDs i.e. protein IDs that haven't been 'manually reviewed'.
 - All these mappings are saved locally as csvs.
 
 
