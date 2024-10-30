@@ -77,5 +77,4 @@ df_final <- df_final %>%
 
 df_final_clean <- df_final[!duplicated(df_final), ]
 
-
 write.csv(df_final_clean,  "/Users/abarelvi/spras-benchmarking/string/wnt_mapped.csv", row.names = FALSE )
