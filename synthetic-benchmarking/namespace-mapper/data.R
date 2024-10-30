@@ -1,9 +1,10 @@
 library(dplyr)
 library(tidyr)
 
-wnt_path <- "/Users/abarelvi/spras-benchmarking/string/Beta3_adrenergic/Beta3_adrenergic_rec.txt"
+# match path with where the pathway is at
+pathway_path <- "/Users/abarelvi/spras-benchmarking/string/Beta3_adrenergic/Beta3_adrenergic_rec.txt"
 
-df_wnt <- read.csv(wnt_path, header = TRUE, sep ="\t")
+df_wnt <- read.csv(pathway_path, header = TRUE, sep ="\t")
 df_wnt <- df_wnt %>%
   select(PARTICIPANT_A, PARTICIPANT_B) %>%
   rename(id1 = PARTICIPANT_A) %>%
@@ -13,6 +14,9 @@ genes <- data.frame(unique(c(df_wnt$id1, df_wnt$id2)))
 
 write.csv(genes, "/Users/abarelvi/spras-benchmarking/string/genes.csv", row.names = FALSE)
 
+# use this output file to map from Gene to UniProtKB/Swiss-Prot on human through https://www.uniprot.org/id-mapping
+# name is file gene_to_uniprot.tsv
+
 df_map_gene_uni <- read.csv("/Users/abarelvi/spras-benchmarking/string/Beta3_adrenergic/gene_to_uniprot.tsv", header = TRUE, sep = "\t")
 df_map_gene_uni <- df_map_gene_uni %>% 
   select(From, Entry) %>%
@@ -20,7 +24,11 @@ df_map_gene_uni <- df_map_gene_uni %>%
   rename( uniprot = Entry)
 
 uniprot <- data.frame(unique(c(df_map_gene_uni$uniprot)))
+
 write.csv(uniprot,  "/Users/abarelvi/spras-benchmarking/string/uniprot.csv", row.names = FALSE)
+
+# use this output file to map from UniProtKB/Swiss-Prot to STRING human through https://www.uniprot.org/id-mapping
+# name is file uniprot_to_string.tsv
 
 df_map_uni_string <- read.csv("/Users/abarelvi/spras-benchmarking/string/Beta3_adrenergic/uniprot_to_string.tsv", header = TRUE, sep = "\t")
 df_map_uni_string <- df_map_uni_string %>%
