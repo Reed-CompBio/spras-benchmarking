@@ -3,8 +3,6 @@ from matplotlib import pyplot as plt
 import pandas as pd
 import networkx as nx
 
-# spras_path = Path(__file__).parent.parent / "networks/testing/spras.txt"
-# panther_path = Path(__file__).parent.parent / "networks/testing/panther.txt"
 spras_path = snakemake.input[0]
 panther_path = snakemake.input[1]
 output_path = snakemake.output[0]
