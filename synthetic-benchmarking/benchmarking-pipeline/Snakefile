@@ -1,0 +1,8 @@
+rule pathway_image:
+    input:
+        "/Users/abarelvi/spras-benchmarking/synthetic-benchmarking/benchmarking-pipeline/networks/testing/spras.txt",
+        "/Users/abarelvi/spras-benchmarking/synthetic-benchmarking/benchmarking-pipeline/networks/testing/panther.txt"
+    output:
+        "output/images/spras.png"
+    script:
+        "scripts/read-network.py"
