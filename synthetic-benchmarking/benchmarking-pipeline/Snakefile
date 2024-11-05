@@ -11,8 +11,7 @@ rule all:
         expand("output/stats/score/{algorithms}_{pathways}.txt", algorithms=algorithms, pathways=pathways),
         expand("output/images/auc/{algorithms}_{pathways}_roc.png", algorithms=algorithms, pathways=pathways),
         expand("output/images/auc/{algorithms}_{pathways}_pr.png", algorithms=algorithms, pathways=pathways),
-        expand("output/images/auc/{algorithms}_combined_roc.txt", algorithms=algorithms),
-        expand("output/images/auc/{algorithms}_combined_pr.txt", algorithms=algorithms)
+        expand("output/images/auc/{algorithms}_combined_pr.png", algorithms=algorithms)
 
 rule pathway_image:
     input:
@@ -53,14 +52,12 @@ rule generate_auc_image:
 
 rule generate_algorithm_auc:
     input:
-        # Use expand to generate all input files for the specified algorithm and pathway sets from config
         scores=lambda wildcards: expand(
             "output/stats/score/{algorithms}_{pathways}.txt",
             algorithms=wildcards.algorithms,
-            pathways=config["pathways"]  # Use the pathway sets from config
+            pathways=config["pathways"] 
         )
     output:
-        roc="output/images/auc/{algorithms}_combined_roc.txt",
-        pr="output/images/auc/{algorithms}_combined_pr.txt"
+        pr="output/images/auc/{algorithms}_combined_pr.png"
     script:
         "scripts/generate_algorithm_auc.py"
