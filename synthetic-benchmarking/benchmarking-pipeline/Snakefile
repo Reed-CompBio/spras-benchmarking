@@ -1,8 +1,18 @@
+configfile: "config.yaml"
+
+samples = config["samples"]
+
+rule all:
+    input:
+        expand("output/images/{sample}_spras.png", sample=samples),
+        expand("output/images/{sample}_panther.png", sample=samples)
+
 rule pathway_image:
     input:
-        "/Users/abarelvi/spras-benchmarking/synthetic-benchmarking/benchmarking-pipeline/networks/testing/spras.txt",
-        "/Users/abarelvi/spras-benchmarking/synthetic-benchmarking/benchmarking-pipeline/networks/testing/panther.txt"
+        spras=lambda wildcards: f"networks/{wildcards.sample}/spras.txt",
+        panther=lambda wildcards: f"networks/{wildcards.sample}/panther.txt"
     output:
-        "output/images/spras.png"
+        spras_image="output/images/{sample}_spras.png",
+        panther_image="output/images/{sample}_panther.png"
     script:
         "scripts/read-network.py"
