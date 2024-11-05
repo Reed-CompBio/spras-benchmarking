@@ -4,17 +4,18 @@ samples = config["samples"]
 
 rule all:
     input:
-        expand("output/images/{sample}_spras.png", sample=samples),
-        expand("output/images/{sample}_panther.png", sample=samples),
-        expand("output/stats/{sample}_stats.txt", sample=samples)
+        expand("output/images/network/{sample}_spras.png", sample=samples),
+        expand("output/images/network/{sample}_panther.png", sample=samples),
+        expand("output/stats/{sample}_stats.txt", sample=samples),
+        expand("output/stats/score/{sample}.txt", sample=samples),
 
 rule pathway_image:
     input:
         spras=lambda wildcards: f"networks/{wildcards.sample}/spras.txt",
         panther=lambda wildcards: f"networks/{wildcards.sample}/panther.txt"
     output:
-        spras_image="output/images/{sample}_spras.png",
-        panther_image="output/images/{sample}_panther.png"
+        spras_image="output/images/network/{sample}_spras.png",
+        panther_image="output/images/network/{sample}_panther.png"
     script:
         "scripts/read-network.py"
 
@@ -23,6 +24,15 @@ rule pathway_stats:
         spras=lambda wildcards: f"networks/{wildcards.sample}/spras.txt",
         panther=lambda wildcards: f"networks/{wildcards.sample}/panther.txt"
     output:
-        stats="output/stats/{sample}_stats.txt",
+        stats="output/stats/{sample}_stats.txt"
     script:
         "scripts/generate_stats.py"
+
+rule generate_scores:
+    input:
+        spras=lambda wildcards: f"networks/{wildcards.sample}/spras.txt",
+        panther=lambda wildcards: f"networks/{wildcards.sample}/panther.txt"
+    output:
+        score="output/stats/score/{sample}.txt",
+    script:
+        "scripts/generate_scores_file.py"

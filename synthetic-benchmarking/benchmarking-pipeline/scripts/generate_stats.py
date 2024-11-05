@@ -27,9 +27,6 @@ print("Jaccard Index: ", jaccard_index)
 overlap_ratio_set1 = (len(intersection) / len(G_set)) * 100
 overlap_ratio_set2 = (len(intersection) / len(H_set)) * 100
 
-# print(f"Edge Overlap Ratio (Panther to SPRAS): {overlap_ratio_set1}%")
-# print("Edge Overlap Ratio (SPRAS to Panther):", overlap_ratio_set2, "%")
-
 f = open(output_path, "w+")
 f.write(f"Jaccard Index: {jaccard_index}\n")
 f.write(f"Edge Overlap Ratio (Panther to SPRAS): {overlap_ratio_set1}%\n")
