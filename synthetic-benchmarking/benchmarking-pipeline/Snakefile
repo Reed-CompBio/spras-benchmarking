@@ -6,7 +6,7 @@ rule all:
     input:
         expand("output/images/network/{sample}_spras.png", sample=samples),
         expand("output/images/network/{sample}_panther.png", sample=samples),
-        expand("output/stats/{sample}_stats.txt", sample=samples),
+        expand("output/stats/edges/{sample}_stats.txt", sample=samples),
         expand("output/stats/score/{sample}.txt", sample=samples),
         expand("output/images/auc/{sample}_roc.png", sample=samples),
         expand("output/images/auc/{sample}_pr.png", sample=samples),
@@ -19,14 +19,14 @@ rule pathway_image:
         spras_image="output/images/network/{sample}_spras.png",
         panther_image="output/images/network/{sample}_panther.png"
     script:
-        "scripts/read-network.py"
+        "scripts/generate_network.py"
 
 rule pathway_stats:
     input:
         spras=lambda wildcards: f"networks/{wildcards.sample}/spras.txt",
         panther=lambda wildcards: f"networks/{wildcards.sample}/panther.txt"
     output:
-        stats="output/stats/{sample}_stats.txt"
+        stats="output/stats/edges/{sample}_stats.txt"
     script:
         "scripts/generate_stats.py"
 
