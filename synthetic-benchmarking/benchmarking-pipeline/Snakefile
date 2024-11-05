@@ -8,6 +8,8 @@ rule all:
         expand("output/images/network/{sample}_panther.png", sample=samples),
         expand("output/stats/{sample}_stats.txt", sample=samples),
         expand("output/stats/score/{sample}.txt", sample=samples),
+        expand("output/images/auc/{sample}_roc.png", sample=samples),
+        expand("output/images/auc/{sample}_pr.png", sample=samples),
 
 rule pathway_image:
     input:
@@ -36,3 +38,12 @@ rule generate_scores:
         score="output/stats/score/{sample}.txt",
     script:
         "scripts/generate_scores_file.py"
+
+rule generate_auc_image:
+    input:
+        score=lambda wildcards: f"output/stats/score/{wildcards.sample}.txt",
+    output:
+        roc="output/images/auc/{sample}_roc.png",
+        pr="output/images/auc/{sample}_pr.png",
+    script:
+        "scripts/generate_auc.py"
