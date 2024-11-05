@@ -9,10 +9,10 @@ rule all:
         expand("output/images/network/{algorithms}_{pathways}_panther.png", algorithms=algorithms, pathways=pathways),
         expand("output/stats/edges/{algorithms}_{pathways}_stats.txt", algorithms=algorithms, pathways=pathways),
         expand("output/stats/score/{algorithms}_{pathways}.txt", algorithms=algorithms, pathways=pathways),
-        expand("output/images/auc/{algorithms}_{pathways}_roc.png", algorithms=algorithms, pathways=pathways),
-        expand("output/images/auc/{algorithms}_{pathways}_pr.png", algorithms=algorithms, pathways=pathways),
-        expand("output/images/auc/{algorithms}_combined_pr.png", algorithms=algorithms),
-        expand("output/images/auc/{pathways}_combined_pr.png", pathways=pathways)
+        expand("output/images/auc/individual/{algorithms}_{pathways}_roc.png", algorithms=algorithms, pathways=pathways),
+        expand("output/images/auc/individual/{algorithms}_{pathways}_pr.png", algorithms=algorithms, pathways=pathways),
+        expand("output/images/auc/combined/{algorithms}.png", algorithms=algorithms),
+        expand("output/images/auc/combined/{pathways}.png", pathways=pathways)
 
 rule pathway_image:
     input:
@@ -46,8 +46,8 @@ rule generate_auc_image:
     input:
         score=lambda wildcards: f"output/stats/score/{wildcards.algorithms}_{wildcards.pathways}.txt",
     output:
-        roc="output/images/auc/{algorithms}_{pathways}_roc.png",
-        pr="output/images/auc/{algorithms}_{pathways}_pr.png",
+        roc="output/images/auc/individual/{algorithms}_{pathways}_roc.png",
+        pr="output/images/auc/individual/{algorithms}_{pathways}_pr.png",
     script:
         "scripts/generate_auc.py"
 
@@ -59,7 +59,7 @@ rule generate_algorithm_auc:
             pathways=config["pathways"] 
         )
     output:
-        pr="output/images/auc/{algorithms}_combined_pr.png"
+        pr="output/images/auc/combined/{algorithms}.png"
     script:
         "scripts/generate_algorithm_auc.py"
 
@@ -71,6 +71,6 @@ rule generate_pathway_auc:
             pathways=wildcards.pathways
         )
     output:
-        pr="output/images/auc/{pathways}_combined_pr.png"
+        pr="output/images/auc/combined/{pathways}.png"
     script:
         "scripts/generate_algorithm_auc.py"
