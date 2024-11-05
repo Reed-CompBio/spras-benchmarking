@@ -1,3 +1,7 @@
-samples:
-    - testing
-    - testing2
+algorithms:
+  - PathLinker
+  - OmicsIntegrator1
+
+pathways:
+  - egfr
+  - wnt

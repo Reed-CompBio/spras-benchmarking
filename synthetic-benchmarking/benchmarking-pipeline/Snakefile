@@ -1,49 +1,51 @@
 configfile: "config.yaml"
 
-samples = config["samples"]
+# samples = config["samples"]
+algorithms = config["algorithms"]
+pathways = config["pathways"]
 
 rule all:
     input:
-        expand("output/images/network/{sample}_spras.png", sample=samples),
-        expand("output/images/network/{sample}_panther.png", sample=samples),
-        expand("output/stats/edges/{sample}_stats.txt", sample=samples),
-        expand("output/stats/score/{sample}.txt", sample=samples),
-        expand("output/images/auc/{sample}_roc.png", sample=samples),
-        expand("output/images/auc/{sample}_pr.png", sample=samples),
+        expand("output/images/network/{algorithms}_{pathways}_spras.png", algorithms=algorithms, pathways=pathways),
+        expand("output/images/network/{algorithms}_{pathways}_panther.png", algorithms=algorithms, pathways=pathways),
+        expand("output/stats/edges/{algorithms}_{pathways}_stats.txt", algorithms=algorithms, pathways=pathways),
+        expand("output/stats/score/{algorithms}_{pathways}.txt", algorithms=algorithms, pathways=pathways),
+        expand("output/images/auc/{algorithms}_{pathways}_roc.png", algorithms=algorithms, pathways=pathways),
+        expand("output/images/auc/{algorithms}_{pathways}_pr.png", algorithms=algorithms, pathways=pathways),
 
 rule pathway_image:
     input:
-        spras=lambda wildcards: f"networks/{wildcards.sample}/spras.txt",
-        panther=lambda wildcards: f"networks/{wildcards.sample}/panther.txt"
+        spras=lambda wildcards: f"networks/{wildcards.algorithms}/{wildcards.pathways}/spras.txt",
+        panther=lambda wildcards: f"networks/{wildcards.algorithms}/{wildcards.pathways}/panther.txt"
     output:
-        spras_image="output/images/network/{sample}_spras.png",
-        panther_image="output/images/network/{sample}_panther.png"
+        spras_image="output/images/network/{algorithms}_{pathways}_spras.png",
+        panther_image="output/images/network/{algorithms}_{pathways}_panther.png"
     script:
         "scripts/generate_network.py"
 
 rule pathway_stats:
     input:
-        spras=lambda wildcards: f"networks/{wildcards.sample}/spras.txt",
-        panther=lambda wildcards: f"networks/{wildcards.sample}/panther.txt"
+        spras=lambda wildcards: f"networks/{wildcards.algorithms}/{wildcards.pathways}/spras.txt",
+        panther=lambda wildcards: f"networks/{wildcards.algorithms}/{wildcards.pathways}/panther.txt"
     output:
-        stats="output/stats/edges/{sample}_stats.txt"
+        stats="output/stats/edges/{algorithms}_{pathways}_stats.txt"
     script:
         "scripts/generate_stats.py"
 
 rule generate_scores:
     input:
-        spras=lambda wildcards: f"networks/{wildcards.sample}/spras.txt",
-        panther=lambda wildcards: f"networks/{wildcards.sample}/panther.txt"
+        spras=lambda wildcards: f"networks/{wildcards.algorithms}/{wildcards.pathways}/spras.txt",
+        panther=lambda wildcards: f"networks/{wildcards.algorithms}/{wildcards.pathways}/panther.txt"
     output:
-        score="output/stats/score/{sample}.txt",
+        score="output/stats/score/{algorithms}_{pathways}.txt",
     script:
         "scripts/generate_scores_file.py"
 
 rule generate_auc_image:
     input:
-        score=lambda wildcards: f"output/stats/score/{wildcards.sample}.txt",
+        score=lambda wildcards: f"output/stats/score/{wildcards.algorithms}_{wildcards.pathways}.txt",
     output:
-        roc="output/images/auc/{sample}_roc.png",
-        pr="output/images/auc/{sample}_pr.png",
+        roc="output/images/auc/{algorithms}_{pathways}_roc.png",
+        pr="output/images/auc/{algorithms}_{pathways}_pr.png",
     script:
         "scripts/generate_auc.py"
