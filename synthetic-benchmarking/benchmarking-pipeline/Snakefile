@@ -5,7 +5,8 @@ samples = config["samples"]
 rule all:
     input:
         expand("output/images/{sample}_spras.png", sample=samples),
-        expand("output/images/{sample}_panther.png", sample=samples)
+        expand("output/images/{sample}_panther.png", sample=samples),
+        expand("output/stats/{sample}_stats.txt", sample=samples)
 
 rule pathway_image:
     input:
@@ -16,3 +17,12 @@ rule pathway_image:
         panther_image="output/images/{sample}_panther.png"
     script:
         "scripts/read-network.py"
+
+rule pathway_stats:
+    input:
+        spras=lambda wildcards: f"networks/{wildcards.sample}/spras.txt",
+        panther=lambda wildcards: f"networks/{wildcards.sample}/panther.txt"
+    output:
+        stats="output/stats/{sample}_stats.txt",
+    script:
+        "scripts/generate_stats.py"
