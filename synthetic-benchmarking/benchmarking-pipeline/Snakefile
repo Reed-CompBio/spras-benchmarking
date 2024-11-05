@@ -11,7 +11,8 @@ rule all:
         expand("output/stats/score/{algorithms}_{pathways}.txt", algorithms=algorithms, pathways=pathways),
         expand("output/images/auc/{algorithms}_{pathways}_roc.png", algorithms=algorithms, pathways=pathways),
         expand("output/images/auc/{algorithms}_{pathways}_pr.png", algorithms=algorithms, pathways=pathways),
-        expand("output/images/auc/{algorithms}_combined_pr.png", algorithms=algorithms)
+        expand("output/images/auc/{algorithms}_combined_pr.png", algorithms=algorithms),
+        expand("output/images/auc/{pathways}_combined_pr.png", pathways=pathways)
 
 rule pathway_image:
     input:
@@ -59,5 +60,17 @@ rule generate_algorithm_auc:
         )
     output:
         pr="output/images/auc/{algorithms}_combined_pr.png"
+    script:
+        "scripts/generate_algorithm_auc.py"
+
+rule generate_pathway_auc:
+    input:
+        scores=lambda wildcards: expand(
+            "output/stats/score/{algorithms}_{pathways}.txt",
+            algorithms=config["algorithms"],
+            pathways=wildcards.pathways
+        )
+    output:
+        pr="output/images/auc/{pathways}_combined_pr.png"
     script:
         "scripts/generate_algorithm_auc.py"
