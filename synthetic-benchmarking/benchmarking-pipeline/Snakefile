@@ -10,7 +10,8 @@ rule all:
         expand("output/stats/edges/{algorithms}_{pathways}_stats.txt", algorithms=algorithms, pathways=pathways),
         expand("output/stats/score/{algorithms}_{pathways}.txt", algorithms=algorithms, pathways=pathways),
         expand("output/images/auc/{algorithms}.png", algorithms=algorithms),
-        expand("output/images/auc/{pathways}.png", pathways=pathways)
+        expand("output/images/auc/{pathways}.png", pathways=pathways),
+        "output/images/heatmap/heatmap.png"
 
 rule pathway_image:
     input:
@@ -63,3 +64,15 @@ rule generate_pathway_auc:
         pr="output/images/auc/{pathways}.png"
     script:
         "scripts/generate_auc_figures.py"
+
+rule generate_heatmap:
+    input:
+        scores=lambda wildcards: expand(
+            "output/stats/edges/{algorithms}_{pathways}_stats.txt",
+            algorithms=config["algorithms"],
+            pathways=config["pathways"]
+        )
+    output:
+        "output/images/heatmap/heatmap.png"
+    script:
+        "scripts/generate_heatmap.py"
