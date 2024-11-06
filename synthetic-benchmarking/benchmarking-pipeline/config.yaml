@@ -1,6 +1,7 @@
 algorithms:
   - PathLinker
   - OmicsIntegrator1
+  - BTB
 
 pathways:
   - egfr

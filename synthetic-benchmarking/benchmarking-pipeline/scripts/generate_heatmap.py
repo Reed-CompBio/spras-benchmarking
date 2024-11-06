@@ -46,7 +46,7 @@ sns.heatmap(
     yticklabels=algorithms,
 )
 
-plt.xlabel("Pathway Files")
+plt.xlabel("Pathways")
 plt.ylabel("Algorithms")
 plt.title("Jaccard Index Heatmap")
 plt.savefig(output_path, format="png", dpi=300)
