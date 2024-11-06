@@ -23,8 +23,6 @@ for idx, file in enumerate(input_files):
             y_true.append(int(col[2]))
             y_score.append(int(col[3]))
 
-    print(y_true)
-    print(y_score)
     precision, recall, _ = precision_recall_curve(y_true, y_score)
     fpr, tpr, _ = roc_curve(y_true, y_score)
 

@@ -21,17 +21,28 @@ jaccard_index = len(intersection) / len(union)
 overlap_ratio_set1 = (len(intersection) / len(G_set)) * 100
 overlap_ratio_set2 = (len(intersection) / len(H_set)) * 100
 
+columns = [
+    "spras_nodes",
+    "panther_nodes",
+    "spras_edges",
+    "panther_edges",
+    "jaccard_index",
+    "panther_spras_edge_overlap",
+    "spras_panther_edge_overlap",
+]
+
+rows = [
+    str(len(G.nodes())),
+    str(len(H.nodes())),
+    str(len(G.edges())),
+    str(len(H.edges())),
+    str(jaccard_index),
+    str(overlap_ratio_set1),
+    str(overlap_ratio_set2),
+]
 
 f = open(output_path, "w+")
-f.write("Node Statistics\n")
-f.write(f"SPRAS Nodes: {len(G.nodes())}\n")
-f.write(f"Panther Nodes: {len(H.nodes())}\n\n")
-
-f.write("Edge Statistics\n")
-f.write(f"SPRAS Nodes: {len(G.edges())}\n")
-f.write(f"Panther Nodes: {len(H.edges())}\n\n")
-
-f.write("Similarity Statistics\n")
-f.write(f"Jaccard Index: {jaccard_index}\n")
-f.write(f"Edge Overlap Ratio (Panther to SPRAS): {overlap_ratio_set1}%\n")
-f.write(f"Edge Overlap Ratio (SPRAS to Panther):: {overlap_ratio_set2}%\n")
+column = "\t".join(columns) + "\t"
+row = "\t".join(rows) + "\t"
+f.write(f"{column}\n")
+f.write(f"{row}\n")

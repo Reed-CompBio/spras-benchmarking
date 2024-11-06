@@ -17,10 +17,6 @@ all_edges = pd.concat([spras_df, panther_df]).drop_duplicates()
 edge_list = set(zip(all_edges["Node1"], all_edges["Node2"]))
 ground_truth = {edge: 1 for edge in zip(panther_df["Node1"], panther_df["Node2"])}
 
-print(all_edges)
-print(edge_list)
-print(ground_truth)
-
 y_true = []
 y_scores = []
 

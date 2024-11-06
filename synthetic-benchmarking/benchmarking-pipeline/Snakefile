@@ -9,10 +9,8 @@ rule all:
         expand("output/images/network/{algorithms}_{pathways}_panther.png", algorithms=algorithms, pathways=pathways),
         expand("output/stats/edges/{algorithms}_{pathways}_stats.txt", algorithms=algorithms, pathways=pathways),
         expand("output/stats/score/{algorithms}_{pathways}.txt", algorithms=algorithms, pathways=pathways),
-        expand("output/images/auc/individual/{algorithms}_{pathways}_roc.png", algorithms=algorithms, pathways=pathways),
-        expand("output/images/auc/individual/{algorithms}_{pathways}_pr.png", algorithms=algorithms, pathways=pathways),
-        expand("output/images/auc/combined/{algorithms}.png", algorithms=algorithms),
-        expand("output/images/auc/combined/{pathways}.png", pathways=pathways)
+        expand("output/images/auc/{algorithms}.png", algorithms=algorithms),
+        expand("output/images/auc/{pathways}.png", pathways=pathways)
 
 rule pathway_image:
     input:
@@ -42,15 +40,6 @@ rule generate_scores:
     script:
         "scripts/generate_scores_file.py"
 
-rule generate_auc_image:
-    input:
-        score=lambda wildcards: f"output/stats/score/{wildcards.algorithms}_{wildcards.pathways}.txt",
-    output:
-        roc="output/images/auc/individual/{algorithms}_{pathways}_roc.png",
-        pr="output/images/auc/individual/{algorithms}_{pathways}_pr.png",
-    script:
-        "scripts/generate_auc.py"
-
 rule generate_algorithm_auc:
     input:
         scores=lambda wildcards: expand(
@@ -59,9 +48,9 @@ rule generate_algorithm_auc:
             pathways=config["pathways"] 
         )
     output:
-        pr="output/images/auc/combined/{algorithms}.png"
+        pr="output/images/auc/{algorithms}.png"
     script:
-        "scripts/generate_algorithm_auc.py"
+        "scripts/generate_auc_figures.py"
 
 rule generate_pathway_auc:
     input:
@@ -71,6 +60,6 @@ rule generate_pathway_auc:
             pathways=wildcards.pathways
         )
     output:
-        pr="output/images/auc/combined/{pathways}.png"
+        pr="output/images/auc/{pathways}.png"
     script:
-        "scripts/generate_algorithm_auc.py"
+        "scripts/generate_auc_figures.py"
