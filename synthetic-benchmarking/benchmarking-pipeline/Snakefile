@@ -1,17 +1,48 @@
 configfile: "config.yaml"
 
-algorithms = config["algorithms"]
-pathways = config["pathways"]
+algorithms = config["algorithm_pathways"].keys()
+pathways = config["algorithm_pathways"]
+
+def generate_paths(algorithms, pathways):
+    paths = []
+    for algorithm in algorithms:
+        for pathway in pathways[algorithm]:
+            paths.append(f"output/images/network/{algorithm}_{pathway}_spras.png")
+            paths.append(f"output/images/network/{algorithm}_{pathway}_panther.png")
+            paths.append(f"output/stats/edges/{algorithm}_{pathway}_stats.txt")
+            paths.append(f"output/stats/score/{algorithm}_{pathway}.txt")
+            # if f"output/images/auc/{pathway}_pathway.png" not in paths:
+            #     paths.append(f"output/images/auc/{pathway}_pathway.png")
+    # for algorithm in algorithms:
+    #     paths.append(f"output/images/auc/{algorithm}_alg.png")
+    # print(paths)
+    return paths
+
+def score_files(algorithms, pathways):
+    inputs = []
+    outputs = []
+    for algorithm in algorithms:
+        for pathway in pathways[algorithm]:
+            score_file = f"output/stats/score/{algorithm}_{pathway}.txt"
+            inputs.append(score_file)
+        outputs.append(f"output/images/auc/{algorithm}_alg.png")
+    return inputs, outputs
+
+def pathway_files(algorithms, pathways):
+    pathway_inputs = []
+    pathway_outputs = []
+    for algorithm in algorithms:
+        for pathway in pathways[algorithm]:
+            score_file = f"output/stats/score/{algorithm}_{pathway}.txt"
+            pathway_inputs.append(score_file)
+            pathway_outputs.append(f"output/images/auc/{pathway}_pathway.png")
+    return pathway_inputs, pathway_outputs
 
 rule all:
     input:
-        expand("output/images/network/{algorithms}_{pathways}_spras.png", algorithms=algorithms, pathways=pathways),
-        expand("output/images/network/{algorithms}_{pathways}_panther.png", algorithms=algorithms, pathways=pathways),
-        expand("output/stats/edges/{algorithms}_{pathways}_stats.txt", algorithms=algorithms, pathways=pathways),
-        expand("output/stats/score/{algorithms}_{pathways}.txt", algorithms=algorithms, pathways=pathways),
-        expand("output/images/auc/{algorithms}.png", algorithms=algorithms),
-        expand("output/images/auc/{pathways}.png", pathways=pathways),
-        "output/images/heatmap/heatmap.png"
+        generate_paths(algorithms, pathways) + score_files(algorithms, pathways)[1] + pathway_files(algorithms, pathways)[1],
+        # "output/images/heatmap/heatmap.png"
+
 
 rule pathway_image:
     input:
@@ -43,36 +74,28 @@ rule generate_scores:
 
 rule generate_algorithm_auc:
     input:
-        scores=lambda wildcards: expand(
-            "output/stats/score/{algorithms}_{pathways}.txt",
-            algorithms=wildcards.algorithms,
-            pathways=config["pathways"] 
-        )
+        scores=score_files(algorithms, pathways)[0]
     output:
-        pr="output/images/auc/{algorithms}.png"
+        auc_image="output/images/auc/{algorithm}_alg.png"
     script:
         "scripts/generate_auc_figures.py"
 
 rule generate_pathway_auc:
     input:
-        scores=lambda wildcards: expand(
-            "output/stats/score/{algorithms}_{pathways}.txt",
-            algorithms=config["algorithms"],
-            pathways=wildcards.pathways
-        )
+        scores=pathway_files(algorithms, pathways)[0]
     output:
-        pr="output/images/auc/{pathways}.png"
+        auc_image="output/images/auc/{pathway}_pathway.png"
     script:
-        "scripts/generate_auc_figures.py"
+        "scripts/generate_auc_figures.py" 
 
-rule generate_heatmap:
-    input:
-        scores=lambda wildcards: expand(
-            "output/stats/edges/{algorithms}_{pathways}_stats.txt",
-            algorithms=config["algorithms"],
-            pathways=config["pathways"]
-        )
-    output:
-        "output/images/heatmap/heatmap.png"
-    script:
-        "scripts/generate_heatmap.py"
+# rule generate_heatmap:
+#     input:
+#         scores=list(set(
+#             expand("output/stats/edges/{algorithms}_{pathways}_stats.txt", 
+#                    algorithms=[algo for algo in config["algorithm_pathways"].keys()],
+#                    pathways=[pathway for pathways in config["algorithm_pathways"].values() for pathway in pathways])
+#         ))
+#     output:
+#         "output/images/heatmap/heatmap.png"
+#     script:
+#         "scripts/generate_heatmap.py"

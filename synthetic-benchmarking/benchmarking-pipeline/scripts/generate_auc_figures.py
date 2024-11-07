@@ -8,10 +8,39 @@ from sklearn.metrics import auc, precision_recall_curve, roc_curve
 input_files = snakemake.input.scores
 output_pr_path = snakemake.output[0]
 
+print(output_pr_path.split("/")[-1].split("_")[-1].split(".")[0])
+auc_type = output_pr_path.split("/")[-1].split("_")[-1].split(".")[0]
+print("")
+
+algorithm = output_pr_path.split("/")[-1].split("_")[0]
+
+filtered_inputs = []
+i = 0
+for input in input_files:
+    current_alg = ""
+    if auc_type == "alg":
+        current_alg = input.split("/")[-1].split("_")[0]
+    else:
+        current_alg = input.split("/")[-1].split("_")[-1].split(".")[0]
+    if current_alg == algorithm:
+        filtered_inputs.append(input)
+
+for input in input_files:
+    print(input)
+
+print("")
+
+for input in filtered_inputs:
+    print(input)
+
+print("")
+print(output_pr_path)
+
+
 plt.figure(figsize=(10, 5))
 colors = ["b", "g", "r", "c", "m", "y", "k", "orange"]
 
-for idx, file in enumerate(input_files):
+for idx, file in enumerate(filtered_inputs):
     data = []
     y_true = []
     y_score = []

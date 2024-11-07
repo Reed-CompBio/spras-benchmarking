@@ -1,8 +1,6 @@
-algorithms:
-  - PathLinker
-  - OmicsIntegrator1
-  - BTB
-
-pathways:
-  - egfr
-  - wnt
+algorithm_pathways:
+  PathLinker:
+    - egfr
+    - wnt
+  OmicsIntegrator1:
+    - egfr
