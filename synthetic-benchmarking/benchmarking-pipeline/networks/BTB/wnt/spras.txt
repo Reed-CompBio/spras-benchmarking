@@ -6,3 +6,6 @@ D	C	1	D
 C	E	1	D
 C	F	1	D
 F	G	1	D
+G	H	1	D
+H	Z	1	D
+Z	A	1	D

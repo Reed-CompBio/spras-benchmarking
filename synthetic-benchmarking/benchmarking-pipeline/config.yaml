@@ -3,7 +3,7 @@ algorithm_pathways:
     - egfr
     - wnt
   OmicsIntegrator1:
-    - egfr
+    # - egfr
     - wnt
   BTB:
     - egfr

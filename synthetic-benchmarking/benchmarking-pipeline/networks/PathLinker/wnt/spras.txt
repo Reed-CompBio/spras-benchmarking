@@ -5,4 +5,6 @@ B	C	1	D
 D	C	1	D
 C	E	1	D
 C	F	1	D
+C	P	1	D
+C	K	1	D
 F	G	1	D

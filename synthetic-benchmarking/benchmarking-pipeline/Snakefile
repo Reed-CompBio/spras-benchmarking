@@ -9,44 +9,58 @@ def generate_paths(algorithms, pathways):
         for pathway in pathways[algorithm]:
             paths.append(f"output/images/network/{algorithm}_{pathway}_spras.png")
             paths.append(f"output/images/network/{algorithm}_{pathway}_panther.png")
-            paths.append(f"output/stats/edges/{algorithm}_{pathway}_stats.txt")
-            paths.append(f"output/stats/score/{algorithm}_{pathway}.txt")
+            paths.append(f"output/stats/network/{algorithm}_{pathway}_stats.txt")
+            paths.append(f"output/stats/score/edges/{algorithm}_{pathway}.txt")
+            paths.append(f"output/stats/score/nodes/{algorithm}_{pathway}.txt")
+
     return paths
 
 def score_files(algorithms, pathways):
-    inputs = []
+    edge_inputs = []
+    node_inputs = []
     outputs = []
     for algorithm in algorithms:
         for pathway in pathways[algorithm]:
-            score_file = f"output/stats/score/{algorithm}_{pathway}.txt"
-            inputs.append(score_file)
-        outputs.append(f"output/images/auc/{algorithm}_alg.png")
-    print(inputs)
-    return inputs, outputs
+            edge_score_file = f"output/stats/score/edges/{algorithm}_{pathway}.txt"
+            node_score_file = f"output/stats/score/nodes/{algorithm}_{pathway}.txt"
+
+            edge_inputs.append(edge_score_file)
+            node_inputs.append(node_score_file)
+        outputs.append(f"output/images/auc/edges/{algorithm}_alg.png")
+        outputs.append(f"output/images/auc/nodes/{algorithm}_alg.png")
+    return edge_inputs, node_inputs, outputs
 
 def pathway_files(algorithms, pathways):
-    pathway_inputs = []
+    edge_inputs = []
+    node_inputs = []
     pathway_outputs = []
     for algorithm in algorithms:
         for pathway in pathways[algorithm]:
-            score_file = f"output/stats/score/{algorithm}_{pathway}.txt"
-            pathway_inputs.append(score_file)
-            pathway_outputs.append(f"output/images/auc/{pathway}_pathway.png")
-    return pathway_inputs, pathway_outputs
+            edge_score_file = f"output/stats/score/edges/{algorithm}_{pathway}.txt"
+            node_score_file = f"output/stats/score/nodes/{algorithm}_{pathway}.txt"
+
+            edge_inputs.append(edge_score_file)
+            node_inputs.append(node_score_file)
+            pathway_outputs.append(f"output/images/auc/edges/{pathway}_pathway.png")
+            pathway_outputs.append(f"output/images/auc/nodes/{pathway}_pathway.png")
+
+    return edge_inputs, node_inputs, pathway_outputs
 
 def edges_files(algorithms, pathways):
     edge_inputs = []
     for algorithm in algorithms:
         for pathway in pathways[algorithm]:
-            edge_file = f"output/stats/edges/{algorithm}_{pathway}_stats.txt"
+            edge_file = f"output/stats/network/{algorithm}_{pathway}_stats.txt"
             edge_inputs.append(edge_file)
     return edge_inputs
 
 rule all:
     input:
-        generate_paths(algorithms, pathways) + score_files(algorithms, pathways)[1] + pathway_files(algorithms, pathways)[1],
-        "output/images/heatmap/heatmap.png"
-
+        generate_paths(algorithms, pathways),
+        score_files(algorithms, pathways)[2],  
+        pathway_files(algorithms, pathways)[2],
+        "output/images/heatmap/heatmap_edge.png",
+        "output/images/heatmap/heatmap_node.png"
 
 rule pathway_image:
     input:
@@ -63,7 +77,7 @@ rule pathway_stats:
         spras=lambda wildcards: f"networks/{wildcards.algorithms}/{wildcards.pathways}/spras.txt",
         panther=lambda wildcards: f"networks/{wildcards.algorithms}/{wildcards.pathways}/panther.txt"
     output:
-        stats="output/stats/edges/{algorithms}_{pathways}_stats.txt"
+        stats="output/stats/network/{algorithms}_{pathways}_stats.txt"
     script:
         "scripts/generate_stats.py"
 
@@ -72,23 +86,31 @@ rule generate_scores:
         spras=lambda wildcards: f"networks/{wildcards.algorithms}/{wildcards.pathways}/spras.txt",
         panther=lambda wildcards: f"networks/{wildcards.algorithms}/{wildcards.pathways}/panther.txt"
     output:
-        score="output/stats/score/{algorithms}_{pathways}.txt",
+        edge_score="output/stats/score/edges/{algorithms}_{pathways}.txt",
+        node_score="output/stats/score/nodes/{algorithms}_{pathways}.txt",
+
     script:
         "scripts/generate_scores_file.py"
 
 rule generate_algorithm_auc:
     input:
-        scores=score_files(algorithms, pathways)[0]
+        edge_scores=score_files(algorithms, pathways)[0],
+        node_scores=score_files(algorithms, pathways)[1]
+
     output:
-        auc_image="output/images/auc/{algorithm}_alg.png"
+        auc_edge_image="output/images/auc/edges/{algorithm}_alg.png",
+        auc_node_image="output/images/auc/nodes/{algorithm}_alg.png"
     script:
         "scripts/generate_auc_figures.py"
 
 rule generate_pathway_auc:
     input:
-        scores=pathway_files(algorithms, pathways)[0]
+        edge_scores=pathway_files(algorithms, pathways)[0],
+        node_scores=pathway_files(algorithms, pathways)[1]
     output:
-        auc_image="output/images/auc/{pathway}_pathway.png"
+        auc_edge_image="output/images/auc/edges/{pathway}_pathway.png",
+        auc_node_image="output/images/auc/nodes/{pathway}_pathway.png"
+
     script:
         "scripts/generate_auc_figures.py" 
 
@@ -96,6 +118,8 @@ rule generate_heatmap:
     input:
         scores=edges_files(algorithms, pathways)
     output:
-        "output/images/heatmap/heatmap.png"
+        edge_heatmap="output/images/heatmap/heatmap_edge.png",
+        node_heatmap="output/images/heatmap/heatmap_node.png"
+
     script:
         "scripts/generate_heatmap.py"

@@ -11,3 +11,6 @@ E	F	1	D
 E	G	1	D
 H	G	1	D
 F	G	1	D
+G	P	1	D
+P	N	1	D
+N	F	1	D
