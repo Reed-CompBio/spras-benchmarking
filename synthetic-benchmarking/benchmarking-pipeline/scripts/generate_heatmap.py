@@ -11,6 +11,7 @@ output_path = snakemake.output[0]
 data = []
 algorithms = []
 pathways = []
+valid_pairs = []
 
 for idx, file in enumerate(scores_path):
     file_name = file.split("/")[-1].split(".")[0]
@@ -19,6 +20,7 @@ for idx, file in enumerate(scores_path):
         algorithms.append(parts[0])
     if parts[1] not in pathways:
         pathways.append(parts[1])
+    valid_pairs.append((parts[0], parts[1]))
     with open(file, "r") as f:
         next(f)
         for line in f:
@@ -30,12 +32,16 @@ jaccard_indices_list = []
 for algorithm in algorithms:
     current = []
     for pathway in pathways:
+        appended = False
         for entry in data:
             if entry[0] == algorithm and entry[1] == pathway:
+                appended = True
                 current.append(float(entry[2]))
+        if appended == False:
+            current.append(np.nan)
     jaccard_indices_list.append(current)
 
-jaccard_indices = np.array(jaccard_indices_list)
+jaccard_indices = np.array(jaccard_indices_list, dtype=float)
 
 plt.figure(figsize=(10, 8))
 sns.heatmap(

@@ -26,6 +26,7 @@ def score_files(algorithms, pathways):
             score_file = f"output/stats/score/{algorithm}_{pathway}.txt"
             inputs.append(score_file)
         outputs.append(f"output/images/auc/{algorithm}_alg.png")
+    print(inputs)
     return inputs, outputs
 
 def pathway_files(algorithms, pathways):
@@ -38,10 +39,18 @@ def pathway_files(algorithms, pathways):
             pathway_outputs.append(f"output/images/auc/{pathway}_pathway.png")
     return pathway_inputs, pathway_outputs
 
+def edges_files(algorithms, pathways):
+    edge_inputs = []
+    for algorithm in algorithms:
+        for pathway in pathways[algorithm]:
+            edge_file = f"output/stats/edges/{algorithm}_{pathway}_stats.txt"
+            edge_inputs.append(edge_file)
+    return edge_inputs
+
 rule all:
     input:
         generate_paths(algorithms, pathways) + score_files(algorithms, pathways)[1] + pathway_files(algorithms, pathways)[1],
-        # "output/images/heatmap/heatmap.png"
+        "output/images/heatmap/heatmap.png"
 
 
 rule pathway_image:
@@ -88,14 +97,10 @@ rule generate_pathway_auc:
     script:
         "scripts/generate_auc_figures.py" 
 
-# rule generate_heatmap:
-#     input:
-#         scores=list(set(
-#             expand("output/stats/edges/{algorithms}_{pathways}_stats.txt", 
-#                    algorithms=[algo for algo in config["algorithm_pathways"].keys()],
-#                    pathways=[pathway for pathways in config["algorithm_pathways"].values() for pathway in pathways])
-#         ))
-#     output:
-#         "output/images/heatmap/heatmap.png"
-#     script:
-#         "scripts/generate_heatmap.py"
+rule generate_heatmap:
+    input:
+        scores=edges_files(algorithms, pathways)
+    output:
+        "output/images/heatmap/heatmap.png"
+    script:
+        "scripts/generate_heatmap.py"
