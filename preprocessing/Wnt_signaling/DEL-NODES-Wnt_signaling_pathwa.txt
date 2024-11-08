@@ -1,0 +1,4 @@
+id	uniprot
+chebi:29108	chebi:CHEBI:29108
+chebi:16595	chebi:CHEBI:16595
+chebi:18035	chebi:CHEBI:18035
