@@ -11,11 +11,6 @@ def generate_paths(algorithms, pathways):
             paths.append(f"output/images/network/{algorithm}_{pathway}_panther.png")
             paths.append(f"output/stats/edges/{algorithm}_{pathway}_stats.txt")
             paths.append(f"output/stats/score/{algorithm}_{pathway}.txt")
-            # if f"output/images/auc/{pathway}_pathway.png" not in paths:
-            #     paths.append(f"output/images/auc/{pathway}_pathway.png")
-    # for algorithm in algorithms:
-    #     paths.append(f"output/images/auc/{algorithm}_alg.png")
-    # print(paths)
     return paths
 
 def score_files(algorithms, pathways):
