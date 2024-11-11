@@ -1,0 +1,454 @@
+From	Entry	Entry Name	Protein names	Gene Names
+CGT_HUMAN	Q16880	CGT_HUMAN	2-hydroxyacylsphingosine 1-beta-galactosyltransferase (EC 2.4.1.47) (Ceramide UDP-galactosyltransferase) (Cerebroside synthase) (UDP-galactose-ceramide galactosyltransferase)	UGT8 CGT UGT4
+ACHA_HUMAN	P02708	ACHA_HUMAN	Acetylcholine receptor subunit alpha	CHRNA1 ACHRA CHNRA
+ACHB_HUMAN	P11230	ACHB_HUMAN	Acetylcholine receptor subunit beta	CHRNB1 ACHRB CHRNB
+A1AG1_HUMAN	P02763	A1AG1_HUMAN	Alpha-1-acid glycoprotein 1 (AGP 1) (Orosomucoid-1) (OMD 1)	ORM1 AGP1
+A1AG2_HUMAN	P19652	A1AG2_HUMAN	Alpha-1-acid glycoprotein 2 (AGP 2) (Orosomucoid-2) (OMD 2)	ORM2 AGP2
+ANT3_HUMAN	P01008	ANT3_HUMAN	Antithrombin-III (ATIII) (Serpin C1)	SERPINC1 AT3 PRO0309
+APJ_HUMAN	P35414	APJ_HUMAN	Apelin receptor (Angiotensin receptor-like 1) (G-protein coupled receptor APJ) (G-protein coupled receptor HG11)	APLNR AGTRL1 APJ
+ACKR2_HUMAN	O00590	ACKR2_HUMAN	Atypical chemokine receptor 2 (C-C chemokine receptor D6) (Chemokine receptor CCR-10) (Chemokine receptor CCR-9) (Chemokine-binding protein 2) (Chemokine-binding protein D6)	ACKR2 CCBP2 CCR10 CMKBR9 D6
+CCR2_HUMAN	P41597	CCR2_HUMAN	C-C chemokine receptor type 2 (C-C CKR-2) (CC-CKR-2) (CCR-2) (CCR2) (Monocyte chemoattractant protein 1 receptor) (MCP-1-R) (CD antigen CD192)	CCR2 CMKBR2
+CCR3_HUMAN	P51677	CCR3_HUMAN	C-C chemokine receptor type 3 (C C CKR3) (C-C CKR-3) (CC-CKR-3) (CCR-3) (CCR3) (CKR 3) (CKR3) (Eosinophil eotaxin receptor) (CD antigen CD193)	CCR3 CMKBR3
+CCR4_HUMAN	P51679	CCR4_HUMAN	C-C chemokine receptor type 4 (C-C CKR-4) (CC-CKR-4) (CCR-4) (CCR4) (K5-5) (CD antigen CD194)	CCR4 CMKBR4
+CCR5_HUMAN	P51681	CCR5_HUMAN	C-C chemokine receptor type 5 (C-C CKR-5) (CC-CKR-5) (CCR-5) (CCR5) (CHEMR13) (HIV-1 fusion coreceptor) (CD antigen CD195)	CCR5 CMKBR5
+CCR8_HUMAN	P51685	CCR8_HUMAN	C-C chemokine receptor type 8 (C-C CKR-8) (CC-CKR-8) (CCR-8) (CC chemokine receptor CHEMR1) (CMKBRL2) (Chemokine receptor-like 1) (CKR-L1) (GPR-CY6) (GPRCY6) (TER1) (CD antigen CDw198)	CCR8 CKRL1 CMKBR8 CMKBRL2
+CLC4A_HUMAN	Q9UMR7	CLC4A_HUMAN	C-type lectin domain family 4 member A (C-type lectin DDB27) (C-type lectin superfamily member 6) (Dendritic cell immunoreceptor) (Lectin-like immunoreceptor) (CD antigen CD367)	CLEC4A CLECSF6 DCIR LLIR HDCGC13P
+CLC4C_HUMAN	Q8WTT0	CLC4C_HUMAN	C-type lectin domain family 4 member C (Blood dendritic cell antigen 2) (BDCA-2) (C-type lectin superfamily member 7) (Dendritic lectin) (CD antigen CD303)	CLEC4C BDCA2 CLECSF11 CLECSF7 DLEC HECL UNQ9361/PRO34150
+CLC4G_HUMAN	Q6UXB4	CLC4G_HUMAN	C-type lectin domain family 4 member G (Liver and lymph node sinusoidal endothelial cell C-type lectin) (LSECtin)	CLEC4G UNQ431/PRO792
+CLC4K_HUMAN	Q9UJ71	CLC4K_HUMAN	C-type lectin domain family 4 member K (Langerin) (CD antigen CD207)	CD207 CLEC4K
+CLC4M_HUMAN	Q9H2X3	CLC4M_HUMAN	C-type lectin domain family 4 member M (CD209 antigen-like protein 1) (DC-SIGN-related protein) (DC-SIGNR) (Dendritic cell-specific ICAM-3-grabbing non-integrin 2) (DC-SIGN2) (Liver/lymph node-specific ICAM-3-grabbing non-integrin) (L-SIGN) (CD antigen CD299)	CLEC4M CD209L CD209L1 CD299
+MRC2_HUMAN	Q9UBG0	MRC2_HUMAN	C-type mannose receptor 2 (C-type lectin domain family 13 member E) (Endocytic receptor 180) (Macrophage mannose receptor 2) (Urokinase-type plasminogen activator receptor-associated protein) (UPAR-associated protein) (Urokinase receptor-associated protein) (CD antigen CD280)	MRC2 CLEC13E ENDO180 KIAA0709 UPARAP
+CXCR4_HUMAN	P61073	CXCR4_HUMAN	C-X-C chemokine receptor type 4 (CXC-R4) (CXCR-4) (FB22) (Fusin) (HM89) (LCR1) (Leukocyte-derived seven transmembrane domain receptor) (LESTR) (Lipopolysaccharide-associated protein 3) (LAP-3) (LPS-associated protein 3) (NPYRL) (Stromal cell-derived factor 1 receptor) (SDF-1 receptor) (CD antigen CD184)	CXCR4
+CXCR6_HUMAN	O00574	CXCR6_HUMAN	C-X-C chemokine receptor type 6 (CXC-R6) (CXCR-6) (CDw186) (G-protein coupled receptor STRL33) (G-protein coupled receptor bonzo) (CD antigen CD186)	CXCR6 BONZO STRL33 TYMSTR
+CTR4_HUMAN	O43246	CTR4_HUMAN	Cationic amino acid transporter 4 (CAT-4) (CAT4) (Solute carrier family 7 member 4)	SLC7A4
+CD209_HUMAN	Q9NNX6	CD209_HUMAN	CD209 antigen (C-type lectin domain family 4 member L) (Dendritic cell-specific ICAM-3-grabbing non-integrin 1) (DC-SIGN) (DC-SIGN1) (CD antigen CD209)	CD209 CLEC4L
+C1QA_HUMAN	P02745	C1QA_HUMAN	Complement C1q subcomponent subunit A	C1QA
+C1QB_HUMAN	P02746	C1QB_HUMAN	Complement C1q subcomponent subunit B	C1QB
+C1QC_HUMAN	P02747	C1QC_HUMAN	Complement C1q subcomponent subunit C	C1QC C1QG
+CO3_HUMAN	P01024	CO3_HUMAN	Complement C3 (C3 and PZP-like alpha-2-macroglobulin domain-containing protein 1) [Cleaved into: Complement C3 beta chain; C3-beta-c (C3bc); Complement C3 alpha chain; C3a anaphylatoxin; Acylation stimulating protein (ASP) (C3adesArg); Complement C3b alpha' chain; Complement C3c alpha' chain fragment 1; Complement C3dg fragment; Complement C3g fragment; Complement C3d fragment; Complement C3f fragment; Complement C3c alpha' chain fragment 2]	C3 CPAMD1
+CO4A_HUMAN	P0C0L4	CO4A_HUMAN	Complement C4-A (Acidic complement C4) (C3 and PZP-like alpha-2-macroglobulin domain-containing protein 2) [Cleaved into: Complement C4 beta chain; Complement C4-A alpha chain; C4a anaphylatoxin; C4b-A; C4d-A; Complement C4 gamma chain]	C4A CO4 CPAMD2
+CO5_HUMAN	P01031	CO5_HUMAN	Complement C5 (C3 and PZP-like alpha-2-macroglobulin domain-containing protein 4) [Cleaved into: Complement C5 beta chain; Complement C5 alpha chain; C5a anaphylatoxin; Complement C5 alpha' chain]	C5 CPAMD4
+CO9_HUMAN	P02748	CO9_HUMAN	Complement component C9 [Cleaved into: Complement component C9a; Complement component C9b]	C9
+CR2_HUMAN	P20023	CR2_HUMAN	Complement receptor type 2 (Cr2) (Complement C3d receptor) (Epstein-Barr virus receptor) (EBV receptor) (CD antigen CD21)	CR2 C3DR
+DMBT1_HUMAN	Q9UGM3	DMBT1_HUMAN	Scavenger receptor cysteine-rich domain-containing protein DMBT1 (Deleted in malignant brain tumors 1 protein) (Glycoprotein 340) (Gp-340) (Hensin) (Salivary agglutinin) (SAG) (Surfactant pulmonary-associated D-binding protein)	DMBT1 GP340
+EZRI_HUMAN	P15311	EZRI_HUMAN	Ezrin (Cytovillin) (Villin-2) (p81)	EZR VIL2
+FINC_HUMAN	P02751	FINC_HUMAN	Fibronectin (FN) (Cold-insoluble globulin) (CIG) [Cleaved into: Anastellin; Ugl-Y1; Ugl-Y2; Ugl-Y3]	FN1 FN
+FLNA_HUMAN	P21333	FLNA_HUMAN	Filamin-A (FLN-A) (Actin-binding protein 280) (ABP-280) (Alpha-filamin) (Endothelial actin-binding protein) (Filamin-1) (Non-muscle filamin)	FLNA FLN FLN1
+FLNB_HUMAN	O75369	FLNB_HUMAN	Filamin-B (FLN-B) (ABP-278) (ABP-280 homolog) (Actin-binding-like protein) (Beta-filamin) (Filamin homolog 1) (Fh1) (Filamin-3) (Thyroid autoantigen) (Truncated actin-binding protein) (Truncated ABP)	FLNB FLN1L FLN3 TABP TAP
+FLNC_HUMAN	Q14315	FLNC_HUMAN	Filamin-C (FLN-C) (FLNc) (ABP-280-like protein) (ABP-L) (Actin-binding-like protein) (Filamin-2) (Gamma-filamin)	FLNC ABPL FLN2
+LEG1_HUMAN	P09382	LEG1_HUMAN	Galectin-1 (Gal-1) (14 kDa laminin-binding protein) (HLBP14) (14 kDa lectin) (Beta-galactoside-binding lectin L-14-I) (Galaptin) (HBL) (HPL) (Lactose-binding lectin 1) (Lectin galactoside-binding soluble 1) (Putative MAPK-activating protein PM12) (S-Lac lectin 1)	LGALS1
+NMDZ1_HUMAN	Q05586	NMDZ1_HUMAN	Glutamate receptor ionotropic, NMDA 1 (GluN1) (Glutamate [NMDA] receptor subunit zeta-1) (N-methyl-D-aspartate receptor subunit NR1) (NMD-R1)	GRIN1 NMDAR1
+NMDE1_HUMAN	Q12879	NMDE1_HUMAN	Glutamate receptor ionotropic, NMDA 2A (GluN2A) (Glutamate [NMDA] receptor subunit epsilon-1) (N-methyl D-aspartate receptor subtype 2A) (NMDAR2A) (NR2A) (hNR2A)	GRIN2A NMDAR2A
+NMDE2_HUMAN	Q13224	NMDE2_HUMAN	Glutamate receptor ionotropic, NMDA 2B (GluN2B) (Glutamate [NMDA] receptor subunit epsilon-2) (N-methyl D-aspartate receptor subtype 2B) (NMDAR2B) (NR2B) (N-methyl-D-aspartate receptor subunit 3) (NR3) (hNR3)	GRIN2B NMDAR2B
+NMDE3_HUMAN	Q14957	NMDE3_HUMAN	Glutamate receptor ionotropic, NMDA 2C (GluN2C) (Glutamate [NMDA] receptor subunit epsilon-3) (N-methyl D-aspartate receptor subtype 2C) (NMDAR2C) (NR2C)	GRIN2C NMDAR2C
+NMDE4_HUMAN	O15399	NMDE4_HUMAN	Glutamate receptor ionotropic, NMDA 2D (GluN2D) (EB11) (Glutamate [NMDA] receptor subunit epsilon-4) (N-methyl D-aspartate receptor subtype 2D) (NMDAR2D) (NR2D)	GRIN2D GluN2D NMDAR2D
+NMD3A_HUMAN	Q8TCU5	NMD3A_HUMAN	Glutamate receptor ionotropic, NMDA 3A (GluN3A) (N-methyl-D-aspartate receptor subtype 3A) (NMDAR3A) (NR3A) (NMDAR-L)	GRIN3A KIAA1973
+NMD3B_HUMAN	O60391	NMD3B_HUMAN	Glutamate receptor ionotropic, NMDA 3B (GluN3B) (N-methyl-D-aspartate receptor subtype 3B) (NMDAR3B) (NR3B)	GRIN3B
+FCGR1_HUMAN	P12314	FCGR1_HUMAN	High affinity immunoglobulin gamma Fc receptor I (IgG Fc receptor I) (Fc-gamma RI) (FcRI) (Fc-gamma RIA) (FcgammaRIa) (CD antigen CD64)	FCGR1A FCG1 FCGR1 IGFR1
+FCGRB_HUMAN	Q92637	FCGRB_HUMAN	Putative high affinity immunoglobulin gamma Fc receptor IB (IgG Fc receptor IB) (Fc gamma receptor IB pseudogene) (Fc-gamma RIB) (FcRIB) (hFcgammaRIB)	FCGR1BP FCGR1B IGFRB
+ITA4_HUMAN	P13612	ITA4_HUMAN	Integrin alpha-4 (CD49 antigen-like family member D) (Integrin alpha-IV) (VLA-4 subunit alpha) (CD antigen CD49d)	ITGA4 CD49D
+ITB7_HUMAN	P26010	ITB7_HUMAN	Integrin beta-7 (Gut homing receptor beta subunit)	ITGB7
+TRFL_HUMAN	P02788	TRFL_HUMAN	Lactotransferrin (Lactoferrin) (EC 3.4.21.-) (Growth-inhibiting protein 12) (Talalactoferrin) [Cleaved into: Lactoferricin-H (Lfcin-H); Kaliocin-1; Lactoferroxin-A; Lactoferroxin-B; Lactoferroxin-C]	LTF GIG12 LF
+FCG2A_HUMAN	P12318	FCG2A_HUMAN	Low affinity immunoglobulin gamma Fc region receptor II-a (IgG Fc receptor II-a) (CDw32) (Fc-gamma RII-a) (Fc-gamma-RIIa) (FcRII-a) (CD antigen CD32)	FCGR2A CD32 FCG2 FCGR2A1 IGFR2
+FCG2B_HUMAN	P31994	FCG2B_HUMAN	Low affinity immunoglobulin gamma Fc region receptor II-b (IgG Fc receptor II-b) (CDw32) (Fc-gamma RII-b) (Fc-gamma-RIIb) (FcRII-b) (CD antigen CD32)	FCGR2B CD32 FCG2 IGFR2
+FCG3A_HUMAN	P08637	FCG3A_HUMAN	Low affinity immunoglobulin gamma Fc region receptor III-A (IgG Fc receptor III-A) (CD16-II) (CD16a antigen) (Fc-gamma RIII-alpha) (Fc-gamma RIII) (Fc-gamma RIIIa) (FcRIII) (FcRIIIa) (FcgammaRIIIA) (FcR-10) (IgG Fc receptor III-2) (CD antigen CD16a)	FCGR3A CD16A FCG3 FCGR3 IGFR3
+FCG3B_HUMAN	O75015	FCG3B_HUMAN	Low affinity immunoglobulin gamma Fc region receptor III-B (Fc-gamma RIII-beta) (CD16-I) (Fc-gamma RIII) (Fc-gamma RIIIb) (FcRIII) (FcRIIIb) (FcR-10) (IgG Fc receptor III-1) (CD antigen CD16b)	FCGR3B CD16B FCG3 FCGR3 IGFR3
+MRC1_HUMAN	P22897	MRC1_HUMAN	Macrophage mannose receptor 1 (MMR) (C-type lectin domain family 13 member D) (C-type lectin domain family 13 member D-like) (Human mannose receptor) (hMR) (Macrophage mannose receptor 1-like protein 1) (CD antigen CD206)	MRC1 CLEC13D CLEC13DL MRC1L1
+MBL2_HUMAN	P11226	MBL2_HUMAN	Mannose-binding protein C (MBP-C) (Collectin-1) (MBP1) (Mannan-binding protein) (Mannose-binding lectin)	MBL2 COLEC1 MBL
+MOES_HUMAN	P26038	MOES_HUMAN	Moesin (Membrane-organizing extension spike protein)	MSN
+MAG_HUMAN	P20916	MAG_HUMAN	Myelin-associated glycoprotein (Siglec-4a)	MAG GMA
+ACHB2_HUMAN	P17787	ACHB2_HUMAN	Neuronal acetylcholine receptor subunit beta-2	CHRNB2
+DEF1_HUMAN	P59665	DEF1_HUMAN	Neutrophil defensin 1 (Defensin, alpha 1) (HNP-1) (HP-1) (HP1) [Cleaved into: HP 1-56; Neutrophil defensin 2 (HNP-2) (HP-2) (HP2)]	DEFA1 DEF1 DEFA2 MRS; DEFA1B
+DEF3_HUMAN	P59666	DEF3_HUMAN	Neutrophil defensin 3 (Defensin, alpha 3) (HNP-3) (HP-3) (HP3) [Cleaved into: HP 3-56; Neutrophil defensin 2 (HNP-2) (HP-2) (HP2)]	DEFA3 DEF3
+DEF4_HUMAN	P12838	DEF4_HUMAN	Defensin alpha 4 (Corticostatin HP-4) (HNP-4) (HP-4) (Neutrophil defensin 4)	DEFA4 DEF4
+FKB1A_HUMAN	P62942	FKB1A_HUMAN	Peptidyl-prolyl cis-trans isomerase FKBP1A (PPIase FKBP1A) (EC 5.2.1.8) (12 kDa FK506-binding protein) (12 kDa FKBP) (FKBP-12) (Calstabin-1) (FK506-binding protein 1A) (FKBP-1A) (Immunophilin FKBP12) (Rotamase)	FKBP1A FKBP1 FKBP12
+PLF4_HUMAN	P02776	PLF4_HUMAN	Platelet factor 4 (PF-4) (C-X-C motif chemokine 4) (Iroplact) (Oncostatin-A) [Cleaved into: Platelet factor 4, short form (Endothelial cell growth inhibitor)]	PF4 CXCL4 SCYB4
+KCNH3_HUMAN	Q9ULD8	KCNH3_HUMAN	Voltage-gated inwardly rectifying potassium channel KCNH3 (Brain-specific eag-like channel 1) (BEC1) (Ether-a-go-go-like potassium channel 2) (ELK channel 2) (ELK2) (Potassium voltage-gated channel subfamily H member 3) (Voltage-gated potassium channel subunit Kv12.2)	KCNH3 KIAA1282
+PROP_HUMAN	P27918	PROP_HUMAN	Properdin (Complement factor P)	CFP PFC
+LMAN1_HUMAN	P49257	LMAN1_HUMAN	Protein ERGIC-53 (ER-Golgi intermediate compartment 53 kDa protein) (Gp58) (Intracellular mannose-specific lectin MR60) (Lectin mannose-binding 1)	LMAN1 ERGIC53 F5F8D
+LFG1_HUMAN	Q7Z429	LFG1_HUMAN	Protein lifeguard 1 (Glutamate [NMDA] receptor-associated protein 1) (NMDA receptor glutamate-binding subunit) (Putative MAPK-activating protein PM02) (Transmembrane BAX inhibitor motif-containing protein 3)	GRINA LFG1 NMDARA1 TMBIM3
+SFTA1_HUMAN	Q8IWL2	SFTA1_HUMAN	Pulmonary surfactant-associated protein A1 (PSP-A) (PSPA) (SP-A) (SP-A1) (35 kDa pulmonary surfactant-associated protein) (Alveolar proteinosis protein) (Collectin-4)	SFTPA1 COLEC4 PSAP SFTP1 SFTPA SFTPA1B
+SFTPD_HUMAN	P35247	SFTPD_HUMAN	Pulmonary surfactant-associated protein D (PSP-D) (SP-D) (Collectin-7) (Lung surfactant protein D)	SFTPD COLEC7 PSPD SFTP4
+ALBU_HUMAN	P02768	ALBU_HUMAN	Albumin	ALB GIG20 GIG42 PRO0903 PRO1708 PRO2044 PRO2619 PRO2675 UNQ696/PRO1341
+SIGL7_HUMAN	Q9Y286	SIGL7_HUMAN	Sialic acid-binding Ig-like lectin 7 (Siglec-7) (Adhesion inhibitory receptor molecule 1) (AIRM-1) (CDw328) (D-siglec) (QA79 membrane protein) (p75) (CD antigen CD328)	SIGLEC7 AIRM1
+SDC1_HUMAN	P18827	SDC1_HUMAN	Syndecan-1 (SYND1) (CD antigen CD138)	SDC1 SDC
+SDC2_HUMAN	P34741	SDC2_HUMAN	Syndecan-2 (SYND2) (Fibroglycan) (Heparan sulfate proteoglycan core protein) (HSPG) (CD antigen CD362)	SDC2 HSPG1
+SDC3_HUMAN	O75056	SDC3_HUMAN	Syndecan-3 (SYND3)	SDC3 KIAA0468
+SDC4_HUMAN	P31431	SDC4_HUMAN	Syndecan-4 (SYND4) (Amphiglycan) (Ryudocan core protein)	SDC4
+CD4_HUMAN	P01730	CD4_HUMAN	T-cell surface glycoprotein CD4 (T-cell surface antigen T4/Leu-3) (CD antigen CD4)	CD4
+TENA_HUMAN	P24821	TENA_HUMAN	Tenascin (TN) (Cytotactin) (GMEM) (GP 150-225) (Glioma-associated-extracellular matrix antigen) (Hexabrachion) (JI) (Myotendinous antigen) (Neuronectin) (Tenascin-C) (TN-C)	TNC HXB
+TSP1_HUMAN	P07996	TSP1_HUMAN	Thrombospondin-1 (Glycoprotein G)	THBS1 TSP TSP1
+TLR2_HUMAN	O60603	TLR2_HUMAN	Toll-like receptor 2 (Toll/interleukin-1 receptor-like protein 4) (CD antigen CD282)	TLR2 TIL4
+TLR4_HUMAN	O00206	TLR4_HUMAN	Toll-like receptor 4 (hToll) (CD antigen CD284)	TLR4
+CALX_HUMAN	P27824	CALX_HUMAN	Calnexin (IP90) (Major histocompatibility complex class I antigen-binding protein p88) (p90)	CANX
+CALR_HUMAN	P27797	CALR_HUMAN	Calreticulin (CRP55) (Calregulin) (Endoplasmic reticulum resident protein 60) (ERp60) (HACBP) (grp60)	CALR CRTC
+FETUB_HUMAN	Q9UGM5	FETUB_HUMAN	Fetuin-B (16G2) (Fetuin-like protein IRL685) (Gugu)	FETUB
+PLIN3_HUMAN	O60664	PLIN3_HUMAN	Perilipin-3 (47 kDa mannose 6-phosphate receptor-binding protein) (47 kDa MPR-binding protein) (Cargo selection protein TIP47) (Mannose-6-phosphate receptor-binding protein 1) (Placental protein 17) (PP17)	PLIN3 M6PRBP1 TIP47
+PHB2_HUMAN	Q99623	PHB2_HUMAN	Prohibitin-2 (B-cell receptor-associated protein BAP37) (D-prohibitin) (Repressor of estrogen receptor activity)	PHB2 BAP REA
+PDIA2_HUMAN	Q13087	PDIA2_HUMAN	Protein disulfide-isomerase A2 (EC 5.3.4.1) (Pancreas-specific protein disulfide isomerase) (PDIp)	PDIA2 PDIP
+CH60_HUMAN	P10809	CH60_HUMAN	60 kDa heat shock protein, mitochondrial (EC 5.6.1.7) (60 kDa chaperonin) (Chaperonin 60) (CPN60) (Heat shock protein 60) (HSP-60) (Hsp60) (Heat shock protein family D member 1) (HuCHA60) (Mitochondrial matrix protein P1) (P60 lymphocyte protein)	HSPD1 HSP60
+CAV1_HUMAN	Q03135	CAV1_HUMAN	Caveolin-1	CAV1 CAV
+EPN1_HUMAN	Q9Y6I3	EPN1_HUMAN	Epsin-1 (EH domain-binding mitotic phosphoprotein) (EPS-15-interacting protein 1)	EPN1
+HG2A_HUMAN	P04233	HG2A_HUMAN	HLA class II histocompatibility antigen gamma chain (HLA-DR antigens-associated invariant chain) (Ia antigen-associated invariant chain) (Ii) (CD antigen CD74) [Cleaved into: Class-II-associated invariant chain peptide (CLIP)]	CD74 DHLAG
+PRAF1_HUMAN	Q9UI14	PRAF1_HUMAN	Prenylated Rab acceptor protein 1 (PRA1 family protein 1)	RABAC1 PRA1 PRAF1
+REPS2_HUMAN	Q8NFH8	REPS2_HUMAN	RalBP1-associated Eps domain-containing protein 2 (Partner of RalBP1) (RalBP1-interacting protein 2)	REPS2 POB1
+TLR1_HUMAN	Q15399	TLR1_HUMAN	Toll-like receptor 1 (Toll/interleukin-1 receptor-like protein) (TIL) (CD antigen CD281)	TLR1 KIAA0012
+VP26A_HUMAN	O75436	VP26A_HUMAN	Vacuolar protein sorting-associated protein 26A (Vesicle protein sorting 26A) (hVPS26)	VPS26A VPS26
+VPS35_HUMAN	Q96QK1	VPS35_HUMAN	Vacuolar protein sorting-associated protein 35 (hVPS35) (Maternal-embryonic 3) (Vesicle protein sorting 35)	VPS35 MEM3 TCCCTA00141
+1433T_HUMAN	P27348	1433T_HUMAN	14-3-3 protein theta (14-3-3 protein T-cell) (14-3-3 protein tau) (Protein HS1)	YWHAQ
+PSD11_HUMAN	O00231	PSD11_HUMAN	26S proteasome non-ATPase regulatory subunit 11 (26S proteasome regulatory subunit RPN6) (26S proteasome regulatory subunit S9) (26S proteasome regulatory subunit p44.5)	PSMD11
+PSMD7_HUMAN	P51665	PSMD7_HUMAN	26S proteasome non-ATPase regulatory subunit 7 (26S proteasome regulatory subunit RPN8) (26S proteasome regulatory subunit S12) (Mov34 protein homolog) (Proteasome subunit p40)	PSMD7 MOV34L
+CAB45_HUMAN	Q9BRK5	CAB45_HUMAN	45 kDa calcium-binding protein (Cab45) (Stromal cell-derived factor 4) (SDF-4)	SDF4 CAB45 PSEC0034
+ACTC_HUMAN	P68032	ACTC_HUMAN	Actin, alpha cardiac muscle 1 (EC 3.6.4.-) (Alpha-cardiac actin) [Cleaved into: Actin, alpha cardiac muscle 1, intermediate form]	ACTC1 ACTC
+ACTS_HUMAN	P68133	ACTS_HUMAN	Actin, alpha skeletal muscle (EC 3.6.4.-) (Alpha-actin-1) [Cleaved into: Actin, alpha skeletal muscle, intermediate form]	ACTA1 ACTA
+ACTA_HUMAN	P62736	ACTA_HUMAN	Actin, aortic smooth muscle (EC 3.6.4.-) (Alpha-actin-2) (Cell growth-inhibiting gene 46 protein) [Cleaved into: Actin, aortic smooth muscle, intermediate form]	ACTA2 ACTSA ACTVS GIG46
+ACTB_HUMAN	P60709	ACTB_HUMAN	Actin, cytoplasmic 1 (EC 3.6.4.-) (Beta-actin) [Cleaved into: Actin, cytoplasmic 1, N-terminally processed]	ACTB
+ACTG_HUMAN	P63261	ACTG_HUMAN	Actin, cytoplasmic 2 (EC 3.6.4.-) (Gamma-actin) [Cleaved into: Actin, cytoplasmic 2, N-terminally processed]	ACTG1 ACTG
+ACTH_HUMAN	P63267	ACTH_HUMAN	Actin, gamma-enteric smooth muscle (EC 3.6.4.-) (Alpha-actin-3) (Gamma-2-actin) (Smooth muscle gamma-actin) [Cleaved into: Actin, gamma-enteric smooth muscle, intermediate form]	ACTG2 ACTA3 ACTL3 ACTSG
+CD38_HUMAN	P28907	CD38_HUMAN	ADP-ribosyl cyclase/cyclic ADP-ribose hydrolase 1 (EC 3.2.2.-) (EC 3.2.2.6) (2'-phospho-ADP-ribosyl cyclase) (2'-phospho-ADP-ribosyl cyclase/2'-phospho-cyclic-ADP-ribose transferase) (EC 2.4.99.20) (2'-phospho-cyclic-ADP-ribose transferase) (ADP-ribosyl cyclase 1) (ADPRC 1) (Cyclic ADP-ribose hydrolase 1) (cADPR hydrolase 1) (T10) (CD antigen CD38)	CD38
+FETA_HUMAN	P02771	FETA_HUMAN	Alpha-fetoprotein (Alpha-1-fetoprotein) (Alpha-fetoglobulin)	AFP HPAFP
+ANXA2_HUMAN	P07355	ANXA2_HUMAN	Annexin A2 (Annexin II) (Annexin-2) (Calpactin I heavy chain) (Calpactin-1 heavy chain) (Chromobindin-8) (Lipocortin II) (Placental anticoagulant protein IV) (PAP-IV) (Protein I) (p36)	ANXA2 ANX2 ANX2L4 CAL1H LPC2D
+APOE_HUMAN	P02649	APOE_HUMAN	Apolipoprotein E (Apo-E)	APOE
+BAX_HUMAN	Q07812	BAX_HUMAN	Apoptosis regulator BAX (Bcl-2-like protein 4) (Bcl2-L-4)	BAX BCL2L4
+SIVA_HUMAN	O15304	SIVA_HUMAN	Apoptosis regulatory protein Siva (CD27-binding protein) (CD27BP)	SIVA1 SIVA
+PGBM_HUMAN	P98160	PGBM_HUMAN	Basement membrane-specific heparan sulfate proteoglycan core protein (HSPG) (Perlecan) (PLC) [Cleaved into: Endorepellin; LG3 peptide]	HSPG2
+B2CL1_HUMAN	Q07817	B2CL1_HUMAN	Bcl-2-like protein 1 (Bcl2-L-1) (Apoptosis regulator Bcl-X)	BCL2L1 BCL2L BCLX
+BAD_HUMAN	Q92934	BAD_HUMAN	Bcl2-associated agonist of cell death (BAD) (Bcl-2-binding component 6) (Bcl-2-like protein 8) (Bcl2-L-8) (Bcl-xL/Bcl-2-associated death promoter) (Bcl2 antagonist of cell death)	BAD BBC6 BCL2L8
+BDNF_HUMAN	P23560	BDNF_HUMAN	Brain-derived neurotrophic factor (BDNF) (Abrineurin) [Cleaved into: BDNF precursor form (ProBDNF)]	BDNF
+CCL2_HUMAN	P13500	CCL2_HUMAN	C-C motif chemokine 2 (HC11) (Monocyte chemoattractant protein 1) (Monocyte chemotactic and activating factor) (MCAF) (Monocyte chemotactic protein 1) (MCP-1) (Monocyte secretory protein JE) (Small-inducible cytokine A2)	CCL2 MCP1 SCYA2
+CCL3_HUMAN	P10147	CCL3_HUMAN	C-C motif chemokine 3 (G0/G1 switch regulatory protein 19-1) (Macrophage inflammatory protein 1-alpha) (MIP-1-alpha) (PAT 464.1) (SIS-beta) (Small-inducible cytokine A3) (Tonsillar lymphocyte LD78 alpha protein) [Cleaved into: MIP-1-alpha(4-69) (LD78-alpha(4-69))]	CCL3 G0S19-1 MIP1A SCYA3
+CCL4_HUMAN	P13236	CCL4_HUMAN	C-C motif chemokine 4 (G-26 T-lymphocyte-secreted protein) (HC21) (Lymphocyte activation gene 1 protein) (LAG-1) (MIP-1-beta(1-69)) (Macrophage inflammatory protein 1-beta) (MIP-1-beta) (PAT 744) (Protein H400) (SIS-gamma) (Small-inducible cytokine A4) (T-cell activation protein 2) (ACT-2) [Cleaved into: MIP-1-beta(3-69)]	CCL4 LAG1 MIP1B SCYA4
+CLCA1_HUMAN	A8K7I4	CLCA1_HUMAN	Calcium-activated chloride channel regulator 1 (EC 3.4.-.-) (Calcium-activated chloride channel family member 1) (hCLCA1) (Calcium-activated chloride channel protein 1) (CaCC-1) (hCaCC-1)	CLCA1 CACC1
+CLCA2_HUMAN	Q9UQC9	CLCA2_HUMAN	Calcium-activated chloride channel regulator 2 (EC 3.4.-.-) (Calcium-activated chloride channel family member 2) (hCLCA2) (Calcium-activated chloride channel protein 3) (CaCC-3) (hCaCC-3) [Cleaved into: Calcium-activated chloride channel regulator 2, 109 kDa form; Calcium-activated chloride channel regulator 2, 35 kDa form]	CLCA2 CACC3
+CLCA4_HUMAN	Q14CN2	CLCA4_HUMAN	Calcium-activated chloride channel regulator 4 (EC 3.4.-.-) (Calcium-activated chloride channel family member 4) (hCLCA4) (Calcium-activated chloride channel protein 2) (CaCC-2) (hCaCC-2) (Chloride channel accessory 4) [Cleaved into: Calcium-activated chloride channel regulator 4, 110 kDa form; Calcium-activated chloride channel regulator 4, 30 kDa form]	CLCA4 CaCC2 UNQ562/PRO1124
+KCMA1_HUMAN	Q12791	KCMA1_HUMAN	Calcium-activated potassium channel subunit alpha-1 (BK channel) (BKCA alpha) (Calcium-activated potassium channel, subfamily M subunit alpha-1) (K(VCA)alpha) (KCa1.1) (Maxi K channel) (MaxiK) (Slo-alpha) (Slo1) (Slowpoke homolog) (Slo homolog) (hSlo)	KCNMA1 KCNMA SLO
+KCMB2_HUMAN	Q9Y691	KCMB2_HUMAN	Calcium-activated potassium channel subunit beta-2 (BK channel subunit beta-2) (BKbeta2) (Hbeta2) (Calcium-activated potassium channel, subfamily M subunit beta-2) (Charybdotoxin receptor subunit beta-2) (Hbeta3) (K(VCA)beta-2) (Maxi K channel subunit beta-2) (Slo-beta-2)	KCNMB2
+KCMB3_HUMAN	Q9NPA1	KCMB3_HUMAN	Calcium-activated potassium channel subunit beta-3 (BK channel subunit beta-3) (BKbeta3) (Hbeta3) (Calcium-activated potassium channel, subfamily M subunit beta-3) (Charybdotoxin receptor subunit beta-3) (K(VCA)beta-3) (Maxi K channel subunit beta-3) (Slo-beta-3)	KCNMB3 KCNMB2 KCNMBL
+KCMB4_HUMAN	Q86W47	KCMB4_HUMAN	Calcium-activated potassium channel subunit beta-4 (BK channel subunit beta-4) (BKbeta4) (Hbeta4) (Calcium-activated potassium channel, subfamily M subunit beta-4) (Charybdotoxin receptor subunit beta-4) (K(VCA)beta-4) (Maxi K channel subunit beta-4) (Slo-beta-4)	KCNMB4
+CLGN_HUMAN	O14967	CLGN_HUMAN	Calmegin	CLGN
+CALU_HUMAN	O43852	CALU_HUMAN	Calumenin (Crocalbin) (IEF SSP 9302)	CALU
+KAPCA_HUMAN	P17612	KAPCA_HUMAN	cAMP-dependent protein kinase catalytic subunit alpha (PKA C-alpha) (EC 2.7.11.11)	PRKACA PKACA
+KAPCB_HUMAN	P22694	KAPCB_HUMAN	cAMP-dependent protein kinase catalytic subunit beta (PKA C-beta) (EC 2.7.11.11)	PRKACB
+KAPCG_HUMAN	P22612	KAPCG_HUMAN	cAMP-dependent protein kinase catalytic subunit gamma (PKA C-gamma) (EC 2.7.11.11)	PRKACG
+KAP0_HUMAN	P10644	KAP0_HUMAN	cAMP-dependent protein kinase type I-alpha regulatory subunit (Tissue-specific extinguisher 1) (TSE1)	PRKAR1A PKR1 PRKAR1 TSE1
+KAP2_HUMAN	P13861	KAP2_HUMAN	cAMP-dependent protein kinase type II-alpha regulatory subunit	PRKAR2A PKR2 PRKAR2
+CNR1_HUMAN	P21554	CNR1_HUMAN	Cannabinoid receptor 1 (CB-R) (CB1) (CANN6)	CNR1 CNR
+CNR2_HUMAN	P34972	CNR2_HUMAN	Cannabinoid receptor 2 (CB-2) (CB2) (hCB2) (CX5)	CNR2 CB2A CB2B
+CASP1_HUMAN	P29466	CASP1_HUMAN	Caspase-1 (CASP-1) (EC 3.4.22.36) (Interleukin-1 beta convertase) (IL-1BC) (Interleukin-1 beta-converting enzyme) (ICE) (IL-1 beta-converting enzyme) (p45) [Cleaved into: Caspase-1 subunit p20; Caspase-1 subunit p10]	CASP1 IL1BC IL1BCE
+CASP3_HUMAN	P42574	CASP3_HUMAN	Caspase-3 (CASP-3) (EC 3.4.22.56) (Apopain) (Cysteine protease CPP32) (CPP-32) (Protein Yama) (SREBP cleavage activity 1) (SCA-1) [Cleaved into: Caspase-3 subunit p17; Caspase-3 subunit p12]	CASP3 CPP32
+CD27_HUMAN	P26842	CD27_HUMAN	CD27 antigen (CD27L receptor) (T-cell activation antigen CD27) (T14) (Tumor necrosis factor receptor superfamily member 7) (CD antigen CD27)	CD27 TNFRSF7
+CD59_HUMAN	P13987	CD59_HUMAN	CD59 glycoprotein (1F5 antigen) (20 kDa homologous restriction factor) (HRF-20) (HRF20) (MAC-inhibitory protein) (MAC-IP) (MEM43 antigen) (Membrane attack complex inhibition factor) (MACIF) (Membrane inhibitor of reactive lysis) (MIRL) (Protectin) (CD antigen CD59)	CD59 MIC11 MIN1 MIN2 MIN3 MSK21
+P53_HUMAN	P04637	P53_HUMAN	Cellular tumor antigen p53 (Antigen NY-CO-13) (Phosphoprotein p53) (Tumor suppressor p53)	TP53 P53
+CML1_HUMAN	Q99788	CML1_HUMAN	Chemerin-like receptor 1 (Chemokine-like receptor 1) (G-protein coupled receptor ChemR23) (G-protein coupled receptor DEZ)	CMKLR1 CHEMR23 DEZ
+CAF1A_HUMAN	Q13111	CAF1A_HUMAN	Chromatin assembly factor 1 subunit A (CAF-1 subunit A) (Chromatin assembly factor I p150 subunit) (CAF-I 150 kDa subunit) (CAF-I p150) (hp150)	CHAF1A CAF CAF1P150
+CLD7_HUMAN	O95471	CLD7_HUMAN	Claudin-7 (CLDN-7)	CLDN7 CEPTRL2 CPETRL2
+COF1_HUMAN	P23528	COF1_HUMAN	Cofilin-1 (18 kDa phosphoprotein) (p18) (Cofilin, non-muscle isoform)	CFL1 CFL
+COF2_HUMAN	Q9Y281	COF2_HUMAN	Cofilin-2 (Cofilin, muscle isoform)	CFL2
+DAF_HUMAN	P08174	DAF_HUMAN	Complement decay-accelerating factor (CD antigen CD55)	CD55 CR DAF
+CFAH_HUMAN	P08603	CFAH_HUMAN	Complement factor H (H factor 1)	CFH HF HF1 HF2
+CY24B_HUMAN	P04839	CY24B_HUMAN	Cytochrome b-245 heavy chain (EC 1.-.-.-) (CGD91-phox) (Cytochrome b(558) subunit beta) (Cytochrome b558 subunit beta) (Heme-binding membrane glycoprotein gp91phox) (NADPH oxidase 2) (Neutrophil cytochrome b 91 kDa polypeptide) (Superoxide-generating NADPH oxidase heavy chain subunit) (gp91-1) (gp91-phox) (p22 phagocyte B-cytochrome)	CYBB NOX2
+CP2E1_HUMAN	P05181	CP2E1_HUMAN	Cytochrome P450 2E1 (EC 1.14.14.1) (4-nitrophenol 2-hydroxylase) (EC 1.14.13.n7) (CYPIIE1) (Cytochrome P450-J)	CYP2E1 CYP2E
+DPP4_HUMAN	P27487	DPP4_HUMAN	Dipeptidyl peptidase 4 (EC 3.4.14.5) (ADABP) (Adenosine deaminase complexing protein 2) (ADCP-2) (Dipeptidyl peptidase IV) (DPP IV) (T-cell activation antigen CD26) (TP103) (CD antigen CD26) [Cleaved into: Dipeptidyl peptidase 4 membrane form (Dipeptidyl peptidase IV membrane form); Dipeptidyl peptidase 4 soluble form (Dipeptidyl peptidase IV soluble form)]	DPP4 ADCP2 CD26
+TOP2A_HUMAN	P11388	TOP2A_HUMAN	DNA topoisomerase 2-alpha (EC 5.6.2.2) (DNA topoisomerase II, alpha isozyme)	TOP2A TOP2
+DJB11_HUMAN	Q9UBS4	DJB11_HUMAN	DnaJ homolog subfamily B member 11 (APOBEC1-binding protein 2) (ABBP-2) (DnaJ protein homolog 9) (ER-associated DNAJ) (ER-associated Hsp40 co-chaperone) (Endoplasmic reticulum DNA J domain-containing protein 3) (ER-resident protein ERdj3) (ERdj3) (ERj3p) (HEDJ) (Human DnaJ protein 9) (hDj-9) (PWP1-interacting protein 4)	DNAJB11 EDJ ERJ3 HDJ9 PSEC0121 UNQ537/PRO1080
+RN126_HUMAN	Q9BV68	RN126_HUMAN	E3 ubiquitin-protein ligase RNF126 (EC 2.3.2.27) (RING finger protein 126)	RNF126
+FBLN3_HUMAN	Q12805	FBLN3_HUMAN	EGF-containing fibulin-like extracellular matrix protein 1 (Extracellular protein S1-5) (Fibrillin-like protein) (Fibulin-3) (FIBL-3)	EFEMP1 FBLN3 FBNL
+EVL_HUMAN	Q9UI08	EVL_HUMAN	Ena/VASP-like protein (Ena/vasodilator-stimulated phosphoprotein-like)	EVL RNB6
+MA1B1_HUMAN	Q9UKM7	MA1B1_HUMAN	Endoplasmic reticulum mannosyl-oligosaccharide 1,2-alpha-mannosidase (EC 3.2.1.113) (ER alpha-1,2-mannosidase) (ER mannosidase 1) (ERMan1) (Man9GlcNAc2-specific-processing alpha-mannosidase) (Mannosidase alpha class 1B member 1)	MAN1B1 UNQ747/PRO1477
+ERP44_HUMAN	Q9BS26	ERP44_HUMAN	Endoplasmic reticulum resident protein 44 (ER protein 44) (ERp44) (Thioredoxin domain-containing protein 4)	ERP44 KIAA0573 TXNDC4 UNQ532/PRO1075
+EDEM3_HUMAN	Q9BZQ6	EDEM3_HUMAN	ER degradation-enhancing alpha-mannosidase-like protein 3 (EC 3.2.1.113) (Alpha-1,2-mannosidase EDEM3)	EDEM3 C1orf22
+ESR2_HUMAN	Q92731	ESR2_HUMAN	Estrogen receptor beta (ER-beta) (Nuclear receptor subfamily 3 group A member 2)	ESR2 ESTRB NR3A2
+ESR1_HUMAN	P03372	ESR1_HUMAN	Estrogen receptor (ER) (ER-alpha) (Estradiol receptor) (Nuclear receptor subfamily 3 group A member 1)	ESR1 ESR NR3A1
+EAA2_HUMAN	P43004	EAA2_HUMAN	Excitatory amino acid transporter 2 (Glutamate/aspartate transporter II) (Sodium-dependent glutamate/aspartate transporter 2) (Solute carrier family 1 member 2)	SLC1A2 EAAT2 GLT1
+FGF2_HUMAN	P09038	FGF2_HUMAN	Fibroblast growth factor 2 (FGF-2) (Basic fibroblast growth factor) (bFGF) (Heparin-binding growth factor 2) (HBGF-2)	FGF2 FGFB
+GPR15_HUMAN	P49685	GPR15_HUMAN	G-protein coupled receptor 15 (Brother of Bonzo) (BoB)	GPR15
+GFAP_HUMAN	P14136	GFAP_HUMAN	Glial fibrillary acidic protein (GFAP)	GFAP
+GLU2B_HUMAN	P14314	GLU2B_HUMAN	Glucosidase 2 subunit beta (80K-H protein) (Glucosidase II subunit beta) (Protein kinase C substrate 60.1 kDa protein heavy chain) (PKCSH)	PRKCSH G19P1
+GSK3B_HUMAN	P49841	GSK3B_HUMAN	Glycogen synthase kinase-3 beta (GSK-3 beta) (EC 2.7.11.26) (Serine/threonine-protein kinase GSK3B) (EC 2.7.11.1)	GSK3B
+GNAI1_HUMAN	P63096	GNAI1_HUMAN	Guanine nucleotide-binding protein G(i) subunit alpha-1 (EC 3.6.5.-) (Adenylate cyclase-inhibiting G alpha protein)	GNAI1
+GNAI2_HUMAN	P04899	GNAI2_HUMAN	Guanine nucleotide-binding protein G(i) subunit alpha-2 (Adenylate cyclase-inhibiting G alpha protein)	GNAI2 GNAI2B
+GNAI3_HUMAN	P08754	GNAI3_HUMAN	Guanine nucleotide-binding protein G(i) subunit alpha-3 (G(i) alpha-3)	GNAI3
+HSP13_HUMAN	P48723	HSP13_HUMAN	Heat shock 70 kDa protein 13 (Heat shock protein family A member 13) (Microsomal stress-70 protein ATPase core) (Stress-70 protein chaperone microsome-associated 60 kDa protein)	HSPA13 STCH
+HSP76_HUMAN	P17066	HSP76_HUMAN	Heat shock 70 kDa protein 6 (Heat shock 70 kDa protein B') (Heat shock protein family A member 6)	HSPA6 HSP70B'
+HS105_HUMAN	Q92598	HS105_HUMAN	Heat shock protein 105 kDa (Antigen NY-CO-25) (Heat shock 110 kDa protein) (Heat shock protein family H member 1)	HSPH1 HSP105 HSP110 KIAA0201
+H31_HUMAN	P68431	H31_HUMAN	Histone H3.1 (Histone H3/a) (Histone H3/b) (Histone H3/c) (Histone H3/d) (Histone H3/f) (Histone H3/h) (Histone H3/i) (Histone H3/j) (Histone H3/k) (Histone H3/l)	H3C1 H3FA HIST1H3A; H3C2 H3FL HIST1H3B; H3C3 H3FC HIST1H3C; H3C4 H3FB HIST1H3D; H3C6 H3FD HIST1H3E; H3C7 H3FI HIST1H3F; H3C8 H3FH HIST1H3G; H3C10 H3FK HIST1H3H; H3C11 H3FF HIST1H3I; H3C12 H3FJ HIST1H3J
+HLAE_HUMAN	P13747	HLAE_HUMAN	HLA class I histocompatibility antigen, alpha chain E (MHC class I antigen E) [Cleaved into: Soluble HLA class I histocompatibility antigen, alpha chain E (sHLA-E)]	HLA-E HLA-6.2 HLAE
+HLAF_HUMAN	P30511	HLAF_HUMAN	HLA class I histocompatibility antigen, alpha chain F (CDA12) (HLA F antigen) (Leukocyte antigen F) (MHC class I antigen F)	HLA-F HLA-5.4 HLAF
+HLAG_HUMAN	P17693	HLAG_HUMAN	HLA class I histocompatibility antigen, alpha chain G (HLA G antigen) (MHC class I antigen G) [Cleaved into: Soluble HLA class I histocompatibility antigen, alpha chain G (sHLA-G)]	HLA-G HLA-6.0 HLAG
+DMB_HUMAN	P28068	DMB_HUMAN	HLA class II histocompatibility antigen, DM beta chain (MHC class II antigen DMB) (Really interesting new gene 7 protein)	HLA-DMB DMB RING7
+DOA_HUMAN	P06340	DOA_HUMAN	HLA class II histocompatibility antigen, DO alpha chain (MHC DN-alpha) (MHC DZ alpha) (MHC class II antigen DOA)	HLA-DOA HLA-DNA HLA-DZA
+DOB_HUMAN	P13765	DOB_HUMAN	HLA class II histocompatibility antigen, DO beta chain (MHC class II antigen DOB)	HLA-DOB
+DPA1_HUMAN	P20036	DPA1_HUMAN	HLA class II histocompatibility antigen, DP alpha 1 chain (DP(W3)) (DP(W4)) (HLA-SB alpha chain) (MHC class II DP3-alpha) (MHC class II DPA1)	HLA-DPA1 HLA-DP1A HLASB
+DPB1_HUMAN	P04440	DPB1_HUMAN	HLA class II histocompatibility antigen, DP beta 1 chain (HLA class II histocompatibility antigen, DP(W4) beta chain) (MHC class II antigen DPB1)	HLA-DPB1 HLA-DP1B
+DQA1_HUMAN	P01909	DQA1_HUMAN	HLA class II histocompatibility antigen, DQ alpha 1 chain (DC-1 alpha chain) (DC-alpha) (HLA-DCA) (MHC class II DQA1)	HLA-DQA1
+DQA2_HUMAN	P01906	DQA2_HUMAN	HLA class II histocompatibility antigen, DQ alpha 2 chain (DX alpha chain) (HLA class II histocompatibility antigen, DQ(6) alpha chain) (HLA-DQA1) (MHC class II DQA2)	HLA-DQA2 HLA-DXA
+DQB1_HUMAN	P01920	DQB1_HUMAN	HLA class II histocompatibility antigen, DQ beta 1 chain (MHC class II antigen DQB1)	HLA-DQB1 HLA-DQB
+DQB2_HUMAN	P05538	DQB2_HUMAN	HLA class II histocompatibility antigen, DQ beta 2 chain (HLA class II histocompatibility antigen, DX beta chain) (MHC class II antigen DQB2)	HLA-DQB2 HLA-DXB
+DRA_HUMAN	P01903	DRA_HUMAN	HLA class II histocompatibility antigen, DR alpha chain (MHC class II antigen DRA)	HLA-DRA HLA-DRA1
+HYOU1_HUMAN	Q9Y4L1	HYOU1_HUMAN	Hypoxia up-regulated protein 1 (150 kDa oxygen-regulated protein) (ORP-150) (170 kDa glucose-regulated protein) (GRP-170) (Heat shock protein family H member 4)	HYOU1 GRP170 HSPH4 ORP150
+HIF1A_HUMAN	Q16665	HIF1A_HUMAN	Hypoxia-inducible factor 1-alpha (HIF-1-alpha) (HIF1-alpha) (ARNT-interacting protein) (Basic-helix-loop-helix-PAS protein MOP1) (Class E basic helix-loop-helix protein 78) (bHLHe78) (Member of PAS protein 1) (PAS domain-containing protein 8)	HIF1A BHLHE78 MOP1 PASD8
+ITA5_HUMAN	P08648	ITA5_HUMAN	Integrin alpha-5 (CD49 antigen-like family member E) (Fibronectin receptor subunit alpha) (Integrin alpha-F) (VLA-5) (CD antigen CD49e) [Cleaved into: Integrin alpha-5 heavy chain; Integrin alpha-5 light chain]	ITGA5 FNRA
+ITAL_HUMAN	P20701	ITAL_HUMAN	Integrin alpha-L (CD11 antigen-like family member A) (Leukocyte adhesion glycoprotein LFA-1 alpha chain) (LFA-1A) (Leukocyte function-associated molecule 1 alpha chain) (CD antigen CD11a)	ITGAL CD11A
+ITAM_HUMAN	P11215	ITAM_HUMAN	Integrin alpha-M (CD11 antigen-like family member B) (CR-3 alpha chain) (Cell surface glycoprotein MAC-1 subunit alpha) (Leukocyte adhesion receptor MO1) (Neutrophil adherence receptor) (CD antigen CD11b)	ITGAM CD11B CR3A
+ITAV_HUMAN	P06756	ITAV_HUMAN	Integrin alpha-V (Vitronectin receptor) (Vitronectin receptor subunit alpha) (CD antigen CD51) [Cleaved into: Integrin alpha-V heavy chain; Integrin alpha-V light chain]	ITGAV MSK8 VNRA VTNR
+ITAX_HUMAN	P20702	ITAX_HUMAN	Integrin alpha-X (CD11 antigen-like family member C) (Leu M5) (Leukocyte adhesion glycoprotein p150,95 alpha chain) (Leukocyte adhesion receptor p150,95) (CD antigen CD11c)	ITGAX CD11C
+ITB1_HUMAN	P05556	ITB1_HUMAN	Integrin beta-1 (Fibronectin receptor subunit beta) (Glycoprotein IIa) (GPIIA) (VLA-4 subunit beta) (CD antigen CD29)	ITGB1 FNRB MDF2 MSK12
+ITB2_HUMAN	P05107	ITB2_HUMAN	Integrin beta-2 (Cell surface adhesion glycoproteins LFA-1/CR3/p150,95 subunit beta) (Complement receptor C3 subunit beta) (CD antigen CD18)	ITGB2 CD18 MFI7
+ITB3_HUMAN	P05106	ITB3_HUMAN	Integrin beta-3 (Platelet membrane glycoprotein IIIa) (GPIIIa) (CD antigen CD61)	ITGB3 GP3A
+ITB5_HUMAN	P18084	ITB5_HUMAN	Integrin beta-5	ITGB5
+ITB6_HUMAN	P18564	ITB6_HUMAN	Integrin beta-6	ITGB6
+ICAM1_HUMAN	P05362	ICAM1_HUMAN	Intercellular adhesion molecule 1 (ICAM-1) (Major group rhinovirus receptor) (CD antigen CD54)	ICAM1
+ICAM3_HUMAN	P32942	ICAM3_HUMAN	Intercellular adhesion molecule 3 (ICAM-3) (CDw50) (ICAM-R) (CD antigen CD50)	ICAM3
+IFNA1_HUMAN	P01562	IFNA1_HUMAN	Interferon alpha-1/13 (IFN-alpha-1/13) (Interferon alpha-D) (LeIF D)	IFNA1; IFNA13
+IFN10_HUMAN	P01566	IFN10_HUMAN	Interferon alpha-10 (IFN-alpha-10) (Interferon alpha-6L) (Interferon alpha-C) (LeIF C)	IFNA10
+IFN14_HUMAN	P01570	IFN14_HUMAN	Interferon alpha-14 (IFN-alpha-14) (Interferon alpha-H) (LeIF H) (Interferon lambda-2-H)	IFNA14
+IFN16_HUMAN	P05015	IFN16_HUMAN	Interferon alpha-16 (IFN-alpha-16) (Interferon alpha-WA)	IFNA16
+IFN17_HUMAN	P01571	IFN17_HUMAN	Interferon alpha-17 (IFN-alpha-17) (Interferon alpha-88) (Interferon alpha-I') (LeIF I) (Interferon alpha-T)	IFNA17
+IFNA2_HUMAN	P01563	IFNA2_HUMAN	Interferon alpha-2 (IFN-alpha-2) (Interferon alpha-A) (LeIF A)	IFNA2 IFNA2A IFNA2B IFNA2C
+IFN21_HUMAN	P01568	IFN21_HUMAN	Interferon alpha-21 (IFN-alpha-21) (Interferon alpha-F) (LeIF F)	IFNA21
+IFNA4_HUMAN	P05014	IFNA4_HUMAN	Interferon alpha-4 (IFN-alpha-4) (Interferon alpha-4B) (Interferon alpha-76) (Interferon alpha-M1)	IFNA4
+IFNA5_HUMAN	P01569	IFNA5_HUMAN	Interferon alpha-5 (IFN-alpha-5) (Interferon alpha-61) (Interferon alpha-G) (LeIF G)	IFNA5
+IFNA6_HUMAN	P05013	IFNA6_HUMAN	Interferon alpha-6 (IFN-alpha-6) (Interferon alpha-54) (Interferon alpha-K) (LeIF K)	IFNA6
+IFNA7_HUMAN	P01567	IFNA7_HUMAN	Interferon alpha-7 (IFN-alpha-7) (Interferon alpha-J) (LeIF J) (Interferon alpha-J1) (IFN-alpha-J1)	IFNA7
+IFNA8_HUMAN	P32881	IFNA8_HUMAN	Interferon alpha-8 (IFN-alpha-8) (Interferon alpha-B) (LeIF B) (Interferon alpha-B2)	IFNA8
+IFNG_HUMAN	P01579	IFNG_HUMAN	Interferon gamma (IFN-gamma) (Immune interferon)	IFNG
+IFM1_HUMAN	P13164	IFM1_HUMAN	Interferon-induced transmembrane protein 1 (Dispanin subfamily A member 2a) (DSPA2a) (Interferon-induced protein 17) (Interferon-inducible protein 9-27) (Leu-13 antigen) (CD antigen CD225)	IFITM1 CD225 IFI17
+IFM2_HUMAN	Q01629	IFM2_HUMAN	Interferon-induced transmembrane protein 2 (Dispanin subfamily A member 2c) (DSPA2c) (Interferon-inducible protein 1-8D)	IFITM2
+IFM3_HUMAN	Q01628	IFM3_HUMAN	Interferon-induced transmembrane protein 3 (Dispanin subfamily A member 2b) (DSPA2b) (Interferon-inducible protein 1-8U)	IFITM3
+E2AK2_HUMAN	P19525	E2AK2_HUMAN	Interferon-induced, double-stranded RNA-activated protein kinase (EC 2.7.11.1) (Eukaryotic translation initiation factor 2-alpha kinase 2) (eIF-2A protein kinase 2) (Interferon-inducible RNA-dependent protein kinase) (P1/eIF-2A protein kinase) (Protein kinase RNA-activated) (PKR) (Protein kinase R) (Tyrosine-protein kinase EIF2AK2) (EC 2.7.10.2) (p68 kinase)	EIF2AK2 PKR PRKR
+IL1A_HUMAN	P01583	IL1A_HUMAN	Interleukin-1 alpha (IL-1 alpha) (Hematopoietin-1)	IL1A IL1F1
+IL2_HUMAN	P60568	IL2_HUMAN	Interleukin-2 (IL-2) (T-cell growth factor) (TCGF) (Aldesleukin)	IL2
+IL23A_HUMAN	Q9NPF7	IL23A_HUMAN	Interleukin-23 subunit alpha (IL-23 subunit alpha) (IL-23-A) (Interleukin-23 subunit p19) (IL-23p19)	IL23A SGRF UNQ2498/PRO5798
+IL4_HUMAN	P05112	IL4_HUMAN	Interleukin-4 (IL-4) (B-cell stimulatory factor 1) (BSF-1) (Binetrakin) (Lymphocyte stimulatory factor 1) (Pitrakinra)	IL4
+IL7_HUMAN	P13232	IL7_HUMAN	Interleukin-7 (IL-7)	IL7
+KCNN4_HUMAN	O15554	KCNN4_HUMAN	Intermediate conductance calcium-activated potassium channel protein 4 (SKCa 4) (SKCa4) (hSK4) (Gardos channel) (IKCa1) (hIK1) (KCa3.1) (Putative Gardos channel) (hKCa4)	KCNN4 IK1 IKCA1 KCA4 SK4
+MMP1_HUMAN	P03956	MMP1_HUMAN	Interstitial collagenase (EC 3.4.24.7) (Fibroblast collagenase) (Matrix metalloproteinase-1) (MMP-1) [Cleaved into: 22 kDa interstitial collagenase; 27 kDa interstitial collagenase]	MMP1 CLG
+OPRK_HUMAN	P41145	OPRK_HUMAN	Kappa-type opioid receptor (K-OR-1) (KOR-1)	OPRK1 OPRK
+LIF_HUMAN	P15018	LIF_HUMAN	Leukemia inhibitory factor (LIF) (Differentiation-stimulating factor) (D factor) (Melanoma-derived LPL inhibitor) (MLPLI) (Emfilermin)	LIF HILDA
+LEUK_HUMAN	P16150	LEUK_HUMAN	Leukosialin (GPL115) (Galactoglycoprotein) (GALGP) (Leukocyte sialoglycoprotein) (Sialophorin) (CD antigen CD43) [Cleaved into: CD43 cytoplasmic tail (CD43-ct) (CD43ct)]	SPN CD43
+LIMK1_HUMAN	P53667	LIMK1_HUMAN	LIM domain kinase 1 (LIMK-1) (EC 2.7.11.1)	LIMK1 LIMK
+LIMK2_HUMAN	P53671	LIMK2_HUMAN	LIM domain kinase 2 (LIMK-2) (EC 2.7.11.1)	LIMK2
+LDLR_HUMAN	P01130	LDLR_HUMAN	Low-density lipoprotein receptor (LDL receptor)	LDLR
+LFA3_HUMAN	P19256	LFA3_HUMAN	Lymphocyte function-associated antigen 3 (Ag3) (Surface glycoprotein LFA-3) (CD antigen CD58)	CD58 LFA3
+LSP1_HUMAN	P33241	LSP1_HUMAN	Lymphocyte-specific protein 1 (47 kDa actin-binding protein) (52 kDa phosphoprotein) (pp52) (Lymphocyte-specific antigen WP34)	LSP1 WP34
+XCL1_HUMAN	P47992	XCL1_HUMAN	Lymphotactin (ATAC) (C motif chemokine 1) (Cytokine SCM-1) (Lymphotaxin) (SCM-1-alpha) (Small-inducible cytokine C1) (XC chemokine ligand 1)	XCL1 LTN SCYC1
+MAGT1_HUMAN	Q9H0U3	MAGT1_HUMAN	Magnesium transporter protein 1 (MagT1) (Dolichyl-diphosphooligosaccharide--protein glycosyltransferase subunit MAGT1) (Oligosaccharyl transferase subunit MAGT1) (Implantation-associated protein) (IAP)	MAGT1 IAG2 PSEC0084 UNQ628/PRO1244
+DRB3_HUMAN	P79483	DRB3_HUMAN	HLA class II histocompatibility antigen, DR beta 3 chain (MHC class II antigen DRB3)	HLA-DRB3
+DRB4_HUMAN	P13762	DRB4_HUMAN	HLA class II histocompatibility antigen, DR beta 4 chain (MHC class II antigen DRB4)	HLA-DRB4
+DRB5_HUMAN	Q30154	DRB5_HUMAN	HLA class II histocompatibility antigen, DR beta 5 chain (DR beta-5) (DR2-beta-2) (Dw2) (MHC class II antigen DRB5)	HLA-DRB5
+MOGS_HUMAN	Q13724	MOGS_HUMAN	Mannosyl-oligosaccharide glucosidase (EC 3.2.1.106) (Processing A-glucosidase I)	MOGS GCS1
+MMP9_HUMAN	P14780	MMP9_HUMAN	Matrix metalloproteinase-9 (MMP-9) (EC 3.4.24.35) (92 kDa gelatinase) (92 kDa type IV collagenase) (Gelatinase B) (GELB) [Cleaved into: 67 kDa matrix metalloproteinase-9; 82 kDa matrix metalloproteinase-9]	MMP9 CLG4B
+MK14_HUMAN	Q16539	MK14_HUMAN	Mitogen-activated protein kinase 14 (MAP kinase 14) (MAPK 14) (EC 2.7.11.24) (Cytokine suppressive anti-inflammatory drug-binding protein) (CSAID-binding protein) (CSBP) (MAP kinase MXI2) (MAX-interacting protein 2) (Mitogen-activated protein kinase p38 alpha) (MAP kinase p38 alpha) (Stress-activated protein kinase 2a) (SAPK2a)	MAPK14 CSBP CSBP1 CSBP2 CSPB1 MXI2 SAPK2A
+M3K11_HUMAN	Q16584	M3K11_HUMAN	Mitogen-activated protein kinase kinase kinase 11 (EC 2.7.11.25) (Mixed lineage kinase 3) (Src-homology 3 domain-containing proline-rich kinase)	MAP3K11 MLK3 PTK1 SPRK
+SMAD7_HUMAN	O15105	SMAD7_HUMAN	Mothers against decapentaplegic homolog 7 (MAD homolog 7) (Mothers against DPP homolog 7) (Mothers against decapentaplegic homolog 8) (MAD homolog 8) (Mothers against DPP homolog 8) (SMAD family member 7) (SMAD 7) (Smad7) (hSMAD7)	SMAD7 MADH7 MADH8
+FPR2_HUMAN	P25090	FPR2_HUMAN	N-formyl peptide receptor 2 (FMLP-related receptor I) (FMLP-R-I) (Formyl peptide receptor-like 1) (HM63) (Lipoxin A4 receptor) (LXA4 receptor) (RFP)	FPR2 FPRH1 FPRL1 LXA4R
+NHRF1_HUMAN	O14745	NHRF1_HUMAN	Na(+)/H(+) exchange regulatory cofactor NHE-RF1 (NHERF-1) (Ezrin-radixin-moesin-binding phosphoprotein 50) (EBP50) (Regulatory cofactor of Na(+)/H(+) exchanger) (Sodium-hydrogen exchanger regulatory factor 1) (Solute carrier family 9 isoform A3 regulatory factor 1)	NHERF1 NHERF SLC9A3R1
+NOX4_HUMAN	Q9NPH5	NOX4_HUMAN	NADPH oxidase 4 (EC 1.6.3.1) (Kidney oxidase-1) (KOX-1) (Kidney superoxide-producing NADPH oxidase) (Renal NAD(P)H-oxidase)	NOX4 RENOX
+NECT1_HUMAN	Q15223	NECT1_HUMAN	Nectin-1 (Herpes virus entry mediator C) (Herpesvirus entry mediator C) (HveC) (Herpesvirus Ig-like receptor) (HIgR) (Nectin cell adhesion molecule 1) (Poliovirus receptor-related protein 1) (CD antigen CD111)	NECTIN1 HVEC PRR1 PVRL1
+GANAB_HUMAN	Q14697	GANAB_HUMAN	Neutral alpha-glucosidase AB (EC 3.2.1.207) (Alpha-glucosidase 2) (Glucosidase II subunit alpha)	GANAB G2AN KIAA0088
+NOS1_HUMAN	P29475	NOS1_HUMAN	Nitric oxide synthase 1 (EC 1.14.13.39) (Constitutive NOS) (NC-NOS) (NOS type I) (Neuronal NOS) (N-NOS) (nNOS) (Nitric oxide synthase, brain) (bNOS) (Peptidyl-cysteine S-nitrosylase NOS1)	NOS1
+NFKB1_HUMAN	P19838	NFKB1_HUMAN	Nuclear factor NF-kappa-B p105 subunit (DNA-binding factor KBF1) (EBP-1) (Nuclear factor of kappa light polypeptide gene enhancer in B-cells 1) [Cleaved into: Nuclear factor NF-kappa-B p50 subunit]	NFKB1
+SEH1_HUMAN	Q96EE3	SEH1_HUMAN	Nucleoporin SEH1 (GATOR2 complex protein SEH1) (Nup107-160 subcomplex subunit SEH1) (SEC13-like protein)	SEH1L SEC13L SEH1
+P2RX1_HUMAN	P51575	P2RX1_HUMAN	P2X purinoceptor 1 (P2X1) (ATP receptor) (Purinergic receptor)	P2RX1 P2X1
+P2RX7_HUMAN	Q99572	P2RX7_HUMAN	P2X purinoceptor 7 (P2X7) (ATP receptor) (P2Z receptor) (Purinergic receptor)	P2RX7
+PANX1_HUMAN	Q96RD7	PANX1_HUMAN	Pannexin-1 (PANX1) [Cleaved into: Caspase-activated pannexin-1 (Caspase-activated PANX1)]	PANX1 MRS1 UNQ2529/PRO6028
+IL16_HUMAN	Q14005	IL16_HUMAN	Pro-interleukin-16 [Cleaved into: Interleukin-16 (IL-16) (Lymphocyte chemoattractant factor) (LCF)]	IL16
+DDX6_HUMAN	P26196	DDX6_HUMAN	Probable ATP-dependent RNA helicase DDX6 (EC 3.6.4.13) (ATP-dependent RNA helicase p54) (DEAD box protein 6) (Oncogene RCK)	DDX6 HLR2 RCK
+P4HA2_HUMAN	O15460	P4HA2_HUMAN	Prolyl 4-hydroxylase subunit alpha-2 (4-PH alpha-2) (EC 1.14.11.2) (Procollagen-proline,2-oxoglutarate-4-dioxygenase subunit alpha-2)	P4HA2 UNQ290/PRO330
+PGH1_HUMAN	P23219	PGH1_HUMAN	Prostaglandin G/H synthase 1 (EC 1.14.99.1) (Cyclooxygenase-1) (COX-1) (Prostaglandin H2 synthase 1) (PGH synthase 1) (PGHS-1) (PHS 1) (Prostaglandin-endoperoxide synthase 1)	PTGS1 COX1
+PGH2_HUMAN	P35354	PGH2_HUMAN	Prostaglandin G/H synthase 2 (EC 1.14.99.1) (Cyclooxygenase-2) (COX-2) (PHS II) (Prostaglandin H2 synthase 2) (PGH synthase 2) (PGHS-2) (Prostaglandin-endoperoxide synthase 2)	PTGS2 COX2
+PSB6_HUMAN	P28072	PSB6_HUMAN	Proteasome subunit beta type-6 (EC 3.4.25.1) (Macropain delta chain) (Multicatalytic endopeptidase complex delta chain) (Proteasome delta chain) (Proteasome subunit Y) (Proteasome subunit beta-1) (beta-1)	PSMB6 LMPY Y
+CASC3_HUMAN	O15234	CASC3_HUMAN	Protein CASC3 (Cancer susceptibility candidate gene 3 protein) (Metastatic lymph node gene 51 protein) (MLN 51) (Protein barentsz) (Btz)	CASC3 MLN51
+PDIA3_HUMAN	P30101	PDIA3_HUMAN	Protein disulfide-isomerase A3 (EC 5.3.4.1) (58 kDa glucose-regulated protein) (58 kDa microsomal protein) (p58) (Disulfide isomerase ER-60) (Endoplasmic reticulum resident protein 57) (ER protein 57) (ERp57) (Endoplasmic reticulum resident protein 60) (ER protein 60) (ERp60)	PDIA3 ERP57 ERP60 GRP58
+PDIA4_HUMAN	P13667	PDIA4_HUMAN	Protein disulfide-isomerase A4 (EC 5.3.4.1) (Endoplasmic reticulum resident protein 70) (ER protein 70) (ERp70) (Endoplasmic reticulum resident protein 72) (ER protein 72) (ERp-72) (ERp72)	PDIA4 ERP70 ERP72
+PDIA5_HUMAN	Q14554	PDIA5_HUMAN	Protein disulfide-isomerase A5 (EC 5.3.4.1) (Protein disulfide isomerase-related protein)	PDIA5 PDIR
+PDIA6_HUMAN	Q15084	PDIA6_HUMAN	Protein disulfide-isomerase A6 (EC 5.3.4.1) (Endoplasmic reticulum protein 5) (ER protein 5) (ERp5) (Protein disulfide isomerase P5) (Thioredoxin domain-containing protein 7)	PDIA6 ERP5 P5 TXNDC7
+PDIA1_HUMAN	P07237	PDIA1_HUMAN	Protein disulfide-isomerase (PDI) (EC 5.3.4.1) (Cellular thyroid hormone-binding protein) (Prolyl 4-hydroxylase subunit beta) (p55)	P4HB ERBA2L PDI PDIA1 PO4DB
+MCRI2_HUMAN	Q9BUT9	MCRI2_HUMAN	MAPK regulated corepressor interacting protein 2 (Protein FAM195A)	MCRIP2 C16orf14 FAM195A
+KPCA_HUMAN	P17252	KPCA_HUMAN	Protein kinase C alpha type (PKC-A) (PKC-alpha) (EC 2.7.11.13)	PRKCA PKCA PRKACA
+KPCB_HUMAN	P05771	KPCB_HUMAN	Protein kinase C beta type (PKC-B) (PKC-beta) (EC 2.7.11.13)	PRKCB PKCB PRKCB1
+KPCD_HUMAN	Q05655	KPCD_HUMAN	Protein kinase C delta type (EC 2.7.11.13) (Tyrosine-protein kinase PRKCD) (EC 2.7.10.2) (nPKC-delta) [Cleaved into: Protein kinase C delta type regulatory subunit; Protein kinase C delta type catalytic subunit (Sphingosine-dependent protein kinase-1) (SDK1)]	PRKCD PKCD
+KPCE_HUMAN	Q02156	KPCE_HUMAN	Protein kinase C epsilon type (EC 2.7.11.13) (nPKC-epsilon)	PRKCE PKCE
+KPCL_HUMAN	P24723	KPCL_HUMAN	Protein kinase C eta type (EC 2.7.11.13) (PKC-L) (nPKC-eta)	PRKCH PKCL PRKCL
+KPCG_HUMAN	P05129	KPCG_HUMAN	Protein kinase C gamma type (PKC-gamma) (EC 2.7.11.13)	PRKCG PKCG
+KPCI_HUMAN	P41743	KPCI_HUMAN	Protein kinase C iota type (EC 2.7.11.13) (Atypical protein kinase C-lambda/iota) (PRKC-lambda/iota) (aPKC-lambda/iota) (nPKC-iota)	PRKCI DXS1179E
+KPCT_HUMAN	Q04759	KPCT_HUMAN	Protein kinase C theta type (EC 2.7.11.13) (nPKC-theta)	PRKCQ PRKCT
+KPCZ_HUMAN	Q05513	KPCZ_HUMAN	Protein kinase C zeta type (EC 2.7.11.13) (nPKC-zeta)	PRKCZ PKC2
+LSM12_HUMAN	Q3MHD2	LSM12_HUMAN	Protein LSM12	LSM12
+S61A1_HUMAN	P61619	S61A1_HUMAN	Protein transport protein Sec61 subunit alpha isoform 1 (Sec61 alpha-1)	SEC61A1 SEC61A
+DCAF1_HUMAN	Q9Y4B6	DCAF1_HUMAN	DDB1- and CUL4-associated factor 1 (HIV-1 Vpr-binding protein) (VprBP) (Serine/threonine-protein kinase VPRBP) (EC 2.7.11.1) (Vpr-interacting protein)	DCAF1 KIAA0800 RIP VPRBP
+TGM2_HUMAN	P21980	TGM2_HUMAN	Protein-glutamine gamma-glutamyltransferase 2 (EC 2.3.2.13) (Erythrocyte transglutaminase) (Heart G alpha(h)) (hhG alpha(h)) (Isopeptidase TGM2) (EC 3.4.-.-) (Protein G alpha(h)) (G(h)) (Protein-glutamine deamidase TGM2) (EC 3.5.1.44) (Protein-glutamine dopaminyltransferase TGM2) (EC 2.3.1.-) (Protein-glutamine histaminyltransferase TGM2) (EC 2.3.1.-) (Protein-glutamine noradrenalinyltransferase TGM2) (EC 2.3.1.-) (Protein-glutamine serotonyltransferase TGM2) (EC 2.3.1.-) (Tissue transglutaminase) (tTG) (tTgase) (Transglutaminase C) (TG(C)) (TGC) (TGase C) (Transglutaminase H) (TGase H) (Transglutaminase II) (TGase II) (Transglutaminase-2) (TG2) (TGase-2) (hTG2)	TGM2
+TGM4_HUMAN	P49221	TGM4_HUMAN	Protein-glutamine gamma-glutamyltransferase 4 (EC 2.3.2.13) (Fibrinoligase) (Prostate transglutaminase) (Prostate-specific transglutaminase) (Transglutaminase P) (TG(P)) (TGP) (TGase P) (Transglutaminase-4) (TGase-4)	TGM4
+TGM5_HUMAN	O43548	TGM5_HUMAN	Protein-glutamine gamma-glutamyltransferase 5 (EC 2.3.2.13) (Transglutaminase X) (TG(X)) (TGX) (TGase X) (Transglutaminase-5) (TGase-5)	TGM5 TGMX
+TGM3L_HUMAN	O95932	TGM3L_HUMAN	Protein-glutamine gamma-glutamyltransferase 6 (EC 2.3.2.13) (Transglutaminase Y) (TGY) (TGase Y) (Transglutaminase-3-like) (TGase-3-like) (Transglutaminase-6) (TG6) (TGase-6)	TGM6 TGM3L
+TGM3_HUMAN	Q08188	TGM3_HUMAN	Protein-glutamine gamma-glutamyltransferase E (EC 2.3.2.13) (Transglutaminase E) (TG(E)) (TGE) (TGase E) (Transglutaminase-3) (TGase-3) [Cleaved into: Protein-glutamine gamma-glutamyltransferase E 50 kDa catalytic chain; Protein-glutamine gamma-glutamyltransferase E 27 kDa non-catalytic chain]	TGM3
+TGM1_HUMAN	P22735	TGM1_HUMAN	Protein-glutamine gamma-glutamyltransferase K (EC 2.3.2.13) (Epidermal TGase) (Transglutaminase K) (TG(K)) (TGK) (TGase K) (Transglutaminase-1) (TGase-1)	TGM1 KTG
+TGM7_HUMAN	Q96PF1	TGM7_HUMAN	Protein-glutamine gamma-glutamyltransferase Z (Transglutaminase Z) (TG(Z)) (TGZ) (TGase Z) (EC 2.3.2.13) (Transglutaminase-7) (TGase-7)	TGM7
+TPST1_HUMAN	O60507	TPST1_HUMAN	Protein-tyrosine sulfotransferase 1 (EC 2.8.2.20) (Tyrosylprotein sulfotransferase 1) (TPST-1)	TPST1
+TPST2_HUMAN	O60704	TPST2_HUMAN	Protein-tyrosine sulfotransferase 2 (EC 2.8.2.20) (Tyrosylprotein sulfotransferase 2) (TPST-2)	TPST2
+FOS_HUMAN	P01100	FOS_HUMAN	Protein c-Fos (Cellular oncogene fos) (Fos proto-oncogene, AP-1 transcription factor subunit) (G0/G1 switch regulatory protein 7) (Proto-oncogene c-Fos) (Transcription factor AP-1 subunit c-Fos)	FOS G0S7
+RAF1_HUMAN	P04049	RAF1_HUMAN	RAF proto-oncogene serine/threonine-protein kinase (EC 2.7.11.1) (Proto-oncogene c-RAF) (cRaf) (Raf-1)	RAF1 RAF
+G3BP1_HUMAN	Q13283	G3BP1_HUMAN	Ras GTPase-activating protein-binding protein 1 (G3BP-1) (EC 3.6.4.12) (EC 3.6.4.13) (ATP-dependent DNA helicase VIII) (hDH VIII) (GAP SH3 domain-binding protein 1)	G3BP1 G3BP
+G3BP2_HUMAN	Q9UN86	G3BP2_HUMAN	Ras GTPase-activating protein-binding protein 2 (G3BP-2) (GAP SH3 domain-binding protein 2)	G3BP2 KIAA0660
+PTPRA_HUMAN	P18433	PTPRA_HUMAN	Receptor-type tyrosine-protein phosphatase alpha (Protein-tyrosine phosphatase alpha) (R-PTP-alpha) (EC 3.1.3.48)	PTPRA PTPA PTPRL2
+PTPRB_HUMAN	P23467	PTPRB_HUMAN	Receptor-type tyrosine-protein phosphatase beta (Protein-tyrosine phosphatase beta) (R-PTP-beta) (EC 3.1.3.48) (Vascular endothelial protein tyrosine phosphatase) (VE-PTP)	PTPRB PTPB
+PTPRC_HUMAN	P08575	PTPRC_HUMAN	Receptor-type tyrosine-protein phosphatase C (EC 3.1.3.48) (Leukocyte common antigen) (L-CA) (T200) (CD antigen CD45)	PTPRC CD45
+PTPRO_HUMAN	Q16827	PTPRO_HUMAN	Receptor-type tyrosine-protein phosphatase O (R-PTP-O) (EC 3.1.3.48) (Glomerular epithelial protein 1) (Protein tyrosine phosphatase U2) (PTP-U2) (PTPase U2)	PTPRO GLEPP1 PTPU2
+RCN2_HUMAN	Q14257	RCN2_HUMAN	Reticulocalbin-2 (Calcium-binding protein ERC-55) (E6-binding protein) (E6BP)	RCN2 ERC55
+ROCK1_HUMAN	Q13464	ROCK1_HUMAN	Rho-associated protein kinase 1 (EC 2.7.11.1) (Renal carcinoma antigen NY-REN-35) (Rho-associated, coiled-coil-containing protein kinase 1) (Rho-associated, coiled-coil-containing protein kinase I) (ROCK-I) (p160 ROCK-1) (p160ROCK)	ROCK1
+ROCK2_HUMAN	O75116	ROCK2_HUMAN	Rho-associated protein kinase 2 (EC 2.7.11.1) (Rho kinase 2) (Rho-associated, coiled-coil-containing protein kinase 2) (Rho-associated, coiled-coil-containing protein kinase II) (ROCK-II) (p164 ROCK-2)	ROCK2 KIAA0619
+ROBO1_HUMAN	Q9Y6N7	ROBO1_HUMAN	Roundabout homolog 1 (Deleted in U twenty twenty) (H-Robo-1)	ROBO1 DUTT1
+SERPH_HUMAN	P50454	SERPH_HUMAN	Serpin H1 (47 kDa heat shock protein) (Arsenic-transactivated protein 3) (AsTP3) (Cell proliferation-inducing gene 14 protein) (Collagen-binding protein) (Colligin) (Rheumatoid arthritis-related antigen RA-A47)	SERPINH1 CBP1 CBP2 HSP47 SERPINH2 PIG14
+PON2_HUMAN	Q15165	PON2_HUMAN	Serum paraoxonase/arylesterase 2 (PON 2) (EC 3.1.1.2) (EC 3.1.1.81) (Aromatic esterase 2) (A-esterase 2) (Serum aryldialkylphosphatase 2)	PON2
+SN_HUMAN	Q9BZZ2	SN_HUMAN	Sialoadhesin (Sialic acid-binding Ig-like lectin 1) (Siglec-1) (CD antigen CD169)	SIGLEC1 SN
+KCNN1_HUMAN	Q92952	KCNN1_HUMAN	Small conductance calcium-activated potassium channel protein 1 (SK1) (SKCa 1) (SKCa1) (hSK1) (KCa2.1)	KCNN1 SK
+KCNN2_HUMAN	Q9H2S1	KCNN2_HUMAN	Small conductance calcium-activated potassium channel protein 2 (SK2) (SKCa 2) (SKCa2) (KCa2.2)	KCNN2
+KCNN3_HUMAN	Q9UGI6	KCNN3_HUMAN	Small conductance calcium-activated potassium channel protein 3 (SK3) (SKCa 3) (SKCa3) (KCa2.3)	KCNN3 K3
+SDF1_HUMAN	P48061	SDF1_HUMAN	Stromal cell-derived factor 1 (SDF-1) (hSDF-1) (C-X-C motif chemokine 12) (Intercrine reduced in hepatomas) (IRH) (hIRH) (Pre-B cell growth-stimulating factor) (PBSF) [Cleaved into: SDF-1-beta(3-72); SDF-1-alpha(3-67)]	CXCL12 SDF1 SDF1A SDF1B
+SDF2_HUMAN	Q99470	SDF2_HUMAN	Stromal cell-derived factor 2 (SDF-2)	SDF2
+SDF2L_HUMAN	Q9HCN8	SDF2L_HUMAN	Stromal cell-derived factor 2-like protein 1 (SDF2-like protein 1) (PWP1-interacting protein 8)	SDF2L1 UNQ1941/PRO4424
+MMP3_HUMAN	P08254	MMP3_HUMAN	Stromelysin-1 (SL-1) (EC 3.4.24.17) (Matrix metalloproteinase-3) (MMP-3) (Transin-1)	MMP3 STMY1
+SUMF2_HUMAN	Q8NBJ7	SUMF2_HUMAN	Inactive C-alpha-formylglycine-generating enzyme 2 (Paralog of formylglycine-generating enzyme) (pFGE) (Sulfatase-modifying factor 2)	SUMF2 PSEC0171 UNQ1968/PRO4500
+CD2_HUMAN	P06729	CD2_HUMAN	T-cell surface antigen CD2 (Erythrocyte receptor) (LFA-2) (LFA-3 receptor) (Rosette receptor) (T-cell surface antigen T11/Leu-5) (CD antigen CD2)	CD2 SRBC
+CD3D_HUMAN	P04234	CD3D_HUMAN	T-cell surface glycoprotein CD3 delta chain (T-cell receptor T3 delta chain) (CD antigen CD3d)	CD3D T3D
+CD3E_HUMAN	P07766	CD3E_HUMAN	T-cell surface glycoprotein CD3 epsilon chain (T-cell surface antigen T3/Leu-4 epsilon chain) (CD antigen CD3e)	CD3E T3E
+CD3G_HUMAN	P09693	CD3G_HUMAN	T-cell surface glycoprotein CD3 gamma chain (T-cell receptor T3 gamma chain) (CD antigen CD3g)	CD3G T3G
+CD28_HUMAN	P10747	CD28_HUMAN	T-cell-specific surface glycoprotein CD28 (TP44) (CD antigen CD28)	CD28
+TAB2_HUMAN	Q9NYJ8	TAB2_HUMAN	TGF-beta-activated kinase 1 and MAP3K7-binding protein 2 (Mitogen-activated protein kinase kinase kinase 7-interacting protein 2) (TAK1-binding protein 2) (TAB-2) (TGF-beta-activated kinase 1-binding protein 2)	TAB2 KIAA0733 MAP3K7IP2
+TXND5_HUMAN	Q8NBS9	TXND5_HUMAN	Thioredoxin domain-containing protein 5 (EC 1.8.4.-) (EC 5.3.4.1) (Endoplasmic reticulum resident protein 46) (ER protein 46) (ERp46) (Thioredoxin-like protein p46)	TXNDC5 TLP46 UNQ364/PRO700
+THIO_HUMAN	P10599	THIO_HUMAN	Thioredoxin (Trx) (ATL-derived factor) (ADF) (Surface-associated sulphydryl protein) (SASP) (allergen Hom s Trx)	TXN TRDX TRX TRX1
+TOR1A_HUMAN	O14656	TOR1A_HUMAN	Torsin-1A (Dystonia 1 protein) (Torsin ATPase-1A) (EC 3.6.4.-) (Torsin family 1 member A)	TOR1A DQ2 DYT1 TA TORA
+JUN_HUMAN	P05412	JUN_HUMAN	Transcription factor Jun (Activator protein 1) (AP1) (Proto-oncogene c-Jun) (Transcription factor AP-1 subunit Jun) (V-jun avian sarcoma virus 17 oncogene homolog) (p39)	JUN
+TF65_HUMAN	Q04206	TF65_HUMAN	Transcription factor p65 (Nuclear factor NF-kappa-B p65 subunit) (Nuclear factor of kappa light polypeptide gene enhancer in B-cells 3)	RELA NFKB3
+SPI1_HUMAN	P17947	SPI1_HUMAN	Transcription factor PU.1 (31 kDa-transforming protein)	SPI1
+TGFB1_HUMAN	P01137	TGFB1_HUMAN	Transforming growth factor beta-1 proprotein [Cleaved into: Latency-associated peptide (LAP); Transforming growth factor beta-1 (TGF-beta-1)]	TGFB1 TGFB
+RHOA_HUMAN	P61586	RHOA_HUMAN	Transforming protein RhoA (EC 3.6.5.2) (Rho cDNA clone 12) (h12)	RHOA ARH12 ARHA RHO12
+TMM43_HUMAN	Q9BTV4	TMM43_HUMAN	Transmembrane protein 43 (Protein LUMA)	TMEM43 UNQ2564/PRO6244
+TNFA_HUMAN	P01375	TNFA_HUMAN	Tumor necrosis factor (Cachectin) (TNF-alpha) (Tumor necrosis factor ligand superfamily member 2) (TNF-a) [Cleaved into: Tumor necrosis factor, membrane form (N-terminal fragment) (NTF); Intracellular domain 1 (ICD1); Intracellular domain 2 (ICD2); C-domain 1; C-domain 2; Tumor necrosis factor, soluble form]	TNF TNFA TNFSF2
+TNF10_HUMAN	P50591	TNF10_HUMAN	Tumor necrosis factor ligand superfamily member 10 (Apo-2 ligand) (Apo-2L) (TNF-related apoptosis-inducing ligand) (Protein TRAIL) (CD antigen CD253)	TNFSF10 APO2L TRAIL
+TNFL6_HUMAN	P48023	TNFL6_HUMAN	Tumor necrosis factor ligand superfamily member 6 (Apoptosis antigen ligand) (APTL) (CD95 ligand) (CD95-L) (Fas antigen ligand) (Fas ligand) (FasL) (CD antigen CD178) [Cleaved into: Tumor necrosis factor ligand superfamily member 6, membrane form; Tumor necrosis factor ligand superfamily member 6, soluble form (Receptor-binding FasL ectodomain) (Soluble Fas ligand) (sFasL); ADAM10-processed FasL form (APL); FasL intracellular domain (FasL ICD) (SPPL2A-processed FasL form) (SPA)]	FASLG APT1LG1 CD95L FASL TNFSF6
+TNR1B_HUMAN	P20333	TNR1B_HUMAN	Tumor necrosis factor receptor superfamily member 1B (Tumor necrosis factor receptor 2) (TNF-R2) (Tumor necrosis factor receptor type II) (TNF-RII) (TNFR-II) (p75) (p80 TNF-alpha receptor) (CD antigen CD120b) (Etanercept) [Cleaved into: Tumor necrosis factor receptor superfamily member 1b, membrane form; Tumor necrosis factor-binding protein 2 (TBP-2) (TBPII)]	TNFRSF1B TNFBR TNFR2
+TNR6_HUMAN	P25445	TNR6_HUMAN	Tumor necrosis factor receptor superfamily member 6 (Apo-1 antigen) (Apoptosis-mediating surface antigen FAS) (FASLG receptor) (CD antigen CD95)	FAS APT1 FAS1 TNFRSF6
+LCK_HUMAN	P06239	LCK_HUMAN	Tyrosine-protein kinase Lck (EC 2.7.10.2) (Leukocyte C-terminal Src kinase) (LSK) (Lymphocyte cell-specific protein-tyrosine kinase) (Protein YT16) (Proto-oncogene Lck) (T cell-specific protein-tyrosine kinase) (p56-LCK)	LCK
+ZAP70_HUMAN	P43403	ZAP70_HUMAN	Tyrosine-protein kinase ZAP-70 (EC 2.7.10.2) (70 kDa zeta-chain associated protein) (Syk-related tyrosine kinase)	ZAP70 SRK
+VTNC_HUMAN	P04004	VTNC_HUMAN	Vitronectin (VN) (S-protein) (Serum-spreading factor) (V75) [Cleaved into: Vitronectin V65 subunit; Vitronectin V10 subunit; Somatomedin-B]	VTN
+WASP_HUMAN	P42768	WASP_HUMAN	Actin nucleation-promoting factor WAS (Wiskott-Aldrich syndrome protein) (WASp)	WAS IMD2
+4F2_HUMAN	P08195	4F2_HUMAN	Amino acid transporter heavy chain SLC3A2 (4F2 cell-surface antigen heavy chain) (4F2hc) (4F2 heavy chain antigen) (Lymphocyte activation antigen 4F2 large subunit) (Solute carrier family 3 member 2) (CD antigen CD98)	SLC3A2 MDU1
+BIP_HUMAN	P11021	BIP_HUMAN	Endoplasmic reticulum chaperone BiP (EC 3.6.4.10) (78 kDa glucose-regulated protein) (GRP-78) (Binding-immunoglobulin protein) (BiP) (Heat shock protein 70 family protein 5) (HSP70 family protein 5) (Heat shock protein family A member 5) (Immunoglobulin heavy chain-binding protein)	HSPA5 GRP78
+FUT8_HUMAN	Q9BYC5	FUT8_HUMAN	Alpha-(1,6)-fucosyltransferase (Alpha1-6FucT) (EC 2.4.1.68) (Fucosyltransferase 8) (GDP-L-Fuc:N-acetyl-beta-D-glucosaminide alpha1,6-fucosyltransferase) (GDP-fucose--glycoprotein fucosyltransferase) (Glycoprotein 6-alpha-L-fucosyltransferase)	FUT8
+A1AT_HUMAN	P01009	A1AT_HUMAN	Alpha-1-antitrypsin (Alpha-1 protease inhibitor) (Alpha-1-antiproteinase) (Serpin A1) [Cleaved into: Short peptide from AAT (SPAAT)]	SERPINA1 AAT PI PRO0684 PRO2209
+A4_HUMAN	P05067	A4_HUMAN	Amyloid-beta precursor protein (APP) (ABPP) (APPI) (Alzheimer disease amyloid A4 protein homolog) (Alzheimer disease amyloid protein) (Amyloid precursor protein) (Amyloid-beta (A4) precursor protein) (Amyloid-beta A4 protein) (Cerebral vascular amyloid peptide) (CVAP) (PreA4) (Protease nexin-II) (PN-II) [Cleaved into: N-APP; Soluble APP-alpha (S-APP-alpha); Soluble APP-beta (S-APP-beta); C99 (Beta-secretase C-terminal fragment) (Beta-CTF); Amyloid-beta protein 42 (Abeta42) (Beta-APP42); Amyloid-beta protein 40 (Abeta40) (Beta-APP40); C83 (Alpha-secretase C-terminal fragment) (Alpha-CTF); P3(42); P3(40); C80; Gamma-secretase C-terminal fragment 59 (Amyloid intracellular domain 59) (AICD-59) (AID(59)) (Gamma-CTF(59)); Gamma-secretase C-terminal fragment 57 (Amyloid intracellular domain 57) (AICD-57) (AID(57)) (Gamma-CTF(57)); Gamma-secretase C-terminal fragment 50 (Amyloid intracellular domain 50) (AICD-50) (AID(50)) (Gamma-CTF(50)); C31]	APP A4 AD1
+AP1M1_HUMAN	Q9BXS5	AP1M1_HUMAN	AP-1 complex subunit mu-1 (AP-mu chain family member mu1A) (Adaptor protein complex AP-1 subunit mu-1) (Adaptor-related protein complex 1 subunit mu-1) (Clathrin assembly protein complex 1 mu-1 medium chain 1) (Clathrin coat assembly protein AP47) (Clathrin coat-associated protein AP47) (Golgi adaptor HA1/AP1 adaptin mu-1 subunit) (Mu-adaptin 1) (Mu1A-adaptin)	AP1M1 CLTNM
+AP3M2_HUMAN	P53677	AP3M2_HUMAN	AP-3 complex subunit mu-2 (Adaptor-related protein complex 3 subunit mu-2) (Clathrin assembly protein assembly protein complex 3 mu-2 medium chain) (Clathrin coat assembly protein AP47 homolog 2) (Clathrin coat-associated protein AP47 homolog 2) (Golgi adaptor AP-1 47 kDa protein homolog 2) (HA1 47 kDa subunit homolog 2) (Mu3B-adaptin) (P47B)	AP3M2
+CATD_HUMAN	P07339	CATD_HUMAN	Cathepsin D (EC 3.4.23.5) [Cleaved into: Cathepsin D light chain; Cathepsin D heavy chain]	CTSD CPSD
+CLN6_HUMAN	Q9NWW5	CLN6_HUMAN	Ceroid-lipofuscinosis neuronal protein 6 (Protein CLN6)	CLN6
+CYTC_HUMAN	P01034	CYTC_HUMAN	Cystatin-C (Cystatin-3) (Gamma-trace) (Neuroendocrine basic polypeptide) (Post-gamma-globulin)	CST3
+COX41_HUMAN	P13073	COX41_HUMAN	Cytochrome c oxidase subunit 4 isoform 1, mitochondrial (Cytochrome c oxidase polypeptide IV) (Cytochrome c oxidase subunit IV isoform 1) (COX IV-1)	COX4I1 COX4
+CKAP4_HUMAN	Q07065	CKAP4_HUMAN	Cytoskeleton-associated protein 4 (63-kDa cytoskeleton-linking membrane protein) (Climp-63) (p63)	CKAP4
+DHC24_HUMAN	Q15392	DHC24_HUMAN	Delta(24)-sterol reductase (EC 1.3.1.72) (24-dehydrocholesterol reductase) (3-beta-hydroxysterol Delta-24-reductase) (Diminuto/dwarf1 homolog) (Seladin-1)	DHCR24 KIAA0018
+DSC3_HUMAN	Q14574	DSC3_HUMAN	Desmocollin-3 (Cadherin family member 3) (Desmocollin-4) (HT-CP)	DSC3 CDHF3 DSC4
+TOPB1_HUMAN	Q92547	TOPB1_HUMAN	DNA topoisomerase 2-binding protein 1 (DNA topoisomerase II-beta-binding protein 1) (TopBP1) (DNA topoisomerase II-binding protein 1)	TOPBP1 KIAA0259
+DREB_HUMAN	Q16643	DREB_HUMAN	Drebrin (Developmentally-regulated brain protein)	DBN1 D0S117E
+RNF5_HUMAN	Q99942	RNF5_HUMAN	E3 ubiquitin-protein ligase RNF5 (EC 2.3.2.27) (RING finger protein 5) (Ram1 homolog) (HsRma1)	RNF5 G16 NG2 RMA1
+ERLEC_HUMAN	Q96DZ1	ERLEC_HUMAN	Endoplasmic reticulum lectin 1 (ER lectin) (Erlectin) (XTP3-transactivated gene B protein)	ERLEC1 C2orf30 XTP3TPB UNQ1878/PRO4321
+ERGI2_HUMAN	Q96RQ1	ERGI2_HUMAN	Endoplasmic reticulum-Golgi intermediate compartment protein 2	ERGIC2 ERV41 PTX1 CDA14
+ERGI3_HUMAN	Q9Y282	ERGI3_HUMAN	Endoplasmic reticulum-Golgi intermediate compartment protein 3 (Serologically defined breast cancer antigen NY-BR-84)	ERGIC3 C20orf47 ERV46 SDBCAG84 CGI-54 PRO0989
+FLOT1_HUMAN	O75955	FLOT1_HUMAN	Flotillin-1	FLOT1
+GCP60_HUMAN	Q9H3P7	GCP60_HUMAN	Golgi resident protein GCP60 (Acyl-CoA-binding domain-containing protein 3) (Golgi complex-associated protein 1) (GOCAP1) (Golgi phosphoprotein 1) (GOLPH1) (PBR- and PKA-associated protein 7) (Peripheral benzodiazepine receptor-associated protein PAP7) [Cleaved into: Golgi resident protein GCP60, N-terminally processed]	ACBD3 GCP60 GOCAP1 GOLPH1
+ITM2B_HUMAN	Q9Y287	ITM2B_HUMAN	Integral membrane protein 2B (Immature BRI2) (imBRI2) (Protein E25B) (Transmembrane protein BRI) (Bri) [Cleaved into: BRI2, membrane form (Mature BRI2) (mBRI2); BRI2 intracellular domain (BRI2 ICD); BRI2C, soluble form; Bri23 peptide (Bri2-23) (ABri23) (C-terminal peptide) (P23 peptide)]	ITM2B BRI BRI2
+IL10_HUMAN	P22301	IL10_HUMAN	Interleukin-10 (IL-10) (Cytokine synthesis inhibitory factor) (CSIF)	IL10
+IL12A_HUMAN	P29459	IL12A_HUMAN	Interleukin-12 subunit alpha (IL-12A) (Cytotoxic lymphocyte maturation factor 35 kDa subunit) (CLMF p35) (IL-12 subunit p35) (NK cell stimulatory factor chain 1) (NKSF1)	IL12A NKSF1
+IL12B_HUMAN	P29460	IL12B_HUMAN	Interleukin-12 subunit beta (IL-12B) (Cytotoxic lymphocyte maturation factor 40 kDa subunit) (CLMF p40) (IL-12 subunit p40) (NK cell stimulatory factor chain 2) (NKSF2)	IL12B NKSF2
+LAT1_HUMAN	Q01650	LAT1_HUMAN	Large neutral amino acids transporter small subunit 1 (4F2 light chain) (4F2 LC) (4F2LC) (CD98 light chain) (Integral membrane protein E16) (E16) (L-type amino acid transporter 1) (hLAT1) (Solute carrier family 7 member 5) (y+ system cationic amino acid transporter)	SLC7A5 CD98LC LAT1 MPE16
+MESD_HUMAN	Q14696	MESD_HUMAN	LRP chaperone MESD (LDLR chaperone MESD) (Mesoderm development LRP chaperone MESD) (Mesoderm development candidate 2) (Mesoderm development protein) (Renal carcinoma antigen NY-REN-61)	MESD KIAA0081 MESDC2 MESDM UNQ1911/PRO4369
+PGRC1_HUMAN	O00264	PGRC1_HUMAN	Membrane-associated progesterone receptor component 1 (mPR) (Dap1) (IZA)	PGRMC1 HPR6.6 PGRMC
+HM13_HUMAN	Q8TCT9	HM13_HUMAN	Minor histocompatibility antigen H13 (EC 3.4.23.-) (Intramembrane protease 1) (IMP-1) (IMPAS-1) (hIMP1) (Presenilin-like protein 3) (Signal peptide peptidase)	HM13 H13 IMP1 PSL3 SPP MSTP086
+NOX1_HUMAN	Q9Y5S8	NOX1_HUMAN	NADPH oxidase 1 (NOX-1) (EC 1.6.3.-) (Mitogenic oxidase 1) (MOX-1) (NADH/NADPH mitogenic oxidase subunit P65-MOX) (NOH-1)	NOX1 MOX1 NOH1
+NOX3_HUMAN	Q9HBY0	NOX3_HUMAN	NADPH oxidase 3 (EC 1.6.3.-) (Mitogenic oxidase 2) (MOX-2) (gp91phox homolog 3) (GP91-3)	NOX3 MOX2
+NOX5_HUMAN	Q96PH1	NOX5_HUMAN	NADPH oxidase 5 (EC 1.6.3.-)	NOX5
+NGLY1_HUMAN	Q96IV0	NGLY1_HUMAN	Peptide-N(4)-(N-acetyl-beta-glucosaminyl)asparagine amidase (PNGase) (hPNGase) (EC 3.5.1.52) (N-glycanase 1) (Peptide:N-glycanase)	NGLY1 PNG1
+SERC_HUMAN	Q9Y617	SERC_HUMAN	Phosphoserine aminotransferase (EC 2.6.1.52) (Phosphohydroxythreonine aminotransferase) (PSAT)	PSAT1 PSA
+OS9_HUMAN	Q13438	OS9_HUMAN	Protein OS-9 (Amplified in osteosarcoma 9)	OS9
+PML_HUMAN	P29590	PML_HUMAN	Protein PML (E3 SUMO-protein ligase PML) (EC 2.3.2.-) (Promyelocytic leukemia protein) (RING finger protein 71) (RING-type E3 SUMO transferase PML) (Tripartite motif-containing protein 19) (TRIM19)	PML MYL PP8675 RNF71 TRIM19
+SE1L1_HUMAN	Q9UBV2	SE1L1_HUMAN	Protein sel-1 homolog 1 (Suppressor of lin-12-like protein 1) (Sel-1L)	SEL1L TSA305 UNQ128/PRO1063
+KPYM_HUMAN	P14618	KPYM_HUMAN	Pyruvate kinase PKM (EC 2.7.1.40) (Cytosolic thyroid hormone-binding protein) (CTHBP) (Opa-interacting protein 3) (OIP-3) (Pyruvate kinase 2/3) (Pyruvate kinase muscle isozyme) (Threonine-protein kinase PKM2) (EC 2.7.11.1) (Thyroid hormone-binding protein 1) (THBP1) (Tumor M2-PK) (Tyrosine-protein kinase PKM2) (EC 2.7.10.2) (p58)	PKM OIP3 PK2 PK3 PKM2
+RHOC_HUMAN	P08134	RHOC_HUMAN	Rho-related GTP-binding protein RhoC (Rho cDNA clone 9) (h9)	RHOC ARH9 ARHC
+RNAS1_HUMAN	P07998	RNAS1_HUMAN	Ribonuclease pancreatic (EC 4.6.1.18) (HP-RNase) (RIB-1) (RNase UpI-1) (Ribonuclease 1) (RNase 1) (Ribonuclease A) (RNase A)	RNASE1 RIB1 RNS1
+AT2A2_HUMAN	P16615	AT2A2_HUMAN	Sarcoplasmic/endoplasmic reticulum calcium ATPase 2 (SERCA2) (SR Ca(2+)-ATPase 2) (EC 7.2.2.10) (Calcium pump 2) (Calcium-transporting ATPase sarcoplasmic reticulum type, slow twitch skeletal muscle isoform) (Endoplasmic reticulum class 1/2 Ca(2+) ATPase)	ATP2A2 ATP2B
+AT2A3_HUMAN	Q93084	AT2A3_HUMAN	Sarcoplasmic/endoplasmic reticulum calcium ATPase 3 (SERCA3) (SR Ca(2+)-ATPase 3) (EC 7.2.2.10) (Calcium pump 3)	ATP2A3
+SFRP1_HUMAN	Q8N474	SFRP1_HUMAN	Secreted frizzled-related protein 1 (FRP-1) (sFRP-1) (Secreted apoptosis-related protein 2) (SARP-2)	SFRP1 FRP FRP1 SARP2
+ATM_HUMAN	Q13315	ATM_HUMAN	Serine-protein kinase ATM (EC 2.7.11.1) (Ataxia telangiectasia mutated) (A-T mutated)	ATM
+SUN1_HUMAN	O94901	SUN1_HUMAN	SUN domain-containing protein 1 (Protein unc-84 homolog A) (Sad1/unc-84 protein-like 1)	SUN1 KIAA0810 UNC84A
+TLR7_HUMAN	Q9NYK1	TLR7_HUMAN	Toll-like receptor 7	TLR7 UNQ248/PRO285
+TLR8_HUMAN	Q9NR97	TLR8_HUMAN	Toll-like receptor 8 (CD antigen CD288)	TLR8 UNQ249/PRO286
+TLR9_HUMAN	Q9NR96	TLR9_HUMAN	Toll-like receptor 9 (CD antigen CD289)	TLR9 UNQ5798/PRO19605
+TFR1_HUMAN	P02786	TFR1_HUMAN	Transferrin receptor protein 1 (TR) (TfR) (TfR1) (Trfr) (T9) (p90) (CD antigen CD71) [Cleaved into: Transferrin receptor protein 1, serum form (sTfR)]	TFRC
+SSRD_HUMAN	P51571	SSRD_HUMAN	Translocon-associated protein subunit delta (TRAP-delta) (Signal sequence receptor subunit delta) (SSR-delta)	SSR4 TRAPD
+TM38B_HUMAN	Q9NVV0	TM38B_HUMAN	Trimeric intracellular cation channel type B (TRIC-B) (TRICB) (Transmembrane protein 38B)	TMEM38B C9orf87 TRICB
+TBA1A_HUMAN	Q71U36	TBA1A_HUMAN	Tubulin alpha-1A chain (EC 3.6.5.-) (Alpha-tubulin 3) (Tubulin B-alpha-1) (Tubulin alpha-3 chain) [Cleaved into: Detyrosinated tubulin alpha-1A chain]	TUBA1A TUBA3
+TBA1B_HUMAN	P68363	TBA1B_HUMAN	Tubulin alpha-1B chain (EC 3.6.5.-) (Alpha-tubulin ubiquitous) (Tubulin K-alpha-1) (Tubulin alpha-ubiquitous chain) [Cleaved into: Detyrosinated tubulin alpha-1B chain]	TUBA1B
+TBA1C_HUMAN	Q9BQE3	TBA1C_HUMAN	Tubulin alpha-1C chain (EC 3.6.5.-) (Alpha-tubulin 6) (Tubulin alpha-6 chain) [Cleaved into: Detyrosinated tubulin alpha-1C chain]	TUBA1C TUBA6
+TBA3C_HUMAN	P0DPH7	TBA3C_HUMAN	Tubulin alpha-3C chain (EC 3.6.5.-) (Alpha-tubulin 2) (Alpha-tubulin 3C) (Tubulin alpha-2 chain) [Cleaved into: Detyrosinated tubulin alpha-3C chain]	TUBA3C TUBA2
+TBA4A_HUMAN	P68366	TBA4A_HUMAN	Tubulin alpha-4A chain (EC 3.6.5.-) (Alpha-tubulin 1) (Testis-specific alpha-tubulin) (Tubulin H2-alpha) (Tubulin alpha-1 chain)	TUBA4A TUBA1
+TBB5_HUMAN	P07437	TBB5_HUMAN	Tubulin beta chain (Tubulin beta-5 chain)	TUBB TUBB5 OK/SW-cl.56
+TBB2A_HUMAN	Q13885	TBB2A_HUMAN	Tubulin beta-2A chain (Tubulin beta class IIa)	TUBB2A TUBB2
+TBB3_HUMAN	Q13509	TBB3_HUMAN	Tubulin beta-3 chain (Tubulin beta-4 chain) (Tubulin beta-III)	TUBB3 TUBB4
+TBB4A_HUMAN	P04350	TBB4A_HUMAN	Tubulin beta-4A chain (Tubulin 5 beta) (Tubulin beta-4 chain)	TUBB4A TUBB4 TUBB5
+TBB4B_HUMAN	P68371	TBB4B_HUMAN	Tubulin beta-4B chain (Tubulin beta-2 chain) (Tubulin beta-2C chain)	TUBB4B TUBB2C
+TBG1_HUMAN	P23258	TBG1_HUMAN	Tubulin gamma-1 chain (Gamma-1-tubulin) (Gamma-tubulin complex component 1) (GCP-1)	TUBG1 TUBG
+UGGG1_HUMAN	Q9NYU2	UGGG1_HUMAN	UDP-glucose:glycoprotein glucosyltransferase 1 (UGT1) (hUGT1) (EC 2.4.1.-) (UDP--Glc:glycoprotein glucosyltransferase) (UDP-glucose ceramide glucosyltransferase-like 1)	UGGT1 GT UGCGL1 UGGT UGT1 UGTR
+LMAN2_HUMAN	Q12907	LMAN2_HUMAN	Vesicular integral-membrane protein VIP36 (Glycoprotein GP36b) (Lectin mannose-binding 2) (Vesicular integral-membrane protein 36) (VIP36)	LMAN2 C5orf8
+VDAC1_HUMAN	P21796	VDAC1_HUMAN	Non-selective voltage-gated ion channel VDAC1 (Outer mitochondrial membrane protein porin 1) (Plasmalemmal porin) (Porin 31HL) (Porin 31HM) (Voltage-dependent anion-selective channel protein 1) (VDAC-1) (hVDAC1)	VDAC1 VDAC
+VDAC2_HUMAN	P45880	VDAC2_HUMAN	Voltage-dependent anion-selective channel protein 2 (VDAC-2) (hVDAC2) (Outer mitochondrial membrane protein porin 2)	VDAC2
+AP1B1_HUMAN	Q10567	AP1B1_HUMAN	AP-1 complex subunit beta-1 (Adaptor protein complex AP-1 subunit beta-1) (Adaptor-related protein complex 1 subunit beta-1) (Beta-1-adaptin) (Beta-adaptin 1) (Clathrin assembly protein complex 1 beta large chain) (Golgi adaptor HA1/AP1 adaptin beta subunit)	AP1B1 ADTB1 BAM22 CLAPB2
+AP1G1_HUMAN	O43747	AP1G1_HUMAN	AP-1 complex subunit gamma-1 (Adaptor protein complex AP-1 subunit gamma-1) (Adaptor-related protein complex 1 subunit gamma-1) (Clathrin assembly protein complex 1 gamma-1 large chain) (Gamma1-adaptin) (Golgi adaptor HA1/AP1 adaptin subunit gamma-1)	AP1G1 ADTG CLAPG1
+AP1G2_HUMAN	O75843	AP1G2_HUMAN	AP-1 complex subunit gamma-like 2 (Gamma2-adaptin) (G2ad)	AP1G2
+AP1M2_HUMAN	Q9Y6Q5	AP1M2_HUMAN	AP-1 complex subunit mu-2 (AP-mu chain family member mu1B) (Adaptor protein complex AP-1 subunit mu-2) (Adaptor-related protein complex 1 subunit mu-2) (Clathrin assembly protein complex 1 mu-2 medium chain 2) (Golgi adaptor HA1/AP1 adaptin mu-2 subunit) (Mu-adaptin 2) (Mu1B-adaptin)	AP1M2
+AP1S1_HUMAN	P61966	AP1S1_HUMAN	AP-1 complex subunit sigma-1A (Adaptor protein complex AP-1 subunit sigma-1A) (Adaptor-related protein complex 1 subunit sigma-1A) (Clathrin assembly protein complex 1 sigma-1A small chain) (Clathrin coat assembly protein AP19) (Golgi adaptor HA1/AP1 adaptin sigma-1A subunit) (HA1 19 kDa subunit) (Sigma 1a subunit of AP-1 clathrin) (Sigma-adaptin 1A) (Sigma1A-adaptin)	AP1S1 AP19 CLAPS1
+AP1S2_HUMAN	P56377	AP1S2_HUMAN	AP-1 complex subunit sigma-2 (Adaptor protein complex AP-1 subunit sigma-1B) (Adaptor-related protein complex 1 subunit sigma-1B) (Clathrin assembly protein complex 1 sigma-1B small chain) (Golgi adaptor HA1/AP1 adaptin sigma-1B subunit) (Sigma 1B subunit of AP-1 clathrin) (Sigma-adaptin 1B) (Sigma1B-adaptin)	AP1S2 DC22
+AP1S3_HUMAN	Q96PC3	AP1S3_HUMAN	AP-1 complex subunit sigma-3 (Adaptor protein complex AP-1 subunit sigma-1C) (Adaptor-related protein complex 1 subunit sigma-1C) (Clathrin assembly protein complex 1 sigma-1C small chain) (Golgi adaptor HA1/AP1 adaptin sigma-1C subunit) (Sigma 1C subunit of AP-1 clathrin) (Sigma-adaptin 1C) (Sigma1C-adaptin)	AP1S3
+AP2A1_HUMAN	O95782	AP2A1_HUMAN	AP-2 complex subunit alpha-1 (100 kDa coated vesicle protein A) (Adaptor protein complex AP-2 subunit alpha-1) (Adaptor-related protein complex 2 subunit alpha-1) (Alpha-adaptin A) (Alpha1-adaptin) (Clathrin assembly protein complex 2 alpha-A large chain) (Plasma membrane adaptor HA2/AP2 adaptin alpha A subunit)	AP2A1 ADTAA CLAPA1
+AP2A2_HUMAN	O94973	AP2A2_HUMAN	AP-2 complex subunit alpha-2 (100 kDa coated vesicle protein C) (Adaptor protein complex AP-2 subunit alpha-2) (Adaptor-related protein complex 2 subunit alpha-2) (Alpha-adaptin C) (Alpha2-adaptin) (Clathrin assembly protein complex 2 alpha-C large chain) (Huntingtin yeast partner J) (Huntingtin-interacting protein 9) (HIP-9) (Huntingtin-interacting protein J) (Plasma membrane adaptor HA2/AP2 adaptin alpha C subunit)	AP2A2 ADTAB CLAPA2 HIP9 HYPJ KIAA0899
+AP2B1_HUMAN	P63010	AP2B1_HUMAN	AP-2 complex subunit beta (AP105B) (Adaptor protein complex AP-2 subunit beta) (Adaptor-related protein complex 2 subunit beta) (Beta-2-adaptin) (Beta-adaptin) (Clathrin assembly protein complex 2 beta large chain) (Plasma membrane adaptor HA2/AP2 adaptin beta subunit)	AP2B1 ADTB2 CLAPB1
+AP2M1_HUMAN	Q96CW1	AP2M1_HUMAN	AP-2 complex subunit mu (AP-2 mu chain) (Adaptin-mu2) (Adaptor protein complex AP-2 subunit mu) (Adaptor-related protein complex 2 subunit mu) (Clathrin assembly protein complex 2 mu medium chain) (Clathrin coat assembly protein AP50) (Clathrin coat-associated protein AP50) (HA2 50 kDa subunit) (Plasma membrane adaptor AP-2 50 kDa protein)	AP2M1 CLAPM1 KIAA0109
+AP2S1_HUMAN	P53680	AP2S1_HUMAN	AP-2 complex subunit sigma (Adaptor protein complex AP-2 subunit sigma) (Adaptor-related protein complex 2 subunit sigma) (Clathrin assembly protein 2 sigma small chain) (Clathrin coat assembly protein AP17) (Clathrin coat-associated protein AP17) (HA2 17 kDa subunit) (Plasma membrane adaptor AP-2 17 kDa protein) (Sigma2-adaptin)	AP2S1 AP17 CLAPS2
+BAP31_HUMAN	P51572	BAP31_HUMAN	B-cell receptor-associated protein 31 (BCR-associated protein 31) (Bap31) (6C6-AG tumor-associated antigen) (Protein CDM) (p28)	BCAP31 BAP31 DXS1357E
+CTNA1_HUMAN	P35221	CTNA1_HUMAN	Catenin alpha-1 (Alpha E-catenin) (Cadherin-associated protein) (Renal carcinoma antigen NY-REN-13)	CTNNA1
+CTNA2_HUMAN	P26232	CTNA2_HUMAN	Catenin alpha-2 (Alpha N-catenin) (Alpha-catenin-related protein)	CTNNA2 CAPR
+CTNA3_HUMAN	Q9UI47	CTNA3_HUMAN	Catenin alpha-3 (Alpha T-catenin) (Cadherin-associated protein)	CTNNA3
+CREB3_HUMAN	O43889	CREB3_HUMAN	Cyclic AMP-responsive element-binding protein 3 (CREB-3) (cAMP-responsive element-binding protein 3) (Leucine zipper protein) (Luman) (Transcription factor LZIP-alpha) [Cleaved into: Processed cyclic AMP-responsive element-binding protein 3 (N-terminal Luman) (Transcriptionally active form)]	CREB3 LZIP
+COX5A_HUMAN	P20674	COX5A_HUMAN	Cytochrome c oxidase subunit 5A, mitochondrial (Cytochrome c oxidase polypeptide Va)	COX5A
+CX6B1_HUMAN	P14854	CX6B1_HUMAN	Cytochrome c oxidase subunit 6B1 (Cytochrome c oxidase subunit VIb isoform 1) (COX VIb-1)	COX6B1 COX6B
+DYN2_HUMAN	P50570	DYN2_HUMAN	Dynamin-2 (EC 3.6.5.5) (Dynamin 2) (Dynamin II)	DNM2 DYN2
+ENDD1_HUMAN	O94919	ENDD1_HUMAN	Endonuclease domain-containing 1 protein (EC 3.1.30.-)	ENDOD1 KIAA0830
+EMC1_HUMAN	Q8N766	EMC1_HUMAN	ER membrane protein complex subunit 1	EMC1 KIAA0090 PSEC0263
+FBX6_HUMAN	Q9NRD1	FBX6_HUMAN	F-box only protein 6 (F-box protein that recognizes sugar chains 2) (F-box/G-domain protein 2)	FBXO6 FBG2 FBS2 FBX6
+HAVR1_HUMAN	Q96D42	HAVR1_HUMAN	Hepatitis A virus cellular receptor 1 (HAVcr-1) (Kidney injury molecule 1) (KIM-1) (T-cell immunoglobulin and mucin domain-containing protein 1) (TIMD-1) (T-cell immunoglobulin mucin receptor 1) (TIM) (TIM-1) (T-cell membrane protein 1) (CD antigen CD365)	HAVCR1 KIM1 TIM1 TIMD1
+KMT2E_HUMAN	Q8IZD2	KMT2E_HUMAN	Inactive histone-lysine N-methyltransferase 2E (Inactive lysine N-methyltransferase 2E) (Myeloid/lymphoid or mixed-lineage leukemia protein 5)	KMT2E MLL5
+IL1B_HUMAN	P01584	IL1B_HUMAN	Interleukin-1 beta (IL-1 beta) (Catabolin)	IL1B IL1F2
+IL6_HUMAN	P05231	IL6_HUMAN	Interleukin-6 (IL-6) (B-cell stimulatory factor 2) (BSF-2) (CTL differentiation factor) (CDF) (Hybridoma growth factor) (Interferon beta-2) (IFN-beta-2)	IL6 IFNB2
+LAMP1_HUMAN	P11279	LAMP1_HUMAN	Lysosome-associated membrane glycoprotein 1 (LAMP-1) (Lysosome-associated membrane protein 1) (CD107 antigen-like family member A) (CD antigen CD107a)	LAMP1
+TIM13_HUMAN	Q9Y5L4	TIM13_HUMAN	Mitochondrial import inner membrane translocase subunit Tim13	TIMM13 TIM13B TIMM13A TIMM13B
+TIM8A_HUMAN	O60220	TIM8A_HUMAN	Mitochondrial import inner membrane translocase subunit Tim8 A (Deafness dystonia protein 1) (X-linked deafness dystonia protein)	TIMM8A DDP DDP1 TIM8A
+TIM8B_HUMAN	Q9Y5J9	TIM8B_HUMAN	Mitochondrial import inner membrane translocase subunit Tim8 B (DDP-like protein) (Deafness dystonia protein 2)	TIMM8B DDP2 DDPL TIM8B
+TOM40_HUMAN	O96008	TOM40_HUMAN	Mitochondrial import receptor subunit TOM40 homolog (Protein Haymaker) (Translocase of outer membrane 40 kDa subunit homolog) (p38.5)	TOMM40 C19orf1 PEREC1 TOM40
+M3K7_HUMAN	O43318	M3K7_HUMAN	Mitogen-activated protein kinase kinase kinase 7 (EC 2.7.11.25) (Transforming growth factor-beta-activated kinase 1) (TGF-beta-activated kinase 1)	MAP3K7 TAK1
+NLRP3_HUMAN	Q96P20	NLRP3_HUMAN	NACHT, LRR and PYD domains-containing protein 3 (EC 3.6.4.-) (Angiotensin/vasopressin receptor AII/AVP-like) (Caterpiller protein 1.1) (CLR1.1) (Cold-induced autoinflammatory syndrome 1 protein) (Cryopyrin) (PYRIN-containing APAF1-like protein 1)	NLRP3 C1orf7 CIAS1 NALP3 PYPAF1
+NDUB1_HUMAN	O75438	NDUB1_HUMAN	NADH dehydrogenase [ubiquinone] 1 beta subcomplex subunit 1 (Complex I-MNLL) (CI-MNLL) (NADH-ubiquinone oxidoreductase MNLL subunit)	NDUFB1
+ELNE_HUMAN	P08246	ELNE_HUMAN	Neutrophil elastase (EC 3.4.21.37) (Bone marrow serine protease) (Elastase-2) (Human leukocyte elastase) (HLE) (Medullasin) (PMN elastase)	ELANE ELA2
+PRDX4_HUMAN	Q13162	PRDX4_HUMAN	Peroxiredoxin-4 (EC 1.11.1.24) (Antioxidant enzyme AOE372) (AOE37-2) (Peroxiredoxin IV) (Prx-IV) (Thioredoxin peroxidase AO372) (Thioredoxin-dependent peroxide reductase A0372) (Thioredoxin-dependent peroxiredoxin 4)	PRDX4
+PLSI_HUMAN	Q14651	PLSI_HUMAN	Plastin-1 (Intestine-specific plastin) (I-plastin)	PLS1
+RER1_HUMAN	O15258	RER1_HUMAN	Protein RER1	RER1
+ARHG1_HUMAN	Q92888	ARHG1_HUMAN	Rho guanine nucleotide exchange factor 1 (115 kDa guanine nucleotide exchange factor) (p115-RhoGEF) (p115RhoGEF) (Sub1.5)	ARHGEF1
+SPCS2_HUMAN	Q15005	SPCS2_HUMAN	Signal peptidase complex subunit 2 (Microsomal signal peptidase 25 kDa subunit) (SPase 25 kDa subunit)	SPCS2 KIAA0102 SPC25
+SPCS3_HUMAN	P61009	SPCS3_HUMAN	Signal peptidase complex subunit 3 (Microsomal signal peptidase 22/23 kDa subunit) (SPC22/23) (SPase 22/23 kDa subunit)	SPCS3 SPC22 UNQ1841/PRO3567
+SPAG5_HUMAN	Q96R06	SPAG5_HUMAN	Sperm-associated antigen 5 (Astrin) (Deepest) (Mitotic spindle-associated protein p126) (MAP126)	SPAG5
+STML2_HUMAN	Q9UJZ1	STML2_HUMAN	Stomatin-like protein 2, mitochondrial (SLP-2) (EPB72-like protein 2) (Paraprotein target 7) (Paratarg-7)	STOML2 SLP2 HSPC108
+SURF4_HUMAN	O15260	SURF4_HUMAN	Surfeit locus protein 4	SURF4 SURF-4
+TERA_HUMAN	P55072	TERA_HUMAN	Transitional endoplasmic reticulum ATPase (TER ATPase) (EC 3.6.4.6) (15S Mg(2+)-ATPase p97 subunit) (Valosin-containing protein) (VCP)	VCP HEL-220 HEL-S-70
+SEC62_HUMAN	Q99442	SEC62_HUMAN	Translocation protein SEC62 (Translocation protein 1) (TP-1) (hTP-1)	SEC62 TLOC1
+K2013_HUMAN	Q8IYS2	K2013_HUMAN	Uncharacterized protein KIAA2013	KIAA2013
+HACD3_HUMAN	Q9P035	HACD3_HUMAN	Very-long-chain (3R)-3-hydroxyacyl-CoA dehydratase 3 (EC 4.2.1.134) (3-hydroxyacyl-CoA dehydratase 3) (HACD3) (Butyrate-induced protein 1) (B-ind1) (hB-ind1) (Protein-tyrosine phosphatase-like A domain-containing protein 1)	HACD3 BIND1 PTPLAD1
+VTI1A_HUMAN	Q96AJ9	VTI1A_HUMAN	Vesicle transport through interaction with t-SNAREs homolog 1A (Vesicle transport v-SNARE protein Vti1-like 2) (Vti1-rp2)	VTI1A
+VAPA_HUMAN	Q9P0L0	VAPA_HUMAN	Vesicle-associated membrane protein-associated protein A (VAMP-A) (VAMP-associated protein A) (VAP-A) (33 kDa VAMP-associated protein) (VAP-33)	VAPA VAP33
+VDAC3_HUMAN	Q9Y277	VDAC3_HUMAN	Voltage-dependent anion-selective channel protein 3 (VDAC-3) (hVDAC3) (Outer mitochondrial membrane protein porin 3)	VDAC3
