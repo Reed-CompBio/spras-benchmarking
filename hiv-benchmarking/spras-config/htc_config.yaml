@@ -46,7 +46,7 @@ algorithms:
 
       - name: "omicsintegrator1"
         params:
-              include: true
+              include: false
               run1:
                   r: [5]
                   b: np.linspace(0, 5, 11)
@@ -57,13 +57,12 @@ algorithms:
 
       - name: "omicsintegrator2"
         params:
-              include: false
+              include: true
               run1:
-                  b: [4]
-                  g: [0]
-              run2:
-                  b: [2]
-                  g: [3]
+                  b: np.linspace(0, 5, 11)
+                  w: np.concatenate((np.linspace(0, 1.5, 16), np.linspace(2, 3, 3)))  # ω from 0 to 1.5 in increments of 0.1 and 1.5 to 3 in increments of 0.5
+                  g: [1, 2, 3]
+                  d: [10, 100, 500]
 
       - name: "meo"
         params:
