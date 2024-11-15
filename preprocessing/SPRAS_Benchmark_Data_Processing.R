@@ -2,7 +2,7 @@ library(tidyverse)
 library(httr)
 # Set working directory so that pathway_path does not have any parent directories
 # Based on GitHub file structure this should be the specific folder for each PANTHER pathway
-setwd('~/Desktop/GitHub_Repos/spras-benchmarking/preprocessing/Wnt_signaling/')
+setwd('~/Desktop/GitHub_Repos/spras-benchmarking/preprocessing/B_cell_activation/')
 
 # Function for processing PANTHER pathways in Extended SIF format into Node/Edge files for benchmarking inputs
 process_panther_pathway <- function(pathway_path) {
@@ -168,7 +168,7 @@ process_panther_pathway <- function(pathway_path) {
 }
 
 # Example usage:
-pathway_path <- "Wnt_signaling_pathwa.txt"
+pathway_path <- "B_cell_activation.txt"
 result <- process_panther_pathway(pathway_path)
 
 # Access individual datasets

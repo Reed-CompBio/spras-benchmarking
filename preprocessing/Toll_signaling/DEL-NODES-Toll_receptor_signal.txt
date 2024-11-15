@@ -1,0 +1,3 @@
+id	uniprot
+chebi:16412	chebi:CHEBI:16412
+chebi:84491	chebi:CHEBI:84491

@@ -1,0 +1,7 @@
+id1	id2
+PIK3CA	chebi:16618
+PIK3CB	chebi:16618
+chebi:16618	PDPK1
+chebi:18348	PIK3CA
+chebi:18348	PIK3CB
+chebi:18348	chebi:16618
