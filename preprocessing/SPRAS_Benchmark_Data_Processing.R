@@ -160,11 +160,20 @@ process_panther_pathway <- function(pathway_path) {
     return(targets)
   }
   
+  process_prizes <- function(sources, targets, pathway_path) {
+    prizes100 <- rbind(sources, targets) %>% 
+      mutate(prizes = 100, active = "true") %>% 
+      select(id, prizes, active)
+    
+    write_tsv(prizes100, paste0("PRIZES-100-", pathway_path))
+  }
+  
   targets <- process_receptors(nodes, pathway_path)
   sources <- process_TFs(nodes, pathway_path)
+  prizes <- process_prizes(sources, targets, pathway_path)
   
   # Return all four datasets as a list
-  return(list(edges = string_edges, edges_rm = edges_rm, nodes = nodes, nodes_rm = nodes_rm, sources = sources, targets = targets))
+  return(list(edges = string_edges, edges_rm = edges_rm, nodes = nodes, nodes_rm = nodes_rm, sources = sources, targets = targets, prizes = prizes))
 }
 
 # Example usage:
@@ -178,3 +187,4 @@ nodes <- result$nodes
 nodes_rm <- result$nodes_rm
 sources <- result$sources
 targets <- result$targets
+prizes <- result$prizes
