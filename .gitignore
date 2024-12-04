@@ -161,3 +161,6 @@ cython_debug/
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
 preprocessing/human-interactome/9606.protein.links.full.v12.0.txt
+preprocessing/B_cell_activation/.Rhistory
+preprocessing/.DS_Store
+.DS_Store
