@@ -10,7 +10,7 @@ The major assumption here is that a user will copy the SPRAS repo separately and
 
 The easiest way to install Python and the required packages is with [Anaconda](https://www.anaconda.com/download/).
 
-After installing Anaconda, you can run the following commands from the `Scripts` Directory
+After installing Anaconda, you can run the following commands from this Directory
 ```
 conda env create -f environment.yml
 conda activate yeast_env
