@@ -58,4 +58,4 @@ One huge factor in why my results may have been different than the original case
 
 In the case study they ran the tuned parameters with a Beta of 1.75 and r of 0.01 (to add edge noise) and generated 1000 forests. In my case Omics integrator doesn't have a way to run multiple outputs with the same parameter combination in order to ensemble the results and look at edge frequencies. My work around was to use `np.linspace` with a range between 1 and 2 and running 250 - 1000 parameter combinations. The idea being to run parameters as close to 1.75 as possible and compare the outputs. 
 
-When I tried to run Cytoscape on anything greater than or equal to 250 combinations, it would hang and then crash with a Java heap space error (see [SPRAS issue](https://github.com/Reed-CompBio/spras/issues/171). More memory would need to be allocated to potentially fix this. 
+When I tried to run Cytoscape on anything greater than or equal to 250 combinations, it would hang and then crash with a Java heap space error (see [SPRAS issue](https://github.com/Reed-CompBio/spras/issues/171)). More memory would need to be allocated to potentially fix this.
