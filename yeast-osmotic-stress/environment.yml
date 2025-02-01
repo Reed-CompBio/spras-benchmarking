@@ -1,6 +1,5 @@
 name: yeast_env
 channels:
-  - defaults
   - conda-forge
 dependencies:
   - notebook
@@ -8,6 +7,4 @@ dependencies:
   - numpy=1.24
   - pandas=2.0
   - seaborn=0.13.2
-  - matplotlib-venn 1.1.1
-
-prefix: C:\ProgramData\anaconda3\envs\yeast_env
+  - matplotlib-venn=1.1.1
