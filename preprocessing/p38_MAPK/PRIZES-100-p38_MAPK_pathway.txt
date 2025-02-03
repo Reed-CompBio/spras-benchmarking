@@ -1,0 +1,8 @@
+id	prizes	active
+ATF1	100	true
+SRF	100	true
+ELK1	100	true
+MEF2D	100	true
+MEF2C	100	true
+MEF2B	100	true
+IL1R1	100	true

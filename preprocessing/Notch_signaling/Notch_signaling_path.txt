@@ -1,0 +1,140 @@
+﻿PARTICIPANT_A	INTERACTION_TYPE	PARTICIPANT_B	INTERACTION_DATA_SOURCE	INTERACTION_PUBMED_ID	PATHWAY_NAMES	MEDIATOR_IDS
+ADAM10	controls-state-change-of	DLK1	PANTHER		Notch signaling pathway	panther:_CATALYSIS___TACE_r29m1_r29;panther:TRUNCATION_LEFT__Complex__Notch_Delta_-RIGHT__NIct-_Complex__Delta_Next_-_r29
+ADAM10	controls-state-change-of	DLL3	PANTHER		Notch signaling pathway	panther:_CATALYSIS___TACE_r29m1_r29;panther:TRUNCATION_LEFT__Complex__Notch_Delta_-RIGHT__NIct-_Complex__Delta_Next_-_r29
+ADAM10	controls-state-change-of	DLL4	PANTHER		Notch signaling pathway	panther:_CATALYSIS___TACE_r29m1_r29;panther:TRUNCATION_LEFT__Complex__Notch_Delta_-RIGHT__NIct-_Complex__Delta_Next_-_r29
+ADAM10	controls-state-change-of	JAG1	PANTHER		Notch signaling pathway	panther:_CATALYSIS___TACE_r25m1_r25;panther:TRUNCATION_LEFT__Complex__Serrate_Notch_-RIGHT__NIct-_Complex__Serrate_Next_-_r25
+ADAM10	controls-state-change-of	JAG2	PANTHER		Notch signaling pathway	panther:_CATALYSIS___TACE_r25m1_r25;panther:TRUNCATION_LEFT__Complex__Serrate_Notch_-RIGHT__NIct-_Complex__Serrate_Next_-_r25
+ADAM17	controls-state-change-of	DLK1	PANTHER		Notch signaling pathway	panther:_CATALYSIS___TACE_r29m1_r29;panther:TRUNCATION_LEFT__Complex__Notch_Delta_-RIGHT__NIct-_Complex__Delta_Next_-_r29
+ADAM17	controls-state-change-of	DLL3	PANTHER		Notch signaling pathway	panther:_CATALYSIS___TACE_r29m1_r29;panther:TRUNCATION_LEFT__Complex__Notch_Delta_-RIGHT__NIct-_Complex__Delta_Next_-_r29
+ADAM17	controls-state-change-of	DLL4	PANTHER		Notch signaling pathway	panther:_CATALYSIS___TACE_r29m1_r29;panther:TRUNCATION_LEFT__Complex__Notch_Delta_-RIGHT__NIct-_Complex__Delta_Next_-_r29
+ADAM17	controls-state-change-of	JAG1	PANTHER		Notch signaling pathway	panther:_CATALYSIS___TACE_r25m1_r25;panther:TRUNCATION_LEFT__Complex__Serrate_Notch_-RIGHT__NIct-_Complex__Serrate_Next_-_r25
+ADAM17	controls-state-change-of	JAG2	PANTHER		Notch signaling pathway	panther:_CATALYSIS___TACE_r25m1_r25;panther:TRUNCATION_LEFT__Complex__Serrate_Notch_-RIGHT__NIct-_Complex__Serrate_Next_-_r25
+CIR1	in-complex-with	RBPJL	PANTHER		Notch signaling pathway	panther:_Complex__Su_H__CoR__s32_a37_
+CIR1	in-complex-with	RBPJ	PANTHER		Notch signaling pathway	panther:_Complex__Su_H__CoR__s32_a37_
+DLK1	in-complex-with	JAG1	PANTHER		Notch signaling pathway	panther:_Complex__Delta_Next__s18_a18_
+DLK1	in-complex-with	JAG2	PANTHER		Notch signaling pathway	panther:_Complex__Delta_Next__s18_a18_
+DLK1	in-complex-with	NOTCH1	PANTHER		Notch signaling pathway	panther:_Complex__Delta_Next__s18_a18_;panther:_Complex__Notch_Delta__s67_a77_
+DLK1	in-complex-with	NOTCH2	PANTHER		Notch signaling pathway	panther:_Complex__Delta_Next__s18_a18_;panther:_Complex__Notch_Delta__s67_a77_
+DLK1	in-complex-with	NOTCH3	PANTHER		Notch signaling pathway	panther:_Complex__Delta_Next__s18_a18_;panther:_Complex__Notch_Delta__s67_a77_
+DLK1	in-complex-with	NOTCH4	PANTHER		Notch signaling pathway	panther:_Complex__Notch_Delta__s67_a77_
+DLL3	in-complex-with	JAG1	PANTHER		Notch signaling pathway	panther:_Complex__Delta_Next__s18_a18_
+DLL3	in-complex-with	JAG2	PANTHER		Notch signaling pathway	panther:_Complex__Delta_Next__s18_a18_
+DLL3	in-complex-with	NOTCH1	PANTHER		Notch signaling pathway	panther:_Complex__Delta_Next__s18_a18_;panther:_Complex__Notch_Delta__s67_a77_
+DLL3	in-complex-with	NOTCH2	PANTHER		Notch signaling pathway	panther:_Complex__Delta_Next__s18_a18_;panther:_Complex__Notch_Delta__s67_a77_
+DLL3	in-complex-with	NOTCH3	PANTHER		Notch signaling pathway	panther:_Complex__Delta_Next__s18_a18_;panther:_Complex__Notch_Delta__s67_a77_
+DLL3	in-complex-with	NOTCH4	PANTHER		Notch signaling pathway	panther:_Complex__Notch_Delta__s67_a77_
+DLL4	in-complex-with	JAG1	PANTHER		Notch signaling pathway	panther:_Complex__Delta_Next__s18_a18_
+DLL4	in-complex-with	JAG2	PANTHER		Notch signaling pathway	panther:_Complex__Delta_Next__s18_a18_
+DLL4	in-complex-with	NOTCH1	PANTHER		Notch signaling pathway	panther:_Complex__Delta_Next__s18_a18_;panther:_Complex__Notch_Delta__s67_a77_
+DLL4	in-complex-with	NOTCH2	PANTHER		Notch signaling pathway	panther:_Complex__Delta_Next__s18_a18_;panther:_Complex__Notch_Delta__s67_a77_
+DLL4	in-complex-with	NOTCH3	PANTHER		Notch signaling pathway	panther:_Complex__Delta_Next__s18_a18_;panther:_Complex__Notch_Delta__s67_a77_
+DLL4	in-complex-with	NOTCH4	PANTHER		Notch signaling pathway	panther:_Complex__Notch_Delta__s67_a77_
+FBXW7	controls-state-change-of	NOTCH1	PANTHER		Notch signaling pathway	panther:STATE_TRANSITION_LEFT__Ub-_NIcs-RIGHT__NIcs-_r16;panther:_CATALYSIS___Sel_10_r16m1_r16
+FBXW7	controls-state-change-of	NOTCH2	PANTHER		Notch signaling pathway	panther:STATE_TRANSITION_LEFT__Ub-_NIcs-RIGHT__NIcs-_r16;panther:_CATALYSIS___Sel_10_r16m1_r16
+FBXW7	controls-state-change-of	NOTCH3	PANTHER		Notch signaling pathway	panther:STATE_TRANSITION_LEFT__Ub-_NIcs-RIGHT__NIcs-_r16;panther:_CATALYSIS___Sel_10_r16m1_r16
+FBXW7	controls-state-change-of	NOTCH4	PANTHER		Notch signaling pathway	panther:STATE_TRANSITION_LEFT__Ub-_NIcs-RIGHT__NIcs-_r16;panther:_CATALYSIS___Sel_10_r16m1_r16
+FUT8	controls-state-change-of	NOTCH1	PANTHER		Notch signaling pathway	panther:_CATALYSIS___Neurotic_r18m1_r18;panther:STATE_TRANSITION_LEFT__fucose-_Notch-RIGHT__Notch-_r18
+FUT8	controls-state-change-of	NOTCH2	PANTHER		Notch signaling pathway	panther:_CATALYSIS___Neurotic_r18m1_r18;panther:STATE_TRANSITION_LEFT__fucose-_Notch-RIGHT__Notch-_r18
+FUT8	controls-state-change-of	NOTCH3	PANTHER		Notch signaling pathway	panther:_CATALYSIS___Neurotic_r18m1_r18;panther:STATE_TRANSITION_LEFT__fucose-_Notch-RIGHT__Notch-_r18
+FUT8	controls-state-change-of	NOTCH4	PANTHER		Notch signaling pathway	panther:_CATALYSIS___Neurotic_r18m1_r18;panther:STATE_TRANSITION_LEFT__fucose-_Notch-RIGHT__Notch-_r18
+JAG1	in-complex-with	JAG2	PANTHER		Notch signaling pathway	panther:_Complex__Serrate_Next__s60_a69_
+JAG1	in-complex-with	NOTCH1	PANTHER		Notch signaling pathway	panther:_Complex__Serrate_Next__s60_a69_;panther:_Complex__Serrate_Notch__s53_a61_
+JAG1	in-complex-with	NOTCH2	PANTHER		Notch signaling pathway	panther:_Complex__Serrate_Next__s60_a69_;panther:_Complex__Serrate_Notch__s53_a61_
+JAG1	in-complex-with	NOTCH3	PANTHER		Notch signaling pathway	panther:_Complex__Serrate_Next__s60_a69_;panther:_Complex__Serrate_Notch__s53_a61_
+JAG1	in-complex-with	NOTCH4	PANTHER		Notch signaling pathway	panther:_Complex__Serrate_Notch__s53_a61_
+JAG2	in-complex-with	NOTCH1	PANTHER		Notch signaling pathway	panther:_Complex__Serrate_Next__s60_a69_;panther:_Complex__Serrate_Notch__s53_a61_
+JAG2	in-complex-with	NOTCH2	PANTHER		Notch signaling pathway	panther:_Complex__Serrate_Next__s60_a69_;panther:_Complex__Serrate_Notch__s53_a61_
+JAG2	in-complex-with	NOTCH3	PANTHER		Notch signaling pathway	panther:_Complex__Serrate_Next__s60_a69_;panther:_Complex__Serrate_Notch__s53_a61_
+JAG2	in-complex-with	NOTCH4	PANTHER		Notch signaling pathway	panther:_Complex__Serrate_Notch__s53_a61_
+LFNG	controls-state-change-of	DLK1	PANTHER		Notch signaling pathway	panther:HETERODIMER_ASSOCIATION_LEFT__Notch-_Delta-RIGHT__Complex__Notch_Delta_-_r28;panther:_CATALYSIS___Fringe_r28m1_r28
+LFNG	controls-state-change-of	DLL3	PANTHER		Notch signaling pathway	panther:HETERODIMER_ASSOCIATION_LEFT__Notch-_Delta-RIGHT__Complex__Notch_Delta_-_r28;panther:_CATALYSIS___Fringe_r28m1_r28
+LFNG	controls-state-change-of	DLL4	PANTHER		Notch signaling pathway	panther:HETERODIMER_ASSOCIATION_LEFT__Notch-_Delta-RIGHT__Complex__Notch_Delta_-_r28;panther:_CATALYSIS___Fringe_r28m1_r28
+LFNG	controls-state-change-of	JAG1	PANTHER		Notch signaling pathway	panther:_INHIBITION___Fringe_r21m1_r21;panther:HETERODIMER_ASSOCIATION_LEFT__Notch-_Serrate-RIGHT__Complex__Serrate_Notch_-_r21
+LFNG	controls-state-change-of	JAG2	PANTHER		Notch signaling pathway	panther:_INHIBITION___Fringe_r21m1_r21;panther:HETERODIMER_ASSOCIATION_LEFT__Notch-_Serrate-RIGHT__Complex__Serrate_Notch_-_r21
+LFNG	controls-state-change-of	NOTCH1	PANTHER		Notch signaling pathway	panther:_INHIBITION___Fringe_r21m1_r21;panther:HETERODIMER_ASSOCIATION_LEFT__Notch-_Serrate-RIGHT__Complex__Serrate_Notch_-_r21;panther:HETERODIMER_ASSOCIATION_LEFT__Notch-_Delta-RIGHT__Complex__Notch_Delta_-_r28;panther:_CATALYSIS___Fringe_r28m1_r28
+LFNG	controls-state-change-of	NOTCH2	PANTHER		Notch signaling pathway	panther:_INHIBITION___Fringe_r21m1_r21;panther:HETERODIMER_ASSOCIATION_LEFT__Notch-_Serrate-RIGHT__Complex__Serrate_Notch_-_r21;panther:HETERODIMER_ASSOCIATION_LEFT__Notch-_Delta-RIGHT__Complex__Notch_Delta_-_r28;panther:_CATALYSIS___Fringe_r28m1_r28
+LFNG	controls-state-change-of	NOTCH3	PANTHER		Notch signaling pathway	panther:_INHIBITION___Fringe_r21m1_r21;panther:HETERODIMER_ASSOCIATION_LEFT__Notch-_Serrate-RIGHT__Complex__Serrate_Notch_-_r21;panther:HETERODIMER_ASSOCIATION_LEFT__Notch-_Delta-RIGHT__Complex__Notch_Delta_-_r28;panther:_CATALYSIS___Fringe_r28m1_r28
+LFNG	controls-state-change-of	NOTCH4	PANTHER		Notch signaling pathway	panther:_INHIBITION___Fringe_r21m1_r21;panther:HETERODIMER_ASSOCIATION_LEFT__Notch-_Serrate-RIGHT__Complex__Serrate_Notch_-_r21;panther:HETERODIMER_ASSOCIATION_LEFT__Notch-_Delta-RIGHT__Complex__Notch_Delta_-_r28;panther:_CATALYSIS___Fringe_r28m1_r28
+MAML1	in-complex-with	NOTCH1	PANTHER		Notch signaling pathway	panther:_Complex__Mastermind_Su_H___CoA_NIcs__s35_a44_
+MAML1	in-complex-with	NOTCH2	PANTHER		Notch signaling pathway	panther:_Complex__Mastermind_Su_H___CoA_NIcs__s35_a44_
+MAML1	in-complex-with	NOTCH3	PANTHER		Notch signaling pathway	panther:_Complex__Mastermind_Su_H___CoA_NIcs__s35_a44_
+MAML1	in-complex-with	NOTCH4	PANTHER		Notch signaling pathway	panther:_Complex__Mastermind_Su_H___CoA_NIcs__s35_a44_
+MAML1	in-complex-with	RBPJL	PANTHER		Notch signaling pathway	panther:_Complex__Mastermind_Su_H___CoA_NIcs__s35_a44_
+MAML1	in-complex-with	RBPJ	PANTHER		Notch signaling pathway	panther:_Complex__Mastermind_Su_H___CoA_NIcs__s35_a44_
+MFNG	controls-state-change-of	DLK1	PANTHER		Notch signaling pathway	panther:HETERODIMER_ASSOCIATION_LEFT__Notch-_Delta-RIGHT__Complex__Notch_Delta_-_r28;panther:_CATALYSIS___Fringe_r28m1_r28
+MFNG	controls-state-change-of	DLL3	PANTHER		Notch signaling pathway	panther:HETERODIMER_ASSOCIATION_LEFT__Notch-_Delta-RIGHT__Complex__Notch_Delta_-_r28;panther:_CATALYSIS___Fringe_r28m1_r28
+MFNG	controls-state-change-of	DLL4	PANTHER		Notch signaling pathway	panther:HETERODIMER_ASSOCIATION_LEFT__Notch-_Delta-RIGHT__Complex__Notch_Delta_-_r28;panther:_CATALYSIS___Fringe_r28m1_r28
+MFNG	controls-state-change-of	JAG1	PANTHER		Notch signaling pathway	panther:_INHIBITION___Fringe_r21m1_r21;panther:HETERODIMER_ASSOCIATION_LEFT__Notch-_Serrate-RIGHT__Complex__Serrate_Notch_-_r21
+MFNG	controls-state-change-of	JAG2	PANTHER		Notch signaling pathway	panther:_INHIBITION___Fringe_r21m1_r21;panther:HETERODIMER_ASSOCIATION_LEFT__Notch-_Serrate-RIGHT__Complex__Serrate_Notch_-_r21
+MFNG	controls-state-change-of	NOTCH1	PANTHER		Notch signaling pathway	panther:_INHIBITION___Fringe_r21m1_r21;panther:HETERODIMER_ASSOCIATION_LEFT__Notch-_Serrate-RIGHT__Complex__Serrate_Notch_-_r21;panther:HETERODIMER_ASSOCIATION_LEFT__Notch-_Delta-RIGHT__Complex__Notch_Delta_-_r28;panther:_CATALYSIS___Fringe_r28m1_r28
+MFNG	controls-state-change-of	NOTCH2	PANTHER		Notch signaling pathway	panther:_INHIBITION___Fringe_r21m1_r21;panther:HETERODIMER_ASSOCIATION_LEFT__Notch-_Serrate-RIGHT__Complex__Serrate_Notch_-_r21;panther:HETERODIMER_ASSOCIATION_LEFT__Notch-_Delta-RIGHT__Complex__Notch_Delta_-_r28;panther:_CATALYSIS___Fringe_r28m1_r28
+MFNG	controls-state-change-of	NOTCH3	PANTHER		Notch signaling pathway	panther:_INHIBITION___Fringe_r21m1_r21;panther:HETERODIMER_ASSOCIATION_LEFT__Notch-_Serrate-RIGHT__Complex__Serrate_Notch_-_r21;panther:HETERODIMER_ASSOCIATION_LEFT__Notch-_Delta-RIGHT__Complex__Notch_Delta_-_r28;panther:_CATALYSIS___Fringe_r28m1_r28
+MFNG	controls-state-change-of	NOTCH4	PANTHER		Notch signaling pathway	panther:_INHIBITION___Fringe_r21m1_r21;panther:HETERODIMER_ASSOCIATION_LEFT__Notch-_Serrate-RIGHT__Complex__Serrate_Notch_-_r21;panther:HETERODIMER_ASSOCIATION_LEFT__Notch-_Delta-RIGHT__Complex__Notch_Delta_-_r28;panther:_CATALYSIS___Fringe_r28m1_r28
+NCOR2	in-complex-with	RBPJL	PANTHER		Notch signaling pathway	panther:_Complex__Su_H__CoR__s32_a37_
+NCOR2	in-complex-with	RBPJ	PANTHER		Notch signaling pathway	panther:_Complex__Su_H__CoR__s32_a37_
+NCSTN	in-complex-with	PSEN1	PANTHER		Notch signaling pathway	panther:_Complex__Pen2_Aph1__Nicastrin_Presenilin__s74_a84_
+NOTCH1	controls-state-change-of	CIR1	PANTHER		Notch signaling pathway	panther:_CATALYSIS___NIcs_r11m1_r11;panther:DISSOCIATION_LEFT__Complex__Su_H__CoR_-RIGHT__CoR-_Su_H_-_r11
+NOTCH1	controls-state-change-of	NCOR2	PANTHER		Notch signaling pathway	panther:_CATALYSIS___NIcs_r11m1_r11;panther:DISSOCIATION_LEFT__Complex__Su_H__CoR_-RIGHT__CoR-_Su_H_-_r11
+NOTCH1	controls-state-change-of	RBPJL	PANTHER		Notch signaling pathway	panther:_CATALYSIS___NIcs_r11m1_r11;panther:DISSOCIATION_LEFT__Complex__Su_H__CoR_-RIGHT__CoR-_Su_H_-_r11
+NOTCH1	in-complex-with	RBPJL	PANTHER		Notch signaling pathway	panther:_Complex__Mastermind_Su_H___CoA_NIcs__s35_a44_
+NOTCH1	controls-state-change-of	RBPJ	PANTHER		Notch signaling pathway	panther:_CATALYSIS___NIcs_r11m1_r11;panther:DISSOCIATION_LEFT__Complex__Su_H__CoR_-RIGHT__CoR-_Su_H_-_r11
+NOTCH1	in-complex-with	RBPJ	PANTHER		Notch signaling pathway	panther:_Complex__Mastermind_Su_H___CoA_NIcs__s35_a44_
+NOTCH2	controls-state-change-of	CIR1	PANTHER		Notch signaling pathway	panther:_CATALYSIS___NIcs_r11m1_r11;panther:DISSOCIATION_LEFT__Complex__Su_H__CoR_-RIGHT__CoR-_Su_H_-_r11
+NOTCH2	controls-state-change-of	NCOR2	PANTHER		Notch signaling pathway	panther:_CATALYSIS___NIcs_r11m1_r11;panther:DISSOCIATION_LEFT__Complex__Su_H__CoR_-RIGHT__CoR-_Su_H_-_r11
+NOTCH2	controls-state-change-of	RBPJL	PANTHER		Notch signaling pathway	panther:_CATALYSIS___NIcs_r11m1_r11;panther:DISSOCIATION_LEFT__Complex__Su_H__CoR_-RIGHT__CoR-_Su_H_-_r11
+NOTCH2	in-complex-with	RBPJL	PANTHER		Notch signaling pathway	panther:_Complex__Mastermind_Su_H___CoA_NIcs__s35_a44_
+NOTCH2	controls-state-change-of	RBPJ	PANTHER		Notch signaling pathway	panther:_CATALYSIS___NIcs_r11m1_r11;panther:DISSOCIATION_LEFT__Complex__Su_H__CoR_-RIGHT__CoR-_Su_H_-_r11
+NOTCH2	in-complex-with	RBPJ	PANTHER		Notch signaling pathway	panther:_Complex__Mastermind_Su_H___CoA_NIcs__s35_a44_
+NOTCH3	controls-state-change-of	CIR1	PANTHER		Notch signaling pathway	panther:_CATALYSIS___NIcs_r11m1_r11;panther:DISSOCIATION_LEFT__Complex__Su_H__CoR_-RIGHT__CoR-_Su_H_-_r11
+NOTCH3	controls-state-change-of	NCOR2	PANTHER		Notch signaling pathway	panther:_CATALYSIS___NIcs_r11m1_r11;panther:DISSOCIATION_LEFT__Complex__Su_H__CoR_-RIGHT__CoR-_Su_H_-_r11
+NOTCH3	controls-state-change-of	RBPJL	PANTHER		Notch signaling pathway	panther:_CATALYSIS___NIcs_r11m1_r11;panther:DISSOCIATION_LEFT__Complex__Su_H__CoR_-RIGHT__CoR-_Su_H_-_r11
+NOTCH3	in-complex-with	RBPJL	PANTHER		Notch signaling pathway	panther:_Complex__Mastermind_Su_H___CoA_NIcs__s35_a44_
+NOTCH3	controls-state-change-of	RBPJ	PANTHER		Notch signaling pathway	panther:_CATALYSIS___NIcs_r11m1_r11;panther:DISSOCIATION_LEFT__Complex__Su_H__CoR_-RIGHT__CoR-_Su_H_-_r11
+NOTCH3	in-complex-with	RBPJ	PANTHER		Notch signaling pathway	panther:_Complex__Mastermind_Su_H___CoA_NIcs__s35_a44_
+NOTCH4	controls-state-change-of	CIR1	PANTHER		Notch signaling pathway	panther:_CATALYSIS___NIcs_r11m1_r11;panther:DISSOCIATION_LEFT__Complex__Su_H__CoR_-RIGHT__CoR-_Su_H_-_r11
+NOTCH4	controls-state-change-of	NCOR2	PANTHER		Notch signaling pathway	panther:_CATALYSIS___NIcs_r11m1_r11;panther:DISSOCIATION_LEFT__Complex__Su_H__CoR_-RIGHT__CoR-_Su_H_-_r11
+NOTCH4	controls-state-change-of	RBPJL	PANTHER		Notch signaling pathway	panther:_CATALYSIS___NIcs_r11m1_r11;panther:DISSOCIATION_LEFT__Complex__Su_H__CoR_-RIGHT__CoR-_Su_H_-_r11
+NOTCH4	in-complex-with	RBPJL	PANTHER		Notch signaling pathway	panther:_Complex__Mastermind_Su_H___CoA_NIcs__s35_a44_
+NOTCH4	controls-state-change-of	RBPJ	PANTHER		Notch signaling pathway	panther:_CATALYSIS___NIcs_r11m1_r11;panther:DISSOCIATION_LEFT__Complex__Su_H__CoR_-RIGHT__CoR-_Su_H_-_r11
+NOTCH4	in-complex-with	RBPJ	PANTHER		Notch signaling pathway	panther:_Complex__Mastermind_Su_H___CoA_NIcs__s35_a44_
+NUMB	controls-state-change-of	NOTCH1	PANTHER		Notch signaling pathway	panther:_INHIBITION___Numb_r10m1_r10;panther:TRANSPORT_LEFT__NIcs-RIGHT__NIcs-_r10
+NUMB	controls-transport-of	NOTCH1	PANTHER		Notch signaling pathway	panther:_INHIBITION___Numb_r10m1_r10;panther:TRANSPORT_LEFT__NIcs-RIGHT__NIcs-_r10
+NUMB	controls-state-change-of	NOTCH2	PANTHER		Notch signaling pathway	panther:_INHIBITION___Numb_r10m1_r10;panther:TRANSPORT_LEFT__NIcs-RIGHT__NIcs-_r10
+NUMB	controls-transport-of	NOTCH2	PANTHER		Notch signaling pathway	panther:_INHIBITION___Numb_r10m1_r10;panther:TRANSPORT_LEFT__NIcs-RIGHT__NIcs-_r10
+NUMB	controls-state-change-of	NOTCH3	PANTHER		Notch signaling pathway	panther:_INHIBITION___Numb_r10m1_r10;panther:TRANSPORT_LEFT__NIcs-RIGHT__NIcs-_r10
+NUMB	controls-transport-of	NOTCH3	PANTHER		Notch signaling pathway	panther:_INHIBITION___Numb_r10m1_r10;panther:TRANSPORT_LEFT__NIcs-RIGHT__NIcs-_r10
+NUMB	controls-state-change-of	NOTCH4	PANTHER		Notch signaling pathway	panther:_INHIBITION___Numb_r10m1_r10;panther:TRANSPORT_LEFT__NIcs-RIGHT__NIcs-_r10
+NUMB	controls-transport-of	NOTCH4	PANTHER		Notch signaling pathway	panther:_INHIBITION___Numb_r10m1_r10;panther:TRANSPORT_LEFT__NIcs-RIGHT__NIcs-_r10
+POFUT1	controls-state-change-of	NOTCH1	PANTHER		Notch signaling pathway	panther:_CATALYSIS___Neurotic_r18m1_r18;panther:STATE_TRANSITION_LEFT__fucose-_Notch-RIGHT__Notch-_r18
+POFUT1	controls-state-change-of	NOTCH2	PANTHER		Notch signaling pathway	panther:_CATALYSIS___Neurotic_r18m1_r18;panther:STATE_TRANSITION_LEFT__fucose-_Notch-RIGHT__Notch-_r18
+POFUT1	controls-state-change-of	NOTCH3	PANTHER		Notch signaling pathway	panther:_CATALYSIS___Neurotic_r18m1_r18;panther:STATE_TRANSITION_LEFT__fucose-_Notch-RIGHT__Notch-_r18
+POFUT1	controls-state-change-of	NOTCH4	PANTHER		Notch signaling pathway	panther:_CATALYSIS___Neurotic_r18m1_r18;panther:STATE_TRANSITION_LEFT__fucose-_Notch-RIGHT__Notch-_r18
+chebi:33984	consumption-controlled-by	FUT8	PANTHER		Notch signaling pathway	panther:_CATALYSIS___Neurotic_r18m1_r18;panther:STATE_TRANSITION_LEFT__fucose-_Notch-RIGHT__Notch-_r18
+chebi:33984	consumption-controlled-by	POFUT1	PANTHER		Notch signaling pathway	panther:_CATALYSIS___Neurotic_r18m1_r18;panther:STATE_TRANSITION_LEFT__fucose-_Notch-RIGHT__Notch-_r18
+
+PARTICIPANT	PARTICIPANT_TYPE	PARTICIPANT_NAME	UNIFICATION_XREF	RELATIONSHIP_XREF
+NOTCH2	ProteinReference	NOTC2_HUMAN	uniprot:Q04721	hgnc.symbol:NOTCH2;ncbigene:4853
+RBPJL	ProteinReference	RBPJL_HUMAN	uniprot:Q9UBG7	hgnc.symbol:RBPJL;ncbigene:11317
+NOTCH3	ProteinReference	NOTC3_HUMAN	uniprot:Q9UM47	hgnc.symbol:NOTCH3;ncbigene:4854
+NOTCH1	ProteinReference	NOTC1_HUMAN	uniprot:P46531	hgnc.symbol:NOTCH1;ncbigene:4851
+MAML1	ProteinReference	MAML1_HUMAN	uniprot:Q92585	hgnc.symbol:MAML1;ncbigene:9794
+NOTCH4	ProteinReference	NOTC4_HUMAN	uniprot:Q99466	hgnc.symbol:NOTCH4;ncbigene:4855
+chebi:33984	SmallMoleculeReference	fucose	chebi:CHEBI:33984	
+PSEN1	ProteinReference	PSN1_HUMAN	uniprot:P49768	hgnc.symbol:PSEN1;ncbigene:5663
+RBPJ	ProteinReference	SUH_HUMAN	uniprot:Q06330	hgnc.symbol:RBPJ;ncbigene:3516
+DLL3	ProteinReference	DLL3_HUMAN	uniprot:Q9NYJ7	hgnc.symbol:DLL3;ncbigene:10683
+LFNG	ProteinReference	LFNG_HUMAN	uniprot:Q8NES3	hgnc.symbol:LFNG;ncbigene:3955
+DLL4	ProteinReference	DLL4_HUMAN	uniprot:Q9NR61	hgnc.symbol:DLL4;ncbigene:54567
+NCSTN	ProteinReference	NICA_HUMAN	uniprot:Q92542	hgnc.symbol:NCSTN;ncbigene:23385
+FUT8	ProteinReference	FUT8_HUMAN	uniprot:Q9BYC5	hgnc.symbol:FUT8;ncbigene:2530
+POFUT1	ProteinReference	OFUT1_HUMAN	uniprot:Q9H488	hgnc.symbol:POFUT1;ncbigene:23509
+CIR1	ProteinReference	CIR1_HUMAN	uniprot:Q86X95	hgnc.symbol:CIR1;ncbigene:9541
+JAG2	ProteinReference	JAG2_HUMAN	uniprot:Q9Y219	hgnc.symbol:JAG2;ncbigene:3714
+JAG1	ProteinReference	JAG1_HUMAN	uniprot:P78504	hgnc.symbol:JAG1;ncbigene:182
+FBXW7	ProteinReference	FBXW7_HUMAN	uniprot:Q969H0	hgnc.symbol:FBXW7;ncbigene:55294
+ADAM10	ProteinReference	ADA10_HUMAN	uniprot:O14672	hgnc.symbol:ADAM10;ncbigene:102
+DLK1	ProteinReference	DLK1_HUMAN	uniprot:P80370	hgnc.symbol:DLK1;ncbigene:8788
+NCOR2	ProteinReference	NCOR2_HUMAN	uniprot:Q9Y618	hgnc.symbol:NCOR2;ncbigene:9612
+ADAM17	ProteinReference	ADA17_HUMAN	uniprot:P78536	hgnc.symbol:ADAM17;ncbigene:6868
+MFNG	ProteinReference	MFNG_HUMAN	uniprot:O00587	hgnc.symbol:MFNG;ncbigene:4242
+NUMB	ProteinReference	NUMB_HUMAN	uniprot:P49757	hgnc.symbol:NUMB;ncbigene:8650

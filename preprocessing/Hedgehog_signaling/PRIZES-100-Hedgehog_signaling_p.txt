@@ -1,0 +1,5 @@
+id	prizes	active
+GLI1	100	true
+GLI3	100	true
+PTCH1	100	true
+SMO	100	true

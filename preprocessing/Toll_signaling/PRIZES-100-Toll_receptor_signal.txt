@@ -1,0 +1,12 @@
+id	prizes	active
+ELK1	100	true
+JUN	100	true
+IRF3	100	true
+TLR9	100	true
+TLR8	100	true
+TLR10	100	true
+TLR7	100	true
+TLR6	100	true
+TLR4	100	true
+TLR3	100	true
+TLR2	100	true

@@ -1,0 +1,4 @@
+id	prizes	active
+INSR	100	true
+INSRR	100	true
+IGF1R	100	true
