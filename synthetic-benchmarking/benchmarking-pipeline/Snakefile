@@ -1,0 +1,125 @@
+configfile: "config.yaml"
+
+algorithms = config["algorithm_pathways"].keys()
+pathways = config["algorithm_pathways"]
+
+def generate_paths(algorithms, pathways):
+    paths = []
+    for algorithm in algorithms:
+        for pathway in pathways[algorithm]:
+            paths.append(f"output/images/network/{algorithm}_{pathway}_spras.png")
+            paths.append(f"output/images/network/{algorithm}_{pathway}_panther.png")
+            paths.append(f"output/stats/network/{algorithm}_{pathway}_stats.txt")
+            paths.append(f"output/stats/score/edges/{algorithm}_{pathway}.txt")
+            paths.append(f"output/stats/score/nodes/{algorithm}_{pathway}.txt")
+
+    return paths
+
+def score_files(algorithms, pathways):
+    edge_inputs = []
+    node_inputs = []
+    outputs = []
+    for algorithm in algorithms:
+        for pathway in pathways[algorithm]:
+            edge_score_file = f"output/stats/score/edges/{algorithm}_{pathway}.txt"
+            node_score_file = f"output/stats/score/nodes/{algorithm}_{pathway}.txt"
+
+            edge_inputs.append(edge_score_file)
+            node_inputs.append(node_score_file)
+        outputs.append(f"output/images/auc/edges/{algorithm}_alg.png")
+        outputs.append(f"output/images/auc/nodes/{algorithm}_alg.png")
+    return edge_inputs, node_inputs, outputs
+
+def pathway_files(algorithms, pathways):
+    edge_inputs = []
+    node_inputs = []
+    pathway_outputs = []
+    for algorithm in algorithms:
+        for pathway in pathways[algorithm]:
+            edge_score_file = f"output/stats/score/edges/{algorithm}_{pathway}.txt"
+            node_score_file = f"output/stats/score/nodes/{algorithm}_{pathway}.txt"
+
+            edge_inputs.append(edge_score_file)
+            node_inputs.append(node_score_file)
+            pathway_outputs.append(f"output/images/auc/edges/{pathway}_pathway.png")
+            pathway_outputs.append(f"output/images/auc/nodes/{pathway}_pathway.png")
+
+    return edge_inputs, node_inputs, pathway_outputs
+
+def edges_files(algorithms, pathways):
+    edge_inputs = []
+    for algorithm in algorithms:
+        for pathway in pathways[algorithm]:
+            edge_file = f"output/stats/network/{algorithm}_{pathway}_stats.txt"
+            edge_inputs.append(edge_file)
+    return edge_inputs
+
+rule all:
+    input:
+        generate_paths(algorithms, pathways),
+        score_files(algorithms, pathways)[2],  
+        pathway_files(algorithms, pathways)[2],
+        "output/images/heatmap/heatmap_edge.png",
+        "output/images/heatmap/heatmap_node.png"
+
+rule pathway_image:
+    input:
+        spras=lambda wildcards: f"networks/{wildcards.algorithms}/{wildcards.pathways}/spras.txt",
+        panther=lambda wildcards: f"networks/{wildcards.algorithms}/{wildcards.pathways}/panther.txt"
+    output:
+        spras_image="output/images/network/{algorithms}_{pathways}_spras.png",
+        panther_image="output/images/network/{algorithms}_{pathways}_panther.png"
+    script:
+        "scripts/generate_network.py"
+
+rule pathway_stats:
+    input:
+        spras=lambda wildcards: f"networks/{wildcards.algorithms}/{wildcards.pathways}/spras.txt",
+        panther=lambda wildcards: f"networks/{wildcards.algorithms}/{wildcards.pathways}/panther.txt"
+    output:
+        stats="output/stats/network/{algorithms}_{pathways}_stats.txt"
+    script:
+        "scripts/generate_stats.py"
+
+rule generate_scores:
+    input:
+        spras=lambda wildcards: f"networks/{wildcards.algorithms}/{wildcards.pathways}/spras.txt",
+        panther=lambda wildcards: f"networks/{wildcards.algorithms}/{wildcards.pathways}/panther.txt"
+    output:
+        edge_score="output/stats/score/edges/{algorithms}_{pathways}.txt",
+        node_score="output/stats/score/nodes/{algorithms}_{pathways}.txt",
+
+    script:
+        "scripts/generate_scores_file.py"
+
+rule generate_algorithm_auc:
+    input:
+        edge_scores=score_files(algorithms, pathways)[0],
+        node_scores=score_files(algorithms, pathways)[1]
+
+    output:
+        auc_edge_image="output/images/auc/edges/{algorithm}_alg.png",
+        auc_node_image="output/images/auc/nodes/{algorithm}_alg.png"
+    script:
+        "scripts/generate_auc_figures.py"
+
+rule generate_pathway_auc:
+    input:
+        edge_scores=pathway_files(algorithms, pathways)[0],
+        node_scores=pathway_files(algorithms, pathways)[1]
+    output:
+        auc_edge_image="output/images/auc/edges/{pathway}_pathway.png",
+        auc_node_image="output/images/auc/nodes/{pathway}_pathway.png"
+
+    script:
+        "scripts/generate_auc_figures.py" 
+
+rule generate_heatmap:
+    input:
+        scores=edges_files(algorithms, pathways)
+    output:
+        edge_heatmap="output/images/heatmap/heatmap_edge.png",
+        node_heatmap="output/images/heatmap/heatmap_node.png"
+
+    script:
+        "scripts/generate_heatmap.py"
