@@ -22,3 +22,5 @@ snakemake --cores 1
 - `networks\` is a directory that contains all the methods and the pathway files. They all have the same structure where each algorithm and pathway combination must include the `spras.txt` file with the corresponding `panther.txt` file.
 - `scripts\` is a directory that contains all the helper python files in order to generate the auc, heatmap, and stats.
 - `Snakefile` this file contains all the rules and workflow requirements.
+
+Testing
