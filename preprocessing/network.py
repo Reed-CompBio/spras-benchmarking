@@ -18,9 +18,9 @@ def read_file(path, delimit, type):
         edge_set = set()
         node_set = set()
         edge_confidence_dict = {}
-        # for i in range(102):
+        # for i in range(10):
+        #     row = next(csvreader)
         for row in csvreader:
-            row = next(csvreader)
             node_set.add(row[0])
             node_set.add(row[1])
             edge_set.add(frozenset((row[0], row[1])))
@@ -72,16 +72,16 @@ def main():
         human_ppi_path, " ", "interactome"
     )
 
-    # pathways = ["apoptosis"]
-    # pathways = ["apoptosis", "cadherin", "hedgehog", "notch", "wnt"]
-    pathways = ["cadherin", "notch", "wnt"]
+    # pathways = ["hedgehog"]
+    pathways = ["apoptosis", "cadherin", "hedgehog", "notch", "wnt"]
+    # pathways = ["cadherin", "notch", "wnt"]
 
     # delimiter = [" ", " ", "\t"]
 
     pathway_paths = [
-        # Path("Apoptosis_signaling/STRING-EDGES-Apoptosis_signaling_.txt"),
+        Path("Apoptosis_signaling/STRING-EDGES-Apoptosis_signaling_.txt"),
         Path("Cadherin_signaling/STRING-EDGES-Cadherin_signaling_p.txt"),
-        # Path("Hedgehog_signaling/STRING-EDGES-Hedgehog_signaling_p.txt"),
+        Path("Hedgehog_signaling/STRING-EDGES-Hedgehog_signaling_p.txt"),
         Path("Notch_signaling/STRING-EDGES-Notch_signaling_path.txt"),
         Path("Wnt_signaling/STRING-EDGES-Wnt_signaling_pathwa.txt"),
     ]
@@ -130,54 +130,74 @@ def main():
         }
 
         filtered_edge_list = deque(sorted_combined_conf_dict.keys())
+        i = 0
         pathway_edges_data = []
         interactome_edges_data = []
         threshold_data = []
         edges_removed = 0
+        top_edge = filtered_edge_list.popleft()
+        removed_edges_set = set()
+        removed_edges_set.add(top_edge)
         for threshold in unique_score_list:
             print("Threshold ", threshold)
             count = 0
+            # print(top_edge,  combined_conf_dict[top_edge], threshold, type(combined_conf_dict[top_edge]), type(threshold))
+            # print(len(filtered_edge_list) != 0)
+            # print(combined_conf_dict[top_edge] == threshold)
             while (
                 len(filtered_edge_list) != 0
-                and combined_conf_dict[filtered_edge_list[0]] == threshold
+                and combined_conf_dict[top_edge] == threshold
             ):
-                # print(filtered_edge_list[0], combined_conf_dict[filtered_edge_list[0]])
-                filtered_edge_list.popleft()
+                # print("INSIDEEEE")
+                # print(filtered_edge_list[0], combined_conf_dict[top_edge])
+                top_edge = filtered_edge_list.popleft()
+                removed_edges_set.add(top_edge)
                 count += 1
-                print(count, end="\r")
-            print("Removed ", count, "edges")
+                # print(count)
+            print("Removed ", count, "edges", "total edges ", len(combined_conf_dict))
             edges_removed += count
             # check largest connected component
             # largest_connected_component(filtered_edge_list, pathway_edge_list)
             print(
                 "pathway edges removed : ",
-                len(pathway_edge_list.difference(set(filtered_edge_list))),
+                len(pathway_edge_list.difference(set(removed_edges_set))),
                 "/",
                 len(pathway_edge_list),
             )
             pathway_edges_data.append(
                 len(pathway_edge_list)
-                - len(pathway_edge_list.difference(set(filtered_edge_list)))
+                - (
+                    len(pathway_edge_list)
+                    - len(pathway_edge_list.difference(set(removed_edges_set)))
+                )
             )
             threshold_data.append(threshold)
-            interactome_edges_data.append(len(filtered_edge_list) - edges_removed)
+            interactome_edges_data.append(len(combined_conf_dict) - edges_removed)
+            print(
+                "pathway_edges_data",
+                len(pathway_edge_list)
+                - len(pathway_edge_list.difference(set(filtered_edge_list))),
+            )
+            print("threshold_data", threshold)
+            print("interactome_edges_data", len(combined_conf_dict) - edges_removed)
             print()
 
-        # fig, axes = plt.subplots(1, 2, figsize=(14, 5))
-        # axes[0].scatter(threshold_data, pathway_edges_data, s=10)
-        # axes[0].set_title(f"{pathway} Pathway edges count vs Threshold")
-        # axes[0].set_xlabel("Score Threshold")
-        # axes[0].set_ylabel("Pathway edges count")
+        # print("Threshold", threshold_data)
+        # print("interactome edges", interactome_edges_data)
+        # print("pathway edges", pathway_edges_data)
 
-        # axes[1].scatter(threshold_data, interactome_edges_data, s=10)
-        # axes[1].set_title("Combined Interactome edges count vs Threshold")
-        # axes[1].set_xlabel("Score Threshold")
-        # axes[1].set_ylabel("Interactome edges count")
-
-        # plt.tight_layout()
-        # plt.savefig(Path(f"output/{pathway}.pdf"))
-        # plt.show()
-
+        results_dict = {
+            "alpha_value": [],
+            "best_score_threshold": [],
+            "interactome_edge_size": [],
+            "pathway_edge_size": [],
+        }
+        results_headers = [
+            "alpha_value",
+            "best_score_threshold",
+            "interactome_edge_size",
+            "pathway_edge_size",
+        ]
         pathway_arr_norm = normalize_array(np.array(pathway_edges_data))
         interactome_arr_norm = normalize_array(np.array(interactome_edges_data))
         alpha_list = [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9]
@@ -186,6 +206,14 @@ def main():
             scores = alpha * pathway_arr_norm - (1 - alpha) * interactome_arr_norm
             best_idx = np.argmax(scores)
             best_threshold = threshold_data[best_idx]
+
+            results_dict["alpha_value"].append(alpha)
+            results_dict["best_score_threshold"].append(best_threshold)
+            results_dict["interactome_edge_size"].append(
+                interactome_edges_data[best_idx]
+            )
+            results_dict["pathway_edge_size"].append(pathway_edges_data[best_idx])
+
             plt.figure(figsize=(14, 5))
             plt.plot(
                 threshold_data,
@@ -220,8 +248,22 @@ def main():
             plt.ylabel("Normalized Values")
             plt.legend()
             plt.title("Threshold Optimization for Retaining Pathway Edges")
-            plt.savefig(Path(f"output/{pathway}_{alpha}.pdf"))
+            plt.savefig(Path(f"output/images/{pathway}_{alpha}.pdf"))
             # plt.show()
+
+        with open(f"output/{pathway}.csv", "w") as f:
+            writer = csv.writer(f, delimiter="\t")
+            writer.writerow(results_headers)
+
+            for i in range(len(results_dict["alpha_value"])):
+                writer.writerow(
+                    [
+                        results_dict["alpha_value"][i],
+                        results_dict["best_score_threshold"][i],
+                        results_dict["interactome_edge_size"][i],
+                        results_dict["pathway_edge_size"][i],
+                    ]
+                )
 
 
 if __name__ == "__main__":
