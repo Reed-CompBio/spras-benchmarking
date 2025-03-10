@@ -1,8 +1,11 @@
 library(tidyverse)
+# install.packages("httr")
 library(httr)
 # Set working directory so that pathway_path does not have any parent directories
 # Based on GitHub file structure this should be the specific folder for each PANTHER pathway
-setwd('~/Desktop/GitHub_Repos/spras-benchmarking/preprocessing/B_cell_activation/')
+panther_file <- "Nicotinic_acetylchol"
+setwd(paste0('~/Desktop/GitHub_Repos/spras-benchmarking/preprocessing/', panther_file))
+pathway_path <- paste0(panther_file, ".txt")
 
 # Function for processing PANTHER pathways in Extended SIF format into Node/Edge files for benchmarking inputs
 process_panther_pathway <- function(pathway_path) {
@@ -43,12 +46,13 @@ process_panther_pathway <- function(pathway_path) {
     for (i in 1:nTries) {
       url <- paste("https://rest.uniprot.org/idmapping/status/", jobId, sep = "")
       r <- GET(url = url, accept_json())
-      status <- content(r, as = "parsed")
-      if (!is.null(status[["results"]]) || !is.null(status[["failedIds"]])) {
+      # status <- content(r, as = "parsed")
+      status <- r[["status_code"]]
+      print(paste("Status", status))
+      if (status == 200) {
         return(TRUE)
       }
-      if (!is.null(status[["messages"]])) {
-        print(status[["messages"]])
+      else {
         return (FALSE)
       }
       Sys.sleep(pollingInterval)
@@ -65,6 +69,7 @@ process_panther_pathway <- function(pathway_path) {
     }
   }
   
+  ### Get STRING IDs from UniProt IDs
   # Set input for namespace mapper
   uniprot_ids <- paste(nodes$uniprot, collapse = ",")
   files = list(
@@ -76,31 +81,33 @@ process_panther_pathway <- function(pathway_path) {
   # Make the initial submission
   r <- POST(url = "https://rest.uniprot.org/idmapping/run", body = files, encode = "multipart", accept_json())
   submission <- content(r, as = "parsed")
+  print(paste("STRING mapping submission:", submission))
   
-  # When job is ready print the results
   if (isJobReady(submission[["jobId"]])) {
-    url <- paste("https://rest.uniprot.org/idmapping/details/", submission[["jobId"]], sep = "")
-    r <- GET(url = url, accept_json())
-    details <- content(r, as = "parsed")
-    url <- getResultsURL(details[["redirectURL"]])
+    Sys.sleep(10)
+    url <- paste0("https://rest.uniprot.org/idmapping/results/", submission[["jobId"]])
     # Using TSV format see: https://www.uniprot.org/help/api_queries#what-formats-are-available
-    url <- paste(url, "?format=tsv", sep = "")
-    r <- GET(url = url, accept_json())
-    resultsTable = read.table(text = content(r), sep = "\t", header=TRUE)
-    print(resultsTable)
+    url <- paste0(url, "?format=tsv")
+    r <- GET(url = url)
+    raw_content <- content(r, as = "raw")
+    decompressed <- rawToChar(memDecompress(raw_content, type = "gzip"))
+    stringTable <- read_tsv(I(decompressed))
+    print(stringTable)
   }
   
   # Join STRING IDs back to original dataset
-  nodes <- full_join(nodes, resultsTable, by = c("uniprot" = "From"))
+  nodes <- full_join(nodes, stringTable, by = c("uniprot" = "From"))
   nodes <- rename(nodes, string = To)
+  head(nodes)
   
   # join STRING IDs back to edge list
   edges <- inner_join(edges, nodes, by = c("id1" = "id")) %>% inner_join(nodes, by = c("id2" = "id"))
   colnames(edges) <- c("id1", "id2", "uniprot1", "string1", "uniprot2", "string2")
   # extract only STRING IDs
+  head(edges)
   string_edges <- edges %>% select(string1, string2)
   
-  # Get Ensembl IDs from Uniprot IDs
+  ### Get Ensembl IDs from Uniprot IDs
   ensembl_files = list(
     ids = uniprot_ids,
     from = "UniProtKB_AC-ID",
@@ -110,22 +117,23 @@ process_panther_pathway <- function(pathway_path) {
   # Make the initial submission
   r <- POST(url = "https://rest.uniprot.org/idmapping/run", body = ensembl_files, encode = "multipart", accept_json())
   submission <- content(r, as = "parsed")
+  print(paste("ENSEMBL mapping submission:", submission))
   
   # When job is ready print the results
   if (isJobReady(submission[["jobId"]])) {
-    url <- paste("https://rest.uniprot.org/idmapping/details/", submission[["jobId"]], sep = "")
-    r <- GET(url = url, accept_json())
-    details <- content(r, as = "parsed")
-    url <- getResultsURL(details[["redirectURL"]])
+    Sys.sleep(10)
+    url <- paste0("https://rest.uniprot.org/idmapping/results/", submission[["jobId"]])
     # Using TSV format see: https://www.uniprot.org/help/api_queries#what-formats-are-available
-    url <- paste(url, "?format=tsv", sep = "")
-    r <- GET(url = url, accept_json())
-    ensembleTable = read.table(text = content(r), sep = "\t", header=TRUE)
-    print(ensembleTable)
+    url <- paste0(url, "?format=tsv")
+    r <- GET(url = url)
+    raw_content <- content(r, as = "raw")
+    decompressed <- rawToChar(memDecompress(raw_content, type = "gzip"))
+    ensemblTable <- read_tsv(I(decompressed))
+    print(ensemblTable)
   }
   
   # Join STRING IDs back to original dataset
-  nodes <- full_join(nodes, ensembleTable, by = c("uniprot" = "From"))
+  nodes <- full_join(nodes, ensemblTable, by = c("uniprot" = "From"))
   nodes <- rename(nodes, ensembl = To)
   nodes$ensembl <- sapply(str_split(nodes$ensembl, "\\."), `[`, 1)
   
@@ -177,7 +185,6 @@ process_panther_pathway <- function(pathway_path) {
 }
 
 # Example usage:
-pathway_path <- "B_cell_activation.txt"
 result <- process_panther_pathway(pathway_path)
 
 # Access individual datasets

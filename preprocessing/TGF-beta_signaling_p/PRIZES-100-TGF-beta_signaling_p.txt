@@ -1,0 +1,15 @@
+id	prizes	active
+ATF2	100	true
+JUNB	100	true
+FOXH1	100	true
+ACVRL1	100	true
+BMPR2	100	true
+AMHR2	100	true
+ACVR1	100	true
+TGFBR1	100	true
+TGFBR2	100	true
+ACVR1B	100	true
+ACVR1C	100	true
+ACVR2B	100	true
+ACVR2A	100	true
+BMPR1A	100	true
