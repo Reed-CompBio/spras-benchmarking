@@ -1,3 +1,4 @@
+import argparse
 import csv
 from pathlib import Path
 import sys
@@ -66,7 +67,7 @@ def normalize_array(arr):
     return (arr - min_val) / (max_val - min_val)
 
 
-def main():
+def main(pathway_path, pathway_name, output_path):
     print("Hello")
     human_ppi_path = Path(
         "preprocessing/human-interactome/9606.protein.links.full.v12.0.txt"
@@ -75,162 +76,171 @@ def main():
         human_ppi_path, " ", "interactome"
     )
 
-    pathways = ["apoptosis"]
-    # pathways = ["apoptosis", "cadherin", "hedgehog", "notch", "wnt"]
-    # pathways = ["cadherin", "notch", "wnt"]
+    # pathway = "apoptosis"
+    # pathway_path = Path("preprocessing/Apoptosis_signaling/STRING-EDGES-Apoptosis_signaling_.txt")
 
-    # delimiter = [" ", " ", "\t"]
+    pathway_edge_set, pathway_node_set, pathway_edge_confidence_dict = read_file(
+        pathway_path, "\t", "pathway"
+    )
 
-    pathway_paths = [
-        Path("preprocessing/Apoptosis_signaling/STRING-EDGES-Apoptosis_signaling_.txt"),
-        # Path("preprocessing/Cadherin_signaling/STRING-EDGES-Cadherin_signaling_p.txt"),
-        # Path("preprocessing/Hedgehog_signaling/STRING-EDGES-Hedgehog_signaling_p.txt"),
-        # Path("preprocessing/Notch_signaling/STRING-EDGES-Notch_signaling_path.txt"),
-        # Path("preprocessing/Wnt_signaling/STRING-EDGES-Wnt_signaling_pathwa.txt"),
-    ]
+    # combine both edge lists
+    combined_edge_list = human_edge_set.union(pathway_edge_set)
+    combined_conf_dict = pathway_edge_confidence_dict | human_edge_confidence_dict
+    print(
+        "human interactome edges",
+        len(human_edge_set),
+        "\npathway interactome edges",
+        len(pathway_edge_set),
+        "\ntotal interactome edges",
+        len(combined_edge_list),
+    )
 
-    for pathway, pathway_path in zip(pathways, pathway_paths):
+    # stats on missing nodes/edges
+    # get_overlap_stats(human_edge_set, pathway_edge_set)
 
-        pathway_edge_set, pathway_node_set, pathway_edge_confidence_dict = read_file(
-            pathway_path, "\t", "pathway"
+    score_edge_dict = defaultdict(set)
+
+    sorted_combined_conf_dict = {
+        key: value
+        for key, value in sorted(combined_conf_dict.items(), key=lambda item: item[1])
+    }
+
+    for key in sorted_combined_conf_dict:
+        score_edge_dict[sorted_combined_conf_dict[key]].add(key)
+
+    edges_removed_count = 0
+    pathway_edges_removed_count = 0
+
+    pathway_edges_data = []
+    interactome_edges_data = []
+    threshold_data = []
+    for key in score_edge_dict:
+        edges_removed_count += len(score_edge_dict[key])
+        pathway_edges_removed_count += len(
+            score_edge_dict[key].intersection(pathway_edge_set)
         )
 
-        # combine both edge lists
-        combined_edge_list = human_edge_set.union(pathway_edge_set)
-        combined_conf_dict = pathway_edge_confidence_dict | human_edge_confidence_dict
+        threshold_data.append(int(key))
+        pathway_edges_data.append(len(pathway_edge_set) - pathway_edges_removed_count)
+        interactome_edges_data.append(len(combined_edge_list) - edges_removed_count)
+
         print(
-            "human interactome edges",
-            len(human_edge_set),
-            "\npathway interactome edges",
-            len(pathway_edge_set),
-            "\ntotal interactome edges",
-            len(combined_edge_list),
+            "threshold:",
+            key,
+            "\n edges in threshold:",
+            len(score_edge_dict),
+            "\n pathway edges in threshold:",
+            len(score_edge_dict[key].intersection(pathway_edge_set)),
+            "\n total edges removed counter:",
+            edges_removed_count,
+            "\n total pathway edges removed counter:",
+            pathway_edges_removed_count,
         )
 
-        # stats on missing nodes/edges
-        # get_overlap_stats(human_edge_set, pathway_edge_set)
+    results_dict = {
+        "alpha_value": [],
+        "best_score_threshold": [],
+        "interactome_edge_size": [],
+        "pathway_edge_size": [],
+    }
+    results_headers = [
+        "alpha_value",
+        "best_score_threshold",
+        "interactome_edge_size",
+        "pathway_edge_size",
+    ]
+    pathway_arr_norm = normalize_array(np.array(pathway_edges_data))
+    interactome_arr_norm = normalize_array(np.array(interactome_edges_data))
+    alpha_list = [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9]
 
-        score_edge_dict = defaultdict(set)
+    for alpha in alpha_list:
+        scores = alpha * pathway_arr_norm - (1 - alpha) * interactome_arr_norm
+        best_idx = np.argmax(scores)
+        best_threshold = threshold_data[best_idx]
 
-        sorted_combined_conf_dict = {
-            key: value
-            for key, value in sorted(
-                combined_conf_dict.items(), key=lambda item: item[1]
+        results_dict["alpha_value"].append(alpha)
+        results_dict["best_score_threshold"].append(best_threshold)
+        results_dict["interactome_edge_size"].append(interactome_edges_data[best_idx])
+        results_dict["pathway_edge_size"].append(pathway_edges_data[best_idx])
+
+        plt.figure(figsize=(14, 5))
+        plt.plot(
+            threshold_data,
+            pathway_arr_norm,
+            label="Normalized Pathway Edges",
+            marker="o",
+            markersize=2,
+        )
+        plt.plot(
+            threshold_data,
+            interactome_arr_norm,
+            label="Normalized Interactome Edges",
+            marker="s",
+            markersize=2,
+        )
+        plt.plot(
+            threshold_data,
+            scores,
+            label="Optimization Score",
+            marker="x",
+            linestyle="--",
+            color="red",
+            markersize=2,
+        )
+        plt.axvline(
+            best_threshold,
+            color="gray",
+            linestyle=":",
+            label=f"Optimal Threshold: {best_threshold:.2f}",
+        )
+        plt.xlabel("Threshold Score")
+        plt.ylabel("Normalized Values")
+        plt.legend()
+        plt.title("Threshold Optimization for Retaining Pathway Edges")
+        plt.savefig(Path(f"{output_path}/images/{pathway_name}_{alpha}.pdf"))
+        # plt.show()
+
+    with open(f"{output_path}/{pathway_name}.csv", "w") as f:
+        writer = csv.writer(f, delimiter="\t")
+        writer.writerow(results_headers)
+
+        for i in range(len(results_dict["alpha_value"])):
+            writer.writerow(
+                [
+                    results_dict["alpha_value"][i],
+                    results_dict["best_score_threshold"][i],
+                    results_dict["interactome_edge_size"][i],
+                    results_dict["pathway_edge_size"][i],
+                ]
             )
-        }
 
-        for key in sorted_combined_conf_dict:
-            score_edge_dict[sorted_combined_conf_dict[key]].add(key)
-
-        edges_removed_count = 0
-        pathway_edges_removed_count = 0
-
-        pathway_edges_data = []
-        interactome_edges_data = []
-        threshold_data = []
-        for key in score_edge_dict:
-            edges_removed_count += len(score_edge_dict[key])
-            pathway_edges_removed_count += len(
-                score_edge_dict[key].intersection(pathway_edge_set)
-            )
-
-            threshold_data.append(int(key))
-            pathway_edges_data.append(len(pathway_edge_set) - pathway_edges_removed_count)
-            interactome_edges_data.append(len(combined_edge_list) - edges_removed_count)
-
-            print(
-                "threshold:",
-                key,
-                "\n edges in threshold:",
-                len(score_edge_dict),
-                "\n pathway edges in threshold:",
-                len(score_edge_dict[key].intersection(pathway_edge_set)),
-                "\n total edges removed counter:",
-                edges_removed_count,
-                "\n total pathway edges removed counter:",
-                pathway_edges_removed_count,
-            )
-
-        results_dict = {
-            "alpha_value": [],
-            "best_score_threshold": [],
-            "interactome_edge_size": [],
-            "pathway_edge_size": [],
-        }
-        results_headers = [
-            "alpha_value",
-            "best_score_threshold",
-            "interactome_edge_size",
-            "pathway_edge_size",
-        ]
-        pathway_arr_norm = normalize_array(np.array(pathway_edges_data))
-        interactome_arr_norm = normalize_array(np.array(interactome_edges_data))
-        # alpha_list = [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9]
-        alpha_list = [0.5]
-
-        for alpha in alpha_list:
-            # alpha = 0.5
-            scores = alpha * pathway_arr_norm - (1 - alpha) * interactome_arr_norm
-            best_idx = np.argmax(scores)
-            best_threshold = threshold_data[best_idx]
-
-            results_dict["alpha_value"].append(alpha)
-            results_dict["best_score_threshold"].append(best_threshold)
-            results_dict["interactome_edge_size"].append(
-                interactome_edges_data[best_idx]
-            )
-            results_dict["pathway_edge_size"].append(pathway_edges_data[best_idx])
-
-            plt.figure(figsize=(14, 5))
-            plt.plot(
-                threshold_data,
-                pathway_arr_norm,
-                label="Normalized Pathway Edges",
-                marker="o",
-                markersize=2,
-            )
-            plt.plot(
-                threshold_data,
-                interactome_arr_norm,
-                label="Normalized Interactome Edges",
-                marker="s",
-                markersize=2,
-            )
-            plt.plot(
-                threshold_data,
-                scores,
-                label="Optimization Score",
-                marker="x",
-                linestyle="--",
-                color="red",
-                markersize=2,
-            )
-            plt.axvline(
-                best_threshold,
-                color="gray",
-                linestyle=":",
-                label=f"Optimal Threshold: {best_threshold:.2f}",
-            )
-            plt.xlabel("Threshold Score")
-            plt.ylabel("Normalized Values")
-            plt.legend()
-            plt.title("Threshold Optimization for Retaining Pathway Edges")
-            plt.savefig(Path(f"preprocessing/output/images/{pathway}_{alpha}.pdf"))
-            # plt.show()
-
-        with open(f"preprocessing/output/{pathway}.csv", "w") as f:
-            writer = csv.writer(f, delimiter="\t")
-            writer.writerow(results_headers)
-
-            for i in range(len(results_dict["alpha_value"])):
-                writer.writerow(
-                    [
-                        results_dict["alpha_value"][i],
-                        results_dict["best_score_threshold"][i],
-                        results_dict["interactome_edge_size"][i],
-                        results_dict["pathway_edge_size"][i],
-                    ]
-                )
 
 if __name__ == "__main__":
-    main()
+    parser = argparse.ArgumentParser(
+        description="SPRAS pathway benchmarking network preprocessing"
+    )
+    parser.add_argument(
+        "-p",
+        "--pathway_path",
+        type=str,
+        help="Path to the pathway edge file.",
+        required=True,
+    )
+    parser.add_argument(
+        "-n",
+        "--pathway_name",
+        type=str,
+        help="Name of pathway.",
+        required=True,
+    )
+    parser.add_argument(
+        "-o",
+        "--output_dir",
+        type=str,
+        help="Path to the output directory.",
+        required=True,
+    )
+
+    args = parser.parse_args()
+
+    main(args.pathway_path, args.pathway_name, args.output_dir)
