@@ -9,6 +9,7 @@ import seaborn as sns
 import math
 import networkx as nx
 from collections import deque, defaultdict
+import os
 
 
 def read_file(path, delimit, type):
@@ -68,7 +69,13 @@ def normalize_array(arr):
 
 
 def main(pathway_path, pathway_name, output_path):
-    print("Hello")
+
+    os.makedirs(output_path, exist_ok=True)
+    os.makedirs(f"{output_path}/images", exist_ok=True)
+    os.makedirs(f"{output_path}/edge_files", exist_ok=True)
+    os.makedirs(f"{output_path}/summary", exist_ok=True)
+
+
     human_ppi_path = Path(
         "preprocessing/human-interactome/9606.protein.links.full.v12.0.txt"
     )
@@ -85,7 +92,9 @@ def main(pathway_path, pathway_name, output_path):
 
     # combine both edge lists
     combined_edge_list = human_edge_set.union(pathway_edge_set)
-    combined_conf_dict = pathway_edge_confidence_dict | human_edge_confidence_dict
+    human_edge_confidence_dict.update(pathway_edge_confidence_dict)
+
+    combined_conf_dict = human_edge_confidence_dict
     print(
         "human interactome edges",
         len(human_edge_set),
@@ -200,7 +209,7 @@ def main(pathway_path, pathway_name, output_path):
         plt.savefig(Path(f"{output_path}/images/{pathway_name}_{alpha}.pdf"))
         
         edge_file_headers = ["protein1", "protein2", "score"]
-        with open(f"{output_path}/edge_file/{pathway_name}_{alpha}.txt", "w") as f:
+        with open(f"{output_path}/edge_files/{pathway_name}_{alpha}.txt", "w") as f:
             writer = csv.writer(f, delimiter="\t")
             writer.writerow(edge_file_headers)
 
@@ -215,7 +224,7 @@ def main(pathway_path, pathway_name, output_path):
             f.close()
 
 
-    with open(f"{output_path}/{pathway_name}.csv", "w") as f:
+    with open(f"{output_path}/summary/{pathway_name}.csv", "w") as f:
         writer = csv.writer(f, delimiter="\t")
         writer.writerow(results_headers)
 
