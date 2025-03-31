@@ -92,9 +92,7 @@ def main(pathway_path, pathway_name, output_path):
 
     # combine both edge lists
     combined_edge_list = human_edge_set.union(pathway_edge_set)
-    human_edge_confidence_dict.update(pathway_edge_confidence_dict)
-
-    combined_conf_dict = human_edge_confidence_dict
+    combined_conf_dict = pathway_edge_confidence_dict | human_edge_confidence_dict
     print(
         "human interactome edges",
         len(human_edge_set),
