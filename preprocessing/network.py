@@ -198,7 +198,22 @@ def main(pathway_path, pathway_name, output_path):
         plt.legend()
         plt.title("Threshold Optimization for Retaining Pathway Edges")
         plt.savefig(Path(f"{output_path}/images/{pathway_name}_{alpha}.pdf"))
-        # plt.show()
+        
+        edge_file_headers = ["protein1", "protein2", "score"]
+        with open(f"{output_path}/edge_file/{pathway_name}_{alpha}.txt", "w") as f:
+            writer = csv.writer(f, delimiter="\t")
+            writer.writerow(edge_file_headers)
+
+            for i in range(best_threshold, 1001):
+                if len(score_edge_dict[i]) != 0:
+                    edges = score_edge_dict[i]
+                    for edge in edges:
+                        edge = list(edge)
+                        protein_1 = edge[0]
+                        protein_2 = edge[1]
+                        writer.writerow([protein_1, protein_2, i])
+            f.close()
+
 
     with open(f"{output_path}/{pathway_name}.csv", "w") as f:
         writer = csv.writer(f, delimiter="\t")
@@ -213,7 +228,7 @@ def main(pathway_path, pathway_name, output_path):
                     results_dict["pathway_edge_size"][i],
                 ]
             )
-
+        f.close()
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
