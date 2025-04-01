@@ -69,12 +69,41 @@ def normalize_array(arr):
     max_val = np.max(arr)
     return (arr - min_val) / (max_val - min_val)
 
+def combine_pathway_files(pathway_dir, pathway_file_list, output_dir):
 
-def main(pathway_path, pathway_name, output_path):
+    edge_set = set()
+    for pathway_file in pathway_file_list:
+        print(f"{pathway_dir}/{pathway_file}")
+        with open(f"{pathway_dir}/{pathway_file}", "r") as f:
+            csvreader = csv.reader(f, delimiter="\t")
+            next(csvreader)
+            for row in csvreader:
+                edge_set.add(frozenset((row[0], row[1])))
+        f.close()
+
+    with open(f"{output_dir}/edge_files/combined_pathway_edge_file.txt", "w") as f:
+        edge_file_headers = ["protein1", "protein2"]
+        writer = csv.writer(f, delimiter="\t")
+        writer.writerow(edge_file_headers)
+
+        for edge in edge_set:
+            edge = list(edge)
+            protein_1 = edge[0]
+            protein_2 = edge[1]
+            writer.writerow([protein_1, protein_2])
+        f.close()
+    
+    return None
+
+
+def main(pathway_dir, output_path):
 
     os.makedirs(output_path, exist_ok=True)
     os.makedirs(f"{output_path}/edge_files", exist_ok=True)
     os.makedirs(f"{output_path}/summary", exist_ok=True)
+
+    combine_pathway_files(pathway_dir, os.listdir(pathway_dir), output_path)
+
 
     human_ppi_path = Path(
         "preprocessing/human-interactome/9606.protein.links.full.v12.0.txt"
@@ -117,7 +146,7 @@ def main(pathway_path, pathway_name, output_path):
         print(prior_knowledge_score)
 
         pathway_edge_set, pathway_node_set, pathway_edge_confidence_dict = read_file(
-            pathway_path, "\t", "pathway", prior_knowledge_score
+            f"{output_path}/edge_files/combined_pathway_edge_file.txt", "\t", "pathway", prior_knowledge_score
         )
 
         added_pathway_edges_count = 0
@@ -145,7 +174,7 @@ def main(pathway_path, pathway_name, output_path):
         print("number of total combined filtered interacome", len(combined_edge_list))
 
         edge_file_headers = ["protein1", "protein2", "score"]
-        with open(f"{output_path}/edge_files/{pathway_name}_{threshold}.txt", "w") as f:
+        with open(f"{output_path}/edge_files/combined_{threshold}.txt", "w") as f:
             writer = csv.writer(f, delimiter="\t")
             writer.writerow(edge_file_headers)
 
@@ -173,7 +202,7 @@ def main(pathway_path, pathway_name, output_path):
         "added_pathway_edges",
         "edges_in_combined_filtered_interacome",
     ]
-    with open(f"{output_path}/summary/{pathway_name}.csv", "w") as f:
+    with open(f"{output_path}/summary/combined.csv", "w") as f:
         writer = csv.writer(f, delimiter="\t")
         writer.writerow(results_headers)
 
@@ -196,16 +225,9 @@ if __name__ == "__main__":
     )
     parser.add_argument(
         "-p",
-        "--pathway_path",
+        "--pathway_dir",
         type=str,
         help="Path to the pathway edge file.",
-        required=True,
-    )
-    parser.add_argument(
-        "-n",
-        "--pathway_name",
-        type=str,
-        help="Name of pathway.",
         required=True,
     )
     parser.add_argument(
@@ -218,4 +240,4 @@ if __name__ == "__main__":
 
     args = parser.parse_args()
 
-    main(args.pathway_path, args.pathway_name, args.output_dir)
+    main(args.pathway_dir, args.output_dir)
