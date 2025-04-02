@@ -37,9 +37,9 @@ def read_file(path, delimit, type, prior_knowledge_score):
         edge_set = set()
         node_set = set()
         edge_confidence_dict = {}
-        for i in range(3000):
-            row = next(csvreader)
-        # for row in csvreader:
+        # for i in range(3000):
+        #     row = next(csvreader)
+        for row in csvreader:
             node_set.add(row[0])
             node_set.add(row[1])
             edge_set.add(frozenset((row[0], row[1])))
@@ -254,25 +254,17 @@ def get_xml_namespace(element):
 
 
 def main(pathway_dir, output_path):
-
     os.makedirs(output_path, exist_ok=True)
     os.makedirs(f"{output_path}/edge_files", exist_ok=True)
     os.makedirs(f"{output_path}/summary", exist_ok=True)
 
     combine_pathway_files(pathway_dir, os.listdir(pathway_dir), output_path)
 
-    human_ppi_path = Path(
-        "preprocessing/human-interactome/9606.protein.links.full.v12.0.txt"
-    )
-    human_edge_set, human_node_set, human_edge_confidence_dict = read_file(
-        human_ppi_path, " ", "interactome", None
-    )
+    human_ppi_path = Path("preprocessing/human-interactome/9606.protein.links.full.v12.0.txt")
+    human_edge_set, human_node_set, human_edge_confidence_dict = read_file(human_ppi_path, " ", "interactome", None)
 
     sorted_human_edge_score_dict = {
-        key: value
-        for key, value in sorted(
-            human_edge_confidence_dict.items(), key=lambda item: item[1]
-        )
+        key: value for key, value in sorted(human_edge_confidence_dict.items(), key=lambda item: item[1])
     }
 
     output_results = {
@@ -284,162 +276,112 @@ def main(pathway_dir, output_path):
     }
 
     thresholds = [1, 100, 200, 300, 400, 500, 600, 700, 800, 900]
+    all_combined_nodes = set()
 
     for threshold in thresholds:
-
         score_edge_dict = defaultdict(set)
-
-        threhold_filtered_human_edge_count = 0
-        score_dist = []
         for key in sorted_human_edge_score_dict:
-            current_score = human_edge_confidence_dict[key]
-            if current_score >= int(threshold):
-                score_edge_dict[current_score].add(key)
-                score_dist.append(current_score)
-                threhold_filtered_human_edge_count += 1
+            if human_edge_confidence_dict[key] >= threshold:
+                score_edge_dict[human_edge_confidence_dict[key]].add(key)
 
-        percentile = 50
-        score_dist_arr = np.array(score_dist)
-        prior_knowledge_score = int(np.percentile(score_dist_arr, percentile))
-        print(prior_knowledge_score)
+        prior_knowledge_score = int(np.percentile(
+            np.array([human_edge_confidence_dict[key] for key in sorted_human_edge_score_dict if human_edge_confidence_dict[key] >= threshold]), 
+            50
+        ))
 
         pathway_edge_set, pathway_node_set, pathway_edge_confidence_dict = read_file(
-            f"{output_path}/edge_files/combined_pathway_edge_file.txt",
-            "\t",
-            "pathway",
-            prior_knowledge_score,
+            f"{output_path}/edge_files/combined_pathway_edge_file.txt", "\t", "pathway", prior_knowledge_score
+        )
+
+        for key in pathway_edge_confidence_dict:
+            if key not in human_edge_confidence_dict or human_edge_confidence_dict[key] < threshold:
+                score_edge_dict[pathway_edge_confidence_dict[key]].add(key)
+
+        for edges in score_edge_dict.values():
+            for edge in edges:
+                all_combined_nodes.update(edge)
+
+    job_id = submit_id_mapping(from_db="STRING", to_db="UniProtKB", ids=list(all_combined_nodes))
+
+    if check_id_mapping_results_ready(job_id):
+        link = get_id_mapping_results_link(job_id)
+        results = get_id_mapping_results_search(link)
+
+        mapped_entries = {r["from"]: r["to"]["primaryAccession"] for r in results["results"] if r["from"] and r["to"]["primaryAccession"]}
+        failed_ids = all_combined_nodes - set(mapped_entries.keys())
+
+        print("Successful mappings:", len(mapped_entries))
+        print("Failed mappings:", len(failed_ids))
+
+    for threshold in thresholds:
+        score_edge_dict = defaultdict(set)
+        threshold_filtered_human_edge_count = 0
+        score_dist = []
+        for key in sorted_human_edge_score_dict:
+            if human_edge_confidence_dict[key] >= threshold:
+                score_edge_dict[human_edge_confidence_dict[key]].add(key)
+                score_dist.append(human_edge_confidence_dict[key])
+                threshold_filtered_human_edge_count += 1
+
+        prior_knowledge_score = int(np.percentile(np.array(score_dist), 50))
+
+        pathway_edge_set, pathway_node_set, pathway_edge_confidence_dict = read_file(
+            f"{output_path}/edge_files/combined_pathway_edge_file.txt", "\t", "pathway", prior_knowledge_score
         )
 
         added_pathway_edges_count = 0
         for key in pathway_edge_confidence_dict:
-            current_score = pathway_edge_confidence_dict[key]
-            if key not in human_edge_confidence_dict:
-                score_edge_dict[current_score].add(key)
-                added_pathway_edges_count += 1
-            elif human_edge_confidence_dict[key] < int(threshold):
-                score_edge_dict[current_score].add(key)
+            if key not in human_edge_confidence_dict or human_edge_confidence_dict[key] < threshold:
+                score_edge_dict[pathway_edge_confidence_dict[key]].add(key)
                 added_pathway_edges_count += 1
 
         combined_edge_set = set()
-        combined_node_set = set()
+        for score, edges in score_edge_dict.items():
+            combined_edge_set.update(edges)
 
-        for score in score_edge_dict:
-            combined_edge_set.update(score_edge_dict[score])
-            for edge in score_edge_dict[score]:
-                edge = list(edge)
-                protein1 = edge[0]
-                protein2 = edge[1]
-                combined_node_set.add(protein1)
-                combined_node_set.add(protein2)
+        temp_edge_set = set()
+        for edge in combined_edge_set:
+            edge = list(edge)
+            protein_1 = edge[0]
+            protein_2 = edge[1]
+            if protein_1 in mapped_entries and protein_2 in mapped_entries:
+                temp_edge_set.add(frozenset((protein_1, protein_2)))
 
-        job_id = submit_id_mapping(
-            from_db="STRING", to_db="UniProtKB", ids=list(combined_node_set)
-        )
+        combined_edge_set = temp_edge_set
 
-        if check_id_mapping_results_ready(job_id):
-            link = get_id_mapping_results_link(job_id)
-            results = get_id_mapping_results_search(link)
+        print("Threshold:", threshold)
+        print("Edges in original human interactome:", len(human_edge_set))
+        print("Edges in filtered interactome:", threshold_filtered_human_edge_count)
+        print("Pathway edges added:", added_pathway_edges_count)
+        print("Total combined filtered interactome:", len(combined_edge_set))
 
-            mapped_entries = {}
-            counter = 0
-            for i in range(len(results["results"])):
-                if (
-                    results["results"][i]["from"] != ""
-                    and results["results"][i]["to"]["primaryAccession"] != ""
-                ):
-                    mapped_entries[results["results"][i]["from"]] = results["results"][
-                        i
-                    ]["to"]["primaryAccession"]
-                    counter += 1
-                else:
-                    "NOT MAPPED"
-            print("mapped counter ", counter)
-
-            original_ids = combined_node_set
-            mapped_ids = set(mapped_entries.keys())
-            failed_ids = original_ids - mapped_ids
-
-            print("successful IDs mapped: ", len(mapped_ids))
-            print("failed ids mapped: ", len(failed_ids))
-            print(list(failed_ids))
-            print(
-                "pathway edges not mapped ",
-                len(failed_ids.intersection(pathway_node_set)),
-                "/ ",
-                len(failed_ids),
-            )
-
-            # remove nodes and edges that does not have a uniprot mapping
-            combined_node_set = combined_node_set - failed_ids
-            temp_edge_set = set()
-
-            for edge in combined_edge_set:
-                edge = list(edge)
-                protein_1 = edge[0]
-                protein_2 = edge[1]
-                if protein_1 not in failed_ids and protein_2 not in failed_ids:
-                    temp_edge_set.add(frozenset((protein_1, protein_2)))
-                
-            combined_edge_set = temp_edge_set
-
-            print("number of edges in original human interactome", len(human_edge_set))
-            print(
-                "number of edges in threhold filtered human interactome",
-                threhold_filtered_human_edge_count,
-            )
-            print("number of pathway edges", len(pathway_edge_set))
-            print("number of total added pathway edges", added_pathway_edges_count)
-            print(
-                "number of total combined filtered interacome", len(combined_edge_set)
-            )
-
-            edge_file_headers = ["protein1", "protein2", "score"]
-            with open(f"{output_path}/edge_files/combined_{threshold}.txt", "w") as f:
-                writer = csv.writer(f, delimiter="\t")
-                writer.writerow(edge_file_headers)
-
-                for score in score_edge_dict:
-                    for edge in score_edge_dict[score]:
-                        if edge in combined_edge_set:
-                            edge = list(edge)
-                            protein_1 = edge[0]
-                            protein_2 = edge[1]
-                            writer.writerow([mapped_entries[protein_1], mapped_entries[protein_2], score])
-
-                f.close()
-
-            output_results["score_threshold"].append(threshold)
-            output_results["edges_in_threshold_human_interacome"].append(
-                threhold_filtered_human_edge_count
-            )
-            output_results["edges_in_pathway"].append(len(pathway_edge_set))
-            output_results["added_pathway_edges"].append(added_pathway_edges_count)
-            output_results["edges_in_combined_filtered_interacome"].append(
-                len(combined_edge_set)
-            )
-
-        output_results_headers = [
-            "score_threshold",
-            "edges_in_threshold_human_interacome",
-            "edges_in_pathway",
-            "added_pathway_edges",
-            "edges_in_combined_filtered_interacome",
-        ]
-        with open(f"{output_path}/summary/combined.csv", "w") as f:
+        with open(f"{output_path}/edge_files/combined_{threshold}.txt", "w") as f:
             writer = csv.writer(f, delimiter="\t")
-            writer.writerow(output_results_headers)
+            writer.writerow(["protein1", "protein2", "score"])
+            for score, edges in score_edge_dict.items():
+                for edge in edges:
+                    if edge in combined_edge_set:
+                        edge = list(edge)
+                        writer.writerow([mapped_entries[edge[0]], mapped_entries[edge[1]], score])
 
-            for i in range(len(output_results["score_threshold"])):
-                writer.writerow(
-                    [
-                        output_results["score_threshold"][i],
-                        output_results["edges_in_threshold_human_interacome"][i],
-                        output_results["edges_in_pathway"][i],
-                        output_results["added_pathway_edges"][i],
-                        output_results["edges_in_combined_filtered_interacome"][i],
-                    ]
-                )
-            f.close()
+        output_results["score_threshold"].append(threshold)
+        output_results["edges_in_threshold_human_interacome"].append(threshold_filtered_human_edge_count)
+        output_results["edges_in_pathway"].append(len(pathway_edge_set))
+        output_results["added_pathway_edges"].append(added_pathway_edges_count)
+        output_results["edges_in_combined_filtered_interacome"].append(len(combined_edge_set))
+
+    with open(f"{output_path}/summary/combined.csv", "w") as f:
+        writer = csv.writer(f, delimiter="\t")
+        writer.writerow(["score_threshold", "edges_in_threshold_human_interacome", "edges_in_pathway", "added_pathway_edges", "edges_in_combined_filtered_interacome"])
+        for i in range(len(output_results["score_threshold"])):
+            writer.writerow([
+                output_results["score_threshold"][i],
+                output_results["edges_in_threshold_human_interacome"][i],
+                output_results["edges_in_pathway"][i],
+                output_results["added_pathway_edges"][i],
+                output_results["edges_in_combined_filtered_interacome"][i],
+            ])
+
 
 
 if __name__ == "__main__":
