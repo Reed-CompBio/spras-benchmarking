@@ -1,0 +1,8 @@
+NODEID	prize	sources	targets	active	dummy
+Q9UBG7	100	True	False	True	
+Q06330	100	True	False	True	
+Q9Y618	100	True	False	True	
+Q04721	100	False	True	True	
+Q9UM47	100	False	True	True	
+P46531	100	False	True	True	
+Q99466	100	False	True	True	

@@ -1,0 +1,5 @@
+uniprot	prizes	active
+P08151	100	True
+P10071	100	True
+Q13635	100	True
+Q99835	100	True
