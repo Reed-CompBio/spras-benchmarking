@@ -1,8 +1,0 @@
-id	prizes	active
-ATF2	100	true
-ETS1	100	true
-ELK1	100	true
-SRF	100	true
-JUN	100	true
-STAT1	100	true
-STAT3	100	true

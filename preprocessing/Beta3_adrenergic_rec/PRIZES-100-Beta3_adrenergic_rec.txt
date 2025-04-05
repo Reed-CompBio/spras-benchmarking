@@ -1,2 +1,0 @@
-id	prizes	active
-ADRB3	100	true

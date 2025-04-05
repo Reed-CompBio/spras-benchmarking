@@ -1,2 +1,0 @@
-id	uniprot
-chebi:33984	chebi:CHEBI:33984

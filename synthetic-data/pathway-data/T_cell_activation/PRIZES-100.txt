@@ -1,0 +1,4 @@
+NODE	uniprot	prizes	active
+FOS	P01100	100	true
+JUN	P05412	100	true
+PTPRC	P08575	100	true

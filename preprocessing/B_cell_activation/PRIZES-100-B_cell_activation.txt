@@ -1,5 +1,0 @@
-id	prizes	active
-FOS	100	true
-JUN	100	true
-PTPRC	100	true
-PTPRC	100	true

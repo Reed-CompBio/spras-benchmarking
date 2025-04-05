@@ -1,3 +1,0 @@
-id1	id2
-chebi:33984	FUT8
-chebi:33984	POFUT1

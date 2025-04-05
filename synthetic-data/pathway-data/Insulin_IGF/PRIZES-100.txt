@@ -1,0 +1,4 @@
+NODE	uniprot	prizes	active
+INSR	P06213	100	true
+INSRR	P14616	100	true
+IGF1R	P08069	100	true

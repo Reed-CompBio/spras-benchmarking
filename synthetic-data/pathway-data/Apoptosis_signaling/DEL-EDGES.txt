@@ -1,0 +1,1 @@
+NODE1	NODE2

@@ -1,0 +1,3 @@
+NODE	uniprot
+chebi:18348	chebi:CHEBI:18348
+chebi:16618	chebi:CHEBI:16618
