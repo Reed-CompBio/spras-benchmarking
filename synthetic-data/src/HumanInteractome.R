@@ -1,6 +1,10 @@
 library(tidyverse)
 # setwd('synthetic-data/')
 
+if (!dir.exists("interactomes/threshold-interactomes")) {
+  dir.create("interactomes/threshold-interactomes", recursive = TRUE)
+}
+
 # 13 million edges
 human <- read_delim('human-interactome/9606.protein.links.full.v12.0.txt', delim = ' ')
 
@@ -35,8 +39,8 @@ experiments_800 <- human %>% filter(experiments >= 800 | experiments_transferred
 
 experiments_900 <- human %>% filter(experiments >= 900 | experiments_transferred >= 900)
 
-hist(human$experiments)
-hist(human$experiments_transferred)
+# hist(human$experiments)
+# hist(human$experiments_transferred)
 
 write_tsv(experiments_1, 'interactomes/threshold-interactomes/human_interactome-1.txt')
 write_tsv(experiments_100, 'interactomes/threshold-interactomes/human_interactome-100.txt')
