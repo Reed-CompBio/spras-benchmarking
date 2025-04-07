@@ -3,13 +3,10 @@ library(tidyverse)
 # Set the path to the directory containing the PANTHER pathway folders using the 'directory' variable
 # Set the name of the pathway to process using the 'pathway' variable
 directory <- "pathway-data/"
-pathway<- "Wnt_signaling"
-
-pathway_folder <- paste0(directory, pathway, "/")
-pathway_path <- paste0(directory, pathway, "/", pathway, ".txt")
+pathways<- c("Apoptosis_signaling", "B_cell_activation", "Beta3_adrenergic_rec", "Cadherin_signaling", "Hedgehog_signaling", "Insulin_IGF", "Interleukin_signaling", "Notch_signaling", "PDGF_signaling", "Ras", "T_cell_activation", "Toll_signaling", "Wnt_signaling", "p38_MAPK")
 
 # Function for processing PANTHER pathways in Extended SIF format into Node/Edge files for benchmarking inputs
-process_panther_pathway <- function(pathway_path) {
+process_panther_pathway <- function(pathway_path, pathway_folder) {
   # Read in PANTHER pathway
   panther_pathway <- read.csv(pathway_path, header = FALSE, fill = TRUE, sep = '\t', stringsAsFactors = FALSE)
   
@@ -86,8 +83,11 @@ process_panther_pathway <- function(pathway_path) {
   return(list(edges = edges, edges_rm = edges_rm, nodes = nodes, nodes_rm = nodes_rm, sources = sources, targets = targets, prizes = prizes))
 }
 
-# Example usage:
-result <- process_panther_pathway(pathway_path)
+for (pathway in pathways) {
+  pathway_folder <- paste0(directory, pathway, "/")
+  pathway_path <- paste0(directory, pathway, "/", pathway, ".txt")
+  result <- process_panther_pathway(pathway_path, pathway_folder)
+}
 
 # Access individual datasets
 edges <- result$edges

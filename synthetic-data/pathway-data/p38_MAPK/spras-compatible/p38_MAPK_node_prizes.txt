@@ -1,8 +1,0 @@
-NODEID	prize	sources	targets	active	dummy
-P18846	100	True	False	True	
-P11831	100	True	False	True	
-P19419	100	True	False	True	
-Q14814	100	True	False	True	
-Q06413	100	True	False	True	
-Q02080	100	True	False	True	
-P14778	100	False	True	True	
