@@ -1,89 +1,86 @@
 import pandas as pd
-import glob
+import os 
 
-human_interactome = pd.read_csv("preprocessing/human-interactome/9606.protein.links.full.v12.0.txt", sep = " ", header=0)
-human_interactome.sort_values("experiments_transferred", inplace=True)
+if not os.path.exists("interactomes/"):
+    os.makedirs("interactomes/")
+
+if not os.path.exists("interactomes/uniprot-combined-threshold-interactomes/"):
+    os.makedirs("interactomes/uniprot-combined-threshold-interactomes/")
 
 thresholds = [1, 100, 200, 300, 400, 500, 600, 700, 800, 900]
 pathway_dirs = ["Apoptosis_signaling", "B_cell_activation", "Beta3_adrenergic_rec", "Cadherin_signaling", "Hedgehog_signaling", "Insulin_IGF", "Interleukin_signaling", "Notch_signaling", "PDGF_signaling", "Ras", "T_cell_activation", "Toll_signaling", "Wnt_signaling", "p38_MAPK"]
 
 # overlap of edges in pathway per threshold
-for threshold in thresholds:
-    threshold_human_interactome = human_interactome[
-        (human_interactome["experiments"] >= threshold) | 
-        (human_interactome["experiments_transferred"] >= threshold)
-    ]
-
-    print(f"threshold {threshold}; # of edges {len(threshold_human_interactome)}")
-
-    for pathway_dir in pathway_dirs:
-        files = glob.glob(f"preprocessing/{pathway_dir}/STRING-EDGES*")[0]
-        edges = pd.read_csv(files, sep = "\t", header=0)
-        print(f"{pathway_dir}; # of edges = {len(edges)}")
-        edges.columns = ["protein1", "protein2"]
-        
-        overlap = pd.merge(threshold_human_interactome, edges, on=['protein1', 'protein2'])
-        print(f"# of common edges between {pathway_dir} pathway and interactome: {len(overlap)}")
-        percent = len(overlap) / len(edges)
-        print(f"% of edges included = {percent}")
-
-    print()
-    print()
-
-# overall overlap of all the edges
-combined_edges = pd.DataFrame(columns=["protein1", "protein2"])
-for pathway_dir in pathway_dirs:
-    files = glob.glob(f"preprocessing/{pathway_dir}/STRING-EDGES*")[0]
-    edges = pd.read_csv(files, sep = "\t", header=0)
-    edges.columns = ["protein1", "protein2"]
-    combined_edges = pd.concat([combined_edges, edges], ignore_index=True)
-
-combined_edges.drop_duplicates(inplace=True)
-print(f"Total combined edges: {len(combined_edges)}")
-
-for threshold in thresholds:
-    threshold_human_interactome = human_interactome[
-        (human_interactome["experiments"] >= threshold) | 
-        (human_interactome["experiments_transferred"] >= threshold)
-    ]
-
-    print(f"threshold {threshold}; # of edges {len(threshold_human_interactome)}")
-
-    overlap = pd.merge(threshold_human_interactome, combined_edges, on=['protein1', 'protein2'])
-    print(f"# of common edges between pathways and interactome: {len(overlap)}")
-    percent = len(overlap) / len(combined_edges)
-    print(f"% of edges included from pathway = {percent}")
-
-
-# put in a df to be more readable
 results = []
 
 for threshold in thresholds:
-    threshold_human_interactome = human_interactome[
-        (human_interactome["experiments"] >= threshold) | 
-        (human_interactome["experiments_transferred"] >= threshold)
-    ]
+    threshold_human_interactome = pd.read_csv(f"interactomes/uniprot-threshold-interactomes/uniprot_human_interactome_{threshold}.txt", sep="\t")
+    threshold_human_interactome.columns = ["Node1", "Node2", "Rank", "Direction"]
+
     interactome_count = len(threshold_human_interactome)
     
     for pathway_dir in pathway_dirs:
-        files = glob.glob(f"preprocessing/{pathway_dir}/STRING-EDGES*")[0]
-        edges = pd.read_csv(files, sep="\t", header=0)
-        edges.columns = ["protein1", "protein2"]
+        edge_file = f"pathway-data/{pathway_dir}/spras-compatible/{pathway_dir}_gs_edges.txt"
+        edges = pd.read_csv(edge_file, sep = "\t")
+        edges.columns = ["Node1", "Node2", "Rank", "Direction"]
         edges_count = len(edges)
         
-        overlap = pd.merge(threshold_human_interactome, edges, on=['protein1', 'protein2'])
+        overlap = pd.merge(threshold_human_interactome, edges, on=['Node1', 'Node2'])
         overlap_count = len(overlap)
         percent_overlap = overlap_count / edges_count if edges_count != 0 else 0
+
+        edges_to_add = edges_count - overlap_count
 
         results.append({
             "threshold": threshold,
             "pathway": pathway_dir,
-            "#_of_interactome_edges": interactome_count,
-            "pathway_edges_count": edges_count,
+            "number_of_interactome_edges": interactome_count,
+            "number_of_pathway_edges": edges_count,
             "overlap_between_pathway_and_interactome_count": overlap_count,
-            "percentage_of_edges_included": percent_overlap
+            "percentage_of_edges_included": percent_overlap,
+            "number_of_edges_to_add": edges_to_add
         })
 
 overlap_info_df = pd.DataFrame(results)
+overlap_info_df.to_csv("interactomes/uniprot-combined-threshold-interactomes/overlap_info.csv", sep="\t", index=False)
 
-overlap_info_df.to_csv("overlap_info_df.csv", sep="\t", index=False)
+# overall overlap of all the edges
+results = []
+
+combined_edges = pd.DataFrame(columns=["Node1", "Node2"])
+for pathway_dir in pathway_dirs:
+    edge_file = f"pathway-data/{pathway_dir}/spras-compatible/{pathway_dir}_gs_edges.txt"
+    edges = pd.read_csv(edge_file, sep = "\t")
+    edges.columns = ["Node1", "Node2", "Rank", "Direction"]
+    combined_edges = pd.concat([combined_edges, edges], ignore_index=True)
+combined_edges.drop_duplicates(inplace=True)
+total_combined_edges = len(combined_edges)
+
+for threshold in thresholds:
+    interactome_file = f"interactomes/uniprot-threshold-interactomes/uniprot_human_interactome_{threshold}.txt"
+    threshold_human_interactome = pd.read_csv(interactome_file, sep="\t")
+    threshold_human_interactome.columns = ["Node1", "Node2", "Rank", "Direction"]
+    interactome_count = len(threshold_human_interactome)
+
+    # Find overlapping edges between the interactome and combined pathway edges
+    overlap = pd.merge(threshold_human_interactome, combined_edges, on=['Node1', 'Node2'])
+    overlap_count = len(overlap)
+    
+    # Calculate the percentage of pathway edges included in the interactome overlap
+    percent_overlap = overlap_count / total_combined_edges if total_combined_edges > 0 else 0
+    
+    edges_to_add = total_combined_edges - overlap_count
+
+    # Append the information as a dictionary to the results list
+    results.append({
+        "threshold": threshold,
+        "total_interactome_edges": interactome_count,
+        "total_combined_pathway_edges": total_combined_edges,
+        "overlap_count": overlap_count,
+        "percentage_of_edges_included": percent_overlap,
+        "number_of_edges_to_add": edges_to_add
+    })
+
+# Create a DataFrame from the results list
+overlap_combined_info_df = pd.DataFrame(results)
+overlap_combined_info_df.to_csv("interactomes/uniprot-combined-threshold-interactomes/overlap_combined_info.csv", sep="\t", index=False)

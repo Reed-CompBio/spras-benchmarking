@@ -1,28 +1,22 @@
 import os
 import pandas as pd
 
+spras_compatible_dir = "spras-compatible-pathway-data/"
+if not os.path.exists(spras_compatible_dir):
+    os.makedirs(spras_compatible_dir)
+
 pathway_dirs = ["Apoptosis_signaling", "B_cell_activation", "Beta3_adrenergic_rec", "Cadherin_signaling", "Hedgehog_signaling", "Insulin_IGF", "Interleukin_signaling", "Notch_signaling", "PDGF_signaling", "Ras", "T_cell_activation", "Toll_signaling", "Wnt_signaling", "p38_MAPK", "Nicotinic_acetylchol"]
 directory = "pathway-data/"
-# read in pathway folder
-# make a folder called uniprot-only
-# all the new files will go into this
 
-# get the nodes file
-# make a dict for gene: uniprot accession ID
-# get the edge file
-# update the genes to their uniprot accession ID in the NODE1 column and NODE2 column
-# get the PRIZES-100.txt, SOURCES.txt, and TARGETS.txt files
-# Update to only keep the Uniprot ID column
-# get the nodes file 
-# Update to only keep the Uniprot ID column
 
 for pathway in pathway_dirs:
     pathway_folder = directory + pathway + "/"
 
     # Create the output folder "uniprot" within the pathway directory
-    out_folder = os.path.join(pathway_folder, "spras-compatible")
+    out_folder = os.path.join(spras_compatible_dir, pathway)
+    print(out_folder)
     os.makedirs(out_folder, exist_ok=True)
- 
+    
     nodes_file = os.path.join(pathway_folder, "NODES.txt")
     nodes_df = pd.read_csv(nodes_file, sep="\t")
     
