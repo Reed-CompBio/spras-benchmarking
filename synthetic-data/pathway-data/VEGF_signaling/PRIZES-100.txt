@@ -1,0 +1,4 @@
+NODE	uniprot	prizes	active
+ETS1	P14921	100	true
+HIF1A	Q16665	100	true
+KDR	P35968	100	true

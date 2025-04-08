@@ -1,0 +1,2 @@
+NODE	uniprot
+KDR	P35968

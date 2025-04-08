@@ -8,7 +8,7 @@ if not os.path.exists("interactomes/uniprot-combined-threshold-interactomes/"):
     os.makedirs("interactomes/uniprot-combined-threshold-interactomes/")
 
 thresholds = [1, 100, 200, 300, 400, 500, 600, 700, 800, 900]
-pathway_dirs = ["Apoptosis_signaling", "B_cell_activation", "Beta3_adrenergic_rec", "Cadherin_signaling", "Hedgehog_signaling", "Insulin_IGF", "Interleukin_signaling", "Notch_signaling", "PDGF_signaling", "Ras", "T_cell_activation", "Toll_signaling", "Wnt_signaling", "p38_MAPK", "Nicotinic_acetylchol"]
+pathway_dirs = ["Apoptosis_signaling", "B_cell_activation", "Beta3_adrenergic_rec", "Cadherin_signaling", "Hedgehog_signaling", "Insulin_IGF", "Interleukin_signaling", "Notch_signaling", "PDGF_signaling", "Ras", "T_cell_activation", "Toll_signaling", "Wnt_signaling", "p38_MAPK", "Nicotinic_acetylchol", "Fas_signaling", "FGF_signaling", "Interferon_gamma_signaling", "JAK_STAT_signaling", "VEGF_signaling"] 
 
 # overlap of edges in pathway per threshold
 results = []

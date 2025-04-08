@@ -1,0 +1,111 @@
+﻿PARTICIPANT_A	INTERACTION_TYPE	PARTICIPANT_B	INTERACTION_DATA_SOURCE	INTERACTION_PUBMED_ID	PATHWAY_NAMES	MEDIATOR_IDS
+JAK1	in-complex-with	STAT1	PANTHER		JAK/STAT signaling pathway	panther:_Complex__Cytokine_Receptor_Cytokine__STAT_Jak__s81_a136_
+JAK1	in-complex-with	STAT3	PANTHER		JAK/STAT signaling pathway	panther:_Complex__Cytokine_Receptor_Cytokine__STAT_Jak__s81_a136_
+JAK1	in-complex-with	STAT4	PANTHER		JAK/STAT signaling pathway	panther:_Complex__Cytokine_Receptor_Cytokine__STAT_Jak__s81_a136_
+JAK1	in-complex-with	STAT5A	PANTHER		JAK/STAT signaling pathway	panther:_Complex__Cytokine_Receptor_Cytokine__STAT_Jak__s81_a136_
+JAK1	in-complex-with	STAT5B	PANTHER		JAK/STAT signaling pathway	panther:_Complex__Cytokine_Receptor_Cytokine__STAT_Jak__s81_a136_
+JAK1	in-complex-with	STAT6	PANTHER		JAK/STAT signaling pathway	panther:_Complex__Cytokine_Receptor_Cytokine__STAT_Jak__s81_a136_
+JAK2	in-complex-with	STAT1	PANTHER		JAK/STAT signaling pathway	panther:_Complex__Cytokine_Receptor_Cytokine__STAT_Jak__s81_a136_
+JAK2	in-complex-with	STAT3	PANTHER		JAK/STAT signaling pathway	panther:_Complex__Cytokine_Receptor_Cytokine__STAT_Jak__s81_a136_
+JAK2	in-complex-with	STAT4	PANTHER		JAK/STAT signaling pathway	panther:_Complex__Cytokine_Receptor_Cytokine__STAT_Jak__s81_a136_
+JAK2	in-complex-with	STAT5A	PANTHER		JAK/STAT signaling pathway	panther:_Complex__Cytokine_Receptor_Cytokine__STAT_Jak__s81_a136_
+JAK2	in-complex-with	STAT5B	PANTHER		JAK/STAT signaling pathway	panther:_Complex__Cytokine_Receptor_Cytokine__STAT_Jak__s81_a136_
+JAK2	in-complex-with	STAT6	PANTHER		JAK/STAT signaling pathway	panther:_Complex__Cytokine_Receptor_Cytokine__STAT_Jak__s81_a136_
+JAK3	in-complex-with	STAT1	PANTHER		JAK/STAT signaling pathway	panther:_Complex__Cytokine_Receptor_Cytokine__STAT_Jak__s81_a136_
+JAK3	in-complex-with	STAT3	PANTHER		JAK/STAT signaling pathway	panther:_Complex__Cytokine_Receptor_Cytokine__STAT_Jak__s81_a136_
+JAK3	in-complex-with	STAT4	PANTHER		JAK/STAT signaling pathway	panther:_Complex__Cytokine_Receptor_Cytokine__STAT_Jak__s81_a136_
+JAK3	in-complex-with	STAT5A	PANTHER		JAK/STAT signaling pathway	panther:_Complex__Cytokine_Receptor_Cytokine__STAT_Jak__s81_a136_
+JAK3	in-complex-with	STAT5B	PANTHER		JAK/STAT signaling pathway	panther:_Complex__Cytokine_Receptor_Cytokine__STAT_Jak__s81_a136_
+JAK3	in-complex-with	STAT6	PANTHER		JAK/STAT signaling pathway	panther:_Complex__Cytokine_Receptor_Cytokine__STAT_Jak__s81_a136_
+MAPK14	controls-state-change-of	JAK1	PANTHER		JAK/STAT signaling pathway	panther:_CATALYSIS___Serine_kinase_r38m1_r38;panther:HETERODIMER_ASSOCIATION_LEFT__2_ATP-_STAT-_Complex__Cytokine_Receptor_Cytokine__Jak_-RIGHT__Complex__Cytokine_Receptor_Cytokine__STAT_Jak_-_2_ADP-_r38
+MAPK14	controls-state-change-of	JAK2	PANTHER		JAK/STAT signaling pathway	panther:_CATALYSIS___Serine_kinase_r38m1_r38;panther:HETERODIMER_ASSOCIATION_LEFT__2_ATP-_STAT-_Complex__Cytokine_Receptor_Cytokine__Jak_-RIGHT__Complex__Cytokine_Receptor_Cytokine__STAT_Jak_-_2_ADP-_r38
+MAPK14	controls-state-change-of	JAK3	PANTHER		JAK/STAT signaling pathway	panther:_CATALYSIS___Serine_kinase_r38m1_r38;panther:HETERODIMER_ASSOCIATION_LEFT__2_ATP-_STAT-_Complex__Cytokine_Receptor_Cytokine__Jak_-RIGHT__Complex__Cytokine_Receptor_Cytokine__STAT_Jak_-_2_ADP-_r38
+MAPK14	controls-phosphorylation-of	STAT1	PANTHER		JAK/STAT signaling pathway	panther:_CATALYSIS___Serine_kinase_r38m1_r38;panther:HETERODIMER_ASSOCIATION_LEFT__2_ATP-_STAT-_Complex__Cytokine_Receptor_Cytokine__Jak_-RIGHT__Complex__Cytokine_Receptor_Cytokine__STAT_Jak_-_2_ADP-_r38
+MAPK14	controls-state-change-of	STAT1	PANTHER		JAK/STAT signaling pathway	panther:_CATALYSIS___Serine_kinase_r38m1_r38;panther:HETERODIMER_ASSOCIATION_LEFT__2_ATP-_STAT-_Complex__Cytokine_Receptor_Cytokine__Jak_-RIGHT__Complex__Cytokine_Receptor_Cytokine__STAT_Jak_-_2_ADP-_r38
+MAPK14	controls-phosphorylation-of	STAT3	PANTHER		JAK/STAT signaling pathway	panther:_CATALYSIS___Serine_kinase_r38m1_r38;panther:HETERODIMER_ASSOCIATION_LEFT__2_ATP-_STAT-_Complex__Cytokine_Receptor_Cytokine__Jak_-RIGHT__Complex__Cytokine_Receptor_Cytokine__STAT_Jak_-_2_ADP-_r38
+MAPK14	controls-state-change-of	STAT3	PANTHER		JAK/STAT signaling pathway	panther:_CATALYSIS___Serine_kinase_r38m1_r38;panther:HETERODIMER_ASSOCIATION_LEFT__2_ATP-_STAT-_Complex__Cytokine_Receptor_Cytokine__Jak_-RIGHT__Complex__Cytokine_Receptor_Cytokine__STAT_Jak_-_2_ADP-_r38
+MAPK14	controls-phosphorylation-of	STAT4	PANTHER		JAK/STAT signaling pathway	panther:_CATALYSIS___Serine_kinase_r38m1_r38;panther:HETERODIMER_ASSOCIATION_LEFT__2_ATP-_STAT-_Complex__Cytokine_Receptor_Cytokine__Jak_-RIGHT__Complex__Cytokine_Receptor_Cytokine__STAT_Jak_-_2_ADP-_r38
+MAPK14	controls-state-change-of	STAT4	PANTHER		JAK/STAT signaling pathway	panther:_CATALYSIS___Serine_kinase_r38m1_r38;panther:HETERODIMER_ASSOCIATION_LEFT__2_ATP-_STAT-_Complex__Cytokine_Receptor_Cytokine__Jak_-RIGHT__Complex__Cytokine_Receptor_Cytokine__STAT_Jak_-_2_ADP-_r38
+MAPK14	controls-phosphorylation-of	STAT5A	PANTHER		JAK/STAT signaling pathway	panther:_CATALYSIS___Serine_kinase_r38m1_r38;panther:HETERODIMER_ASSOCIATION_LEFT__2_ATP-_STAT-_Complex__Cytokine_Receptor_Cytokine__Jak_-RIGHT__Complex__Cytokine_Receptor_Cytokine__STAT_Jak_-_2_ADP-_r38
+MAPK14	controls-state-change-of	STAT5A	PANTHER		JAK/STAT signaling pathway	panther:_CATALYSIS___Serine_kinase_r38m1_r38;panther:HETERODIMER_ASSOCIATION_LEFT__2_ATP-_STAT-_Complex__Cytokine_Receptor_Cytokine__Jak_-RIGHT__Complex__Cytokine_Receptor_Cytokine__STAT_Jak_-_2_ADP-_r38
+MAPK14	controls-phosphorylation-of	STAT5B	PANTHER		JAK/STAT signaling pathway	panther:_CATALYSIS___Serine_kinase_r38m1_r38;panther:HETERODIMER_ASSOCIATION_LEFT__2_ATP-_STAT-_Complex__Cytokine_Receptor_Cytokine__Jak_-RIGHT__Complex__Cytokine_Receptor_Cytokine__STAT_Jak_-_2_ADP-_r38
+MAPK14	controls-state-change-of	STAT5B	PANTHER		JAK/STAT signaling pathway	panther:_CATALYSIS___Serine_kinase_r38m1_r38;panther:HETERODIMER_ASSOCIATION_LEFT__2_ATP-_STAT-_Complex__Cytokine_Receptor_Cytokine__Jak_-RIGHT__Complex__Cytokine_Receptor_Cytokine__STAT_Jak_-_2_ADP-_r38
+MAPK14	controls-phosphorylation-of	STAT6	PANTHER		JAK/STAT signaling pathway	panther:_CATALYSIS___Serine_kinase_r38m1_r38;panther:HETERODIMER_ASSOCIATION_LEFT__2_ATP-_STAT-_Complex__Cytokine_Receptor_Cytokine__Jak_-RIGHT__Complex__Cytokine_Receptor_Cytokine__STAT_Jak_-_2_ADP-_r38
+MAPK14	controls-state-change-of	STAT6	PANTHER		JAK/STAT signaling pathway	panther:_CATALYSIS___Serine_kinase_r38m1_r38;panther:HETERODIMER_ASSOCIATION_LEFT__2_ATP-_STAT-_Complex__Cytokine_Receptor_Cytokine__Jak_-RIGHT__Complex__Cytokine_Receptor_Cytokine__STAT_Jak_-_2_ADP-_r38
+PIAS1	controls-phosphorylation-of	STAT1	PANTHER		JAK/STAT signaling pathway	panther:STATE_TRANSITION_LEFT__STAT-RIGHT__STAT-_Pi-_r42;panther:_CATALYSIS___PIAS_r42m1_r42
+PIAS1	controls-state-change-of	STAT1	PANTHER		JAK/STAT signaling pathway	panther:STATE_TRANSITION_LEFT__STAT-RIGHT__STAT-_Pi-_r42;panther:_CATALYSIS___PIAS_r42m1_r42
+PIAS1	controls-phosphorylation-of	STAT3	PANTHER		JAK/STAT signaling pathway	panther:STATE_TRANSITION_LEFT__STAT-RIGHT__STAT-_Pi-_r42;panther:_CATALYSIS___PIAS_r42m1_r42
+PIAS1	controls-state-change-of	STAT3	PANTHER		JAK/STAT signaling pathway	panther:STATE_TRANSITION_LEFT__STAT-RIGHT__STAT-_Pi-_r42;panther:_CATALYSIS___PIAS_r42m1_r42
+PIAS1	controls-phosphorylation-of	STAT4	PANTHER		JAK/STAT signaling pathway	panther:STATE_TRANSITION_LEFT__STAT-RIGHT__STAT-_Pi-_r42;panther:_CATALYSIS___PIAS_r42m1_r42
+PIAS1	controls-state-change-of	STAT4	PANTHER		JAK/STAT signaling pathway	panther:STATE_TRANSITION_LEFT__STAT-RIGHT__STAT-_Pi-_r42;panther:_CATALYSIS___PIAS_r42m1_r42
+PIAS1	controls-phosphorylation-of	STAT5A	PANTHER		JAK/STAT signaling pathway	panther:STATE_TRANSITION_LEFT__STAT-RIGHT__STAT-_Pi-_r42;panther:_CATALYSIS___PIAS_r42m1_r42
+PIAS1	controls-state-change-of	STAT5A	PANTHER		JAK/STAT signaling pathway	panther:STATE_TRANSITION_LEFT__STAT-RIGHT__STAT-_Pi-_r42;panther:_CATALYSIS___PIAS_r42m1_r42
+PIAS1	controls-phosphorylation-of	STAT5B	PANTHER		JAK/STAT signaling pathway	panther:STATE_TRANSITION_LEFT__STAT-RIGHT__STAT-_Pi-_r42;panther:_CATALYSIS___PIAS_r42m1_r42
+PIAS1	controls-state-change-of	STAT5B	PANTHER		JAK/STAT signaling pathway	panther:STATE_TRANSITION_LEFT__STAT-RIGHT__STAT-_Pi-_r42;panther:_CATALYSIS___PIAS_r42m1_r42
+PIAS1	controls-phosphorylation-of	STAT6	PANTHER		JAK/STAT signaling pathway	panther:STATE_TRANSITION_LEFT__STAT-RIGHT__STAT-_Pi-_r42;panther:_CATALYSIS___PIAS_r42m1_r42
+PIAS1	controls-state-change-of	STAT6	PANTHER		JAK/STAT signaling pathway	panther:STATE_TRANSITION_LEFT__STAT-RIGHT__STAT-_Pi-_r42;panther:_CATALYSIS___PIAS_r42m1_r42
+PIAS2	controls-phosphorylation-of	STAT1	PANTHER		JAK/STAT signaling pathway	panther:STATE_TRANSITION_LEFT__STAT-RIGHT__STAT-_Pi-_r42;panther:_CATALYSIS___PIAS_r42m1_r42
+PIAS2	controls-state-change-of	STAT1	PANTHER		JAK/STAT signaling pathway	panther:STATE_TRANSITION_LEFT__STAT-RIGHT__STAT-_Pi-_r42;panther:_CATALYSIS___PIAS_r42m1_r42
+PIAS2	controls-phosphorylation-of	STAT3	PANTHER		JAK/STAT signaling pathway	panther:STATE_TRANSITION_LEFT__STAT-RIGHT__STAT-_Pi-_r42;panther:_CATALYSIS___PIAS_r42m1_r42
+PIAS2	controls-state-change-of	STAT3	PANTHER		JAK/STAT signaling pathway	panther:STATE_TRANSITION_LEFT__STAT-RIGHT__STAT-_Pi-_r42;panther:_CATALYSIS___PIAS_r42m1_r42
+PIAS2	controls-phosphorylation-of	STAT4	PANTHER		JAK/STAT signaling pathway	panther:STATE_TRANSITION_LEFT__STAT-RIGHT__STAT-_Pi-_r42;panther:_CATALYSIS___PIAS_r42m1_r42
+PIAS2	controls-state-change-of	STAT4	PANTHER		JAK/STAT signaling pathway	panther:STATE_TRANSITION_LEFT__STAT-RIGHT__STAT-_Pi-_r42;panther:_CATALYSIS___PIAS_r42m1_r42
+PIAS2	controls-phosphorylation-of	STAT5A	PANTHER		JAK/STAT signaling pathway	panther:STATE_TRANSITION_LEFT__STAT-RIGHT__STAT-_Pi-_r42;panther:_CATALYSIS___PIAS_r42m1_r42
+PIAS2	controls-state-change-of	STAT5A	PANTHER		JAK/STAT signaling pathway	panther:STATE_TRANSITION_LEFT__STAT-RIGHT__STAT-_Pi-_r42;panther:_CATALYSIS___PIAS_r42m1_r42
+PIAS2	controls-phosphorylation-of	STAT5B	PANTHER		JAK/STAT signaling pathway	panther:STATE_TRANSITION_LEFT__STAT-RIGHT__STAT-_Pi-_r42;panther:_CATALYSIS___PIAS_r42m1_r42
+PIAS2	controls-state-change-of	STAT5B	PANTHER		JAK/STAT signaling pathway	panther:STATE_TRANSITION_LEFT__STAT-RIGHT__STAT-_Pi-_r42;panther:_CATALYSIS___PIAS_r42m1_r42
+PIAS2	controls-phosphorylation-of	STAT6	PANTHER		JAK/STAT signaling pathway	panther:STATE_TRANSITION_LEFT__STAT-RIGHT__STAT-_Pi-_r42;panther:_CATALYSIS___PIAS_r42m1_r42
+PIAS2	controls-state-change-of	STAT6	PANTHER		JAK/STAT signaling pathway	panther:STATE_TRANSITION_LEFT__STAT-RIGHT__STAT-_Pi-_r42;panther:_CATALYSIS___PIAS_r42m1_r42
+PIAS3	controls-phosphorylation-of	STAT1	PANTHER		JAK/STAT signaling pathway	panther:STATE_TRANSITION_LEFT__STAT-RIGHT__STAT-_Pi-_r42;panther:_CATALYSIS___PIAS_r42m1_r42
+PIAS3	controls-state-change-of	STAT1	PANTHER		JAK/STAT signaling pathway	panther:STATE_TRANSITION_LEFT__STAT-RIGHT__STAT-_Pi-_r42;panther:_CATALYSIS___PIAS_r42m1_r42
+PIAS3	controls-phosphorylation-of	STAT3	PANTHER		JAK/STAT signaling pathway	panther:STATE_TRANSITION_LEFT__STAT-RIGHT__STAT-_Pi-_r42;panther:_CATALYSIS___PIAS_r42m1_r42
+PIAS3	controls-state-change-of	STAT3	PANTHER		JAK/STAT signaling pathway	panther:STATE_TRANSITION_LEFT__STAT-RIGHT__STAT-_Pi-_r42;panther:_CATALYSIS___PIAS_r42m1_r42
+PIAS3	controls-phosphorylation-of	STAT4	PANTHER		JAK/STAT signaling pathway	panther:STATE_TRANSITION_LEFT__STAT-RIGHT__STAT-_Pi-_r42;panther:_CATALYSIS___PIAS_r42m1_r42
+PIAS3	controls-state-change-of	STAT4	PANTHER		JAK/STAT signaling pathway	panther:STATE_TRANSITION_LEFT__STAT-RIGHT__STAT-_Pi-_r42;panther:_CATALYSIS___PIAS_r42m1_r42
+PIAS3	controls-phosphorylation-of	STAT5A	PANTHER		JAK/STAT signaling pathway	panther:STATE_TRANSITION_LEFT__STAT-RIGHT__STAT-_Pi-_r42;panther:_CATALYSIS___PIAS_r42m1_r42
+PIAS3	controls-state-change-of	STAT5A	PANTHER		JAK/STAT signaling pathway	panther:STATE_TRANSITION_LEFT__STAT-RIGHT__STAT-_Pi-_r42;panther:_CATALYSIS___PIAS_r42m1_r42
+PIAS3	controls-phosphorylation-of	STAT5B	PANTHER		JAK/STAT signaling pathway	panther:STATE_TRANSITION_LEFT__STAT-RIGHT__STAT-_Pi-_r42;panther:_CATALYSIS___PIAS_r42m1_r42
+PIAS3	controls-state-change-of	STAT5B	PANTHER		JAK/STAT signaling pathway	panther:STATE_TRANSITION_LEFT__STAT-RIGHT__STAT-_Pi-_r42;panther:_CATALYSIS___PIAS_r42m1_r42
+PIAS3	controls-phosphorylation-of	STAT6	PANTHER		JAK/STAT signaling pathway	panther:STATE_TRANSITION_LEFT__STAT-RIGHT__STAT-_Pi-_r42;panther:_CATALYSIS___PIAS_r42m1_r42
+PIAS3	controls-state-change-of	STAT6	PANTHER		JAK/STAT signaling pathway	panther:STATE_TRANSITION_LEFT__STAT-RIGHT__STAT-_Pi-_r42;panther:_CATALYSIS___PIAS_r42m1_r42
+PTPRC	controls-phosphorylation-of	JAK1	PANTHER		JAK/STAT signaling pathway	panther:_CATALYSIS___PTP_r21m1_r21;panther:STATE_TRANSITION_LEFT__Jak-RIGHT__Jak-_Pi-_r21
+PTPRC	controls-state-change-of	JAK1	PANTHER		JAK/STAT signaling pathway	panther:_CATALYSIS___PTP_r21m1_r21;panther:STATE_TRANSITION_LEFT__Jak-RIGHT__Jak-_Pi-_r21
+PTPRC	controls-phosphorylation-of	JAK2	PANTHER		JAK/STAT signaling pathway	panther:_CATALYSIS___PTP_r21m1_r21;panther:STATE_TRANSITION_LEFT__Jak-RIGHT__Jak-_Pi-_r21
+PTPRC	controls-state-change-of	JAK2	PANTHER		JAK/STAT signaling pathway	panther:_CATALYSIS___PTP_r21m1_r21;panther:STATE_TRANSITION_LEFT__Jak-RIGHT__Jak-_Pi-_r21
+PTPRC	controls-phosphorylation-of	JAK3	PANTHER		JAK/STAT signaling pathway	panther:_CATALYSIS___PTP_r21m1_r21;panther:STATE_TRANSITION_LEFT__Jak-RIGHT__Jak-_Pi-_r21
+PTPRC	controls-state-change-of	JAK3	PANTHER		JAK/STAT signaling pathway	panther:_CATALYSIS___PTP_r21m1_r21;panther:STATE_TRANSITION_LEFT__Jak-RIGHT__Jak-_Pi-_r21
+PTPRC	controls-phosphorylation-of	STAT1	PANTHER		JAK/STAT signaling pathway	panther:STATE_TRANSITION_LEFT__STAT-RIGHT__STAT-_Pi-_r42;panther:_CATALYSIS___PTP_r42m3_r42
+PTPRC	controls-state-change-of	STAT1	PANTHER		JAK/STAT signaling pathway	panther:STATE_TRANSITION_LEFT__STAT-RIGHT__STAT-_Pi-_r42;panther:_CATALYSIS___PTP_r42m3_r42
+PTPRC	controls-phosphorylation-of	STAT3	PANTHER		JAK/STAT signaling pathway	panther:STATE_TRANSITION_LEFT__STAT-RIGHT__STAT-_Pi-_r42;panther:_CATALYSIS___PTP_r42m3_r42
+PTPRC	controls-state-change-of	STAT3	PANTHER		JAK/STAT signaling pathway	panther:STATE_TRANSITION_LEFT__STAT-RIGHT__STAT-_Pi-_r42;panther:_CATALYSIS___PTP_r42m3_r42
+PTPRC	controls-phosphorylation-of	STAT4	PANTHER		JAK/STAT signaling pathway	panther:STATE_TRANSITION_LEFT__STAT-RIGHT__STAT-_Pi-_r42;panther:_CATALYSIS___PTP_r42m3_r42
+PTPRC	controls-state-change-of	STAT4	PANTHER		JAK/STAT signaling pathway	panther:STATE_TRANSITION_LEFT__STAT-RIGHT__STAT-_Pi-_r42;panther:_CATALYSIS___PTP_r42m3_r42
+PTPRC	controls-phosphorylation-of	STAT5A	PANTHER		JAK/STAT signaling pathway	panther:STATE_TRANSITION_LEFT__STAT-RIGHT__STAT-_Pi-_r42;panther:_CATALYSIS___PTP_r42m3_r42
+PTPRC	controls-state-change-of	STAT5A	PANTHER		JAK/STAT signaling pathway	panther:STATE_TRANSITION_LEFT__STAT-RIGHT__STAT-_Pi-_r42;panther:_CATALYSIS___PTP_r42m3_r42
+PTPRC	controls-phosphorylation-of	STAT5B	PANTHER		JAK/STAT signaling pathway	panther:STATE_TRANSITION_LEFT__STAT-RIGHT__STAT-_Pi-_r42;panther:_CATALYSIS___PTP_r42m3_r42
+PTPRC	controls-state-change-of	STAT5B	PANTHER		JAK/STAT signaling pathway	panther:STATE_TRANSITION_LEFT__STAT-RIGHT__STAT-_Pi-_r42;panther:_CATALYSIS___PTP_r42m3_r42
+PTPRC	controls-phosphorylation-of	STAT6	PANTHER		JAK/STAT signaling pathway	panther:STATE_TRANSITION_LEFT__STAT-RIGHT__STAT-_Pi-_r42;panther:_CATALYSIS___PTP_r42m3_r42
+PTPRC	controls-state-change-of	STAT6	PANTHER		JAK/STAT signaling pathway	panther:STATE_TRANSITION_LEFT__STAT-RIGHT__STAT-_Pi-_r42;panther:_CATALYSIS___PTP_r42m3_r42
+SOCS1	controls-phosphorylation-of	JAK1	PANTHER		JAK/STAT signaling pathway	panther:STATE_TRANSITION_LEFT__ATP-_Jak-RIGHT__Jak-_ADP-_r3;panther:_INHIBITION___SOCS_r3m1_r3
+SOCS1	controls-state-change-of	JAK1	PANTHER		JAK/STAT signaling pathway	panther:STATE_TRANSITION_LEFT__ATP-_Jak-RIGHT__Jak-_ADP-_r3;panther:_INHIBITION___SOCS_r3m1_r3
+SOCS1	controls-phosphorylation-of	JAK2	PANTHER		JAK/STAT signaling pathway	panther:STATE_TRANSITION_LEFT__ATP-_Jak-RIGHT__Jak-_ADP-_r3;panther:_INHIBITION___SOCS_r3m1_r3
+SOCS1	controls-state-change-of	JAK2	PANTHER		JAK/STAT signaling pathway	panther:STATE_TRANSITION_LEFT__ATP-_Jak-RIGHT__Jak-_ADP-_r3;panther:_INHIBITION___SOCS_r3m1_r3
+SOCS1	controls-phosphorylation-of	JAK3	PANTHER		JAK/STAT signaling pathway	panther:STATE_TRANSITION_LEFT__ATP-_Jak-RIGHT__Jak-_ADP-_r3;panther:_INHIBITION___SOCS_r3m1_r3
+SOCS1	controls-state-change-of	JAK3	PANTHER		JAK/STAT signaling pathway	panther:STATE_TRANSITION_LEFT__ATP-_Jak-RIGHT__Jak-_ADP-_r3;panther:_INHIBITION___SOCS_r3m1_r3
+
+PARTICIPANT	PARTICIPANT_TYPE	PARTICIPANT_NAME	UNIFICATION_XREF	RELATIONSHIP_XREF
+STAT5A	ProteinReference	STA5A_HUMAN	uniprot:P42229	hgnc.symbol:STAT5A;ncbigene:6776
+PIAS3	ProteinReference	PIAS3_HUMAN	uniprot:Q9Y6X2	hgnc.symbol:PIAS3;ncbigene:10401
+STAT5B	ProteinReference	STA5B_HUMAN	uniprot:P51692	hgnc.symbol:STAT5B;ncbigene:6777
+STAT1	ProteinReference	STAT1_HUMAN	uniprot:P42224	hgnc.symbol:STAT1;ncbigene:6772
+STAT3	ProteinReference	STAT3_HUMAN	uniprot:P40763	hgnc.symbol:STAT3;ncbigene:6774
+MAPK14	ProteinReference	MK14_HUMAN	uniprot:Q16539	hgnc.symbol:MAPK14;ncbigene:1432
+PIAS2	ProteinReference	PIAS2_HUMAN	uniprot:O75928	hgnc.symbol:PIAS2;ncbigene:9063
+PIAS1	ProteinReference	PIAS1_HUMAN	uniprot:O75925	hgnc.symbol:PIAS1;ncbigene:8554
+SOCS1	ProteinReference	SOCS1_HUMAN	uniprot:O15524	hgnc.symbol:SOCS1;ncbigene:8651
+PTPRC	ProteinReference	PTPRC_HUMAN	uniprot:P08575	hgnc.symbol:PTPRC;ncbigene:5788
+STAT4	ProteinReference	STAT4_HUMAN	uniprot:Q14765	hgnc.symbol:STAT4;ncbigene:6775
+STAT6	ProteinReference	STAT6_HUMAN	uniprot:P42226	hgnc.symbol:STAT6;ncbigene:6778
+JAK2	ProteinReference	JAK2_HUMAN	uniprot:O60674	hgnc.symbol:JAK2;ncbigene:3717
+JAK3	ProteinReference	JAK3_HUMAN	uniprot:P52333	hgnc.symbol:JAK3;ncbigene:3718
+JAK1	ProteinReference	JAK1_HUMAN	uniprot:P23458	hgnc.symbol:JAK1;ncbigene:3716
