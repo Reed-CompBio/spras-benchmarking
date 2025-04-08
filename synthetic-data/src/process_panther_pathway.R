@@ -44,8 +44,8 @@ process_panther_pathway <- function(pathway_path, pathway_folder) {
   
   # Function for taking a processed Node dataset from process_panther_pathway and checking for TFs
   process_TFs <- function(nodes, pathway_folder) {
-    humanTFs <- read_tsv('human-interactome/Homo_sapiens_TFs.txt')
-    matches <- inner_join(nodes, humanTFs, by = c("uniprot" = "Uniprot"))
+    humanTFs <- read_tsv('human-interactome/Homo_sapiens_TF_Uniprot.txt')
+    matches <- inner_join(nodes, humanTFs, by = c("uniprot" = "Uniprot_Accession"))
     sources <- matches %>% select(NODE, uniprot)
     
     write_tsv(sources, paste0(pathway_folder, "SOURCES.txt"))
