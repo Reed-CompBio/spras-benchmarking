@@ -1,347 +1,347 @@
-NODE1	NODE2
-AIFM1	ENDOG
-AIFM1	ENDOG
-AKT1	CHUK
-AKT1	IKBKB
-AKT2	CHUK
-AKT2	IKBKB
-AKT3	CHUK
-AKT3	IKBKB
-APAF1	CASP9
-BAG3	BAK1
-BAG3	BAK1
-BAG3	BAX
-BAG3	BAX
-BAG4	CASP10
-BAG4	CASP8
-BAK1	AIFM1
-BAK1	AIFM1
-BAK1	BAX
-BAK1	DIABLO
-BAK1	DIABLO
-BAX	CYCS
-BAX	CYCS
-BCL2	BAK1
-BCL2	BAK1
-BCL2	BAX
-BCL2	BAX
-BCL2	BIK
-BCL2L10	BCL2L1
-BCL2L11	BAK1
-BCL2L11	BAK1
-BCL2L11	BAX
-BCL2L11	BAX
-BCL2L1	BAK1
-BCL2L1	BAK1
-BCL2L1	BAX
-BCL2L1	BAX
-BCL2L1	CYCS
-BCL2L1	CYCS
-BCL2L2-PABPN1	BAK1
-BCL2L2-PABPN1	BAK1
-BCL2L2-PABPN1	BAX
-BCL2L2-PABPN1	BAX
-BCL2L2	BAK1
-BCL2L2	BAK1
-BCL2L2	BAX
-BCL2L2	BAX
-BIRC2	CASP3
-BIRC2	CASP7
-BIRC2	CASP9
-BIRC3	CASP3
-BIRC3	CASP7
-BIRC3	CASP9
-BOK	BAK1
-BOK	BAK1
-BOK	BAX
-BOK	BAX
-CASP10	CASP3
-CASP10	CASP7
-CASP3	EIF2S1
-CASP7	EIF2S1
-CASP8	CASP3
-CASP8	CASP7
-CFLAR	CASP10
-CFLAR	CASP8
-CHUK	NFKBIA
-CHUK	NFKBIA
-CRADD	CASP10
-CRADD	CASP8
-CRADD	MAP3K14
-CRADD	MAP4K2
-CRADD	MAP4K3
-CRADD	MAP4K4
-CRADD	PIK3CA
-CRADD	PIK3CB
-CRADD	PIK3CD
-CRADD	PIK3CG
-CRADD	PRKCA
-CRADD	PRKCB
-CRADD	PRKCD
-CRADD	PRKCE
-CRADD	PRKCG
-CRADD	PRKCH
-CRADD	PRKCQ
-CRADD	RIPK1
-CRADD	TRADD
-CRADD	TRAF2
-CYCS	APAF1
-DAXX	CASP10
-DAXX	CASP8
-DAXX	FADD
-DAXX	FASLG
-DAXX	FAS
-DAXX	MAP3K5
-DAXX	MAP3K5
-DIABLO	BIRC2
-DIABLO	BIRC3
-DIABLO	XIAP
-EIF2AK2	EIF2S1
-EIF2AK2	TP53
-FADD	CASP10
-FADD	CASP8
-FADD	FASLG
-FADD	FAS
-FADD	MAP3K5
-FADD	MAP3K5
-FADD	TRADD
-FAS	CASP10
-FAS	CASP8
-FAS	FASLG
-FASLG	CASP10
-FASLG	CASP8
-FASLG	MAP3K5
-FASLG	MAP3K5
-FAS	MAP3K5
-FAS	MAP3K5
-FOS	JUN
-GZMB	CASP10
-GZMB	IGF2R
-GZMH	CASP10
-GZMH	IGF2R
-HSPA1A	AIFM1
-HSPA1A	AIFM1
-HSPA1B	AIFM1
-HSPA1B	AIFM1
-HSPA1L	AIFM1
-HSPA1L	AIFM1
-HSPA2	AIFM1
-HSPA2	AIFM1
-HSPA5	AIFM1
-HSPA5	AIFM1
-HSPA6	AIFM1
-HSPA6	AIFM1
-HSPA8	AIFM1
-HSPA8	AIFM1
-IKBKB	NFKBIA
-IKBKB	NFKBIA
-LTA	CRADD
-LTA	FADD
-LTA	MADD
-LTA	MAP3K14
-LTA	MAP3K5
-LTA	MAP3K5
-LTA	RIPK1
-LTA	TNFRSF1A
-LTA	TNFRSF1B
-LTA	TRADD
-LTA	TRAF2
-LTA	TRAF2
-LTB	CRADD
-LTB	FADD
-LTB	MADD
-LTB	MAP3K14
-LTB	MAP3K5
-LTB	MAP3K5
-LTB	RIPK1
-LTB	TNFRSF1A
-LTB	TNFRSF1B
-LTB	TRADD
-LTB	TRAF2
-LTB	TRAF2
-MADD	MAP3K5
-MADD	MAP3K5
-MADD	TNFRSF1A
-MADD	TNF
-MAP2K3	MAPK1
-MAP2K3	MAPK1
-MAP2K3	MAPK3
-MAP2K3	MAPK3
-MAP2K4	MAPK10
-MAP2K4	MAPK10
-MAP2K4	MAPK8
-MAP2K4	MAPK8
-MAP2K4	MAPK9
-MAP2K4	MAPK9
-MAP2K7	MAPK10
-MAP2K7	MAPK10
-MAP2K7	MAPK8
-MAP2K7	MAPK8
-MAP2K7	MAPK9
-MAP2K7	MAPK9
-MAP3K14	CHUK
-MAP3K14	IKBKB
-MAP3K1	MAP2K4
-MAP3K1	MAP2K4
-MAP3K1	MAP2K7
-MAP3K1	MAP2K7
-MAP3K5	MAP2K3
-MAP3K5	MAP2K3
-MAP3K5	MAP2K4
-MAP3K5	MAP2K4
-MAP3K5	MAP2K7
-MAP3K5	MAP2K7
-MAP4K2	MAP3K1
-MAP4K2	MAP3K1
-MAP4K2	MAP3K5
-MAP4K2	MAP3K5
-MAP4K3	MAP3K1
-MAP4K3	MAP3K1
-MAP4K3	MAP3K5
-MAP4K3	MAP3K5
-MAP4K4	MAP3K1
-MAP4K4	MAP3K1
-MAP4K4	MAP3K5
-MAP4K4	MAP3K5
-MAPK10	FOS
-MAPK10	JUN
-MAPK1	ATF1
-MAPK1	ATF2
-MAPK1	ATF3
-MAPK1	ATF4
-MAPK1	ATF6B
-MAPK1	ATF6
-MAPK1	ATF7
-MAPK1	CREM
-MAPK1	JDP2
-MAPK3	ATF1
-MAPK3	ATF2
-MAPK3	ATF3
-MAPK3	ATF4
-MAPK3	ATF6B
-MAPK3	ATF6
-MAPK3	ATF7
-MAPK3	CREM
-MAPK3	JDP2
-MAPK8	FOS
-MAPK8	JUN
-MAPK9	FOS
-MAPK9	JUN
-MCL1	BCL2L11
-NFKB1	NFKBIA
-NFKB2	NFKBIA
-NFKBIA	RELA
-NFKBIA	RELB
-NFKBIA	REL
-PIK3CA	AKT1
-PIK3CA	AKT2
-PIK3CA	AKT3
-PIK3CB	AKT1
-PIK3CB	AKT2
-PIK3CB	AKT3
-PIK3CD	AKT1
-PIK3CD	AKT2
-PIK3CD	AKT3
-PIK3CG	AKT1
-PIK3CG	AKT2
-PIK3CG	AKT3
-PRKCA	CHUK
-PRKCA	IKBKB
-PRKCB	CHUK
-PRKCB	IKBKB
-PRKCD	CHUK
-PRKCD	IKBKB
-PRKCE	CHUK
-PRKCE	IKBKB
-PRKCG	CHUK
-PRKCG	IKBKB
-PRKCH	CHUK
-PRKCH	IKBKB
-PRKCQ	CHUK
-PRKCQ	IKBKB
-PRKRA	EIF2AK2
-RIPK1	CASP10
-RIPK1	CASP8
-RIPK1	MAP3K14
-RIPK1	MAP4K2
-RIPK1	MAP4K3
-RIPK1	MAP4K4
-RIPK1	PIK3CA
-RIPK1	PIK3CB
-RIPK1	PIK3CD
-RIPK1	PIK3CG
-RIPK1	PRKCA
-RIPK1	PRKCB
-RIPK1	PRKCD
-RIPK1	PRKCE
-RIPK1	PRKCG
-RIPK1	PRKCH
-RIPK1	PRKCQ
-RIPK1	TRADD
-RIPK1	TRAF2
-TMBIM6	BAK1
-TMBIM6	BAK1
-TMBIM6	BAX
-TMBIM6	BAX
-TNF	CRADD
-TNF	FADD
-TNF	MAP3K14
-TNF	MAP3K5
-TNF	MAP3K5
-TNF	RIPK1
-TNFRSF10A	TNFSF10
-TNFRSF10B	TNFSF10
-TNFRSF10C	TNFSF10
-TNFRSF10D	TNFSF10
-TNFRSF1A	CRADD
-TNFRSF1A	FADD
-TNFRSF1A	MAP3K5
-TNFRSF1A	MAP3K5
-TNFRSF1A	RIPK1
-TNFRSF1A	TRADD
-TNFRSF1A	TRAF2
-TNFRSF1B	MAP3K14
-TNFRSF1B	TRAF2
-TNF	TNFRSF1A
-TNF	TNFRSF1B
-TNF	TRADD
-TNF	TRAF2
-TNF	TRAF2
-TRADD	CASP10
-TRADD	CASP8
-TRADD	MAP3K14
-TRADD	MAP4K2
-TRADD	MAP4K3
-TRADD	MAP4K4
-TRADD	PIK3CA
-TRADD	PIK3CB
-TRADD	PIK3CD
-TRADD	PIK3CG
-TRADD	PRKCA
-TRADD	PRKCB
-TRADD	PRKCD
-TRADD	PRKCE
-TRADD	PRKCG
-TRADD	PRKCH
-TRADD	PRKCQ
-TRADD	TRAF2
-TRAF2	CASP10
-TRAF2	CASP8
-TRAF2	MAP3K14
-TRAF2	MAP4K2
-TRAF2	MAP4K3
-TRAF2	MAP4K4
-TRAF2	PIK3CA
-TRAF2	PIK3CB
-TRAF2	PIK3CD
-TRAF2	PIK3CG
-TRAF2	PRKCA
-TRAF2	PRKCB
-TRAF2	PRKCD
-TRAF2	PRKCE
-TRAF2	PRKCG
-TRAF2	PRKCH
-TRAF2	PRKCQ
-XIAP	CASP3
-XIAP	CASP7
-XIAP	CASP9
+NODE1	INTERACTION_TYPE	NODE2
+AIFM1	controls-state-change-of	ENDOG
+AIFM1	controls-transport-of	ENDOG
+AKT1	controls-state-change-of	CHUK
+AKT1	controls-state-change-of	IKBKB
+AKT2	controls-state-change-of	CHUK
+AKT2	controls-state-change-of	IKBKB
+AKT3	controls-state-change-of	CHUK
+AKT3	controls-state-change-of	IKBKB
+APAF1	controls-state-change-of	CASP9
+BAG3	controls-state-change-of	BAK1
+BAG3	controls-transport-of	BAK1
+BAG3	controls-state-change-of	BAX
+BAG3	controls-transport-of	BAX
+BAG4	controls-state-change-of	CASP10
+BAG4	controls-state-change-of	CASP8
+BAK1	controls-state-change-of	AIFM1
+BAK1	controls-transport-of	AIFM1
+BAK1	in-complex-with	BAX
+BAK1	controls-state-change-of	DIABLO
+BAK1	controls-transport-of	DIABLO
+BAX	controls-state-change-of	CYCS
+BAX	controls-transport-of	CYCS
+BCL2	controls-state-change-of	BAK1
+BCL2	controls-transport-of	BAK1
+BCL2	controls-state-change-of	BAX
+BCL2	controls-transport-of	BAX
+BCL2	in-complex-with	BIK
+BCL2L10	controls-state-change-of	BCL2L1
+BCL2L11	controls-state-change-of	BAK1
+BCL2L11	controls-transport-of	BAK1
+BCL2L11	controls-state-change-of	BAX
+BCL2L11	controls-transport-of	BAX
+BCL2L1	controls-state-change-of	BAK1
+BCL2L1	controls-transport-of	BAK1
+BCL2L1	controls-state-change-of	BAX
+BCL2L1	controls-transport-of	BAX
+BCL2L1	controls-state-change-of	CYCS
+BCL2L1	controls-transport-of	CYCS
+BCL2L2-PABPN1	controls-state-change-of	BAK1
+BCL2L2-PABPN1	controls-transport-of	BAK1
+BCL2L2-PABPN1	controls-state-change-of	BAX
+BCL2L2-PABPN1	controls-transport-of	BAX
+BCL2L2	controls-state-change-of	BAK1
+BCL2L2	controls-transport-of	BAK1
+BCL2L2	controls-state-change-of	BAX
+BCL2L2	controls-transport-of	BAX
+BIRC2	controls-state-change-of	CASP3
+BIRC2	controls-state-change-of	CASP7
+BIRC2	controls-state-change-of	CASP9
+BIRC3	controls-state-change-of	CASP3
+BIRC3	controls-state-change-of	CASP7
+BIRC3	controls-state-change-of	CASP9
+BOK	controls-state-change-of	BAK1
+BOK	controls-transport-of	BAK1
+BOK	controls-state-change-of	BAX
+BOK	controls-transport-of	BAX
+CASP10	controls-state-change-of	CASP3
+CASP10	controls-state-change-of	CASP7
+CASP3	controls-state-change-of	EIF2S1
+CASP7	controls-state-change-of	EIF2S1
+CASP8	controls-state-change-of	CASP3
+CASP8	controls-state-change-of	CASP7
+CFLAR	controls-state-change-of	CASP10
+CFLAR	controls-state-change-of	CASP8
+CHUK	controls-phosphorylation-of	NFKBIA
+CHUK	controls-state-change-of	NFKBIA
+CRADD	controls-state-change-of	CASP10
+CRADD	controls-state-change-of	CASP8
+CRADD	controls-state-change-of	MAP3K14
+CRADD	controls-state-change-of	MAP4K2
+CRADD	controls-state-change-of	MAP4K3
+CRADD	controls-state-change-of	MAP4K4
+CRADD	controls-state-change-of	PIK3CA
+CRADD	controls-state-change-of	PIK3CB
+CRADD	controls-state-change-of	PIK3CD
+CRADD	controls-state-change-of	PIK3CG
+CRADD	controls-state-change-of	PRKCA
+CRADD	controls-state-change-of	PRKCB
+CRADD	controls-state-change-of	PRKCD
+CRADD	controls-state-change-of	PRKCE
+CRADD	controls-state-change-of	PRKCG
+CRADD	controls-state-change-of	PRKCH
+CRADD	controls-state-change-of	PRKCQ
+CRADD	in-complex-with	RIPK1
+CRADD	in-complex-with	TRADD
+CRADD	in-complex-with	TRAF2
+CYCS	controls-state-change-of	APAF1
+DAXX	controls-state-change-of	CASP10
+DAXX	controls-state-change-of	CASP8
+DAXX	in-complex-with	FADD
+DAXX	in-complex-with	FASLG
+DAXX	in-complex-with	FAS
+DAXX	controls-phosphorylation-of	MAP3K5
+DAXX	controls-state-change-of	MAP3K5
+DIABLO	controls-state-change-of	BIRC2
+DIABLO	controls-state-change-of	BIRC3
+DIABLO	controls-state-change-of	XIAP
+EIF2AK2	controls-state-change-of	EIF2S1
+EIF2AK2	controls-state-change-of	TP53
+FADD	controls-state-change-of	CASP10
+FADD	controls-state-change-of	CASP8
+FADD	in-complex-with	FASLG
+FADD	in-complex-with	FAS
+FADD	controls-phosphorylation-of	MAP3K5
+FADD	controls-state-change-of	MAP3K5
+FADD	in-complex-with	TRADD
+FAS	controls-state-change-of	CASP10
+FAS	controls-state-change-of	CASP8
+FAS	in-complex-with	FASLG
+FASLG	controls-state-change-of	CASP10
+FASLG	controls-state-change-of	CASP8
+FASLG	controls-phosphorylation-of	MAP3K5
+FASLG	controls-state-change-of	MAP3K5
+FAS	controls-phosphorylation-of	MAP3K5
+FAS	controls-state-change-of	MAP3K5
+FOS	in-complex-with	JUN
+GZMB	controls-state-change-of	CASP10
+GZMB	in-complex-with	IGF2R
+GZMH	controls-state-change-of	CASP10
+GZMH	in-complex-with	IGF2R
+HSPA1A	controls-state-change-of	AIFM1
+HSPA1A	controls-transport-of	AIFM1
+HSPA1B	controls-state-change-of	AIFM1
+HSPA1B	controls-transport-of	AIFM1
+HSPA1L	controls-state-change-of	AIFM1
+HSPA1L	controls-transport-of	AIFM1
+HSPA2	controls-state-change-of	AIFM1
+HSPA2	controls-transport-of	AIFM1
+HSPA5	controls-state-change-of	AIFM1
+HSPA5	controls-transport-of	AIFM1
+HSPA6	controls-state-change-of	AIFM1
+HSPA6	controls-transport-of	AIFM1
+HSPA8	controls-state-change-of	AIFM1
+HSPA8	controls-transport-of	AIFM1
+IKBKB	controls-phosphorylation-of	NFKBIA
+IKBKB	controls-state-change-of	NFKBIA
+LTA	controls-state-change-of	CRADD
+LTA	controls-state-change-of	FADD
+LTA	in-complex-with	MADD
+LTA	controls-state-change-of	MAP3K14
+LTA	controls-phosphorylation-of	MAP3K5
+LTA	controls-state-change-of	MAP3K5
+LTA	controls-state-change-of	RIPK1
+LTA	in-complex-with	TNFRSF1A
+LTA	in-complex-with	TNFRSF1B
+LTA	controls-state-change-of	TRADD
+LTA	controls-state-change-of	TRAF2
+LTA	in-complex-with	TRAF2
+LTB	controls-state-change-of	CRADD
+LTB	controls-state-change-of	FADD
+LTB	in-complex-with	MADD
+LTB	controls-state-change-of	MAP3K14
+LTB	controls-phosphorylation-of	MAP3K5
+LTB	controls-state-change-of	MAP3K5
+LTB	controls-state-change-of	RIPK1
+LTB	in-complex-with	TNFRSF1A
+LTB	in-complex-with	TNFRSF1B
+LTB	controls-state-change-of	TRADD
+LTB	controls-state-change-of	TRAF2
+LTB	in-complex-with	TRAF2
+MADD	controls-phosphorylation-of	MAP3K5
+MADD	controls-state-change-of	MAP3K5
+MADD	in-complex-with	TNFRSF1A
+MADD	in-complex-with	TNF
+MAP2K3	controls-phosphorylation-of	MAPK1
+MAP2K3	controls-state-change-of	MAPK1
+MAP2K3	controls-phosphorylation-of	MAPK3
+MAP2K3	controls-state-change-of	MAPK3
+MAP2K4	controls-phosphorylation-of	MAPK10
+MAP2K4	controls-state-change-of	MAPK10
+MAP2K4	controls-phosphorylation-of	MAPK8
+MAP2K4	controls-state-change-of	MAPK8
+MAP2K4	controls-phosphorylation-of	MAPK9
+MAP2K4	controls-state-change-of	MAPK9
+MAP2K7	controls-phosphorylation-of	MAPK10
+MAP2K7	controls-state-change-of	MAPK10
+MAP2K7	controls-phosphorylation-of	MAPK8
+MAP2K7	controls-state-change-of	MAPK8
+MAP2K7	controls-phosphorylation-of	MAPK9
+MAP2K7	controls-state-change-of	MAPK9
+MAP3K14	controls-state-change-of	CHUK
+MAP3K14	controls-state-change-of	IKBKB
+MAP3K1	controls-phosphorylation-of	MAP2K4
+MAP3K1	controls-state-change-of	MAP2K4
+MAP3K1	controls-phosphorylation-of	MAP2K7
+MAP3K1	controls-state-change-of	MAP2K7
+MAP3K5	controls-phosphorylation-of	MAP2K3
+MAP3K5	controls-state-change-of	MAP2K3
+MAP3K5	controls-phosphorylation-of	MAP2K4
+MAP3K5	controls-state-change-of	MAP2K4
+MAP3K5	controls-phosphorylation-of	MAP2K7
+MAP3K5	controls-state-change-of	MAP2K7
+MAP4K2	controls-phosphorylation-of	MAP3K1
+MAP4K2	controls-state-change-of	MAP3K1
+MAP4K2	controls-phosphorylation-of	MAP3K5
+MAP4K2	controls-state-change-of	MAP3K5
+MAP4K3	controls-phosphorylation-of	MAP3K1
+MAP4K3	controls-state-change-of	MAP3K1
+MAP4K3	controls-phosphorylation-of	MAP3K5
+MAP4K3	controls-state-change-of	MAP3K5
+MAP4K4	controls-phosphorylation-of	MAP3K1
+MAP4K4	controls-state-change-of	MAP3K1
+MAP4K4	controls-phosphorylation-of	MAP3K5
+MAP4K4	controls-state-change-of	MAP3K5
+MAPK10	controls-state-change-of	FOS
+MAPK10	controls-state-change-of	JUN
+MAPK1	controls-state-change-of	ATF1
+MAPK1	controls-state-change-of	ATF2
+MAPK1	controls-state-change-of	ATF3
+MAPK1	controls-state-change-of	ATF4
+MAPK1	controls-state-change-of	ATF6B
+MAPK1	controls-state-change-of	ATF6
+MAPK1	controls-state-change-of	ATF7
+MAPK1	controls-state-change-of	CREM
+MAPK1	controls-state-change-of	JDP2
+MAPK3	controls-state-change-of	ATF1
+MAPK3	controls-state-change-of	ATF2
+MAPK3	controls-state-change-of	ATF3
+MAPK3	controls-state-change-of	ATF4
+MAPK3	controls-state-change-of	ATF6B
+MAPK3	controls-state-change-of	ATF6
+MAPK3	controls-state-change-of	ATF7
+MAPK3	controls-state-change-of	CREM
+MAPK3	controls-state-change-of	JDP2
+MAPK8	controls-state-change-of	FOS
+MAPK8	controls-state-change-of	JUN
+MAPK9	controls-state-change-of	FOS
+MAPK9	controls-state-change-of	JUN
+MCL1	controls-state-change-of	BCL2L11
+NFKB1	in-complex-with	NFKBIA
+NFKB2	in-complex-with	NFKBIA
+NFKBIA	in-complex-with	RELA
+NFKBIA	in-complex-with	RELB
+NFKBIA	in-complex-with	REL
+PIK3CA	controls-state-change-of	AKT1
+PIK3CA	controls-state-change-of	AKT2
+PIK3CA	controls-state-change-of	AKT3
+PIK3CB	controls-state-change-of	AKT1
+PIK3CB	controls-state-change-of	AKT2
+PIK3CB	controls-state-change-of	AKT3
+PIK3CD	controls-state-change-of	AKT1
+PIK3CD	controls-state-change-of	AKT2
+PIK3CD	controls-state-change-of	AKT3
+PIK3CG	controls-state-change-of	AKT1
+PIK3CG	controls-state-change-of	AKT2
+PIK3CG	controls-state-change-of	AKT3
+PRKCA	controls-state-change-of	CHUK
+PRKCA	controls-state-change-of	IKBKB
+PRKCB	controls-state-change-of	CHUK
+PRKCB	controls-state-change-of	IKBKB
+PRKCD	controls-state-change-of	CHUK
+PRKCD	controls-state-change-of	IKBKB
+PRKCE	controls-state-change-of	CHUK
+PRKCE	controls-state-change-of	IKBKB
+PRKCG	controls-state-change-of	CHUK
+PRKCG	controls-state-change-of	IKBKB
+PRKCH	controls-state-change-of	CHUK
+PRKCH	controls-state-change-of	IKBKB
+PRKCQ	controls-state-change-of	CHUK
+PRKCQ	controls-state-change-of	IKBKB
+PRKRA	controls-state-change-of	EIF2AK2
+RIPK1	controls-state-change-of	CASP10
+RIPK1	controls-state-change-of	CASP8
+RIPK1	controls-state-change-of	MAP3K14
+RIPK1	controls-state-change-of	MAP4K2
+RIPK1	controls-state-change-of	MAP4K3
+RIPK1	controls-state-change-of	MAP4K4
+RIPK1	controls-state-change-of	PIK3CA
+RIPK1	controls-state-change-of	PIK3CB
+RIPK1	controls-state-change-of	PIK3CD
+RIPK1	controls-state-change-of	PIK3CG
+RIPK1	controls-state-change-of	PRKCA
+RIPK1	controls-state-change-of	PRKCB
+RIPK1	controls-state-change-of	PRKCD
+RIPK1	controls-state-change-of	PRKCE
+RIPK1	controls-state-change-of	PRKCG
+RIPK1	controls-state-change-of	PRKCH
+RIPK1	controls-state-change-of	PRKCQ
+RIPK1	in-complex-with	TRADD
+RIPK1	in-complex-with	TRAF2
+TMBIM6	controls-state-change-of	BAK1
+TMBIM6	controls-transport-of	BAK1
+TMBIM6	controls-state-change-of	BAX
+TMBIM6	controls-transport-of	BAX
+TNF	controls-state-change-of	CRADD
+TNF	controls-state-change-of	FADD
+TNF	controls-state-change-of	MAP3K14
+TNF	controls-phosphorylation-of	MAP3K5
+TNF	controls-state-change-of	MAP3K5
+TNF	controls-state-change-of	RIPK1
+TNFRSF10A	in-complex-with	TNFSF10
+TNFRSF10B	in-complex-with	TNFSF10
+TNFRSF10C	in-complex-with	TNFSF10
+TNFRSF10D	in-complex-with	TNFSF10
+TNFRSF1A	controls-state-change-of	CRADD
+TNFRSF1A	controls-state-change-of	FADD
+TNFRSF1A	controls-phosphorylation-of	MAP3K5
+TNFRSF1A	controls-state-change-of	MAP3K5
+TNFRSF1A	controls-state-change-of	RIPK1
+TNFRSF1A	controls-state-change-of	TRADD
+TNFRSF1A	controls-state-change-of	TRAF2
+TNFRSF1B	controls-state-change-of	MAP3K14
+TNFRSF1B	in-complex-with	TRAF2
+TNF	in-complex-with	TNFRSF1A
+TNF	in-complex-with	TNFRSF1B
+TNF	controls-state-change-of	TRADD
+TNF	controls-state-change-of	TRAF2
+TNF	in-complex-with	TRAF2
+TRADD	controls-state-change-of	CASP10
+TRADD	controls-state-change-of	CASP8
+TRADD	controls-state-change-of	MAP3K14
+TRADD	controls-state-change-of	MAP4K2
+TRADD	controls-state-change-of	MAP4K3
+TRADD	controls-state-change-of	MAP4K4
+TRADD	controls-state-change-of	PIK3CA
+TRADD	controls-state-change-of	PIK3CB
+TRADD	controls-state-change-of	PIK3CD
+TRADD	controls-state-change-of	PIK3CG
+TRADD	controls-state-change-of	PRKCA
+TRADD	controls-state-change-of	PRKCB
+TRADD	controls-state-change-of	PRKCD
+TRADD	controls-state-change-of	PRKCE
+TRADD	controls-state-change-of	PRKCG
+TRADD	controls-state-change-of	PRKCH
+TRADD	controls-state-change-of	PRKCQ
+TRADD	in-complex-with	TRAF2
+TRAF2	controls-state-change-of	CASP10
+TRAF2	controls-state-change-of	CASP8
+TRAF2	controls-state-change-of	MAP3K14
+TRAF2	controls-state-change-of	MAP4K2
+TRAF2	controls-state-change-of	MAP4K3
+TRAF2	controls-state-change-of	MAP4K4
+TRAF2	controls-state-change-of	PIK3CA
+TRAF2	controls-state-change-of	PIK3CB
+TRAF2	controls-state-change-of	PIK3CD
+TRAF2	controls-state-change-of	PIK3CG
+TRAF2	controls-state-change-of	PRKCA
+TRAF2	controls-state-change-of	PRKCB
+TRAF2	controls-state-change-of	PRKCD
+TRAF2	controls-state-change-of	PRKCE
+TRAF2	controls-state-change-of	PRKCG
+TRAF2	controls-state-change-of	PRKCH
+TRAF2	controls-state-change-of	PRKCQ
+XIAP	controls-state-change-of	CASP3
+XIAP	controls-state-change-of	CASP7
+XIAP	controls-state-change-of	CASP9

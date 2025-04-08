@@ -8,11 +8,11 @@ if not os.path.exists("interactomes/uniprot-combined-threshold-interactomes/"):
     os.makedirs("interactomes/uniprot-combined-threshold-interactomes/")
 
 thresholds = [1, 100, 200, 300, 400, 500, 600, 700, 800, 900]
-pathway_dirs = ["Apoptosis_signaling", "B_cell_activation", "Beta3_adrenergic_rec", "Cadherin_signaling", "Hedgehog_signaling", "Insulin_IGF", "Interleukin_signaling", "Notch_signaling", "PDGF_signaling", "Ras", "T_cell_activation", "Toll_signaling", "Wnt_signaling", "p38_MAPK"]
+pathway_dirs = ["Apoptosis_signaling", "B_cell_activation", "Beta3_adrenergic_rec", "Cadherin_signaling", "Hedgehog_signaling", "Insulin_IGF", "Interleukin_signaling", "Notch_signaling", "PDGF_signaling", "Ras", "T_cell_activation", "Toll_signaling", "Wnt_signaling", "p38_MAPK", "Nicotinic_acetylchol"]
 
 combined_edges = pd.DataFrame(columns=["Node1", "Node2"])
 for pathway_dir in pathway_dirs:
-    edge_file = f"pathway-data/{pathway_dir}/spras-compatible/{pathway_dir}_gs_edges.txt"
+    edge_file = f"spras-compatible-pathway-data/{pathway_dir}/{pathway_dir}_gs_edges.txt"
     edges = pd.read_csv(edge_file, sep = "\t")
     edges.columns = ["Node1", "Node2", "Rank", "Direction"]
     combined_edges = pd.concat([combined_edges, edges], ignore_index=True)

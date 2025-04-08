@@ -1,346 +1,346 @@
-NODE1	NODE2
-AKT1	GSK3A
-AKT1	GSK3A
-AKT1	GSK3B
-AKT1	GSK3B
-AKT3	GSK3A
-AKT3	GSK3A
-AKT3	GSK3B
-AKT3	GSK3B
-ARAF	MAP2K1
-ARAF	MAP2K1
-ARAF	MAP2K2
-ARAF	MAP2K2
-BRAF	MAP2K1
-BRAF	MAP2K1
-BRAF	MAP2K2
-BRAF	MAP2K2
-CDC42	RAC1
-CDC42	RAC2
-CDC42	RAC3
-GRB2	HRAS
-GRB2	KRAS
-GRB2	NRAS
-GRB2	SHC1
-GRB2	SOS1
-GRB2	SOS2
-HRAS	ARAF
-HRAS	BRAF
-HRAS	MAP3K1
-HRAS	MAP3K4
-HRAS	MAP3K7CL
-HRAS	PIK3C3
-HRAS	PIK3CA
-HRAS	PIK3CB
-HRAS	PIK3CD
-HRAS	PIK3CG
-HRAS	RAF1
-HRAS	RALGDS
-HRAS	RGL1
-HRAS	RGL2
-HRAS	TIAM1
-KRAS	ARAF
-KRAS	BRAF
-KRAS	MAP3K1
-KRAS	MAP3K4
-KRAS	MAP3K7CL
-KRAS	PIK3C3
-KRAS	PIK3CA
-KRAS	PIK3CB
-KRAS	PIK3CD
-KRAS	PIK3CG
-KRAS	RAF1
-KRAS	RALGDS
-KRAS	RGL1
-KRAS	RGL2
-KRAS	TIAM1
-MAP2K1	MAPK1
-MAP2K1	MAPK1
-MAP2K1	MAPK3
-MAP2K1	MAPK3
-MAP2K2	MAPK1
-MAP2K2	MAPK1
-MAP2K2	MAPK3
-MAP2K2	MAPK3
-MAP2K3	MAPK11
-MAP2K3	MAPK11
-MAP2K3	MAPK12
-MAP2K3	MAPK12
-MAP2K3	MAPK13
-MAP2K3	MAPK13
-MAP2K3	MAPK14
-MAP2K3	MAPK14
-MAP2K4	MAPK10
-MAP2K4	MAPK10
-MAP2K4	MAPK8
-MAP2K4	MAPK8
-MAP2K4	MAPK9
-MAP2K4	MAPK9
-MAP2K6	MAPK11
-MAP2K6	MAPK11
-MAP2K6	MAPK12
-MAP2K6	MAPK12
-MAP2K6	MAPK13
-MAP2K6	MAPK13
-MAP2K6	MAPK14
-MAP2K6	MAPK14
-MAP2K7	MAPK10
-MAP2K7	MAPK10
-MAP2K7	MAPK8
-MAP2K7	MAPK8
-MAP2K7	MAPK9
-MAP2K7	MAPK9
-MAP3K1	MAP2K3
-MAP3K1	MAP2K3
-MAP3K1	MAP2K4
-MAP3K1	MAP2K4
-MAP3K1	MAP2K6
-MAP3K1	MAP2K6
-MAP3K1	MAP2K7
-MAP3K1	MAP2K7
-MAP3K4	MAP2K3
-MAP3K4	MAP2K3
-MAP3K4	MAP2K4
-MAP3K4	MAP2K4
-MAP3K4	MAP2K6
-MAP3K4	MAP2K6
-MAP3K4	MAP2K7
-MAP3K4	MAP2K7
-MAP3K7CL	MAP2K3
-MAP3K7CL	MAP2K3
-MAP3K7CL	MAP2K6
-MAP3K7CL	MAP2K6
-MAPK10	ATF2
-MAPK10	ATF2
-MAPK10	ELK1
-MAPK10	ELK1
-MAPK10	JUN
-MAPK10	JUN
-MAPK10	STAT1
-MAPK10	STAT1
-MAPK10	STAT3
-MAPK10	STAT3
-MAPK11	ATF2
-MAPK11	ATF2
-MAPK11	ELK1
-MAPK11	ELK1
-MAPK11	STAT1
-MAPK11	STAT1
-MAPK11	STAT3
-MAPK11	STAT3
-MAPK12	ATF2
-MAPK12	ATF2
-MAPK12	ELK1
-MAPK12	ELK1
-MAPK12	STAT1
-MAPK12	STAT1
-MAPK12	STAT3
-MAPK12	STAT3
-MAPK13	ATF2
-MAPK13	ATF2
-MAPK13	ELK1
-MAPK13	ELK1
-MAPK13	STAT1
-MAPK13	STAT1
-MAPK13	STAT3
-MAPK13	STAT3
-MAPK14	ATF2
-MAPK14	ATF2
-MAPK14	ELK1
-MAPK14	ELK1
-MAPK14	STAT1
-MAPK14	STAT1
-MAPK14	STAT3
-MAPK14	STAT3
-MAPK1	ELK1
-MAPK1	ELK1
-MAPK1	ETS1
-MAPK1	ETS1
-MAPK1	JUN
-MAPK1	JUN
-MAPK1	MAPKAPK2
-MAPK1	MAPKAPK2
-MAPK1	MAPKAPK3
-MAPK1	MAPKAPK3
-MAPK1	RPS6KA1
-MAPK1	RPS6KA1
-MAPK1	RPS6KA2
-MAPK1	RPS6KA2
-MAPK1	RPS6KA3
-MAPK1	RPS6KA3
-MAPK1	RPS6KA6
-MAPK1	RPS6KA6
-MAPK1	STAT1
-MAPK1	STAT1
-MAPK1	STAT3
-MAPK1	STAT3
-MAPK3	ELK1
-MAPK3	ELK1
-MAPK3	ETS1
-MAPK3	ETS1
-MAPK3	JUN
-MAPK3	JUN
-MAPK3	MAPKAPK2
-MAPK3	MAPKAPK2
-MAPK3	MAPKAPK3
-MAPK3	MAPKAPK3
-MAPK3	RPS6KA1
-MAPK3	RPS6KA1
-MAPK3	RPS6KA2
-MAPK3	RPS6KA2
-MAPK3	RPS6KA3
-MAPK3	RPS6KA3
-MAPK3	RPS6KA6
-MAPK3	RPS6KA6
-MAPK3	STAT1
-MAPK3	STAT1
-MAPK3	STAT3
-MAPK3	STAT3
-MAPK8	ATF2
-MAPK8	ATF2
-MAPK8	ELK1
-MAPK8	ELK1
-MAPK8	JUN
-MAPK8	JUN
-MAPK8	STAT1
-MAPK8	STAT1
-MAPK8	STAT3
-MAPK8	STAT3
-MAPK9	ATF2
-MAPK9	ATF2
-MAPK9	ELK1
-MAPK9	ELK1
-MAPK9	JUN
-MAPK9	JUN
-MAPK9	STAT1
-MAPK9	STAT1
-MAPK9	STAT3
-MAPK9	STAT3
-MAPKAPK2	SRF
-MAPKAPK2	SRF
-MAPKAPK3	SRF
-MAPKAPK3	SRF
-NRAS	ARAF
-NRAS	BRAF
-NRAS	MAP3K1
-NRAS	MAP3K4
-NRAS	MAP3K7CL
-NRAS	PIK3C3
-NRAS	PIK3CA
-NRAS	PIK3CB
-NRAS	PIK3CD
-NRAS	PIK3CG
-NRAS	RAF1
-NRAS	RALGDS
-NRAS	RGL1
-NRAS	RGL2
-NRAS	TIAM1
-PAK1	MAPK10
-PAK1	MAPK10
-PAK1	MAPK8
-PAK1	MAPK8
-PAK1	MAPK9
-PAK1	MAPK9
-PAK2	MAPK10
-PAK2	MAPK10
-PAK2	MAPK8
-PAK2	MAPK8
-PAK2	MAPK9
-PAK2	MAPK9
-PAK3	MAPK10
-PAK3	MAPK10
-PAK3	MAPK8
-PAK3	MAPK8
-PAK3	MAPK9
-PAK3	MAPK9
-PDPK1	AKT1
-PDPK1	AKT1
-PDPK1	AKT3
-PDPK1	AKT3
-PIK3C3	PDPK1
-PIK3CA	PDPK1
-PIK3CB	PDPK1
-PIK3CD	PDPK1
-PIK3CG	PDPK1
-RAC1	CDC42
-RAC1	MAP3K1
-RAC1	MAP3K4
-RAC1	PAK1
-RAC1	PAK2
-RAC1	PAK3
-RAC1	RHOA
-RAC1	RHOB
-RAC1	RHOC
-RAC2	CDC42
-RAC2	MAP3K1
-RAC2	MAP3K4
-RAC2	PAK1
-RAC2	PAK2
-RAC2	PAK3
-RAC2	RHOA
-RAC2	RHOB
-RAC2	RHOC
-RAC3	CDC42
-RAC3	MAP3K1
-RAC3	MAP3K4
-RAC3	PAK1
-RAC3	PAK2
-RAC3	PAK3
-RAC3	RHOA
-RAC3	RHOB
-RAC3	RHOC
-RAF1	MAP2K1
-RAF1	MAP2K1
-RAF1	MAP2K2
-RAF1	MAP2K2
-RALA	EXOC2
-RALA	PLD1
-RALA	PLD2
-RALB	EXOC2
-RALB	PLD1
-RALB	PLD2
-RALGDS	RALA
-RALGDS	RALB
-RGL1	RALA
-RGL1	RALB
-RGL2	RALA
-RGL2	RALB
-RHOA	RAC1
-RHOA	RAC2
-RHOA	RAC3
-RHOB	RAC1
-RHOB	RAC2
-RHOB	RAC3
-RHOC	RAC1
-RHOC	RAC2
-RHOC	RAC3
-RPS6KA1	JUN
-RPS6KA1	JUN
-RPS6KA1	SRF
-RPS6KA1	SRF
-RPS6KA2	JUN
-RPS6KA2	JUN
-RPS6KA2	SRF
-RPS6KA2	SRF
-RPS6KA3	JUN
-RPS6KA3	JUN
-RPS6KA3	SRF
-RPS6KA3	SRF
-RPS6KA6	JUN
-RPS6KA6	JUN
-RPS6KA6	SRF
-RPS6KA6	SRF
-SHC1	HRAS
-SHC1	KRAS
-SHC1	NRAS
-SHC1	SOS1
-SHC1	SOS2
-SOS1	HRAS
-SOS1	KRAS
-SOS1	NRAS
-SOS2	HRAS
-SOS2	KRAS
-SOS2	NRAS
-TIAM1	RAC1
-TIAM1	RAC2
-TIAM1	RAC3
+NODE1	INTERACTION_TYPE	NODE2
+AKT1	controls-phosphorylation-of	GSK3A
+AKT1	controls-state-change-of	GSK3A
+AKT1	controls-phosphorylation-of	GSK3B
+AKT1	controls-state-change-of	GSK3B
+AKT3	controls-phosphorylation-of	GSK3A
+AKT3	controls-state-change-of	GSK3A
+AKT3	controls-phosphorylation-of	GSK3B
+AKT3	controls-state-change-of	GSK3B
+ARAF	controls-phosphorylation-of	MAP2K1
+ARAF	controls-state-change-of	MAP2K1
+ARAF	controls-phosphorylation-of	MAP2K2
+ARAF	controls-state-change-of	MAP2K2
+BRAF	controls-phosphorylation-of	MAP2K1
+BRAF	controls-state-change-of	MAP2K1
+BRAF	controls-phosphorylation-of	MAP2K2
+BRAF	controls-state-change-of	MAP2K2
+CDC42	controls-state-change-of	RAC1
+CDC42	controls-state-change-of	RAC2
+CDC42	controls-state-change-of	RAC3
+GRB2	controls-state-change-of	HRAS
+GRB2	controls-state-change-of	KRAS
+GRB2	controls-state-change-of	NRAS
+GRB2	in-complex-with	SHC1
+GRB2	in-complex-with	SOS1
+GRB2	in-complex-with	SOS2
+HRAS	controls-state-change-of	ARAF
+HRAS	controls-state-change-of	BRAF
+HRAS	controls-state-change-of	MAP3K1
+HRAS	controls-state-change-of	MAP3K4
+HRAS	controls-state-change-of	MAP3K7CL
+HRAS	controls-state-change-of	PIK3C3
+HRAS	controls-state-change-of	PIK3CA
+HRAS	controls-state-change-of	PIK3CB
+HRAS	controls-state-change-of	PIK3CD
+HRAS	controls-state-change-of	PIK3CG
+HRAS	controls-state-change-of	RAF1
+HRAS	controls-state-change-of	RALGDS
+HRAS	controls-state-change-of	RGL1
+HRAS	controls-state-change-of	RGL2
+HRAS	controls-state-change-of	TIAM1
+KRAS	controls-state-change-of	ARAF
+KRAS	controls-state-change-of	BRAF
+KRAS	controls-state-change-of	MAP3K1
+KRAS	controls-state-change-of	MAP3K4
+KRAS	controls-state-change-of	MAP3K7CL
+KRAS	controls-state-change-of	PIK3C3
+KRAS	controls-state-change-of	PIK3CA
+KRAS	controls-state-change-of	PIK3CB
+KRAS	controls-state-change-of	PIK3CD
+KRAS	controls-state-change-of	PIK3CG
+KRAS	controls-state-change-of	RAF1
+KRAS	controls-state-change-of	RALGDS
+KRAS	controls-state-change-of	RGL1
+KRAS	controls-state-change-of	RGL2
+KRAS	controls-state-change-of	TIAM1
+MAP2K1	controls-phosphorylation-of	MAPK1
+MAP2K1	controls-state-change-of	MAPK1
+MAP2K1	controls-phosphorylation-of	MAPK3
+MAP2K1	controls-state-change-of	MAPK3
+MAP2K2	controls-phosphorylation-of	MAPK1
+MAP2K2	controls-state-change-of	MAPK1
+MAP2K2	controls-phosphorylation-of	MAPK3
+MAP2K2	controls-state-change-of	MAPK3
+MAP2K3	controls-phosphorylation-of	MAPK11
+MAP2K3	controls-state-change-of	MAPK11
+MAP2K3	controls-phosphorylation-of	MAPK12
+MAP2K3	controls-state-change-of	MAPK12
+MAP2K3	controls-phosphorylation-of	MAPK13
+MAP2K3	controls-state-change-of	MAPK13
+MAP2K3	controls-phosphorylation-of	MAPK14
+MAP2K3	controls-state-change-of	MAPK14
+MAP2K4	controls-phosphorylation-of	MAPK10
+MAP2K4	controls-state-change-of	MAPK10
+MAP2K4	controls-phosphorylation-of	MAPK8
+MAP2K4	controls-state-change-of	MAPK8
+MAP2K4	controls-phosphorylation-of	MAPK9
+MAP2K4	controls-state-change-of	MAPK9
+MAP2K6	controls-phosphorylation-of	MAPK11
+MAP2K6	controls-state-change-of	MAPK11
+MAP2K6	controls-phosphorylation-of	MAPK12
+MAP2K6	controls-state-change-of	MAPK12
+MAP2K6	controls-phosphorylation-of	MAPK13
+MAP2K6	controls-state-change-of	MAPK13
+MAP2K6	controls-phosphorylation-of	MAPK14
+MAP2K6	controls-state-change-of	MAPK14
+MAP2K7	controls-phosphorylation-of	MAPK10
+MAP2K7	controls-state-change-of	MAPK10
+MAP2K7	controls-phosphorylation-of	MAPK8
+MAP2K7	controls-state-change-of	MAPK8
+MAP2K7	controls-phosphorylation-of	MAPK9
+MAP2K7	controls-state-change-of	MAPK9
+MAP3K1	controls-phosphorylation-of	MAP2K3
+MAP3K1	controls-state-change-of	MAP2K3
+MAP3K1	controls-phosphorylation-of	MAP2K4
+MAP3K1	controls-state-change-of	MAP2K4
+MAP3K1	controls-phosphorylation-of	MAP2K6
+MAP3K1	controls-state-change-of	MAP2K6
+MAP3K1	controls-phosphorylation-of	MAP2K7
+MAP3K1	controls-state-change-of	MAP2K7
+MAP3K4	controls-phosphorylation-of	MAP2K3
+MAP3K4	controls-state-change-of	MAP2K3
+MAP3K4	controls-phosphorylation-of	MAP2K4
+MAP3K4	controls-state-change-of	MAP2K4
+MAP3K4	controls-phosphorylation-of	MAP2K6
+MAP3K4	controls-state-change-of	MAP2K6
+MAP3K4	controls-phosphorylation-of	MAP2K7
+MAP3K4	controls-state-change-of	MAP2K7
+MAP3K7CL	controls-phosphorylation-of	MAP2K3
+MAP3K7CL	controls-state-change-of	MAP2K3
+MAP3K7CL	controls-phosphorylation-of	MAP2K6
+MAP3K7CL	controls-state-change-of	MAP2K6
+MAPK10	controls-phosphorylation-of	ATF2
+MAPK10	controls-state-change-of	ATF2
+MAPK10	controls-phosphorylation-of	ELK1
+MAPK10	controls-state-change-of	ELK1
+MAPK10	controls-phosphorylation-of	JUN
+MAPK10	controls-state-change-of	JUN
+MAPK10	controls-phosphorylation-of	STAT1
+MAPK10	controls-state-change-of	STAT1
+MAPK10	controls-phosphorylation-of	STAT3
+MAPK10	controls-state-change-of	STAT3
+MAPK11	controls-phosphorylation-of	ATF2
+MAPK11	controls-state-change-of	ATF2
+MAPK11	controls-phosphorylation-of	ELK1
+MAPK11	controls-state-change-of	ELK1
+MAPK11	controls-phosphorylation-of	STAT1
+MAPK11	controls-state-change-of	STAT1
+MAPK11	controls-phosphorylation-of	STAT3
+MAPK11	controls-state-change-of	STAT3
+MAPK12	controls-phosphorylation-of	ATF2
+MAPK12	controls-state-change-of	ATF2
+MAPK12	controls-phosphorylation-of	ELK1
+MAPK12	controls-state-change-of	ELK1
+MAPK12	controls-phosphorylation-of	STAT1
+MAPK12	controls-state-change-of	STAT1
+MAPK12	controls-phosphorylation-of	STAT3
+MAPK12	controls-state-change-of	STAT3
+MAPK13	controls-phosphorylation-of	ATF2
+MAPK13	controls-state-change-of	ATF2
+MAPK13	controls-phosphorylation-of	ELK1
+MAPK13	controls-state-change-of	ELK1
+MAPK13	controls-phosphorylation-of	STAT1
+MAPK13	controls-state-change-of	STAT1
+MAPK13	controls-phosphorylation-of	STAT3
+MAPK13	controls-state-change-of	STAT3
+MAPK14	controls-phosphorylation-of	ATF2
+MAPK14	controls-state-change-of	ATF2
+MAPK14	controls-phosphorylation-of	ELK1
+MAPK14	controls-state-change-of	ELK1
+MAPK14	controls-phosphorylation-of	STAT1
+MAPK14	controls-state-change-of	STAT1
+MAPK14	controls-phosphorylation-of	STAT3
+MAPK14	controls-state-change-of	STAT3
+MAPK1	controls-phosphorylation-of	ELK1
+MAPK1	controls-state-change-of	ELK1
+MAPK1	controls-phosphorylation-of	ETS1
+MAPK1	controls-state-change-of	ETS1
+MAPK1	controls-phosphorylation-of	JUN
+MAPK1	controls-state-change-of	JUN
+MAPK1	controls-phosphorylation-of	MAPKAPK2
+MAPK1	controls-state-change-of	MAPKAPK2
+MAPK1	controls-phosphorylation-of	MAPKAPK3
+MAPK1	controls-state-change-of	MAPKAPK3
+MAPK1	controls-phosphorylation-of	RPS6KA1
+MAPK1	controls-state-change-of	RPS6KA1
+MAPK1	controls-phosphorylation-of	RPS6KA2
+MAPK1	controls-state-change-of	RPS6KA2
+MAPK1	controls-phosphorylation-of	RPS6KA3
+MAPK1	controls-state-change-of	RPS6KA3
+MAPK1	controls-phosphorylation-of	RPS6KA6
+MAPK1	controls-state-change-of	RPS6KA6
+MAPK1	controls-phosphorylation-of	STAT1
+MAPK1	controls-state-change-of	STAT1
+MAPK1	controls-phosphorylation-of	STAT3
+MAPK1	controls-state-change-of	STAT3
+MAPK3	controls-phosphorylation-of	ELK1
+MAPK3	controls-state-change-of	ELK1
+MAPK3	controls-phosphorylation-of	ETS1
+MAPK3	controls-state-change-of	ETS1
+MAPK3	controls-phosphorylation-of	JUN
+MAPK3	controls-state-change-of	JUN
+MAPK3	controls-phosphorylation-of	MAPKAPK2
+MAPK3	controls-state-change-of	MAPKAPK2
+MAPK3	controls-phosphorylation-of	MAPKAPK3
+MAPK3	controls-state-change-of	MAPKAPK3
+MAPK3	controls-phosphorylation-of	RPS6KA1
+MAPK3	controls-state-change-of	RPS6KA1
+MAPK3	controls-phosphorylation-of	RPS6KA2
+MAPK3	controls-state-change-of	RPS6KA2
+MAPK3	controls-phosphorylation-of	RPS6KA3
+MAPK3	controls-state-change-of	RPS6KA3
+MAPK3	controls-phosphorylation-of	RPS6KA6
+MAPK3	controls-state-change-of	RPS6KA6
+MAPK3	controls-phosphorylation-of	STAT1
+MAPK3	controls-state-change-of	STAT1
+MAPK3	controls-phosphorylation-of	STAT3
+MAPK3	controls-state-change-of	STAT3
+MAPK8	controls-phosphorylation-of	ATF2
+MAPK8	controls-state-change-of	ATF2
+MAPK8	controls-phosphorylation-of	ELK1
+MAPK8	controls-state-change-of	ELK1
+MAPK8	controls-phosphorylation-of	JUN
+MAPK8	controls-state-change-of	JUN
+MAPK8	controls-phosphorylation-of	STAT1
+MAPK8	controls-state-change-of	STAT1
+MAPK8	controls-phosphorylation-of	STAT3
+MAPK8	controls-state-change-of	STAT3
+MAPK9	controls-phosphorylation-of	ATF2
+MAPK9	controls-state-change-of	ATF2
+MAPK9	controls-phosphorylation-of	ELK1
+MAPK9	controls-state-change-of	ELK1
+MAPK9	controls-phosphorylation-of	JUN
+MAPK9	controls-state-change-of	JUN
+MAPK9	controls-phosphorylation-of	STAT1
+MAPK9	controls-state-change-of	STAT1
+MAPK9	controls-phosphorylation-of	STAT3
+MAPK9	controls-state-change-of	STAT3
+MAPKAPK2	controls-phosphorylation-of	SRF
+MAPKAPK2	controls-state-change-of	SRF
+MAPKAPK3	controls-phosphorylation-of	SRF
+MAPKAPK3	controls-state-change-of	SRF
+NRAS	controls-state-change-of	ARAF
+NRAS	controls-state-change-of	BRAF
+NRAS	controls-state-change-of	MAP3K1
+NRAS	controls-state-change-of	MAP3K4
+NRAS	controls-state-change-of	MAP3K7CL
+NRAS	controls-state-change-of	PIK3C3
+NRAS	controls-state-change-of	PIK3CA
+NRAS	controls-state-change-of	PIK3CB
+NRAS	controls-state-change-of	PIK3CD
+NRAS	controls-state-change-of	PIK3CG
+NRAS	controls-state-change-of	RAF1
+NRAS	controls-state-change-of	RALGDS
+NRAS	controls-state-change-of	RGL1
+NRAS	controls-state-change-of	RGL2
+NRAS	controls-state-change-of	TIAM1
+PAK1	controls-phosphorylation-of	MAPK10
+PAK1	controls-state-change-of	MAPK10
+PAK1	controls-phosphorylation-of	MAPK8
+PAK1	controls-state-change-of	MAPK8
+PAK1	controls-phosphorylation-of	MAPK9
+PAK1	controls-state-change-of	MAPK9
+PAK2	controls-phosphorylation-of	MAPK10
+PAK2	controls-state-change-of	MAPK10
+PAK2	controls-phosphorylation-of	MAPK8
+PAK2	controls-state-change-of	MAPK8
+PAK2	controls-phosphorylation-of	MAPK9
+PAK2	controls-state-change-of	MAPK9
+PAK3	controls-phosphorylation-of	MAPK10
+PAK3	controls-state-change-of	MAPK10
+PAK3	controls-phosphorylation-of	MAPK8
+PAK3	controls-state-change-of	MAPK8
+PAK3	controls-phosphorylation-of	MAPK9
+PAK3	controls-state-change-of	MAPK9
+PDPK1	controls-phosphorylation-of	AKT1
+PDPK1	controls-state-change-of	AKT1
+PDPK1	controls-phosphorylation-of	AKT3
+PDPK1	controls-state-change-of	AKT3
+PIK3C3	controls-state-change-of	PDPK1
+PIK3CA	controls-state-change-of	PDPK1
+PIK3CB	controls-state-change-of	PDPK1
+PIK3CD	controls-state-change-of	PDPK1
+PIK3CG	controls-state-change-of	PDPK1
+RAC1	controls-state-change-of	CDC42
+RAC1	controls-state-change-of	MAP3K1
+RAC1	controls-state-change-of	MAP3K4
+RAC1	controls-state-change-of	PAK1
+RAC1	controls-state-change-of	PAK2
+RAC1	controls-state-change-of	PAK3
+RAC1	controls-state-change-of	RHOA
+RAC1	controls-state-change-of	RHOB
+RAC1	controls-state-change-of	RHOC
+RAC2	controls-state-change-of	CDC42
+RAC2	controls-state-change-of	MAP3K1
+RAC2	controls-state-change-of	MAP3K4
+RAC2	controls-state-change-of	PAK1
+RAC2	controls-state-change-of	PAK2
+RAC2	controls-state-change-of	PAK3
+RAC2	controls-state-change-of	RHOA
+RAC2	controls-state-change-of	RHOB
+RAC2	controls-state-change-of	RHOC
+RAC3	controls-state-change-of	CDC42
+RAC3	controls-state-change-of	MAP3K1
+RAC3	controls-state-change-of	MAP3K4
+RAC3	controls-state-change-of	PAK1
+RAC3	controls-state-change-of	PAK2
+RAC3	controls-state-change-of	PAK3
+RAC3	controls-state-change-of	RHOA
+RAC3	controls-state-change-of	RHOB
+RAC3	controls-state-change-of	RHOC
+RAF1	controls-phosphorylation-of	MAP2K1
+RAF1	controls-state-change-of	MAP2K1
+RAF1	controls-phosphorylation-of	MAP2K2
+RAF1	controls-state-change-of	MAP2K2
+RALA	controls-state-change-of	EXOC2
+RALA	controls-state-change-of	PLD1
+RALA	controls-state-change-of	PLD2
+RALB	controls-state-change-of	EXOC2
+RALB	controls-state-change-of	PLD1
+RALB	controls-state-change-of	PLD2
+RALGDS	controls-state-change-of	RALA
+RALGDS	controls-state-change-of	RALB
+RGL1	controls-state-change-of	RALA
+RGL1	controls-state-change-of	RALB
+RGL2	controls-state-change-of	RALA
+RGL2	controls-state-change-of	RALB
+RHOA	controls-state-change-of	RAC1
+RHOA	controls-state-change-of	RAC2
+RHOA	controls-state-change-of	RAC3
+RHOB	controls-state-change-of	RAC1
+RHOB	controls-state-change-of	RAC2
+RHOB	controls-state-change-of	RAC3
+RHOC	controls-state-change-of	RAC1
+RHOC	controls-state-change-of	RAC2
+RHOC	controls-state-change-of	RAC3
+RPS6KA1	controls-phosphorylation-of	JUN
+RPS6KA1	controls-state-change-of	JUN
+RPS6KA1	controls-phosphorylation-of	SRF
+RPS6KA1	controls-state-change-of	SRF
+RPS6KA2	controls-phosphorylation-of	JUN
+RPS6KA2	controls-state-change-of	JUN
+RPS6KA2	controls-phosphorylation-of	SRF
+RPS6KA2	controls-state-change-of	SRF
+RPS6KA3	controls-phosphorylation-of	JUN
+RPS6KA3	controls-state-change-of	JUN
+RPS6KA3	controls-phosphorylation-of	SRF
+RPS6KA3	controls-state-change-of	SRF
+RPS6KA6	controls-phosphorylation-of	JUN
+RPS6KA6	controls-state-change-of	JUN
+RPS6KA6	controls-phosphorylation-of	SRF
+RPS6KA6	controls-state-change-of	SRF
+SHC1	controls-state-change-of	HRAS
+SHC1	controls-state-change-of	KRAS
+SHC1	controls-state-change-of	NRAS
+SHC1	in-complex-with	SOS1
+SHC1	in-complex-with	SOS2
+SOS1	controls-state-change-of	HRAS
+SOS1	controls-state-change-of	KRAS
+SOS1	controls-state-change-of	NRAS
+SOS2	controls-state-change-of	HRAS
+SOS2	controls-state-change-of	KRAS
+SOS2	controls-state-change-of	NRAS
+TIAM1	controls-state-change-of	RAC1
+TIAM1	controls-state-change-of	RAC2
+TIAM1	controls-state-change-of	RAC3

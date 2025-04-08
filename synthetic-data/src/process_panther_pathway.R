@@ -3,7 +3,7 @@ library(tidyverse)
 # Set the path to the directory containing the PANTHER pathway folders using the 'directory' variable
 # Set the name of the pathway to process using the 'pathway' variable
 directory <- "pathway-data/"
-pathways<- c("Apoptosis_signaling", "B_cell_activation", "Beta3_adrenergic_rec", "Cadherin_signaling", "Hedgehog_signaling", "Insulin_IGF", "Interleukin_signaling", "Notch_signaling", "PDGF_signaling", "Ras", "T_cell_activation", "Toll_signaling", "Wnt_signaling", "p38_MAPK")
+pathways<- c("Apoptosis_signaling", "B_cell_activation", "Beta3_adrenergic_rec", "Cadherin_signaling", "Hedgehog_signaling", "Insulin_IGF", "Interleukin_signaling", "Notch_signaling", "PDGF_signaling", "Ras", "T_cell_activation", "Toll_signaling", "Wnt_signaling", "p38_MAPK", "Nicotinic_acetylchol")
 
 # Function for processing PANTHER pathways in Extended SIF format into Node/Edge files for benchmarking inputs
 process_panther_pathway <- function(pathway_path, pathway_folder) {
@@ -17,7 +17,7 @@ process_panther_pathway <- function(pathway_path, pathway_folder) {
   edges <- panther_pathway[1:(split_row_index - 1), ]
   colnames(edges) <- edges[1, ]  # First row as header
   edges <- edges[-1, ] %>% 
-    select(PARTICIPANT_A, PARTICIPANT_B) %>%
+    select(PARTICIPANT_A, INTERACTION_TYPE, PARTICIPANT_B) %>%
     rename(NODE1 = PARTICIPANT_A, NODE2 = PARTICIPANT_B)
   
   # Filter out chebi entries from edges

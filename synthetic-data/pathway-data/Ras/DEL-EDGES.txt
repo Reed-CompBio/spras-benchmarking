@@ -1,13 +1,13 @@
-NODE1	NODE2
-PIK3C3	chebi:16618
-PIK3CA	chebi:16618
-PIK3CB	chebi:16618
-PIK3CD	chebi:16618
-PIK3CG	chebi:16618
-chebi:16618	PDPK1
-chebi:18348	PIK3C3
-chebi:18348	PIK3CA
-chebi:18348	PIK3CB
-chebi:18348	PIK3CD
-chebi:18348	PIK3CG
-chebi:18348	chebi:16618
+NODE1	INTERACTION_TYPE	NODE2
+PIK3C3	controls-production-of	chebi:16618
+PIK3CA	controls-production-of	chebi:16618
+PIK3CB	controls-production-of	chebi:16618
+PIK3CD	controls-production-of	chebi:16618
+PIK3CG	controls-production-of	chebi:16618
+chebi:16618	chemical-affects	PDPK1
+chebi:18348	consumption-controlled-by	PIK3C3
+chebi:18348	consumption-controlled-by	PIK3CA
+chebi:18348	consumption-controlled-by	PIK3CB
+chebi:18348	consumption-controlled-by	PIK3CD
+chebi:18348	consumption-controlled-by	PIK3CG
+chebi:18348	used-to-produce	chebi:16618

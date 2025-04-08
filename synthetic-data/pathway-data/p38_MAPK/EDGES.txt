@@ -1,97 +1,97 @@
-NODE1	NODE2
-DUSP10	MAPK11
-DUSP10	MAPK11
-DUSP10	MAPK12
-DUSP10	MAPK12
-DUSP10	MAPK13
-DUSP10	MAPK13
-DUSP10	MAPK14
-DUSP1	MAPK11
-DUSP1	MAPK11
-DUSP1	MAPK12
-DUSP1	MAPK12
-DUSP1	MAPK13
-DUSP1	MAPK13
-DUSP1	MAPK14
-GADD45A	MAP3K4
-IL1R1	TAB1
-IL1R1	TAB2
-IL1R1	TRAF6
-MAP2K4	MAPK11
-MAP2K4	MAPK11
-MAP2K4	MAPK14
-MAP2K6	MAPK12
-MAP2K6	MAPK12
-MAP2K6	MAPK13
-MAP2K6	MAPK13
-MAP3K10	MAP2K4
-MAP3K10	MAP2K4
-MAP3K4	MAP2K4
-MAP3K4	MAP2K4
-MAP3K5	MAP2K4
-MAP3K5	MAP2K4
-MAP3K5	MAP2K6
-MAP3K5	MAP2K6
-MAP3K7	MAP2K6
-MAP3K7	MAP2K6
-MAPK11	ELK1
-MAPK11	ELK1
-MAPK11	MAPKAPK2
-MAPK11	MAPKAPK2
-MAPK11	MAPKAPK3
-MAPK11	MAPKAPK3
-MAPK11	MEF2B
-MAPK11	MEF2B
-MAPK11	MEF2C
-MAPK11	MEF2C
-MAPK11	MEF2D
-MAPK11	MEF2D
-MAPK11	MKNK1
-MAPK11	MKNK1
-MAPK11	MKNK2
-MAPK11	RPS6KA4
-MAPK11	RPS6KA4
-MAPK11	RPS6KA5
-MAPK11	RPS6KA5
-MAPK13	EEF2K
-MAPK13	EEF2K
-MAPK14	ELK1
-MAPK14	ELK1
-MAPK14	MAPKAPK2
-MAPK14	MAPKAPK2
-MAPK14	MAPKAPK3
-MAPK14	MAPKAPK3
-MAPK14	MEF2B
-MAPK14	MEF2B
-MAPK14	MEF2C
-MAPK14	MEF2C
-MAPK14	MEF2D
-MAPK14	MEF2D
-MAPK14	MKNK1
-MAPK14	MKNK1
-MAPK14	MKNK2
-MAPK14	RPS6KA4
-MAPK14	RPS6KA4
-MAPK14	RPS6KA5
-MAPK14	RPS6KA5
-MAPKAPK2	HSPB1
-MAPKAPK2	HSPB1
-MAPKAPK2	SRF
-MAPKAPK2	SRF
-MAPKAPK3	HSPB1
-MAPKAPK3	HSPB1
-MAPKAPK3	SRF
-MAPKAPK3	SRF
-MKNK1	EIF4E
-MKNK1	EIF4E
-MKNK2	EIF4E
-MKNK2	EIF4E
-RPS6KA4	ATF1
-RPS6KA4	ATF1
-RPS6KA5	ATF1
-RPS6KA5	ATF1
-TAB1	MAP3K7
-TAB1	MAPK14
-TAB2	MAP3K7
-TRAF6	TAB1
-TRAF6	TAB2
+NODE1	INTERACTION_TYPE	NODE2
+DUSP10	controls-phosphorylation-of	MAPK11
+DUSP10	controls-state-change-of	MAPK11
+DUSP10	controls-phosphorylation-of	MAPK12
+DUSP10	controls-state-change-of	MAPK12
+DUSP10	controls-phosphorylation-of	MAPK13
+DUSP10	controls-state-change-of	MAPK13
+DUSP10	controls-state-change-of	MAPK14
+DUSP1	controls-phosphorylation-of	MAPK11
+DUSP1	controls-state-change-of	MAPK11
+DUSP1	controls-phosphorylation-of	MAPK12
+DUSP1	controls-state-change-of	MAPK12
+DUSP1	controls-phosphorylation-of	MAPK13
+DUSP1	controls-state-change-of	MAPK13
+DUSP1	controls-state-change-of	MAPK14
+GADD45A	controls-state-change-of	MAP3K4
+IL1R1	controls-state-change-of	TAB1
+IL1R1	controls-state-change-of	TAB2
+IL1R1	in-complex-with	TRAF6
+MAP2K4	controls-phosphorylation-of	MAPK11
+MAP2K4	controls-state-change-of	MAPK11
+MAP2K4	controls-state-change-of	MAPK14
+MAP2K6	controls-phosphorylation-of	MAPK12
+MAP2K6	controls-state-change-of	MAPK12
+MAP2K6	controls-phosphorylation-of	MAPK13
+MAP2K6	controls-state-change-of	MAPK13
+MAP3K10	controls-phosphorylation-of	MAP2K4
+MAP3K10	controls-state-change-of	MAP2K4
+MAP3K4	controls-phosphorylation-of	MAP2K4
+MAP3K4	controls-state-change-of	MAP2K4
+MAP3K5	controls-phosphorylation-of	MAP2K4
+MAP3K5	controls-state-change-of	MAP2K4
+MAP3K5	controls-phosphorylation-of	MAP2K6
+MAP3K5	controls-state-change-of	MAP2K6
+MAP3K7	controls-phosphorylation-of	MAP2K6
+MAP3K7	controls-state-change-of	MAP2K6
+MAPK11	controls-phosphorylation-of	ELK1
+MAPK11	controls-state-change-of	ELK1
+MAPK11	controls-phosphorylation-of	MAPKAPK2
+MAPK11	controls-state-change-of	MAPKAPK2
+MAPK11	controls-phosphorylation-of	MAPKAPK3
+MAPK11	controls-state-change-of	MAPKAPK3
+MAPK11	controls-phosphorylation-of	MEF2B
+MAPK11	controls-state-change-of	MEF2B
+MAPK11	controls-phosphorylation-of	MEF2C
+MAPK11	controls-state-change-of	MEF2C
+MAPK11	controls-phosphorylation-of	MEF2D
+MAPK11	controls-state-change-of	MEF2D
+MAPK11	controls-phosphorylation-of	MKNK1
+MAPK11	controls-state-change-of	MKNK1
+MAPK11	controls-state-change-of	MKNK2
+MAPK11	controls-phosphorylation-of	RPS6KA4
+MAPK11	controls-state-change-of	RPS6KA4
+MAPK11	controls-phosphorylation-of	RPS6KA5
+MAPK11	controls-state-change-of	RPS6KA5
+MAPK13	controls-phosphorylation-of	EEF2K
+MAPK13	controls-state-change-of	EEF2K
+MAPK14	controls-phosphorylation-of	ELK1
+MAPK14	controls-state-change-of	ELK1
+MAPK14	controls-phosphorylation-of	MAPKAPK2
+MAPK14	controls-state-change-of	MAPKAPK2
+MAPK14	controls-phosphorylation-of	MAPKAPK3
+MAPK14	controls-state-change-of	MAPKAPK3
+MAPK14	controls-phosphorylation-of	MEF2B
+MAPK14	controls-state-change-of	MEF2B
+MAPK14	controls-phosphorylation-of	MEF2C
+MAPK14	controls-state-change-of	MEF2C
+MAPK14	controls-phosphorylation-of	MEF2D
+MAPK14	controls-state-change-of	MEF2D
+MAPK14	controls-phosphorylation-of	MKNK1
+MAPK14	controls-state-change-of	MKNK1
+MAPK14	controls-state-change-of	MKNK2
+MAPK14	controls-phosphorylation-of	RPS6KA4
+MAPK14	controls-state-change-of	RPS6KA4
+MAPK14	controls-phosphorylation-of	RPS6KA5
+MAPK14	controls-state-change-of	RPS6KA5
+MAPKAPK2	controls-phosphorylation-of	HSPB1
+MAPKAPK2	controls-state-change-of	HSPB1
+MAPKAPK2	controls-phosphorylation-of	SRF
+MAPKAPK2	controls-state-change-of	SRF
+MAPKAPK3	controls-phosphorylation-of	HSPB1
+MAPKAPK3	controls-state-change-of	HSPB1
+MAPKAPK3	controls-phosphorylation-of	SRF
+MAPKAPK3	controls-state-change-of	SRF
+MKNK1	controls-phosphorylation-of	EIF4E
+MKNK1	controls-state-change-of	EIF4E
+MKNK2	controls-phosphorylation-of	EIF4E
+MKNK2	controls-state-change-of	EIF4E
+RPS6KA4	controls-phosphorylation-of	ATF1
+RPS6KA4	controls-state-change-of	ATF1
+RPS6KA5	controls-phosphorylation-of	ATF1
+RPS6KA5	controls-state-change-of	ATF1
+TAB1	controls-state-change-of	MAP3K7
+TAB1	controls-state-change-of	MAPK14
+TAB2	controls-state-change-of	MAP3K7
+TRAF6	controls-state-change-of	TAB1
+TRAF6	controls-state-change-of	TAB2

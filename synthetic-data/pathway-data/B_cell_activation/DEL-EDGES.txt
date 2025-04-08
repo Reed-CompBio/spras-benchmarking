@@ -1,36 +1,36 @@
-NODE1	NODE2
-BLNK	chebi:16595
-BLNK	chebi:18035
-BTK	chebi:16595
-BTK	chebi:18035
-GRB2	chebi:16595
-GRB2	chebi:18035
-ITPR1	chebi:29108
-ITPR2	chebi:29108
-ITPR3	chebi:29108
-PLCG2	chebi:16595
-PLCG2	chebi:18035
-SOS1	chebi:16595
-SOS1	chebi:18035
-SOS2	chebi:16595
-SOS2	chebi:18035
-chebi:16595	ITPR1
-chebi:16595	ITPR2
-chebi:16595	ITPR3
-chebi:18035	CHUK
-chebi:18035	IKBKB
-chebi:18035	PRKCB
-chebi:18035	PRKCD
-chebi:18348	BLNK
-chebi:18348	BTK
-chebi:18348	GRB2
-chebi:18348	PLCG2
-chebi:18348	SOS1
-chebi:18348	SOS2
-chebi:18348	chebi:16595
-chebi:18348	chebi:18035
-chebi:29108	CALM1
-chebi:29108	PPP3CA
-chebi:29108	PPP3CB
-chebi:37565	MAP3K2
-chebi:37565	MAP3K3
+NODE1	INTERACTION_TYPE	NODE2
+BLNK	controls-production-of	chebi:16595
+BLNK	controls-production-of	chebi:18035
+BTK	controls-production-of	chebi:16595
+BTK	controls-production-of	chebi:18035
+GRB2	controls-production-of	chebi:16595
+GRB2	controls-production-of	chebi:18035
+ITPR1	controls-transport-of-chemical	chebi:29108
+ITPR2	controls-transport-of-chemical	chebi:29108
+ITPR3	controls-transport-of-chemical	chebi:29108
+PLCG2	controls-production-of	chebi:16595
+PLCG2	controls-production-of	chebi:18035
+SOS1	controls-production-of	chebi:16595
+SOS1	controls-production-of	chebi:18035
+SOS2	controls-production-of	chebi:16595
+SOS2	controls-production-of	chebi:18035
+chebi:16595	chemical-affects	ITPR1
+chebi:16595	chemical-affects	ITPR2
+chebi:16595	chemical-affects	ITPR3
+chebi:18035	chemical-affects	CHUK
+chebi:18035	chemical-affects	IKBKB
+chebi:18035	chemical-affects	PRKCB
+chebi:18035	chemical-affects	PRKCD
+chebi:18348	consumption-controlled-by	BLNK
+chebi:18348	consumption-controlled-by	BTK
+chebi:18348	consumption-controlled-by	GRB2
+chebi:18348	consumption-controlled-by	PLCG2
+chebi:18348	consumption-controlled-by	SOS1
+chebi:18348	consumption-controlled-by	SOS2
+chebi:18348	used-to-produce	chebi:16595
+chebi:18348	used-to-produce	chebi:18035
+chebi:29108	chemical-affects	CALM1
+chebi:29108	chemical-affects	PPP3CA
+chebi:29108	chemical-affects	PPP3CB
+chebi:37565	chemical-affects	MAP3K2
+chebi:37565	chemical-affects	MAP3K3

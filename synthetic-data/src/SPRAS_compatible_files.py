@@ -8,13 +8,33 @@ if not os.path.exists(spras_compatible_dir):
 pathway_dirs = ["Apoptosis_signaling", "B_cell_activation", "Beta3_adrenergic_rec", "Cadherin_signaling", "Hedgehog_signaling", "Insulin_IGF", "Interleukin_signaling", "Notch_signaling", "PDGF_signaling", "Ras", "T_cell_activation", "Toll_signaling", "Wnt_signaling", "p38_MAPK", "Nicotinic_acetylchol"]
 directory = "pathway-data/"
 
+directed = [
+    "controls-state-change-of",
+    "controls-transport-of",
+    "controls-phosphorylation-of",
+    "controls-expression-of",
+    "catalysis-precedes",
+    "consumption-controlled-by",
+    "controls-production-of",
+    "controls-transport-of-chemical",
+    "chemical-affects",
+    "used-to-produce",
+    "consumption-controled-by"
+]
+
+undirected = [
+    "in-complex-with",
+    "interacts-with",
+    "neighbor-of",
+    "reacts-with"
+]
+
 
 for pathway in pathway_dirs:
     pathway_folder = directory + pathway + "/"
 
     # Create the output folder "uniprot" within the pathway directory
     out_folder = os.path.join(spras_compatible_dir, pathway)
-    print(out_folder)
     os.makedirs(out_folder, exist_ok=True)
     
     nodes_file = os.path.join(pathway_folder, "NODES.txt")
@@ -27,11 +47,12 @@ for pathway in pathway_dirs:
     nodes_uniprot.to_csv(os.path.join(out_folder, f"{pathway}_gs_nodes.txt"), sep="\t", index=False, header=False)
 
     edges_file = os.path.join(pathway_folder, "EDGES.txt")
-    edges_df = pd.read_csv(edges_file, sep="\t")
+    edges_df = pd.read_csv(edges_file, sep="\t", header=0)
     edges_df['NODE1'] = edges_df['NODE1'].map(gene_to_uniprot)
     edges_df['NODE2'] = edges_df['NODE2'].map(gene_to_uniprot)
     edges_df['Rank'] = 1
-    edges_df['Direction'] = "U"
+    edges_df["Direction"] = edges_df["INTERACTION_TYPE"].apply(lambda x: "D" if x in directed else ("U" if x in undirected else x))
+    edges_df = edges_df.drop(columns = "INTERACTION_TYPE")
     edges_df.to_csv(os.path.join(out_folder, f"{pathway}_gs_edges.txt"), sep="\t", index=False, header=False)
 
     prizes_file = os.path.join(pathway_folder, "PRIZES-100.txt")

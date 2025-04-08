@@ -1,58 +1,58 @@
-NODE1	NODE2
-ITPR1	chebi:29108
-PIK3C3	chebi:16618
-PIK3C3	chebi:18348
-PIK3CA	chebi:16618
-PIK3CA	chebi:18348
-PIK3CB	chebi:16618
-PIK3CB	chebi:18348
-PIK3CD	chebi:16618
-PIK3CD	chebi:18348
-PIK3CG	chebi:16618
-PIK3CG	chebi:18348
-PIK3R1	chebi:16618
-PIK3R1	chebi:18348
-PIK3R2	chebi:16618
-PIK3R2	chebi:18348
-PIK3R3	chebi:16618
-PIK3R3	chebi:18348
-PLCG1	chebi:16595
-PLCG1	chebi:18035
-chebi:16500	PIK3C3
-chebi:16500	PIK3CA
-chebi:16500	PIK3CB
-chebi:16500	PIK3CD
-chebi:16500	PIK3CG
-chebi:16500	PIK3R1
-chebi:16500	PIK3R2
-chebi:16500	PIK3R3
-chebi:16500	chebi:18348
-chebi:16595	ITPR1
-chebi:16618	AKT1
-chebi:16618	AKT2
-chebi:16618	AKT3
-chebi:16618	MAP3K1
-chebi:18035	CHUK
-chebi:18035	IKBKB
-chebi:18035	PRKCQ
-chebi:18348	AKT1
-chebi:18348	AKT2
-chebi:18348	AKT3
-chebi:18348	MAP3K1
-chebi:18348	PIK3C3
-chebi:18348	PIK3CA
-chebi:18348	PIK3CB
-chebi:18348	PIK3CD
-chebi:18348	PIK3CG
-chebi:18348	PIK3R1
-chebi:18348	PIK3R2
-chebi:18348	PIK3R3
-chebi:18348	PLCG1
-chebi:18348	chebi:16595
-chebi:18348	chebi:16618
-chebi:18348	chebi:18035
-chebi:29108	CALM1
-chebi:29108	PPP3CA
-chebi:29108	PPP3CB
-chebi:29108	PPP3CC
-chebi:37565	MAP3K1
+NODE1	INTERACTION_TYPE	NODE2
+ITPR1	controls-transport-of-chemical	chebi:29108
+PIK3C3	controls-production-of	chebi:16618
+PIK3C3	controls-production-of	chebi:18348
+PIK3CA	controls-production-of	chebi:16618
+PIK3CA	controls-production-of	chebi:18348
+PIK3CB	controls-production-of	chebi:16618
+PIK3CB	controls-production-of	chebi:18348
+PIK3CD	controls-production-of	chebi:16618
+PIK3CD	controls-production-of	chebi:18348
+PIK3CG	controls-production-of	chebi:16618
+PIK3CG	controls-production-of	chebi:18348
+PIK3R1	controls-production-of	chebi:16618
+PIK3R1	controls-production-of	chebi:18348
+PIK3R2	controls-production-of	chebi:16618
+PIK3R2	controls-production-of	chebi:18348
+PIK3R3	controls-production-of	chebi:16618
+PIK3R3	controls-production-of	chebi:18348
+PLCG1	controls-production-of	chebi:16595
+PLCG1	controls-production-of	chebi:18035
+chebi:16500	consumption-controlled-by	PIK3C3
+chebi:16500	consumption-controlled-by	PIK3CA
+chebi:16500	consumption-controlled-by	PIK3CB
+chebi:16500	consumption-controlled-by	PIK3CD
+chebi:16500	consumption-controlled-by	PIK3CG
+chebi:16500	consumption-controlled-by	PIK3R1
+chebi:16500	consumption-controlled-by	PIK3R2
+chebi:16500	consumption-controlled-by	PIK3R3
+chebi:16500	used-to-produce	chebi:18348
+chebi:16595	chemical-affects	ITPR1
+chebi:16618	chemical-affects	AKT1
+chebi:16618	chemical-affects	AKT2
+chebi:16618	chemical-affects	AKT3
+chebi:16618	chemical-affects	MAP3K1
+chebi:18035	chemical-affects	CHUK
+chebi:18035	chemical-affects	IKBKB
+chebi:18035	chemical-affects	PRKCQ
+chebi:18348	chemical-affects	AKT1
+chebi:18348	chemical-affects	AKT2
+chebi:18348	chemical-affects	AKT3
+chebi:18348	chemical-affects	MAP3K1
+chebi:18348	consumption-controlled-by	PIK3C3
+chebi:18348	consumption-controlled-by	PIK3CA
+chebi:18348	consumption-controlled-by	PIK3CB
+chebi:18348	consumption-controlled-by	PIK3CD
+chebi:18348	consumption-controlled-by	PIK3CG
+chebi:18348	consumption-controlled-by	PIK3R1
+chebi:18348	consumption-controlled-by	PIK3R2
+chebi:18348	consumption-controlled-by	PIK3R3
+chebi:18348	consumption-controlled-by	PLCG1
+chebi:18348	used-to-produce	chebi:16595
+chebi:18348	used-to-produce	chebi:16618
+chebi:18348	used-to-produce	chebi:18035
+chebi:29108	chemical-affects	CALM1
+chebi:29108	chemical-affects	PPP3CA
+chebi:29108	chemical-affects	PPP3CB
+chebi:29108	chemical-affects	PPP3CC
+chebi:37565	chemical-affects	MAP3K1

@@ -1,111 +1,111 @@
-NODE1	NODE2
-ADAM10	DLK1
-ADAM10	DLL3
-ADAM10	DLL4
-ADAM10	JAG1
-ADAM10	JAG2
-ADAM17	DLK1
-ADAM17	DLL3
-ADAM17	DLL4
-ADAM17	JAG1
-ADAM17	JAG2
-CIR1	RBPJL
-CIR1	RBPJ
-DLK1	JAG1
-DLK1	JAG2
-DLK1	NOTCH1
-DLK1	NOTCH2
-DLK1	NOTCH3
-DLK1	NOTCH4
-DLL3	JAG1
-DLL3	JAG2
-DLL3	NOTCH1
-DLL3	NOTCH2
-DLL3	NOTCH3
-DLL3	NOTCH4
-DLL4	JAG1
-DLL4	JAG2
-DLL4	NOTCH1
-DLL4	NOTCH2
-DLL4	NOTCH3
-DLL4	NOTCH4
-FBXW7	NOTCH1
-FBXW7	NOTCH2
-FBXW7	NOTCH3
-FBXW7	NOTCH4
-FUT8	NOTCH1
-FUT8	NOTCH2
-FUT8	NOTCH3
-FUT8	NOTCH4
-JAG1	JAG2
-JAG1	NOTCH1
-JAG1	NOTCH2
-JAG1	NOTCH3
-JAG1	NOTCH4
-JAG2	NOTCH1
-JAG2	NOTCH2
-JAG2	NOTCH3
-JAG2	NOTCH4
-LFNG	DLK1
-LFNG	DLL3
-LFNG	DLL4
-LFNG	JAG1
-LFNG	JAG2
-LFNG	NOTCH1
-LFNG	NOTCH2
-LFNG	NOTCH3
-LFNG	NOTCH4
-MAML1	NOTCH1
-MAML1	NOTCH2
-MAML1	NOTCH3
-MAML1	NOTCH4
-MAML1	RBPJL
-MAML1	RBPJ
-MFNG	DLK1
-MFNG	DLL3
-MFNG	DLL4
-MFNG	JAG1
-MFNG	JAG2
-MFNG	NOTCH1
-MFNG	NOTCH2
-MFNG	NOTCH3
-MFNG	NOTCH4
-NCOR2	RBPJL
-NCOR2	RBPJ
-NCSTN	PSEN1
-NOTCH1	CIR1
-NOTCH1	NCOR2
-NOTCH1	RBPJL
-NOTCH1	RBPJL
-NOTCH1	RBPJ
-NOTCH1	RBPJ
-NOTCH2	CIR1
-NOTCH2	NCOR2
-NOTCH2	RBPJL
-NOTCH2	RBPJL
-NOTCH2	RBPJ
-NOTCH2	RBPJ
-NOTCH3	CIR1
-NOTCH3	NCOR2
-NOTCH3	RBPJL
-NOTCH3	RBPJL
-NOTCH3	RBPJ
-NOTCH3	RBPJ
-NOTCH4	CIR1
-NOTCH4	NCOR2
-NOTCH4	RBPJL
-NOTCH4	RBPJL
-NOTCH4	RBPJ
-NOTCH4	RBPJ
-NUMB	NOTCH1
-NUMB	NOTCH1
-NUMB	NOTCH2
-NUMB	NOTCH2
-NUMB	NOTCH3
-NUMB	NOTCH3
-NUMB	NOTCH4
-NUMB	NOTCH4
-POFUT1	NOTCH1
-POFUT1	NOTCH2
-POFUT1	NOTCH3
-POFUT1	NOTCH4
+NODE1	INTERACTION_TYPE	NODE2
+ADAM10	controls-state-change-of	DLK1
+ADAM10	controls-state-change-of	DLL3
+ADAM10	controls-state-change-of	DLL4
+ADAM10	controls-state-change-of	JAG1
+ADAM10	controls-state-change-of	JAG2
+ADAM17	controls-state-change-of	DLK1
+ADAM17	controls-state-change-of	DLL3
+ADAM17	controls-state-change-of	DLL4
+ADAM17	controls-state-change-of	JAG1
+ADAM17	controls-state-change-of	JAG2
+CIR1	in-complex-with	RBPJL
+CIR1	in-complex-with	RBPJ
+DLK1	in-complex-with	JAG1
+DLK1	in-complex-with	JAG2
+DLK1	in-complex-with	NOTCH1
+DLK1	in-complex-with	NOTCH2
+DLK1	in-complex-with	NOTCH3
+DLK1	in-complex-with	NOTCH4
+DLL3	in-complex-with	JAG1
+DLL3	in-complex-with	JAG2
+DLL3	in-complex-with	NOTCH1
+DLL3	in-complex-with	NOTCH2
+DLL3	in-complex-with	NOTCH3
+DLL3	in-complex-with	NOTCH4
+DLL4	in-complex-with	JAG1
+DLL4	in-complex-with	JAG2
+DLL4	in-complex-with	NOTCH1
+DLL4	in-complex-with	NOTCH2
+DLL4	in-complex-with	NOTCH3
+DLL4	in-complex-with	NOTCH4
+FBXW7	controls-state-change-of	NOTCH1
+FBXW7	controls-state-change-of	NOTCH2
+FBXW7	controls-state-change-of	NOTCH3
+FBXW7	controls-state-change-of	NOTCH4
+FUT8	controls-state-change-of	NOTCH1
+FUT8	controls-state-change-of	NOTCH2
+FUT8	controls-state-change-of	NOTCH3
+FUT8	controls-state-change-of	NOTCH4
+JAG1	in-complex-with	JAG2
+JAG1	in-complex-with	NOTCH1
+JAG1	in-complex-with	NOTCH2
+JAG1	in-complex-with	NOTCH3
+JAG1	in-complex-with	NOTCH4
+JAG2	in-complex-with	NOTCH1
+JAG2	in-complex-with	NOTCH2
+JAG2	in-complex-with	NOTCH3
+JAG2	in-complex-with	NOTCH4
+LFNG	controls-state-change-of	DLK1
+LFNG	controls-state-change-of	DLL3
+LFNG	controls-state-change-of	DLL4
+LFNG	controls-state-change-of	JAG1
+LFNG	controls-state-change-of	JAG2
+LFNG	controls-state-change-of	NOTCH1
+LFNG	controls-state-change-of	NOTCH2
+LFNG	controls-state-change-of	NOTCH3
+LFNG	controls-state-change-of	NOTCH4
+MAML1	in-complex-with	NOTCH1
+MAML1	in-complex-with	NOTCH2
+MAML1	in-complex-with	NOTCH3
+MAML1	in-complex-with	NOTCH4
+MAML1	in-complex-with	RBPJL
+MAML1	in-complex-with	RBPJ
+MFNG	controls-state-change-of	DLK1
+MFNG	controls-state-change-of	DLL3
+MFNG	controls-state-change-of	DLL4
+MFNG	controls-state-change-of	JAG1
+MFNG	controls-state-change-of	JAG2
+MFNG	controls-state-change-of	NOTCH1
+MFNG	controls-state-change-of	NOTCH2
+MFNG	controls-state-change-of	NOTCH3
+MFNG	controls-state-change-of	NOTCH4
+NCOR2	in-complex-with	RBPJL
+NCOR2	in-complex-with	RBPJ
+NCSTN	in-complex-with	PSEN1
+NOTCH1	controls-state-change-of	CIR1
+NOTCH1	controls-state-change-of	NCOR2
+NOTCH1	controls-state-change-of	RBPJL
+NOTCH1	in-complex-with	RBPJL
+NOTCH1	controls-state-change-of	RBPJ
+NOTCH1	in-complex-with	RBPJ
+NOTCH2	controls-state-change-of	CIR1
+NOTCH2	controls-state-change-of	NCOR2
+NOTCH2	controls-state-change-of	RBPJL
+NOTCH2	in-complex-with	RBPJL
+NOTCH2	controls-state-change-of	RBPJ
+NOTCH2	in-complex-with	RBPJ
+NOTCH3	controls-state-change-of	CIR1
+NOTCH3	controls-state-change-of	NCOR2
+NOTCH3	controls-state-change-of	RBPJL
+NOTCH3	in-complex-with	RBPJL
+NOTCH3	controls-state-change-of	RBPJ
+NOTCH3	in-complex-with	RBPJ
+NOTCH4	controls-state-change-of	CIR1
+NOTCH4	controls-state-change-of	NCOR2
+NOTCH4	controls-state-change-of	RBPJL
+NOTCH4	in-complex-with	RBPJL
+NOTCH4	controls-state-change-of	RBPJ
+NOTCH4	in-complex-with	RBPJ
+NUMB	controls-state-change-of	NOTCH1
+NUMB	controls-transport-of	NOTCH1
+NUMB	controls-state-change-of	NOTCH2
+NUMB	controls-transport-of	NOTCH2
+NUMB	controls-state-change-of	NOTCH3
+NUMB	controls-transport-of	NOTCH3
+NUMB	controls-state-change-of	NOTCH4
+NUMB	controls-transport-of	NOTCH4
+POFUT1	controls-state-change-of	NOTCH1
+POFUT1	controls-state-change-of	NOTCH2
+POFUT1	controls-state-change-of	NOTCH3
+POFUT1	controls-state-change-of	NOTCH4

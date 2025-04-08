@@ -1,177 +1,177 @@
-NODE1	NODE2
-ARAF	HRAS
-ARAF	MAP2K1
-ARAF	MAP2K2
-ARAF	NRAS
-BLNK	BTK
-BLNK	GRB2
-BLNK	HRAS
-BLNK	ITPR1
-BLNK	ITPR2
-BLNK	ITPR3
-BLNK	NRAS
-BLNK	PLCG2
-BLNK	PRKCB
-BLNK	PRKCD
-BLNK	RAC1
-BLNK	RAC2
-BLNK	SOS1
-BLNK	SOS2
-BLNK	VAV1
-BLNK	VAV2
-BLNK	VAV3
-BTK	BLNK
-BTK	BLNK
-BTK	CD79A
-BTK	CD79B
-BTK	GRB2
-BTK	HRAS
-BTK	ITPR1
-BTK	ITPR2
-BTK	ITPR3
-BTK	LYN
-BTK	NRAS
-BTK	PLCG2
-BTK	PRKCB
-BTK	PRKCD
-BTK	SOS1
-BTK	SOS2
-BTK	SYK
-CALM1	PPP3CA
-CALM1	PPP3CB
-CD19	LYN
-CD19	PIK3CA
-CD19	PIK3CB
-CD19	PIK3CD
-CD19	PIK3CG
-CD22	PTPN6
-CD79A	BLNK
-CD79A	BLNK
-CD79A	CD79B
-CD79A	LYN
-CD79A	SYK
-CD79B	BLNK
-CD79B	BLNK
-CD79B	LYN
-CD79B	SYK
-CHUK	NFKBIA
-CHUK	NFKBIA
-CHUK	NFKBIL1
-CHUK	NFKBIL1
-FOS	JUN
-GRB2	HRAS
-GRB2	ITPR1
-GRB2	ITPR2
-GRB2	ITPR3
-GRB2	NRAS
-GRB2	PLCG2
-GRB2	PRKCB
-GRB2	PRKCD
-GRB2	SOS1
-GRB2	SOS2
-HRAS	MAP2K1
-HRAS	MAP2K2
-HRAS	RAF1
-IKBKB	NFKBIA
-IKBKB	NFKBIA
-IKBKB	NFKBIL1
-IKBKB	NFKBIL1
-LYN	BLNK
-LYN	BLNK
-LYN	BTK
-LYN	BTK
-LYN	CD22
-LYN	CD22
-LYN	CD79A
-LYN	CD79A
-LYN	CD79B
-LYN	CD79B
-LYN	PIK3CA
-LYN	PIK3CB
-LYN	PIK3CD
-LYN	PIK3CG
-LYN	SYK
-MAP2K1	MAPK1
-MAP2K1	MAPK1
-MAP2K1	MAPK3
-MAP2K1	MAPK3
-MAP2K1	NRAS
-MAP2K1	RAF1
-MAP2K2	MAPK1
-MAP2K2	MAPK1
-MAP2K2	MAPK3
-MAP2K2	MAPK3
-MAP2K2	NRAS
-MAP2K2	RAF1
-MAP3K2	MAPK10
-MAP3K2	MAPK10
-MAP3K2	MAPK8
-MAP3K2	MAPK8
-MAP3K2	MAPK9
-MAP3K2	MAPK9
-MAP3K3	MAPK10
-MAP3K3	MAPK10
-MAP3K3	MAPK8
-MAP3K3	MAPK8
-MAP3K3	MAPK9
-MAP3K3	MAPK9
-MAPK10	JUN
-MAPK10	JUN
-MAPK11	FOS
-MAPK11	JUN
-MAPK12	FOS
-MAPK12	JUN
-MAPK13	FOS
-MAPK13	JUN
-MAPK14	FOS
-MAPK14	JUN
-MAPK1	FOS
-MAPK1	JUN
-MAPK3	FOS
-MAPK3	JUN
-MAPK8	JUN
-MAPK8	JUN
-MAPK9	JUN
-MAPK9	JUN
-NRAS	RAF1
-PLCG2	HRAS
-PLCG2	ITPR1
-PLCG2	ITPR2
-PLCG2	ITPR3
-PLCG2	NRAS
-PLCG2	PRKCB
-PLCG2	PRKCD
-PLCG2	SOS1
-PLCG2	SOS2
-PRKCB	CHUK
-PRKCB	CHUK
-PRKCB	IKBKB
-PRKCB	IKBKB
-PRKCD	CHUK
-PRKCD	CHUK
-PRKCD	IKBKB
-PRKCD	IKBKB
-PTPRC	LYN
-PTPRC	LYN
-RAC1	MAP3K2
-RAC1	MAP3K3
-RAC2	MAP3K2
-RAC2	MAP3K3
-SOS1	HRAS
-SOS1	ITPR1
-SOS1	ITPR2
-SOS1	ITPR3
-SOS1	NRAS
-SOS2	HRAS
-SOS2	ITPR1
-SOS2	ITPR2
-SOS2	ITPR3
-SOS2	NRAS
-SYK	BLNK
-SYK	BLNK
-VAV1	RAC1
-VAV1	RAC2
-VAV2	RAC1
-VAV2	RAC2
-VAV3	RAC1
-VAV3	RAC2
+NODE1	INTERACTION_TYPE	NODE2
+ARAF	in-complex-with	HRAS
+ARAF	in-complex-with	MAP2K1
+ARAF	in-complex-with	MAP2K2
+ARAF	in-complex-with	NRAS
+BLNK	in-complex-with	BTK
+BLNK	in-complex-with	GRB2
+BLNK	controls-state-change-of	HRAS
+BLNK	controls-state-change-of	ITPR1
+BLNK	controls-state-change-of	ITPR2
+BLNK	controls-state-change-of	ITPR3
+BLNK	controls-state-change-of	NRAS
+BLNK	in-complex-with	PLCG2
+BLNK	controls-state-change-of	PRKCB
+BLNK	controls-state-change-of	PRKCD
+BLNK	controls-state-change-of	RAC1
+BLNK	controls-state-change-of	RAC2
+BLNK	in-complex-with	SOS1
+BLNK	in-complex-with	SOS2
+BLNK	in-complex-with	VAV1
+BLNK	in-complex-with	VAV2
+BLNK	in-complex-with	VAV3
+BTK	controls-phosphorylation-of	BLNK
+BTK	controls-state-change-of	BLNK
+BTK	in-complex-with	CD79A
+BTK	in-complex-with	CD79B
+BTK	in-complex-with	GRB2
+BTK	controls-state-change-of	HRAS
+BTK	controls-state-change-of	ITPR1
+BTK	controls-state-change-of	ITPR2
+BTK	controls-state-change-of	ITPR3
+BTK	in-complex-with	LYN
+BTK	controls-state-change-of	NRAS
+BTK	in-complex-with	PLCG2
+BTK	controls-state-change-of	PRKCB
+BTK	controls-state-change-of	PRKCD
+BTK	in-complex-with	SOS1
+BTK	in-complex-with	SOS2
+BTK	in-complex-with	SYK
+CALM1	controls-state-change-of	PPP3CA
+CALM1	controls-state-change-of	PPP3CB
+CD19	in-complex-with	LYN
+CD19	in-complex-with	PIK3CA
+CD19	in-complex-with	PIK3CB
+CD19	in-complex-with	PIK3CD
+CD19	in-complex-with	PIK3CG
+CD22	in-complex-with	PTPN6
+CD79A	controls-phosphorylation-of	BLNK
+CD79A	controls-state-change-of	BLNK
+CD79A	in-complex-with	CD79B
+CD79A	in-complex-with	LYN
+CD79A	in-complex-with	SYK
+CD79B	controls-phosphorylation-of	BLNK
+CD79B	controls-state-change-of	BLNK
+CD79B	in-complex-with	LYN
+CD79B	in-complex-with	SYK
+CHUK	controls-phosphorylation-of	NFKBIA
+CHUK	controls-state-change-of	NFKBIA
+CHUK	controls-phosphorylation-of	NFKBIL1
+CHUK	controls-state-change-of	NFKBIL1
+FOS	in-complex-with	JUN
+GRB2	controls-state-change-of	HRAS
+GRB2	controls-state-change-of	ITPR1
+GRB2	controls-state-change-of	ITPR2
+GRB2	controls-state-change-of	ITPR3
+GRB2	controls-state-change-of	NRAS
+GRB2	in-complex-with	PLCG2
+GRB2	controls-state-change-of	PRKCB
+GRB2	controls-state-change-of	PRKCD
+GRB2	in-complex-with	SOS1
+GRB2	in-complex-with	SOS2
+HRAS	in-complex-with	MAP2K1
+HRAS	in-complex-with	MAP2K2
+HRAS	in-complex-with	RAF1
+IKBKB	controls-phosphorylation-of	NFKBIA
+IKBKB	controls-state-change-of	NFKBIA
+IKBKB	controls-phosphorylation-of	NFKBIL1
+IKBKB	controls-state-change-of	NFKBIL1
+LYN	controls-phosphorylation-of	BLNK
+LYN	controls-state-change-of	BLNK
+LYN	controls-phosphorylation-of	BTK
+LYN	controls-state-change-of	BTK
+LYN	controls-phosphorylation-of	CD22
+LYN	controls-state-change-of	CD22
+LYN	controls-phosphorylation-of	CD79A
+LYN	controls-state-change-of	CD79A
+LYN	controls-phosphorylation-of	CD79B
+LYN	controls-state-change-of	CD79B
+LYN	in-complex-with	PIK3CA
+LYN	in-complex-with	PIK3CB
+LYN	in-complex-with	PIK3CD
+LYN	in-complex-with	PIK3CG
+LYN	in-complex-with	SYK
+MAP2K1	controls-phosphorylation-of	MAPK1
+MAP2K1	controls-state-change-of	MAPK1
+MAP2K1	controls-phosphorylation-of	MAPK3
+MAP2K1	controls-state-change-of	MAPK3
+MAP2K1	in-complex-with	NRAS
+MAP2K1	in-complex-with	RAF1
+MAP2K2	controls-phosphorylation-of	MAPK1
+MAP2K2	controls-state-change-of	MAPK1
+MAP2K2	controls-phosphorylation-of	MAPK3
+MAP2K2	controls-state-change-of	MAPK3
+MAP2K2	in-complex-with	NRAS
+MAP2K2	in-complex-with	RAF1
+MAP3K2	controls-phosphorylation-of	MAPK10
+MAP3K2	controls-state-change-of	MAPK10
+MAP3K2	controls-phosphorylation-of	MAPK8
+MAP3K2	controls-state-change-of	MAPK8
+MAP3K2	controls-phosphorylation-of	MAPK9
+MAP3K2	controls-state-change-of	MAPK9
+MAP3K3	controls-phosphorylation-of	MAPK10
+MAP3K3	controls-state-change-of	MAPK10
+MAP3K3	controls-phosphorylation-of	MAPK8
+MAP3K3	controls-state-change-of	MAPK8
+MAP3K3	controls-phosphorylation-of	MAPK9
+MAP3K3	controls-state-change-of	MAPK9
+MAPK10	controls-phosphorylation-of	JUN
+MAPK10	controls-state-change-of	JUN
+MAPK11	controls-state-change-of	FOS
+MAPK11	controls-state-change-of	JUN
+MAPK12	controls-state-change-of	FOS
+MAPK12	controls-state-change-of	JUN
+MAPK13	controls-state-change-of	FOS
+MAPK13	controls-state-change-of	JUN
+MAPK14	controls-state-change-of	FOS
+MAPK14	controls-state-change-of	JUN
+MAPK1	controls-state-change-of	FOS
+MAPK1	controls-state-change-of	JUN
+MAPK3	controls-state-change-of	FOS
+MAPK3	controls-state-change-of	JUN
+MAPK8	controls-phosphorylation-of	JUN
+MAPK8	controls-state-change-of	JUN
+MAPK9	controls-phosphorylation-of	JUN
+MAPK9	controls-state-change-of	JUN
+NRAS	in-complex-with	RAF1
+PLCG2	controls-state-change-of	HRAS
+PLCG2	controls-state-change-of	ITPR1
+PLCG2	controls-state-change-of	ITPR2
+PLCG2	controls-state-change-of	ITPR3
+PLCG2	controls-state-change-of	NRAS
+PLCG2	controls-state-change-of	PRKCB
+PLCG2	controls-state-change-of	PRKCD
+PLCG2	in-complex-with	SOS1
+PLCG2	in-complex-with	SOS2
+PRKCB	controls-phosphorylation-of	CHUK
+PRKCB	controls-state-change-of	CHUK
+PRKCB	controls-phosphorylation-of	IKBKB
+PRKCB	controls-state-change-of	IKBKB
+PRKCD	controls-phosphorylation-of	CHUK
+PRKCD	controls-state-change-of	CHUK
+PRKCD	controls-phosphorylation-of	IKBKB
+PRKCD	controls-state-change-of	IKBKB
+PTPRC	controls-phosphorylation-of	LYN
+PTPRC	controls-state-change-of	LYN
+RAC1	controls-state-change-of	MAP3K2
+RAC1	controls-state-change-of	MAP3K3
+RAC2	controls-state-change-of	MAP3K2
+RAC2	controls-state-change-of	MAP3K3
+SOS1	controls-state-change-of	HRAS
+SOS1	controls-state-change-of	ITPR1
+SOS1	controls-state-change-of	ITPR2
+SOS1	controls-state-change-of	ITPR3
+SOS1	controls-state-change-of	NRAS
+SOS2	controls-state-change-of	HRAS
+SOS2	controls-state-change-of	ITPR1
+SOS2	controls-state-change-of	ITPR2
+SOS2	controls-state-change-of	ITPR3
+SOS2	controls-state-change-of	NRAS
+SYK	controls-phosphorylation-of	BLNK
+SYK	controls-state-change-of	BLNK
+VAV1	controls-state-change-of	RAC1
+VAV1	controls-state-change-of	RAC2
+VAV2	controls-state-change-of	RAC1
+VAV2	controls-state-change-of	RAC2
+VAV3	controls-state-change-of	RAC1
+VAV3	controls-state-change-of	RAC2

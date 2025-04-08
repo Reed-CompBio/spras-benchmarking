@@ -1,85 +1,85 @@
-NODE1	NODE2
-ACHE	chebi:15351
-ACHE	chebi:15354
-BCHE	chebi:15351
-BCHE	chebi:15354
-CHAT	chebi:22614
-chebi:15351	CHAT
-chebi:15351	chebi:15354
-chebi:15351	chebi:22614
-chebi:15354	CHAT
-chebi:15354	SLC44A3
-chebi:15354	SLC5A7
-chebi:15354	SLC6A8
-chebi:15354	chebi:22614
-chebi:22614	ACHE
-chebi:22614	BCHE
-chebi:22614	CHRFAM7A
-chebi:22614	CHRNA10
-chebi:22614	CHRNA1
-chebi:22614	CHRNA2
-chebi:22614	CHRNA3
-chebi:22614	CHRNA4
-chebi:22614	CHRNA5
-chebi:22614	CHRNA6
-chebi:22614	CHRNA7
-chebi:22614	CHRNA9
-chebi:22614	CHRNB1
-chebi:22614	CHRNB2
-chebi:22614	CHRNB3
-chebi:22614	CHRNB4
-chebi:22614	CHRND
-chebi:22614	CHRNE
-chebi:22614	CHRNG
-chebi:22614	SLC18A3
-chebi:22614	chebi:15351
-chebi:22614	chebi:15354
-chebi:29108	ACTA1
-chebi:29108	ACTA2
-chebi:29108	ACTBL2
-chebi:29108	ACTB
-chebi:29108	ACTC1
-chebi:29108	ACTG1
-chebi:29108	ACTG2
-chebi:29108	ACTR1A
-chebi:29108	ACTR1B
-chebi:29108	CTAGE15
-chebi:29108	CTAGE4
-chebi:29108	CTAGE9
-chebi:29108	MYH10
-chebi:29108	MYH11
-chebi:29108	MYH13
-chebi:29108	MYH14
-chebi:29108	MYH15
-chebi:29108	MYH1
-chebi:29108	MYH2
-chebi:29108	MYH3
-chebi:29108	MYH4
-chebi:29108	MYH6
-chebi:29108	MYH7B
-chebi:29108	MYH7
-chebi:29108	MYH8
-chebi:29108	MYH9
-chebi:29108	MYO10
-chebi:29108	MYO15A
-chebi:29108	MYO16
-chebi:29108	MYO18A
-chebi:29108	MYO18B
-chebi:29108	MYO19
-chebi:29108	MYO1A
-chebi:29108	MYO1B
-chebi:29108	MYO1C
-chebi:29108	MYO1D
-chebi:29108	MYO1E
-chebi:29108	MYO1F
-chebi:29108	MYO1G
-chebi:29108	MYO3A
-chebi:29108	MYO3B
-chebi:29108	MYO5A
-chebi:29108	MYO5B
-chebi:29108	MYO5C
-chebi:29108	MYO6
-chebi:29108	MYO7A
-chebi:29108	MYO7B
-chebi:29108	MYO9A
-chebi:29108	PLEKHH3
+NODE1	INTERACTION_TYPE	NODE2
+ACHE	controls-production-of	chebi:15351
+ACHE	controls-production-of	chebi:15354
+BCHE	controls-production-of	chebi:15351
+BCHE	controls-production-of	chebi:15354
+CHAT	controls-production-of	chebi:22614
+chebi:15351	consumption-controlled-by	CHAT
+chebi:15351	reacts-with	chebi:15354
+chebi:15351	used-to-produce	chebi:22614
+chebi:15354	consumption-controlled-by	CHAT
+chebi:15354	chemical-affects	SLC44A3
+chebi:15354	chemical-affects	SLC5A7
+chebi:15354	chemical-affects	SLC6A8
+chebi:15354	used-to-produce	chebi:22614
+chebi:22614	consumption-controlled-by	ACHE
+chebi:22614	consumption-controlled-by	BCHE
+chebi:22614	chemical-affects	CHRFAM7A
+chebi:22614	chemical-affects	CHRNA10
+chebi:22614	chemical-affects	CHRNA1
+chebi:22614	chemical-affects	CHRNA2
+chebi:22614	chemical-affects	CHRNA3
+chebi:22614	chemical-affects	CHRNA4
+chebi:22614	chemical-affects	CHRNA5
+chebi:22614	chemical-affects	CHRNA6
+chebi:22614	chemical-affects	CHRNA7
+chebi:22614	chemical-affects	CHRNA9
+chebi:22614	chemical-affects	CHRNB1
+chebi:22614	chemical-affects	CHRNB2
+chebi:22614	chemical-affects	CHRNB3
+chebi:22614	chemical-affects	CHRNB4
+chebi:22614	chemical-affects	CHRND
+chebi:22614	chemical-affects	CHRNE
+chebi:22614	chemical-affects	CHRNG
+chebi:22614	chemical-affects	SLC18A3
+chebi:22614	used-to-produce	chebi:15351
+chebi:22614	used-to-produce	chebi:15354
+chebi:29108	chemical-affects	ACTA1
+chebi:29108	chemical-affects	ACTA2
+chebi:29108	chemical-affects	ACTBL2
+chebi:29108	chemical-affects	ACTB
+chebi:29108	chemical-affects	ACTC1
+chebi:29108	chemical-affects	ACTG1
+chebi:29108	chemical-affects	ACTG2
+chebi:29108	chemical-affects	ACTR1A
+chebi:29108	chemical-affects	ACTR1B
+chebi:29108	chemical-affects	CTAGE15
+chebi:29108	chemical-affects	CTAGE4
+chebi:29108	chemical-affects	CTAGE9
+chebi:29108	chemical-affects	MYH10
+chebi:29108	chemical-affects	MYH11
+chebi:29108	chemical-affects	MYH13
+chebi:29108	chemical-affects	MYH14
+chebi:29108	chemical-affects	MYH15
+chebi:29108	chemical-affects	MYH1
+chebi:29108	chemical-affects	MYH2
+chebi:29108	chemical-affects	MYH3
+chebi:29108	chemical-affects	MYH4
+chebi:29108	chemical-affects	MYH6
+chebi:29108	chemical-affects	MYH7B
+chebi:29108	chemical-affects	MYH7
+chebi:29108	chemical-affects	MYH8
+chebi:29108	chemical-affects	MYH9
+chebi:29108	chemical-affects	MYO10
+chebi:29108	chemical-affects	MYO15A
+chebi:29108	chemical-affects	MYO16
+chebi:29108	chemical-affects	MYO18A
+chebi:29108	chemical-affects	MYO18B
+chebi:29108	chemical-affects	MYO19
+chebi:29108	chemical-affects	MYO1A
+chebi:29108	chemical-affects	MYO1B
+chebi:29108	chemical-affects	MYO1C
+chebi:29108	chemical-affects	MYO1D
+chebi:29108	chemical-affects	MYO1E
+chebi:29108	chemical-affects	MYO1F
+chebi:29108	chemical-affects	MYO1G
+chebi:29108	chemical-affects	MYO3A
+chebi:29108	chemical-affects	MYO3B
+chebi:29108	chemical-affects	MYO5A
+chebi:29108	chemical-affects	MYO5B
+chebi:29108	chemical-affects	MYO5C
+chebi:29108	chemical-affects	MYO6
+chebi:29108	chemical-affects	MYO7A
+chebi:29108	chemical-affects	MYO7B
+chebi:29108	chemical-affects	MYO9A
+chebi:29108	chemical-affects	PLEKHH3
