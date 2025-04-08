@@ -1,31 +1,94 @@
-# Synthetic Data 
+# Synthetic Data
 
-## Download STRING human interactome
-1. 
+> All commands should be run from the `synthetic-data/` root directory.
 
-## Steps to get pathways
-### 1. Steps to Process Panther Pathways
-1.	In the pathway-data folder (default: pathway-data/), create a new folder named after the signaling pathway.
+## Download STRING Human Interactome
+1. Download the STRING *Homo sapiens* `9606.protein.links.full.v12.0.txt.gz` database file from [STRING](https://string-db.org/cgi/download?sessionId=bL9sRTdIaUEt&species_text=Homo+sapiens&settings_expanded=0&min_download_score=0&filter_redundant_pairs=0&delimiter_type=txt).
+2. Move the downloaded file into the `human-interactome/` folder.
+3. From the synthetic-data/ directory, extract the file using:
 
-    If using a different folder than pathway-data, update the directory variable in ProcessPantherPathway.R.
+   ```
+   gunzip human-interactome/9606.protein.links.full.v12.0.txt.gz
+   ```
 
-2.	Inside this new folder, add a .txt file with the same name as the folder.
-3.	Open ProcessPantherPathway.R and add to the pathways variable the name of the signaling pathway to the vector.
-4.	From the synthetic-data folder, run the script using: Rscript src/ProcessPantherPathway.R
+## Download New PANTHER Pathways
+1. Visit [Pathway Commons](https://www.pathwaycommons.org/).
+2. Search for the desired pathway (e.g., "signaling") and filter the results by the **PANTHER pathway** data source.  
+   Example: [Search for "Signaling" filtered by PANTHER pathway](https://apps.pathwaycommons.org/search?datasource=panther&q=Signaling&type=Pathway)
+3. Click on the desired pathway and download the **Extended SIF** version of the pathway.
+4. In the `pathway-data/` folder, create a new subfolder named after the pathway you downloaded.
+5. Move the downloaded Extended SIF file to this new folder (as a `.txt` file). Rename the file to match the subfolder name exactly.
 
-### 2. Steps to Make Pathways SPRAS Compatible
-1. on line 4, add any new signaling pathway folder name to the list in SPRAS_compatible_files.py
 
-    If using a different folder than pathway-data, update the folder in SPRAS_compatible_files.py on line 5
+## Steps to Generate SPRAS-Compatible Pathways
 
-2. From the synthetic-data folder, run the script using: python src/SPRAS_compatible_files.py
+### 1. Process PANTHER Pathways
+
+1. Open `process_panther_pathway.R` and add the name of any new pathways to the `pathways` vector on **line 6**.
+2. From the `synthetic-data/` root directory, run the command:
+   ```
+   Rscript src/process_panther_pathway.R
+   ```
+3. This will create seven new files in each subfolder of the `pathway-data/` directory:
+- `DEL-EDGES.txt`
+- `DEL-NODES.txt`
+- `EDGES.txt`
+- `NODES.txt`
+- `PRIZES-100.txt`
+- `SOURCES.txt`
+- `TARGETS.txt`
+
+### 2. Convert Pathways to SPRAS-Compatible Format
+1.	In `SPRAS_compatible_files.py`, add the name of any new pathways to the `pathway_dirs` list on **line 8**.
+2.	From the synthetic-data/ directory, run the command:
+```
+python src/SPRAS_compatible_files.py
+```
+3. This will create a new folder named `spras-compatible-pathway-data`, containing subfolders for each PANTHER pathway in SPRAS-compatible format.  
+Each subfolder will include the following three files:
+- `<pathway_name>_gs_edges.txt`
+- `<pathway_name>_gs_nodes.txt`
+- `<pathway_name>_node_prizes.txt`
 
 ## Steps to get the interactomes
 ### 1. Steps to get threshold interactomes
-1. 
+1. From the synthetic-data/ directory, run the command:
+```
+python src/threshold_interactomes.py
+```
+2.	This will create a new folder named `interactomes`, containing a subfolder called `uniprot-threshold-interactomes`.
+The subfolder will include the following 12 files:
+- 10 thresholded interactomes: `uniprot_human_interactome_<threshold>.txt` (thresholds range from 1 to 900)
+- `proteins_missing_aliases.csv`: STRING IDs that are missing UniProt accession identifiers
+- `removed_edges.txt`: All edges removed from the uniprot_human_interactome_<threshold>.txt files
 
-### 2. Steps to get combined interactomes (pathways and threshold interactomes)
-1.
+### 2. Steps to get combined interactomes (Panther pathways and threshold interactomes)
+1. In `combine.py`, adjust the `pathway_dirs` list on **line 11** to be the pathways to be included in the combined networks
+2. From the synthetic-data/ directory, run the command:
+```
+python src/combine.py
+```
+3. This will create a new a subfolder called `uniprot-combined-threshold-interactomes` in `interactomes`.
+This subfolder will include 10 files:
+- 10 combined threshold interactomes combined with the chosen pathways: `uniprot_combined_interactome_<threshold>.txt` (thresholds range from 1 to 900)
 
-### 3. Steps to get overlap analytics
-1. 
+### 3. Steps to get overlap analytics between Panther pathways and threshold interactomes
+1. In `overlap_analytics.py`, update the `pathway_dirs` list on **line 11** to include the pathways used in the combined networks (ensure this matches the list in `combine.py`).
+2. From the synthetic-data/ directory, run the command:
+```
+python src/overlap_analytics.py
+```
+3. Two new files will be added in `interactomes/uniprot-combined-threshold-interactomes`.
+- `overlap_combined_info.csv`
+- `overlap_info.csv`
+
+# Pilot Data
+For the pilot data, use the list `["Fas_signaling", "FGF_signaling", "Interferon_gamma_signaling", "JAK_STAT_signaling", "VEGF_signaling"]` in both:
+- the list in `combine.py`
+- the list in `overlap_analytics.py`
+
+Make sure these pathways in the list are also added `["Fas_signaling", "FGF_signaling", "Interferon_gamma_signaling", "JAK_STAT_signaling", "VEGF_signaling"]`to:
+- the `pathways` vector in `ProcessPantherPathway.R`
+- the list in `SPRAS_compatible_files.py`
+
+**Once you’ve updated the pathway lists in all relevant scripts, run all the steps above to generate the Pilot dataset.**

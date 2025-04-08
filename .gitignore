@@ -161,6 +161,7 @@ cython_debug/
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
 synthetic-data/human-interactome/9606.protein.links.full.v12.0.txt
+synthetic-data/human-interactome/9606.protein.links.full.v12.0.txt.gz
 synthetic-data/B_cell_activation/.Rhistory
 synthetic-data/.DS_Store
 
