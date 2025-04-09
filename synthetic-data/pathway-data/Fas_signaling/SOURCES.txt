@@ -1,2 +1,2 @@
 NODE	uniprot
-JUN	P05412
+FAS	P25445

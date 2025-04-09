@@ -48,7 +48,7 @@ process_panther_pathway <- function(pathway_path, pathway_folder) {
     matches <- inner_join(nodes, humanTFs, by = c("uniprot" = "Uniprot_Accession"))
     sources <- matches %>% select(NODE, uniprot)
     
-    write_tsv(sources, paste0(pathway_folder, "SOURCES.txt"))
+    write_tsv(sources, paste0(pathway_folder, "TARGETS.txt"))
     
     return(sources)
   }
@@ -62,7 +62,7 @@ process_panther_pathway <- function(pathway_path, pathway_folder) {
     matches <- inner_join(nodes, receptors, by = c("uniprot" = "UniProt accession"))
     targets <- matches %>% select(NODE, uniprot)
     
-    write_tsv(targets, paste0(pathway_folder, "TARGETS.txt"))
+    write_tsv(targets, paste0(pathway_folder, "SOURCES.txt"))
     
     return(targets)
   }
