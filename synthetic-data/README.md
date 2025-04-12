@@ -50,6 +50,12 @@ Each subfolder will include the following three files:
 - `<pathway_name>_gs_nodes.txt`
 - `<pathway_name>_node_prizes.txt`
 
+4. From the synthetic-data/ directory, run the command:
+```
+python src/ratios.py
+```
+5. This will create a new file `data_ratio.txt` in `spras-compatible-pathway-data` to explain the edge to target/sources ratios.
+
 ## Steps to get the interactomes
 ### 1. Steps to get threshold interactomes
 1. From the synthetic-data/ directory, run the command:
@@ -83,11 +89,11 @@ python src/overlap_analytics.py
 - `overlap_info.csv`
 
 # Pilot Data
-For the pilot data, use the list `["Fas_signaling", "FGF_signaling", "Interferon_gamma_signaling", "JAK_STAT_signaling", "VEGF_signaling"]` in both:
+For the pilot data, use the list `["Wnt_signaling", "JAK_STAT_signaling", "Interferon_gamma_signaling", "FGF_signaling", "Ras" ]` in both:
 - the list in `combine.py`
 - the list in `overlap_analytics.py`
 
-Make sure these pathways in the list are also added `["Fas_signaling", "FGF_signaling", "Interferon_gamma_signaling", "JAK_STAT_signaling", "VEGF_signaling"]`to:
+Make sure these pathways in the list are also added `["Wnt_signaling", "JAK_STAT_signaling", "Interferon_gamma_signaling", "FGF_signaling", "Ras" ]`to:
 - the `pathways` vector in `ProcessPantherPathway.R`
 - the list in `SPRAS_compatible_files.py`
 
