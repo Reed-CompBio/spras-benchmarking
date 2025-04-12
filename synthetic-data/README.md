@@ -19,6 +19,11 @@
 4. In the `pathway-data/` folder, create a new subfolder named after the pathway you downloaded.
 5. Move the downloaded Extended SIF file to this new folder (as a `.txt` file). Rename the file to match the subfolder name exactly.
 
+## Sources and Targets
+
+[Sources](https://www.pnas.org/doi/full/10.1073/pnas.1808790115) are silico human surfaceomes receptors.
+
+[Targets](https://academic.oup.com/nar/article/51/D1/D39/6765312) are human transcription factors. 
 
 ## Steps to Generate SPRAS-Compatible Pathways
 
