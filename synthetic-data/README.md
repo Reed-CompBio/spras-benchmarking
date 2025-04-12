@@ -80,25 +80,17 @@ The subfolder will include the following 12 files:
 python src/combine.py
 ```
 3. This will create a new a subfolder called `uniprot-combined-threshold-interactomes` in `interactomes`.
-This subfolder will include 10 files:
+This subfolder will include 12 files:
 - 10 combined threshold interactomes combined with the chosen pathways: `uniprot_combined_interactome_<threshold>.txt` (thresholds range from 1 to 900)
-
-### 3. Steps to get overlap analytics between Panther pathways and threshold interactomes
-1. In `overlap_analytics.py`, update the `pathway_dirs` list on **line 11** to include the pathways used in the combined networks (ensure this matches the list in `combine.py`).
-2. From the synthetic-data/ directory, run the command:
-```
-python src/overlap_analytics.py
-```
-3. Two new files will be added in `interactomes/uniprot-combined-threshold-interactomes`.
 - `overlap_combined_info.csv`
 - `overlap_info.csv`
 
 # Pilot Data
-For the pilot data, use the list `["Wnt_signaling", "JAK_STAT_signaling", "Interferon_gamma_signaling", "FGF_signaling", "Ras" ]` in both:
+For the pilot data, use the list `["Wnt_signaling", "JAK_STAT_signaling", "Interferon_gamma_signaling", "FGF_signaling", "Ras"]` in both:
 - the list in `combine.py`
 - the list in `overlap_analytics.py`
 
-Make sure these pathways in the list are also added `["Wnt_signaling", "JAK_STAT_signaling", "Interferon_gamma_signaling", "FGF_signaling", "Ras" ]`to:
+Make sure these pathways in the list are also added `["Wnt_signaling", "JAK_STAT_signaling", "Interferon_gamma_signaling", "FGF_signaling", "Ras"]`to:
 - the `pathways` vector in `ProcessPantherPathway.R`
 - the list in `SPRAS_compatible_files.py`
 
