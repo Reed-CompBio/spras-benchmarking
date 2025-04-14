@@ -46,11 +46,11 @@ process_panther_pathway <- function(pathway_path, pathway_folder) {
   process_TFs <- function(nodes, pathway_folder) {
     humanTFs <- read_tsv('human-interactome/Homo_sapiens_TF_Uniprot.txt')
     matches <- inner_join(nodes, humanTFs, by = c("uniprot" = "Uniprot_Accession"))
-    sources <- matches %>% select(NODE, uniprot)
+    targets <- matches %>% select(NODE, uniprot)
     
-    write_tsv(sources, paste0(pathway_folder, "TARGETS.txt"))
+    write_tsv(targets, paste0(pathway_folder, "TARGETS.txt"))
     
-    return(sources)
+    return(targets)
   }
   
   # Function for taking a processed Node dataset from process_panther_pathway and checking for receptors
@@ -60,23 +60,23 @@ process_panther_pathway <- function(pathway_path, pathway_folder) {
       select(`UniProt accession`, `Ensembl gene`, `Membranome Almen main-class`) %>%
       filter(`Membranome Almen main-class` == "Receptors")
     matches <- inner_join(nodes, receptors, by = c("uniprot" = "UniProt accession"))
-    targets <- matches %>% select(NODE, uniprot)
+    sources <- matches %>% select(NODE, uniprot)
     
-    write_tsv(targets, paste0(pathway_folder, "SOURCES.txt"))
+    write_tsv(sources, paste0(pathway_folder, "SOURCES.txt"))
     
-    return(targets)
+    return(sources)
   }
   
   process_prizes <- function(sources, targets, pathway_folder) {
-    prizes100 <- rbind(sources, targets) %>% 
+    prizes100 <- rbind(targets, sources) %>% 
       mutate(prizes = 100, active = "true") %>% 
       select(NODE, uniprot, prizes, active)
     
     write_tsv(prizes100, paste0(pathway_folder, "PRIZES-100.txt"))
   }
   
-  targets <- process_receptors(nodes, pathway_folder)
-  sources <- process_TFs(nodes, pathway_folder)
+  sources <- process_receptors(nodes, pathway_folder)
+  targets <- process_TFs(nodes, pathway_folder)
   prizes <- process_prizes(sources, targets, pathway_folder)
   
   # Return all four datasets as a list
