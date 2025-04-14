@@ -30,12 +30,16 @@ for threshold in thresholds:
     combined_edges["Rank"] = fifty_percentile_rank
 
     merged_df = pd.concat([combined_edges, threshold_human_interactome])
+    print(len(merged_df))
+    # TODO want to keep highest rank but keep directed if exist otherwise undirected
+    merged_df = merged_df.sort_values(by=["Rank", "Node1", "Node2", "Direction"], ascending=True, ignore_index=True)
     merged_df = merged_df.drop_duplicates(subset=['Node1', 'Node2'], keep='first')
-    
+    print(len(merged_df))
     merged_df.to_csv(f"interactomes/uniprot-combined-threshold-interactomes/uniprot_combined_interactome_{threshold}.txt", sep="\t", index = False, header = False)
 
 # get overlap analytics
 
+# TODO the overlap analytics don't include the drop duplicates
 # overlap of edges in pathway per threshold
 results = []
 
