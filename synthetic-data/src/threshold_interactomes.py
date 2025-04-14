@@ -45,4 +45,23 @@ for thresh in thresholds:
     thresh_df = thresh_df[['protein1_uniprot', 'protein2_uniprot', "experiments"]]
     thresh_df["Direction"] = "U"
     thresh_df.columns = ["Node1", "Node2", "Rank", "Direction"]
+
+    # sort by rank, then by (node1 and node2) to ensure deterministic sorting
+    thresh_df = thresh_df.sort_values(by=["Rank", "Node1", "Node2"], ascending=True, ignore_index=True)
+
+    # for undirected edges, sort node pairs so that Node1 is always the lesser of the two
+    undirected_mask = thresh_df["Direction"] == "U"
+    
+    # computes the minimum and maximum node (sorted order) for each row under the mask
+    min_nodes = thresh_df.loc[undirected_mask, ["Node1", "Node2"]].min(axis=1)
+    max_nodes = thresh_df.loc[undirected_mask, ["Node1", "Node2"]].max(axis=1)
+    
+    # assigns the sorted Node1 and Node2 back into the df
+    thresh_df.loc[undirected_mask, "Node1"] = min_nodes
+    thresh_df.loc[undirected_mask, "Node2"] = max_nodes
+
+    # keep highest rank version of the edge, drop all the others
+    thresh_df = thresh_df.sort_values(by=["Node1", "Node2", "Rank"], ascending=[True, True, False], ignore_index=True)
+    thresh_df = thresh_df.drop_duplicates(subset=["Node1", "Node2"], keep="first")
+    
     thresh_df.to_csv(f"interactomes/uniprot-threshold-interactomes/uniprot_human_interactome_{thresh}.txt", sep = "\t", header = False, index= False)

@@ -43,9 +43,11 @@ for pathway in pathway_dirs:
     # a dictionary mapping gene -> Uniprot accession ID
     gene_to_uniprot = pd.Series(nodes_df['uniprot'].values, index=nodes_df['NODE']).to_dict()
     
+    # nodes
     nodes_uniprot = nodes_df[['uniprot']]
     nodes_uniprot.to_csv(os.path.join(out_folder, f"{pathway}_gs_nodes.txt"), sep="\t", index=False, header=False)
 
+    # edges
     edges_file = os.path.join(pathway_folder, "EDGES.txt")
     edges_df = pd.read_csv(edges_file, sep="\t", header=0)
     edges_df['NODE1'] = edges_df['NODE1'].map(gene_to_uniprot)
@@ -53,8 +55,23 @@ for pathway in pathway_dirs:
     edges_df['Rank'] = 1
     edges_df["Direction"] = edges_df["INTERACTION_TYPE"].apply(lambda x: "D" if x in directed else ("U" if x in undirected else x))
     edges_df = edges_df.drop(columns = "INTERACTION_TYPE")
+
+    # remove duplicate rows
+    # sort by (node1 and node2) to ensure deterministic sorting
+    edges_df = edges_df.sort_values(by=["NODE1", "NODE2"], ascending=True, ignore_index=True)
+    undirected_mask = edges_df["Direction"] == "U"
+    min_nodes = edges_df.loc[undirected_mask, ["NODE1", "NODE2"]].min(axis=1)
+    max_nodes = edges_df.loc[undirected_mask, ["NODE1", "NODE2"]].max(axis=1)
+    edges_df.loc[undirected_mask, "NODE1"] = min_nodes
+    edges_df.loc[undirected_mask, "NODE2"] = max_nodes
+    
+    # keep 1 directed and 1 undirected edge if both exist
+    edges_df = edges_df.sort_values(by=["NODE1", "NODE2", "Direction"], ascending=True, ignore_index=True) # rank is 1; don't need to sort by rank
+    edges_df = edges_df.drop_duplicates(keep="first", ignore_index=True)
+    
     edges_df.to_csv(os.path.join(out_folder, f"{pathway}_gs_edges.txt"), sep="\t", index=False, header=False)
 
+    # prizes, targets, sources
     prizes_file = os.path.join(pathway_folder, "PRIZES-100.txt")
     prizes_df = pd.read_csv(prizes_file, sep="\t")
     prizes_uniprot = prizes_df[['uniprot', 'prizes', 'active']]
