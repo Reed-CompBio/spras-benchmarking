@@ -72,7 +72,7 @@ for pathway in pathway_dirs:
     edges_df.to_csv(os.path.join(out_folder, f"{pathway}_gs_edges.txt"), sep="\t", index=False, header=False)
 
     # prizes, targets, sources
-    prizes_file = os.path.join(pathway_folder, "PRIZES-100.txt")
+    prizes_file = os.path.join(pathway_folder, "PRIZES.txt")
     prizes_df = pd.read_csv(prizes_file, sep="\t")
     prizes_uniprot = prizes_df[['uniprot', 'prizes', 'active']]
 

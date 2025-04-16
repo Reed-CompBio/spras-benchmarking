@@ -33,6 +33,7 @@ for threshold in thresholds:
     # priotize directed if it exists otherwise undirected, then keep highest rank
     merged_df = merged_df.sort_values(by=["Direction", "Rank", "Node1", "Node2"], ascending=[True, False, True, True], ignore_index=True)
     merged_df = merged_df.drop_duplicates(subset=['Node1', 'Node2'], keep='first')
+    merged_df['Rank'] = merged_df['Rank'] / 1000
     merged_df.to_csv(f"interactomes/uniprot-combined-threshold-interactomes/uniprot_combined_interactome_{threshold}.txt", sep="\t", index = False, header = False)
 
 # get overlap analytics

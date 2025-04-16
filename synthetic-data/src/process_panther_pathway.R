@@ -68,11 +68,11 @@ process_panther_pathway <- function(pathway_path, pathway_folder) {
   }
   
   process_prizes <- function(sources, targets, pathway_folder) {
-    prizes100 <- rbind(targets, sources) %>% 
-      mutate(prizes = 100, active = "true") %>% 
+    prizes1 <- rbind(targets, sources) %>% 
+      mutate(prizes = 1.0, active = "true") %>% 
       select(NODE, uniprot, prizes, active)
     
-    write_tsv(prizes100, paste0(pathway_folder, "PRIZES-100.txt"))
+    write_tsv(prizes1, paste0(pathway_folder, "PRIZES.txt"))
   }
   
   sources <- process_receptors(nodes, pathway_folder)

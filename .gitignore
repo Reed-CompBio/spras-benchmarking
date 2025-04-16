@@ -166,6 +166,8 @@ synthetic-data/B_cell_activation/.Rhistory
 synthetic-data/.DS_Store
 
 .DS_Store
+.RData
+.Rhistory
 
 synthetic-data/interactomes/
 synthetic-data/spras-compatible-pathway-data/
