@@ -19,9 +19,9 @@ pip install ./spras
 To run the benchmarking pipeline, use:
 
 ```sh
-snakemake --cores 1 --configfile configs/dmmm.yaml --show-failed-logs -s spras/Snakefile
+snakemake --cores 1  --configfile configs/base.yaml --configfile configs/dmmm.yaml --show-failed-logs -s spras/Snakefile
 ```
 
 > [!NOTE]
 > Each one of the dataset categories (at the time of writing, DMMM and PRA) are split into different configuration files.
-> Run each one as you would want.
+> Run each one as you would want, but make sure to include the `configs/base.yaml` reference.
