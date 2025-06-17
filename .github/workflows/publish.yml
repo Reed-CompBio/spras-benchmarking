@@ -29,6 +29,6 @@ jobs:
         run: conda list
       - name: Run Snakemake workflow
         shell: bash --login {0}
-        run: snakemake --cores 2 --configfile configs/config.yaml --show-failed-logs -s spras/Snakefile
+        run: snakemake --cores 1 --configfile configs/config.yaml --show-failed-logs -s spras/Snakefile
       - name: Checkout /output
         run: ls /output
