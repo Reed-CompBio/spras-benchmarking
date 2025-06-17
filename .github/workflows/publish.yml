@@ -47,9 +47,6 @@ jobs:
           environment-file: spras/environment.yml
           auto-activate-base: false
           miniconda-version: 'latest'
-          # For caching to work properly
-          # https://github.com/conda-incubator/setup-miniconda/tree/7611e53ebc2c283980bc9e019ac2e7fd66f5b044?tab=readme-ov-file#caching-packages
-          use-only-tar-bz2: true
       # Install spras in the environment using pip
       - name: Install spras in conda env
         shell: bash --login {0}
