@@ -2,7 +2,7 @@
 
 ![example workflow](https://github.com/Reed-CompBio/spras-benchmarking/actions/workflows/publish.yml/badge.svg)
 
-Benchmarking datasets for the [SPRAS](https://github.com/Reed-CompBio/spras) project
+Benchmarking datasets for the [SPRAS](https://github.com/Reed-CompBio/spras) project. This repository contains gold standard datasets to evaluate on as well as paper reproductions & improvements incorporating new methodologies.
 
 ## Setup
 
@@ -19,9 +19,9 @@ pip install ./spras
 To run the benchmarking pipeline, use:
 
 ```sh
-snakemake --cores 1 --configfile configs/base.yaml --configfile configs/dmmm.yaml --show-failed-logs -s spras/Snakefile
+snakemake --cores 1-configfile configs/dmmm.yaml --show-failed-logs -s spras/Snakefile
 ```
 
 > [!NOTE]
 > Each one of the dataset categories (at the time of writing, DMMM and PRA) are split into different configuration files.
-> Run each one as you would want, but make sure to include the `configs/base.yaml` reference.
+> Run each one as you would want.
