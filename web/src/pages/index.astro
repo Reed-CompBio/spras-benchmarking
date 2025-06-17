@@ -1,7 +1,15 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { getStaticPaths } from './[uid]/index.astro'
 ---
 
 <BaseLayout>
 	<h1>SPRAS Benchmarking</h1>
+
+	<h2>Runs</h2>
+	<ul>
+		{getStaticPaths().map(({ params: { uid } }) => (
+			<li><a href={`./${uid}`}>{uid}</a></li>
+		))}
+	</ul>
 </BaseLayout>

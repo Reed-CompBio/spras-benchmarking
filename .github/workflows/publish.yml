@@ -89,13 +89,13 @@ jobs:
       - name: Download Artifacts
         uses: actions/download-artifact@v4
         with:
-          download-path: output
+          name: build
       - name: Setup Pages
         uses: actions/configure-pages@v2
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: output
+          path: dist
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4

@@ -1,0 +1,23 @@
+---
+export function getStaticPaths() {
+  const dataFiles = import.meta.glob('../../../public/data/output/**', { query: '?raw' });
+  const paths = Object.keys(dataFiles)
+    .map(path => path.substring("../../../public/data/output/".length))
+    // We can safely filter for these prefixes, as datasets start with their type.
+    // Specifically, we do not want to make pages for our prepared inputs and logs.
+    .filter(path => !path.startsWith('prepared'))
+    .filter(path => !path.startsWith('logs'))
+    // Then, we don't want to make pages for our root-level files
+    .filter(path => path.includes("/"))
+    // Finally, we specifically want the folder names
+    .map(path => path.split("/")[0])
+    // Then, we exclude -params-
+    .map(path => path.replace("-params", ""))
+
+  return paths.map(path => ({ params: { uid: path }}))
+}
+
+const { uid } = Astro.params;
+---
+
+<h1>{uid}</h1>
