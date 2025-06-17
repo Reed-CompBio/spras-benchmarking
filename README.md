@@ -19,7 +19,7 @@ pip install ./spras
 To run the benchmarking pipeline, use:
 
 ```sh
-snakemake --cores 1  --configfile configs/base.yaml --configfile configs/dmmm.yaml --show-failed-logs -s spras/Snakefile
+snakemake --cores 1 --configfile configs/base.yaml --configfile configs/dmmm.yaml --show-failed-logs -s spras/Snakefile
 ```
 
 > [!NOTE]
