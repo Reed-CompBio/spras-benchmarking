@@ -1,0 +1,24 @@
+hash_length: 7
+container_framework: docker
+unpack_singularity: false
+
+container_registry:
+  base_url: docker.io
+  owner: reedcompbio
+
+reconstruction_settings:
+  locations:
+    reconstruction_dir: "output"
+    run: true
+
+analysis:
+  summary:
+    include: false
+  graphspace:
+    include: false
+  cytoscape:
+    include: false
+  ml:
+    include: false
+  evaluation:
+    include: false

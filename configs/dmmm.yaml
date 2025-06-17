@@ -1,13 +1,3 @@
-# Global workflow control
-
-hash_length: 7
-container_framework: docker
-unpack_singularity: false
-
-container_registry:
-   base_url: docker.io
-   owner: reedcompbio
-
 algorithms:
   - name: "omicsintegrator1"
     params:
@@ -17,11 +7,6 @@ algorithms:
         w: [.5]
         d: [10]
         mu: [2]
-  - name: "pathlinker"
-    params:
-    include: false
-    run1:
-      k: range(100,201,100)
 
 datasets:
   - label: hiv060
@@ -45,20 +30,3 @@ datasets:
     other_files: []
     # Relative path from the spras directory
       data_dir: "yeast-osmotic-stress/processed"
-
-reconstruction_settings:
-  locations:
-    reconstruction_dir: "output"
-    run: true
-
-analysis:
-  summary:
-    include: false
-  graphspace:
-    include: false
-  cytoscape:
-    include: false
-  ml:
-    include: false
-  evaluation:
-    include: false
