@@ -19,9 +19,9 @@
 
 
 #### 5. hsa_uniprot.list
-- Downloaded from https://www.genome.jp/linkdb/ 
+- Downloaded from https://www.genome.jp/linkdb/
 - Enter the following in the text boxes under the database link diagram:
-    - Click database names to download link information between two databases from *hsa* to *uniprot* in *text* format 
+    - Click database names to download link information between two databases from *hsa* to *uniprot* in *text* format
 
 
 #### idmapping_2024_06_26.tsv & idmapping_active_false_2024_06_26.tsv
@@ -42,7 +42,7 @@
 
 
 #### uniprotkb_go_0000398_AND_taxonomy_id_96_2024_07_25.tsv, uniprotkb_go_0045944_AND_taxonomy_id_96_2024_07_29.tsv, uniprotkb_go_0051301_AND_taxonomy_id_96_2024_07_29.tsv, & uniprotkb_go_0098609_AND_taxonomy_id_96_2024_07_29.tsv
-- Source: Downloaded from https://www.uniprot.org/ 
+- Source: Downloaded from https://www.uniprot.org/
 - Process:
     - Select Advanced in the main text field
     - Select Gene Ontology in the first blue drop down menu and then select Taxonomy in the second

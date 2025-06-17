@@ -13,14 +13,14 @@ The data is from protein abundance and phosphorylation experiments, which will b
 #### 1. compare_prizes_network.ipynb
 
 This notebook performs data analysis that compares the corrected prize files (5 min and 60 min) from the research article to the original prize files:
-- Some proteins in the original prize files have the syntax `majorIdentifier-N ` where N denotes isoforms. 
+- Some proteins in the original prize files have the syntax `majorIdentifier-N ` where N denotes isoforms.
 - Data analysis involves checking how many proteins in the original prize files are repeats of the same majorIdentifier
-- Additionally, it involves checking if the network file used (`phosphosite-irefindex13.0-uniprot.txt`) contains secondary identifiers with the -N syntax. 
+- Additionally, it involves checking if the network file used (`phosphosite-irefindex13.0-uniprot.txt`) contains secondary identifiers with the -N syntax.
 - If it does not, we will want to strip that syntax from the prize file as part of preprocessing.
 
 
 #### 2. generate_protein_mapping_input.ipynb
-This notebook creates the list of proteins to upload to UniProt as a .txt file. 
+This notebook creates the list of proteins to upload to UniProt as a .txt file.
 - The proteins from the the `prize05.csv` and `prize060.csv` files are combined together and this is saved as a csv. The file is saved as `prize_list_proteins.txt`.
 
 
@@ -43,7 +43,7 @@ This notebook preprocesses the original prize files into a SPRAS compatible form
 
 #### 4. filter_empty_pathways.ipynb
 - Removes any empty pathways that were created from the SPRAS output in place
-- Recommended: make a copy of the directory and then execute code on duplicate directory 
+- Recommended: make a copy of the directory and then execute code on duplicate directory
 
 
 #### 5. plot_num_nodes_summary_table.ipynb
@@ -61,13 +61,13 @@ This notebook creates an output of KEGG Orthology mapped to Uniprot and KEGG Ort
 
 
 #### 7. hiv05_comparison_ratios
-This notebook contains code to create comparison ratios for SPRAS ensemble pathways vs. the original publication pathway *and* SPRAS ensemble pathways vs. the KEGG pathway 
+This notebook contains code to create comparison ratios for SPRAS ensemble pathways vs. the original publication pathway *and* SPRAS ensemble pathways vs. the KEGG pathway
 - This is done by intersecting the nodes found in both pathways, and then comparing the number of nodes found in both to the number of nodes found in the individual original pathways
 
 
 #### 8. ensemble_node_maxfreq.ipynb
 This notebook contains code that loads the ensemble pathway and assigns the highest frequency associated with each node to the respective node.
-- The original SPRAS output ensemble pathway file assigns frequencies to edges. 
+- The original SPRAS output ensemble pathway file assigns frequencies to edges.
 - The result produced by this notebook assigns the maximum edge frequency associated with each node to the node, creating a max node frequency list that is saved as a CSV.
 
 

@@ -1,5 +1,4 @@
 from pathlib import Path
-import os
 import shutil
 
 CURRENT_DIR = Path('web')
@@ -18,7 +17,7 @@ if __name__ == '__main__':
     DATA_DIR.mkdir(exist_ok=True, parents=True)
     if Path('output').exists():
         shutil.move('output', DATA_DIR)
-    
+
     file_markup: list[str] = []
     for file in get_files_rec(DATA_DIR):
         file_loc = file.relative_to(CURRENT_DIR / 'output')
