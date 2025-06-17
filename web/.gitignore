@@ -17,3 +17,5 @@ pnpm-debug.log*
 .env
 .env.production
 
+# public data
+public/data
