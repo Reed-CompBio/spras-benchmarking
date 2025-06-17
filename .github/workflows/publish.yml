@@ -43,8 +43,6 @@ jobs:
       - name: Run Snakemake workflow
         shell: bash --login {0}
         run: snakemake --cores 1 --configfile configs/config.yaml --show-failed-logs -s spras/Snakefile
-      - name: Checkout /output
-        run: ls ./output
       - name: Run output viewer
         run: python3 web/generate.py
       - name: Setup Pages

@@ -15,7 +15,7 @@ def get_files_rec(directory: Path) -> list[Path]:
     return files
 
 if __name__ == '__main__':
-    DATA_DIR.mkdir(exist_ok=True)
+    DATA_DIR.mkdir(exist_ok=True, parents=True)
     if Path('output').exists():
         shutil.move('output', DATA_DIR)
     
