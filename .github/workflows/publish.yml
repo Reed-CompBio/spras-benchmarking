@@ -22,7 +22,7 @@ jobs:
       # Install spras in the environment using pip
       - name: Install spras in conda env
         shell: bash --login {0}
-        run: pip install ./sopras
+        run: pip install ./spras
       # Log conda environment contents
       - name: Log conda environment
         shell: bash --login {0}
