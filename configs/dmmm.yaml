@@ -16,12 +16,12 @@ datasets:
     # Placeholder
     other_files: []
     # Relative path from the spras directory
-    data_dir: "hiv-benchmarking/hiv_processed_data"
+    data_dir: "datasets/hiv/hiv_processed_data"
   - label: hiv05
     node_files: ["modified_prize_05.txt"]
     edge_files: ["phosphosite-irefindex13.0-uniprot.txt"]
     other_files: []
-    data_dir: "hiv-benchmarking/hiv_processed_data"
+    data_dir: "datasets/hiv/hiv_processed_data"
   - label: yeast
     node_files: ["prizes1_dummies.txt"]
     # DataLoader.py can currently only load a single edge file, which is the primary network
@@ -29,4 +29,4 @@ datasets:
     # Placeholder
     other_files: []
     # Relative path from the spras directory
-      data_dir: "yeast-osmotic-stress/processed"
+      data_dir: "datasets/yeast-osmotic-stress/processed"
