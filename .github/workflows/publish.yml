@@ -1,6 +1,19 @@
 name: Test SPRAS
 
-on: [push]
+on:
+  push:
+    branches: [main]
+
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow one concurrent deployment
+concurrency:
+  group: 'pages'
+  cancel-in-progress: true
 
 jobs:
   # Runs the Snakemake workflow in the conda environment
@@ -32,3 +45,15 @@ jobs:
         run: snakemake --cores 1 --configfile configs/config.yaml --show-failed-logs -s spras/Snakefile
       - name: Checkout /output
         run: ls ./output
+      - name: Run output viewer
+        run: python3 web/generate.py
+      - name: Setup Pages
+        uses: actions/configure-pages@v2
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          # Upload entire repository
+          path: 'web/output'
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v1
