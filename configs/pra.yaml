@@ -34,7 +34,7 @@ algorithms:
         k: [10]
 
 datasets:
-  - label: pra-muscleskeletal2018
+  - label: pramuscleskeletal2018
     node_files: ["sources.txt", "targets.txt"]
     # DataLoader.py can currently only load a single edge file, which is the primary network
     edge_files: ["interactome.tsv"]
