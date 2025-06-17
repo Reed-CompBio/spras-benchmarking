@@ -1,4 +1,4 @@
-# spras-benchmarking
+# SPRAS benchmarking
 
 ![example workflow](https://github.com/Reed-CompBio/spras-benchmarking/actions/workflows/publish.yml/badge.svg)
 
@@ -16,8 +16,8 @@ conda activate spras
 pip install ./spras
 ```
 
-To run the postprocess output scripts, we depend on [`uv`](https://docs.astral.sh/uv/) to separate the `spras` conda environment
-from the small scripts we have.
+To run the postprocess output scripts, we have a `pyproject.toml` which can be used with your desired python package manager. This separates
+the `spras` conda environment from the small scripts we have. (on CI, we use [`uv`](https://docs.astral.sh/uv/).)
 
 To run the benchmarking pipeline, use:
 
