@@ -1,3 +1,9 @@
+---
+import dayjs from 'dayjs'
+import { revision, shortRevision } from "../lib/commit";
+const buildDate = dayjs()
+---
+
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
@@ -10,5 +16,8 @@
         <main>
             <slot />
         </main>
+		<footer>
+			website built at {buildDate}, on commit <a href={`https://github.com/Reed-CompBio/spras-benchmarking/commit/${revision}`}>{shortRevision}</a>.
+		</footer>
 	</body>
 </html>

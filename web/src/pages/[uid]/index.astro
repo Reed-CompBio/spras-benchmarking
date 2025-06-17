@@ -1,8 +1,9 @@
 ---
+import { asFolderName, parseOutputString } from '../../lib/outputStyle';
+import { getPaths } from '../../lib/paths';
+
 export function getStaticPaths() {
-  const dataFiles = import.meta.glob('../../../public/data/output/**', { query: '?raw' });
-  const paths = Object.keys(dataFiles)
-    .map(path => path.substring("../../../public/data/output/".length))
+  const filteredPaths = getPaths()
     // We can safely filter for these prefixes, as datasets start with their type.
     // Specifically, we do not want to make pages for our prepared inputs and logs.
     .filter(path => !path.startsWith('prepared'))
@@ -12,12 +13,24 @@ export function getStaticPaths() {
     // Finally, we specifically want the folder names
     .map(path => path.split("/")[0])
     // Then, we exclude -params-
-    .map(path => path.replace("-params", ""))
+    .map(path => path.replace("-params", ""));
 
-  return paths.map(path => ({ params: { uid: path }}))
+  return filteredPaths.map(path => ({ params: { uid: path }}));
 }
 
 const { uid } = Astro.params;
+const output = parseOutputString(uid);
+// We get the raw files associated to this specific run
+const subPaths = getPaths().filter(path => path.startsWith(asFolderName(output)))
 ---
 
 <h1>{uid}</h1>
+
+<h2>Associated Output</h2>
+
+<ul>
+  {subPaths.map(path => (
+    // We remove the unnecessary prefix from the filename
+    <ul><a href={'data/output/' + path}>{path.substring((asFolderName(output) + '/').length)}</a></ul>
+  ))}
+</ul>
