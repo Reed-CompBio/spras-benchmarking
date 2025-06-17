@@ -16,6 +16,9 @@ conda activate spras
 pip install ./spras
 ```
 
+To run the postprocess output scripts, we depend on [`uv`](https://docs.astral.sh/uv/) to separate the `spras` conda environment
+from the small scripts we have.
+
 To run the benchmarking pipeline, use:
 
 ```sh

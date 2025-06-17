@@ -1,0 +1,9 @@
+[project]
+name = "spras-benchmarking"
+version = "0.1.0"
+description = "SPRAS Benchmarking Repository"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "pandas>=2.3.0",
+]

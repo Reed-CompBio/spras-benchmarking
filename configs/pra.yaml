@@ -1,0 +1,44 @@
+# Base Settings
+# TODO: (same for dmmm.yaml): can we deduplicate this using snakemake?
+hash_length: 7
+container_framework: docker
+unpack_singularity: false
+
+container_registry:
+  base_url: docker.io
+  owner: reedcompbio
+
+reconstruction_settings:
+  locations:
+    reconstruction_dir: "output"
+    run: true
+
+analysis:
+  summary:
+    include: false
+  graphspace:
+    include: false
+  cytoscape:
+    include: false
+  ml:
+    include: false
+  evaluation:
+    include: false
+
+# Custom settings
+algorithms:
+  - name: "pathlinker"
+    params:
+      include: true
+      run1:
+        k: [100]
+
+datasets:
+  - label: muscle-skeletal-2018
+    node_files: ["sources.txt", "targets.txt"]
+    # DataLoader.py can currently only load a single edge file, which is the primary network
+    edge_files: ["interactome.tsv"]
+    # Placeholder
+    other_files: []
+    # Relative path from the spras directory
+    data_dir: "datasets/rn-muscle-skeletal/processed"
