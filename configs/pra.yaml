@@ -31,7 +31,7 @@ algorithms:
     params:
       include: true
       run1:
-        k: [100]
+        k: [10]
 
 datasets:
   - label: muscleskeletal2018
