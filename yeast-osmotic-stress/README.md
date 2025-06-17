@@ -18,28 +18,6 @@ conda activate yeast_env
 to create a conda environment with the required packages and activate that environment.
 If you have a different version of Python already, you can install the specified versions of the required packages in your preferred manner instead of using Anaconda.
 
-## Raw Data
-
-List of raw data files and links to their sources:
-
-Prizes Input:  
-prizes.txt - https://github.com/gitter-lab/osmotic-stress/blob/master/Input%20Data/prizes.txt
-
-Network Input:  
-ChasmanNetwork-DirUndir.txt - https://github.com/gitter-lab/osmotic-stress/blob/master/Input%20Data/ChasmanNetwork-DirUndir.txt
-
-Dummy Nodes File:  
-dummy.txt - https://github.com/gitter-lab/osmotic-stress/blob/master/Input%20Data/dummy.txt
-
-Case Study Omics Integrator Edge Frequencies:  
-_edgeFreq.eda - https://github.com/gitter-lab/osmotic-stress/blob/master/Notebooks/Forest-TPS/_edgeFreq.eda
-
-Case Study Edge Results:  
-yeast_pcsf_network.sif - https://ars.els-cdn.com/content/image/1-s2.0-S2211124718313895-mmc4.zip
-
-Gold Standard Reference Pathways:  
-goldStandardUnionDetailed.txt - https://github.com/gitter-lab/osmotic-stress/blob/master/data/evaluation/goldStandardUnionDetailed.txt
-
 ## Scripts
 
 The SPRAS_output folder contains my best SPRAS ensemble output, a single parameter combination output pathway with a Beta parameter of 1.75 exactly, and the pathway summary file for the ensemble file. Copy your files in here to analyze your outputs. 
