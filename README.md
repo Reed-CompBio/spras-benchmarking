@@ -22,7 +22,7 @@ the `spras` conda environment from the small scripts we have. (on CI, we use [`u
 To run the benchmarking pipeline, use:
 
 ```sh
-snakemake --cores 1-configfile configs/dmmm.yaml --show-failed-logs -s spras/Snakefile
+snakemake --cores 1 --configfile configs/dmmm.yaml --show-failed-logs -s spras/Snakefile
 ```
 
 > [!NOTE]
