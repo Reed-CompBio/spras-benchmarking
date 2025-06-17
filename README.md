@@ -7,7 +7,7 @@ Benchmarking datasets for the [SPRAS](https://github.com/Reed-CompBio/spras) pro
 ## Setup
 
 This repository depends on SPRAS. If you want to reproduce the results of benchmarking locally,
-you will need to setup SPRAS. SPRAS depends on Docker and Conda - if it is hard to install either,
+you will need to setup SPRAS. SPRAS depends on [Docker](https://www.docker.com/) and [Conda](https://docs.conda.io/projects/conda/en/stable/). If it is hard to install either of these tools,
 a [devcontainer](https://containers.dev/) is available for easy setup.
 
 ```sh
