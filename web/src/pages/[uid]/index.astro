@@ -44,7 +44,7 @@ const interactome = (await import(`../../../../output/${asFolderName(output)}/pa
 <BaseLayout>
   <h1>{uid}</h1>
 
-  <a href="/">(go to home)</a>
+  <a href={import.meta.env.BASE_URL}>(go to home)</a>
 
   <h2>Parameters</h2>
 
