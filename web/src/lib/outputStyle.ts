@@ -57,6 +57,11 @@ export function parseOutputString(str: string): Output {
 
     // We didn't get a data type in the first passthrough - lets extract the data
     // type from the name
+    if (!dataType) {
+        const { type, name } = extractDatasetType(datasetName);
+        dataType = type;
+        datasetName = name;
+    }
 
     return {
         dataType,
