@@ -1,0 +1,2 @@
+NODE	uniprot	prizes	active
+ADRB3	P13945	1	true

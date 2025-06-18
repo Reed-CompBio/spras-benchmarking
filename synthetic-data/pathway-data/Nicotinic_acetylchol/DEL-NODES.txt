@@ -1,0 +1,5 @@
+NODE	uniprot
+chebi:15351	chebi:CHEBI:15351
+chebi:15354	chebi:CHEBI:15354
+chebi:29108	chebi:CHEBI:29108
+chebi:22614	chebi:CHEBI:22614

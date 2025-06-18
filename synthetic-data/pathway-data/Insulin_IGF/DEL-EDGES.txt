@@ -1,0 +1,12 @@
+NODE1	INTERACTION_TYPE	NODE2
+INPPL1	controls-production-of	chebi:18348
+PIK3CA	controls-production-of	chebi:16618
+PTEN	controls-production-of	chebi:18348
+TPTE	controls-production-of	chebi:18348
+chebi:16618	consumption-controlled-by	INPPL1
+chebi:16618	chemical-affects	PDPK1
+chebi:16618	consumption-controlled-by	PTEN
+chebi:16618	consumption-controlled-by	TPTE
+chebi:16618	used-to-produce	chebi:18348
+chebi:18348	consumption-controlled-by	PIK3CA
+chebi:18348	used-to-produce	chebi:16618

@@ -1,0 +1,9 @@
+NODE1	INTERACTION_TYPE	NODE2
+chebi:16412	chemical-affects	CD14
+chebi:16412	chemical-affects	LY96
+chebi:16412	chemical-affects	MYD88
+chebi:16412	chemical-affects	TIRAP
+chebi:16412	chemical-affects	TLR4
+chebi:84491	chemical-affects	TICAM1
+chebi:84491	chemical-affects	TICAM2
+chebi:84491	chemical-affects	TLR3

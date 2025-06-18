@@ -1,0 +1,2 @@
+NODE	uniprot
+PTPRC	P08575

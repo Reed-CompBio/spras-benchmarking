@@ -1,0 +1,3 @@
+NODE1	INTERACTION_TYPE	NODE2
+chebi:33984	consumption-controlled-by	FUT8
+chebi:33984	consumption-controlled-by	POFUT1

@@ -1,0 +1,2 @@
+NODE	uniprot
+JUN	P05412
