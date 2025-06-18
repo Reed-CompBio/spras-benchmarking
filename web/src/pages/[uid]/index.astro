@@ -55,7 +55,7 @@ const interactome = (await import(`../../../../output/${asFolderName(output)}/pa
   <ul>
     {subPaths.map(path => (
       // We remove the unnecessary prefix from the filename
-      <li><a href={'data/output/' + path}>{path.substring((asFolderName(output) + '/').length)}</a></li>
+      <li><a href={import.meta.env.BASE_URL + 'data/output/' + path}>{path.substring((asFolderName(output) + '/').length)}</a></li>
     ))}
   </ul>
 
