@@ -4,8 +4,8 @@
 
 ## Download STRING Human Interactome
 1. Download the STRING *Homo sapiens* `9606.protein.links.full.v12.0.txt.gz` database file from [STRING](https://string-db.org/cgi/download?sessionId=bL9sRTdIaUEt&species_text=Homo+sapiens&settings_expanded=0&min_download_score=0&filter_redundant_pairs=0&delimiter_type=txt).
-2. Move the downloaded file into the `human-interactome/` folder.
-3. From the synthetic-data/ directory, extract the file using:
+2. Move the downloaded file into the `raw/human-interactome/` folder.
+3. From the `raw/synthetic-data/` directory, extract the file using:
 
    ```
    gunzip human-interactome/9606.protein.links.full.v12.0.txt.gz
@@ -16,7 +16,7 @@
 2. Search for the desired pathway (e.g., "signaling") and filter the results by the **PANTHER pathway** data source.  
    Example: [Search for "Signaling" filtered by PANTHER pathway](https://apps.pathwaycommons.org/search?datasource=panther&q=Signaling&type=Pathway)
 3. Click on the desired pathway and download the **Extended SIF** version of the pathway.
-4. In the `pathway-data/` folder, create a new subfolder named after the pathway you downloaded.
+4. In the `raw/pathway-data/` folder, create a new subfolder named after the pathway you downloaded.
 5. Move the downloaded Extended SIF file to this new folder (as a `.txt` file). Rename the file to match the subfolder name exactly.
 
 ## Sources and Targets
