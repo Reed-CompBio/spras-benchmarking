@@ -27,10 +27,10 @@ const output = parseOutputString(uid);
 const subPaths = getPaths().filter(path => path.startsWith(asFolderName(output)))
 
 // The paramater config content
-const parametersCode = (await import(`/data/output/logs/parameters-${output.algorithm}-params-${output.paramsHash}.yaml?raw`)).default
+const parametersCode = (await import(`../../../../output/logs/parameters-${output.algorithm}-params-${output.paramsHash}.yaml?raw`)).default
 
 // The interactome content
-const interactome = (await import(`/data/output/${asFolderName(output)}/pathway.txt?raw`)).default
+const interactome = (await import(`../../../../output/${asFolderName(output)}/pathway.txt?raw`)).default
 ---
 
 <style is:global>
