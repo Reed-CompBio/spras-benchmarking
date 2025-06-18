@@ -27,6 +27,20 @@ analysis:
 
 # Custom settings
 algorithms:
+  - name: "omicsintegrator1"
+    params:
+      include: true
+      run1:
+        b: [2]
+        w: [.5]
+        d: [10]
+        mu: [2]
+  - name: "omicsintegrator2"
+    params:
+      include: true
+      run1:
+        b: [4]
+        g: [0]
   - name: "pathlinker"
     params:
       include: true

@@ -14,3 +14,5 @@ All information provided is orchestrated through our GitHub Actions pipeline, an
 
 Each run's slug has the <code class="color-1">type</code>, the <code class="color-2">dataset</code>, the
 <code class="color-3">algorithm</code>, and the <code class="color-4">paramaters</code> [hash](https://en.wikipedia.org/wiki/Hash_function).
+
+The <code class="color-1">type</code> classifies a dataset and the algorithms it runs on. For example, PRA datasets run on all algorithms, while DMM datasets only run on DMMM algorithms.
