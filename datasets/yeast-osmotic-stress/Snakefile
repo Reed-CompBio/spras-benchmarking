@@ -8,8 +8,8 @@ rule process_prizes:
         "raw/prizes.txt"
     output:
         "processed/prizes1_dummies.txt"
-    script:
-        "process_prizes.py"
+    shell:
+        "uv run process_prizes.py"
 
 rule copy_network:
     input:

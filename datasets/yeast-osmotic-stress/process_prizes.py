@@ -1,4 +1,3 @@
-#!/usr/bin/env -S uv run --script
 # This prepares prizes with dummy nodes.
 import pandas as pd
 from pathlib import Path

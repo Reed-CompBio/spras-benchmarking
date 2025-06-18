@@ -9,8 +9,8 @@ rule process_interactome:
         "raw/Muscle_Skeletal-Dec2018.tsv"
     output:
         "processed/interactome.tsv"
-    script:
-        "process.py"
+    shell:
+        "uv run process.py"
 
 rule copy_curated:
     input:
