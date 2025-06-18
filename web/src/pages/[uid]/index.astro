@@ -1,9 +1,12 @@
 ---
-import { asFolderName, parseOutputString } from '../../lib/outputStyle';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Visualization from '../../components/Visualization.astro'
+import { asFolderName, parseOutputString, styleOutput } from '../../lib/outputStyle';
 import { getPaths } from '../../lib/paths';
+import { Code } from 'astro:components';
 
 export function getStaticPaths() {
-  const filteredPaths = getPaths()
+  const filteredPaths = new Set(getPaths()
     // We can safely filter for these prefixes, as datasets start with their type.
     // Specifically, we do not want to make pages for our prepared inputs and logs.
     .filter(path => !path.startsWith('prepared'))
@@ -13,24 +16,50 @@ export function getStaticPaths() {
     // Finally, we specifically want the folder names
     .map(path => path.split("/")[0])
     // Then, we exclude -params-
-    .map(path => path.replace("-params", ""));
+    .map(path => path.replace("-params", "")));
 
-  return filteredPaths.map(path => ({ params: { uid: path }}));
+  return [...filteredPaths].map(path => ({ params: { uid: styleOutput(parseOutputString(path)) }}));
 }
 
 const { uid } = Astro.params;
 const output = parseOutputString(uid);
 // We get the raw files associated to this specific run
 const subPaths = getPaths().filter(path => path.startsWith(asFolderName(output)))
+
+// The paramater config content
+const parametersCode = (await import(`/data/output/logs/parameters-${output.algorithm}-params-${output.paramsHash}.yaml?raw`)).default
+
+// The interactome content
+const interactome = (await import(`/data/output/${asFolderName(output)}/pathway.txt?raw`)).default
 ---
 
-<h1>{uid}</h1>
+<style is:global>
+  pre {
+    padding: 0.5rem;
+    border: 1px solid #9e9e9e;
+    border-radius: 5px;
+  }
+</style>
 
-<h2>Associated Output</h2>
+<BaseLayout>
+  <h1>{uid}</h1>
 
-<ul>
-  {subPaths.map(path => (
-    // We remove the unnecessary prefix from the filename
-    <ul><a href={'data/output/' + path}>{path.substring((asFolderName(output) + '/').length)}</a></ul>
-  ))}
-</ul>
+  <a href="/">(go to home)</a>
+
+  <h2>Parameters</h2>
+
+  <Code code={parametersCode} lang="yaml" theme="vitesse-light" />
+
+  <h2>Output Files</h2>
+
+  <ul>
+    {subPaths.map(path => (
+      // We remove the unnecessary prefix from the filename
+      <li><a href={'data/output/' + path}>{path.substring((asFolderName(output) + '/').length)}</a></li>
+    ))}
+  </ul>
+
+  <h1>Visualization</h1>
+
+  <Visualization {interactome}></Visualization>
+</BaseLayout>

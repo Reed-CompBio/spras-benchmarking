@@ -1,15 +1,53 @@
 ---
+import Colors from '../components/Colors.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { parseOutputString } from '../lib/outputStyle';
 import { getStaticPaths } from './[uid]/index.astro'
+
+import Description from './description.md'
 ---
 
-<BaseLayout>
-	<h1>SPRAS Benchmarking</h1>
+<style is:global>
+	/* We style up the homepage a little */
+	code {
+		background-color: #f1f1f1;
+		border-radius: 2px;
+		font-size: 90%;
+		margin: 0 0.2rem;
+		padding: 0.2rem 0.5rem;
+		border: 1px solid #e1e1e1;
+		font-family: 'Courier New', Courier, monospace;
+	}
 
-	<h2>Runs</h2>
+	h1 {
+		border-bottom: 1px solid gray;
+	}
+</style>
+
+<style>
+	/* and ignore li whitespace for code formatting */
+	li {
+		white-space-collapse: discard;
+	}
+</style>
+
+<BaseLayout>
+	<Colors />
+	<Description />
+	
+	<h2>Runs ({getStaticPaths().length})</h2>
 	<ul>
-		{getStaticPaths().map(({ params: { uid } }) => (
-			<li><a href={`./${uid}`}>{uid}</a></li>
-		))}
+		{getStaticPaths().map(({ params: { uid } }) => {
+			const output = parseOutputString(uid);
+
+			return (
+				<li><a href={`./${uid}`}>
+					<span class="color-1-dark">{output.dataType}</span><span>-</span>
+					<span class="color-2-dark">{output.datasetName}</span><span>-</span>
+					<span class="color-3-dark">{output.algorithm}</span><span>-</span>
+					<span class="color-4-dark">{output.paramsHash}</span>
+				</a></li>
+			)
+		})}
 	</ul>
 </BaseLayout>

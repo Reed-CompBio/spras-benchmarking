@@ -1,0 +1,18 @@
+<style is:global lang="scss">
+    @use 'sass:color';
+
+    $color-1: oklch(0.6744 0.1426 151.9);
+    $color-2: oklch(0.6376 0.2299 24.84);
+    $color-3: oklch(0.8002 0.1669 74.36);
+    $color-4: oklch(0.6465 0.1022 212.93);
+
+    .color-1 { color: color.adjust($color-1, $lightness: -20%); }
+    .color-2 { color: color.adjust($color-2, $lightness: -20%); }
+    .color-3 { color: color.adjust($color-3, $lightness: -20%); }
+    .color-4 { color: color.adjust($color-4, $lightness: -20%); }
+
+    .color-1-dark { color: color.adjust($color-1, $lightness: -40%); }
+    .color-2-dark { color: color.adjust($color-2, $lightness: -40%); }
+    .color-3-dark { color: color.adjust($color-3, $lightness: -40%); }
+    .color-4-dark { color: color.adjust($color-4, $lightness: -40%); }
+</style>

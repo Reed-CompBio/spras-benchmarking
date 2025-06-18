@@ -1,6 +1,7 @@
 ---
 import dayjs from 'dayjs'
 import { revision, shortRevision } from "../lib/commit";
+import '@fontsource-variable/noto-sans';
 const buildDate = dayjs()
 ---
 
@@ -11,13 +12,40 @@ const buildDate = dayjs()
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		<title>SPRAS Benchmark Results</title>
+		<style>
+			div.container {
+				margin: 0 auto;
+				max-width: 100ch;
+			}
+
+			body {
+				font-family: 'Noto Sans Variable', sans-serif;
+			}
+
+			footer {
+				border-top: 1px dashed lightgray;
+				color: #555;
+			}
+		</style>
+
+		<style is:global>
+			a {
+				color: #0a0700;
+			}
+
+			a:hover {
+				background-color: #ddd;
+			}
+		</style>
 	</head>
 	<body>
-        <main>
-            <slot />
-        </main>
-		<footer>
-			website built at {buildDate}, on commit <a href={`https://github.com/Reed-CompBio/spras-benchmarking/commit/${revision}`}>{shortRevision}</a>.
-		</footer>
+		<div class="container">
+			<main>
+				<slot />
+			</main>
+			<footer>
+				These results were built at {buildDate}, on commit <a href={`https://github.com/Reed-CompBio/spras-benchmarking/commit/${revision}`}>{shortRevision}</a>.
+			</footer>
+		</div>
 	</body>
 </html>

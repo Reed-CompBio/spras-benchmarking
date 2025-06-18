@@ -10,7 +10,10 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@fontsource-variable/noto-sans": "^5.2.7",
     "astro": "^5.9.4",
-    "dayjs": "^1.11.13"
+    "cytoscape": "^3.32.0",
+    "dayjs": "^1.11.13",
+    "sass": "^1.89.2"
   }
 }

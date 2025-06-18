@@ -31,7 +31,10 @@ algorithms:
     params:
       include: true
       run1:
-        k: [10]
+        k: [10, 20]
+  - name: "allpairs"
+    params:
+      include: true
 
 datasets:
   - label: pramuscleskeletal2018

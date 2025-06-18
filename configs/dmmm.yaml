@@ -34,6 +34,12 @@ algorithms:
         w: [.5]
         d: [10]
         mu: [2]
+  - name: "omicsintegrator2"
+    params:
+      include: true
+      run1:
+        b: [4]
+        g: [0]
 
 datasets:
   - label: dmmmhiv060
@@ -57,3 +63,11 @@ datasets:
     other_files: []
     # Relative path from the spras directory
     data_dir: "datasets/yeast-osmotic-stress/processed"
+  - label: dmmmmuscleskeletal2018
+    node_files: ["sources.txt", "targets.txt"]
+    # DataLoader.py can currently only load a single edge file, which is the primary network
+    edge_files: ["interactome.tsv"]
+    # Placeholder
+    other_files: []
+    # Relative path from the spras directory
+    data_dir: "datasets/rn-muscle-skeletal/processed"
