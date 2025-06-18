@@ -6,17 +6,9 @@ The set of files here was used to prepare the input Yeast Proteomic Data and con
 
 The major assumption here is that a user will copy the SPRAS repo separately and take the input (the prize1_dummies file and ChasmanNetwork-DirUndir.txt file) and config.yaml files here to run them with SPRAS. Then use the output files from SPRAS as the inputs to the notebooks here. I have included my ensemble file and pathway summary files here in order to run my notebooks as I did.
 
-## Conda Environment
+## Environment
 
-The easiest way to install Python and the required packages is with [Anaconda](https://www.anaconda.com/download/).
-
-After installing Anaconda, you can run the following commands from this Directory
-```
-conda env create -f environment.yml
-conda activate yeast_env
-```
-to create a conda environment with the required packages and activate that environment.
-If you have a different version of Python already, you can install the specified versions of the required packages in your preferred manner instead of using Anaconda.
+All necessary packages are available at the top-level `pyproject.toml`.
 
 ## Scripts
 

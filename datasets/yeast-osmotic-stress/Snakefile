@@ -1,0 +1,9 @@
+rule all:
+    input:
+        "raw/prizes.txt"
+
+rule process_prizes:
+    input:
+        "raw/prizes.txt"
+    output:
+        "processed/prizes1_dummies.txt"
