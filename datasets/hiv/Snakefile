@@ -1,0 +1,31 @@
+rule all:
+    input:
+        "Pickles/SPRAS_Data.pkl"
+
+rule data_prep:
+    input: 
+        "Raw_Data/prize_05.csv",
+        "Raw_Data/prize_060.csv"
+    output:
+        "Pickles/NodeIDs.pkl"
+    script:
+        "Scripts/Data_Prep.py"
+
+rule name_mapping:
+    input: 
+        "Pickles/NodeIDs.pkl"
+    output:
+        "Pickles/UniprotIDs.pkl"
+    script:
+        "Scripts/Name_Mapping.py"
+
+rule spras_formatting:
+    input:
+        "Pickles/NodeIDs.pkl",
+        "Pickles/UniprotIDs.pkl"
+    output:
+        "Pickles/SPRAS_Data.pkl"
+    script:
+        "Scripts/SPRAS_Formatting.py"
+
+
