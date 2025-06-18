@@ -2,11 +2,11 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Visualization from '../../components/Visualization.astro'
 import { asFolderName, parseOutputString, styleOutput } from '../../lib/outputStyle';
-import { getPaths } from '../../lib/paths';
+import { getDataFiles } from '../../lib/paths';
 import { Code } from 'astro:components';
 
 export function getStaticPaths() {
-  const filteredPaths = new Set(getPaths()
+  const filteredPaths = new Set(getDataFiles()
     // We can safely filter for these prefixes, as datasets start with their type.
     // Specifically, we do not want to make pages for our prepared inputs and logs.
     .filter(path => !path.startsWith('prepared'))
@@ -24,7 +24,7 @@ export function getStaticPaths() {
 const { uid } = Astro.params;
 const output = parseOutputString(uid);
 // We get the raw files associated to this specific run
-const subPaths = getPaths().filter(path => path.startsWith(asFolderName(output)))
+const subPaths = getDataFiles().filter(path => path.startsWith(asFolderName(output)))
 
 // The paramater config content
 const parametersCode = (await import(`../../../../output/logs/parameters-${output.algorithm}-params-${output.paramsHash}.yaml?raw`)).default

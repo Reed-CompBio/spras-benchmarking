@@ -10,6 +10,29 @@ interface Output {
     paramsHash: string;
 }
 
+export function extractDatasetType(name: string): { type: string, name: string } {
+    let newType;
+    let newName;
+    
+    for (let type of dataTypes) {
+        if (name.startsWith(type)) {
+            newType = type;
+            newName = name.substring(type.length);
+            break;
+        }
+    }
+
+    // We add the !newName there for type-checking purposes.
+    if (!newType || !newName) {
+        throw new Error(`Dataset name should begin with a type (one of ${dataTypes})`)
+    }
+
+    return { 
+        type: newType,
+        name: newName
+    }
+}
+
 export function parseOutputString(str: string): Output {
     const components = str.split("-");
     let dataType;
@@ -32,21 +55,8 @@ export function parseOutputString(str: string): Output {
     }
 
 
-    // We didn't get a data type in the first passthrough - lets see if the dataset name
-    // starts with a type.
-    if (!dataType) {
-        for (let type of dataTypes) {
-            if (datasetName.startsWith(type)) {
-                dataType = type;
-                datasetName = datasetName.substring(type.length);
-                break;
-            }
-        }
-    }
-
-    if (!dataType) {
-        throw new Error(`Dataset name should begin with a type (one of ${dataTypes})`)
-    }
+    // We didn't get a data type in the first passthrough - lets extract the data
+    // type from the name
 
     return {
         dataType,

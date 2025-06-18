@@ -1,0 +1,14 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import { getDatasets } from "../../../lib/paths";
+
+export function getStaticPaths() {
+    return getDatasets().map(({ name }) => ({ params: { name }}));
+}
+
+const { name } = Astro.params;
+---
+
+<BaseLayout>
+    <h1>{name}</h1>
+</BaseLayout>
