@@ -55,8 +55,8 @@ jobs:
       - name: Log conda environment
         shell: bash --login {0}
         run: conda list
-      - name: Process raw data
-        run: sh process.sh
+      - name: Process raw data through Snakemake
+        run: sh run_snakemake.sh
       - name: Run Snakemake workflow for DMMMs
         shell: bash --login {0}
         run: snakemake --cores 1 --configfile configs/dmmm.yaml --show-failed-logs -s spras/Snakefile

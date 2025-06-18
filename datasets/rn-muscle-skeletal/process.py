@@ -1,15 +1,14 @@
+#!/usr/bin/env -S uv run --script
 from pathlib import Path
-import shutil
 import pandas
+import os
 
-CURRENT_DIR = Path('datasets', 'rn-muscle-skeletal')
-PROCESSED_DIR = CURRENT_DIR / 'processed'
+current_directory = Path(os.path.dirname(os.path.realpath(__file__)))
+PROCESSED_DIR = current_directory / 'processed'
 
 def process():
-    shutil.copytree(CURRENT_DIR / 'curated', PROCESSED_DIR, dirs_exist_ok=True)
-
     # TODO: what are the actual last two headers called?
-    data = pandas.read_csv(CURRENT_DIR / 'raw' / 'Muscle_Skeletal-Dec2018.tsv',
+    data = pandas.read_csv(current_directory / 'raw' / 'Muscle_Skeletal-Dec2018.tsv',
                            delimiter='\t', header=None,
                            names=["Interactome1", "Interactome2", "Type1",
                                   "Type2", "InteractionType", "Weight",

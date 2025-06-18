@@ -1,0 +1,23 @@
+rule all:
+    input:
+        "processed/sources.txt",
+        "processed/targets.txt",
+        "processed/interactome.tsv"
+
+rule process_interactome:
+    input:
+        "raw/Muscle_Skeletal-Dec2018.tsv"
+    output:
+        "processed/interactome.tsv"
+    script:
+        "process.py"
+
+rule copy_curated:
+    input:
+        "curated/sources.txt",
+        "curated/targets.txt"
+    output:
+        "processed/sources.txt",
+        "processed/targets.txt"
+    shell:
+        "mkdir -p processed && cp curated/* processed"
