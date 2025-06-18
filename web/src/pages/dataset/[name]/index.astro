@@ -3,7 +3,7 @@ import BaseLayout from "../../../layouts/BaseLayout.astro";
 import { getDatasets } from "../../../lib/paths";
 
 export function getStaticPaths() {
-    return getDatasets().map(({ name }) => ({ params: { name }}));
+    return getDatasets().map(({ name, type }) => ({ params: { name: `${type}-${name}` }}));
 }
 
 const { name } = Astro.params;

@@ -42,7 +42,7 @@ def main():
     with open("Pickles/UniprotIDs.pkl","wb") as file:
         pickle.dump(df,file)
 
-    return 
+    return
 
 
 
