@@ -53,12 +53,25 @@ def process_pathway(file: Path, folder: Path):
   # Then, we need to get the sources and targets, save them,
   # and mark them with 1.0 prizes:
 
-  # First, for our sources, or transcription factors
+  # First, for our targets, or transcription factors
   human_tfs = pd.read_csv(interactome_folder / 'Homo_sapiens_TF_Uniprot.txt', sep='\t')
-  # TODO
-  human_tfs.join(how='inner', other=nodes_df, on='')
+  human_tfs = nodes_df.merge(human_tfs, how='inner', left_on='uniprot', right_on='Uniprot_Accession')
+  human_tfs = human_tfs[['NODE', 'uniprot']]
+  human_tfs.to_csv(folder / 'TARGETS.txt', sep='\t', index=False)
 
-  surfaceome = pd.read_csv(interactome_folder / 'Homo_sapiens_surfaceome.txt', sep='\t')
+  # Then, for our receptors
+  human_receptors = pd.read_csv(interactome_folder / 'Homo_sapiens_surfaceome.txt', sep='\t')
+  human_receptors = human_receptors[["UniProt accession", "Ensembl gene", "Membranome Almen main-class"]]
+  human_receptors = human_receptors[human_receptors["Membranome Almen main-class"] == "Receptors"]
+  human_receptors = nodes_df.merge(human_receptors, how='inner', left_on='uniprot', right_on='UniProt accession')
+  human_receptors = human_receptors[["NODE", "uniprot"]]
+  human_receptors.to_csv(folder / 'SOURCES.txt', sep='\t', index=False)
+
+  # Finally, scores
+  scores = pd.concat([human_tfs, human_receptors]).drop_duplicates()
+  scores["prizes"] = 1
+  scores["active"] = 'true'
+  scores.to_csv(folder / 'PRIZES.txt', sep='\t', index=False)
 
 if __name__ == '__main__':
   for pathway in pathways:

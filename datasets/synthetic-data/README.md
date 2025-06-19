@@ -29,14 +29,12 @@
 
 ### 1. Process PANTHER Pathways
 
-1. Open `process_panther_pathway.R` and add the name of any new pathways to the `pathways` vector on **line 6**.
+1. Open `process_panther_pathway.py` and add the name of any new pathways to the `pathways` vector on **line 6**.
 2. From the `synthetic-data/` root directory, run the command:
    ```
-   Rscript src/process_panther_pathway.R
+   uv run src/process_panther_pathway.py
    ```
 3. This will create seven new files in each subfolder of the `pathway-data/` directory:
-- `DEL-EDGES.txt`
-- `DEL-NODES.txt`
 - `EDGES.txt`
 - `NODES.txt`
 - `PRIZES-100.txt`
