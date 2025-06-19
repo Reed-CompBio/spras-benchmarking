@@ -1,7 +1,0 @@
-NODE1	INTERACTION_TYPE	NODE2
-PIK3CA	controls-production-of	chebi:16618
-PIK3CB	controls-production-of	chebi:16618
-chebi:16618	chemical-affects	PDPK1
-chebi:18348	consumption-controlled-by	PIK3CA
-chebi:18348	consumption-controlled-by	PIK3CB
-chebi:18348	used-to-produce	chebi:16618

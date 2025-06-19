@@ -1,3 +1,0 @@
-NODE	uniprot	prizes	active
-JUN	P05412	1	true
-FAS	P25445	1	true

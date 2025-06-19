@@ -1,3 +1,0 @@
-NODE	uniprot
-PTCH1	Q13635
-SMO	Q99835

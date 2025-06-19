@@ -1,3 +1,0 @@
-NODE	uniprot
-GLI1	P08151
-GLI3	P10071

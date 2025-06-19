@@ -1,5 +1,0 @@
-NODE	uniprot	prizes	active
-FGFR4	P22455	1	true
-FGFR3	P22607	1	true
-FGFR2	P21802	1	true
-FGFR1	P11362	1	true

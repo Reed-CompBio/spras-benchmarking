@@ -1,5 +1,0 @@
-NODE	uniprot	prizes	active
-GLI1	P08151	1	true
-GLI3	P10071	1	true
-PTCH1	Q13635	1	true
-SMO	Q99835	1	true

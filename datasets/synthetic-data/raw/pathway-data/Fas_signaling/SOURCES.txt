@@ -1,2 +1,0 @@
-NODE	uniprot
-FAS	P25445

@@ -75,5 +75,7 @@ def process_pathway(file: Path, folder: Path):
 
 if __name__ == '__main__':
   for pathway in pathways:
-    pathway_file = data_directory / pathway / Path(pathway).with_suffix('.txt')
-    process_pathway(pathway_file, pathway_file.parent)
+    pathway_file = data_directory / Path(pathway).with_suffix('.txt')
+    intermediate_folder = current_directory / '..' / 'intermediate' / pathway
+    intermediate_folder.mkdir(parents=True, exist_ok=True)
+    process_pathway(pathway_file, intermediate_folder)

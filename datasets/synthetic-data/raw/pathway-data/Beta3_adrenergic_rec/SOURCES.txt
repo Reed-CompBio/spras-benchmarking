@@ -1,2 +1,0 @@
-NODE	uniprot
-ADRB3	P13945

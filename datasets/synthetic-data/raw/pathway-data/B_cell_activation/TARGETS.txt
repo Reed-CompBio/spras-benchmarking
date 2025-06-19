@@ -1,3 +1,0 @@
-NODE	uniprot
-FOS	P01100
-JUN	P05412
