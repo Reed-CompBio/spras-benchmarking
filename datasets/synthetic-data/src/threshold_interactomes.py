@@ -1,18 +1,19 @@
 import pandas as pd
+from pathlib import Path
 import os
 
-if not os.path.exists("interactomes/"):
-    os.makedirs("interactomes/")
+current_directory = Path(os.path.dirname(os.path.realpath(__file__)))
+data_directory = current_directory / '..'
 
-if not os.path.exists("interactomes/uniprot-threshold-interactomes/"):
-    os.makedirs("interactomes/uniprot-threshold-interactomes/")
+if not (data_directory / "processed" / "interactomes" / "uniprot-threshold-interactomes").exists():
+    (data_directory / "processed" / "interactomes" / "uniprot-threshold-interactomes").mkdir(exist_ok=True, parents=True)
 
 # get the string -> uniprot accession ID pairings
-UniProt_AC = pd.read_csv("human-interactome/String_to_Uniprot_ids_2025_04_06.tsv", sep='\t', header=0)
+UniProt_AC = pd.read_csv(data_directory / "raw" / "human-interactome" / "String_to_Uniprot_ids_2025_04_06.tsv", sep='\t', header=0)
 one_to_many_dict = UniProt_AC.groupby("From")["Entry"].apply(list).to_dict()
 
 # read in interactome
-human_interactome = pd.read_csv('human-interactome/9606.protein.links.full.v12.0.txt', sep=' ', header = 0)
+human_interactome = pd.read_csv(data_directory / "intermediate" / '9606.protein.links.full.v12.0.txt', sep=' ', header = 0)
 
 def get_aliases(protein_id):
     return one_to_many_dict.get(protein_id, [])
@@ -33,8 +34,10 @@ proteins_without_aliases = proteins_without_aliases.to_frame(name="protein")
 removed_edges = missing_alias_edges[['protein1', 'protein2']]
 removed_edges = removed_edges.drop_duplicates().reset_index(drop=True)
 
-proteins_without_aliases.to_csv("interactomes/uniprot-threshold-interactomes/proteins_missing_aliases.csv", sep='\t', index=False, header=True)
-removed_edges.to_csv("interactomes/uniprot-threshold-interactomes/removed_edges.txt", sep='\t', index=False, header=True)
+proteins_without_aliases.to_csv(
+    data_directory / "processed" / "interactomes" / "uniprot-threshold-interactomes/proteins_missing_aliases.csv",
+    sep='\t', index=False, header=True)
+removed_edges.to_csv(data_directory / "processed" / "interactomes" / "uniprot-threshold-interactomes/removed_edges.txt", sep='\t', index=False, header=True)
 
 human_interactome = human_interactome.dropna(subset=['protein1_uniprot', 'protein2_uniprot']).reset_index(drop=True)
 
@@ -64,4 +67,6 @@ for thresh in thresholds:
     thresh_df = thresh_df.sort_values(by=["Node1", "Node2", "Rank"], ascending=[True, True, False], ignore_index=True)
     thresh_df = thresh_df.drop_duplicates(subset=["Node1", "Node2"], keep="first")
 
-    thresh_df.to_csv(f"interactomes/uniprot-threshold-interactomes/uniprot_human_interactome_{thresh}.txt", sep = "\t", header=False, index=False)
+    thresh_df.to_csv(
+        data_directory / "processed" / "interactomes" / "uniprot-threshold-interactomes" / f"uniprot_human_interactome_{thresh}.txt",
+        sep = "\t", header=False, index=False)

@@ -10,6 +10,7 @@ pathways = ["Apoptosis_signaling", "B_cell_activation",
 
 rule all:
     input:
+        "intermediate/9606.protein.links.full.v12.0.txt",
         expand([
             "processed/{pathway}/{pathway}_node_prizes.txt",
             "processed/{pathway}/{pathway}_gs_edges.txt",
@@ -46,3 +47,17 @@ rule make_spras_compatible:
         ]
     shell:
         "uv run src/SPRAS_compatible_files.py {wildcards.pathway}"
+
+rule download_interactome:
+    output:
+        "intermediate/9606.protein.links.full.v12.0.txt.gz"
+    shell:
+        "uv run src/download_interactome.py"
+
+rule unpack_interactome:
+    input:
+        "intermediate/9606.protein.links.full.v12.0.txt.gz"
+    output:
+        "intermediate/9606.protein.links.full.v12.0.txt"
+    shell:
+        "gunzip intermediate/9606.protein.links.full.v12.0.txt.gz"
