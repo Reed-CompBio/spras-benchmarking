@@ -1,11 +1,12 @@
 import pandas as pd
+from pathlib import Path
 import os
 
-if not os.path.exists("interactomes/"):
-    os.makedirs("interactomes/")
+current_directory = Path(os.path.dirname(os.path.realpath(__file__)))
+data_directory = current_directory / '..'
 
-if not os.path.exists("interactomes/uniprot-combined-threshold-interactomes/"):
-    os.makedirs("interactomes/uniprot-combined-threshold-interactomes/")
+if not (data_directory / "processed" / "interactomes" / "uniprot-combined-threshold-interactomes/").exists():
+    (data_directory / "processed" / "interactomes" / "uniprot-combined-threshold-interactomes/").mkdir(exist_ok=True, parents=True)
 
 thresholds = [1, 100, 200, 300, 400, 500, 600, 700, 800, 900]
 pathway_dirs = ["Apoptosis_signaling", "B_cell_activation", "Beta3_adrenergic_rec", "Cadherin_signaling", "Hedgehog_signaling",
@@ -13,12 +14,9 @@ pathway_dirs = ["Apoptosis_signaling", "B_cell_activation", "Beta3_adrenergic_re
                 "Wnt_signaling", "p38_MAPK", "Nicotinic_acetylchol", "Fas_signaling", "FGF_signaling", "Interferon_gamma_signaling",
                 "JAK_STAT_signaling", "VEGF_signaling"]
 
-# pilot data
-# ["Wnt_signaling", "JAK_STAT_signaling", "Interferon_gamma_signaling", "FGF_signaling", "Ras" ]
-
 combined_edges = pd.DataFrame(columns=["Node1", "Node2"])
 for pathway_dir in pathway_dirs:
-    edge_file = f"spras-compatible-pathway-data/{pathway_dir}/{pathway_dir}_gs_edges.txt"
+    edge_file = data_directory / "processed" / pathway_dir / "{pathway_dir}_gs_edges.txt"
     edges = pd.read_csv(edge_file, sep = "\t")
     edges.columns = ["Node1", "Node2", "Rank", "Direction"]
     combined_edges = pd.concat([combined_edges, edges], ignore_index=True)
@@ -40,8 +38,9 @@ for threshold in thresholds:
                                       ascending=[True, False, True, True], ignore_index=True)
     merged_df = merged_df.drop_duplicates(subset=['Node1', 'Node2'], keep='first')
     merged_df['Rank'] = merged_df['Rank'] / 1000
-    merged_df.to_csv(f"interactomes/uniprot-combined-threshold-interactomes/uniprot_combined_interactome_{threshold}.txt",
-                     sep="\t", index = False, header = False)
+    merged_df.to_csv(
+        data_directory / "processed" / "interactomes" / "uniprot-combined-threshold-interactomes" / f"uniprot_combined_interactome_{threshold}.txt",
+        sep="\t", index = False, header = False)
 
 # get overlap analytics
 
@@ -50,13 +49,13 @@ for threshold in thresholds:
 results = []
 
 for threshold in thresholds:
-    threshold_human_interactome = pd.read_csv(f"interactomes/uniprot-threshold-interactomes/uniprot_human_interactome_{threshold}.txt", sep="\t")
+    threshold_human_interactome = pd.read_csv(data_directory / "processed" / "interactomes" / "uniprot_human_interactome_{threshold}.txt", sep="\t")
     threshold_human_interactome.columns = ["Node1", "Node2", "Rank", "Direction"]
 
     interactome_count = len(threshold_human_interactome)
 
     for pathway_dir in pathway_dirs:
-        edge_file = f"spras-compatible-pathway-data/{pathway_dir}/{pathway_dir}_gs_edges.txt"
+        edge_file = data_directory / "processed" / pathway_dir / f"{pathway_dir}_gs_edges.txt"
         edges = pd.read_csv(edge_file, sep = "\t")
         edges.columns = ["Node1", "Node2", "Rank", "Direction"]
         edges_count = len(edges)
@@ -78,14 +77,16 @@ for threshold in thresholds:
         })
 
 overlap_info_df = pd.DataFrame(results)
-overlap_info_df.to_csv("interactomes/uniprot-combined-threshold-interactomes/overlap_info.csv", sep="\t", index=False)
+overlap_info_df.to_csv(
+    data_directory / "processed" / "interactomes" / "uniprot-combined-threshold-interactomes/overlap_info.csv",
+    sep="\t", index=False)
 
 # overall overlap of all the edges
 results = []
 
 combined_edges = pd.DataFrame(columns=["Node1", "Node2"])
 for pathway_dir in pathway_dirs:
-    edge_file = f"spras-compatible-pathway-data/{pathway_dir}/{pathway_dir}_gs_edges.txt"
+    edge_file = data_directory / "processed" / pathway_dir/ f"{pathway_dir}_gs_edges.txt"
     edges = pd.read_csv(edge_file, sep = "\t")
     edges.columns = ["Node1", "Node2", "Rank", "Direction"]
     combined_edges = pd.concat([combined_edges, edges], ignore_index=True)
@@ -93,7 +94,7 @@ combined_edges.drop_duplicates(inplace=True)
 total_combined_edges = len(combined_edges)
 
 for threshold in thresholds:
-    interactome_file = f"interactomes/uniprot-threshold-interactomes/uniprot_human_interactome_{threshold}.txt"
+    interactome_file = data_directory / "processed" / "interactomes" / "uniprot-threshold-interactomes" / f"uniprot_human_interactome_{threshold}.txt"
     threshold_human_interactome = pd.read_csv(interactome_file, sep="\t")
     threshold_human_interactome.columns = ["Node1", "Node2", "Rank", "Direction"]
     interactome_count = len(threshold_human_interactome)
@@ -119,4 +120,6 @@ for threshold in thresholds:
 
 # Create a DataFrame from the results list
 overlap_combined_info_df = pd.DataFrame(results)
-overlap_combined_info_df.to_csv("interactomes/uniprot-combined-threshold-interactomes/overlap_combined_info.csv", sep="\t", index=False)
+overlap_combined_info_df.to_csv(
+    data_directory / "processed" / "interactomes" / "uniprot-combined-threshold-interactomes" / "overlap_combined_info.csv",
+    sep="\t", index=False)
