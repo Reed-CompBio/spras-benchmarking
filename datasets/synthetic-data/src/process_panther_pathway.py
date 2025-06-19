@@ -11,9 +11,10 @@ interactome_folder = current_directory / '..' / 'raw' / 'human-interactome'
 
 def process_pathway(file: Path, folder: Path):
   file_content = file.read_text()
-  # This file has two csv files stacked on top of each other. This is the header that we are looking for
+  # This file has two csv files stacked on top of each other.
+  # This is the header that we are looking for
   needle = "PARTICIPANT\tPARTICIPANT_TYPE\tPARTICIPANT_NAME\tUNIFICATION_XREF\tRELATIONSHIP_XREF"
-  
+
   edges, nodes = file_content.split(needle)
   # Re-add the header
   nodes = needle + nodes

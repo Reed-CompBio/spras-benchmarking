@@ -21,7 +21,7 @@
 
 [Sources](https://www.pnas.org/doi/full/10.1073/pnas.1808790115) are silico human surfaceomes receptors.
 
-[Targets](https://academic.oup.com/nar/article/51/D1/D39/6765312) are human transcription factors. 
+[Targets](https://academic.oup.com/nar/article/51/D1/D39/6765312) are human transcription factors.
 
 ## Steps to Generate SPRAS-Compatible Pathways
 

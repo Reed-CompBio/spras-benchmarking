@@ -28,8 +28,8 @@ for f in folders:
         '#_sources': num_sources,
         'ratio_targets': ratio_targets,
         'ratio_sources': ratio_sources,
-    }   
+    }
 
-    ratio = pd.concat([ratio, pd.DataFrame([new_row])], ignore_index=True)  
+    ratio = pd.concat([ratio, pd.DataFrame([new_row])], ignore_index=True)
 
 ratio.to_csv("spras-compatible-pathway-data/data_ratios.txt", sep="\t", index = False)

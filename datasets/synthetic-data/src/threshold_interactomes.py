@@ -7,7 +7,7 @@ if not os.path.exists("interactomes/"):
 if not os.path.exists("interactomes/uniprot-threshold-interactomes/"):
     os.makedirs("interactomes/uniprot-threshold-interactomes/")
 
-# get the string -> uniprot accession ID pairings 
+# get the string -> uniprot accession ID pairings
 UniProt_AC = pd.read_csv("human-interactome/String_to_Uniprot_ids_2025_04_06.tsv", sep='\t', header=0)
 one_to_many_dict = UniProt_AC.groupby("From")["Entry"].apply(list).to_dict()
 
@@ -33,8 +33,8 @@ proteins_without_aliases = proteins_without_aliases.to_frame(name="protein")
 removed_edges = missing_alias_edges[['protein1', 'protein2']]
 removed_edges = removed_edges.drop_duplicates().reset_index(drop=True)
 
-proteins_without_aliases.to_csv(f"interactomes/uniprot-threshold-interactomes/proteins_missing_aliases.csv", sep='\t', index=False, header=True)
-removed_edges.to_csv(f"interactomes/uniprot-threshold-interactomes/removed_edges.txt", sep='\t', index=False, header=True)
+proteins_without_aliases.to_csv("interactomes/uniprot-threshold-interactomes/proteins_missing_aliases.csv", sep='\t', index=False, header=True)
+removed_edges.to_csv("interactomes/uniprot-threshold-interactomes/removed_edges.txt", sep='\t', index=False, header=True)
 
 human_interactome = human_interactome.dropna(subset=['protein1_uniprot', 'protein2_uniprot']).reset_index(drop=True)
 
@@ -51,11 +51,11 @@ for thresh in thresholds:
 
     # for undirected edges, sort node pairs so that Node1 is always the lesser of the two
     undirected_mask = thresh_df["Direction"] == "U"
-    
+
     # computes the minimum and maximum node (sorted order) for each row under the mask
     min_nodes = thresh_df.loc[undirected_mask, ["Node1", "Node2"]].min(axis=1)
     max_nodes = thresh_df.loc[undirected_mask, ["Node1", "Node2"]].max(axis=1)
-    
+
     # assigns the sorted Node1 and Node2 back into the df
     thresh_df.loc[undirected_mask, "Node1"] = min_nodes
     thresh_df.loc[undirected_mask, "Node2"] = max_nodes
@@ -63,5 +63,5 @@ for thresh in thresholds:
     # keep highest rank version of the edge, drop all the others
     thresh_df = thresh_df.sort_values(by=["Node1", "Node2", "Rank"], ascending=[True, True, False], ignore_index=True)
     thresh_df = thresh_df.drop_duplicates(subset=["Node1", "Node2"], keep="first")
-    
+
     thresh_df.to_csv(f"interactomes/uniprot-threshold-interactomes/uniprot_human_interactome_{thresh}.txt", sep = "\t", header=False, index=False)

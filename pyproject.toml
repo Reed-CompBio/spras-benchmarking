@@ -5,6 +5,14 @@ description = "SPRAS Benchmarking Repository"
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
-    "pandas>=2.3.0",
+    "pandas>=2.3.0"
+]
+
+[dependency-groups]
+dev = [
+    "pre-commit>=4.2.0",
     "snakemake>=9.6.0",
 ]
+
+[tool.ruff]
+line-length = 150

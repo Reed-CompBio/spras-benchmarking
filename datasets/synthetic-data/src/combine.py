@@ -8,7 +8,10 @@ if not os.path.exists("interactomes/uniprot-combined-threshold-interactomes/"):
     os.makedirs("interactomes/uniprot-combined-threshold-interactomes/")
 
 thresholds = [1, 100, 200, 300, 400, 500, 600, 700, 800, 900]
-pathway_dirs = ["Apoptosis_signaling", "B_cell_activation", "Beta3_adrenergic_rec", "Cadherin_signaling", "Hedgehog_signaling", "Insulin_IGF", "Interleukin_signaling", "Notch_signaling", "PDGF_signaling", "Ras", "T_cell_activation", "Toll_signaling", "Wnt_signaling", "p38_MAPK", "Nicotinic_acetylchol", "Fas_signaling", "FGF_signaling", "Interferon_gamma_signaling", "JAK_STAT_signaling", "VEGF_signaling"] 
+pathway_dirs = ["Apoptosis_signaling", "B_cell_activation", "Beta3_adrenergic_rec", "Cadherin_signaling", "Hedgehog_signaling",
+                "Insulin_IGF", "Interleukin_signaling", "Notch_signaling", "PDGF_signaling", "Ras", "T_cell_activation", "Toll_signaling",
+                "Wnt_signaling", "p38_MAPK", "Nicotinic_acetylchol", "Fas_signaling", "FGF_signaling", "Interferon_gamma_signaling",
+                "JAK_STAT_signaling", "VEGF_signaling"]
 
 # pilot data
 # ["Wnt_signaling", "JAK_STAT_signaling", "Interferon_gamma_signaling", "FGF_signaling", "Ras" ]
@@ -23,7 +26,9 @@ for pathway_dir in pathway_dirs:
 combined_edges.drop_duplicates(inplace=True)
 
 for threshold in thresholds:
-    threshold_human_interactome = pd.read_csv(f"interactomes/uniprot-threshold-interactomes/uniprot_human_interactome_{threshold}.txt", sep="\t")
+    threshold_human_interactome = pd.read_csv(
+        f"interactomes/uniprot-threshold-interactomes/uniprot_human_interactome_{threshold}.txt",
+        sep="\t")
     threshold_human_interactome.columns = ["Node1", "Node2", "Rank", "Direction"]
 
     fifty_percentile_rank = threshold_human_interactome.describe().loc['50%', "Rank"]
@@ -31,10 +36,12 @@ for threshold in thresholds:
 
     merged_df = pd.concat([combined_edges, threshold_human_interactome])
     # priotize directed if it exists otherwise undirected, then keep highest rank
-    merged_df = merged_df.sort_values(by=["Direction", "Rank", "Node1", "Node2"], ascending=[True, False, True, True], ignore_index=True)
+    merged_df = merged_df.sort_values(by=["Direction", "Rank", "Node1", "Node2"],
+                                      ascending=[True, False, True, True], ignore_index=True)
     merged_df = merged_df.drop_duplicates(subset=['Node1', 'Node2'], keep='first')
     merged_df['Rank'] = merged_df['Rank'] / 1000
-    merged_df.to_csv(f"interactomes/uniprot-combined-threshold-interactomes/uniprot_combined_interactome_{threshold}.txt", sep="\t", index = False, header = False)
+    merged_df.to_csv(f"interactomes/uniprot-combined-threshold-interactomes/uniprot_combined_interactome_{threshold}.txt",
+                     sep="\t", index = False, header = False)
 
 # get overlap analytics
 
@@ -47,13 +54,13 @@ for threshold in thresholds:
     threshold_human_interactome.columns = ["Node1", "Node2", "Rank", "Direction"]
 
     interactome_count = len(threshold_human_interactome)
-    
+
     for pathway_dir in pathway_dirs:
         edge_file = f"spras-compatible-pathway-data/{pathway_dir}/{pathway_dir}_gs_edges.txt"
         edges = pd.read_csv(edge_file, sep = "\t")
         edges.columns = ["Node1", "Node2", "Rank", "Direction"]
         edges_count = len(edges)
-        
+
         overlap = pd.merge(threshold_human_interactome, edges, on=['Node1', 'Node2'])
         overlap_count = len(overlap)
         percent_overlap = overlap_count / edges_count if edges_count != 0 else 0
@@ -94,10 +101,10 @@ for threshold in thresholds:
     # Find overlapping edges between the interactome and combined pathway edges
     overlap = pd.merge(threshold_human_interactome, combined_edges, on=['Node1', 'Node2'])
     overlap_count = len(overlap)
-    
+
     # Calculate the percentage of pathway edges included in the interactome overlap
     percent_overlap = overlap_count / total_combined_edges if total_combined_edges > 0 else 0
-    
+
     edges_to_add = total_combined_edges - overlap_count
 
     # Append the information as a dictionary to the results list

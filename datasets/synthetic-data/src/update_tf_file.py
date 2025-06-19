@@ -20,5 +20,5 @@ def get_aliases(protein_id):
 
 tf['Uniprot_Accession'] = tf['Ensembl'].apply(get_aliases)
 tf = tf.explode('Uniprot_Accession')
-tf = tf.fillna('NA') 
+tf = tf.fillna('NA')
 tf.to_csv("human-interactome/Homo_sapiens_TF_Uniprot.txt", header = True, sep = "\t", index = False)
