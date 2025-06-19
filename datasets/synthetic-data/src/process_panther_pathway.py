@@ -1,19 +1,10 @@
 import io
 import pandas as pd
 from pathlib import Path
+import sys
 import os
 
 current_directory = Path(os.path.dirname(os.path.realpath(__file__)))
-
-pathways = ["Apoptosis_signaling", "B_cell_activation",
-            "Beta3_adrenergic_rec", "Cadherin_signaling",
-            "Hedgehog_signaling", "Insulin_IGF",
-            "Interleukin_signaling", "Notch_signaling",
-            "PDGF_signaling", "Ras", "T_cell_activation",
-            "Toll_signaling", "Wnt_signaling", "p38_MAPK",
-            "Nicotinic_acetylchol", "Fas_signaling",
-            "FGF_signaling", "Interferon_gamma_signaling",
-            "JAK_STAT_signaling", "VEGF_signaling"]
 
 data_directory = current_directory / '..' / 'raw' / 'pathway-data'
 interactome_folder = current_directory / '..' / 'raw' / 'human-interactome'
@@ -74,8 +65,8 @@ def process_pathway(file: Path, folder: Path):
   scores.to_csv(folder / 'PRIZES.txt', sep='\t', index=False)
 
 if __name__ == '__main__':
-  for pathway in pathways:
-    pathway_file = data_directory / Path(pathway).with_suffix('.txt')
-    intermediate_folder = current_directory / '..' / 'intermediate' / pathway
-    intermediate_folder.mkdir(parents=True, exist_ok=True)
-    process_pathway(pathway_file, intermediate_folder)
+  pathway = sys.argv[1]
+  pathway_file = data_directory / Path(pathway).with_suffix('.txt')
+  intermediate_folder = current_directory / '..' / 'intermediate' / pathway
+  intermediate_folder.mkdir(parents=True, exist_ok=True)
+  process_pathway(pathway_file, intermediate_folder)

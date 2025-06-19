@@ -64,4 +64,4 @@ for thresh in thresholds:
     thresh_df = thresh_df.sort_values(by=["Node1", "Node2", "Rank"], ascending=[True, True, False], ignore_index=True)
     thresh_df = thresh_df.drop_duplicates(subset=["Node1", "Node2"], keep="first")
     
-    thresh_df.to_csv(f"interactomes/uniprot-threshold-interactomes/uniprot_human_interactome_{thresh}.txt", sep = "\t", header = False, index= False)
+    thresh_df.to_csv(f"interactomes/uniprot-threshold-interactomes/uniprot_human_interactome_{thresh}.txt", sep = "\t", header=False, index=False)

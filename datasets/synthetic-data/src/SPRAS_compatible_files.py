@@ -1,12 +1,12 @@
 import os
 import pandas as pd
+from pathlib import Path
+import sys
 
-spras_compatible_dir = "spras-compatible-pathway-data/"
-if not os.path.exists(spras_compatible_dir):
-    os.makedirs(spras_compatible_dir)
+current_directory = Path(os.path.dirname(os.path.realpath(__file__)))
 
-pathway_dirs = ["Apoptosis_signaling", "B_cell_activation", "Beta3_adrenergic_rec", "Cadherin_signaling", "Hedgehog_signaling", "Insulin_IGF", "Interleukin_signaling", "Notch_signaling", "PDGF_signaling", "Ras", "T_cell_activation", "Toll_signaling", "Wnt_signaling", "p38_MAPK", "Nicotinic_acetylchol", "Fas_signaling", "FGF_signaling", "Interferon_gamma_signaling", "JAK_STAT_signaling", "VEGF_signaling"]
-directory = "pathway-data/"
+spras_compatible_dir = Path(current_directory, "..", "processed")
+directory = Path(current_directory, "..", "intermediate")
 
 directed = [
     "controls-state-change-of",
@@ -29,9 +29,15 @@ undirected = [
     "reacts-with"
 ]
 
+def raise_unknown_direction(dir: str):
+    raise ValueError(f"Unknown direction {dir}")
 
-for pathway in pathway_dirs:
-    pathway_folder = directory + pathway + "/"
+if __name__ == '__main__':
+    if not os.path.exists(spras_compatible_dir):
+        os.makedirs(spras_compatible_dir)
+
+    pathway = sys.argv[1]
+    pathway_folder = directory / pathway
 
     # Create the output folder "uniprot" within the pathway directory
     out_folder = os.path.join(spras_compatible_dir, pathway)
@@ -53,7 +59,9 @@ for pathway in pathway_dirs:
     edges_df['NODE1'] = edges_df['NODE1'].map(gene_to_uniprot)
     edges_df['NODE2'] = edges_df['NODE2'].map(gene_to_uniprot)
     edges_df['Rank'] = 1
-    edges_df["Direction"] = edges_df["INTERACTION_TYPE"].apply(lambda x: "D" if x in directed else ("U" if x in undirected else x))
+    edges_df["Direction"] = edges_df["INTERACTION_TYPE"].apply(
+        lambda x: "D" if x in directed else ("U" if x in undirected else raise_unknown_direction(x))
+    )
     edges_df = edges_df.drop(columns = "INTERACTION_TYPE")
 
     # remove duplicate rows

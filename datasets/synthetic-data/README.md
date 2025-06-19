@@ -1,7 +1,5 @@
 # Synthetic Data
 
-> All commands should be run from the `synthetic-data/` root directory.
-
 ## Download STRING Human Interactome
 1. Download the STRING *Homo sapiens* `9606.protein.links.full.v12.0.txt.gz` database file from [STRING](https://string-db.org/cgi/download?sessionId=bL9sRTdIaUEt&species_text=Homo+sapiens&settings_expanded=0&min_download_score=0&filter_redundant_pairs=0&delimiter_type=txt).
 2. Move the downloaded file into the `raw/human-interactome/` folder.
@@ -30,11 +28,11 @@
 ### 1. Process PANTHER Pathways
 
 1. Open `process_panther_pathway.py` and add the name of any new pathways to the `pathways` vector on **line 6**.
-2. From the `synthetic-data/` root directory, run the command:
+2. Run the command:
    ```
    uv run src/process_panther_pathway.py
    ```
-3. This will create seven new files in each subfolder of the `pathway-data/` directory:
+3. This will create five new files in each subfolder of the `pathway-data/` directory:
 - `EDGES.txt`
 - `NODES.txt`
 - `PRIZES-100.txt`
