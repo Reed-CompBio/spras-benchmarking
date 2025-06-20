@@ -7,6 +7,8 @@ pathways = ["Apoptosis_signaling", "B_cell_activation",
             "Nicotinic_acetylchol", "Fas_signaling",
             "FGF_signaling", "Interferon_gamma_signaling",
             "JAK_STAT_signaling", "VEGF_signaling"]
+# TODO: deduplicate this from thresholding scripts by passing it in?
+thresholds = [1, 100, 200, 300, 400, 500, 600, 700, 800, 900]
 
 rule all:
     input:
@@ -15,7 +17,42 @@ rule all:
             "processed/{pathway}/{pathway}_node_prizes.txt",
             "processed/{pathway}/{pathway}_gs_edges.txt",
             "processed/{pathway}/{pathway}_gs_nodes.txt"
+        ], pathway=pathways),
+        expand(
+            "processed/interactomes/uniprot-combined-threshold-interactomes/uniprot_combined_interactome_{threshold}.txt",
+            threshold=thresholds)
+
+rule combine_interactomes:
+    input:
+        expand("processed/{pathway}/{pathway}_gs_edges.txt", pathway=pathways),
+        expand(
+            "processed/interactomes/uniprot-threshold-interactomes/uniprot_human_interactome_{threshold}.txt",
+            threshold=thresholds)
+    output:
+        "processed/interactomes/uniprot-combined-threshold-interactomes/overlap_info.csv",
+        "processed/interactomes/uniprot-combined-threshold-interactomes/overlap_combined_info.csv",
+        expand(
+            "processed/interactomes/uniprot-combined-threshold-interactomes/uniprot_combined_interactome_{threshold}.txt",
+            threshold=thresholds)
+    shell:
+        "uv run src/combine.py"
+
+rule threshold_interactomes:
+    input:
+        "intermediate/9606.protein.links.full.v12.0.txt",
+        expand([
+            "processed/{pathway}/{pathway}_node_prizes.txt",
+            "processed/{pathway}/{pathway}_gs_edges.txt",
+            "processed/{pathway}/{pathway}_gs_nodes.txt"
         ], pathway=pathways)
+    output:
+        "processed/interactomes/uniprot-threshold-interactomes/proteins_missing_aliases.csv",
+        "processed/interactomes/uniprot-threshold-interactomes/removed_edges.txt",
+        expand(
+            "processed/interactomes/uniprot-threshold-interactomes/uniprot_human_interactome_{threshold}.txt",
+            threshold=thresholds)
+    shell:
+        "uv run src/threshold_interactomes.py"
 
 rule process_panther_pathway:
     input: "raw/pathway-data/{pathway}.txt"
