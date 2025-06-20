@@ -37,7 +37,9 @@ removed_edges = removed_edges.drop_duplicates().reset_index(drop=True)
 proteins_without_aliases.to_csv(
     data_directory / "processed" / "interactomes" / "uniprot-threshold-interactomes/proteins_missing_aliases.csv",
     sep='\t', index=False, header=True)
-removed_edges.to_csv(data_directory / "processed" / "interactomes" / "uniprot-threshold-interactomes/removed_edges.txt", sep='\t', index=False, header=True)
+removed_edges.to_csv(
+    data_directory / "processed" / "interactomes" / "uniprot-threshold-interactomes/removed_edges.txt",
+    sep='\t', index=False, header=True)
 
 human_interactome = human_interactome.dropna(subset=['protein1_uniprot', 'protein2_uniprot']).reset_index(drop=True)
 

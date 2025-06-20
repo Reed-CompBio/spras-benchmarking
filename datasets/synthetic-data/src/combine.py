@@ -16,7 +16,7 @@ pathway_dirs = ["Apoptosis_signaling", "B_cell_activation", "Beta3_adrenergic_re
 
 combined_edges = pd.DataFrame(columns=["Node1", "Node2"])
 for pathway_dir in pathway_dirs:
-    edge_file = data_directory / "processed" / pathway_dir / "{pathway_dir}_gs_edges.txt"
+    edge_file = data_directory / "processed" / pathway_dir / f"{pathway_dir}_gs_edges.txt"
     edges = pd.read_csv(edge_file, sep = "\t")
     edges.columns = ["Node1", "Node2", "Rank", "Direction"]
     combined_edges = pd.concat([combined_edges, edges], ignore_index=True)
@@ -25,7 +25,7 @@ combined_edges.drop_duplicates(inplace=True)
 
 for threshold in thresholds:
     threshold_human_interactome = pd.read_csv(
-        f"interactomes/uniprot-threshold-interactomes/uniprot_human_interactome_{threshold}.txt",
+        data_directory / "processed" / "interactomes" / "uniprot-threshold-interactomes" / f"uniprot_human_interactome_{threshold}.txt",
         sep="\t")
     threshold_human_interactome.columns = ["Node1", "Node2", "Rank", "Direction"]
 
@@ -49,7 +49,9 @@ for threshold in thresholds:
 results = []
 
 for threshold in thresholds:
-    threshold_human_interactome = pd.read_csv(data_directory / "processed" / "interactomes" / "uniprot_human_interactome_{threshold}.txt", sep="\t")
+    threshold_human_interactome = pd.read_csv(
+        data_directory / "processed" / "interactomes" / "uniprot-threshold-interactomes" / f"uniprot_human_interactome_{threshold}.txt",
+        sep="\t")
     threshold_human_interactome.columns = ["Node1", "Node2", "Rank", "Direction"]
 
     interactome_count = len(threshold_human_interactome)
