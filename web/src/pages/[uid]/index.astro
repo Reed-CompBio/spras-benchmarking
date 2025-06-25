@@ -13,12 +13,15 @@ export function getStaticPaths() {
     .filter(path => !path.startsWith('logs'))
     // Then, we don't want to make pages for our root-level files
     .filter(path => path.includes("/"))
-    // Finally, we specifically want the folder names
+    // We specifically want the folder names
     .map(path => path.split("/")[0])
+    // And we want to only have the dataset a-b-c-d params, not analysis ones
+    .filter(path => path.split("-").length === 4)
     // Then, we exclude -params-
     .map(path => path.replace("-params", "")));
 
-  return [...filteredPaths].map(path => ({ params: { uid: styleOutput(parseOutputString(path)) }}));
+  return [...filteredPaths]
+    .map(path => ({ params: { uid: styleOutput(parseOutputString(path)) }}));
 }
 
 const { uid } = Astro.params;
