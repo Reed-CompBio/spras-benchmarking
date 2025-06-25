@@ -11,7 +11,7 @@ import { getStaticPaths } from "./[type]-[name]/index.astro"
 
     <ul>
         {getStaticPaths().map(({ params: { type, name }}) => (<li>
-            <a href={`/spras-benchmarking/type-dataset/${type}-${name}/`}>{name}</a>
+            <a href={`/spras-benchmarking/type-dataset/${type}-${name}/`}>{type}-{name}</a>
         </li>))}
     </ul>
 </BaseLayout>
