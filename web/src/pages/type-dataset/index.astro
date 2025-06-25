@@ -1,0 +1,17 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro"
+import { getStaticPaths } from "./[type]-[name]/index.astro"
+
+---
+
+<BaseLayout>
+    <h1>Type-Datasets</h1>
+
+    <p>This contains analysis associated with datasets running on a particular algorithm type.</p>
+
+    <ul>
+        {getStaticPaths().map(({ params: { type, name }}) => (<li>
+            <a href={`/spras-benchmarking/type-dataset/${type}-${name}/`}>{name}</a>
+        </li>))}
+    </ul>
+</BaseLayout>
