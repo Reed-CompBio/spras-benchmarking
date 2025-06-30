@@ -45,22 +45,18 @@ algorithms:
 datasets:
   - label: dmmmhiv060
     node_files: ["processed_prize_060.txt"]
-    # DataLoader.py can currently only load a single edge file, which is the primary network
     edge_files: ["phosphosite-irefindex13.0-uniprot.txt"]
     # Placeholder
     other_files: []
-    # Relative path from the spras directory
     data_dir: "datasets/hiv/processed"
   - label: dmmmhiv05
     node_files: ["processed_prize_05.txt"]
     edge_files: ["phosphosite-irefindex13.0-uniprot.txt"]
     other_files: []
     data_dir: "datasets/hiv/processed"
-  # - label: dmmmyeast
-  #   node_files: ["prizes1_dummies.txt"]
-  #   # DataLoader.py can currently only load a single edge file, which is the primary network
-  #   edge_files: ["network1.txt"]
-  #   # Placeholder
-  #   other_files: []
-  #   # Relative path from the spras directory
-  #   data_dir: "datasets/yeast-osmotic-stress/processed"
+  - label: dmmmyeast
+    node_files: ["prizes1_dummies.txt"]
+    edge_files: ["network1.txt"]
+    # Placeholder
+    other_files: []
+    data_dir: "datasets/yeast-osmotic-stress/processed"
