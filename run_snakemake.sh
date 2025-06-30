@@ -6,3 +6,4 @@
 uv tool run snakemake --cores 1 -d datasets/rn-muscle-skeletal -s datasets/rn-muscle-skeletal/Snakefile
 uv tool run snakemake --cores 1 -d datasets/yeast-osmotic-stress -s datasets/yeast-osmotic-stress/Snakefile
 uv tool run snakemake --cores 1 -d datasets/synthetic-data -s datasets/synthetic-data/Snakefile
+uv tool run snakemake --cores 1 -d datasets/hiv -s datasets/hiv/Snakefile

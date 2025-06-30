@@ -1,9 +1,9 @@
-import pandas as pd
+import pandas 
 import pickle
 import os
 
-prize_05 = pd.read_csv('hiv_raw_data/prize_05.csv', sep='\t', lineterminator='\n')
-prize_060 = pd.read_csv('hiv_raw_data/prize_060.csv', sep='\t', lineterminator='\n')
+prize_05 = pandas.read_csv('raw/prize_05.csv', sep='\t', lineterminator='\n')
+prize_060 = pandas.read_csv('raw/prize_060.csv', sep='\t', lineterminator='\n')
 
 prize_05['Uniprot'] = prize_05['Uniprot'].str.split('-', expand=False).str[0]
 prize_05 = prize_05.sort_values('Prize',

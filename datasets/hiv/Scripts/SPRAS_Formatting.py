@@ -1,4 +1,10 @@
 import pickle
+from pathlib import Path
+import os
+import pandas
+
+current_directory = Path(os.path.dirname(os.path.realpath(__file__)))
+PROCESSED_DIR = current_directory.parent / 'processed'
 
 with open('Pickles/UniprotIDs.pkl', 'rb') as file:
         UniprotIDs = pickle.load(file)
@@ -18,10 +24,6 @@ prize_060['Uniprot'] = prize_060['Uniprot'].apply(lambda x: UMap.get(x))
 prize_05.columns = ['NODEID','prize']
 prize_060.columns = ['NODEID','prize']
 
-df = {
-        "prize_05":prize_05,
-        "prize_060":prize_060
-}
 
-with open("Pickles/SPRAS_Data.pkl","wb") as file:
-        pickle.dump(df,file)
+prize_05.to_csv(PROCESSED_DIR / 'processed_prize_05.txt', sep='\t', header=True, index=False)
+prize_060.to_csv(PROCESSED_DIR / 'processed_prize_060.txt', sep='\t', header=True, index=False)
