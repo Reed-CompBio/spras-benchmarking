@@ -47,8 +47,9 @@ There are four primary folders in this repository:
 
 The workflow runs as so:
 
-1. For every dataset, run its inner `Snakefile`. This is orchestrated through the top-level [`run_snakemake.sh`](./run_snakemake.sh) shell script.
+1. For every dataset, run its inner `Snakefile` with [Snakemake](https://snakemake.readthedocs.io/en/stable/). This is orchestrated
+through the top-level [`run_snakemake.sh`](./run_snakemake.sh) shell script.
 1. Run each config YAML file in `configs/` with SPRAS.
-1. Build the website in `web` with the generated `output` from all of the SPRAS runs.
+1. Build the website in `web` with the generated `output` from all of the SPRAS runs, and deploy it on [GitHub Pages](https://pages.github.com/).
 
 For more information on how to add a dataset, see [CONTRIBUTING.md](./CONTRIBUTING.md).
