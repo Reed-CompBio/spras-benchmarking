@@ -54,3 +54,9 @@ datasets:
     edge_files: ["phosphosite-irefindex13.0-uniprot.txt"]
     other_files: []
     data_dir: "datasets/hiv/processed"
+  - label: dmmmyeast
+    node_files: ["prizes1_dummies.txt"]
+    edge_files: ["network1.txt"]
+    # Placeholder
+    other_files: []
+    data_dir: "datasets/yeast-osmotic-stress/processed"
