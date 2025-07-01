@@ -48,7 +48,6 @@ datasets:
   - label: dmmmhiv060
     node_files: ["processed_prize_060.txt"]
     edge_files: ["phosphosite-irefindex13.0-uniprot.txt"]
-    # Placeholder
     other_files: []
     data_dir: "datasets/hiv/processed"
   - label: dmmmhiv05
@@ -60,6 +59,5 @@ datasets:
   - label: dmmmyeast
     node_files: ["prizes1_dummies.txt"]
     edge_files: ["network1.txt"]
-    # Placeholder
     other_files: []
     data_dir: "datasets/yeast-osmotic-stress/processed"
