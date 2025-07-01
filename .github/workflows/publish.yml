@@ -62,9 +62,10 @@ jobs:
       - name: Run Snakemake workflow for DMMMs
         shell: bash --login {0}
         run: snakemake --cores 1 --configfile configs/dmmm.yaml --show-failed-logs -s spras/Snakefile
-      - name: Run Snakemake workflow for PRAs
-        shell: bash --login {0}
-        run: snakemake --cores 1 --configfile configs/pra.yaml --show-failed-logs -s spras/Snakefile
+      # TODO: re-enable PRAs once RN/synthetic data PRs are merged.
+      # - name: Run Snakemake workflow for PRAs
+      #   shell: bash --login {0}
+      #   run: snakemake --cores 1 --configfile configs/pra.yaml --show-failed-logs -s spras/Snakefile
       - name: Setup PNPM
         uses: pnpm/action-setup@v4
         with:
