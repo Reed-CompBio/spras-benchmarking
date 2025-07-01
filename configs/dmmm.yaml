@@ -43,6 +43,8 @@ algorithms:
         g: [0]
 
 datasets:
+  # TODO: use old paramaters for datasets
+  # HIV: https://github.com/Reed-CompBio/spras-benchmarking/blob/0293ae4dc0be59502fac06b42cfd9796a4b4413e/hiv-benchmarking/spras-config/config.yaml
   - label: dmmmhiv060
     node_files: ["processed_prize_060.txt"]
     edge_files: ["phosphosite-irefindex13.0-uniprot.txt"]
@@ -54,6 +56,7 @@ datasets:
     edge_files: ["phosphosite-irefindex13.0-uniprot.txt"]
     other_files: []
     data_dir: "datasets/hiv/processed"
+  # Yeast: https://github.com/tristan-f-r/spras-benchmarking/blob/9477d85871024a5e3a4b0b8b9be7e78c0d0ee961/yeast-osmotic-stress/config.yaml
   - label: dmmmyeast
     node_files: ["prizes1_dummies.txt"]
     edge_files: ["network1.txt"]
