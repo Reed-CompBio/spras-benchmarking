@@ -5,7 +5,9 @@ description = "SPRAS Benchmarking Repository"
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
-    "pandas>=2.3.0"
+    "bioservices>=1.12.1",
+    "more-itertools>=10.7.0",
+    "pandas>=2.3.0",
 ]
 
 [dependency-groups]

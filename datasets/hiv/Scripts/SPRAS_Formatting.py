@@ -1,7 +1,6 @@
 import pickle
 from pathlib import Path
 import os
-import pandas
 
 current_directory = Path(os.path.dirname(os.path.realpath(__file__)))
 PROCESSED_DIR = current_directory.parent / 'processed'

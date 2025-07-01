@@ -1,11 +1,11 @@
 from Bio.KEGG.KGML.KGML_parser import read
-from bioservices import *
+from bioservices import UniProt, KEGG
 import pandas as pd
 from more_itertools import chunked
 
 pathway = read(open("Raw_Data/ko03250.xml", 'r'))
 
-#Read in Kegg pathway data and keep only orthologs 
+#Read in Kegg pathway data and keep only orthologs
 entries_data = []
 for entry in pathway.entries.values():
     if entry.type == 'ortholog':
@@ -25,7 +25,7 @@ ko_hsa_map = k.link('hsa', '+'.join(orthology_ids))
 ko_hsa_dict = {x.split('\t')[0].split(':')[1]: x.split('\t')[1] for x in ko_hsa_map.split('\n')[:-1]}
 ko_hsa_df = pd.DataFrame(ko_hsa_dict.items(),columns= ['KEGG_Orthology','HSA'])
 
-#Kegg .get is limited to 10 entries per call 
+#Kegg .get is limited to 10 entries per call
 #The following code chunks the hsa list into sets of 10
 #then calls the .get function on each which returns kegg api data in string format
 hsa_chunked = list(chunked(ko_hsa_df['HSA'].tolist(),10))
@@ -35,15 +35,15 @@ for entry in hsa_chunked:
 
 #Raw Kegg api data is filtered to obtain hsa and uniprot codes for each protein
 #Note: Although bioservices .link and .conv return cleaner outputs, they do not support
-#one to many relationships at this time. 
+#one to many relationships at this time.
 #Note: bioservices also supplies a parser method for the kegg api but it is also broken at this time.
 processed_uniprot = []
 for chunk in raw_uniprot:
     for item in chunk:
           item = item.split('\n')
-          processed_uniprot.append([(x.strip().split(' ')[1:],'hsa:'+(item[0].split(' '*7)[1])) 
+          processed_uniprot.append([(x.strip().split(' ')[1:],'hsa:'+(item[0].split(' '*7)[1]))
                                     for x in item if 'UniProt' in x][0])
-          
+
 #Creates a dictionary where uniprot ids are keys and hsa ids are values
 hsa_uniprot_dict = {}
 for item in processed_uniprot :
