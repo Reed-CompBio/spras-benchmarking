@@ -28,3 +28,27 @@ snakemake --cores 1 --configfile configs/dmmm.yaml --show-failed-logs -s spras/S
 > [!NOTE]
 > Each one of the dataset categories (at the time of writing, DMMM and PRA) are split into different configuration files.
 > Run each one as you would want.
+
+## Organization
+
+There are four primary folders in this repository:
+
+```
+.
+├── configs
+├── datasets
+├── spras
+└── web
+```
+
+`spras` is the cloned submodule of [SPRAS](https://github.com/reed-compbio/spras), `web` is an
+[astro](https://astro.build/) app which generates the `spras-benchmarking` [output](https://reed-compbio.github.io/spras-benchmarking/),
+`configs` is the YAML file used to talk to SPRAS, and `datasets` contains the raw data.
+
+The workflow runs as so:
+
+1. For every dataset, run its inner `Snakefile`. This is orchestrated through the top-level [`run_snakemake.sh`](./run_snakemake.sh) shell script.
+1. Run each config YAML file in `configs/` with SPRAS.
+1. Build the website in `web` with the generated `output` from all of the SPRAS runs.
+
+For more information on how to add a dataset, see [CONTRIBUTING.md](./CONTRIBUTING.md).
