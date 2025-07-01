@@ -1,0 +1,20 @@
+rule all:
+    input:
+        "processed/prizes1_dummies.txt",
+        "processed/network1.txt"
+
+rule process_prizes:
+    input:
+        "raw/prizes.txt"
+    output:
+        "processed/prizes1_dummies.txt"
+    shell:
+        "uv run process_prizes.py"
+
+rule copy_network:
+    input:
+        "raw/ChasmanNetwork-DirUndir.txt"
+    output:
+        "processed/network1.txt"
+    shell:
+        "cp raw/ChasmanNetwork-DirUndir.txt processed/network1.txt"

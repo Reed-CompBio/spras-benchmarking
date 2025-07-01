@@ -1,8 +1,0 @@
-Bio==1.7.1
-biopython==1.84
-matplotlib==3.8.0
-numpy==1.24.4
-pandas==1.5.3
-Requests==2.32.3
-scikit-learn==1.2.2
-setuptools==70.1.1

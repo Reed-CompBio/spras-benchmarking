@@ -1,0 +1,40 @@
+rule all:
+    input:
+        "processed/processed_prize_05.txt",
+        "processed/processed_prize_060.txt",
+        "processed/phosphosite-irefindex13.0-uniprot.txt"
+
+rule data_prep:
+    input: 
+        "raw/prize_05.csv",
+        "raw/prize_060.csv"
+    output:
+        "Pickles/NodeIDs.pkl"
+    shell:
+        "uv run Scripts/Data_Prep.py"
+
+rule name_mapping:
+    input: 
+        "Pickles/NodeIDs.pkl"
+    output:
+        "Pickles/UniprotIDs.pkl"
+    shell:
+        "uv run Scripts/Name_Mapping.py"
+
+rule spras_formatting:
+    input:
+        "Pickles/NodeIDs.pkl",
+        "Pickles/UniprotIDs.pkl"
+    output:
+        "processed/processed_prize_05.txt",
+        "processed/processed_prize_060.txt"
+    shell:
+        "uv run Scripts/SPRAS_Formatting.py"
+
+rule copy_network:
+    input:
+        "raw/phosphosite-irefindex13.0-uniprot.txt"
+    output:
+        "processed/phosphosite-irefindex13.0-uniprot.txt"
+    shell:
+        "cp raw/phosphosite-irefindex13.0-uniprot.txt processed/phosphosite-irefindex13.0-uniprot.txt"

@@ -1,0 +1,38 @@
+---
+import MediumZoom from "../../../components/MediumZoom.astro";
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import { getDatasets } from "../../../lib/paths";
+
+export function getStaticPaths() {
+    return getDatasets().map(({ name, type }) => ({ params: { type, name }}));
+}
+
+const { type, name } = Astro.params;
+---
+
+<style>
+    img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 0.5rem;
+        width: 400px;
+        border: 1px solid lightgray;
+        cursor: pointer;
+    }
+</style>
+
+<BaseLayout>
+    <h1>{type}-{name}</h1>
+
+    <a href={import.meta.env.BASE_URL}>(go to home)</a> <br />
+    <a href={import.meta.env.BASE_URL + "type-dataset/"}>(go to type-datasets)</a>
+
+    <h2>Principal Component Analysis</h2>
+    <img data-zoomable src={`/spras-benchmarking/data/output/${type}${name}-ml/pca.png`}/>
+
+    <h2>Jaccard Similarity Heatmap</h2>
+    <img data-zoomable src={`/spras-benchmarking/data/output/${type}${name}-ml/jaccard-heatmap.png`}/>
+</BaseLayout>
+
+<MediumZoom />

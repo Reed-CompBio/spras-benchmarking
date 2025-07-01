@@ -1,0 +1,20 @@
+{
+  "name": "",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "prepare-output": "mkdir -p public/data && cp -r ../output/ public/data",
+    "dev": "pnpm prepare-output && astro dev",
+    "build": "pnpm prepare-output && astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@fontsource-variable/noto-sans": "^5.2.7",
+    "astro": "^5.9.4",
+    "cytoscape": "^3.32.0",
+    "dayjs": "^1.11.13",
+    "medium-zoom": "^1.1.0",
+    "sass": "^1.89.2"
+  }
+}

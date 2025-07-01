@@ -1,0 +1,105 @@
+name: Test SPRAS
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow one concurrent deployment
+concurrency:
+  group: 'pages'
+  cancel-in-progress: true
+
+jobs:
+  pre-commit:
+    name: Run pre-commit checks
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+      - name: Run pre-commit checks
+        uses: pre-commit/action@v3.0.0
+  checks:
+    name: Run workflow
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          submodules: true
+      - name: Install uv for scripting
+        uses: astral-sh/setup-uv@v6.1.0
+        with:
+          version: "0.7.13"
+      - name: Setup conda
+        uses: conda-incubator/setup-miniconda@v2
+        with:
+          activate-environment: spras
+          environment-file: spras/environment.yml
+          auto-activate-base: false
+          miniconda-version: 'latest'
+      # Install spras in the environment using pip
+      - name: Install spras in conda env
+        shell: bash --login {0}
+        run: pip install ./spras
+      # Log conda environment contents
+      - name: Log conda environment
+        shell: bash --login {0}
+        run: conda list
+      - name: Process raw data through Snakemake
+        run: sh run_snakemake.sh
+      - name: Run Snakemake workflow for DMMMs
+        shell: bash --login {0}
+        run: snakemake --cores 1 --configfile configs/dmmm.yaml --show-failed-logs -s spras/Snakefile
+      # TODO: re-enable PRAs once RN/synthetic data PRs are merged.
+      # - name: Run Snakemake workflow for PRAs
+      #   shell: bash --login {0}
+      #   run: snakemake --cores 1 --configfile configs/pra.yaml --show-failed-logs -s spras/Snakefile
+      - name: Setup PNPM
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10
+      - name: Install web dependencies
+        working-directory: ./web
+        run: pnpm install
+      - name: Run web builder
+        working-directory: ./web
+        run: pnpm build
+      - name: Upload built website distribution folder
+        uses: actions/upload-artifact@v4
+        with:
+          name: build
+          path: web/dist
+  pages:
+    needs: checks
+    if: github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Download Artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: build
+          path: dist
+      - name: Setup Pages
+        uses: actions/configure-pages@v2
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
