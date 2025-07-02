@@ -1,0 +1,179 @@
+﻿PARTICIPANT_A	INTERACTION_TYPE	PARTICIPANT_B	INTERACTION_DATA_SOURCE	INTERACTION_PUBMED_ID	PATHWAY_NAMES	MEDIATOR_IDS
+CD14	in-complex-with	LY96	PANTHER		Toll receptor signaling pathway	panther:_Complex__MD_2_CD14__TLR4__s135_a189_
+CD14	controls-state-change-of	MYD88	PANTHER		Toll receptor signaling pathway	panther:_CATALYSIS___Complex__MD_2_CD14__TLR4__r105m3_r105;panther:HETERODIMER_ASSOCIATION_LEFT__MyD88-_TIRAP-RIGHT__Complex__TIRAP_MyD88_-_r105
+CD14	controls-state-change-of	TIRAP	PANTHER		Toll receptor signaling pathway	panther:_CATALYSIS___Complex__MD_2_CD14__TLR4__r105m3_r105;panther:HETERODIMER_ASSOCIATION_LEFT__MyD88-_TIRAP-RIGHT__Complex__TIRAP_MyD88_-_r105
+CD14	in-complex-with	TLR4	PANTHER		Toll receptor signaling pathway	panther:_Complex__MD_2_CD14__TLR4__s135_a189_
+CHUK	controls-phosphorylation-of	NFKBIA	PANTHER		Toll receptor signaling pathway	panther:_CATALYSIS___IKKalpha_r14m3_r14;panther:STATE_TRANSITION_LEFT__Complex__IkappaB_NF_kappaB_-_ATP-RIGHT__ADP-_NF_kappaB-_IkappaB-_r14
+CHUK	controls-state-change-of	NFKBIA	PANTHER		Toll receptor signaling pathway	panther:_CATALYSIS___IKKalpha_r14m3_r14;panther:STATE_TRANSITION_LEFT__Complex__IkappaB_NF_kappaB_-_ATP-RIGHT__ADP-_NF_kappaB-_IkappaB-_r14
+CHUK	controls-phosphorylation-of	NFKBIE	PANTHER		Toll receptor signaling pathway	panther:_CATALYSIS___IKKalpha_r14m3_r14;panther:STATE_TRANSITION_LEFT__Complex__IkappaB_NF_kappaB_-_ATP-RIGHT__ADP-_NF_kappaB-_IkappaB-_r14
+CHUK	controls-state-change-of	NFKBIE	PANTHER		Toll receptor signaling pathway	panther:_CATALYSIS___IKKalpha_r14m3_r14;panther:STATE_TRANSITION_LEFT__Complex__IkappaB_NF_kappaB_-_ATP-RIGHT__ADP-_NF_kappaB-_IkappaB-_r14
+ECSIT	controls-phosphorylation-of	CHUK	PANTHER		Toll receptor signaling pathway	panther:STATE_TRANSITION_LEFT__IKKalpha-_ATP-RIGHT__ADP-_IKKalpha-_r85;panther:_CATALYSIS___Complex__TAK1_TRAF6__TAB2_TAB1__MEKK1_ECSIT__r85m1_r85
+ECSIT	controls-state-change-of	CHUK	PANTHER		Toll receptor signaling pathway	panther:STATE_TRANSITION_LEFT__IKKalpha-_ATP-RIGHT__ADP-_IKKalpha-_r85;panther:_CATALYSIS___Complex__TAK1_TRAF6__TAB2_TAB1__MEKK1_ECSIT__r85m1_r85
+ECSIT	controls-phosphorylation-of	IKBKB	PANTHER		Toll receptor signaling pathway	panther:_CATALYSIS___Complex__TAK1_TRAF6__TAB2_TAB1__MEKK1_ECSIT__r73m1_r73;panther:STATE_TRANSITION_LEFT__ATP-_IKKbeta-RIGHT__ADP-_IKKbeta-_r73
+ECSIT	controls-state-change-of	IKBKB	PANTHER		Toll receptor signaling pathway	panther:_CATALYSIS___Complex__TAK1_TRAF6__TAB2_TAB1__MEKK1_ECSIT__r73m1_r73;panther:STATE_TRANSITION_LEFT__ATP-_IKKbeta-RIGHT__ADP-_IKKbeta-_r73
+ECSIT	in-complex-with	MAP3K7	PANTHER		Toll receptor signaling pathway	panther:_Complex__TAK1_TRAF6__TAB2_TAB1__MEKK1_ECSIT__s152_a223_
+ECSIT	in-complex-with	TAB1	PANTHER		Toll receptor signaling pathway	panther:_Complex__TAK1_TRAF6__TAB2_TAB1__MEKK1_ECSIT__s152_a223_
+ECSIT	in-complex-with	TRAF6	PANTHER		Toll receptor signaling pathway	panther:_Complex__TAK1_TRAF6__TAB2_TAB1__MEKK1_ECSIT__s152_a223_
+IKBKB	controls-phosphorylation-of	NFKBIA	PANTHER		Toll receptor signaling pathway	panther:_CATALYSIS___IKKbeta_r14m1_r14;panther:STATE_TRANSITION_LEFT__Complex__IkappaB_NF_kappaB_-_ATP-RIGHT__ADP-_NF_kappaB-_IkappaB-_r14
+IKBKB	controls-state-change-of	NFKBIA	PANTHER		Toll receptor signaling pathway	panther:_CATALYSIS___IKKbeta_r14m1_r14;panther:STATE_TRANSITION_LEFT__Complex__IkappaB_NF_kappaB_-_ATP-RIGHT__ADP-_NF_kappaB-_IkappaB-_r14
+IKBKB	controls-phosphorylation-of	NFKBIE	PANTHER		Toll receptor signaling pathway	panther:_CATALYSIS___IKKbeta_r14m1_r14;panther:STATE_TRANSITION_LEFT__Complex__IkappaB_NF_kappaB_-_ATP-RIGHT__ADP-_NF_kappaB-_IkappaB-_r14
+IKBKB	controls-state-change-of	NFKBIE	PANTHER		Toll receptor signaling pathway	panther:_CATALYSIS___IKKbeta_r14m1_r14;panther:STATE_TRANSITION_LEFT__Complex__IkappaB_NF_kappaB_-_ATP-RIGHT__ADP-_NF_kappaB-_IkappaB-_r14
+IKBKE	controls-phosphorylation-of	IRF3	PANTHER		Toll receptor signaling pathway	panther:STATE_TRANSITION_LEFT__ATP-_IRF3-RIGHT__ADP-_IRF3-_r90;panther:_CATALYSIS___Complex__IKKepsilon_TBK1__TANK__r90m1_r90
+IKBKE	controls-state-change-of	IRF3	PANTHER		Toll receptor signaling pathway	panther:STATE_TRANSITION_LEFT__ATP-_IRF3-RIGHT__ADP-_IRF3-_r90;panther:_CATALYSIS___Complex__IKKepsilon_TBK1__TANK__r90m1_r90
+IKBKE	controls-phosphorylation-of	NFKBIA	PANTHER		Toll receptor signaling pathway	panther:_CATALYSIS___Complex__IKKepsilon_TBK1__TANK__r14m5_r14;panther:STATE_TRANSITION_LEFT__Complex__IkappaB_NF_kappaB_-_ATP-RIGHT__ADP-_NF_kappaB-_IkappaB-_r14
+IKBKE	controls-state-change-of	NFKBIA	PANTHER		Toll receptor signaling pathway	panther:_CATALYSIS___Complex__IKKepsilon_TBK1__TANK__r14m5_r14;panther:STATE_TRANSITION_LEFT__Complex__IkappaB_NF_kappaB_-_ATP-RIGHT__ADP-_NF_kappaB-_IkappaB-_r14
+IKBKE	controls-phosphorylation-of	NFKBIE	PANTHER		Toll receptor signaling pathway	panther:_CATALYSIS___Complex__IKKepsilon_TBK1__TANK__r14m5_r14;panther:STATE_TRANSITION_LEFT__Complex__IkappaB_NF_kappaB_-_ATP-RIGHT__ADP-_NF_kappaB-_IkappaB-_r14
+IKBKE	controls-state-change-of	NFKBIE	PANTHER		Toll receptor signaling pathway	panther:_CATALYSIS___Complex__IKKepsilon_TBK1__TANK__r14m5_r14;panther:STATE_TRANSITION_LEFT__Complex__IkappaB_NF_kappaB_-_ATP-RIGHT__ADP-_NF_kappaB-_IkappaB-_r14
+IKBKE	in-complex-with	TANK	PANTHER		Toll receptor signaling pathway	panther:_Complex__IKKepsilon_TBK1__TANK__s143_a203_
+IKBKE	in-complex-with	TBK1	PANTHER		Toll receptor signaling pathway	panther:_Complex__IKKepsilon_TBK1__TANK__s143_a203_
+IRAK1	in-complex-with	IRAK4	PANTHER		Toll receptor signaling pathway	panther:_Complex__IRAK4_IRAK1__s156_a229_
+IRAK1	controls-phosphorylation-of	MAP3K7	PANTHER		Toll receptor signaling pathway	panther:_CATALYSIS___IRAK1_r50m1_r50;panther:STATE_TRANSITION_LEFT__TAK1-_ATP-RIGHT__ADP-_TAK1-_r50
+IRAK1	controls-state-change-of	MAP3K7	PANTHER		Toll receptor signaling pathway	panther:_CATALYSIS___IRAK1_r50m1_r50;panther:STATE_TRANSITION_LEFT__TAK1-_ATP-RIGHT__ADP-_TAK1-_r50
+IRAK1	controls-phosphorylation-of	TRAF6	PANTHER		Toll receptor signaling pathway	panther:STATE_TRANSITION_LEFT__TRAF6-_ATP-RIGHT__ADP-_TRAF6-_r37;panther:_CATALYSIS___IRAK1_r37m1_r37
+IRAK1	controls-state-change-of	TRAF6	PANTHER		Toll receptor signaling pathway	panther:STATE_TRANSITION_LEFT__TRAF6-_ATP-RIGHT__ADP-_TRAF6-_r37;panther:_CATALYSIS___IRAK1_r37m1_r37
+IRAK3	controls-state-change-of	IRAK1	PANTHER		Toll receptor signaling pathway	panther:UNKNOWN_TRANSITION_LEFT__IRAK1-RIGHT__IRAK1-_re45;panther:_MODULATION___IRAKM_re45m1_re45
+IRAK3	controls-state-change-of	IRAK4	PANTHER		Toll receptor signaling pathway	panther:_MODULATION___IRAKM_re44m1_re44;panther:UNKNOWN_TRANSITION_LEFT__IRAK4-RIGHT__IRAK4-_re44
+IRAK4	controls-phosphorylation-of	TOLLIP	PANTHER		Toll receptor signaling pathway	panther:STATE_TRANSITION_LEFT__Tollip-_ATP-RIGHT__ADP-_Tollip-_r71;panther:_CATALYSIS___IRAK4_r71m1_r71
+IRAK4	controls-state-change-of	TOLLIP	PANTHER		Toll receptor signaling pathway	panther:STATE_TRANSITION_LEFT__Tollip-_ATP-RIGHT__ADP-_Tollip-_r71;panther:_CATALYSIS___IRAK4_r71m1_r71
+LY96	controls-state-change-of	MYD88	PANTHER		Toll receptor signaling pathway	panther:_CATALYSIS___Complex__MD_2_CD14__TLR4__r105m3_r105;panther:HETERODIMER_ASSOCIATION_LEFT__MyD88-_TIRAP-RIGHT__Complex__TIRAP_MyD88_-_r105
+LY96	controls-state-change-of	TIRAP	PANTHER		Toll receptor signaling pathway	panther:_CATALYSIS___Complex__MD_2_CD14__TLR4__r105m3_r105;panther:HETERODIMER_ASSOCIATION_LEFT__MyD88-_TIRAP-RIGHT__Complex__TIRAP_MyD88_-_r105
+LY96	in-complex-with	TLR4	PANTHER		Toll receptor signaling pathway	panther:_Complex__MD_2_CD14__TLR4__s135_a189_
+MAP2K1	controls-phosphorylation-of	MAPK3	PANTHER		Toll receptor signaling pathway	panther:_CATALYSIS___MKK1_r25m1_r25;panther:STATE_TRANSITION_LEFT__ERK1-_ATP-RIGHT__ADP-_ERK1-_r25
+MAP2K1	controls-state-change-of	MAPK3	PANTHER		Toll receptor signaling pathway	panther:_CATALYSIS___MKK1_r25m1_r25;panther:STATE_TRANSITION_LEFT__ERK1-_ATP-RIGHT__ADP-_ERK1-_r25
+MAP2K3	controls-phosphorylation-of	MAPK14	PANTHER		Toll receptor signaling pathway	panther:STATE_TRANSITION_LEFT__p38-_ATP-RIGHT__ADP-_p38-_r21;panther:_CATALYSIS___MKK3_r21m1_r21
+MAP2K3	controls-state-change-of	MAPK14	PANTHER		Toll receptor signaling pathway	panther:STATE_TRANSITION_LEFT__p38-_ATP-RIGHT__ADP-_p38-_r21;panther:_CATALYSIS___MKK3_r21m1_r21
+MAP2K3	controls-phosphorylation-of	MAPK8	PANTHER		Toll receptor signaling pathway	panther:_CATALYSIS___MKK3_r17m3_r17;panther:STATE_TRANSITION_LEFT__JNK-_ATP-RIGHT__ADP-_JNK-_r17
+MAP2K3	controls-state-change-of	MAPK8	PANTHER		Toll receptor signaling pathway	panther:_CATALYSIS___MKK3_r17m3_r17;panther:STATE_TRANSITION_LEFT__JNK-_ATP-RIGHT__ADP-_JNK-_r17
+MAP2K3	controls-phosphorylation-of	MAPK9	PANTHER		Toll receptor signaling pathway	panther:_CATALYSIS___MKK3_r17m3_r17;panther:STATE_TRANSITION_LEFT__JNK-_ATP-RIGHT__ADP-_JNK-_r17
+MAP2K3	controls-state-change-of	MAPK9	PANTHER		Toll receptor signaling pathway	panther:_CATALYSIS___MKK3_r17m3_r17;panther:STATE_TRANSITION_LEFT__JNK-_ATP-RIGHT__ADP-_JNK-_r17
+MAP3K7	controls-phosphorylation-of	CHUK	PANTHER		Toll receptor signaling pathway	panther:STATE_TRANSITION_LEFT__IKKalpha-_ATP-RIGHT__ADP-_IKKalpha-_r85;panther:_CATALYSIS___Complex__TAK1_TRAF6__TAB2_TAB1__MEKK1_ECSIT__r85m1_r85;panther:_CATALYSIS___TAK1_r85m3_r85
+MAP3K7	controls-state-change-of	CHUK	PANTHER		Toll receptor signaling pathway	panther:STATE_TRANSITION_LEFT__IKKalpha-_ATP-RIGHT__ADP-_IKKalpha-_r85;panther:_CATALYSIS___Complex__TAK1_TRAF6__TAB2_TAB1__MEKK1_ECSIT__r85m1_r85;panther:_CATALYSIS___TAK1_r85m3_r85
+MAP3K7	controls-phosphorylation-of	IKBKB	PANTHER		Toll receptor signaling pathway	panther:_CATALYSIS___Complex__TAK1_TRAF6__TAB2_TAB1__MEKK1_ECSIT__r73m1_r73;panther:STATE_TRANSITION_LEFT__ATP-_IKKbeta-RIGHT__ADP-_IKKbeta-_r73;panther:_CATALYSIS___TAK1_r73m3_r73
+MAP3K7	controls-state-change-of	IKBKB	PANTHER		Toll receptor signaling pathway	panther:_CATALYSIS___Complex__TAK1_TRAF6__TAB2_TAB1__MEKK1_ECSIT__r73m1_r73;panther:STATE_TRANSITION_LEFT__ATP-_IKKbeta-RIGHT__ADP-_IKKbeta-_r73;panther:_CATALYSIS___TAK1_r73m3_r73
+MAP3K7	controls-phosphorylation-of	MAP2K3	PANTHER		Toll receptor signaling pathway	panther:_CATALYSIS___TAK1_r20m1_r20;panther:STATE_TRANSITION_LEFT__MKK3-_ATP-RIGHT__ADP-_MKK3-_r20
+MAP3K7	controls-state-change-of	MAP2K3	PANTHER		Toll receptor signaling pathway	panther:_CATALYSIS___TAK1_r20m1_r20;panther:STATE_TRANSITION_LEFT__MKK3-_ATP-RIGHT__ADP-_MKK3-_r20
+MAP3K7	in-complex-with	TAB1	PANTHER		Toll receptor signaling pathway	panther:_Complex__TAK1_TAB2__TAB1__s147_a211_;panther:_Complex__TAK1_TRAF6__TAB2_TAB1__MEKK1_ECSIT__s152_a223_
+MAP3K7	in-complex-with	TRAF6	PANTHER		Toll receptor signaling pathway	panther:_Complex__TAK1_TRAF6__TAB2_TAB1__MEKK1_ECSIT__s152_a223_
+MAP3K8	controls-phosphorylation-of	MAP2K1	PANTHER		Toll receptor signaling pathway	panther:_CATALYSIS___TPL2_r23m1_r23;panther:STATE_TRANSITION_LEFT__MKK1-_ATP-RIGHT__ADP-_MKK1-_r23
+MAP3K8	controls-state-change-of	MAP2K1	PANTHER		Toll receptor signaling pathway	panther:_CATALYSIS___TPL2_r23m1_r23;panther:STATE_TRANSITION_LEFT__MKK1-_ATP-RIGHT__ADP-_MKK1-_r23
+MAP3K8	controls-phosphorylation-of	MAP2K2	PANTHER		Toll receptor signaling pathway	panther:_CATALYSIS___TPL2_r24m1_r24;panther:STATE_TRANSITION_LEFT__MKK2-_ATP-RIGHT__ADP-_MKK2-_r24
+MAP3K8	controls-state-change-of	MAP2K2	PANTHER		Toll receptor signaling pathway	panther:_CATALYSIS___TPL2_r24m1_r24;panther:STATE_TRANSITION_LEFT__MKK2-_ATP-RIGHT__ADP-_MKK2-_r24
+MAPK14	controls-phosphorylation-of	JUN	PANTHER		Toll receptor signaling pathway	panther:STATE_TRANSITION_LEFT__ATP-_AP1-RIGHT__ADP-_AP1-_r19;panther:_CATALYSIS___p38_r19m3_r19
+MAPK14	controls-state-change-of	JUN	PANTHER		Toll receptor signaling pathway	panther:STATE_TRANSITION_LEFT__ATP-_AP1-RIGHT__ADP-_AP1-_r19;panther:_CATALYSIS___p38_r19m3_r19
+MAPK3	controls-phosphorylation-of	ELK1	PANTHER		Toll receptor signaling pathway	panther:_CATALYSIS___ERK1_r75m3_r75;panther:STATE_TRANSITION_LEFT__ATP-_Elk1-RIGHT__ADP-_Elk1-_r75
+MAPK3	controls-state-change-of	ELK1	PANTHER		Toll receptor signaling pathway	panther:_CATALYSIS___ERK1_r75m3_r75;panther:STATE_TRANSITION_LEFT__ATP-_Elk1-RIGHT__ADP-_Elk1-_r75
+MAPK8	controls-phosphorylation-of	JUN	PANTHER		Toll receptor signaling pathway	panther:_CATALYSIS___JNK_r19m1_r19;panther:STATE_TRANSITION_LEFT__ATP-_AP1-RIGHT__ADP-_AP1-_r19
+MAPK8	controls-state-change-of	JUN	PANTHER		Toll receptor signaling pathway	panther:_CATALYSIS___JNK_r19m1_r19;panther:STATE_TRANSITION_LEFT__ATP-_AP1-RIGHT__ADP-_AP1-_r19
+MAPK9	controls-phosphorylation-of	JUN	PANTHER		Toll receptor signaling pathway	panther:_CATALYSIS___JNK_r19m1_r19;panther:STATE_TRANSITION_LEFT__ATP-_AP1-RIGHT__ADP-_AP1-_r19
+MAPK9	controls-state-change-of	JUN	PANTHER		Toll receptor signaling pathway	panther:_CATALYSIS___JNK_r19m1_r19;panther:STATE_TRANSITION_LEFT__ATP-_AP1-RIGHT__ADP-_AP1-_r19
+MYD88	controls-phosphorylation-of	IRAK4	PANTHER		Toll receptor signaling pathway	panther:STATE_TRANSITION_LEFT__IRAK4-RIGHT__IRAK4-_r100;panther:_CATALYSIS___MyD88_r100m1_r100;panther:_CATALYSIS___Complex__TIRAP_MyD88__r100m3_r100
+MYD88	controls-state-change-of	IRAK4	PANTHER		Toll receptor signaling pathway	panther:STATE_TRANSITION_LEFT__IRAK4-RIGHT__IRAK4-_r100;panther:_CATALYSIS___MyD88_r100m1_r100;panther:_CATALYSIS___Complex__TIRAP_MyD88__r100m3_r100
+MYD88	in-complex-with	TIRAP	PANTHER		Toll receptor signaling pathway	panther:_Complex__TIRAP_MyD88__s157_a232_
+TAB1	controls-phosphorylation-of	CHUK	PANTHER		Toll receptor signaling pathway	panther:STATE_TRANSITION_LEFT__IKKalpha-_ATP-RIGHT__ADP-_IKKalpha-_r85;panther:_CATALYSIS___Complex__TAK1_TRAF6__TAB2_TAB1__MEKK1_ECSIT__r85m1_r85
+TAB1	controls-state-change-of	CHUK	PANTHER		Toll receptor signaling pathway	panther:STATE_TRANSITION_LEFT__IKKalpha-_ATP-RIGHT__ADP-_IKKalpha-_r85;panther:_CATALYSIS___Complex__TAK1_TRAF6__TAB2_TAB1__MEKK1_ECSIT__r85m1_r85
+TAB1	controls-phosphorylation-of	IKBKB	PANTHER		Toll receptor signaling pathway	panther:_CATALYSIS___Complex__TAK1_TRAF6__TAB2_TAB1__MEKK1_ECSIT__r73m1_r73;panther:STATE_TRANSITION_LEFT__ATP-_IKKbeta-RIGHT__ADP-_IKKbeta-_r73
+TAB1	controls-state-change-of	IKBKB	PANTHER		Toll receptor signaling pathway	panther:_CATALYSIS___Complex__TAK1_TRAF6__TAB2_TAB1__MEKK1_ECSIT__r73m1_r73;panther:STATE_TRANSITION_LEFT__ATP-_IKKbeta-RIGHT__ADP-_IKKbeta-_r73
+TAB1	in-complex-with	TRAF6	PANTHER		Toll receptor signaling pathway	panther:_Complex__TAK1_TRAF6__TAB2_TAB1__MEKK1_ECSIT__s152_a223_
+TANK	controls-phosphorylation-of	IRF3	PANTHER		Toll receptor signaling pathway	panther:STATE_TRANSITION_LEFT__ATP-_IRF3-RIGHT__ADP-_IRF3-_r90;panther:_CATALYSIS___Complex__IKKepsilon_TBK1__TANK__r90m1_r90
+TANK	controls-state-change-of	IRF3	PANTHER		Toll receptor signaling pathway	panther:STATE_TRANSITION_LEFT__ATP-_IRF3-RIGHT__ADP-_IRF3-_r90;panther:_CATALYSIS___Complex__IKKepsilon_TBK1__TANK__r90m1_r90
+TANK	controls-phosphorylation-of	NFKBIA	PANTHER		Toll receptor signaling pathway	panther:_CATALYSIS___Complex__IKKepsilon_TBK1__TANK__r14m5_r14;panther:STATE_TRANSITION_LEFT__Complex__IkappaB_NF_kappaB_-_ATP-RIGHT__ADP-_NF_kappaB-_IkappaB-_r14
+TANK	controls-state-change-of	NFKBIA	PANTHER		Toll receptor signaling pathway	panther:_CATALYSIS___Complex__IKKepsilon_TBK1__TANK__r14m5_r14;panther:STATE_TRANSITION_LEFT__Complex__IkappaB_NF_kappaB_-_ATP-RIGHT__ADP-_NF_kappaB-_IkappaB-_r14
+TANK	controls-phosphorylation-of	NFKBIE	PANTHER		Toll receptor signaling pathway	panther:_CATALYSIS___Complex__IKKepsilon_TBK1__TANK__r14m5_r14;panther:STATE_TRANSITION_LEFT__Complex__IkappaB_NF_kappaB_-_ATP-RIGHT__ADP-_NF_kappaB-_IkappaB-_r14
+TANK	controls-state-change-of	NFKBIE	PANTHER		Toll receptor signaling pathway	panther:_CATALYSIS___Complex__IKKepsilon_TBK1__TANK__r14m5_r14;panther:STATE_TRANSITION_LEFT__Complex__IkappaB_NF_kappaB_-_ATP-RIGHT__ADP-_NF_kappaB-_IkappaB-_r14
+TANK	in-complex-with	TBK1	PANTHER		Toll receptor signaling pathway	panther:_Complex__IKKepsilon_TBK1__TANK__s143_a203_
+TBK1	controls-phosphorylation-of	IRF3	PANTHER		Toll receptor signaling pathway	panther:STATE_TRANSITION_LEFT__ATP-_IRF3-RIGHT__ADP-_IRF3-_r90;panther:_CATALYSIS___Complex__IKKepsilon_TBK1__TANK__r90m1_r90
+TBK1	controls-state-change-of	IRF3	PANTHER		Toll receptor signaling pathway	panther:STATE_TRANSITION_LEFT__ATP-_IRF3-RIGHT__ADP-_IRF3-_r90;panther:_CATALYSIS___Complex__IKKepsilon_TBK1__TANK__r90m1_r90
+TBK1	controls-phosphorylation-of	NFKBIA	PANTHER		Toll receptor signaling pathway	panther:_CATALYSIS___Complex__IKKepsilon_TBK1__TANK__r14m5_r14;panther:STATE_TRANSITION_LEFT__Complex__IkappaB_NF_kappaB_-_ATP-RIGHT__ADP-_NF_kappaB-_IkappaB-_r14
+TBK1	controls-state-change-of	NFKBIA	PANTHER		Toll receptor signaling pathway	panther:_CATALYSIS___Complex__IKKepsilon_TBK1__TANK__r14m5_r14;panther:STATE_TRANSITION_LEFT__Complex__IkappaB_NF_kappaB_-_ATP-RIGHT__ADP-_NF_kappaB-_IkappaB-_r14
+TBK1	controls-phosphorylation-of	NFKBIE	PANTHER		Toll receptor signaling pathway	panther:_CATALYSIS___Complex__IKKepsilon_TBK1__TANK__r14m5_r14;panther:STATE_TRANSITION_LEFT__Complex__IkappaB_NF_kappaB_-_ATP-RIGHT__ADP-_NF_kappaB-_IkappaB-_r14
+TBK1	controls-state-change-of	NFKBIE	PANTHER		Toll receptor signaling pathway	panther:_CATALYSIS___Complex__IKKepsilon_TBK1__TANK__r14m5_r14;panther:STATE_TRANSITION_LEFT__Complex__IkappaB_NF_kappaB_-_ATP-RIGHT__ADP-_NF_kappaB-_IkappaB-_r14
+TICAM1	controls-state-change-of	IKBKE	PANTHER		Toll receptor signaling pathway	panther:UNKNOWN_TRANSITION_LEFT__IKKepsilon-RIGHT__IKKepsilon-_re42;panther:_MODULATION___TRIF_re42m1_re42
+TICAM2	controls-state-change-of	IKBKE	PANTHER		Toll receptor signaling pathway	panther:UNKNOWN_TRANSITION_LEFT__IKKepsilon-RIGHT__IKKepsilon-_re42;panther:_MODULATION___TRIF_re42m1_re42
+TIRAP	controls-phosphorylation-of	IRAK4	PANTHER		Toll receptor signaling pathway	panther:STATE_TRANSITION_LEFT__IRAK4-RIGHT__IRAK4-_r100;panther:_CATALYSIS___Complex__TIRAP_MyD88__r100m3_r100
+TIRAP	controls-state-change-of	IRAK4	PANTHER		Toll receptor signaling pathway	panther:STATE_TRANSITION_LEFT__IRAK4-RIGHT__IRAK4-_r100;panther:_CATALYSIS___Complex__TIRAP_MyD88__r100m3_r100
+TLR10	controls-state-change-of	MYD88	PANTHER		Toll receptor signaling pathway	panther:_CATALYSIS___Complex__TLR_PAMP__r99m1_r99;panther:STATE_TRANSITION_LEFT__MyD88-RIGHT__MyD88-_r99
+TLR2	controls-state-change-of	MYD88	PANTHER		Toll receptor signaling pathway	panther:_CATALYSIS___Complex__TLR_PAMP__r99m1_r99;panther:STATE_TRANSITION_LEFT__MyD88-RIGHT__MyD88-_r99;panther:_CATALYSIS___Complex__PG,_LP_TLR1,2,6__r105m1_r105;panther:HETERODIMER_ASSOCIATION_LEFT__MyD88-_TIRAP-RIGHT__Complex__TIRAP_MyD88_-_r105
+TLR2	controls-state-change-of	TICAM1	PANTHER		Toll receptor signaling pathway	panther:STATE_TRANSITION_LEFT__TRIF-RIGHT__TRIF-_r101;panther:_CATALYSIS___Complex__PAMP_TLR2,4,7__r101m3_r101
+TLR2	controls-state-change-of	TICAM2	PANTHER		Toll receptor signaling pathway	panther:STATE_TRANSITION_LEFT__TRIF-RIGHT__TRIF-_r101;panther:_CATALYSIS___Complex__PAMP_TLR2,4,7__r101m3_r101
+TLR2	controls-state-change-of	TIRAP	PANTHER		Toll receptor signaling pathway	panther:_CATALYSIS___Complex__PG,_LP_TLR1,2,6__r105m1_r105;panther:HETERODIMER_ASSOCIATION_LEFT__MyD88-_TIRAP-RIGHT__Complex__TIRAP_MyD88_-_r105
+TLR3	controls-state-change-of	MYD88	PANTHER		Toll receptor signaling pathway	panther:_CATALYSIS___Complex__TLR_PAMP__r99m1_r99;panther:STATE_TRANSITION_LEFT__MyD88-RIGHT__MyD88-_r99
+TLR3	controls-state-change-of	TICAM1	PANTHER		Toll receptor signaling pathway	panther:STATE_TRANSITION_LEFT__TRIF-RIGHT__TRIF-_r101;panther:_CATALYSIS___Complex__Poly_I:C_TLR3__r101m1_r101
+TLR3	controls-state-change-of	TICAM2	PANTHER		Toll receptor signaling pathway	panther:STATE_TRANSITION_LEFT__TRIF-RIGHT__TRIF-_r101;panther:_CATALYSIS___Complex__Poly_I:C_TLR3__r101m1_r101
+TLR4	controls-state-change-of	MYD88	PANTHER		Toll receptor signaling pathway	panther:_CATALYSIS___Complex__TLR_PAMP__r99m1_r99;panther:STATE_TRANSITION_LEFT__MyD88-RIGHT__MyD88-_r99;panther:_CATALYSIS___Complex__MD_2_CD14__TLR4__r105m3_r105;panther:HETERODIMER_ASSOCIATION_LEFT__MyD88-_TIRAP-RIGHT__Complex__TIRAP_MyD88_-_r105
+TLR4	controls-state-change-of	TICAM1	PANTHER		Toll receptor signaling pathway	panther:STATE_TRANSITION_LEFT__TRIF-RIGHT__TRIF-_r101;panther:_CATALYSIS___Complex__PAMP_TLR2,4,7__r101m3_r101
+TLR4	controls-state-change-of	TICAM2	PANTHER		Toll receptor signaling pathway	panther:STATE_TRANSITION_LEFT__TRIF-RIGHT__TRIF-_r101;panther:_CATALYSIS___Complex__PAMP_TLR2,4,7__r101m3_r101
+TLR4	controls-state-change-of	TIRAP	PANTHER		Toll receptor signaling pathway	panther:_CATALYSIS___Complex__MD_2_CD14__TLR4__r105m3_r105;panther:HETERODIMER_ASSOCIATION_LEFT__MyD88-_TIRAP-RIGHT__Complex__TIRAP_MyD88_-_r105
+TLR6	controls-state-change-of	MYD88	PANTHER		Toll receptor signaling pathway	panther:_CATALYSIS___Complex__TLR_PAMP__r99m1_r99;panther:STATE_TRANSITION_LEFT__MyD88-RIGHT__MyD88-_r99;panther:_CATALYSIS___Complex__PG,_LP_TLR1,2,6__r105m1_r105;panther:HETERODIMER_ASSOCIATION_LEFT__MyD88-_TIRAP-RIGHT__Complex__TIRAP_MyD88_-_r105
+TLR6	controls-state-change-of	TIRAP	PANTHER		Toll receptor signaling pathway	panther:_CATALYSIS___Complex__PG,_LP_TLR1,2,6__r105m1_r105;panther:HETERODIMER_ASSOCIATION_LEFT__MyD88-_TIRAP-RIGHT__Complex__TIRAP_MyD88_-_r105
+TLR7	controls-state-change-of	MYD88	PANTHER		Toll receptor signaling pathway	panther:_CATALYSIS___Complex__TLR_PAMP__r99m1_r99;panther:STATE_TRANSITION_LEFT__MyD88-RIGHT__MyD88-_r99
+TLR7	controls-state-change-of	TICAM1	PANTHER		Toll receptor signaling pathway	panther:STATE_TRANSITION_LEFT__TRIF-RIGHT__TRIF-_r101;panther:_CATALYSIS___Complex__PAMP_TLR2,4,7__r101m3_r101
+TLR7	controls-state-change-of	TICAM2	PANTHER		Toll receptor signaling pathway	panther:STATE_TRANSITION_LEFT__TRIF-RIGHT__TRIF-_r101;panther:_CATALYSIS___Complex__PAMP_TLR2,4,7__r101m3_r101
+TLR8	controls-state-change-of	MYD88	PANTHER		Toll receptor signaling pathway	panther:_CATALYSIS___Complex__TLR_PAMP__r99m1_r99;panther:STATE_TRANSITION_LEFT__MyD88-RIGHT__MyD88-_r99
+TLR9	controls-state-change-of	MYD88	PANTHER		Toll receptor signaling pathway	panther:_CATALYSIS___Complex__TLR_PAMP__r99m1_r99;panther:STATE_TRANSITION_LEFT__MyD88-RIGHT__MyD88-_r99
+TNFAIP3	controls-phosphorylation-of	TRAF6	PANTHER		Toll receptor signaling pathway	panther:_MODULATION___A20_re43m1_re43;panther:UNKNOWN_TRANSITION_LEFT__TRAF6-RIGHT__TRAF6-_re43
+TNFAIP3	controls-state-change-of	TRAF6	PANTHER		Toll receptor signaling pathway	panther:_MODULATION___A20_re43m1_re43;panther:UNKNOWN_TRANSITION_LEFT__TRAF6-RIGHT__TRAF6-_re43
+TRAF6	controls-phosphorylation-of	CHUK	PANTHER		Toll receptor signaling pathway	panther:STATE_TRANSITION_LEFT__IKKalpha-_ATP-RIGHT__ADP-_IKKalpha-_r85;panther:_CATALYSIS___Complex__TAK1_TRAF6__TAB2_TAB1__MEKK1_ECSIT__r85m1_r85
+TRAF6	controls-state-change-of	CHUK	PANTHER		Toll receptor signaling pathway	panther:STATE_TRANSITION_LEFT__IKKalpha-_ATP-RIGHT__ADP-_IKKalpha-_r85;panther:_CATALYSIS___Complex__TAK1_TRAF6__TAB2_TAB1__MEKK1_ECSIT__r85m1_r85
+TRAF6	controls-phosphorylation-of	IKBKB	PANTHER		Toll receptor signaling pathway	panther:_CATALYSIS___Complex__TAK1_TRAF6__TAB2_TAB1__MEKK1_ECSIT__r73m1_r73;panther:STATE_TRANSITION_LEFT__ATP-_IKKbeta-RIGHT__ADP-_IKKbeta-_r73
+TRAF6	controls-state-change-of	IKBKB	PANTHER		Toll receptor signaling pathway	panther:_CATALYSIS___Complex__TAK1_TRAF6__TAB2_TAB1__MEKK1_ECSIT__r73m1_r73;panther:STATE_TRANSITION_LEFT__ATP-_IKKbeta-RIGHT__ADP-_IKKbeta-_r73
+UBE2NL	controls-state-change-of	TRAF6	PANTHER		Toll receptor signaling pathway	panther:_CATALYSIS___Complex__Ubc13_Uev1A__r9m1_r9;panther:STATE_TRANSITION_LEFT__Ubiquitin-_TRAF6-RIGHT__TRAF6-_r9
+UBE2NL	in-complex-with	UBE2V1	PANTHER		Toll receptor signaling pathway	panther:_Complex__Ubc13_Uev1A__s18_a27_
+UBE2N	controls-state-change-of	TRAF6	PANTHER		Toll receptor signaling pathway	panther:_CATALYSIS___Complex__Ubc13_Uev1A__r9m1_r9;panther:STATE_TRANSITION_LEFT__Ubiquitin-_TRAF6-RIGHT__TRAF6-_r9
+UBE2N	in-complex-with	UBE2V1	PANTHER		Toll receptor signaling pathway	panther:_Complex__Ubc13_Uev1A__s18_a27_
+UBE2V1	controls-state-change-of	TRAF6	PANTHER		Toll receptor signaling pathway	panther:_CATALYSIS___Complex__Ubc13_Uev1A__r9m1_r9;panther:STATE_TRANSITION_LEFT__Ubiquitin-_TRAF6-RIGHT__TRAF6-_r9
+chebi:16412	chemical-affects	CD14	PANTHER		Toll receptor signaling pathway	panther:_Complex__MD_2_CD14__TLR4__s135_a189_
+chebi:16412	chemical-affects	LY96	PANTHER		Toll receptor signaling pathway	panther:_Complex__MD_2_CD14__TLR4__s135_a189_
+chebi:16412	chemical-affects	MYD88	PANTHER		Toll receptor signaling pathway	panther:_CATALYSIS___Complex__MD_2_CD14__TLR4__r105m3_r105;panther:HETERODIMER_ASSOCIATION_LEFT__MyD88-_TIRAP-RIGHT__Complex__TIRAP_MyD88_-_r105
+chebi:16412	chemical-affects	TIRAP	PANTHER		Toll receptor signaling pathway	panther:_CATALYSIS___Complex__MD_2_CD14__TLR4__r105m3_r105;panther:HETERODIMER_ASSOCIATION_LEFT__MyD88-_TIRAP-RIGHT__Complex__TIRAP_MyD88_-_r105
+chebi:16412	chemical-affects	TLR4	PANTHER		Toll receptor signaling pathway	panther:_Complex__MD_2_CD14__TLR4__s135_a189_
+chebi:84491	chemical-affects	TICAM1	PANTHER		Toll receptor signaling pathway	panther:STATE_TRANSITION_LEFT__TRIF-RIGHT__TRIF-_r101;panther:_CATALYSIS___Complex__Poly_I:C_TLR3__r101m1_r101
+chebi:84491	chemical-affects	TICAM2	PANTHER		Toll receptor signaling pathway	panther:STATE_TRANSITION_LEFT__TRIF-RIGHT__TRIF-_r101;panther:_CATALYSIS___Complex__Poly_I:C_TLR3__r101m1_r101
+chebi:84491	chemical-affects	TLR3	PANTHER		Toll receptor signaling pathway	panther:_Complex__Poly_I:C_TLR3__s77_a112_
+
+PARTICIPANT	PARTICIPANT_TYPE	PARTICIPANT_NAME	UNIFICATION_XREF	RELATIONSHIP_XREF
+TNFAIP3	ProteinReference	TNAP3_HUMAN	uniprot:P21580	hgnc.symbol:TNFAIP3;ncbigene:7128
+LY96	ProteinReference	LY96_HUMAN	uniprot:Q9Y6Y9	hgnc.symbol:LY96;ncbigene:23643
+ECSIT	ProteinReference	ECSIT_HUMAN	uniprot:Q9BQ95	hgnc.symbol:ECSIT;ncbigene:51295
+ELK1	ProteinReference	ELK1_HUMAN	uniprot:P19419	hgnc.symbol:ELK1;ncbigene:2002
+TANK	ProteinReference	TANK_HUMAN	uniprot:Q92844	hgnc.symbol:TANK;ncbigene:10010
+IKBKB	ProteinReference	IKKB_HUMAN	uniprot:O14920	hgnc.symbol:IKBKB;ncbigene:3551
+chebi:16412	SmallMoleculeReference	lipopolysaccharide	chebi:CHEBI:16412	
+MAPK9	ProteinReference	MK09_HUMAN	uniprot:P45984	hgnc.symbol:MAPK9;ncbigene:5601
+MAPK8	ProteinReference	MK08_HUMAN	uniprot:P45983	hgnc.symbol:MAPK8;ncbigene:5599
+TBK1	ProteinReference	TBK1_HUMAN	uniprot:Q9UHD2	hgnc.symbol:TBK1;ncbigene:29110
+IRAK1	ProteinReference	IRAK1_HUMAN	uniprot:P51617	hgnc.symbol:IRAK1;ncbigene:3654
+UBE2NL	ProteinReference	UE2NL_HUMAN	uniprot:Q5JXB2	hgnc.symbol:UBE2NL;ncbigene:389898
+MAP3K8	ProteinReference	M3K8_HUMAN	uniprot:P41279	hgnc.symbol:MAP3K8;ncbigene:1326
+CD14	ProteinReference	CD14_HUMAN	uniprot:P08571	hgnc.symbol:CD14;ncbigene:929
+MAP3K7	ProteinReference	M3K7_HUMAN	uniprot:O43318	hgnc.symbol:MAP3K7;ncbigene:6885
+IKBKE	ProteinReference	IKKE_HUMAN	uniprot:Q14164	hgnc.symbol:IKBKE;ncbigene:9641
+MAPK3	ProteinReference	MK03_HUMAN	uniprot:P27361	hgnc.symbol:MAPK3;ncbigene:5595
+MAP2K3	ProteinReference	MP2K3_HUMAN	uniprot:P46734	hgnc.symbol:MAP2K3;ncbigene:5606
+MAP2K1	ProteinReference	MP2K1_HUMAN	uniprot:Q02750	hgnc.symbol:MAP2K1;ncbigene:5604
+JUN	ProteinReference	JUN_HUMAN	uniprot:P05412	hgnc.symbol:JUN;ncbigene:3725
+MAP2K2	ProteinReference	MP2K2_HUMAN	uniprot:P36507	hgnc.symbol:MAP2K2;ncbigene:5605
+TICAM2	ProteinReference	TCAM2_HUMAN	uniprot:Q86XR7	hgnc.symbol:TICAM2;ncbigene:100302736;ncbigene:353376
+CHUK	ProteinReference	IKKA_HUMAN	uniprot:O15111	hgnc.symbol:CHUK;ncbigene:1147
+IRAK3	ProteinReference	IRAK3_HUMAN	uniprot:Q9Y616	hgnc.symbol:IRAK3;ncbigene:11213
+IRAK4	ProteinReference	IRAK4_HUMAN	uniprot:Q9NWZ3	hgnc.symbol:IRAK4;ncbigene:51135
+MAPK14	ProteinReference	MK14_HUMAN	uniprot:Q16539	hgnc.symbol:MAPK14;ncbigene:1432
+TICAM1	ProteinReference	TCAM1_HUMAN	uniprot:Q8IUC6	hgnc.symbol:TICAM1;ncbigene:148022
+TIRAP	ProteinReference	TIRAP_HUMAN	uniprot:P58753	hgnc.symbol:TIRAP;ncbigene:114609
+NFKBIA	ProteinReference	IKBA_HUMAN	uniprot:P25963	hgnc.symbol:NFKBIA;ncbigene:4792
+chebi:84491	SmallMoleculeReference	poly(I:C)	chebi:CHEBI:84491	
+IRF3	ProteinReference	IRF3_HUMAN	uniprot:Q14653	hgnc.symbol:IRF3;ncbigene:3661
+TRAF6	ProteinReference	TRAF6_HUMAN	uniprot:Q9Y4K3	hgnc.symbol:TRAF6;ncbigene:7189
+TOLLIP	ProteinReference	TOLIP_HUMAN	uniprot:Q9H0E2	hgnc.symbol:TOLLIP;ncbigene:54472
+UBE2N	ProteinReference	UBE2N_HUMAN	uniprot:P61088	hgnc.symbol:UBE2N;ncbigene:7334
+TLR9	ProteinReference	TLR9_HUMAN	uniprot:Q9NR96	hgnc.symbol:TLR9;ncbigene:54106
+TLR8	ProteinReference	TLR8_HUMAN	uniprot:Q9NR97	hgnc.symbol:TLR8;ncbigene:51311
+TLR10	ProteinReference	TLR10_HUMAN	uniprot:Q9BXR5	hgnc.symbol:TLR10;ncbigene:81793
+TLR7	ProteinReference	TLR7_HUMAN	uniprot:Q9NYK1	hgnc.symbol:TLR7;ncbigene:51284
+UBE2V1	ProteinReference	UB2V1_HUMAN	uniprot:Q13404	hgnc.symbol:UBE2V1;ncbigene:387522;ncbigene:7335
+TAB1	ProteinReference	TAB1_HUMAN	uniprot:Q15750	hgnc.symbol:TAB1;ncbigene:10454
+TLR6	ProteinReference	TLR6_HUMAN	uniprot:Q9Y2C9	hgnc.symbol:TLR6;ncbigene:10333
+NFKBIE	ProteinReference	IKBE_HUMAN	uniprot:O00221	hgnc.symbol:NFKBIE;ncbigene:4794
+TLR4	ProteinReference	TLR4_HUMAN	uniprot:O00206	hgnc.symbol:TLR4;ncbigene:7099
+MYD88	ProteinReference	MYD88_HUMAN	uniprot:Q99836	hgnc.symbol:MYD88;ncbigene:4615
+TLR3	ProteinReference	TLR3_HUMAN	uniprot:O15455	hgnc.symbol:TLR3;ncbigene:7098
+TLR2	ProteinReference	TLR2_HUMAN	uniprot:O60603	hgnc.symbol:TLR2;ncbigene:7097

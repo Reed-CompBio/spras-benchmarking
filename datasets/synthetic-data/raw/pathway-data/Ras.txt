@@ -1,0 +1,432 @@
+﻿PARTICIPANT_A	INTERACTION_TYPE	PARTICIPANT_B	INTERACTION_DATA_SOURCE	INTERACTION_PUBMED_ID	PATHWAY_NAMES	MEDIATOR_IDS
+AKT1	controls-phosphorylation-of	GSK3A	PANTHER		Ras Pathway	panther:_INHIBITION___AKT_r35m1_r35;panther:STATE_TRANSITION_LEFT__GSK3-RIGHT__GSK3-_r35
+AKT1	controls-state-change-of	GSK3A	PANTHER		Ras Pathway	panther:_INHIBITION___AKT_r35m1_r35;panther:STATE_TRANSITION_LEFT__GSK3-RIGHT__GSK3-_r35
+AKT1	controls-phosphorylation-of	GSK3B	PANTHER		Ras Pathway	panther:_INHIBITION___AKT_r35m1_r35;panther:STATE_TRANSITION_LEFT__GSK3-RIGHT__GSK3-_r35
+AKT1	controls-state-change-of	GSK3B	PANTHER		Ras Pathway	panther:_INHIBITION___AKT_r35m1_r35;panther:STATE_TRANSITION_LEFT__GSK3-RIGHT__GSK3-_r35
+AKT3	controls-phosphorylation-of	GSK3A	PANTHER		Ras Pathway	panther:_INHIBITION___AKT_r35m1_r35;panther:STATE_TRANSITION_LEFT__GSK3-RIGHT__GSK3-_r35
+AKT3	controls-state-change-of	GSK3A	PANTHER		Ras Pathway	panther:_INHIBITION___AKT_r35m1_r35;panther:STATE_TRANSITION_LEFT__GSK3-RIGHT__GSK3-_r35
+AKT3	controls-phosphorylation-of	GSK3B	PANTHER		Ras Pathway	panther:_INHIBITION___AKT_r35m1_r35;panther:STATE_TRANSITION_LEFT__GSK3-RIGHT__GSK3-_r35
+AKT3	controls-state-change-of	GSK3B	PANTHER		Ras Pathway	panther:_INHIBITION___AKT_r35m1_r35;panther:STATE_TRANSITION_LEFT__GSK3-RIGHT__GSK3-_r35
+ARAF	controls-phosphorylation-of	MAP2K1	PANTHER		Ras Pathway	panther:STATE_TRANSITION_LEFT__MEK-RIGHT__MEK-_r21;panther:_CATALYSIS___Raf_r21m1_r21
+ARAF	controls-state-change-of	MAP2K1	PANTHER		Ras Pathway	panther:STATE_TRANSITION_LEFT__MEK-RIGHT__MEK-_r21;panther:_CATALYSIS___Raf_r21m1_r21
+ARAF	controls-phosphorylation-of	MAP2K2	PANTHER		Ras Pathway	panther:STATE_TRANSITION_LEFT__MEK-RIGHT__MEK-_r21;panther:_CATALYSIS___Raf_r21m1_r21
+ARAF	controls-state-change-of	MAP2K2	PANTHER		Ras Pathway	panther:STATE_TRANSITION_LEFT__MEK-RIGHT__MEK-_r21;panther:_CATALYSIS___Raf_r21m1_r21
+BRAF	controls-phosphorylation-of	MAP2K1	PANTHER		Ras Pathway	panther:STATE_TRANSITION_LEFT__MEK-RIGHT__MEK-_r21;panther:_CATALYSIS___Raf_r21m1_r21
+BRAF	controls-state-change-of	MAP2K1	PANTHER		Ras Pathway	panther:STATE_TRANSITION_LEFT__MEK-RIGHT__MEK-_r21;panther:_CATALYSIS___Raf_r21m1_r21
+BRAF	controls-phosphorylation-of	MAP2K2	PANTHER		Ras Pathway	panther:STATE_TRANSITION_LEFT__MEK-RIGHT__MEK-_r21;panther:_CATALYSIS___Raf_r21m1_r21
+BRAF	controls-state-change-of	MAP2K2	PANTHER		Ras Pathway	panther:STATE_TRANSITION_LEFT__MEK-RIGHT__MEK-_r21;panther:_CATALYSIS___Raf_r21m1_r21
+CDC42	controls-state-change-of	RAC1	PANTHER		Ras Pathway	panther:_CATALYSIS___Cdc42_r15m3_r15;panther:STATE_TRANSITION_LEFT__Rac-RIGHT__Rac-_r15
+CDC42	controls-state-change-of	RAC2	PANTHER		Ras Pathway	panther:_CATALYSIS___Cdc42_r15m3_r15;panther:STATE_TRANSITION_LEFT__Rac-RIGHT__Rac-_r15
+CDC42	controls-state-change-of	RAC3	PANTHER		Ras Pathway	panther:_CATALYSIS___Cdc42_r15m3_r15;panther:STATE_TRANSITION_LEFT__Rac-RIGHT__Rac-_r15
+GRB2	controls-state-change-of	HRAS	PANTHER		Ras Pathway	panther:_CATALYSIS___Complex__Shc_Grb2__SOS__r1m1_r1;panther:STATE_TRANSITION_LEFT__Ras-_GTP-RIGHT__GDP-_Ras-_r1
+GRB2	controls-state-change-of	KRAS	PANTHER		Ras Pathway	panther:_CATALYSIS___Complex__Shc_Grb2__SOS__r1m1_r1;panther:STATE_TRANSITION_LEFT__Ras-_GTP-RIGHT__GDP-_Ras-_r1
+GRB2	controls-state-change-of	NRAS	PANTHER		Ras Pathway	panther:_CATALYSIS___Complex__Shc_Grb2__SOS__r1m1_r1;panther:STATE_TRANSITION_LEFT__Ras-_GTP-RIGHT__GDP-_Ras-_r1
+GRB2	in-complex-with	SHC1	PANTHER		Ras Pathway	panther:_Complex__Shc_Grb2__SOS__s27_a42_
+GRB2	in-complex-with	SOS1	PANTHER		Ras Pathway	panther:_Complex__Shc_Grb2__SOS__s27_a42_
+GRB2	in-complex-with	SOS2	PANTHER		Ras Pathway	panther:_Complex__Shc_Grb2__SOS__s27_a42_
+HRAS	controls-state-change-of	ARAF	PANTHER		Ras Pathway	panther:_CATALYSIS___Ras_r3m1_r3;panther:STATE_TRANSITION_LEFT__Raf-RIGHT__Raf-_r3
+HRAS	controls-state-change-of	BRAF	PANTHER		Ras Pathway	panther:_CATALYSIS___Ras_r3m1_r3;panther:STATE_TRANSITION_LEFT__Raf-RIGHT__Raf-_r3
+HRAS	controls-state-change-of	MAP3K1	PANTHER		Ras Pathway	panther:STATE_TRANSITION_LEFT__MEKK1_4-RIGHT__MEKK1_4-_r13;panther:_UNKNOWN_CATALYSIS___Ras_r13m3_r13
+HRAS	controls-state-change-of	MAP3K4	PANTHER		Ras Pathway	panther:STATE_TRANSITION_LEFT__MEKK1_4-RIGHT__MEKK1_4-_r13;panther:_UNKNOWN_CATALYSIS___Ras_r13m3_r13
+HRAS	controls-state-change-of	MAP3K7CL	PANTHER		Ras Pathway	panther:STATE_TRANSITION_LEFT__TAK-RIGHT__TAK-_r23;panther:_UNKNOWN_CATALYSIS___Ras_r23m1_r23
+HRAS	controls-state-change-of	PIK3C3	PANTHER		Ras Pathway	panther:_CATALYSIS___Ras_r32m1_r32;panther:STATE_TRANSITION_LEFT__PI3K-RIGHT__PI3K-_r32_52e54e20d5ade18f4db59f7c1e65112c
+HRAS	controls-state-change-of	PIK3CA	PANTHER		Ras Pathway	panther:_CATALYSIS___Ras_r32m1_r32;panther:STATE_TRANSITION_LEFT__PI3K-RIGHT__PI3K-_r32_52e54e20d5ade18f4db59f7c1e65112c
+HRAS	controls-state-change-of	PIK3CB	PANTHER		Ras Pathway	panther:_CATALYSIS___Ras_r32m1_r32;panther:STATE_TRANSITION_LEFT__PI3K-RIGHT__PI3K-_r32_52e54e20d5ade18f4db59f7c1e65112c
+HRAS	controls-state-change-of	PIK3CD	PANTHER		Ras Pathway	panther:_CATALYSIS___Ras_r32m1_r32;panther:STATE_TRANSITION_LEFT__PI3K-RIGHT__PI3K-_r32_52e54e20d5ade18f4db59f7c1e65112c
+HRAS	controls-state-change-of	PIK3CG	PANTHER		Ras Pathway	panther:_CATALYSIS___Ras_r32m1_r32;panther:STATE_TRANSITION_LEFT__PI3K-RIGHT__PI3K-_r32_52e54e20d5ade18f4db59f7c1e65112c
+HRAS	controls-state-change-of	RAF1	PANTHER		Ras Pathway	panther:_CATALYSIS___Ras_r3m1_r3;panther:STATE_TRANSITION_LEFT__Raf-RIGHT__Raf-_r3
+HRAS	controls-state-change-of	RALGDS	PANTHER		Ras Pathway	panther:STATE_TRANSITION_LEFT__RalGDS-RIGHT__RalGDS-_r4;panther:_CATALYSIS___Ras_r4m1_r4
+HRAS	controls-state-change-of	RGL1	PANTHER		Ras Pathway	panther:STATE_TRANSITION_LEFT__RalGDS-RIGHT__RalGDS-_r4;panther:_CATALYSIS___Ras_r4m1_r4
+HRAS	controls-state-change-of	RGL2	PANTHER		Ras Pathway	panther:STATE_TRANSITION_LEFT__RalGDS-RIGHT__RalGDS-_r4;panther:_CATALYSIS___Ras_r4m1_r4
+HRAS	controls-state-change-of	TIAM1	PANTHER		Ras Pathway	panther:STATE_TRANSITION_LEFT__Tiam1-RIGHT__Tiam1-_r5;panther:_CATALYSIS___Ras_r5m1_r5
+KRAS	controls-state-change-of	ARAF	PANTHER		Ras Pathway	panther:_CATALYSIS___Ras_r3m1_r3;panther:STATE_TRANSITION_LEFT__Raf-RIGHT__Raf-_r3
+KRAS	controls-state-change-of	BRAF	PANTHER		Ras Pathway	panther:_CATALYSIS___Ras_r3m1_r3;panther:STATE_TRANSITION_LEFT__Raf-RIGHT__Raf-_r3
+KRAS	controls-state-change-of	MAP3K1	PANTHER		Ras Pathway	panther:STATE_TRANSITION_LEFT__MEKK1_4-RIGHT__MEKK1_4-_r13;panther:_UNKNOWN_CATALYSIS___Ras_r13m3_r13
+KRAS	controls-state-change-of	MAP3K4	PANTHER		Ras Pathway	panther:STATE_TRANSITION_LEFT__MEKK1_4-RIGHT__MEKK1_4-_r13;panther:_UNKNOWN_CATALYSIS___Ras_r13m3_r13
+KRAS	controls-state-change-of	MAP3K7CL	PANTHER		Ras Pathway	panther:STATE_TRANSITION_LEFT__TAK-RIGHT__TAK-_r23;panther:_UNKNOWN_CATALYSIS___Ras_r23m1_r23
+KRAS	controls-state-change-of	PIK3C3	PANTHER		Ras Pathway	panther:_CATALYSIS___Ras_r32m1_r32;panther:STATE_TRANSITION_LEFT__PI3K-RIGHT__PI3K-_r32_52e54e20d5ade18f4db59f7c1e65112c
+KRAS	controls-state-change-of	PIK3CA	PANTHER		Ras Pathway	panther:_CATALYSIS___Ras_r32m1_r32;panther:STATE_TRANSITION_LEFT__PI3K-RIGHT__PI3K-_r32_52e54e20d5ade18f4db59f7c1e65112c
+KRAS	controls-state-change-of	PIK3CB	PANTHER		Ras Pathway	panther:_CATALYSIS___Ras_r32m1_r32;panther:STATE_TRANSITION_LEFT__PI3K-RIGHT__PI3K-_r32_52e54e20d5ade18f4db59f7c1e65112c
+KRAS	controls-state-change-of	PIK3CD	PANTHER		Ras Pathway	panther:_CATALYSIS___Ras_r32m1_r32;panther:STATE_TRANSITION_LEFT__PI3K-RIGHT__PI3K-_r32_52e54e20d5ade18f4db59f7c1e65112c
+KRAS	controls-state-change-of	PIK3CG	PANTHER		Ras Pathway	panther:_CATALYSIS___Ras_r32m1_r32;panther:STATE_TRANSITION_LEFT__PI3K-RIGHT__PI3K-_r32_52e54e20d5ade18f4db59f7c1e65112c
+KRAS	controls-state-change-of	RAF1	PANTHER		Ras Pathway	panther:_CATALYSIS___Ras_r3m1_r3;panther:STATE_TRANSITION_LEFT__Raf-RIGHT__Raf-_r3
+KRAS	controls-state-change-of	RALGDS	PANTHER		Ras Pathway	panther:STATE_TRANSITION_LEFT__RalGDS-RIGHT__RalGDS-_r4;panther:_CATALYSIS___Ras_r4m1_r4
+KRAS	controls-state-change-of	RGL1	PANTHER		Ras Pathway	panther:STATE_TRANSITION_LEFT__RalGDS-RIGHT__RalGDS-_r4;panther:_CATALYSIS___Ras_r4m1_r4
+KRAS	controls-state-change-of	RGL2	PANTHER		Ras Pathway	panther:STATE_TRANSITION_LEFT__RalGDS-RIGHT__RalGDS-_r4;panther:_CATALYSIS___Ras_r4m1_r4
+KRAS	controls-state-change-of	TIAM1	PANTHER		Ras Pathway	panther:STATE_TRANSITION_LEFT__Tiam1-RIGHT__Tiam1-_r5;panther:_CATALYSIS___Ras_r5m1_r5
+MAP2K1	controls-phosphorylation-of	MAPK1	PANTHER		Ras Pathway	panther:STATE_TRANSITION_LEFT__ERK-RIGHT__ERK-_r22;panther:_CATALYSIS___MEK_r22m1_r22
+MAP2K1	controls-state-change-of	MAPK1	PANTHER		Ras Pathway	panther:STATE_TRANSITION_LEFT__ERK-RIGHT__ERK-_r22;panther:_CATALYSIS___MEK_r22m1_r22
+MAP2K1	controls-phosphorylation-of	MAPK3	PANTHER		Ras Pathway	panther:STATE_TRANSITION_LEFT__ERK-RIGHT__ERK-_r22;panther:_CATALYSIS___MEK_r22m1_r22
+MAP2K1	controls-state-change-of	MAPK3	PANTHER		Ras Pathway	panther:STATE_TRANSITION_LEFT__ERK-RIGHT__ERK-_r22;panther:_CATALYSIS___MEK_r22m1_r22
+MAP2K2	controls-phosphorylation-of	MAPK1	PANTHER		Ras Pathway	panther:STATE_TRANSITION_LEFT__ERK-RIGHT__ERK-_r22;panther:_CATALYSIS___MEK_r22m1_r22
+MAP2K2	controls-state-change-of	MAPK1	PANTHER		Ras Pathway	panther:STATE_TRANSITION_LEFT__ERK-RIGHT__ERK-_r22;panther:_CATALYSIS___MEK_r22m1_r22
+MAP2K2	controls-phosphorylation-of	MAPK3	PANTHER		Ras Pathway	panther:STATE_TRANSITION_LEFT__ERK-RIGHT__ERK-_r22;panther:_CATALYSIS___MEK_r22m1_r22
+MAP2K2	controls-state-change-of	MAPK3	PANTHER		Ras Pathway	panther:STATE_TRANSITION_LEFT__ERK-RIGHT__ERK-_r22;panther:_CATALYSIS___MEK_r22m1_r22
+MAP2K3	controls-phosphorylation-of	MAPK11	PANTHER		Ras Pathway	panther:_CATALYSIS___MKK3_6_r37m1_r37;panther:STATE_TRANSITION_LEFT__p38-RIGHT__p38-_r37
+MAP2K3	controls-state-change-of	MAPK11	PANTHER		Ras Pathway	panther:_CATALYSIS___MKK3_6_r37m1_r37;panther:STATE_TRANSITION_LEFT__p38-RIGHT__p38-_r37
+MAP2K3	controls-phosphorylation-of	MAPK12	PANTHER		Ras Pathway	panther:_CATALYSIS___MKK3_6_r37m1_r37;panther:STATE_TRANSITION_LEFT__p38-RIGHT__p38-_r37
+MAP2K3	controls-state-change-of	MAPK12	PANTHER		Ras Pathway	panther:_CATALYSIS___MKK3_6_r37m1_r37;panther:STATE_TRANSITION_LEFT__p38-RIGHT__p38-_r37
+MAP2K3	controls-phosphorylation-of	MAPK13	PANTHER		Ras Pathway	panther:_CATALYSIS___MKK3_6_r37m1_r37;panther:STATE_TRANSITION_LEFT__p38-RIGHT__p38-_r37
+MAP2K3	controls-state-change-of	MAPK13	PANTHER		Ras Pathway	panther:_CATALYSIS___MKK3_6_r37m1_r37;panther:STATE_TRANSITION_LEFT__p38-RIGHT__p38-_r37
+MAP2K3	controls-phosphorylation-of	MAPK14	PANTHER		Ras Pathway	panther:_CATALYSIS___MKK3_6_r37m1_r37;panther:STATE_TRANSITION_LEFT__p38-RIGHT__p38-_r37
+MAP2K3	controls-state-change-of	MAPK14	PANTHER		Ras Pathway	panther:_CATALYSIS___MKK3_6_r37m1_r37;panther:STATE_TRANSITION_LEFT__p38-RIGHT__p38-_r37
+MAP2K4	controls-phosphorylation-of	MAPK10	PANTHER		Ras Pathway	panther:_CATALYSIS___MKK4_7_r20m3_r20;panther:STATE_TRANSITION_LEFT__JNK-RIGHT__JNK-_r20
+MAP2K4	controls-state-change-of	MAPK10	PANTHER		Ras Pathway	panther:_CATALYSIS___MKK4_7_r20m3_r20;panther:STATE_TRANSITION_LEFT__JNK-RIGHT__JNK-_r20
+MAP2K4	controls-phosphorylation-of	MAPK8	PANTHER		Ras Pathway	panther:_CATALYSIS___MKK4_7_r20m3_r20;panther:STATE_TRANSITION_LEFT__JNK-RIGHT__JNK-_r20
+MAP2K4	controls-state-change-of	MAPK8	PANTHER		Ras Pathway	panther:_CATALYSIS___MKK4_7_r20m3_r20;panther:STATE_TRANSITION_LEFT__JNK-RIGHT__JNK-_r20
+MAP2K4	controls-phosphorylation-of	MAPK9	PANTHER		Ras Pathway	panther:_CATALYSIS___MKK4_7_r20m3_r20;panther:STATE_TRANSITION_LEFT__JNK-RIGHT__JNK-_r20
+MAP2K4	controls-state-change-of	MAPK9	PANTHER		Ras Pathway	panther:_CATALYSIS___MKK4_7_r20m3_r20;panther:STATE_TRANSITION_LEFT__JNK-RIGHT__JNK-_r20
+MAP2K6	controls-phosphorylation-of	MAPK11	PANTHER		Ras Pathway	panther:_CATALYSIS___MKK3_6_r37m1_r37;panther:STATE_TRANSITION_LEFT__p38-RIGHT__p38-_r37
+MAP2K6	controls-state-change-of	MAPK11	PANTHER		Ras Pathway	panther:_CATALYSIS___MKK3_6_r37m1_r37;panther:STATE_TRANSITION_LEFT__p38-RIGHT__p38-_r37
+MAP2K6	controls-phosphorylation-of	MAPK12	PANTHER		Ras Pathway	panther:_CATALYSIS___MKK3_6_r37m1_r37;panther:STATE_TRANSITION_LEFT__p38-RIGHT__p38-_r37
+MAP2K6	controls-state-change-of	MAPK12	PANTHER		Ras Pathway	panther:_CATALYSIS___MKK3_6_r37m1_r37;panther:STATE_TRANSITION_LEFT__p38-RIGHT__p38-_r37
+MAP2K6	controls-phosphorylation-of	MAPK13	PANTHER		Ras Pathway	panther:_CATALYSIS___MKK3_6_r37m1_r37;panther:STATE_TRANSITION_LEFT__p38-RIGHT__p38-_r37
+MAP2K6	controls-state-change-of	MAPK13	PANTHER		Ras Pathway	panther:_CATALYSIS___MKK3_6_r37m1_r37;panther:STATE_TRANSITION_LEFT__p38-RIGHT__p38-_r37
+MAP2K6	controls-phosphorylation-of	MAPK14	PANTHER		Ras Pathway	panther:_CATALYSIS___MKK3_6_r37m1_r37;panther:STATE_TRANSITION_LEFT__p38-RIGHT__p38-_r37
+MAP2K6	controls-state-change-of	MAPK14	PANTHER		Ras Pathway	panther:_CATALYSIS___MKK3_6_r37m1_r37;panther:STATE_TRANSITION_LEFT__p38-RIGHT__p38-_r37
+MAP2K7	controls-phosphorylation-of	MAPK10	PANTHER		Ras Pathway	panther:_CATALYSIS___MKK4_7_r20m3_r20;panther:STATE_TRANSITION_LEFT__JNK-RIGHT__JNK-_r20
+MAP2K7	controls-state-change-of	MAPK10	PANTHER		Ras Pathway	panther:_CATALYSIS___MKK4_7_r20m3_r20;panther:STATE_TRANSITION_LEFT__JNK-RIGHT__JNK-_r20
+MAP2K7	controls-phosphorylation-of	MAPK8	PANTHER		Ras Pathway	panther:_CATALYSIS___MKK4_7_r20m3_r20;panther:STATE_TRANSITION_LEFT__JNK-RIGHT__JNK-_r20
+MAP2K7	controls-state-change-of	MAPK8	PANTHER		Ras Pathway	panther:_CATALYSIS___MKK4_7_r20m3_r20;panther:STATE_TRANSITION_LEFT__JNK-RIGHT__JNK-_r20
+MAP2K7	controls-phosphorylation-of	MAPK9	PANTHER		Ras Pathway	panther:_CATALYSIS___MKK4_7_r20m3_r20;panther:STATE_TRANSITION_LEFT__JNK-RIGHT__JNK-_r20
+MAP2K7	controls-state-change-of	MAPK9	PANTHER		Ras Pathway	panther:_CATALYSIS___MKK4_7_r20m3_r20;panther:STATE_TRANSITION_LEFT__JNK-RIGHT__JNK-_r20
+MAP3K1	controls-phosphorylation-of	MAP2K3	PANTHER		Ras Pathway	panther:_CATALYSIS___MEKK1_4_r36m1_r36;panther:STATE_TRANSITION_LEFT__MKK3_6-RIGHT__MKK3_6-_r36
+MAP3K1	controls-state-change-of	MAP2K3	PANTHER		Ras Pathway	panther:_CATALYSIS___MEKK1_4_r36m1_r36;panther:STATE_TRANSITION_LEFT__MKK3_6-RIGHT__MKK3_6-_r36
+MAP3K1	controls-phosphorylation-of	MAP2K4	PANTHER		Ras Pathway	panther:_CATALYSIS___MEKK1_4_r19m1_r19;panther:STATE_TRANSITION_LEFT__MKK4_7-RIGHT__MKK4_7-_r19
+MAP3K1	controls-state-change-of	MAP2K4	PANTHER		Ras Pathway	panther:_CATALYSIS___MEKK1_4_r19m1_r19;panther:STATE_TRANSITION_LEFT__MKK4_7-RIGHT__MKK4_7-_r19
+MAP3K1	controls-phosphorylation-of	MAP2K6	PANTHER		Ras Pathway	panther:_CATALYSIS___MEKK1_4_r36m1_r36;panther:STATE_TRANSITION_LEFT__MKK3_6-RIGHT__MKK3_6-_r36
+MAP3K1	controls-state-change-of	MAP2K6	PANTHER		Ras Pathway	panther:_CATALYSIS___MEKK1_4_r36m1_r36;panther:STATE_TRANSITION_LEFT__MKK3_6-RIGHT__MKK3_6-_r36
+MAP3K1	controls-phosphorylation-of	MAP2K7	PANTHER		Ras Pathway	panther:_CATALYSIS___MEKK1_4_r19m1_r19;panther:STATE_TRANSITION_LEFT__MKK4_7-RIGHT__MKK4_7-_r19
+MAP3K1	controls-state-change-of	MAP2K7	PANTHER		Ras Pathway	panther:_CATALYSIS___MEKK1_4_r19m1_r19;panther:STATE_TRANSITION_LEFT__MKK4_7-RIGHT__MKK4_7-_r19
+MAP3K4	controls-phosphorylation-of	MAP2K3	PANTHER		Ras Pathway	panther:_CATALYSIS___MEKK1_4_r36m1_r36;panther:STATE_TRANSITION_LEFT__MKK3_6-RIGHT__MKK3_6-_r36
+MAP3K4	controls-state-change-of	MAP2K3	PANTHER		Ras Pathway	panther:_CATALYSIS___MEKK1_4_r36m1_r36;panther:STATE_TRANSITION_LEFT__MKK3_6-RIGHT__MKK3_6-_r36
+MAP3K4	controls-phosphorylation-of	MAP2K4	PANTHER		Ras Pathway	panther:_CATALYSIS___MEKK1_4_r19m1_r19;panther:STATE_TRANSITION_LEFT__MKK4_7-RIGHT__MKK4_7-_r19
+MAP3K4	controls-state-change-of	MAP2K4	PANTHER		Ras Pathway	panther:_CATALYSIS___MEKK1_4_r19m1_r19;panther:STATE_TRANSITION_LEFT__MKK4_7-RIGHT__MKK4_7-_r19
+MAP3K4	controls-phosphorylation-of	MAP2K6	PANTHER		Ras Pathway	panther:_CATALYSIS___MEKK1_4_r36m1_r36;panther:STATE_TRANSITION_LEFT__MKK3_6-RIGHT__MKK3_6-_r36
+MAP3K4	controls-state-change-of	MAP2K6	PANTHER		Ras Pathway	panther:_CATALYSIS___MEKK1_4_r36m1_r36;panther:STATE_TRANSITION_LEFT__MKK3_6-RIGHT__MKK3_6-_r36
+MAP3K4	controls-phosphorylation-of	MAP2K7	PANTHER		Ras Pathway	panther:_CATALYSIS___MEKK1_4_r19m1_r19;panther:STATE_TRANSITION_LEFT__MKK4_7-RIGHT__MKK4_7-_r19
+MAP3K4	controls-state-change-of	MAP2K7	PANTHER		Ras Pathway	panther:_CATALYSIS___MEKK1_4_r19m1_r19;panther:STATE_TRANSITION_LEFT__MKK4_7-RIGHT__MKK4_7-_r19
+MAP3K7CL	controls-phosphorylation-of	MAP2K3	PANTHER		Ras Pathway	panther:_CATALYSIS___TAK_r36m5_r36;panther:STATE_TRANSITION_LEFT__MKK3_6-RIGHT__MKK3_6-_r36
+MAP3K7CL	controls-state-change-of	MAP2K3	PANTHER		Ras Pathway	panther:_CATALYSIS___TAK_r36m5_r36;panther:STATE_TRANSITION_LEFT__MKK3_6-RIGHT__MKK3_6-_r36
+MAP3K7CL	controls-phosphorylation-of	MAP2K6	PANTHER		Ras Pathway	panther:_CATALYSIS___TAK_r36m5_r36;panther:STATE_TRANSITION_LEFT__MKK3_6-RIGHT__MKK3_6-_r36
+MAP3K7CL	controls-state-change-of	MAP2K6	PANTHER		Ras Pathway	panther:_CATALYSIS___TAK_r36m5_r36;panther:STATE_TRANSITION_LEFT__MKK3_6-RIGHT__MKK3_6-_r36
+MAPK10	controls-phosphorylation-of	ATF2	PANTHER		Ras Pathway	panther:_CATALYSIS___JNK_r66m3_r66;panther:STATE_TRANSITION_LEFT__ATF2-RIGHT__ATF2-_r66
+MAPK10	controls-state-change-of	ATF2	PANTHER		Ras Pathway	panther:_CATALYSIS___JNK_r66m3_r66;panther:STATE_TRANSITION_LEFT__ATF2-RIGHT__ATF2-_r66
+MAPK10	controls-phosphorylation-of	ELK1	PANTHER		Ras Pathway	panther:STATE_TRANSITION_LEFT__Elk_1-RIGHT__Elk_1-_r45;panther:_CATALYSIS___JNK_r45m1_r45
+MAPK10	controls-state-change-of	ELK1	PANTHER		Ras Pathway	panther:STATE_TRANSITION_LEFT__Elk_1-RIGHT__Elk_1-_r45;panther:_CATALYSIS___JNK_r45m1_r45
+MAPK10	controls-phosphorylation-of	JUN	PANTHER		Ras Pathway	panther:STATE_TRANSITION_LEFT__AP1-RIGHT__AP1-_r63;panther:_CATALYSIS___JNK_r63m1_r63
+MAPK10	controls-state-change-of	JUN	PANTHER		Ras Pathway	panther:STATE_TRANSITION_LEFT__AP1-RIGHT__AP1-_r63;panther:_CATALYSIS___JNK_r63m1_r63
+MAPK10	controls-phosphorylation-of	STAT1	PANTHER		Ras Pathway	panther:_CATALYSIS___JNK_r64m5_r64;panther:STATE_TRANSITION_LEFT__Stat_1_3-RIGHT__Stat_1_3-_r64
+MAPK10	controls-state-change-of	STAT1	PANTHER		Ras Pathway	panther:_CATALYSIS___JNK_r64m5_r64;panther:STATE_TRANSITION_LEFT__Stat_1_3-RIGHT__Stat_1_3-_r64
+MAPK10	controls-phosphorylation-of	STAT3	PANTHER		Ras Pathway	panther:_CATALYSIS___JNK_r64m5_r64;panther:STATE_TRANSITION_LEFT__Stat_1_3-RIGHT__Stat_1_3-_r64
+MAPK10	controls-state-change-of	STAT3	PANTHER		Ras Pathway	panther:_CATALYSIS___JNK_r64m5_r64;panther:STATE_TRANSITION_LEFT__Stat_1_3-RIGHT__Stat_1_3-_r64
+MAPK11	controls-phosphorylation-of	ATF2	PANTHER		Ras Pathway	panther:_CATALYSIS___p38_r66m1_r66;panther:STATE_TRANSITION_LEFT__ATF2-RIGHT__ATF2-_r66
+MAPK11	controls-state-change-of	ATF2	PANTHER		Ras Pathway	panther:_CATALYSIS___p38_r66m1_r66;panther:STATE_TRANSITION_LEFT__ATF2-RIGHT__ATF2-_r66
+MAPK11	controls-phosphorylation-of	ELK1	PANTHER		Ras Pathway	panther:STATE_TRANSITION_LEFT__Elk_1-RIGHT__Elk_1-_r45;panther:_CATALYSIS___p38_r45m3_r45
+MAPK11	controls-state-change-of	ELK1	PANTHER		Ras Pathway	panther:STATE_TRANSITION_LEFT__Elk_1-RIGHT__Elk_1-_r45;panther:_CATALYSIS___p38_r45m3_r45
+MAPK11	controls-phosphorylation-of	STAT1	PANTHER		Ras Pathway	panther:STATE_TRANSITION_LEFT__Stat_1_3-RIGHT__Stat_1_3-_r64;panther:_CATALYSIS___p38_r64m1_r64
+MAPK11	controls-state-change-of	STAT1	PANTHER		Ras Pathway	panther:STATE_TRANSITION_LEFT__Stat_1_3-RIGHT__Stat_1_3-_r64;panther:_CATALYSIS___p38_r64m1_r64
+MAPK11	controls-phosphorylation-of	STAT3	PANTHER		Ras Pathway	panther:STATE_TRANSITION_LEFT__Stat_1_3-RIGHT__Stat_1_3-_r64;panther:_CATALYSIS___p38_r64m1_r64
+MAPK11	controls-state-change-of	STAT3	PANTHER		Ras Pathway	panther:STATE_TRANSITION_LEFT__Stat_1_3-RIGHT__Stat_1_3-_r64;panther:_CATALYSIS___p38_r64m1_r64
+MAPK12	controls-phosphorylation-of	ATF2	PANTHER		Ras Pathway	panther:_CATALYSIS___p38_r66m1_r66;panther:STATE_TRANSITION_LEFT__ATF2-RIGHT__ATF2-_r66
+MAPK12	controls-state-change-of	ATF2	PANTHER		Ras Pathway	panther:_CATALYSIS___p38_r66m1_r66;panther:STATE_TRANSITION_LEFT__ATF2-RIGHT__ATF2-_r66
+MAPK12	controls-phosphorylation-of	ELK1	PANTHER		Ras Pathway	panther:STATE_TRANSITION_LEFT__Elk_1-RIGHT__Elk_1-_r45;panther:_CATALYSIS___p38_r45m3_r45
+MAPK12	controls-state-change-of	ELK1	PANTHER		Ras Pathway	panther:STATE_TRANSITION_LEFT__Elk_1-RIGHT__Elk_1-_r45;panther:_CATALYSIS___p38_r45m3_r45
+MAPK12	controls-phosphorylation-of	STAT1	PANTHER		Ras Pathway	panther:STATE_TRANSITION_LEFT__Stat_1_3-RIGHT__Stat_1_3-_r64;panther:_CATALYSIS___p38_r64m1_r64
+MAPK12	controls-state-change-of	STAT1	PANTHER		Ras Pathway	panther:STATE_TRANSITION_LEFT__Stat_1_3-RIGHT__Stat_1_3-_r64;panther:_CATALYSIS___p38_r64m1_r64
+MAPK12	controls-phosphorylation-of	STAT3	PANTHER		Ras Pathway	panther:STATE_TRANSITION_LEFT__Stat_1_3-RIGHT__Stat_1_3-_r64;panther:_CATALYSIS___p38_r64m1_r64
+MAPK12	controls-state-change-of	STAT3	PANTHER		Ras Pathway	panther:STATE_TRANSITION_LEFT__Stat_1_3-RIGHT__Stat_1_3-_r64;panther:_CATALYSIS___p38_r64m1_r64
+MAPK13	controls-phosphorylation-of	ATF2	PANTHER		Ras Pathway	panther:_CATALYSIS___p38_r66m1_r66;panther:STATE_TRANSITION_LEFT__ATF2-RIGHT__ATF2-_r66
+MAPK13	controls-state-change-of	ATF2	PANTHER		Ras Pathway	panther:_CATALYSIS___p38_r66m1_r66;panther:STATE_TRANSITION_LEFT__ATF2-RIGHT__ATF2-_r66
+MAPK13	controls-phosphorylation-of	ELK1	PANTHER		Ras Pathway	panther:STATE_TRANSITION_LEFT__Elk_1-RIGHT__Elk_1-_r45;panther:_CATALYSIS___p38_r45m3_r45
+MAPK13	controls-state-change-of	ELK1	PANTHER		Ras Pathway	panther:STATE_TRANSITION_LEFT__Elk_1-RIGHT__Elk_1-_r45;panther:_CATALYSIS___p38_r45m3_r45
+MAPK13	controls-phosphorylation-of	STAT1	PANTHER		Ras Pathway	panther:STATE_TRANSITION_LEFT__Stat_1_3-RIGHT__Stat_1_3-_r64;panther:_CATALYSIS___p38_r64m1_r64
+MAPK13	controls-state-change-of	STAT1	PANTHER		Ras Pathway	panther:STATE_TRANSITION_LEFT__Stat_1_3-RIGHT__Stat_1_3-_r64;panther:_CATALYSIS___p38_r64m1_r64
+MAPK13	controls-phosphorylation-of	STAT3	PANTHER		Ras Pathway	panther:STATE_TRANSITION_LEFT__Stat_1_3-RIGHT__Stat_1_3-_r64;panther:_CATALYSIS___p38_r64m1_r64
+MAPK13	controls-state-change-of	STAT3	PANTHER		Ras Pathway	panther:STATE_TRANSITION_LEFT__Stat_1_3-RIGHT__Stat_1_3-_r64;panther:_CATALYSIS___p38_r64m1_r64
+MAPK14	controls-phosphorylation-of	ATF2	PANTHER		Ras Pathway	panther:_CATALYSIS___p38_r66m1_r66;panther:STATE_TRANSITION_LEFT__ATF2-RIGHT__ATF2-_r66
+MAPK14	controls-state-change-of	ATF2	PANTHER		Ras Pathway	panther:_CATALYSIS___p38_r66m1_r66;panther:STATE_TRANSITION_LEFT__ATF2-RIGHT__ATF2-_r66
+MAPK14	controls-phosphorylation-of	ELK1	PANTHER		Ras Pathway	panther:STATE_TRANSITION_LEFT__Elk_1-RIGHT__Elk_1-_r45;panther:_CATALYSIS___p38_r45m3_r45
+MAPK14	controls-state-change-of	ELK1	PANTHER		Ras Pathway	panther:STATE_TRANSITION_LEFT__Elk_1-RIGHT__Elk_1-_r45;panther:_CATALYSIS___p38_r45m3_r45
+MAPK14	controls-phosphorylation-of	STAT1	PANTHER		Ras Pathway	panther:STATE_TRANSITION_LEFT__Stat_1_3-RIGHT__Stat_1_3-_r64;panther:_CATALYSIS___p38_r64m1_r64
+MAPK14	controls-state-change-of	STAT1	PANTHER		Ras Pathway	panther:STATE_TRANSITION_LEFT__Stat_1_3-RIGHT__Stat_1_3-_r64;panther:_CATALYSIS___p38_r64m1_r64
+MAPK14	controls-phosphorylation-of	STAT3	PANTHER		Ras Pathway	panther:STATE_TRANSITION_LEFT__Stat_1_3-RIGHT__Stat_1_3-_r64;panther:_CATALYSIS___p38_r64m1_r64
+MAPK14	controls-state-change-of	STAT3	PANTHER		Ras Pathway	panther:STATE_TRANSITION_LEFT__Stat_1_3-RIGHT__Stat_1_3-_r64;panther:_CATALYSIS___p38_r64m1_r64
+MAPK1	controls-phosphorylation-of	ELK1	PANTHER		Ras Pathway	panther:STATE_TRANSITION_LEFT__Elk_1-RIGHT__Elk_1-_r45;panther:_CATALYSIS___ERK_r45m5_r45
+MAPK1	controls-state-change-of	ELK1	PANTHER		Ras Pathway	panther:STATE_TRANSITION_LEFT__Elk_1-RIGHT__Elk_1-_r45;panther:_CATALYSIS___ERK_r45m5_r45
+MAPK1	controls-phosphorylation-of	ETS1	PANTHER		Ras Pathway	panther:_CATALYSIS___ERK_r43m1_r43;panther:STATE_TRANSITION_LEFT__Ets-RIGHT__Ets-_r43
+MAPK1	controls-state-change-of	ETS1	PANTHER		Ras Pathway	panther:_CATALYSIS___ERK_r43m1_r43;panther:STATE_TRANSITION_LEFT__Ets-RIGHT__Ets-_r43
+MAPK1	controls-phosphorylation-of	JUN	PANTHER		Ras Pathway	panther:STATE_TRANSITION_LEFT__AP1-RIGHT__AP1-_r63;panther:_CATALYSIS___ERK_r63m5_r63
+MAPK1	controls-state-change-of	JUN	PANTHER		Ras Pathway	panther:STATE_TRANSITION_LEFT__AP1-RIGHT__AP1-_r63;panther:_CATALYSIS___ERK_r63m5_r63
+MAPK1	controls-phosphorylation-of	MAPKAPK2	PANTHER		Ras Pathway	panther:_CATALYSIS___ERK_r30m1_r30;panther:STATE_TRANSITION_LEFT__MAPKAP-RIGHT__MAPKAP-_r30
+MAPK1	controls-state-change-of	MAPKAPK2	PANTHER		Ras Pathway	panther:_CATALYSIS___ERK_r30m1_r30;panther:STATE_TRANSITION_LEFT__MAPKAP-RIGHT__MAPKAP-_r30
+MAPK1	controls-phosphorylation-of	MAPKAPK3	PANTHER		Ras Pathway	panther:_CATALYSIS___ERK_r30m1_r30;panther:STATE_TRANSITION_LEFT__MAPKAP-RIGHT__MAPKAP-_r30
+MAPK1	controls-state-change-of	MAPKAPK3	PANTHER		Ras Pathway	panther:_CATALYSIS___ERK_r30m1_r30;panther:STATE_TRANSITION_LEFT__MAPKAP-RIGHT__MAPKAP-_r30
+MAPK1	controls-phosphorylation-of	RPS6KA1	PANTHER		Ras Pathway	panther:_CATALYSIS___ERK_r25m1_r25;panther:STATE_TRANSITION_LEFT__p90RSK-RIGHT__p90RSK-_r25
+MAPK1	controls-state-change-of	RPS6KA1	PANTHER		Ras Pathway	panther:_CATALYSIS___ERK_r25m1_r25;panther:STATE_TRANSITION_LEFT__p90RSK-RIGHT__p90RSK-_r25
+MAPK1	controls-phosphorylation-of	RPS6KA2	PANTHER		Ras Pathway	panther:_CATALYSIS___ERK_r25m1_r25;panther:STATE_TRANSITION_LEFT__p90RSK-RIGHT__p90RSK-_r25
+MAPK1	controls-state-change-of	RPS6KA2	PANTHER		Ras Pathway	panther:_CATALYSIS___ERK_r25m1_r25;panther:STATE_TRANSITION_LEFT__p90RSK-RIGHT__p90RSK-_r25
+MAPK1	controls-phosphorylation-of	RPS6KA3	PANTHER		Ras Pathway	panther:_CATALYSIS___ERK_r25m1_r25;panther:STATE_TRANSITION_LEFT__p90RSK-RIGHT__p90RSK-_r25
+MAPK1	controls-state-change-of	RPS6KA3	PANTHER		Ras Pathway	panther:_CATALYSIS___ERK_r25m1_r25;panther:STATE_TRANSITION_LEFT__p90RSK-RIGHT__p90RSK-_r25
+MAPK1	controls-phosphorylation-of	RPS6KA6	PANTHER		Ras Pathway	panther:_CATALYSIS___ERK_r25m1_r25;panther:STATE_TRANSITION_LEFT__p90RSK-RIGHT__p90RSK-_r25
+MAPK1	controls-state-change-of	RPS6KA6	PANTHER		Ras Pathway	panther:_CATALYSIS___ERK_r25m1_r25;panther:STATE_TRANSITION_LEFT__p90RSK-RIGHT__p90RSK-_r25
+MAPK1	controls-phosphorylation-of	STAT1	PANTHER		Ras Pathway	panther:STATE_TRANSITION_LEFT__Stat_1_3-RIGHT__Stat_1_3-_r64;panther:_CATALYSIS___ERK_r64m3_r64
+MAPK1	controls-state-change-of	STAT1	PANTHER		Ras Pathway	panther:STATE_TRANSITION_LEFT__Stat_1_3-RIGHT__Stat_1_3-_r64;panther:_CATALYSIS___ERK_r64m3_r64
+MAPK1	controls-phosphorylation-of	STAT3	PANTHER		Ras Pathway	panther:STATE_TRANSITION_LEFT__Stat_1_3-RIGHT__Stat_1_3-_r64;panther:_CATALYSIS___ERK_r64m3_r64
+MAPK1	controls-state-change-of	STAT3	PANTHER		Ras Pathway	panther:STATE_TRANSITION_LEFT__Stat_1_3-RIGHT__Stat_1_3-_r64;panther:_CATALYSIS___ERK_r64m3_r64
+MAPK3	controls-phosphorylation-of	ELK1	PANTHER		Ras Pathway	panther:STATE_TRANSITION_LEFT__Elk_1-RIGHT__Elk_1-_r45;panther:_CATALYSIS___ERK_r45m5_r45
+MAPK3	controls-state-change-of	ELK1	PANTHER		Ras Pathway	panther:STATE_TRANSITION_LEFT__Elk_1-RIGHT__Elk_1-_r45;panther:_CATALYSIS___ERK_r45m5_r45
+MAPK3	controls-phosphorylation-of	ETS1	PANTHER		Ras Pathway	panther:_CATALYSIS___ERK_r43m1_r43;panther:STATE_TRANSITION_LEFT__Ets-RIGHT__Ets-_r43
+MAPK3	controls-state-change-of	ETS1	PANTHER		Ras Pathway	panther:_CATALYSIS___ERK_r43m1_r43;panther:STATE_TRANSITION_LEFT__Ets-RIGHT__Ets-_r43
+MAPK3	controls-phosphorylation-of	JUN	PANTHER		Ras Pathway	panther:STATE_TRANSITION_LEFT__AP1-RIGHT__AP1-_r63;panther:_CATALYSIS___ERK_r63m5_r63
+MAPK3	controls-state-change-of	JUN	PANTHER		Ras Pathway	panther:STATE_TRANSITION_LEFT__AP1-RIGHT__AP1-_r63;panther:_CATALYSIS___ERK_r63m5_r63
+MAPK3	controls-phosphorylation-of	MAPKAPK2	PANTHER		Ras Pathway	panther:_CATALYSIS___ERK_r30m1_r30;panther:STATE_TRANSITION_LEFT__MAPKAP-RIGHT__MAPKAP-_r30
+MAPK3	controls-state-change-of	MAPKAPK2	PANTHER		Ras Pathway	panther:_CATALYSIS___ERK_r30m1_r30;panther:STATE_TRANSITION_LEFT__MAPKAP-RIGHT__MAPKAP-_r30
+MAPK3	controls-phosphorylation-of	MAPKAPK3	PANTHER		Ras Pathway	panther:_CATALYSIS___ERK_r30m1_r30;panther:STATE_TRANSITION_LEFT__MAPKAP-RIGHT__MAPKAP-_r30
+MAPK3	controls-state-change-of	MAPKAPK3	PANTHER		Ras Pathway	panther:_CATALYSIS___ERK_r30m1_r30;panther:STATE_TRANSITION_LEFT__MAPKAP-RIGHT__MAPKAP-_r30
+MAPK3	controls-phosphorylation-of	RPS6KA1	PANTHER		Ras Pathway	panther:_CATALYSIS___ERK_r25m1_r25;panther:STATE_TRANSITION_LEFT__p90RSK-RIGHT__p90RSK-_r25
+MAPK3	controls-state-change-of	RPS6KA1	PANTHER		Ras Pathway	panther:_CATALYSIS___ERK_r25m1_r25;panther:STATE_TRANSITION_LEFT__p90RSK-RIGHT__p90RSK-_r25
+MAPK3	controls-phosphorylation-of	RPS6KA2	PANTHER		Ras Pathway	panther:_CATALYSIS___ERK_r25m1_r25;panther:STATE_TRANSITION_LEFT__p90RSK-RIGHT__p90RSK-_r25
+MAPK3	controls-state-change-of	RPS6KA2	PANTHER		Ras Pathway	panther:_CATALYSIS___ERK_r25m1_r25;panther:STATE_TRANSITION_LEFT__p90RSK-RIGHT__p90RSK-_r25
+MAPK3	controls-phosphorylation-of	RPS6KA3	PANTHER		Ras Pathway	panther:_CATALYSIS___ERK_r25m1_r25;panther:STATE_TRANSITION_LEFT__p90RSK-RIGHT__p90RSK-_r25
+MAPK3	controls-state-change-of	RPS6KA3	PANTHER		Ras Pathway	panther:_CATALYSIS___ERK_r25m1_r25;panther:STATE_TRANSITION_LEFT__p90RSK-RIGHT__p90RSK-_r25
+MAPK3	controls-phosphorylation-of	RPS6KA6	PANTHER		Ras Pathway	panther:_CATALYSIS___ERK_r25m1_r25;panther:STATE_TRANSITION_LEFT__p90RSK-RIGHT__p90RSK-_r25
+MAPK3	controls-state-change-of	RPS6KA6	PANTHER		Ras Pathway	panther:_CATALYSIS___ERK_r25m1_r25;panther:STATE_TRANSITION_LEFT__p90RSK-RIGHT__p90RSK-_r25
+MAPK3	controls-phosphorylation-of	STAT1	PANTHER		Ras Pathway	panther:STATE_TRANSITION_LEFT__Stat_1_3-RIGHT__Stat_1_3-_r64;panther:_CATALYSIS___ERK_r64m3_r64
+MAPK3	controls-state-change-of	STAT1	PANTHER		Ras Pathway	panther:STATE_TRANSITION_LEFT__Stat_1_3-RIGHT__Stat_1_3-_r64;panther:_CATALYSIS___ERK_r64m3_r64
+MAPK3	controls-phosphorylation-of	STAT3	PANTHER		Ras Pathway	panther:STATE_TRANSITION_LEFT__Stat_1_3-RIGHT__Stat_1_3-_r64;panther:_CATALYSIS___ERK_r64m3_r64
+MAPK3	controls-state-change-of	STAT3	PANTHER		Ras Pathway	panther:STATE_TRANSITION_LEFT__Stat_1_3-RIGHT__Stat_1_3-_r64;panther:_CATALYSIS___ERK_r64m3_r64
+MAPK8	controls-phosphorylation-of	ATF2	PANTHER		Ras Pathway	panther:_CATALYSIS___JNK_r66m3_r66;panther:STATE_TRANSITION_LEFT__ATF2-RIGHT__ATF2-_r66
+MAPK8	controls-state-change-of	ATF2	PANTHER		Ras Pathway	panther:_CATALYSIS___JNK_r66m3_r66;panther:STATE_TRANSITION_LEFT__ATF2-RIGHT__ATF2-_r66
+MAPK8	controls-phosphorylation-of	ELK1	PANTHER		Ras Pathway	panther:STATE_TRANSITION_LEFT__Elk_1-RIGHT__Elk_1-_r45;panther:_CATALYSIS___JNK_r45m1_r45
+MAPK8	controls-state-change-of	ELK1	PANTHER		Ras Pathway	panther:STATE_TRANSITION_LEFT__Elk_1-RIGHT__Elk_1-_r45;panther:_CATALYSIS___JNK_r45m1_r45
+MAPK8	controls-phosphorylation-of	JUN	PANTHER		Ras Pathway	panther:STATE_TRANSITION_LEFT__AP1-RIGHT__AP1-_r63;panther:_CATALYSIS___JNK_r63m1_r63
+MAPK8	controls-state-change-of	JUN	PANTHER		Ras Pathway	panther:STATE_TRANSITION_LEFT__AP1-RIGHT__AP1-_r63;panther:_CATALYSIS___JNK_r63m1_r63
+MAPK8	controls-phosphorylation-of	STAT1	PANTHER		Ras Pathway	panther:_CATALYSIS___JNK_r64m5_r64;panther:STATE_TRANSITION_LEFT__Stat_1_3-RIGHT__Stat_1_3-_r64
+MAPK8	controls-state-change-of	STAT1	PANTHER		Ras Pathway	panther:_CATALYSIS___JNK_r64m5_r64;panther:STATE_TRANSITION_LEFT__Stat_1_3-RIGHT__Stat_1_3-_r64
+MAPK8	controls-phosphorylation-of	STAT3	PANTHER		Ras Pathway	panther:_CATALYSIS___JNK_r64m5_r64;panther:STATE_TRANSITION_LEFT__Stat_1_3-RIGHT__Stat_1_3-_r64
+MAPK8	controls-state-change-of	STAT3	PANTHER		Ras Pathway	panther:_CATALYSIS___JNK_r64m5_r64;panther:STATE_TRANSITION_LEFT__Stat_1_3-RIGHT__Stat_1_3-_r64
+MAPK9	controls-phosphorylation-of	ATF2	PANTHER		Ras Pathway	panther:_CATALYSIS___JNK_r66m3_r66;panther:STATE_TRANSITION_LEFT__ATF2-RIGHT__ATF2-_r66
+MAPK9	controls-state-change-of	ATF2	PANTHER		Ras Pathway	panther:_CATALYSIS___JNK_r66m3_r66;panther:STATE_TRANSITION_LEFT__ATF2-RIGHT__ATF2-_r66
+MAPK9	controls-phosphorylation-of	ELK1	PANTHER		Ras Pathway	panther:STATE_TRANSITION_LEFT__Elk_1-RIGHT__Elk_1-_r45;panther:_CATALYSIS___JNK_r45m1_r45
+MAPK9	controls-state-change-of	ELK1	PANTHER		Ras Pathway	panther:STATE_TRANSITION_LEFT__Elk_1-RIGHT__Elk_1-_r45;panther:_CATALYSIS___JNK_r45m1_r45
+MAPK9	controls-phosphorylation-of	JUN	PANTHER		Ras Pathway	panther:STATE_TRANSITION_LEFT__AP1-RIGHT__AP1-_r63;panther:_CATALYSIS___JNK_r63m1_r63
+MAPK9	controls-state-change-of	JUN	PANTHER		Ras Pathway	panther:STATE_TRANSITION_LEFT__AP1-RIGHT__AP1-_r63;panther:_CATALYSIS___JNK_r63m1_r63
+MAPK9	controls-phosphorylation-of	STAT1	PANTHER		Ras Pathway	panther:_CATALYSIS___JNK_r64m5_r64;panther:STATE_TRANSITION_LEFT__Stat_1_3-RIGHT__Stat_1_3-_r64
+MAPK9	controls-state-change-of	STAT1	PANTHER		Ras Pathway	panther:_CATALYSIS___JNK_r64m5_r64;panther:STATE_TRANSITION_LEFT__Stat_1_3-RIGHT__Stat_1_3-_r64
+MAPK9	controls-phosphorylation-of	STAT3	PANTHER		Ras Pathway	panther:_CATALYSIS___JNK_r64m5_r64;panther:STATE_TRANSITION_LEFT__Stat_1_3-RIGHT__Stat_1_3-_r64
+MAPK9	controls-state-change-of	STAT3	PANTHER		Ras Pathway	panther:_CATALYSIS___JNK_r64m5_r64;panther:STATE_TRANSITION_LEFT__Stat_1_3-RIGHT__Stat_1_3-_r64
+MAPKAPK2	controls-phosphorylation-of	SRF	PANTHER		Ras Pathway	panther:STATE_TRANSITION_LEFT__SRF-RIGHT__SRF-_r62;panther:_CATALYSIS___MAPKAP_r62m1_r62
+MAPKAPK2	controls-state-change-of	SRF	PANTHER		Ras Pathway	panther:STATE_TRANSITION_LEFT__SRF-RIGHT__SRF-_r62;panther:_CATALYSIS___MAPKAP_r62m1_r62
+MAPKAPK3	controls-phosphorylation-of	SRF	PANTHER		Ras Pathway	panther:STATE_TRANSITION_LEFT__SRF-RIGHT__SRF-_r62;panther:_CATALYSIS___MAPKAP_r62m1_r62
+MAPKAPK3	controls-state-change-of	SRF	PANTHER		Ras Pathway	panther:STATE_TRANSITION_LEFT__SRF-RIGHT__SRF-_r62;panther:_CATALYSIS___MAPKAP_r62m1_r62
+NRAS	controls-state-change-of	ARAF	PANTHER		Ras Pathway	panther:_CATALYSIS___Ras_r3m1_r3;panther:STATE_TRANSITION_LEFT__Raf-RIGHT__Raf-_r3
+NRAS	controls-state-change-of	BRAF	PANTHER		Ras Pathway	panther:_CATALYSIS___Ras_r3m1_r3;panther:STATE_TRANSITION_LEFT__Raf-RIGHT__Raf-_r3
+NRAS	controls-state-change-of	MAP3K1	PANTHER		Ras Pathway	panther:STATE_TRANSITION_LEFT__MEKK1_4-RIGHT__MEKK1_4-_r13;panther:_UNKNOWN_CATALYSIS___Ras_r13m3_r13
+NRAS	controls-state-change-of	MAP3K4	PANTHER		Ras Pathway	panther:STATE_TRANSITION_LEFT__MEKK1_4-RIGHT__MEKK1_4-_r13;panther:_UNKNOWN_CATALYSIS___Ras_r13m3_r13
+NRAS	controls-state-change-of	MAP3K7CL	PANTHER		Ras Pathway	panther:STATE_TRANSITION_LEFT__TAK-RIGHT__TAK-_r23;panther:_UNKNOWN_CATALYSIS___Ras_r23m1_r23
+NRAS	controls-state-change-of	PIK3C3	PANTHER		Ras Pathway	panther:_CATALYSIS___Ras_r32m1_r32;panther:STATE_TRANSITION_LEFT__PI3K-RIGHT__PI3K-_r32_52e54e20d5ade18f4db59f7c1e65112c
+NRAS	controls-state-change-of	PIK3CA	PANTHER		Ras Pathway	panther:_CATALYSIS___Ras_r32m1_r32;panther:STATE_TRANSITION_LEFT__PI3K-RIGHT__PI3K-_r32_52e54e20d5ade18f4db59f7c1e65112c
+NRAS	controls-state-change-of	PIK3CB	PANTHER		Ras Pathway	panther:_CATALYSIS___Ras_r32m1_r32;panther:STATE_TRANSITION_LEFT__PI3K-RIGHT__PI3K-_r32_52e54e20d5ade18f4db59f7c1e65112c
+NRAS	controls-state-change-of	PIK3CD	PANTHER		Ras Pathway	panther:_CATALYSIS___Ras_r32m1_r32;panther:STATE_TRANSITION_LEFT__PI3K-RIGHT__PI3K-_r32_52e54e20d5ade18f4db59f7c1e65112c
+NRAS	controls-state-change-of	PIK3CG	PANTHER		Ras Pathway	panther:_CATALYSIS___Ras_r32m1_r32;panther:STATE_TRANSITION_LEFT__PI3K-RIGHT__PI3K-_r32_52e54e20d5ade18f4db59f7c1e65112c
+NRAS	controls-state-change-of	RAF1	PANTHER		Ras Pathway	panther:_CATALYSIS___Ras_r3m1_r3;panther:STATE_TRANSITION_LEFT__Raf-RIGHT__Raf-_r3
+NRAS	controls-state-change-of	RALGDS	PANTHER		Ras Pathway	panther:STATE_TRANSITION_LEFT__RalGDS-RIGHT__RalGDS-_r4;panther:_CATALYSIS___Ras_r4m1_r4
+NRAS	controls-state-change-of	RGL1	PANTHER		Ras Pathway	panther:STATE_TRANSITION_LEFT__RalGDS-RIGHT__RalGDS-_r4;panther:_CATALYSIS___Ras_r4m1_r4
+NRAS	controls-state-change-of	RGL2	PANTHER		Ras Pathway	panther:STATE_TRANSITION_LEFT__RalGDS-RIGHT__RalGDS-_r4;panther:_CATALYSIS___Ras_r4m1_r4
+NRAS	controls-state-change-of	TIAM1	PANTHER		Ras Pathway	panther:STATE_TRANSITION_LEFT__Tiam1-RIGHT__Tiam1-_r5;panther:_CATALYSIS___Ras_r5m1_r5
+PAK1	controls-phosphorylation-of	MAPK10	PANTHER		Ras Pathway	panther:_CATALYSIS___PAK_r20m1_r20;panther:STATE_TRANSITION_LEFT__JNK-RIGHT__JNK-_r20
+PAK1	controls-state-change-of	MAPK10	PANTHER		Ras Pathway	panther:_CATALYSIS___PAK_r20m1_r20;panther:STATE_TRANSITION_LEFT__JNK-RIGHT__JNK-_r20
+PAK1	controls-phosphorylation-of	MAPK8	PANTHER		Ras Pathway	panther:_CATALYSIS___PAK_r20m1_r20;panther:STATE_TRANSITION_LEFT__JNK-RIGHT__JNK-_r20
+PAK1	controls-state-change-of	MAPK8	PANTHER		Ras Pathway	panther:_CATALYSIS___PAK_r20m1_r20;panther:STATE_TRANSITION_LEFT__JNK-RIGHT__JNK-_r20
+PAK1	controls-phosphorylation-of	MAPK9	PANTHER		Ras Pathway	panther:_CATALYSIS___PAK_r20m1_r20;panther:STATE_TRANSITION_LEFT__JNK-RIGHT__JNK-_r20
+PAK1	controls-state-change-of	MAPK9	PANTHER		Ras Pathway	panther:_CATALYSIS___PAK_r20m1_r20;panther:STATE_TRANSITION_LEFT__JNK-RIGHT__JNK-_r20
+PAK2	controls-phosphorylation-of	MAPK10	PANTHER		Ras Pathway	panther:_CATALYSIS___PAK_r20m1_r20;panther:STATE_TRANSITION_LEFT__JNK-RIGHT__JNK-_r20
+PAK2	controls-state-change-of	MAPK10	PANTHER		Ras Pathway	panther:_CATALYSIS___PAK_r20m1_r20;panther:STATE_TRANSITION_LEFT__JNK-RIGHT__JNK-_r20
+PAK2	controls-phosphorylation-of	MAPK8	PANTHER		Ras Pathway	panther:_CATALYSIS___PAK_r20m1_r20;panther:STATE_TRANSITION_LEFT__JNK-RIGHT__JNK-_r20
+PAK2	controls-state-change-of	MAPK8	PANTHER		Ras Pathway	panther:_CATALYSIS___PAK_r20m1_r20;panther:STATE_TRANSITION_LEFT__JNK-RIGHT__JNK-_r20
+PAK2	controls-phosphorylation-of	MAPK9	PANTHER		Ras Pathway	panther:_CATALYSIS___PAK_r20m1_r20;panther:STATE_TRANSITION_LEFT__JNK-RIGHT__JNK-_r20
+PAK2	controls-state-change-of	MAPK9	PANTHER		Ras Pathway	panther:_CATALYSIS___PAK_r20m1_r20;panther:STATE_TRANSITION_LEFT__JNK-RIGHT__JNK-_r20
+PAK3	controls-phosphorylation-of	MAPK10	PANTHER		Ras Pathway	panther:_CATALYSIS___PAK_r20m1_r20;panther:STATE_TRANSITION_LEFT__JNK-RIGHT__JNK-_r20
+PAK3	controls-state-change-of	MAPK10	PANTHER		Ras Pathway	panther:_CATALYSIS___PAK_r20m1_r20;panther:STATE_TRANSITION_LEFT__JNK-RIGHT__JNK-_r20
+PAK3	controls-phosphorylation-of	MAPK8	PANTHER		Ras Pathway	panther:_CATALYSIS___PAK_r20m1_r20;panther:STATE_TRANSITION_LEFT__JNK-RIGHT__JNK-_r20
+PAK3	controls-state-change-of	MAPK8	PANTHER		Ras Pathway	panther:_CATALYSIS___PAK_r20m1_r20;panther:STATE_TRANSITION_LEFT__JNK-RIGHT__JNK-_r20
+PAK3	controls-phosphorylation-of	MAPK9	PANTHER		Ras Pathway	panther:_CATALYSIS___PAK_r20m1_r20;panther:STATE_TRANSITION_LEFT__JNK-RIGHT__JNK-_r20
+PAK3	controls-state-change-of	MAPK9	PANTHER		Ras Pathway	panther:_CATALYSIS___PAK_r20m1_r20;panther:STATE_TRANSITION_LEFT__JNK-RIGHT__JNK-_r20
+PDPK1	controls-phosphorylation-of	AKT1	PANTHER		Ras Pathway	panther:STATE_TRANSITION_LEFT__AKT-RIGHT__AKT-_r34;panther:_CATALYSIS___PDK_r34m1_r34
+PDPK1	controls-state-change-of	AKT1	PANTHER		Ras Pathway	panther:STATE_TRANSITION_LEFT__AKT-RIGHT__AKT-_r34;panther:_CATALYSIS___PDK_r34m1_r34
+PDPK1	controls-phosphorylation-of	AKT3	PANTHER		Ras Pathway	panther:STATE_TRANSITION_LEFT__AKT-RIGHT__AKT-_r34;panther:_CATALYSIS___PDK_r34m1_r34
+PDPK1	controls-state-change-of	AKT3	PANTHER		Ras Pathway	panther:STATE_TRANSITION_LEFT__AKT-RIGHT__AKT-_r34;panther:_CATALYSIS___PDK_r34m1_r34
+PIK3C3	controls-state-change-of	PDPK1	PANTHER		Ras Pathway	panther:_MODULATION___Pip3_r33m1_r33;panther:STATE_TRANSITION_LEFT__Pip2-RIGHT__Pip3-_re56;panther:_CATALYSIS___PI3K_re56m1_re56;panther:STATE_TRANSITION_LEFT__PDK-RIGHT__PDK-_r33;panther:_Pip3_s107_a122_
+PIK3C3	controls-production-of	chebi:16618	PANTHER		Ras Pathway	panther:STATE_TRANSITION_LEFT__Pip2-RIGHT__Pip3-_re56;panther:_CATALYSIS___PI3K_re56m1_re56
+PIK3CA	controls-state-change-of	PDPK1	PANTHER		Ras Pathway	panther:_MODULATION___Pip3_r33m1_r33;panther:STATE_TRANSITION_LEFT__Pip2-RIGHT__Pip3-_re56;panther:_CATALYSIS___PI3K_re56m1_re56;panther:STATE_TRANSITION_LEFT__PDK-RIGHT__PDK-_r33;panther:_Pip3_s107_a122_
+PIK3CA	controls-production-of	chebi:16618	PANTHER		Ras Pathway	panther:STATE_TRANSITION_LEFT__Pip2-RIGHT__Pip3-_re56;panther:_CATALYSIS___PI3K_re56m1_re56
+PIK3CB	controls-state-change-of	PDPK1	PANTHER		Ras Pathway	panther:_MODULATION___Pip3_r33m1_r33;panther:STATE_TRANSITION_LEFT__Pip2-RIGHT__Pip3-_re56;panther:_CATALYSIS___PI3K_re56m1_re56;panther:STATE_TRANSITION_LEFT__PDK-RIGHT__PDK-_r33;panther:_Pip3_s107_a122_
+PIK3CB	controls-production-of	chebi:16618	PANTHER		Ras Pathway	panther:STATE_TRANSITION_LEFT__Pip2-RIGHT__Pip3-_re56;panther:_CATALYSIS___PI3K_re56m1_re56
+PIK3CD	controls-state-change-of	PDPK1	PANTHER		Ras Pathway	panther:_MODULATION___Pip3_r33m1_r33;panther:STATE_TRANSITION_LEFT__Pip2-RIGHT__Pip3-_re56;panther:_CATALYSIS___PI3K_re56m1_re56;panther:STATE_TRANSITION_LEFT__PDK-RIGHT__PDK-_r33;panther:_Pip3_s107_a122_
+PIK3CD	controls-production-of	chebi:16618	PANTHER		Ras Pathway	panther:STATE_TRANSITION_LEFT__Pip2-RIGHT__Pip3-_re56;panther:_CATALYSIS___PI3K_re56m1_re56
+PIK3CG	controls-state-change-of	PDPK1	PANTHER		Ras Pathway	panther:_MODULATION___Pip3_r33m1_r33;panther:STATE_TRANSITION_LEFT__Pip2-RIGHT__Pip3-_re56;panther:_CATALYSIS___PI3K_re56m1_re56;panther:STATE_TRANSITION_LEFT__PDK-RIGHT__PDK-_r33;panther:_Pip3_s107_a122_
+PIK3CG	controls-production-of	chebi:16618	PANTHER		Ras Pathway	panther:STATE_TRANSITION_LEFT__Pip2-RIGHT__Pip3-_re56;panther:_CATALYSIS___PI3K_re56m1_re56
+RAC1	controls-state-change-of	CDC42	PANTHER		Ras Pathway	panther:_CATALYSIS___Rac_r17m1_r17;panther:STATE_TRANSITION_LEFT__Cdc42-RIGHT__Cdc42-_r17
+RAC1	controls-state-change-of	MAP3K1	PANTHER		Ras Pathway	panther:_CATALYSIS___Rac_r13m1_r13;panther:STATE_TRANSITION_LEFT__MEKK1_4-RIGHT__MEKK1_4-_r13
+RAC1	controls-state-change-of	MAP3K4	PANTHER		Ras Pathway	panther:_CATALYSIS___Rac_r13m1_r13;panther:STATE_TRANSITION_LEFT__MEKK1_4-RIGHT__MEKK1_4-_r13
+RAC1	controls-state-change-of	PAK1	PANTHER		Ras Pathway	panther:STATE_TRANSITION_LEFT__PAK-RIGHT__PAK-_r18;panther:_CATALYSIS___Rac_r18m1_r18
+RAC1	controls-state-change-of	PAK2	PANTHER		Ras Pathway	panther:STATE_TRANSITION_LEFT__PAK-RIGHT__PAK-_r18;panther:_CATALYSIS___Rac_r18m1_r18
+RAC1	controls-state-change-of	PAK3	PANTHER		Ras Pathway	panther:STATE_TRANSITION_LEFT__PAK-RIGHT__PAK-_r18;panther:_CATALYSIS___Rac_r18m1_r18
+RAC1	controls-state-change-of	RHOA	PANTHER		Ras Pathway	panther:_CATALYSIS___Rac_r16m1_r16;panther:STATE_TRANSITION_LEFT__Rho-RIGHT__Rho-_r16
+RAC1	controls-state-change-of	RHOB	PANTHER		Ras Pathway	panther:_CATALYSIS___Rac_r16m1_r16;panther:STATE_TRANSITION_LEFT__Rho-RIGHT__Rho-_r16
+RAC1	controls-state-change-of	RHOC	PANTHER		Ras Pathway	panther:_CATALYSIS___Rac_r16m1_r16;panther:STATE_TRANSITION_LEFT__Rho-RIGHT__Rho-_r16
+RAC2	controls-state-change-of	CDC42	PANTHER		Ras Pathway	panther:_CATALYSIS___Rac_r17m1_r17;panther:STATE_TRANSITION_LEFT__Cdc42-RIGHT__Cdc42-_r17
+RAC2	controls-state-change-of	MAP3K1	PANTHER		Ras Pathway	panther:_CATALYSIS___Rac_r13m1_r13;panther:STATE_TRANSITION_LEFT__MEKK1_4-RIGHT__MEKK1_4-_r13
+RAC2	controls-state-change-of	MAP3K4	PANTHER		Ras Pathway	panther:_CATALYSIS___Rac_r13m1_r13;panther:STATE_TRANSITION_LEFT__MEKK1_4-RIGHT__MEKK1_4-_r13
+RAC2	controls-state-change-of	PAK1	PANTHER		Ras Pathway	panther:STATE_TRANSITION_LEFT__PAK-RIGHT__PAK-_r18;panther:_CATALYSIS___Rac_r18m1_r18
+RAC2	controls-state-change-of	PAK2	PANTHER		Ras Pathway	panther:STATE_TRANSITION_LEFT__PAK-RIGHT__PAK-_r18;panther:_CATALYSIS___Rac_r18m1_r18
+RAC2	controls-state-change-of	PAK3	PANTHER		Ras Pathway	panther:STATE_TRANSITION_LEFT__PAK-RIGHT__PAK-_r18;panther:_CATALYSIS___Rac_r18m1_r18
+RAC2	controls-state-change-of	RHOA	PANTHER		Ras Pathway	panther:_CATALYSIS___Rac_r16m1_r16;panther:STATE_TRANSITION_LEFT__Rho-RIGHT__Rho-_r16
+RAC2	controls-state-change-of	RHOB	PANTHER		Ras Pathway	panther:_CATALYSIS___Rac_r16m1_r16;panther:STATE_TRANSITION_LEFT__Rho-RIGHT__Rho-_r16
+RAC2	controls-state-change-of	RHOC	PANTHER		Ras Pathway	panther:_CATALYSIS___Rac_r16m1_r16;panther:STATE_TRANSITION_LEFT__Rho-RIGHT__Rho-_r16
+RAC3	controls-state-change-of	CDC42	PANTHER		Ras Pathway	panther:_CATALYSIS___Rac_r17m1_r17;panther:STATE_TRANSITION_LEFT__Cdc42-RIGHT__Cdc42-_r17
+RAC3	controls-state-change-of	MAP3K1	PANTHER		Ras Pathway	panther:_CATALYSIS___Rac_r13m1_r13;panther:STATE_TRANSITION_LEFT__MEKK1_4-RIGHT__MEKK1_4-_r13
+RAC3	controls-state-change-of	MAP3K4	PANTHER		Ras Pathway	panther:_CATALYSIS___Rac_r13m1_r13;panther:STATE_TRANSITION_LEFT__MEKK1_4-RIGHT__MEKK1_4-_r13
+RAC3	controls-state-change-of	PAK1	PANTHER		Ras Pathway	panther:STATE_TRANSITION_LEFT__PAK-RIGHT__PAK-_r18;panther:_CATALYSIS___Rac_r18m1_r18
+RAC3	controls-state-change-of	PAK2	PANTHER		Ras Pathway	panther:STATE_TRANSITION_LEFT__PAK-RIGHT__PAK-_r18;panther:_CATALYSIS___Rac_r18m1_r18
+RAC3	controls-state-change-of	PAK3	PANTHER		Ras Pathway	panther:STATE_TRANSITION_LEFT__PAK-RIGHT__PAK-_r18;panther:_CATALYSIS___Rac_r18m1_r18
+RAC3	controls-state-change-of	RHOA	PANTHER		Ras Pathway	panther:_CATALYSIS___Rac_r16m1_r16;panther:STATE_TRANSITION_LEFT__Rho-RIGHT__Rho-_r16
+RAC3	controls-state-change-of	RHOB	PANTHER		Ras Pathway	panther:_CATALYSIS___Rac_r16m1_r16;panther:STATE_TRANSITION_LEFT__Rho-RIGHT__Rho-_r16
+RAC3	controls-state-change-of	RHOC	PANTHER		Ras Pathway	panther:_CATALYSIS___Rac_r16m1_r16;panther:STATE_TRANSITION_LEFT__Rho-RIGHT__Rho-_r16
+RAF1	controls-phosphorylation-of	MAP2K1	PANTHER		Ras Pathway	panther:STATE_TRANSITION_LEFT__MEK-RIGHT__MEK-_r21;panther:_CATALYSIS___Raf_r21m1_r21
+RAF1	controls-state-change-of	MAP2K1	PANTHER		Ras Pathway	panther:STATE_TRANSITION_LEFT__MEK-RIGHT__MEK-_r21;panther:_CATALYSIS___Raf_r21m1_r21
+RAF1	controls-phosphorylation-of	MAP2K2	PANTHER		Ras Pathway	panther:STATE_TRANSITION_LEFT__MEK-RIGHT__MEK-_r21;panther:_CATALYSIS___Raf_r21m1_r21
+RAF1	controls-state-change-of	MAP2K2	PANTHER		Ras Pathway	panther:STATE_TRANSITION_LEFT__MEK-RIGHT__MEK-_r21;panther:_CATALYSIS___Raf_r21m1_r21
+RALA	controls-state-change-of	EXOC2	PANTHER		Ras Pathway	panther:_CATALYSIS___Ral_r28m1_r28;panther:STATE_TRANSITION_LEFT__Sec5-RIGHT__Sec5-_r28
+RALA	controls-state-change-of	PLD1	PANTHER		Ras Pathway	panther:_CATALYSIS___Ral_r29m1_r29;panther:STATE_TRANSITION_LEFT__PLD-RIGHT__PLD-_r29
+RALA	controls-state-change-of	PLD2	PANTHER		Ras Pathway	panther:_CATALYSIS___Ral_r29m1_r29;panther:STATE_TRANSITION_LEFT__PLD-RIGHT__PLD-_r29
+RALB	controls-state-change-of	EXOC2	PANTHER		Ras Pathway	panther:_CATALYSIS___Ral_r28m1_r28;panther:STATE_TRANSITION_LEFT__Sec5-RIGHT__Sec5-_r28
+RALB	controls-state-change-of	PLD1	PANTHER		Ras Pathway	panther:_CATALYSIS___Ral_r29m1_r29;panther:STATE_TRANSITION_LEFT__PLD-RIGHT__PLD-_r29
+RALB	controls-state-change-of	PLD2	PANTHER		Ras Pathway	panther:_CATALYSIS___Ral_r29m1_r29;panther:STATE_TRANSITION_LEFT__PLD-RIGHT__PLD-_r29
+RALGDS	controls-state-change-of	RALA	PANTHER		Ras Pathway	panther:_CATALYSIS___RalGDS_r14m1_r14;panther:STATE_TRANSITION_LEFT__Ral-_GTP-RIGHT__Ral-_GDP-_r14
+RALGDS	controls-state-change-of	RALB	PANTHER		Ras Pathway	panther:_CATALYSIS___RalGDS_r14m1_r14;panther:STATE_TRANSITION_LEFT__Ral-_GTP-RIGHT__Ral-_GDP-_r14
+RGL1	controls-state-change-of	RALA	PANTHER		Ras Pathway	panther:_CATALYSIS___RalGDS_r14m1_r14;panther:STATE_TRANSITION_LEFT__Ral-_GTP-RIGHT__Ral-_GDP-_r14
+RGL1	controls-state-change-of	RALB	PANTHER		Ras Pathway	panther:_CATALYSIS___RalGDS_r14m1_r14;panther:STATE_TRANSITION_LEFT__Ral-_GTP-RIGHT__Ral-_GDP-_r14
+RGL2	controls-state-change-of	RALA	PANTHER		Ras Pathway	panther:_CATALYSIS___RalGDS_r14m1_r14;panther:STATE_TRANSITION_LEFT__Ral-_GTP-RIGHT__Ral-_GDP-_r14
+RGL2	controls-state-change-of	RALB	PANTHER		Ras Pathway	panther:_CATALYSIS___RalGDS_r14m1_r14;panther:STATE_TRANSITION_LEFT__Ral-_GTP-RIGHT__Ral-_GDP-_r14
+RHOA	controls-state-change-of	RAC1	PANTHER		Ras Pathway	panther:STATE_TRANSITION_LEFT__Rac-RIGHT__Rac-_r15;panther:_CATALYSIS___Rho_r15m5_r15
+RHOA	controls-state-change-of	RAC2	PANTHER		Ras Pathway	panther:STATE_TRANSITION_LEFT__Rac-RIGHT__Rac-_r15;panther:_CATALYSIS___Rho_r15m5_r15
+RHOA	controls-state-change-of	RAC3	PANTHER		Ras Pathway	panther:STATE_TRANSITION_LEFT__Rac-RIGHT__Rac-_r15;panther:_CATALYSIS___Rho_r15m5_r15
+RHOB	controls-state-change-of	RAC1	PANTHER		Ras Pathway	panther:STATE_TRANSITION_LEFT__Rac-RIGHT__Rac-_r15;panther:_CATALYSIS___Rho_r15m5_r15
+RHOB	controls-state-change-of	RAC2	PANTHER		Ras Pathway	panther:STATE_TRANSITION_LEFT__Rac-RIGHT__Rac-_r15;panther:_CATALYSIS___Rho_r15m5_r15
+RHOB	controls-state-change-of	RAC3	PANTHER		Ras Pathway	panther:STATE_TRANSITION_LEFT__Rac-RIGHT__Rac-_r15;panther:_CATALYSIS___Rho_r15m5_r15
+RHOC	controls-state-change-of	RAC1	PANTHER		Ras Pathway	panther:STATE_TRANSITION_LEFT__Rac-RIGHT__Rac-_r15;panther:_CATALYSIS___Rho_r15m5_r15
+RHOC	controls-state-change-of	RAC2	PANTHER		Ras Pathway	panther:STATE_TRANSITION_LEFT__Rac-RIGHT__Rac-_r15;panther:_CATALYSIS___Rho_r15m5_r15
+RHOC	controls-state-change-of	RAC3	PANTHER		Ras Pathway	panther:STATE_TRANSITION_LEFT__Rac-RIGHT__Rac-_r15;panther:_CATALYSIS___Rho_r15m5_r15
+RPS6KA1	controls-phosphorylation-of	JUN	PANTHER		Ras Pathway	panther:STATE_TRANSITION_LEFT__AP1-RIGHT__AP1-_r63;panther:_CATALYSIS___p90RSK_r63m3_r63
+RPS6KA1	controls-state-change-of	JUN	PANTHER		Ras Pathway	panther:STATE_TRANSITION_LEFT__AP1-RIGHT__AP1-_r63;panther:_CATALYSIS___p90RSK_r63m3_r63
+RPS6KA1	controls-phosphorylation-of	SRF	PANTHER		Ras Pathway	panther:_CATALYSIS___p90RSK_r62m3_r62;panther:STATE_TRANSITION_LEFT__SRF-RIGHT__SRF-_r62
+RPS6KA1	controls-state-change-of	SRF	PANTHER		Ras Pathway	panther:_CATALYSIS___p90RSK_r62m3_r62;panther:STATE_TRANSITION_LEFT__SRF-RIGHT__SRF-_r62
+RPS6KA2	controls-phosphorylation-of	JUN	PANTHER		Ras Pathway	panther:STATE_TRANSITION_LEFT__AP1-RIGHT__AP1-_r63;panther:_CATALYSIS___p90RSK_r63m3_r63
+RPS6KA2	controls-state-change-of	JUN	PANTHER		Ras Pathway	panther:STATE_TRANSITION_LEFT__AP1-RIGHT__AP1-_r63;panther:_CATALYSIS___p90RSK_r63m3_r63
+RPS6KA2	controls-phosphorylation-of	SRF	PANTHER		Ras Pathway	panther:_CATALYSIS___p90RSK_r62m3_r62;panther:STATE_TRANSITION_LEFT__SRF-RIGHT__SRF-_r62
+RPS6KA2	controls-state-change-of	SRF	PANTHER		Ras Pathway	panther:_CATALYSIS___p90RSK_r62m3_r62;panther:STATE_TRANSITION_LEFT__SRF-RIGHT__SRF-_r62
+RPS6KA3	controls-phosphorylation-of	JUN	PANTHER		Ras Pathway	panther:STATE_TRANSITION_LEFT__AP1-RIGHT__AP1-_r63;panther:_CATALYSIS___p90RSK_r63m3_r63
+RPS6KA3	controls-state-change-of	JUN	PANTHER		Ras Pathway	panther:STATE_TRANSITION_LEFT__AP1-RIGHT__AP1-_r63;panther:_CATALYSIS___p90RSK_r63m3_r63
+RPS6KA3	controls-phosphorylation-of	SRF	PANTHER		Ras Pathway	panther:_CATALYSIS___p90RSK_r62m3_r62;panther:STATE_TRANSITION_LEFT__SRF-RIGHT__SRF-_r62
+RPS6KA3	controls-state-change-of	SRF	PANTHER		Ras Pathway	panther:_CATALYSIS___p90RSK_r62m3_r62;panther:STATE_TRANSITION_LEFT__SRF-RIGHT__SRF-_r62
+RPS6KA6	controls-phosphorylation-of	JUN	PANTHER		Ras Pathway	panther:STATE_TRANSITION_LEFT__AP1-RIGHT__AP1-_r63;panther:_CATALYSIS___p90RSK_r63m3_r63
+RPS6KA6	controls-state-change-of	JUN	PANTHER		Ras Pathway	panther:STATE_TRANSITION_LEFT__AP1-RIGHT__AP1-_r63;panther:_CATALYSIS___p90RSK_r63m3_r63
+RPS6KA6	controls-phosphorylation-of	SRF	PANTHER		Ras Pathway	panther:_CATALYSIS___p90RSK_r62m3_r62;panther:STATE_TRANSITION_LEFT__SRF-RIGHT__SRF-_r62
+RPS6KA6	controls-state-change-of	SRF	PANTHER		Ras Pathway	panther:_CATALYSIS___p90RSK_r62m3_r62;panther:STATE_TRANSITION_LEFT__SRF-RIGHT__SRF-_r62
+SHC1	controls-state-change-of	HRAS	PANTHER		Ras Pathway	panther:_CATALYSIS___Complex__Shc_Grb2__SOS__r1m1_r1;panther:STATE_TRANSITION_LEFT__Ras-_GTP-RIGHT__GDP-_Ras-_r1
+SHC1	controls-state-change-of	KRAS	PANTHER		Ras Pathway	panther:_CATALYSIS___Complex__Shc_Grb2__SOS__r1m1_r1;panther:STATE_TRANSITION_LEFT__Ras-_GTP-RIGHT__GDP-_Ras-_r1
+SHC1	controls-state-change-of	NRAS	PANTHER		Ras Pathway	panther:_CATALYSIS___Complex__Shc_Grb2__SOS__r1m1_r1;panther:STATE_TRANSITION_LEFT__Ras-_GTP-RIGHT__GDP-_Ras-_r1
+SHC1	in-complex-with	SOS1	PANTHER		Ras Pathway	panther:_Complex__Shc_Grb2__SOS__s27_a42_
+SHC1	in-complex-with	SOS2	PANTHER		Ras Pathway	panther:_Complex__Shc_Grb2__SOS__s27_a42_
+SOS1	controls-state-change-of	HRAS	PANTHER		Ras Pathway	panther:_CATALYSIS___Complex__Shc_Grb2__SOS__r1m1_r1;panther:STATE_TRANSITION_LEFT__Ras-_GTP-RIGHT__GDP-_Ras-_r1
+SOS1	controls-state-change-of	KRAS	PANTHER		Ras Pathway	panther:_CATALYSIS___Complex__Shc_Grb2__SOS__r1m1_r1;panther:STATE_TRANSITION_LEFT__Ras-_GTP-RIGHT__GDP-_Ras-_r1
+SOS1	controls-state-change-of	NRAS	PANTHER		Ras Pathway	panther:_CATALYSIS___Complex__Shc_Grb2__SOS__r1m1_r1;panther:STATE_TRANSITION_LEFT__Ras-_GTP-RIGHT__GDP-_Ras-_r1
+SOS2	controls-state-change-of	HRAS	PANTHER		Ras Pathway	panther:_CATALYSIS___Complex__Shc_Grb2__SOS__r1m1_r1;panther:STATE_TRANSITION_LEFT__Ras-_GTP-RIGHT__GDP-_Ras-_r1
+SOS2	controls-state-change-of	KRAS	PANTHER		Ras Pathway	panther:_CATALYSIS___Complex__Shc_Grb2__SOS__r1m1_r1;panther:STATE_TRANSITION_LEFT__Ras-_GTP-RIGHT__GDP-_Ras-_r1
+SOS2	controls-state-change-of	NRAS	PANTHER		Ras Pathway	panther:_CATALYSIS___Complex__Shc_Grb2__SOS__r1m1_r1;panther:STATE_TRANSITION_LEFT__Ras-_GTP-RIGHT__GDP-_Ras-_r1
+TIAM1	controls-state-change-of	RAC1	PANTHER		Ras Pathway	panther:_CATALYSIS___Tiam1_r15m1_r15;panther:STATE_TRANSITION_LEFT__Rac-RIGHT__Rac-_r15
+TIAM1	controls-state-change-of	RAC2	PANTHER		Ras Pathway	panther:_CATALYSIS___Tiam1_r15m1_r15;panther:STATE_TRANSITION_LEFT__Rac-RIGHT__Rac-_r15
+TIAM1	controls-state-change-of	RAC3	PANTHER		Ras Pathway	panther:_CATALYSIS___Tiam1_r15m1_r15;panther:STATE_TRANSITION_LEFT__Rac-RIGHT__Rac-_r15
+chebi:16618	chemical-affects	PDPK1	PANTHER		Ras Pathway	panther:_MODULATION___Pip3_r33m1_r33;panther:STATE_TRANSITION_LEFT__PDK-RIGHT__PDK-_r33
+chebi:18348	consumption-controlled-by	PIK3C3	PANTHER		Ras Pathway	panther:STATE_TRANSITION_LEFT__Pip2-RIGHT__Pip3-_re56;panther:_CATALYSIS___PI3K_re56m1_re56
+chebi:18348	consumption-controlled-by	PIK3CA	PANTHER		Ras Pathway	panther:STATE_TRANSITION_LEFT__Pip2-RIGHT__Pip3-_re56;panther:_CATALYSIS___PI3K_re56m1_re56
+chebi:18348	consumption-controlled-by	PIK3CB	PANTHER		Ras Pathway	panther:STATE_TRANSITION_LEFT__Pip2-RIGHT__Pip3-_re56;panther:_CATALYSIS___PI3K_re56m1_re56
+chebi:18348	consumption-controlled-by	PIK3CD	PANTHER		Ras Pathway	panther:STATE_TRANSITION_LEFT__Pip2-RIGHT__Pip3-_re56;panther:_CATALYSIS___PI3K_re56m1_re56
+chebi:18348	consumption-controlled-by	PIK3CG	PANTHER		Ras Pathway	panther:STATE_TRANSITION_LEFT__Pip2-RIGHT__Pip3-_re56;panther:_CATALYSIS___PI3K_re56m1_re56
+chebi:18348	used-to-produce	chebi:16618	PANTHER		Ras Pathway	panther:STATE_TRANSITION_LEFT__Pip2-RIGHT__Pip3-_re56
+
+PARTICIPANT	PARTICIPANT_TYPE	PARTICIPANT_NAME	UNIFICATION_XREF	RELATIONSHIP_XREF
+GSK3B	ProteinReference	GSK3B_HUMAN	uniprot:P49841	hgnc.symbol:GSK3B;ncbigene:2932
+ATF2	ProteinReference	ATF2_HUMAN	uniprot:P15336	hgnc.symbol:ATF2;ncbigene:1386
+GSK3A	ProteinReference	GSK3A_HUMAN	uniprot:P49840	hgnc.symbol:GSK3A;ncbigene:2931
+MAP3K7CL	ProteinReference	M3KCL_HUMAN	uniprot:P57077	hgnc.symbol:MAP3K7CL;ncbigene:56911
+ARAF	ProteinReference	ARAF_HUMAN	uniprot:P10398	hgnc.symbol:ARAF;ncbigene:369
+PIK3CD	ProteinReference	PK3CD_HUMAN	uniprot:O00329	hgnc.symbol:PIK3CD;ncbigene:5293
+PIK3CB	ProteinReference	PK3CB_HUMAN	uniprot:P42338	hgnc.symbol:PIK3CB;ncbigene:5291
+ETS1	ProteinReference	ETS1_HUMAN	uniprot:P14921	hgnc.symbol:ETS1;ncbigene:2113
+ELK1	ProteinReference	ELK1_HUMAN	uniprot:P19419	hgnc.symbol:ELK1;ncbigene:2002
+PIK3CG	ProteinReference	PK3CG_HUMAN	uniprot:P48736	hgnc.symbol:PIK3CG;ncbigene:5294
+RPS6KA3	ProteinReference	KS6A3_HUMAN	uniprot:P51812	hgnc.symbol:RPS6KA3;ncbigene:6197
+RPS6KA6	ProteinReference	KS6A6_HUMAN	uniprot:Q9UK32	hgnc.symbol:RPS6KA6;ncbigene:27330
+RPS6KA2	ProteinReference	KS6A2_HUMAN	uniprot:Q15349	hgnc.symbol:RPS6KA2;ncbigene:6196
+AKT3	ProteinReference	AKT3_HUMAN	uniprot:Q9Y243	hgnc.symbol:AKT3;ncbigene:10000
+RPS6KA1	ProteinReference	KS6A1_HUMAN	uniprot:Q15418	hgnc.symbol:RPS6KA1;ncbigene:6195
+RAC2	ProteinReference	RAC2_HUMAN	uniprot:P15153	hgnc.symbol:RAC2;ncbigene:5880
+RAC3	ProteinReference	RAC3_HUMAN	uniprot:P60763	hgnc.symbol:RAC3;ncbigene:5881
+AKT1	ProteinReference	AKT1_HUMAN	uniprot:P31749	hgnc.symbol:AKT1;ncbigene:207
+RAC1	ProteinReference	RAC1_HUMAN	uniprot:P63000	hgnc.symbol:RAC1;ncbigene:5879
+HRAS	ProteinReference	RASH_HUMAN	uniprot:P01112	hgnc.symbol:HRAS;ncbigene:3265
+MAP3K4	ProteinReference	M3K4_HUMAN	uniprot:Q9Y6R4	hgnc.symbol:MAP3K4;ncbigene:4216
+MAP2K3	ProteinReference	MP2K3_HUMAN	uniprot:P46734	hgnc.symbol:MAP2K3;ncbigene:5606
+MAP2K4	ProteinReference	MP2K4_HUMAN	uniprot:P45985	hgnc.symbol:MAP2K4;ncbigene:6416
+MAP2K1	ProteinReference	MP2K1_HUMAN	uniprot:Q02750	hgnc.symbol:MAP2K1;ncbigene:5604
+MAP2K2	ProteinReference	MP2K2_HUMAN	uniprot:P36507	hgnc.symbol:MAP2K2;ncbigene:5605
+PDPK1	ProteinReference	PDPK1_HUMAN	uniprot:O15530	hgnc.symbol:PDPK1;ncbigene:5170
+RHOC	ProteinReference	RHOC_HUMAN	uniprot:P08134	hgnc.symbol:RHOC;ncbigene:389
+RHOA	ProteinReference	RHOA_HUMAN	uniprot:P61586	hgnc.symbol:RHOA;ncbigene:387
+RHOB	ProteinReference	RHOB_HUMAN	uniprot:P62745	hgnc.symbol:RHOB;ncbigene:388
+TIAM1	ProteinReference	TIAM1_HUMAN	uniprot:Q13009	hgnc.symbol:TIAM1;ncbigene:7074
+chebi:18348	SmallMoleculeReference	1-phosphatidyl-1D-myo-inositol 4,5-bisphosphate	chebi:CHEBI:18348	
+PIK3CA	ProteinReference	PK3CA_HUMAN	uniprot:P42336	hgnc.symbol:PIK3CA;ncbigene:5290
+MAPKAPK3	ProteinReference	MAPK3_HUMAN	uniprot:Q16644	hgnc.symbol:MAPKAPK3;ncbigene:7867
+MAPKAPK2	ProteinReference	MAPK2_HUMAN	uniprot:P49137	hgnc.symbol:MAPKAPK2;ncbigene:9261
+PIK3C3	ProteinReference	PK3C3_HUMAN	uniprot:Q8NEB9	hgnc.symbol:PIK3C3;ncbigene:5289
+RAF1	ProteinReference	RAF1_HUMAN	uniprot:P04049	hgnc.symbol:RAF1;ncbigene:5894
+SOS1	ProteinReference	SOS1_HUMAN	uniprot:Q07889	hgnc.symbol:SOS1;ncbigene:6654
+SOS2	ProteinReference	SOS2_HUMAN	uniprot:Q07890	hgnc.symbol:SOS2;ncbigene:6655
+EXOC2	ProteinReference	EXOC2_HUMAN	uniprot:Q96KP1	hgnc.symbol:EXOC2;ncbigene:55770
+RALA	ProteinReference	RALA_HUMAN	uniprot:P11233	hgnc.symbol:RALA;ncbigene:5898
+RALB	ProteinReference	RALB_HUMAN	uniprot:P11234	hgnc.symbol:RALB;ncbigene:5899
+SHC1	ProteinReference	SHC1_HUMAN	uniprot:P29353	hgnc.symbol:SHC1;ncbigene:6464
+SRF	ProteinReference	SRF_HUMAN	uniprot:P11831	hgnc.symbol:SRF;ncbigene:6722
+PLD1	ProteinReference	PLD1_HUMAN	uniprot:Q13393	hgnc.symbol:PLD1;ncbigene:5337
+PLD2	ProteinReference	PLD2_HUMAN	uniprot:O14939	hgnc.symbol:PLD2;ncbigene:5338
+CDC42	ProteinReference	CDC42_HUMAN	uniprot:P60953	hgnc.symbol:CDC42;ncbigene:998
+MAPK9	ProteinReference	MK09_HUMAN	uniprot:P45984	hgnc.symbol:MAPK9;ncbigene:5601
+MAPK8	ProteinReference	MK08_HUMAN	uniprot:P45983	hgnc.symbol:MAPK8;ncbigene:5599
+NRAS	ProteinReference	RASN_HUMAN	uniprot:P01111	hgnc.symbol:NRAS;ncbigene:4893
+PAK1	ProteinReference	PAK1_HUMAN	uniprot:Q13153	hgnc.symbol:PAK1;ncbigene:5058
+MAPK1	ProteinReference	MK01_HUMAN	uniprot:P28482	hgnc.symbol:MAPK1;ncbigene:5594
+MAP2K7	ProteinReference	MP2K7_HUMAN	uniprot:O14733	hgnc.symbol:MAP2K7;ncbigene:5609
+PAK3	ProteinReference	PAK3_HUMAN	uniprot:O75914	hgnc.symbol:PAK3;ncbigene:5063
+RALGDS	ProteinReference	GNDS_HUMAN	uniprot:Q12967	hgnc.symbol:RALGDS;ncbigene:5900
+PAK2	ProteinReference	PAK2_HUMAN	uniprot:Q13177	hgnc.symbol:PAK2;ncbigene:5062
+MAPK3	ProteinReference	MK03_HUMAN	uniprot:P27361	hgnc.symbol:MAPK3;ncbigene:5595
+MAP2K6	ProteinReference	MP2K6_HUMAN	uniprot:P52564	hgnc.symbol:MAP2K6;ncbigene:5608
+JUN	ProteinReference	JUN_HUMAN	uniprot:P05412	hgnc.symbol:JUN;ncbigene:3725
+MAP3K1	ProteinReference	M3K1_HUMAN	uniprot:Q13233	hgnc.symbol:MAP3K1;ncbigene:4214
+STAT1	ProteinReference	STAT1_HUMAN	uniprot:P42224	hgnc.symbol:STAT1;ncbigene:6772
+STAT3	ProteinReference	STAT3_HUMAN	uniprot:P40763	hgnc.symbol:STAT3;ncbigene:6774
+chebi:16618	SmallMoleculeReference	1-phosphatidyl-1D-myo-inositol 3,4,5-trisphosphate	chebi:CHEBI:16618	
+BRAF	ProteinReference	BRAF_HUMAN	uniprot:P15056	hgnc.symbol:BRAF;ncbigene:673
+MAPK14	ProteinReference	MK14_HUMAN	uniprot:Q16539	hgnc.symbol:MAPK14;ncbigene:1432
+MAPK12	ProteinReference	MK12_HUMAN	uniprot:P53778	hgnc.symbol:MAPK12;ncbigene:6300
+MAPK13	ProteinReference	MK13_HUMAN	uniprot:O15264	hgnc.symbol:MAPK13;ncbigene:5603
+MAPK10	ProteinReference	MK10_HUMAN	uniprot:P53779	hgnc.symbol:MAPK10;ncbigene:5602
+MAPK11	ProteinReference	MK11_HUMAN	uniprot:Q15759	hgnc.symbol:MAPK11;ncbigene:5600
+GRB2	ProteinReference	GRB2_HUMAN	uniprot:P62993	hgnc.symbol:GRB2;ncbigene:2885
+KRAS	ProteinReference	RASK_HUMAN	uniprot:P01116	hgnc.symbol:KRAS;ncbigene:3845
+RGL1	ProteinReference	RGL1_HUMAN	uniprot:Q9NZL6	hgnc.symbol:RGL1;ncbigene:23179
+RGL2	ProteinReference	RGL2_HUMAN	uniprot:O15211	hgnc.symbol:RGL2;ncbigene:5863
