@@ -1,0 +1,87 @@
+hash_length: 7
+container_framework: docker
+unpack_singularity: false
+container_registry:
+  base_url: docker.io
+  owner: reedcompbio
+algorithms:
+  - name: omicsintegrator2
+    params:
+      include: true
+      run1:
+        b: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+        g: [2, 3, 4, 5, 6, 7]
+        w: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+  - name: domino
+    params:
+      include: true
+      run1:
+        module_threshold: [0.001, 0.01, 0.02]
+        slice_threshold: [0.001, 0.1, 0.3, 0.9, 1]
+  - name: mincostflow
+    params:
+      include: true
+      run1:
+        capacity: [1, 5, 10, 15]
+        flow: [6, 8, 20, 50, 60, 70, 80, 90, 150]
+  - name: pathlinker
+    params:
+      include: true
+      run1:
+        k: [10, 20, 30, 40, 50, 60, 100, 200, 500]
+  - name: allpairs
+    params:
+      include: true
+  - name: meo
+    params:
+      include: true
+      run1:
+        local_search: ['No']
+        max_path_length: [2]
+        rand_restarts: [10]
+  - name: omicsintegrator1
+    params:
+      include: true
+      run1:
+        b: [0.01, 0.55, 2, 5, 10]
+        d: [10, 20, 30, 40]
+        g: [0.0001, 0.001]
+        mu: [0.001, 0.005, 0.008, 0.02, 0.03]
+        r: [0.01, 0.1, 1]
+        w: [0.001, 0.1, 0.5, 2, 8]
+datasets:
+  - label: tps_egfr
+    node_files:
+      - tps-egfr-prizes.txt
+    edge_files:
+      - phosphosite-irefindex13.0-uniprot.txt
+    other_files: []
+    data_dir: input
+gold_standards:
+  - label: gs_egfr
+    node_files:
+      - gs-egfr.txt
+    data_dir: input
+    dataset_labels:
+      - tps_egfr
+reconstruction_settings:
+  locations:
+    reconstruction_dir: output/tps_egfr
+  run: true
+analysis:
+  summary:
+    include: true
+  graphspace:
+    include: false
+  cytoscape:
+    include: false
+  ml:
+    include: true
+    aggregate_per_algorithm: true
+    components: 4
+    labels: false
+    linkage: ward
+    metric: euclidean
+  evaluation:
+    include: false
+    aggregate_per_algorithm: false
