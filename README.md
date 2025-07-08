@@ -1,8 +1,9 @@
-# SPRAS benchmarking
+# [SPRAS benchmarking](https://reed-compbio.github.io/spras-benchmarking/)
 
 ![example workflow](https://github.com/Reed-CompBio/spras-benchmarking/actions/workflows/publish.yml/badge.svg)
 
 Benchmarking datasets for the [SPRAS](https://github.com/Reed-CompBio/spras) project. This repository contains gold standard datasets to evaluate on as well as paper reproductions & improvements incorporating new methodologies.
+The results of every benchmarking run are deployed on GitHub pages. [(See the current web output)](https://reed-compbio.github.io/spras-benchmarking/).
 
 ## Setup
 
