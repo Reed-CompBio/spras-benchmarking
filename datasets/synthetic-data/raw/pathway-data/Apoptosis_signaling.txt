@@ -1,0 +1,457 @@
+﻿PARTICIPANT_A	INTERACTION_TYPE	PARTICIPANT_B	INTERACTION_DATA_SOURCE	INTERACTION_PUBMED_ID	PATHWAY_NAMES	MEDIATOR_IDS
+AIFM1	controls-state-change-of	ENDOG	PANTHER		Apoptosis signaling pathway	panther:TRANSPORT_LEFT__endoG-RIGHT__endoG-_r35;panther:_CATALYSIS___AIF_r35m1_r35
+AIFM1	controls-transport-of	ENDOG	PANTHER		Apoptosis signaling pathway	panther:TRANSPORT_LEFT__endoG-RIGHT__endoG-_r35;panther:_CATALYSIS___AIF_r35m1_r35
+AKT1	controls-state-change-of	CHUK	PANTHER		Apoptosis signaling pathway	panther:STATE_TRANSITION_LEFT__IKK-RIGHT__IKK-_r58;panther:_CATALYSIS___AKT_r58m3_r58
+AKT1	controls-state-change-of	IKBKB	PANTHER		Apoptosis signaling pathway	panther:STATE_TRANSITION_LEFT__IKK-RIGHT__IKK-_r58;panther:_CATALYSIS___AKT_r58m3_r58
+AKT2	controls-state-change-of	CHUK	PANTHER		Apoptosis signaling pathway	panther:STATE_TRANSITION_LEFT__IKK-RIGHT__IKK-_r58;panther:_CATALYSIS___AKT_r58m3_r58
+AKT2	controls-state-change-of	IKBKB	PANTHER		Apoptosis signaling pathway	panther:STATE_TRANSITION_LEFT__IKK-RIGHT__IKK-_r58;panther:_CATALYSIS___AKT_r58m3_r58
+AKT3	controls-state-change-of	CHUK	PANTHER		Apoptosis signaling pathway	panther:STATE_TRANSITION_LEFT__IKK-RIGHT__IKK-_r58;panther:_CATALYSIS___AKT_r58m3_r58
+AKT3	controls-state-change-of	IKBKB	PANTHER		Apoptosis signaling pathway	panther:STATE_TRANSITION_LEFT__IKK-RIGHT__IKK-_r58;panther:_CATALYSIS___AKT_r58m3_r58
+APAF1	controls-state-change-of	CASP9	PANTHER		Apoptosis signaling pathway	panther:STATE_TRANSITION_LEFT__Caspase_9-RIGHT__Caspase_9-_r104;panther:_CATALYSIS___Apaf_1_r104m1_r104
+BAG3	controls-state-change-of	BAK1	PANTHER		Apoptosis signaling pathway	panther:HETERODIMER_ASSOCIATION_LEFT__Bax-_Bak-RIGHT__Complex__Bax_Bak_-_r95;panther:_CATALYSIS___Bag_r95m1_r95
+BAG3	controls-transport-of	BAK1	PANTHER		Apoptosis signaling pathway	panther:HETERODIMER_ASSOCIATION_LEFT__Bax-_Bak-RIGHT__Complex__Bax_Bak_-_r95;panther:_CATALYSIS___Bag_r95m1_r95
+BAG3	controls-state-change-of	BAX	PANTHER		Apoptosis signaling pathway	panther:HETERODIMER_ASSOCIATION_LEFT__Bax-_Bak-RIGHT__Complex__Bax_Bak_-_r95;panther:_CATALYSIS___Bag_r95m1_r95
+BAG3	controls-transport-of	BAX	PANTHER		Apoptosis signaling pathway	panther:HETERODIMER_ASSOCIATION_LEFT__Bax-_Bak-RIGHT__Complex__Bax_Bak_-_r95;panther:_CATALYSIS___Bag_r95m1_r95
+BAG4	controls-state-change-of	CASP10	PANTHER		Apoptosis signaling pathway	panther:_INHIBITION___SODD_r49m3_r49;panther:STATE_TRANSITION_LEFT__Caspase_10-RIGHT__Caspase_10-_r49
+BAG4	controls-state-change-of	CASP8	PANTHER		Apoptosis signaling pathway	panther:STATE_TRANSITION_LEFT__Caspase_8-RIGHT__Caspase_8-_r12;panther:_INHIBITION___SODD_r12m1_r12
+BAK1	controls-state-change-of	AIFM1	PANTHER		Apoptosis signaling pathway	panther:TRANSPORT_LEFT__AIF-RIGHT__AIF-_r36;panther:_CATALYSIS___Bak_r36m1_r36
+BAK1	controls-transport-of	AIFM1	PANTHER		Apoptosis signaling pathway	panther:TRANSPORT_LEFT__AIF-RIGHT__AIF-_r36;panther:_CATALYSIS___Bak_r36m1_r36
+BAK1	in-complex-with	BAX	PANTHER		Apoptosis signaling pathway	panther:_Complex__Bax_Bak__s174_a275_
+BAK1	controls-state-change-of	DIABLO	PANTHER		Apoptosis signaling pathway	panther:TRANSPORT_LEFT__Smac_Diablo-RIGHT__Smac_Diablo-_r37;panther:_CATALYSIS___Bak_r37m1_r37
+BAK1	controls-transport-of	DIABLO	PANTHER		Apoptosis signaling pathway	panther:TRANSPORT_LEFT__Smac_Diablo-RIGHT__Smac_Diablo-_r37;panther:_CATALYSIS___Bak_r37m1_r37
+BAX	controls-state-change-of	CYCS	PANTHER		Apoptosis signaling pathway	panther:_CATALYSIS___Bax_r26m1_r26;panther:TRANSPORT_LEFT__Cytochrome_C-RIGHT__Cytochrome_C-_r26
+BAX	controls-transport-of	CYCS	PANTHER		Apoptosis signaling pathway	panther:_CATALYSIS___Bax_r26m1_r26;panther:TRANSPORT_LEFT__Cytochrome_C-RIGHT__Cytochrome_C-_r26
+BCL2	controls-state-change-of	BAK1	PANTHER		Apoptosis signaling pathway	panther:DISSOCIATION_LEFT__Complex__Bax_Bak_-RIGHT__Bax-_Bak-_r96;panther:_INHIBITION___Bcl_2_r96m1_r96
+BCL2	controls-transport-of	BAK1	PANTHER		Apoptosis signaling pathway	panther:DISSOCIATION_LEFT__Complex__Bax_Bak_-RIGHT__Bax-_Bak-_r96;panther:_INHIBITION___Bcl_2_r96m1_r96
+BCL2	controls-state-change-of	BAX	PANTHER		Apoptosis signaling pathway	panther:DISSOCIATION_LEFT__Complex__Bax_Bak_-RIGHT__Bax-_Bak-_r96;panther:_INHIBITION___Bcl_2_r96m1_r96
+BCL2	controls-transport-of	BAX	PANTHER		Apoptosis signaling pathway	panther:DISSOCIATION_LEFT__Complex__Bax_Bak_-RIGHT__Bax-_Bak-_r96;panther:_INHIBITION___Bcl_2_r96m1_r96
+BCL2	in-complex-with	BIK	PANTHER		Apoptosis signaling pathway	panther:_Complex__Bcl_2_Bik__s175_a278_
+BCL2L10	controls-state-change-of	BCL2L1	PANTHER		Apoptosis signaling pathway	panther:STATE_TRANSITION_LEFT__Bcl_xL-RIGHT__Bcl_xL-_re78;panther:_MODULATION___Diva_re78m3_re78
+BCL2L11	controls-state-change-of	BAK1	PANTHER		Apoptosis signaling pathway	panther:_CATALYSIS___Bim_r96m5_r96;panther:DISSOCIATION_LEFT__Complex__Bax_Bak_-RIGHT__Bax-_Bak-_r96
+BCL2L11	controls-transport-of	BAK1	PANTHER		Apoptosis signaling pathway	panther:_CATALYSIS___Bim_r96m5_r96;panther:DISSOCIATION_LEFT__Complex__Bax_Bak_-RIGHT__Bax-_Bak-_r96
+BCL2L11	controls-state-change-of	BAX	PANTHER		Apoptosis signaling pathway	panther:_CATALYSIS___Bim_r96m5_r96;panther:DISSOCIATION_LEFT__Complex__Bax_Bak_-RIGHT__Bax-_Bak-_r96
+BCL2L11	controls-transport-of	BAX	PANTHER		Apoptosis signaling pathway	panther:_CATALYSIS___Bim_r96m5_r96;panther:DISSOCIATION_LEFT__Complex__Bax_Bak_-RIGHT__Bax-_Bak-_r96
+BCL2L1	controls-state-change-of	BAK1	PANTHER		Apoptosis signaling pathway	panther:_CATALYSIS___Bcl_xS_r96m9_r96;panther:DISSOCIATION_LEFT__Complex__Bax_Bak_-RIGHT__Bax-_Bak-_r96
+BCL2L1	controls-transport-of	BAK1	PANTHER		Apoptosis signaling pathway	panther:_CATALYSIS___Bcl_xS_r96m9_r96;panther:DISSOCIATION_LEFT__Complex__Bax_Bak_-RIGHT__Bax-_Bak-_r96
+BCL2L1	controls-state-change-of	BAX	PANTHER		Apoptosis signaling pathway	panther:_CATALYSIS___Bcl_xS_r96m9_r96;panther:DISSOCIATION_LEFT__Complex__Bax_Bak_-RIGHT__Bax-_Bak-_r96
+BCL2L1	controls-transport-of	BAX	PANTHER		Apoptosis signaling pathway	panther:_CATALYSIS___Bcl_xS_r96m9_r96;panther:DISSOCIATION_LEFT__Complex__Bax_Bak_-RIGHT__Bax-_Bak-_r96
+BCL2L1	controls-state-change-of	CYCS	PANTHER		Apoptosis signaling pathway	panther:TRANSPORT_LEFT__Cytochrome_C-RIGHT__Cytochrome_C-_r26;panther:_INHIBITION___Bcl_xL_r26m3_r26
+BCL2L1	controls-transport-of	CYCS	PANTHER		Apoptosis signaling pathway	panther:TRANSPORT_LEFT__Cytochrome_C-RIGHT__Cytochrome_C-_r26;panther:_INHIBITION___Bcl_xL_r26m3_r26
+BCL2L2-PABPN1	controls-state-change-of	BAK1	PANTHER		Apoptosis signaling pathway	panther:HETERODIMER_ASSOCIATION_LEFT__Bax-_Bak-RIGHT__Complex__Bax_Bak_-_r95;panther:_CATALYSIS___Bcl_w_r95m3_r95
+BCL2L2-PABPN1	controls-transport-of	BAK1	PANTHER		Apoptosis signaling pathway	panther:HETERODIMER_ASSOCIATION_LEFT__Bax-_Bak-RIGHT__Complex__Bax_Bak_-_r95;panther:_CATALYSIS___Bcl_w_r95m3_r95
+BCL2L2-PABPN1	controls-state-change-of	BAX	PANTHER		Apoptosis signaling pathway	panther:HETERODIMER_ASSOCIATION_LEFT__Bax-_Bak-RIGHT__Complex__Bax_Bak_-_r95;panther:_CATALYSIS___Bcl_w_r95m3_r95
+BCL2L2-PABPN1	controls-transport-of	BAX	PANTHER		Apoptosis signaling pathway	panther:HETERODIMER_ASSOCIATION_LEFT__Bax-_Bak-RIGHT__Complex__Bax_Bak_-_r95;panther:_CATALYSIS___Bcl_w_r95m3_r95
+BCL2L2	controls-state-change-of	BAK1	PANTHER		Apoptosis signaling pathway	panther:HETERODIMER_ASSOCIATION_LEFT__Bax-_Bak-RIGHT__Complex__Bax_Bak_-_r95;panther:_CATALYSIS___Bcl_w_r95m3_r95
+BCL2L2	controls-transport-of	BAK1	PANTHER		Apoptosis signaling pathway	panther:HETERODIMER_ASSOCIATION_LEFT__Bax-_Bak-RIGHT__Complex__Bax_Bak_-_r95;panther:_CATALYSIS___Bcl_w_r95m3_r95
+BCL2L2	controls-state-change-of	BAX	PANTHER		Apoptosis signaling pathway	panther:HETERODIMER_ASSOCIATION_LEFT__Bax-_Bak-RIGHT__Complex__Bax_Bak_-_r95;panther:_CATALYSIS___Bcl_w_r95m3_r95
+BCL2L2	controls-transport-of	BAX	PANTHER		Apoptosis signaling pathway	panther:HETERODIMER_ASSOCIATION_LEFT__Bax-_Bak-RIGHT__Complex__Bax_Bak_-_r95;panther:_CATALYSIS___Bcl_w_r95m3_r95
+BIRC2	controls-state-change-of	CASP3	PANTHER		Apoptosis signaling pathway	panther:STATE_TRANSITION_LEFT__Caspase_3-RIGHT__Caspase_3-_r105;panther:_INHIBITION___c_IAP1,2_r105m1_r105
+BIRC2	controls-state-change-of	CASP7	PANTHER		Apoptosis signaling pathway	panther:STATE_TRANSITION_LEFT__Caspase_7-RIGHT__Caspase_7-_r106;panther:_INHIBITION___c_IAP1,2_r106m1_r106
+BIRC2	controls-state-change-of	CASP9	PANTHER		Apoptosis signaling pathway	panther:_INHIBITION___c_IAP1,2_r104m3_r104;panther:STATE_TRANSITION_LEFT__Caspase_9-RIGHT__Caspase_9-_r104
+BIRC3	controls-state-change-of	CASP3	PANTHER		Apoptosis signaling pathway	panther:STATE_TRANSITION_LEFT__Caspase_3-RIGHT__Caspase_3-_r105;panther:_INHIBITION___c_IAP1,2_r105m1_r105
+BIRC3	controls-state-change-of	CASP7	PANTHER		Apoptosis signaling pathway	panther:STATE_TRANSITION_LEFT__Caspase_7-RIGHT__Caspase_7-_r106;panther:_INHIBITION___c_IAP1,2_r106m1_r106
+BIRC3	controls-state-change-of	CASP9	PANTHER		Apoptosis signaling pathway	panther:_INHIBITION___c_IAP1,2_r104m3_r104;panther:STATE_TRANSITION_LEFT__Caspase_9-RIGHT__Caspase_9-_r104
+BOK	controls-state-change-of	BAK1	PANTHER		Apoptosis signaling pathway	panther:_CATALYSIS___Bok_r96m11_r96;panther:DISSOCIATION_LEFT__Complex__Bax_Bak_-RIGHT__Bax-_Bak-_r96
+BOK	controls-transport-of	BAK1	PANTHER		Apoptosis signaling pathway	panther:_CATALYSIS___Bok_r96m11_r96;panther:DISSOCIATION_LEFT__Complex__Bax_Bak_-RIGHT__Bax-_Bak-_r96
+BOK	controls-state-change-of	BAX	PANTHER		Apoptosis signaling pathway	panther:_CATALYSIS___Bok_r96m11_r96;panther:DISSOCIATION_LEFT__Complex__Bax_Bak_-RIGHT__Bax-_Bak-_r96
+BOK	controls-transport-of	BAX	PANTHER		Apoptosis signaling pathway	panther:_CATALYSIS___Bok_r96m11_r96;panther:DISSOCIATION_LEFT__Complex__Bax_Bak_-RIGHT__Bax-_Bak-_r96
+CASP10	controls-state-change-of	CASP3	PANTHER		Apoptosis signaling pathway	panther:STATE_TRANSITION_LEFT__Caspase_3-RIGHT__Caspase_3-_r50;panther:_CATALYSIS___Caspase_10_r90m1_r90;panther:_CATALYSIS___Caspase_10_r50m3_r50;panther:STATE_TRANSITION_LEFT__Caspase_3-RIGHT__Caspase_3-_r90
+CASP10	controls-state-change-of	CASP7	PANTHER		Apoptosis signaling pathway	panther:_CATALYSIS___Caspase_10_r106m3_r106;panther:STATE_TRANSITION_LEFT__Caspase_7-RIGHT__Caspase_7-_r106;panther:STATE_TRANSITION_LEFT__Caspase_7-RIGHT__Caspase_7-_r51;panther:_CATALYSIS___Caspase_10_r51m1_r51
+CASP3	controls-state-change-of	EIF2S1	PANTHER		Apoptosis signaling pathway	panther:STATE_TRANSITION_LEFT__ELF2alpha-RIGHT__ELF2alpha-_r117;panther:_CATALYSIS___Caspase_3_r117m3_r117
+CASP7	controls-state-change-of	EIF2S1	PANTHER		Apoptosis signaling pathway	panther:_CATALYSIS___Caspase_7_r117m5_r117;panther:STATE_TRANSITION_LEFT__ELF2alpha-RIGHT__ELF2alpha-_r117
+CASP8	controls-state-change-of	CASP3	PANTHER		Apoptosis signaling pathway	panther:_CATALYSIS___Caspase_8_r50m1_r50;panther:STATE_TRANSITION_LEFT__Caspase_3-RIGHT__Caspase_3-_r50;panther:_CATALYSIS___Caspase_8_r90m3_r90;panther:STATE_TRANSITION_LEFT__Caspase_3-RIGHT__Caspase_3-_r90
+CASP8	controls-state-change-of	CASP7	PANTHER		Apoptosis signaling pathway	panther:_CATALYSIS___Caspase_8_r51m3_r51;panther:STATE_TRANSITION_LEFT__Caspase_7-RIGHT__Caspase_7-_r51
+CFLAR	controls-state-change-of	CASP10	PANTHER		Apoptosis signaling pathway	panther:STATE_TRANSITION_LEFT__Caspase_10-RIGHT__Caspase_10-_r54;panther:STATE_TRANSITION_LEFT__Caspase_10-RIGHT__Caspase_10-_r87;panther:_INHIBITION___Flip_r54m3_r54;panther:_INHIBITION___Flip_r87m1_r87
+CFLAR	controls-state-change-of	CASP8	PANTHER		Apoptosis signaling pathway	panther:_INHIBITION___Flip_r86m1_r86;panther:STATE_TRANSITION_LEFT__Caspase_8-RIGHT__Caspase_8-_r86;panther:STATE_TRANSITION_LEFT__Caspase_8-RIGHT__Caspase_8-_r53;panther:_INHIBITION___Flip_r53m3_r53
+CHUK	controls-phosphorylation-of	NFKBIA	PANTHER		Apoptosis signaling pathway	panther:_CATALYSIS___IKK_r60m1_r60;panther:STATE_TRANSITION_LEFT__IkappaB-RIGHT__IkappaB-_r60
+CHUK	controls-state-change-of	NFKBIA	PANTHER		Apoptosis signaling pathway	panther:_CATALYSIS___IKK_r60m1_r60;panther:STATE_TRANSITION_LEFT__IkappaB-RIGHT__IkappaB-_r60
+CRADD	controls-state-change-of	CASP10	PANTHER		Apoptosis signaling pathway	panther:_CATALYSIS___Complex__TRADD_RAIDD__TRAF2_RIP__r54m1_r54;panther:STATE_TRANSITION_LEFT__Caspase_10-RIGHT__Caspase_10-_r54
+CRADD	controls-state-change-of	CASP8	PANTHER		Apoptosis signaling pathway	panther:_CATALYSIS___Complex__TRADD_RAIDD__TRAF2_RIP__r53m1_r53;panther:STATE_TRANSITION_LEFT__Caspase_8-RIGHT__Caspase_8-_r53
+CRADD	controls-state-change-of	MAP3K14	PANTHER		Apoptosis signaling pathway	panther:_CATALYSIS___Complex__TRADD_RAIDD__TRAF2_RIP__r22m1_r22;panther:STATE_TRANSITION_LEFT__NIK-RIGHT__NIK-_r22
+CRADD	controls-state-change-of	MAP4K2	PANTHER		Apoptosis signaling pathway	panther:STATE_TRANSITION_LEFT__GCK-RIGHT__GCK-_r21;panther:_CATALYSIS___Complex__TRADD_RAIDD__TRAF2_RIP__r21m1_r21
+CRADD	controls-state-change-of	MAP4K3	PANTHER		Apoptosis signaling pathway	panther:_CATALYSIS___Complex__TRADD_RAIDD__TRAF2_RIP__r55m1_r55;panther:STATE_TRANSITION_LEFT__GCKR-RIGHT__GCKR-_r55
+CRADD	controls-state-change-of	MAP4K4	PANTHER		Apoptosis signaling pathway	panther:_CATALYSIS___Complex__TRADD_RAIDD__TRAF2_RIP__r55m1_r55;panther:STATE_TRANSITION_LEFT__GCKR-RIGHT__GCKR-_r55
+CRADD	controls-state-change-of	PIK3CA	PANTHER		Apoptosis signaling pathway	panther:STATE_TRANSITION_LEFT__PI3K-RIGHT__PI3K-_r19;panther:_CATALYSIS___Complex__TRADD_RAIDD__TRAF2_RIP__r19m1_r19
+CRADD	controls-state-change-of	PIK3CB	PANTHER		Apoptosis signaling pathway	panther:STATE_TRANSITION_LEFT__PI3K-RIGHT__PI3K-_r19;panther:_CATALYSIS___Complex__TRADD_RAIDD__TRAF2_RIP__r19m1_r19
+CRADD	controls-state-change-of	PIK3CD	PANTHER		Apoptosis signaling pathway	panther:STATE_TRANSITION_LEFT__PI3K-RIGHT__PI3K-_r19;panther:_CATALYSIS___Complex__TRADD_RAIDD__TRAF2_RIP__r19m1_r19
+CRADD	controls-state-change-of	PIK3CG	PANTHER		Apoptosis signaling pathway	panther:STATE_TRANSITION_LEFT__PI3K-RIGHT__PI3K-_r19;panther:_CATALYSIS___Complex__TRADD_RAIDD__TRAF2_RIP__r19m1_r19
+CRADD	controls-state-change-of	PRKCA	PANTHER		Apoptosis signaling pathway	panther:STATE_TRANSITION_LEFT__PKCs-RIGHT__PKCs-_r20;panther:_CATALYSIS___Complex__TRADD_RAIDD__TRAF2_RIP__r20m1_r20
+CRADD	controls-state-change-of	PRKCB	PANTHER		Apoptosis signaling pathway	panther:STATE_TRANSITION_LEFT__PKCs-RIGHT__PKCs-_r20;panther:_CATALYSIS___Complex__TRADD_RAIDD__TRAF2_RIP__r20m1_r20
+CRADD	controls-state-change-of	PRKCD	PANTHER		Apoptosis signaling pathway	panther:STATE_TRANSITION_LEFT__PKCs-RIGHT__PKCs-_r20;panther:_CATALYSIS___Complex__TRADD_RAIDD__TRAF2_RIP__r20m1_r20
+CRADD	controls-state-change-of	PRKCE	PANTHER		Apoptosis signaling pathway	panther:STATE_TRANSITION_LEFT__PKCs-RIGHT__PKCs-_r20;panther:_CATALYSIS___Complex__TRADD_RAIDD__TRAF2_RIP__r20m1_r20
+CRADD	controls-state-change-of	PRKCG	PANTHER		Apoptosis signaling pathway	panther:STATE_TRANSITION_LEFT__PKCs-RIGHT__PKCs-_r20;panther:_CATALYSIS___Complex__TRADD_RAIDD__TRAF2_RIP__r20m1_r20
+CRADD	controls-state-change-of	PRKCH	PANTHER		Apoptosis signaling pathway	panther:STATE_TRANSITION_LEFT__PKCs-RIGHT__PKCs-_r20;panther:_CATALYSIS___Complex__TRADD_RAIDD__TRAF2_RIP__r20m1_r20
+CRADD	controls-state-change-of	PRKCQ	PANTHER		Apoptosis signaling pathway	panther:STATE_TRANSITION_LEFT__PKCs-RIGHT__PKCs-_r20;panther:_CATALYSIS___Complex__TRADD_RAIDD__TRAF2_RIP__r20m1_r20
+CRADD	in-complex-with	RIPK1	PANTHER		Apoptosis signaling pathway	panther:_Complex__TRADD_RAIDD__TRAF2_RIP__s74_a97_
+CRADD	in-complex-with	TRADD	PANTHER		Apoptosis signaling pathway	panther:_Complex__TRADD_RAIDD__TRAF2_RIP__s74_a97_
+CRADD	in-complex-with	TRAF2	PANTHER		Apoptosis signaling pathway	panther:_Complex__TRADD_RAIDD__TRAF2_RIP__s74_a97_
+CYCS	controls-state-change-of	APAF1	PANTHER		Apoptosis signaling pathway	panther:STATE_TRANSITION_LEFT__Apaf_1-RIGHT__Apaf_1-_r101;panther:_CATALYSIS___Cytochrome_C_r101m1_r101
+DAXX	controls-state-change-of	CASP10	PANTHER		Apoptosis signaling pathway	panther:STATE_TRANSITION_LEFT__Caspase_10-RIGHT__Caspase_10-_r87;panther:_CATALYSIS___Complex__FAS_DAXX__FADD_FAS_ligand__r87m3_r87
+DAXX	controls-state-change-of	CASP8	PANTHER		Apoptosis signaling pathway	panther:STATE_TRANSITION_LEFT__Caspase_8-RIGHT__Caspase_8-_r86;panther:_CATALYSIS___Complex__FAS_DAXX__FADD_FAS_ligand__r86m3_r86
+DAXX	in-complex-with	FADD	PANTHER		Apoptosis signaling pathway	panther:_Complex__FAS_DAXX__FADD_FAS_ligand__s214_a350_
+DAXX	in-complex-with	FASLG	PANTHER		Apoptosis signaling pathway	panther:_Complex__FAS_DAXX__FADD_FAS_ligand__s214_a350_
+DAXX	in-complex-with	FAS	PANTHER		Apoptosis signaling pathway	panther:_Complex__FAS_DAXX__FADD_FAS_ligand__s214_a350_
+DAXX	controls-phosphorylation-of	MAP3K5	PANTHER		Apoptosis signaling pathway	panther:_CATALYSIS___Complex__FAS_DAXX__FADD_FAS_ligand__r83m1_r83;panther:STATE_TRANSITION_LEFT__ASK1-RIGHT__ASK1-_r83
+DAXX	controls-state-change-of	MAP3K5	PANTHER		Apoptosis signaling pathway	panther:_CATALYSIS___Complex__FAS_DAXX__FADD_FAS_ligand__r83m1_r83;panther:STATE_TRANSITION_LEFT__ASK1-RIGHT__ASK1-_r83
+DIABLO	controls-state-change-of	BIRC2	PANTHER		Apoptosis signaling pathway	panther:_CATALYSIS___Smac_Diablo_r103m1_r103;panther:STATE_TRANSITION_LEFT__c_IAP1,2-RIGHT__c_IAP1,2-_r103
+DIABLO	controls-state-change-of	BIRC3	PANTHER		Apoptosis signaling pathway	panther:_CATALYSIS___Smac_Diablo_r103m1_r103;panther:STATE_TRANSITION_LEFT__c_IAP1,2-RIGHT__c_IAP1,2-_r103
+DIABLO	controls-state-change-of	XIAP	PANTHER		Apoptosis signaling pathway	panther:_CATALYSIS___Smac_Diablo_r118m1_r118;panther:STATE_TRANSITION_LEFT__XIAP-RIGHT__XIAP-_r118
+EIF2AK2	controls-state-change-of	EIF2S1	PANTHER		Apoptosis signaling pathway	panther:STATE_TRANSITION_LEFT__ELF2alpha-RIGHT__ELF2alpha-_r117;panther:_CATALYSIS___PKR_r117m1_r117
+EIF2AK2	controls-state-change-of	TP53	PANTHER		Apoptosis signaling pathway	panther:_CATALYSIS___PKR_r119m1_r119;panther:STATE_TRANSITION_LEFT__P53-RIGHT__P53-_r119
+FADD	controls-state-change-of	CASP10	PANTHER		Apoptosis signaling pathway	panther:_CATALYSIS___Complex__FADD_TRADD__r49m1_r49;panther:STATE_TRANSITION_LEFT__Caspase_10-RIGHT__Caspase_10-_r87;panther:_CATALYSIS___Complex__FAS_DAXX__FADD_FAS_ligand__r87m3_r87;panther:STATE_TRANSITION_LEFT__Caspase_10-RIGHT__Caspase_10-_r49
+FADD	controls-state-change-of	CASP8	PANTHER		Apoptosis signaling pathway	panther:_CATALYSIS___Complex__FADD_TRADD__r12m3_r12;panther:STATE_TRANSITION_LEFT__Caspase_8-RIGHT__Caspase_8-_r86;panther:STATE_TRANSITION_LEFT__Caspase_8-RIGHT__Caspase_8-_r12;panther:_CATALYSIS___Complex__FAS_DAXX__FADD_FAS_ligand__r86m3_r86
+FADD	in-complex-with	FASLG	PANTHER		Apoptosis signaling pathway	panther:_Complex__FAS_DAXX__FADD_FAS_ligand__s214_a350_
+FADD	in-complex-with	FAS	PANTHER		Apoptosis signaling pathway	panther:_Complex__FAS_DAXX__FADD_FAS_ligand__s214_a350_
+FADD	controls-phosphorylation-of	MAP3K5	PANTHER		Apoptosis signaling pathway	panther:_CATALYSIS___Complex__FAS_DAXX__FADD_FAS_ligand__r83m1_r83;panther:STATE_TRANSITION_LEFT__ASK1-RIGHT__ASK1-_r83
+FADD	controls-state-change-of	MAP3K5	PANTHER		Apoptosis signaling pathway	panther:_CATALYSIS___Complex__FAS_DAXX__FADD_FAS_ligand__r83m1_r83;panther:STATE_TRANSITION_LEFT__ASK1-RIGHT__ASK1-_r83
+FADD	in-complex-with	TRADD	PANTHER		Apoptosis signaling pathway	panther:_Complex__FADD_TRADD__s70_a89_
+FAS	controls-state-change-of	CASP10	PANTHER		Apoptosis signaling pathway	panther:STATE_TRANSITION_LEFT__Caspase_10-RIGHT__Caspase_10-_r87;panther:_CATALYSIS___Complex__FAS_DAXX__FADD_FAS_ligand__r87m3_r87
+FAS	controls-state-change-of	CASP8	PANTHER		Apoptosis signaling pathway	panther:STATE_TRANSITION_LEFT__Caspase_8-RIGHT__Caspase_8-_r86;panther:_CATALYSIS___Complex__FAS_DAXX__FADD_FAS_ligand__r86m3_r86
+FAS	in-complex-with	FASLG	PANTHER		Apoptosis signaling pathway	panther:_Complex__FAS_DAXX__FADD_FAS_ligand__s214_a350_;panther:_Complex__FAS_FAS_ligand__s211_a342_
+FASLG	controls-state-change-of	CASP10	PANTHER		Apoptosis signaling pathway	panther:STATE_TRANSITION_LEFT__Caspase_10-RIGHT__Caspase_10-_r87;panther:_CATALYSIS___Complex__FAS_DAXX__FADD_FAS_ligand__r87m3_r87
+FASLG	controls-state-change-of	CASP8	PANTHER		Apoptosis signaling pathway	panther:STATE_TRANSITION_LEFT__Caspase_8-RIGHT__Caspase_8-_r86;panther:_CATALYSIS___Complex__FAS_DAXX__FADD_FAS_ligand__r86m3_r86
+FASLG	controls-phosphorylation-of	MAP3K5	PANTHER		Apoptosis signaling pathway	panther:_CATALYSIS___Complex__FAS_DAXX__FADD_FAS_ligand__r83m1_r83;panther:STATE_TRANSITION_LEFT__ASK1-RIGHT__ASK1-_r83
+FASLG	controls-state-change-of	MAP3K5	PANTHER		Apoptosis signaling pathway	panther:_CATALYSIS___Complex__FAS_DAXX__FADD_FAS_ligand__r83m1_r83;panther:STATE_TRANSITION_LEFT__ASK1-RIGHT__ASK1-_r83
+FAS	controls-phosphorylation-of	MAP3K5	PANTHER		Apoptosis signaling pathway	panther:_CATALYSIS___Complex__FAS_DAXX__FADD_FAS_ligand__r83m1_r83;panther:STATE_TRANSITION_LEFT__ASK1-RIGHT__ASK1-_r83
+FAS	controls-state-change-of	MAP3K5	PANTHER		Apoptosis signaling pathway	panther:_CATALYSIS___Complex__FAS_DAXX__FADD_FAS_ligand__r83m1_r83;panther:STATE_TRANSITION_LEFT__ASK1-RIGHT__ASK1-_r83
+FOS	in-complex-with	JUN	PANTHER		Apoptosis signaling pathway	panther:_Complex__Fos_c_Jun__s123_a149_;panther:_Complex__Fos_c_Jun__s123_a150_
+GZMB	controls-state-change-of	CASP10	PANTHER		Apoptosis signaling pathway	panther:_CATALYSIS___Granzyme_B_r113m1_r113;panther:STATE_TRANSITION_LEFT__Caspase_10-RIGHT__Caspase_10-_r113
+GZMB	in-complex-with	IGF2R	PANTHER		Apoptosis signaling pathway	panther:_Complex__IGFR2_Granzyme_B__s193_a301_
+GZMH	controls-state-change-of	CASP10	PANTHER		Apoptosis signaling pathway	panther:_CATALYSIS___Granzyme_B_r113m1_r113;panther:STATE_TRANSITION_LEFT__Caspase_10-RIGHT__Caspase_10-_r113
+GZMH	in-complex-with	IGF2R	PANTHER		Apoptosis signaling pathway	panther:_Complex__IGFR2_Granzyme_B__s193_a301_
+HSPA1A	controls-state-change-of	AIFM1	PANTHER		Apoptosis signaling pathway	panther:_INHIBITION___HSP70_r36m3_r36;panther:TRANSPORT_LEFT__AIF-RIGHT__AIF-_r36
+HSPA1A	controls-transport-of	AIFM1	PANTHER		Apoptosis signaling pathway	panther:_INHIBITION___HSP70_r36m3_r36;panther:TRANSPORT_LEFT__AIF-RIGHT__AIF-_r36
+HSPA1B	controls-state-change-of	AIFM1	PANTHER		Apoptosis signaling pathway	panther:_INHIBITION___HSP70_r36m3_r36;panther:TRANSPORT_LEFT__AIF-RIGHT__AIF-_r36
+HSPA1B	controls-transport-of	AIFM1	PANTHER		Apoptosis signaling pathway	panther:_INHIBITION___HSP70_r36m3_r36;panther:TRANSPORT_LEFT__AIF-RIGHT__AIF-_r36
+HSPA1L	controls-state-change-of	AIFM1	PANTHER		Apoptosis signaling pathway	panther:_INHIBITION___HSP70_r36m3_r36;panther:TRANSPORT_LEFT__AIF-RIGHT__AIF-_r36
+HSPA1L	controls-transport-of	AIFM1	PANTHER		Apoptosis signaling pathway	panther:_INHIBITION___HSP70_r36m3_r36;panther:TRANSPORT_LEFT__AIF-RIGHT__AIF-_r36
+HSPA2	controls-state-change-of	AIFM1	PANTHER		Apoptosis signaling pathway	panther:_INHIBITION___HSP70_r36m3_r36;panther:TRANSPORT_LEFT__AIF-RIGHT__AIF-_r36
+HSPA2	controls-transport-of	AIFM1	PANTHER		Apoptosis signaling pathway	panther:_INHIBITION___HSP70_r36m3_r36;panther:TRANSPORT_LEFT__AIF-RIGHT__AIF-_r36
+HSPA5	controls-state-change-of	AIFM1	PANTHER		Apoptosis signaling pathway	panther:_INHIBITION___HSP70_r36m3_r36;panther:TRANSPORT_LEFT__AIF-RIGHT__AIF-_r36
+HSPA5	controls-transport-of	AIFM1	PANTHER		Apoptosis signaling pathway	panther:_INHIBITION___HSP70_r36m3_r36;panther:TRANSPORT_LEFT__AIF-RIGHT__AIF-_r36
+HSPA6	controls-state-change-of	AIFM1	PANTHER		Apoptosis signaling pathway	panther:_INHIBITION___HSP70_r36m3_r36;panther:TRANSPORT_LEFT__AIF-RIGHT__AIF-_r36
+HSPA6	controls-transport-of	AIFM1	PANTHER		Apoptosis signaling pathway	panther:_INHIBITION___HSP70_r36m3_r36;panther:TRANSPORT_LEFT__AIF-RIGHT__AIF-_r36
+HSPA8	controls-state-change-of	AIFM1	PANTHER		Apoptosis signaling pathway	panther:_INHIBITION___HSP70_r36m3_r36;panther:TRANSPORT_LEFT__AIF-RIGHT__AIF-_r36
+HSPA8	controls-transport-of	AIFM1	PANTHER		Apoptosis signaling pathway	panther:_INHIBITION___HSP70_r36m3_r36;panther:TRANSPORT_LEFT__AIF-RIGHT__AIF-_r36
+IKBKB	controls-phosphorylation-of	NFKBIA	PANTHER		Apoptosis signaling pathway	panther:_CATALYSIS___IKK_r60m1_r60;panther:STATE_TRANSITION_LEFT__IkappaB-RIGHT__IkappaB-_r60
+IKBKB	controls-state-change-of	NFKBIA	PANTHER		Apoptosis signaling pathway	panther:_CATALYSIS___IKK_r60m1_r60;panther:STATE_TRANSITION_LEFT__IkappaB-RIGHT__IkappaB-_r60
+LTA	controls-state-change-of	CRADD	PANTHER		Apoptosis signaling pathway	panther:_CATALYSIS___Complex__TNFR1_TNF__r48m1_r48;panther:HETERODIMER_ASSOCIATION_LEFT__RIP-_TRADD-_TRAF2-_RAIDD-RIGHT__Complex__TRADD_RAIDD__TRAF2_RIP_-_r48
+LTA	controls-state-change-of	FADD	PANTHER		Apoptosis signaling pathway	panther:HETERODIMER_ASSOCIATION_LEFT__TRADD-_FADD-RIGHT__Complex__FADD_TRADD_-_r45;panther:_CATALYSIS___Complex__TNFR1_TNF__r45m1_r45
+LTA	in-complex-with	MADD	PANTHER		Apoptosis signaling pathway	panther:_Complex__TNFR1_TNF__MADD__s206_a330_
+LTA	controls-state-change-of	MAP3K14	PANTHER		Apoptosis signaling pathway	panther:STATE_TRANSITION_LEFT__NIK-RIGHT__NIK-_r22;panther:_CATALYSIS___Complex__TNFR2_TNF__TRAF2__r22m3_r22
+LTA	controls-phosphorylation-of	MAP3K5	PANTHER		Apoptosis signaling pathway	panther:_CATALYSIS___Complex__TNFR1_TNF__MADD__r83m3_r83;panther:STATE_TRANSITION_LEFT__ASK1-RIGHT__ASK1-_r83
+LTA	controls-state-change-of	MAP3K5	PANTHER		Apoptosis signaling pathway	panther:_CATALYSIS___Complex__TNFR1_TNF__MADD__r83m3_r83;panther:STATE_TRANSITION_LEFT__ASK1-RIGHT__ASK1-_r83
+LTA	controls-state-change-of	RIPK1	PANTHER		Apoptosis signaling pathway	panther:_CATALYSIS___Complex__TNFR1_TNF__r48m1_r48;panther:HETERODIMER_ASSOCIATION_LEFT__RIP-_TRADD-_TRAF2-_RAIDD-RIGHT__Complex__TRADD_RAIDD__TRAF2_RIP_-_r48
+LTA	in-complex-with	TNFRSF1A	PANTHER		Apoptosis signaling pathway	panther:_Complex__TNFR1_TNF__s203_a320_;panther:_Complex__TNFR1_TNF__MADD__s206_a330_
+LTA	in-complex-with	TNFRSF1B	PANTHER		Apoptosis signaling pathway	panther:_Complex__TNFR2_TNF__s208_a333_;panther:_Complex__TNFR2_TNF__TRAF2__s209_a339_
+LTA	controls-state-change-of	TRADD	PANTHER		Apoptosis signaling pathway	panther:HETERODIMER_ASSOCIATION_LEFT__TRADD-_FADD-RIGHT__Complex__FADD_TRADD_-_r45;panther:_CATALYSIS___Complex__TNFR1_TNF__r48m1_r48;panther:HETERODIMER_ASSOCIATION_LEFT__RIP-_TRADD-_TRAF2-_RAIDD-RIGHT__Complex__TRADD_RAIDD__TRAF2_RIP_-_r48;panther:_CATALYSIS___Complex__TNFR1_TNF__r45m1_r45
+LTA	controls-state-change-of	TRAF2	PANTHER		Apoptosis signaling pathway	panther:_CATALYSIS___Complex__TNFR1_TNF__r48m1_r48;panther:HETERODIMER_ASSOCIATION_LEFT__RIP-_TRADD-_TRAF2-_RAIDD-RIGHT__Complex__TRADD_RAIDD__TRAF2_RIP_-_r48
+LTA	in-complex-with	TRAF2	PANTHER		Apoptosis signaling pathway	panther:_Complex__TNFR2_TNF__TRAF2__s209_a339_
+LTB	controls-state-change-of	CRADD	PANTHER		Apoptosis signaling pathway	panther:_CATALYSIS___Complex__TNFR1_TNF__r48m1_r48;panther:HETERODIMER_ASSOCIATION_LEFT__RIP-_TRADD-_TRAF2-_RAIDD-RIGHT__Complex__TRADD_RAIDD__TRAF2_RIP_-_r48
+LTB	controls-state-change-of	FADD	PANTHER		Apoptosis signaling pathway	panther:HETERODIMER_ASSOCIATION_LEFT__TRADD-_FADD-RIGHT__Complex__FADD_TRADD_-_r45;panther:_CATALYSIS___Complex__TNFR1_TNF__r45m1_r45
+LTB	in-complex-with	MADD	PANTHER		Apoptosis signaling pathway	panther:_Complex__TNFR1_TNF__MADD__s206_a330_
+LTB	controls-state-change-of	MAP3K14	PANTHER		Apoptosis signaling pathway	panther:STATE_TRANSITION_LEFT__NIK-RIGHT__NIK-_r22;panther:_CATALYSIS___Complex__TNFR2_TNF__TRAF2__r22m3_r22
+LTB	controls-phosphorylation-of	MAP3K5	PANTHER		Apoptosis signaling pathway	panther:_CATALYSIS___Complex__TNFR1_TNF__MADD__r83m3_r83;panther:STATE_TRANSITION_LEFT__ASK1-RIGHT__ASK1-_r83
+LTB	controls-state-change-of	MAP3K5	PANTHER		Apoptosis signaling pathway	panther:_CATALYSIS___Complex__TNFR1_TNF__MADD__r83m3_r83;panther:STATE_TRANSITION_LEFT__ASK1-RIGHT__ASK1-_r83
+LTB	controls-state-change-of	RIPK1	PANTHER		Apoptosis signaling pathway	panther:_CATALYSIS___Complex__TNFR1_TNF__r48m1_r48;panther:HETERODIMER_ASSOCIATION_LEFT__RIP-_TRADD-_TRAF2-_RAIDD-RIGHT__Complex__TRADD_RAIDD__TRAF2_RIP_-_r48
+LTB	in-complex-with	TNFRSF1A	PANTHER		Apoptosis signaling pathway	panther:_Complex__TNFR1_TNF__s203_a320_;panther:_Complex__TNFR1_TNF__MADD__s206_a330_
+LTB	in-complex-with	TNFRSF1B	PANTHER		Apoptosis signaling pathway	panther:_Complex__TNFR2_TNF__s208_a333_;panther:_Complex__TNFR2_TNF__TRAF2__s209_a339_
+LTB	controls-state-change-of	TRADD	PANTHER		Apoptosis signaling pathway	panther:HETERODIMER_ASSOCIATION_LEFT__TRADD-_FADD-RIGHT__Complex__FADD_TRADD_-_r45;panther:_CATALYSIS___Complex__TNFR1_TNF__r48m1_r48;panther:HETERODIMER_ASSOCIATION_LEFT__RIP-_TRADD-_TRAF2-_RAIDD-RIGHT__Complex__TRADD_RAIDD__TRAF2_RIP_-_r48;panther:_CATALYSIS___Complex__TNFR1_TNF__r45m1_r45
+LTB	controls-state-change-of	TRAF2	PANTHER		Apoptosis signaling pathway	panther:_CATALYSIS___Complex__TNFR1_TNF__r48m1_r48;panther:HETERODIMER_ASSOCIATION_LEFT__RIP-_TRADD-_TRAF2-_RAIDD-RIGHT__Complex__TRADD_RAIDD__TRAF2_RIP_-_r48
+LTB	in-complex-with	TRAF2	PANTHER		Apoptosis signaling pathway	panther:_Complex__TNFR2_TNF__TRAF2__s209_a339_
+MADD	controls-phosphorylation-of	MAP3K5	PANTHER		Apoptosis signaling pathway	panther:_CATALYSIS___Complex__TNFR1_TNF__MADD__r83m3_r83;panther:STATE_TRANSITION_LEFT__ASK1-RIGHT__ASK1-_r83
+MADD	controls-state-change-of	MAP3K5	PANTHER		Apoptosis signaling pathway	panther:_CATALYSIS___Complex__TNFR1_TNF__MADD__r83m3_r83;panther:STATE_TRANSITION_LEFT__ASK1-RIGHT__ASK1-_r83
+MADD	in-complex-with	TNFRSF1A	PANTHER		Apoptosis signaling pathway	panther:_Complex__TNFR1_TNF__MADD__s206_a330_
+MADD	in-complex-with	TNF	PANTHER		Apoptosis signaling pathway	panther:_Complex__TNFR1_TNF__MADD__s206_a330_
+MAP2K3	controls-phosphorylation-of	MAPK1	PANTHER		Apoptosis signaling pathway	panther:STATE_TRANSITION_LEFT__MAPK-RIGHT__MAPK-_r69;panther:_CATALYSIS___MKK3_r69m1_r69
+MAP2K3	controls-state-change-of	MAPK1	PANTHER		Apoptosis signaling pathway	panther:STATE_TRANSITION_LEFT__MAPK-RIGHT__MAPK-_r69;panther:_CATALYSIS___MKK3_r69m1_r69
+MAP2K3	controls-phosphorylation-of	MAPK3	PANTHER		Apoptosis signaling pathway	panther:STATE_TRANSITION_LEFT__MAPK-RIGHT__MAPK-_r69;panther:_CATALYSIS___MKK3_r69m1_r69
+MAP2K3	controls-state-change-of	MAPK3	PANTHER		Apoptosis signaling pathway	panther:STATE_TRANSITION_LEFT__MAPK-RIGHT__MAPK-_r69;panther:_CATALYSIS___MKK3_r69m1_r69
+MAP2K4	controls-phosphorylation-of	MAPK10	PANTHER		Apoptosis signaling pathway	panther:_CATALYSIS___SEK1_r72m3_r72;panther:STATE_TRANSITION_LEFT__JNK-RIGHT__JNK-_r72
+MAP2K4	controls-state-change-of	MAPK10	PANTHER		Apoptosis signaling pathway	panther:_CATALYSIS___SEK1_r72m3_r72;panther:STATE_TRANSITION_LEFT__JNK-RIGHT__JNK-_r72
+MAP2K4	controls-phosphorylation-of	MAPK8	PANTHER		Apoptosis signaling pathway	panther:_CATALYSIS___SEK1_r72m3_r72;panther:STATE_TRANSITION_LEFT__JNK-RIGHT__JNK-_r72
+MAP2K4	controls-state-change-of	MAPK8	PANTHER		Apoptosis signaling pathway	panther:_CATALYSIS___SEK1_r72m3_r72;panther:STATE_TRANSITION_LEFT__JNK-RIGHT__JNK-_r72
+MAP2K4	controls-phosphorylation-of	MAPK9	PANTHER		Apoptosis signaling pathway	panther:_CATALYSIS___SEK1_r72m3_r72;panther:STATE_TRANSITION_LEFT__JNK-RIGHT__JNK-_r72
+MAP2K4	controls-state-change-of	MAPK9	PANTHER		Apoptosis signaling pathway	panther:_CATALYSIS___SEK1_r72m3_r72;panther:STATE_TRANSITION_LEFT__JNK-RIGHT__JNK-_r72
+MAP2K7	controls-phosphorylation-of	MAPK10	PANTHER		Apoptosis signaling pathway	panther:_CATALYSIS___MKK7_r72m1_r72;panther:STATE_TRANSITION_LEFT__JNK-RIGHT__JNK-_r72
+MAP2K7	controls-state-change-of	MAPK10	PANTHER		Apoptosis signaling pathway	panther:_CATALYSIS___MKK7_r72m1_r72;panther:STATE_TRANSITION_LEFT__JNK-RIGHT__JNK-_r72
+MAP2K7	controls-phosphorylation-of	MAPK8	PANTHER		Apoptosis signaling pathway	panther:_CATALYSIS___MKK7_r72m1_r72;panther:STATE_TRANSITION_LEFT__JNK-RIGHT__JNK-_r72
+MAP2K7	controls-state-change-of	MAPK8	PANTHER		Apoptosis signaling pathway	panther:_CATALYSIS___MKK7_r72m1_r72;panther:STATE_TRANSITION_LEFT__JNK-RIGHT__JNK-_r72
+MAP2K7	controls-phosphorylation-of	MAPK9	PANTHER		Apoptosis signaling pathway	panther:_CATALYSIS___MKK7_r72m1_r72;panther:STATE_TRANSITION_LEFT__JNK-RIGHT__JNK-_r72
+MAP2K7	controls-state-change-of	MAPK9	PANTHER		Apoptosis signaling pathway	panther:_CATALYSIS___MKK7_r72m1_r72;panther:STATE_TRANSITION_LEFT__JNK-RIGHT__JNK-_r72
+MAP3K14	controls-state-change-of	CHUK	PANTHER		Apoptosis signaling pathway	panther:STATE_TRANSITION_LEFT__IKK-RIGHT__IKK-_r58;panther:_CATALYSIS___NIK_r58m5_r58
+MAP3K14	controls-state-change-of	IKBKB	PANTHER		Apoptosis signaling pathway	panther:STATE_TRANSITION_LEFT__IKK-RIGHT__IKK-_r58;panther:_CATALYSIS___NIK_r58m5_r58
+MAP3K1	controls-phosphorylation-of	MAP2K4	PANTHER		Apoptosis signaling pathway	panther:STATE_TRANSITION_LEFT__SEK1-RIGHT__SEK1-_r73;panther:_CATALYSIS___MEKK1_r73m1_r73
+MAP3K1	controls-state-change-of	MAP2K4	PANTHER		Apoptosis signaling pathway	panther:STATE_TRANSITION_LEFT__SEK1-RIGHT__SEK1-_r73;panther:_CATALYSIS___MEKK1_r73m1_r73
+MAP3K1	controls-phosphorylation-of	MAP2K7	PANTHER		Apoptosis signaling pathway	panther:STATE_TRANSITION_LEFT__MKK7-RIGHT__MKK7-_r71;panther:_CATALYSIS___MEKK1_r71m1_r71
+MAP3K1	controls-state-change-of	MAP2K7	PANTHER		Apoptosis signaling pathway	panther:STATE_TRANSITION_LEFT__MKK7-RIGHT__MKK7-_r71;panther:_CATALYSIS___MEKK1_r71m1_r71
+MAP3K5	controls-phosphorylation-of	MAP2K3	PANTHER		Apoptosis signaling pathway	panther:_CATALYSIS___ASK1_r68m1_r68;panther:STATE_TRANSITION_LEFT__MKK3-RIGHT__MKK3-_r68
+MAP3K5	controls-state-change-of	MAP2K3	PANTHER		Apoptosis signaling pathway	panther:_CATALYSIS___ASK1_r68m1_r68;panther:STATE_TRANSITION_LEFT__MKK3-RIGHT__MKK3-_r68
+MAP3K5	controls-phosphorylation-of	MAP2K4	PANTHER		Apoptosis signaling pathway	panther:_CATALYSIS___ASK1_r73m3_r73;panther:STATE_TRANSITION_LEFT__SEK1-RIGHT__SEK1-_r73
+MAP3K5	controls-state-change-of	MAP2K4	PANTHER		Apoptosis signaling pathway	panther:_CATALYSIS___ASK1_r73m3_r73;panther:STATE_TRANSITION_LEFT__SEK1-RIGHT__SEK1-_r73
+MAP3K5	controls-phosphorylation-of	MAP2K7	PANTHER		Apoptosis signaling pathway	panther:STATE_TRANSITION_LEFT__MKK7-RIGHT__MKK7-_r71;panther:_CATALYSIS___ASK1_r71m3_r71
+MAP3K5	controls-state-change-of	MAP2K7	PANTHER		Apoptosis signaling pathway	panther:STATE_TRANSITION_LEFT__MKK7-RIGHT__MKK7-_r71;panther:_CATALYSIS___ASK1_r71m3_r71
+MAP4K2	controls-phosphorylation-of	MAP3K1	PANTHER		Apoptosis signaling pathway	panther:STATE_TRANSITION_LEFT__MEKK1-RIGHT__MEKK1-_r70;panther:_CATALYSIS___GCK_r70m1_r70
+MAP4K2	controls-state-change-of	MAP3K1	PANTHER		Apoptosis signaling pathway	panther:STATE_TRANSITION_LEFT__MEKK1-RIGHT__MEKK1-_r70;panther:_CATALYSIS___GCK_r70m1_r70
+MAP4K2	controls-phosphorylation-of	MAP3K5	PANTHER		Apoptosis signaling pathway	panther:STATE_TRANSITION_LEFT__ASK1-RIGHT__ASK1-_r67;panther:_CATALYSIS___GCK_r67m1_r67
+MAP4K2	controls-state-change-of	MAP3K5	PANTHER		Apoptosis signaling pathway	panther:STATE_TRANSITION_LEFT__ASK1-RIGHT__ASK1-_r67;panther:_CATALYSIS___GCK_r67m1_r67
+MAP4K3	controls-phosphorylation-of	MAP3K1	PANTHER		Apoptosis signaling pathway	panther:STATE_TRANSITION_LEFT__MEKK1-RIGHT__MEKK1-_r70;panther:_CATALYSIS___GCKR_r70m3_r70
+MAP4K3	controls-state-change-of	MAP3K1	PANTHER		Apoptosis signaling pathway	panther:STATE_TRANSITION_LEFT__MEKK1-RIGHT__MEKK1-_r70;panther:_CATALYSIS___GCKR_r70m3_r70
+MAP4K3	controls-phosphorylation-of	MAP3K5	PANTHER		Apoptosis signaling pathway	panther:STATE_TRANSITION_LEFT__ASK1-RIGHT__ASK1-_r67;panther:_CATALYSIS___GCKR_r67m3_r67
+MAP4K3	controls-state-change-of	MAP3K5	PANTHER		Apoptosis signaling pathway	panther:STATE_TRANSITION_LEFT__ASK1-RIGHT__ASK1-_r67;panther:_CATALYSIS___GCKR_r67m3_r67
+MAP4K4	controls-phosphorylation-of	MAP3K1	PANTHER		Apoptosis signaling pathway	panther:STATE_TRANSITION_LEFT__MEKK1-RIGHT__MEKK1-_r70;panther:_CATALYSIS___GCKR_r70m3_r70
+MAP4K4	controls-state-change-of	MAP3K1	PANTHER		Apoptosis signaling pathway	panther:STATE_TRANSITION_LEFT__MEKK1-RIGHT__MEKK1-_r70;panther:_CATALYSIS___GCKR_r70m3_r70
+MAP4K4	controls-phosphorylation-of	MAP3K5	PANTHER		Apoptosis signaling pathway	panther:STATE_TRANSITION_LEFT__ASK1-RIGHT__ASK1-_r67;panther:_CATALYSIS___GCKR_r67m3_r67
+MAP4K4	controls-state-change-of	MAP3K5	PANTHER		Apoptosis signaling pathway	panther:STATE_TRANSITION_LEFT__ASK1-RIGHT__ASK1-_r67;panther:_CATALYSIS___GCKR_r67m3_r67
+MAPK10	controls-state-change-of	FOS	PANTHER		Apoptosis signaling pathway	panther:STATE_TRANSITION_LEFT__Complex__Fos_c_Jun_-RIGHT__Complex__Fos_c_Jun_-_r75;panther:_CATALYSIS___JNK_r75m1_r75
+MAPK10	controls-state-change-of	JUN	PANTHER		Apoptosis signaling pathway	panther:STATE_TRANSITION_LEFT__Complex__Fos_c_Jun_-RIGHT__Complex__Fos_c_Jun_-_r75;panther:_CATALYSIS___JNK_r75m1_r75
+MAPK1	controls-state-change-of	ATF1	PANTHER		Apoptosis signaling pathway	panther:_CATALYSIS___MAPK_r74m1_r74;panther:STATE_TRANSITION_LEFT__ATF-RIGHT__ATF-_r74
+MAPK1	controls-state-change-of	ATF2	PANTHER		Apoptosis signaling pathway	panther:_CATALYSIS___MAPK_r74m1_r74;panther:STATE_TRANSITION_LEFT__ATF-RIGHT__ATF-_r74
+MAPK1	controls-state-change-of	ATF3	PANTHER		Apoptosis signaling pathway	panther:_CATALYSIS___MAPK_r74m1_r74;panther:STATE_TRANSITION_LEFT__ATF-RIGHT__ATF-_r74
+MAPK1	controls-state-change-of	ATF4	PANTHER		Apoptosis signaling pathway	panther:_CATALYSIS___MAPK_r74m1_r74;panther:STATE_TRANSITION_LEFT__ATF-RIGHT__ATF-_r74
+MAPK1	controls-state-change-of	ATF6B	PANTHER		Apoptosis signaling pathway	panther:_CATALYSIS___MAPK_r74m1_r74;panther:STATE_TRANSITION_LEFT__ATF-RIGHT__ATF-_r74
+MAPK1	controls-state-change-of	ATF6	PANTHER		Apoptosis signaling pathway	panther:_CATALYSIS___MAPK_r74m1_r74;panther:STATE_TRANSITION_LEFT__ATF-RIGHT__ATF-_r74
+MAPK1	controls-state-change-of	ATF7	PANTHER		Apoptosis signaling pathway	panther:_CATALYSIS___MAPK_r74m1_r74;panther:STATE_TRANSITION_LEFT__ATF-RIGHT__ATF-_r74
+MAPK1	controls-state-change-of	CREM	PANTHER		Apoptosis signaling pathway	panther:_CATALYSIS___MAPK_r74m1_r74;panther:STATE_TRANSITION_LEFT__ATF-RIGHT__ATF-_r74
+MAPK1	controls-state-change-of	JDP2	PANTHER		Apoptosis signaling pathway	panther:_CATALYSIS___MAPK_r74m1_r74;panther:STATE_TRANSITION_LEFT__ATF-RIGHT__ATF-_r74
+MAPK3	controls-state-change-of	ATF1	PANTHER		Apoptosis signaling pathway	panther:_CATALYSIS___MAPK_r74m1_r74;panther:STATE_TRANSITION_LEFT__ATF-RIGHT__ATF-_r74
+MAPK3	controls-state-change-of	ATF2	PANTHER		Apoptosis signaling pathway	panther:_CATALYSIS___MAPK_r74m1_r74;panther:STATE_TRANSITION_LEFT__ATF-RIGHT__ATF-_r74
+MAPK3	controls-state-change-of	ATF3	PANTHER		Apoptosis signaling pathway	panther:_CATALYSIS___MAPK_r74m1_r74;panther:STATE_TRANSITION_LEFT__ATF-RIGHT__ATF-_r74
+MAPK3	controls-state-change-of	ATF4	PANTHER		Apoptosis signaling pathway	panther:_CATALYSIS___MAPK_r74m1_r74;panther:STATE_TRANSITION_LEFT__ATF-RIGHT__ATF-_r74
+MAPK3	controls-state-change-of	ATF6B	PANTHER		Apoptosis signaling pathway	panther:_CATALYSIS___MAPK_r74m1_r74;panther:STATE_TRANSITION_LEFT__ATF-RIGHT__ATF-_r74
+MAPK3	controls-state-change-of	ATF6	PANTHER		Apoptosis signaling pathway	panther:_CATALYSIS___MAPK_r74m1_r74;panther:STATE_TRANSITION_LEFT__ATF-RIGHT__ATF-_r74
+MAPK3	controls-state-change-of	ATF7	PANTHER		Apoptosis signaling pathway	panther:_CATALYSIS___MAPK_r74m1_r74;panther:STATE_TRANSITION_LEFT__ATF-RIGHT__ATF-_r74
+MAPK3	controls-state-change-of	CREM	PANTHER		Apoptosis signaling pathway	panther:_CATALYSIS___MAPK_r74m1_r74;panther:STATE_TRANSITION_LEFT__ATF-RIGHT__ATF-_r74
+MAPK3	controls-state-change-of	JDP2	PANTHER		Apoptosis signaling pathway	panther:_CATALYSIS___MAPK_r74m1_r74;panther:STATE_TRANSITION_LEFT__ATF-RIGHT__ATF-_r74
+MAPK8	controls-state-change-of	FOS	PANTHER		Apoptosis signaling pathway	panther:STATE_TRANSITION_LEFT__Complex__Fos_c_Jun_-RIGHT__Complex__Fos_c_Jun_-_r75;panther:_CATALYSIS___JNK_r75m1_r75
+MAPK8	controls-state-change-of	JUN	PANTHER		Apoptosis signaling pathway	panther:STATE_TRANSITION_LEFT__Complex__Fos_c_Jun_-RIGHT__Complex__Fos_c_Jun_-_r75;panther:_CATALYSIS___JNK_r75m1_r75
+MAPK9	controls-state-change-of	FOS	PANTHER		Apoptosis signaling pathway	panther:STATE_TRANSITION_LEFT__Complex__Fos_c_Jun_-RIGHT__Complex__Fos_c_Jun_-_r75;panther:_CATALYSIS___JNK_r75m1_r75
+MAPK9	controls-state-change-of	JUN	PANTHER		Apoptosis signaling pathway	panther:STATE_TRANSITION_LEFT__Complex__Fos_c_Jun_-RIGHT__Complex__Fos_c_Jun_-_r75;panther:_CATALYSIS___JNK_r75m1_r75
+MCL1	controls-state-change-of	BCL2L11	PANTHER		Apoptosis signaling pathway	panther:STATE_TRANSITION_LEFT__Bim-RIGHT__Bim-_re79;panther:_INHIBITION___Mcl1_re79m1_re79
+NFKB1	in-complex-with	NFKBIA	PANTHER		Apoptosis signaling pathway	panther:_Complex__IkappaB_NFkappaB__s99_a124_
+NFKB2	in-complex-with	NFKBIA	PANTHER		Apoptosis signaling pathway	panther:_Complex__IkappaB_NFkappaB__s99_a124_
+NFKBIA	in-complex-with	RELA	PANTHER		Apoptosis signaling pathway	panther:_Complex__IkappaB_NFkappaB__s99_a124_
+NFKBIA	in-complex-with	RELB	PANTHER		Apoptosis signaling pathway	panther:_Complex__IkappaB_NFkappaB__s99_a124_
+NFKBIA	in-complex-with	REL	PANTHER		Apoptosis signaling pathway	panther:_Complex__IkappaB_NFkappaB__s99_a124_
+PIK3CA	controls-state-change-of	AKT1	PANTHER		Apoptosis signaling pathway	panther:_CATALYSIS___PI3K_r59m1_r59;panther:STATE_TRANSITION_LEFT__AKT-RIGHT__AKT-_r59
+PIK3CA	controls-state-change-of	AKT2	PANTHER		Apoptosis signaling pathway	panther:_CATALYSIS___PI3K_r59m1_r59;panther:STATE_TRANSITION_LEFT__AKT-RIGHT__AKT-_r59
+PIK3CA	controls-state-change-of	AKT3	PANTHER		Apoptosis signaling pathway	panther:_CATALYSIS___PI3K_r59m1_r59;panther:STATE_TRANSITION_LEFT__AKT-RIGHT__AKT-_r59
+PIK3CB	controls-state-change-of	AKT1	PANTHER		Apoptosis signaling pathway	panther:_CATALYSIS___PI3K_r59m1_r59;panther:STATE_TRANSITION_LEFT__AKT-RIGHT__AKT-_r59
+PIK3CB	controls-state-change-of	AKT2	PANTHER		Apoptosis signaling pathway	panther:_CATALYSIS___PI3K_r59m1_r59;panther:STATE_TRANSITION_LEFT__AKT-RIGHT__AKT-_r59
+PIK3CB	controls-state-change-of	AKT3	PANTHER		Apoptosis signaling pathway	panther:_CATALYSIS___PI3K_r59m1_r59;panther:STATE_TRANSITION_LEFT__AKT-RIGHT__AKT-_r59
+PIK3CD	controls-state-change-of	AKT1	PANTHER		Apoptosis signaling pathway	panther:_CATALYSIS___PI3K_r59m1_r59;panther:STATE_TRANSITION_LEFT__AKT-RIGHT__AKT-_r59
+PIK3CD	controls-state-change-of	AKT2	PANTHER		Apoptosis signaling pathway	panther:_CATALYSIS___PI3K_r59m1_r59;panther:STATE_TRANSITION_LEFT__AKT-RIGHT__AKT-_r59
+PIK3CD	controls-state-change-of	AKT3	PANTHER		Apoptosis signaling pathway	panther:_CATALYSIS___PI3K_r59m1_r59;panther:STATE_TRANSITION_LEFT__AKT-RIGHT__AKT-_r59
+PIK3CG	controls-state-change-of	AKT1	PANTHER		Apoptosis signaling pathway	panther:_CATALYSIS___PI3K_r59m1_r59;panther:STATE_TRANSITION_LEFT__AKT-RIGHT__AKT-_r59
+PIK3CG	controls-state-change-of	AKT2	PANTHER		Apoptosis signaling pathway	panther:_CATALYSIS___PI3K_r59m1_r59;panther:STATE_TRANSITION_LEFT__AKT-RIGHT__AKT-_r59
+PIK3CG	controls-state-change-of	AKT3	PANTHER		Apoptosis signaling pathway	panther:_CATALYSIS___PI3K_r59m1_r59;panther:STATE_TRANSITION_LEFT__AKT-RIGHT__AKT-_r59
+PRKCA	controls-state-change-of	CHUK	PANTHER		Apoptosis signaling pathway	panther:STATE_TRANSITION_LEFT__IKK-RIGHT__IKK-_r58;panther:_CATALYSIS___PKCs_r58m1_r58
+PRKCA	controls-state-change-of	IKBKB	PANTHER		Apoptosis signaling pathway	panther:STATE_TRANSITION_LEFT__IKK-RIGHT__IKK-_r58;panther:_CATALYSIS___PKCs_r58m1_r58
+PRKCB	controls-state-change-of	CHUK	PANTHER		Apoptosis signaling pathway	panther:STATE_TRANSITION_LEFT__IKK-RIGHT__IKK-_r58;panther:_CATALYSIS___PKCs_r58m1_r58
+PRKCB	controls-state-change-of	IKBKB	PANTHER		Apoptosis signaling pathway	panther:STATE_TRANSITION_LEFT__IKK-RIGHT__IKK-_r58;panther:_CATALYSIS___PKCs_r58m1_r58
+PRKCD	controls-state-change-of	CHUK	PANTHER		Apoptosis signaling pathway	panther:STATE_TRANSITION_LEFT__IKK-RIGHT__IKK-_r58;panther:_CATALYSIS___PKCs_r58m1_r58
+PRKCD	controls-state-change-of	IKBKB	PANTHER		Apoptosis signaling pathway	panther:STATE_TRANSITION_LEFT__IKK-RIGHT__IKK-_r58;panther:_CATALYSIS___PKCs_r58m1_r58
+PRKCE	controls-state-change-of	CHUK	PANTHER		Apoptosis signaling pathway	panther:STATE_TRANSITION_LEFT__IKK-RIGHT__IKK-_r58;panther:_CATALYSIS___PKCs_r58m1_r58
+PRKCE	controls-state-change-of	IKBKB	PANTHER		Apoptosis signaling pathway	panther:STATE_TRANSITION_LEFT__IKK-RIGHT__IKK-_r58;panther:_CATALYSIS___PKCs_r58m1_r58
+PRKCG	controls-state-change-of	CHUK	PANTHER		Apoptosis signaling pathway	panther:STATE_TRANSITION_LEFT__IKK-RIGHT__IKK-_r58;panther:_CATALYSIS___PKCs_r58m1_r58
+PRKCG	controls-state-change-of	IKBKB	PANTHER		Apoptosis signaling pathway	panther:STATE_TRANSITION_LEFT__IKK-RIGHT__IKK-_r58;panther:_CATALYSIS___PKCs_r58m1_r58
+PRKCH	controls-state-change-of	CHUK	PANTHER		Apoptosis signaling pathway	panther:STATE_TRANSITION_LEFT__IKK-RIGHT__IKK-_r58;panther:_CATALYSIS___PKCs_r58m1_r58
+PRKCH	controls-state-change-of	IKBKB	PANTHER		Apoptosis signaling pathway	panther:STATE_TRANSITION_LEFT__IKK-RIGHT__IKK-_r58;panther:_CATALYSIS___PKCs_r58m1_r58
+PRKCQ	controls-state-change-of	CHUK	PANTHER		Apoptosis signaling pathway	panther:STATE_TRANSITION_LEFT__IKK-RIGHT__IKK-_r58;panther:_CATALYSIS___PKCs_r58m1_r58
+PRKCQ	controls-state-change-of	IKBKB	PANTHER		Apoptosis signaling pathway	panther:STATE_TRANSITION_LEFT__IKK-RIGHT__IKK-_r58;panther:_CATALYSIS___PKCs_r58m1_r58
+PRKRA	controls-state-change-of	EIF2AK2	PANTHER		Apoptosis signaling pathway	panther:_CATALYSIS___PACT_r115m1_r115;panther:STATE_TRANSITION_LEFT__PKR-RIGHT__PKR-_r115
+RIPK1	controls-state-change-of	CASP10	PANTHER		Apoptosis signaling pathway	panther:_CATALYSIS___Complex__TRADD_RAIDD__TRAF2_RIP__r54m1_r54;panther:STATE_TRANSITION_LEFT__Caspase_10-RIGHT__Caspase_10-_r54
+RIPK1	controls-state-change-of	CASP8	PANTHER		Apoptosis signaling pathway	panther:_CATALYSIS___Complex__TRADD_RAIDD__TRAF2_RIP__r53m1_r53;panther:STATE_TRANSITION_LEFT__Caspase_8-RIGHT__Caspase_8-_r53
+RIPK1	controls-state-change-of	MAP3K14	PANTHER		Apoptosis signaling pathway	panther:_CATALYSIS___Complex__TRADD_RAIDD__TRAF2_RIP__r22m1_r22;panther:STATE_TRANSITION_LEFT__NIK-RIGHT__NIK-_r22
+RIPK1	controls-state-change-of	MAP4K2	PANTHER		Apoptosis signaling pathway	panther:STATE_TRANSITION_LEFT__GCK-RIGHT__GCK-_r21;panther:_CATALYSIS___Complex__TRADD_RAIDD__TRAF2_RIP__r21m1_r21
+RIPK1	controls-state-change-of	MAP4K3	PANTHER		Apoptosis signaling pathway	panther:_CATALYSIS___Complex__TRADD_RAIDD__TRAF2_RIP__r55m1_r55;panther:STATE_TRANSITION_LEFT__GCKR-RIGHT__GCKR-_r55
+RIPK1	controls-state-change-of	MAP4K4	PANTHER		Apoptosis signaling pathway	panther:_CATALYSIS___Complex__TRADD_RAIDD__TRAF2_RIP__r55m1_r55;panther:STATE_TRANSITION_LEFT__GCKR-RIGHT__GCKR-_r55
+RIPK1	controls-state-change-of	PIK3CA	PANTHER		Apoptosis signaling pathway	panther:STATE_TRANSITION_LEFT__PI3K-RIGHT__PI3K-_r19;panther:_CATALYSIS___Complex__TRADD_RAIDD__TRAF2_RIP__r19m1_r19
+RIPK1	controls-state-change-of	PIK3CB	PANTHER		Apoptosis signaling pathway	panther:STATE_TRANSITION_LEFT__PI3K-RIGHT__PI3K-_r19;panther:_CATALYSIS___Complex__TRADD_RAIDD__TRAF2_RIP__r19m1_r19
+RIPK1	controls-state-change-of	PIK3CD	PANTHER		Apoptosis signaling pathway	panther:STATE_TRANSITION_LEFT__PI3K-RIGHT__PI3K-_r19;panther:_CATALYSIS___Complex__TRADD_RAIDD__TRAF2_RIP__r19m1_r19
+RIPK1	controls-state-change-of	PIK3CG	PANTHER		Apoptosis signaling pathway	panther:STATE_TRANSITION_LEFT__PI3K-RIGHT__PI3K-_r19;panther:_CATALYSIS___Complex__TRADD_RAIDD__TRAF2_RIP__r19m1_r19
+RIPK1	controls-state-change-of	PRKCA	PANTHER		Apoptosis signaling pathway	panther:STATE_TRANSITION_LEFT__PKCs-RIGHT__PKCs-_r20;panther:_CATALYSIS___Complex__TRADD_RAIDD__TRAF2_RIP__r20m1_r20
+RIPK1	controls-state-change-of	PRKCB	PANTHER		Apoptosis signaling pathway	panther:STATE_TRANSITION_LEFT__PKCs-RIGHT__PKCs-_r20;panther:_CATALYSIS___Complex__TRADD_RAIDD__TRAF2_RIP__r20m1_r20
+RIPK1	controls-state-change-of	PRKCD	PANTHER		Apoptosis signaling pathway	panther:STATE_TRANSITION_LEFT__PKCs-RIGHT__PKCs-_r20;panther:_CATALYSIS___Complex__TRADD_RAIDD__TRAF2_RIP__r20m1_r20
+RIPK1	controls-state-change-of	PRKCE	PANTHER		Apoptosis signaling pathway	panther:STATE_TRANSITION_LEFT__PKCs-RIGHT__PKCs-_r20;panther:_CATALYSIS___Complex__TRADD_RAIDD__TRAF2_RIP__r20m1_r20
+RIPK1	controls-state-change-of	PRKCG	PANTHER		Apoptosis signaling pathway	panther:STATE_TRANSITION_LEFT__PKCs-RIGHT__PKCs-_r20;panther:_CATALYSIS___Complex__TRADD_RAIDD__TRAF2_RIP__r20m1_r20
+RIPK1	controls-state-change-of	PRKCH	PANTHER		Apoptosis signaling pathway	panther:STATE_TRANSITION_LEFT__PKCs-RIGHT__PKCs-_r20;panther:_CATALYSIS___Complex__TRADD_RAIDD__TRAF2_RIP__r20m1_r20
+RIPK1	controls-state-change-of	PRKCQ	PANTHER		Apoptosis signaling pathway	panther:STATE_TRANSITION_LEFT__PKCs-RIGHT__PKCs-_r20;panther:_CATALYSIS___Complex__TRADD_RAIDD__TRAF2_RIP__r20m1_r20
+RIPK1	in-complex-with	TRADD	PANTHER		Apoptosis signaling pathway	panther:_Complex__TRADD_RAIDD__TRAF2_RIP__s74_a97_
+RIPK1	in-complex-with	TRAF2	PANTHER		Apoptosis signaling pathway	panther:_Complex__TRADD_RAIDD__TRAF2_RIP__s74_a97_
+TMBIM6	controls-state-change-of	BAK1	PANTHER		Apoptosis signaling pathway	panther:HETERODIMER_ASSOCIATION_LEFT__Bax-_Bak-RIGHT__Complex__Bax_Bak_-_r95;panther:_CATALYSIS___Bi1_r95m5_r95
+TMBIM6	controls-transport-of	BAK1	PANTHER		Apoptosis signaling pathway	panther:HETERODIMER_ASSOCIATION_LEFT__Bax-_Bak-RIGHT__Complex__Bax_Bak_-_r95;panther:_CATALYSIS___Bi1_r95m5_r95
+TMBIM6	controls-state-change-of	BAX	PANTHER		Apoptosis signaling pathway	panther:HETERODIMER_ASSOCIATION_LEFT__Bax-_Bak-RIGHT__Complex__Bax_Bak_-_r95;panther:_CATALYSIS___Bi1_r95m5_r95
+TMBIM6	controls-transport-of	BAX	PANTHER		Apoptosis signaling pathway	panther:HETERODIMER_ASSOCIATION_LEFT__Bax-_Bak-RIGHT__Complex__Bax_Bak_-_r95;panther:_CATALYSIS___Bi1_r95m5_r95
+TNF	controls-state-change-of	CRADD	PANTHER		Apoptosis signaling pathway	panther:_CATALYSIS___Complex__TNFR1_TNF__r48m1_r48;panther:HETERODIMER_ASSOCIATION_LEFT__RIP-_TRADD-_TRAF2-_RAIDD-RIGHT__Complex__TRADD_RAIDD__TRAF2_RIP_-_r48
+TNF	controls-state-change-of	FADD	PANTHER		Apoptosis signaling pathway	panther:HETERODIMER_ASSOCIATION_LEFT__TRADD-_FADD-RIGHT__Complex__FADD_TRADD_-_r45;panther:_CATALYSIS___Complex__TNFR1_TNF__r45m1_r45
+TNF	controls-state-change-of	MAP3K14	PANTHER		Apoptosis signaling pathway	panther:STATE_TRANSITION_LEFT__NIK-RIGHT__NIK-_r22;panther:_CATALYSIS___Complex__TNFR2_TNF__TRAF2__r22m3_r22
+TNF	controls-phosphorylation-of	MAP3K5	PANTHER		Apoptosis signaling pathway	panther:_CATALYSIS___Complex__TNFR1_TNF__MADD__r83m3_r83;panther:STATE_TRANSITION_LEFT__ASK1-RIGHT__ASK1-_r83
+TNF	controls-state-change-of	MAP3K5	PANTHER		Apoptosis signaling pathway	panther:_CATALYSIS___Complex__TNFR1_TNF__MADD__r83m3_r83;panther:STATE_TRANSITION_LEFT__ASK1-RIGHT__ASK1-_r83
+TNF	controls-state-change-of	RIPK1	PANTHER		Apoptosis signaling pathway	panther:_CATALYSIS___Complex__TNFR1_TNF__r48m1_r48;panther:HETERODIMER_ASSOCIATION_LEFT__RIP-_TRADD-_TRAF2-_RAIDD-RIGHT__Complex__TRADD_RAIDD__TRAF2_RIP_-_r48
+TNFRSF10A	in-complex-with	TNFSF10	PANTHER		Apoptosis signaling pathway	panther:_Complex__TRAIL_R_TRAIL__s171_a270_
+TNFRSF10B	in-complex-with	TNFSF10	PANTHER		Apoptosis signaling pathway	panther:_Complex__TRAIL_R_TRAIL__s171_a270_
+TNFRSF10C	in-complex-with	TNFSF10	PANTHER		Apoptosis signaling pathway	panther:_Complex__TRAIL_R_TRAIL__s171_a270_
+TNFRSF10D	in-complex-with	TNFSF10	PANTHER		Apoptosis signaling pathway	panther:_Complex__TRAIL_R_TRAIL__s171_a270_
+TNFRSF1A	controls-state-change-of	CRADD	PANTHER		Apoptosis signaling pathway	panther:_CATALYSIS___Complex__TNFR1_TNF__r48m1_r48;panther:HETERODIMER_ASSOCIATION_LEFT__RIP-_TRADD-_TRAF2-_RAIDD-RIGHT__Complex__TRADD_RAIDD__TRAF2_RIP_-_r48
+TNFRSF1A	controls-state-change-of	FADD	PANTHER		Apoptosis signaling pathway	panther:HETERODIMER_ASSOCIATION_LEFT__TRADD-_FADD-RIGHT__Complex__FADD_TRADD_-_r45;panther:_CATALYSIS___Complex__TNFR1_TNF__r45m1_r45
+TNFRSF1A	controls-phosphorylation-of	MAP3K5	PANTHER		Apoptosis signaling pathway	panther:_CATALYSIS___Complex__TNFR1_TNF__MADD__r83m3_r83;panther:STATE_TRANSITION_LEFT__ASK1-RIGHT__ASK1-_r83
+TNFRSF1A	controls-state-change-of	MAP3K5	PANTHER		Apoptosis signaling pathway	panther:_CATALYSIS___Complex__TNFR1_TNF__MADD__r83m3_r83;panther:STATE_TRANSITION_LEFT__ASK1-RIGHT__ASK1-_r83
+TNFRSF1A	controls-state-change-of	RIPK1	PANTHER		Apoptosis signaling pathway	panther:_CATALYSIS___Complex__TNFR1_TNF__r48m1_r48;panther:HETERODIMER_ASSOCIATION_LEFT__RIP-_TRADD-_TRAF2-_RAIDD-RIGHT__Complex__TRADD_RAIDD__TRAF2_RIP_-_r48
+TNFRSF1A	controls-state-change-of	TRADD	PANTHER		Apoptosis signaling pathway	panther:HETERODIMER_ASSOCIATION_LEFT__TRADD-_FADD-RIGHT__Complex__FADD_TRADD_-_r45;panther:_CATALYSIS___Complex__TNFR1_TNF__r48m1_r48;panther:HETERODIMER_ASSOCIATION_LEFT__RIP-_TRADD-_TRAF2-_RAIDD-RIGHT__Complex__TRADD_RAIDD__TRAF2_RIP_-_r48;panther:_CATALYSIS___Complex__TNFR1_TNF__r45m1_r45
+TNFRSF1A	controls-state-change-of	TRAF2	PANTHER		Apoptosis signaling pathway	panther:_CATALYSIS___Complex__TNFR1_TNF__r48m1_r48;panther:HETERODIMER_ASSOCIATION_LEFT__RIP-_TRADD-_TRAF2-_RAIDD-RIGHT__Complex__TRADD_RAIDD__TRAF2_RIP_-_r48
+TNFRSF1B	controls-state-change-of	MAP3K14	PANTHER		Apoptosis signaling pathway	panther:STATE_TRANSITION_LEFT__NIK-RIGHT__NIK-_r22;panther:_CATALYSIS___Complex__TNFR2_TNF__TRAF2__r22m3_r22
+TNFRSF1B	in-complex-with	TRAF2	PANTHER		Apoptosis signaling pathway	panther:_Complex__TNFR2_TNF__TRAF2__s209_a339_
+TNF	in-complex-with	TNFRSF1A	PANTHER		Apoptosis signaling pathway	panther:_Complex__TNFR1_TNF__s203_a320_;panther:_Complex__TNFR1_TNF__MADD__s206_a330_
+TNF	in-complex-with	TNFRSF1B	PANTHER		Apoptosis signaling pathway	panther:_Complex__TNFR2_TNF__s208_a333_;panther:_Complex__TNFR2_TNF__TRAF2__s209_a339_
+TNF	controls-state-change-of	TRADD	PANTHER		Apoptosis signaling pathway	panther:HETERODIMER_ASSOCIATION_LEFT__TRADD-_FADD-RIGHT__Complex__FADD_TRADD_-_r45;panther:_CATALYSIS___Complex__TNFR1_TNF__r48m1_r48;panther:HETERODIMER_ASSOCIATION_LEFT__RIP-_TRADD-_TRAF2-_RAIDD-RIGHT__Complex__TRADD_RAIDD__TRAF2_RIP_-_r48;panther:_CATALYSIS___Complex__TNFR1_TNF__r45m1_r45
+TNF	controls-state-change-of	TRAF2	PANTHER		Apoptosis signaling pathway	panther:_CATALYSIS___Complex__TNFR1_TNF__r48m1_r48;panther:HETERODIMER_ASSOCIATION_LEFT__RIP-_TRADD-_TRAF2-_RAIDD-RIGHT__Complex__TRADD_RAIDD__TRAF2_RIP_-_r48
+TNF	in-complex-with	TRAF2	PANTHER		Apoptosis signaling pathway	panther:_Complex__TNFR2_TNF__TRAF2__s209_a339_
+TRADD	controls-state-change-of	CASP10	PANTHER		Apoptosis signaling pathway	panther:_CATALYSIS___Complex__TRADD_RAIDD__TRAF2_RIP__r54m1_r54;panther:_CATALYSIS___Complex__FADD_TRADD__r49m1_r49;panther:STATE_TRANSITION_LEFT__Caspase_10-RIGHT__Caspase_10-_r54;panther:STATE_TRANSITION_LEFT__Caspase_10-RIGHT__Caspase_10-_r49
+TRADD	controls-state-change-of	CASP8	PANTHER		Apoptosis signaling pathway	panther:_CATALYSIS___Complex__TRADD_RAIDD__TRAF2_RIP__r53m1_r53;panther:_CATALYSIS___Complex__FADD_TRADD__r12m3_r12;panther:STATE_TRANSITION_LEFT__Caspase_8-RIGHT__Caspase_8-_r53;panther:STATE_TRANSITION_LEFT__Caspase_8-RIGHT__Caspase_8-_r12
+TRADD	controls-state-change-of	MAP3K14	PANTHER		Apoptosis signaling pathway	panther:_CATALYSIS___Complex__TRADD_RAIDD__TRAF2_RIP__r22m1_r22;panther:STATE_TRANSITION_LEFT__NIK-RIGHT__NIK-_r22
+TRADD	controls-state-change-of	MAP4K2	PANTHER		Apoptosis signaling pathway	panther:STATE_TRANSITION_LEFT__GCK-RIGHT__GCK-_r21;panther:_CATALYSIS___Complex__TRADD_RAIDD__TRAF2_RIP__r21m1_r21
+TRADD	controls-state-change-of	MAP4K3	PANTHER		Apoptosis signaling pathway	panther:_CATALYSIS___Complex__TRADD_RAIDD__TRAF2_RIP__r55m1_r55;panther:STATE_TRANSITION_LEFT__GCKR-RIGHT__GCKR-_r55
+TRADD	controls-state-change-of	MAP4K4	PANTHER		Apoptosis signaling pathway	panther:_CATALYSIS___Complex__TRADD_RAIDD__TRAF2_RIP__r55m1_r55;panther:STATE_TRANSITION_LEFT__GCKR-RIGHT__GCKR-_r55
+TRADD	controls-state-change-of	PIK3CA	PANTHER		Apoptosis signaling pathway	panther:STATE_TRANSITION_LEFT__PI3K-RIGHT__PI3K-_r19;panther:_CATALYSIS___Complex__TRADD_RAIDD__TRAF2_RIP__r19m1_r19
+TRADD	controls-state-change-of	PIK3CB	PANTHER		Apoptosis signaling pathway	panther:STATE_TRANSITION_LEFT__PI3K-RIGHT__PI3K-_r19;panther:_CATALYSIS___Complex__TRADD_RAIDD__TRAF2_RIP__r19m1_r19
+TRADD	controls-state-change-of	PIK3CD	PANTHER		Apoptosis signaling pathway	panther:STATE_TRANSITION_LEFT__PI3K-RIGHT__PI3K-_r19;panther:_CATALYSIS___Complex__TRADD_RAIDD__TRAF2_RIP__r19m1_r19
+TRADD	controls-state-change-of	PIK3CG	PANTHER		Apoptosis signaling pathway	panther:STATE_TRANSITION_LEFT__PI3K-RIGHT__PI3K-_r19;panther:_CATALYSIS___Complex__TRADD_RAIDD__TRAF2_RIP__r19m1_r19
+TRADD	controls-state-change-of	PRKCA	PANTHER		Apoptosis signaling pathway	panther:STATE_TRANSITION_LEFT__PKCs-RIGHT__PKCs-_r20;panther:_CATALYSIS___Complex__TRADD_RAIDD__TRAF2_RIP__r20m1_r20
+TRADD	controls-state-change-of	PRKCB	PANTHER		Apoptosis signaling pathway	panther:STATE_TRANSITION_LEFT__PKCs-RIGHT__PKCs-_r20;panther:_CATALYSIS___Complex__TRADD_RAIDD__TRAF2_RIP__r20m1_r20
+TRADD	controls-state-change-of	PRKCD	PANTHER		Apoptosis signaling pathway	panther:STATE_TRANSITION_LEFT__PKCs-RIGHT__PKCs-_r20;panther:_CATALYSIS___Complex__TRADD_RAIDD__TRAF2_RIP__r20m1_r20
+TRADD	controls-state-change-of	PRKCE	PANTHER		Apoptosis signaling pathway	panther:STATE_TRANSITION_LEFT__PKCs-RIGHT__PKCs-_r20;panther:_CATALYSIS___Complex__TRADD_RAIDD__TRAF2_RIP__r20m1_r20
+TRADD	controls-state-change-of	PRKCG	PANTHER		Apoptosis signaling pathway	panther:STATE_TRANSITION_LEFT__PKCs-RIGHT__PKCs-_r20;panther:_CATALYSIS___Complex__TRADD_RAIDD__TRAF2_RIP__r20m1_r20
+TRADD	controls-state-change-of	PRKCH	PANTHER		Apoptosis signaling pathway	panther:STATE_TRANSITION_LEFT__PKCs-RIGHT__PKCs-_r20;panther:_CATALYSIS___Complex__TRADD_RAIDD__TRAF2_RIP__r20m1_r20
+TRADD	controls-state-change-of	PRKCQ	PANTHER		Apoptosis signaling pathway	panther:STATE_TRANSITION_LEFT__PKCs-RIGHT__PKCs-_r20;panther:_CATALYSIS___Complex__TRADD_RAIDD__TRAF2_RIP__r20m1_r20
+TRADD	in-complex-with	TRAF2	PANTHER		Apoptosis signaling pathway	panther:_Complex__TRADD_RAIDD__TRAF2_RIP__s74_a97_
+TRAF2	controls-state-change-of	CASP10	PANTHER		Apoptosis signaling pathway	panther:_CATALYSIS___Complex__TRADD_RAIDD__TRAF2_RIP__r54m1_r54;panther:STATE_TRANSITION_LEFT__Caspase_10-RIGHT__Caspase_10-_r54
+TRAF2	controls-state-change-of	CASP8	PANTHER		Apoptosis signaling pathway	panther:_CATALYSIS___Complex__TRADD_RAIDD__TRAF2_RIP__r53m1_r53;panther:STATE_TRANSITION_LEFT__Caspase_8-RIGHT__Caspase_8-_r53
+TRAF2	controls-state-change-of	MAP3K14	PANTHER		Apoptosis signaling pathway	panther:_CATALYSIS___Complex__TRADD_RAIDD__TRAF2_RIP__r22m1_r22;panther:STATE_TRANSITION_LEFT__NIK-RIGHT__NIK-_r22;panther:_CATALYSIS___Complex__TNFR2_TNF__TRAF2__r22m3_r22
+TRAF2	controls-state-change-of	MAP4K2	PANTHER		Apoptosis signaling pathway	panther:STATE_TRANSITION_LEFT__GCK-RIGHT__GCK-_r21;panther:_CATALYSIS___Complex__TRADD_RAIDD__TRAF2_RIP__r21m1_r21
+TRAF2	controls-state-change-of	MAP4K3	PANTHER		Apoptosis signaling pathway	panther:_CATALYSIS___Complex__TRADD_RAIDD__TRAF2_RIP__r55m1_r55;panther:STATE_TRANSITION_LEFT__GCKR-RIGHT__GCKR-_r55
+TRAF2	controls-state-change-of	MAP4K4	PANTHER		Apoptosis signaling pathway	panther:_CATALYSIS___Complex__TRADD_RAIDD__TRAF2_RIP__r55m1_r55;panther:STATE_TRANSITION_LEFT__GCKR-RIGHT__GCKR-_r55
+TRAF2	controls-state-change-of	PIK3CA	PANTHER		Apoptosis signaling pathway	panther:STATE_TRANSITION_LEFT__PI3K-RIGHT__PI3K-_r19;panther:_CATALYSIS___Complex__TRADD_RAIDD__TRAF2_RIP__r19m1_r19
+TRAF2	controls-state-change-of	PIK3CB	PANTHER		Apoptosis signaling pathway	panther:STATE_TRANSITION_LEFT__PI3K-RIGHT__PI3K-_r19;panther:_CATALYSIS___Complex__TRADD_RAIDD__TRAF2_RIP__r19m1_r19
+TRAF2	controls-state-change-of	PIK3CD	PANTHER		Apoptosis signaling pathway	panther:STATE_TRANSITION_LEFT__PI3K-RIGHT__PI3K-_r19;panther:_CATALYSIS___Complex__TRADD_RAIDD__TRAF2_RIP__r19m1_r19
+TRAF2	controls-state-change-of	PIK3CG	PANTHER		Apoptosis signaling pathway	panther:STATE_TRANSITION_LEFT__PI3K-RIGHT__PI3K-_r19;panther:_CATALYSIS___Complex__TRADD_RAIDD__TRAF2_RIP__r19m1_r19
+TRAF2	controls-state-change-of	PRKCA	PANTHER		Apoptosis signaling pathway	panther:STATE_TRANSITION_LEFT__PKCs-RIGHT__PKCs-_r20;panther:_CATALYSIS___Complex__TRADD_RAIDD__TRAF2_RIP__r20m1_r20
+TRAF2	controls-state-change-of	PRKCB	PANTHER		Apoptosis signaling pathway	panther:STATE_TRANSITION_LEFT__PKCs-RIGHT__PKCs-_r20;panther:_CATALYSIS___Complex__TRADD_RAIDD__TRAF2_RIP__r20m1_r20
+TRAF2	controls-state-change-of	PRKCD	PANTHER		Apoptosis signaling pathway	panther:STATE_TRANSITION_LEFT__PKCs-RIGHT__PKCs-_r20;panther:_CATALYSIS___Complex__TRADD_RAIDD__TRAF2_RIP__r20m1_r20
+TRAF2	controls-state-change-of	PRKCE	PANTHER		Apoptosis signaling pathway	panther:STATE_TRANSITION_LEFT__PKCs-RIGHT__PKCs-_r20;panther:_CATALYSIS___Complex__TRADD_RAIDD__TRAF2_RIP__r20m1_r20
+TRAF2	controls-state-change-of	PRKCG	PANTHER		Apoptosis signaling pathway	panther:STATE_TRANSITION_LEFT__PKCs-RIGHT__PKCs-_r20;panther:_CATALYSIS___Complex__TRADD_RAIDD__TRAF2_RIP__r20m1_r20
+TRAF2	controls-state-change-of	PRKCH	PANTHER		Apoptosis signaling pathway	panther:STATE_TRANSITION_LEFT__PKCs-RIGHT__PKCs-_r20;panther:_CATALYSIS___Complex__TRADD_RAIDD__TRAF2_RIP__r20m1_r20
+TRAF2	controls-state-change-of	PRKCQ	PANTHER		Apoptosis signaling pathway	panther:STATE_TRANSITION_LEFT__PKCs-RIGHT__PKCs-_r20;panther:_CATALYSIS___Complex__TRADD_RAIDD__TRAF2_RIP__r20m1_r20
+XIAP	controls-state-change-of	CASP3	PANTHER		Apoptosis signaling pathway	panther:STATE_TRANSITION_LEFT__Caspase_3-RIGHT__Caspase_3-_r105;panther:_INHIBITION___XIAP_r105m3_r105
+XIAP	controls-state-change-of	CASP7	PANTHER		Apoptosis signaling pathway	panther:STATE_TRANSITION_LEFT__Caspase_7-RIGHT__Caspase_7-_r106;panther:_INHIBITION___XIAP_r106m5_r106
+XIAP	controls-state-change-of	CASP9	PANTHER		Apoptosis signaling pathway	panther:_INHIBITION___XIAP_r104m5_r104;panther:STATE_TRANSITION_LEFT__Caspase_9-RIGHT__Caspase_9-_r104
+
+PARTICIPANT	PARTICIPANT_TYPE	PARTICIPANT_NAME	UNIFICATION_XREF	RELATIONSHIP_XREF
+ATF1	ProteinReference	ATF1_HUMAN	uniprot:P18846	hgnc.symbol:ATF1;ncbigene:466
+ATF2	ProteinReference	ATF2_HUMAN	uniprot:P15336	hgnc.symbol:ATF2;ncbigene:1386
+TNF	ProteinReference	TNFA_HUMAN	uniprot:P01375	hgnc.symbol:TNF;ncbigene:7124
+AKT2	ProteinReference	AKT2_HUMAN	uniprot:P31751	hgnc.symbol:AKT2;ncbigene:208
+AKT3	ProteinReference	AKT3_HUMAN	uniprot:Q9Y243	hgnc.symbol:AKT3;ncbigene:10000
+TNFSF10	ProteinReference	TNF10_HUMAN	uniprot:P50591	hgnc.symbol:TNFSF10;ncbigene:8743
+AKT1	ProteinReference	AKT1_HUMAN	uniprot:P31749	hgnc.symbol:AKT1;ncbigene:207
+MAP3K5	ProteinReference	M3K5_HUMAN	uniprot:Q99683	hgnc.symbol:MAP3K5;ncbigene:4217
+MAP2K3	ProteinReference	MP2K3_HUMAN	uniprot:P46734	hgnc.symbol:MAP2K3;ncbigene:5606
+PRKCG	ProteinReference	KPCG_HUMAN	uniprot:P05129	hgnc.symbol:PRKCG;ncbigene:5582
+MAP2K4	ProteinReference	MP2K4_HUMAN	uniprot:P45985	hgnc.symbol:MAP2K4;ncbigene:6416
+DAXX	ProteinReference	DAXX_HUMAN	uniprot:Q9UER7	hgnc.symbol:DAXX;ncbigene:1616
+PRKCH	ProteinReference	KPCL_HUMAN	uniprot:P24723	hgnc.symbol:PRKCH;ncbigene:5583
+ENDOG	ProteinReference	NUCG_HUMAN	uniprot:Q14249	hgnc.symbol:ENDOG;ncbigene:2021
+PRKCB	ProteinReference	KPCB_HUMAN	uniprot:P05771	hgnc.symbol:PRKCB;ncbigene:5579
+PRKCE	ProteinReference	KPCE_HUMAN	uniprot:Q02156	hgnc.symbol:PRKCE;ncbigene:5581
+PRKCD	ProteinReference	KPCD_HUMAN	uniprot:Q05655	hgnc.symbol:PRKCD;ncbigene:5580
+PRKCA	ProteinReference	KPCA_HUMAN	uniprot:P17252	hgnc.symbol:PRKCA;ncbigene:5578
+MADD	ProteinReference	MADD_HUMAN	uniprot:Q8WXG6	hgnc.symbol:MADD;ncbigene:8567
+PRKCQ	ProteinReference	KPCT_HUMAN	uniprot:Q04759	hgnc.symbol:PRKCQ;ncbigene:5588
+ATF7	ProteinReference	ATF7_HUMAN	uniprot:P17544	hgnc.symbol:ATF7;ncbigene:11016
+TP53	ProteinReference	P53_HUMAN	uniprot:P04637	hgnc.symbol:TP53;ncbigene:7157
+ATF6	ProteinReference	ATF6A_HUMAN	uniprot:P18850	hgnc.symbol:ATF6;ncbigene:22926
+ATF3	ProteinReference	ATF3_HUMAN	uniprot:P18847	hgnc.symbol:ATF3;ncbigene:467
+ATF4	ProteinReference	ATF4_HUMAN	uniprot:P18848	hgnc.symbol:ATF4;ncbigene:468
+DIABLO	ProteinReference	DBLOH_HUMAN	uniprot:Q9NR28	hgnc.symbol:DIABLO;ncbigene:56616
+CREM	ProteinReference	CREM_HUMAN	uniprot:Q03060	hgnc.symbol:CREM;ncbigene:1390
+BCL2L10	ProteinReference	B2L10_HUMAN	uniprot:Q9HD36	hgnc.symbol:BCL2L10;ncbigene:10017
+BAG4	ProteinReference	BAG4_HUMAN	uniprot:O95429	hgnc.symbol:BAG4;ncbigene:9530
+BCL2L11	ProteinReference	B2L11_HUMAN	uniprot:O43521	hgnc.symbol:BCL2L11;ncbigene:10018
+BAG3	ProteinReference	BAG3_HUMAN	uniprot:O95817	hgnc.symbol:BAG3;ncbigene:9531
+RIPK1	ProteinReference	RIPK1_HUMAN	uniprot:Q13546	hgnc.symbol:RIPK1;ncbigene:8737
+FADD	ProteinReference	FADD_HUMAN	uniprot:Q13158	hgnc.symbol:FADD;ncbigene:8772
+MAP2K7	ProteinReference	MP2K7_HUMAN	uniprot:O14733	hgnc.symbol:MAP2K7;ncbigene:5609
+MCL1	ProteinReference	MCL1_HUMAN	uniprot:Q07820	hgnc.symbol:MCL1;ncbigene:4170
+HSPA8	ProteinReference	HSP7C_HUMAN	uniprot:P11142	hgnc.symbol:HSPA8;ncbigene:3312
+JUN	ProteinReference	JUN_HUMAN	uniprot:P05412	hgnc.symbol:JUN;ncbigene:3725
+CRADD	ProteinReference	CRADD_HUMAN	uniprot:P78560	hgnc.symbol:CRADD;ncbigene:8738
+HSPA5	ProteinReference	BIP_HUMAN	uniprot:P11021	hgnc.symbol:HSPA5;ncbigene:3309
+HSPA6	ProteinReference	HSP76_HUMAN	uniprot:P17066	hgnc.symbol:HSPA6;ncbigene:3310
+TNFRSF10C	ProteinReference	TR10C_HUMAN	uniprot:O14798	hgnc.symbol:TNFRSF10C;ncbigene:8794
+EIF2AK2	ProteinReference	E2AK2_HUMAN	uniprot:P19525	hgnc.symbol:EIF2AK2;ncbigene:5610
+TNFRSF10B	ProteinReference	TR10B_HUMAN	uniprot:O14763	hgnc.symbol:TNFRSF10B;ncbigene:8795
+TNFRSF10A	ProteinReference	TR10A_HUMAN	uniprot:O00220	hgnc.symbol:TNFRSF10A;ncbigene:8797
+HSPA2	ProteinReference	HSP72_HUMAN	uniprot:P54652	hgnc.symbol:HSPA2;ncbigene:3306
+EIF2S1	ProteinReference	IF2A_HUMAN	uniprot:P05198	hgnc.symbol:EIF2S1;ncbigene:1965
+IGF2R	ProteinReference	MPRI_HUMAN	uniprot:P11717	hgnc.symbol:IGF2R;ncbigene:3482
+NFKB1	ProteinReference	NFKB1_HUMAN	uniprot:P19838	hgnc.symbol:NFKB1;ncbigene:4790
+TNFRSF10D	ProteinReference	TR10D_HUMAN	uniprot:Q9UBN6	hgnc.symbol:TNFRSF10D;ncbigene:8793
+NFKB2	ProteinReference	NFKB2_HUMAN	uniprot:Q00653	hgnc.symbol:NFKB2;ncbigene:4791
+NFKBIA	ProteinReference	IKBA_HUMAN	uniprot:P25963	hgnc.symbol:NFKBIA;ncbigene:4792
+BCL2	ProteinReference	BCL2_HUMAN	uniprot:P10415	hgnc.symbol:BCL2;ncbigene:596
+REL	ProteinReference	REL_HUMAN	uniprot:Q04864	hgnc.symbol:REL;ncbigene:5966
+CYCS	ProteinReference	CYC_HUMAN	uniprot:P99999	hgnc.symbol:CYCS;ncbigene:54205
+MAP3K14	ProteinReference	M3K14_HUMAN	uniprot:Q99558	hgnc.symbol:MAP3K14;ncbigene:9020
+BCL2L2	ProteinReference	B2CL2_HUMAN	uniprot:Q92843	hgnc.symbol:BCL2L2;hgnc.symbol:BCL2L2-PABPN1;ncbigene:599
+BCL2L1	ProteinReference	B2CL1_HUMAN	uniprot:Q07817	hgnc.symbol:BCL2L1;ncbigene:598
+TRADD	ProteinReference	TRADD_HUMAN	uniprot:Q15628	hgnc.symbol:TRADD;ncbigene:8717
+PIK3CD	ProteinReference	PK3CD_HUMAN	uniprot:O00329	hgnc.symbol:PIK3CD;ncbigene:5293
+FASLG	ProteinReference	TNFL6_HUMAN	uniprot:P48023	hgnc.symbol:FASLG;ncbigene:356
+PIK3CB	ProteinReference	PK3CB_HUMAN	uniprot:P42338	hgnc.symbol:PIK3CB;ncbigene:5291
+PIK3CG	ProteinReference	PK3CG_HUMAN	uniprot:P48736	hgnc.symbol:PIK3CG;ncbigene:5294
+CASP9	ProteinReference	CASP9_HUMAN	uniprot:P55211	hgnc.symbol:CASP9;ncbigene:842
+IKBKB	ProteinReference	IKKB_HUMAN	uniprot:O14920	hgnc.symbol:IKBKB;ncbigene:3551
+CASP7	ProteinReference	CASP7_HUMAN	uniprot:P55210	hgnc.symbol:CASP7;ncbigene:840
+CASP8	ProteinReference	CASP8_HUMAN	uniprot:Q14790	hgnc.symbol:CASP8;ncbigene:841
+AIFM1	ProteinReference	AIFM1_HUMAN	uniprot:O95831	hgnc.symbol:AIFM1;ncbigene:9131
+CASP10	ProteinReference	CASPA_HUMAN	uniprot:Q92851	hgnc.symbol:CASP10;ncbigene:843
+CASP3	ProteinReference	CASP3_HUMAN	uniprot:P42574	hgnc.symbol:CASP3;ncbigene:836
+BOK	ProteinReference	BOK_HUMAN	uniprot:Q9UMX3	hgnc.symbol:BOK;ncbigene:666
+MAP4K2	ProteinReference	M4K2_HUMAN	uniprot:Q12851	hgnc.symbol:MAP4K2;ncbigene:5871
+CHUK	ProteinReference	IKKA_HUMAN	uniprot:O15111	hgnc.symbol:CHUK;ncbigene:1147
+APAF1	ProteinReference	APAF_HUMAN	uniprot:O14727	hgnc.symbol:APAF1;ncbigene:317
+TRAF2	ProteinReference	TRAF2_HUMAN	uniprot:Q12933	hgnc.symbol:TRAF2;ncbigene:7186
+FOS	ProteinReference	FOS_HUMAN	uniprot:P01100	hgnc.symbol:FOS;ncbigene:2353
+TNFRSF1B	ProteinReference	TNR1B_HUMAN	uniprot:P20333	hgnc.symbol:TNFRSF1B;ncbigene:7133
+TNFRSF1A	ProteinReference	TNR1A_HUMAN	uniprot:P19438	hgnc.symbol:TNFRSF1A;ncbigene:7132
+PIK3CA	ProteinReference	PK3CA_HUMAN	uniprot:P42336	hgnc.symbol:PIK3CA;ncbigene:5290
+LTA	ProteinReference	TNFB_HUMAN	uniprot:P01374	hgnc.symbol:LTA;ncbigene:4049
+TMBIM6	ProteinReference	BI1_HUMAN	uniprot:P55061	hgnc.symbol:TMBIM6;ncbigene:7009
+LTB	ProteinReference	TNFC_HUMAN	uniprot:Q06643	hgnc.symbol:LTB;ncbigene:4050
+BIRC2	ProteinReference	BIRC2_HUMAN	uniprot:Q13490	hgnc.symbol:BIRC2;ncbigene:329
+JDP2	ProteinReference	JDP2_HUMAN	uniprot:Q8WYK2	hgnc.symbol:JDP2;ncbigene:122953
+BIRC3	ProteinReference	BIRC3_HUMAN	uniprot:Q13489	hgnc.symbol:BIRC3;ncbigene:330
+ATF6B	ProteinReference	ATF6B_HUMAN	uniprot:Q99941	hgnc.symbol:ATF6B;ncbigene:1388
+XIAP	ProteinReference	XIAP_HUMAN	uniprot:P98170	hgnc.symbol:XIAP;ncbigene:331
+RELA	ProteinReference	TF65_HUMAN	uniprot:Q04206	hgnc.symbol:RELA;ncbigene:5970
+RELB	ProteinReference	RELB_HUMAN	uniprot:Q01201	hgnc.symbol:RELB;ncbigene:5971
+MAPK9	ProteinReference	MK09_HUMAN	uniprot:P45984	hgnc.symbol:MAPK9;ncbigene:5601
+MAPK8	ProteinReference	MK08_HUMAN	uniprot:P45983	hgnc.symbol:MAPK8;ncbigene:5599
+MAPK1	ProteinReference	MK01_HUMAN	uniprot:P28482	hgnc.symbol:MAPK1;ncbigene:5594
+BAK1	ProteinReference	BAK_HUMAN	uniprot:Q16611	hgnc.symbol:BAK1;ncbigene:578
+BCL2L2-PABPN1	ProteinReference	B2CL2_HUMAN	uniprot:Q92843	hgnc.symbol:BCL2L2;hgnc.symbol:BCL2L2-PABPN1;ncbigene:599
+MAP4K3	ProteinReference	M4K3_HUMAN	uniprot:Q8IVH8	hgnc.symbol:MAP4K3;ncbigene:8491
+MAPK3	ProteinReference	MK03_HUMAN	uniprot:P27361	hgnc.symbol:MAPK3;ncbigene:5595
+MAP4K4	ProteinReference	M4K4_HUMAN	uniprot:O95819	hgnc.symbol:MAP4K4;ncbigene:9448
+MAP3K1	ProteinReference	M3K1_HUMAN	uniprot:Q13233	hgnc.symbol:MAP3K1;ncbigene:4214
+HSPA1L	ProteinReference	HS71L_HUMAN	uniprot:P34931	hgnc.symbol:HSPA1L;ncbigene:3305
+BIK	ProteinReference	BIK_HUMAN	uniprot:Q13323	hgnc.symbol:BIK;ncbigene:638
+GZMB	ProteinReference	GRAB_HUMAN	uniprot:P10144	hgnc.symbol:GZMB;ncbigene:3002
+CFLAR	ProteinReference	CFLAR_HUMAN	uniprot:O15519	hgnc.symbol:CFLAR;ncbigene:8837
+GZMH	ProteinReference	GRAH_HUMAN	uniprot:P20718	hgnc.symbol:GZMH;ncbigene:2999
+MAPK10	ProteinReference	MK10_HUMAN	uniprot:P53779	hgnc.symbol:MAPK10;ncbigene:5602
+PRKRA	ProteinReference	PRKRA_HUMAN	uniprot:O75569	hgnc.symbol:PRKRA;ncbigene:8575
+BAX	ProteinReference	BAX_HUMAN	uniprot:Q07812	hgnc.symbol:BAX;ncbigene:581
+FAS	ProteinReference	TNR6_HUMAN	uniprot:P25445	hgnc.symbol:FAS;ncbigene:355
+HSPA1B	ProteinReference	HS71B_HUMAN	uniprot:P0DMV9	hgnc.symbol:HSPA1B;ncbigene:3303;ncbigene:3304
+HSPA1A	ProteinReference	HS71A_HUMAN	uniprot:P0DMV8	hgnc.symbol:HSPA1A;ncbigene:3303;ncbigene:3304
