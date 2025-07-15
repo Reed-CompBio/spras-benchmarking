@@ -1,5 +1,7 @@
 import pandas as pd 
 import requests
+import pickle
+import sys
 
 def main():
 
@@ -16,6 +18,10 @@ def main():
 
     experiments = pd.read_csv('datasets/diseases/raw/human_disease_experiments_filtered.tsv',sep = '\t')
     experiments.columns= ['geneID','geneName','diseaseID','diseaseName','sourceDB','sourceScore','confidenceScore']
+
+    integrated =  pd.read_csv('datasets/diseases/raw/human_disease_integrated_full.tsv',sep = '\t')
+    integrated.columns = ['geneID','geneName','diseaseID','diseaseName','integrated_confidenceScore']
+    integrated = integrated.drop(columns=['geneName','diseaseName'])
 
     # Crop dataframes to remove unused columns and remove duplicate values
     tiga = pd.read_csv('datasets/diseases/raw/tiga_gene-trait_stats.tsv',sep='\t')
@@ -52,8 +58,10 @@ def main():
     experiments_mapped = experiments.merge(mapping_df,left_on='geneID',right_on='ENSP',how ='inner',validate='m:1')
 
     # Merge tiga data with experimental data using both gene id and disease id as keys
-    tiga_experiments = experiments_mapped.merge(tiga_do,left_on=['ENSG','diseaseID'],right_on=['ensemblId','id'],validate='1:1')
+    tiga_experiments = experiments_mapped.merge(tiga_do,left_on=['ENSG','diseaseID'],right_on=['ensemblId','id'],how='inner',validate='1:1')
     tiga_experiments = tiga_experiments[['ENSP','ENSG','geneName','trait','efoId','diseaseID','sourceScore','confidenceScore','n_snp','n_snpw']]
+    # print(tiga_experiments[tiga_experiments.isna().any(axis=1)])
+    # sys.exit()
 
     # Get string ID's for each protein in tiga_experiments
     string_api_url = "https://version-12-0.string-db.org/api"
@@ -75,13 +83,23 @@ def main():
     string_df.columns = ['ENSP','str_id']
 
     # Merge string ID's with tiga_experiments such that each protein has a corresponding string ID
-    final_df = tiga_experiments.merge(string_df,on = 'ENSP',how ='inner')
+    merged_df = tiga_experiments.merge(string_df,on = 'ENSP',how ='inner')
+    final_df = merged_df.merge(integrated,left_on=['ENSP','diseaseID'],right_on=['geneID','diseaseID'],how = 'inner',validate='1:1')
+    # final_df = final_df.drop(columns='geneName_y')
+
     # print(final_df)
 
     #Convert final df to dictionary where each key is a trait 
     trait_group = final_df.groupby('trait')
     trait_dict = {k:v for k,v in trait_group}
-    print(trait_dict.keys())
+
+    df = {
+        "final_df": final_df,
+        "trait_dict": trait_dict
+    }
+
+    with open("datasets/diseases/viz/pklDat.pkl","wb") as file:
+        pickle.dump(df,file)
    
     return 
 
