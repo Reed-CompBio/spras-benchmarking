@@ -9,5 +9,3 @@ The queue has files formatted as `{YYYY-MM}/{unix-timestamp}.txt`, where the `.t
 the `spras-benchmarking` commit at its time of creation.
 
 `amend.py` auto-commits to `spras-benchmarking-queue` by cloning it locally.
-
-`git_env_password.sh` is a utility for `.github/workflows` that authenticates using `QUEUE_TOKEN`.

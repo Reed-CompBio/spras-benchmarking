@@ -35,9 +35,6 @@ jobs:
       - name: Deactivate GitHub authentication
         # https://stackoverflow.com/a/69979203/7589775
         run: git config --unset-all http.https://github.com/.extraheader
-      - name: Authenticate using token
-        # https://stackoverflow.com/a/54888724/7589775
-        run: export GIT_ASKPASS=./queue/git_env_password.sh
       - name: Specify github-actions email
         run: git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
       - name: Specify github-actions username
