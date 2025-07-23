@@ -31,9 +31,7 @@ if __name__ == '__main__':
         shutil.rmtree(queue_path)
 
     # (but we still want it!)
-    # We also specify SSH here to make it more friendly for the GitHub action instead
-    # https://stackoverflow.com/a/26974033/7589775
-    subprocess.run(["git", "clone", "git@github.com:Reed-CompBio/spras-benchmarking-queue.git", "--depth", "1"])
+    subprocess.run(["git", "clone", "https://github.com:Reed-CompBio/spras-benchmarking-queue.git", "--depth", "1"])
 
     # we don't want computer timezone to affect this output, or runtime
     time = datetime.now(timezone.utc)
