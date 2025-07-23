@@ -56,7 +56,7 @@ jobs:
         run: sh run_snakemake.sh
       - name: Run Snakemake workflow for DMMMs
         shell: bash --login {0}
-        run: snakemake --cores 1 --configfile configs/dmmm.yaml --show-failed-logs -s spras/Snakefile
+        run: snakemake --cores 4 --configfile configs/dmmm.yaml --show-failed-logs -s spras/Snakefile
       # TODO: re-enable PRAs once RN/synthetic data PRs are merged.
       # - name: Run Snakemake workflow for PRAs
       #   shell: bash --login {0}
