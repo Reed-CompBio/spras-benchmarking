@@ -41,10 +41,11 @@ jobs:
         run: git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
       - name: Specify github-actions username
         run: git config --global user.name "github-actions"
+      - name: Use QUEUE_TOKEN
+        # https://stackoverflow.com/a/75684635/7589775
+        run: /usr/bin/git config --global --add url."https://${{ secrets.QUEUE_TOKEN }}:x-oauth-basic@github".insteadOf https://github
       - name: Run queue appender
         run: python3 queue/amend.py
-        env:
-          GIT_PASSWORD: ${{ secrets.QUEUE_TOKEN }}
   checks:
     name: Run workflow
     runs-on: ubuntu-latest
