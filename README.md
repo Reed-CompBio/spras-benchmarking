@@ -32,19 +32,22 @@ snakemake --cores 1 --configfile configs/dmmm.yaml --show-failed-logs -s spras/S
 
 ## Organization
 
-There are four primary folders in this repository:
+There are five primary folders in this repository:
 
 ```
 .
 ├── configs
 ├── datasets
+├── queue
 ├── spras
 └── web
 ```
 
-`spras` is the cloned submodule of [SPRAS](https://github.com/reed-compbio/spras), `web` is an
-[astro](https://astro.build/) app which generates the `spras-benchmarking` [output](https://reed-compbio.github.io/spras-benchmarking/),
-`configs` is the YAML file used to talk to SPRAS, and `datasets` contains the raw data.
+- `configs` contains the YAML files used to configure SPRAS
+- `datasets` contains the raw data referenced by `configs`.
+- `queue` contains utilities for interacting with [Reed-CompBio/spras-benchmarking-queue](https://github.com/Reed-CompBio/spras-benchmarking-queue)
+- `spras` is the cloned submodule of [SPRAS](https://github.com/reed-compbio/spras)
+- `web` is an [astro](https://astro.build/) app which generates the `spras-benchmarking` [output](https://reed-compbio.github.io/spras-benchmarking/)
 
 The workflow runs as so:
 
