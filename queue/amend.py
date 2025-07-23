@@ -43,9 +43,9 @@ if __name__ == '__main__':
 
     # timestamped_file needs the current spras-benchmarking commit
     # but first, let's make sure this is the canonical spras-benchmarking before we commit to some arbitrary queue
-    EXPECTED_ORIGIN = 'https://github.com/Reed-CompBio/spras-benchmarking.git'
+    EXPECTED_ORIGIN = 'https://github.com/Reed-CompBio/spras-benchmarking'
     remote_origin = subprocess.check_output(["git", "config", "--get", "remote.origin.url"], encoding='utf-8').strip()
-    assert remote_origin == EXPECTED_ORIGIN, f'remote origin "{remote_origin}" is not "{EXPECTED_ORIGIN}"!'
+    assert remote_origin.startswith(EXPECTED_ORIGIN), f'remote origin "{remote_origin}" does not start with "{EXPECTED_ORIGIN}"!'
     spras_commit = subprocess.check_output(["git", "rev-parse", "HEAD"], encoding='utf-8').strip()
 
     assert not timestamped_file.exists(), f"Timestamped file {timestamped_file} already exists?"
