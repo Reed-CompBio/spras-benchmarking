@@ -27,6 +27,7 @@ jobs:
         uses: pre-commit/action@v3.0.0
   queue:
     name: Add commit to queue
+    if: github.event_name != 'pull_request'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
