@@ -25,25 +25,6 @@ jobs:
           python-version: '3.11'
       - name: Run pre-commit checks
         uses: pre-commit/action@v3.0.0
-  queue:
-    name: Add commit to queue
-    if: github.event_name != 'pull_request'
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-      - name: Deactivate GitHub authentication
-        # https://stackoverflow.com/a/69979203/7589775
-        run: git config --unset-all http.https://github.com/.extraheader
-      - name: Specify github-actions email
-        run: git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
-      - name: Specify github-actions username
-        run: git config --global user.name "github-actions"
-      - name: Use QUEUE_TOKEN
-        # https://stackoverflow.com/a/75684635/7589775
-        run: /usr/bin/git config --global --add url."https://${{ secrets.QUEUE_TOKEN }}:x-oauth-basic@github".insteadOf https://github
-      - name: Run queue appender
-        run: python3 queue/amend.py
   checks:
     name: Run workflow
     runs-on: ubuntu-latest
