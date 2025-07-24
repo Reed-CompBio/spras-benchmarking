@@ -52,5 +52,6 @@ The workflow runs as so:
 through the top-level [`run_snakemake.sh`](./run_snakemake.sh) shell script.
 1. Run each config YAML file in `configs/` with SPRAS.
 1. Build the website in `web` with the generated `output` from all of the SPRAS runs, and deploy it on [GitHub Pages](https://pages.github.com/).
+To see how to build the website, go to its [README](./web/README.md).
 
 For more information on how to add a dataset, see [CONTRIBUTING.md](./CONTRIBUTING.md).
