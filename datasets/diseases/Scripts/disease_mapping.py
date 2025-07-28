@@ -60,8 +60,10 @@ def main():
     # Merge tiga data with experimental data using both gene id and disease id as keys
     tiga_experiments = experiments_mapped.merge(tiga_do,left_on=['ENSG','diseaseID'],right_on=['ensemblId','id'],how='inner',validate='1:1')
     tiga_experiments = tiga_experiments[['ENSP','ENSG','geneName','trait','efoId','diseaseID','sourceScore','confidenceScore','n_snp','n_snpw']]
-    # print(tiga_experiments[tiga_experiments.isna().any(axis=1)])
-    # sys.exit()
+
+    # print(len(tiga_experiments[tiga_experiments.isna().any(axis=1)]))
+
+
 
     # Get string ID's for each protein in tiga_experiments
     string_api_url = "https://version-12-0.string-db.org/api"
@@ -85,17 +87,17 @@ def main():
     # Merge string ID's with tiga_experiments such that each protein has a corresponding string ID
     merged_df = tiga_experiments.merge(string_df,on = 'ENSP',how ='inner')
     final_df = merged_df.merge(integrated,left_on=['ENSP','diseaseID'],right_on=['geneID','diseaseID'],how = 'inner',validate='1:1')
-    # final_df = final_df.drop(columns='geneName_y')
 
-    # print(final_df)
 
     #Convert final df to dictionary where each key is a trait 
     trait_group = final_df.groupby('trait')
-    trait_dict = {k:v for k,v in trait_group}
+    trait_dict = {str(k.lower()):v for k,v in trait_group}
 
     df = {
         "final_df": final_df,
-        "trait_dict": trait_dict
+        "trait_dict": trait_dict,
+        "tiga_data":tiga_do,
+        "experimental_data": experiments_mapped
     }
 
     with open("datasets/diseases/viz/pklDat.pkl","wb") as file:
