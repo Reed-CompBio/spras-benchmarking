@@ -1,0 +1,52 @@
+
+
+# The length of the hash used to identify a parameter combination
+hash_length: 7
+
+# If true, use Singularity instead of Docker
+# Singularity support is only available on Unix
+singularity: false
+
+algorithms:
+    - name: "omicsintegrator1"
+      params:
+        include: true
+        run1:
+          b: [2]
+          w: [1]
+          d: [10]
+          mu: [0]
+datasets:
+  - data_dir: datasets/diseases
+    edge_files:
+      - raw/string_interactome.txt
+    label: benchmarking_test
+    node_files:
+      - prize_files/alopecia_areata_prizes.txt
+    other_files: []
+reconstruction_settings:
+  locations:
+    reconstruction_dir: output/benchmarking_test
+  run: true
+analysis:
+  graphspace:
+    include: false
+  cytoscape:
+    include: true
+  summary:
+    include: true
+  ml:
+    include: false
+  evaluation:
+    include: true
+gold_standards:
+  - # Labels can only contain letters, numbers, or underscores
+    label: gs0
+    node_files: ['/GS_files/Alopecia_areata_GS.txt']
+    # edge_files: [] TODO: later iteration
+    data_dir: "datasets/diseases"
+    # List of dataset labels to compare with the specific gold standard dataset
+    dataset_labels: ["benchmarking_test"]
+
+
+
