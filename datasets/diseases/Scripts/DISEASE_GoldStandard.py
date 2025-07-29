@@ -8,25 +8,25 @@ def main():
     text_mining = pd.read_csv("datasets/diseases/raw/human_disease_textmining_filtered.tsv", sep="\t")
     text_mining.columns = ["geneID", "geneName", "diseaseID", "diseaseName", "zScore", "confidenceScore", "sourceUrl"]
 
-    knowlege = pd.read_csv("datasets/diseases/raw/human_disease_knowledge_filtered.tsv", sep="\t")
-    knowlege.columns = ["geneID", "geneName", "diseaseID", "diseaseName", "sourceDB", "evidenceType", "confidenceScore"]
+    knowledge = pd.read_csv("datasets/diseases/raw/human_disease_knowledge_filtered.tsv", sep="\t")
+    knowledge.columns = ["geneID", "geneName", "diseaseID", "diseaseName", "sourceDB", "evidenceType", "confidenceScore"]
 
-    knowlege_mapped = gp_convert(list(text_mining["geneID"]), "ENSG", text_mining)
-    text_mining_mapped = gp_convert(list(knowlege["geneID"]), "ENSG", knowlege)
+    knowledge_mapped = gp_convert(list(text_mining["geneID"]), "ENSG", text_mining)
+    text_mining_mapped = gp_convert(list(knowledge["geneID"]), "ENSG", knowledge)
 
-    inner = text_mining_mapped.merge(knowlege_mapped, on=["ENSG", "diseaseID"], how="inner")
+    inner = text_mining_mapped.merge(knowledge_mapped, on=["ENSG", "diseaseID"], how="inner")
     inner["confidenceScore"] = inner.apply(lambda x: max(x.confidenceScore_x, x.confidenceScore_y), axis=1)
     inner = inner.rename(columns={"ENSP_x": "ENSP", "geneName_x": "geneName", "diseaseName_x": "diseaseName", "geneID_x": "geneID"})
     inner = inner[["ENSG", "ENSP", "geneName", "diseaseID", "diseaseName", "confidenceScore"]]
 
-    txt_only = text_mining_mapped.merge(knowlege_mapped, on=["ENSG", "diseaseID"], how="left")
+    txt_only = text_mining_mapped.merge(knowledge_mapped, on=["ENSG", "diseaseID"], how="left")
     txt_only = txt_only[txt_only["confidenceScore_y"].isna()]
     txt_only = txt_only.rename(
         columns={"confidenceScore_x": "confidenceScore", "ENSP_x": "ENSP", "geneName_x": "geneName", "diseaseName_x": "diseaseName"}
     )
     txt_only = txt_only[["ENSG", "ENSP", "geneName", "diseaseID", "diseaseName", "confidenceScore"]]
 
-    kn_only = text_mining_mapped.merge(knowlege_mapped, on=["ENSG", "diseaseID"], how="right")
+    kn_only = text_mining_mapped.merge(knowledge_mapped, on=["ENSG", "diseaseID"], how="right")
     kn_only = kn_only[kn_only["confidenceScore_x"].isna()]
     kn_only = kn_only.rename(
         columns={"confidenceScore_y": "confidenceScore", "ENSP_y": "ENSP", "geneName_y": "geneName", "diseaseName_y": "diseaseName"}
