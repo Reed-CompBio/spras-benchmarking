@@ -11,10 +11,11 @@ To add a dataset (see `datasets/yeast-osmotic-stress` as an example of a dataset
 1. Check that your dataset provider isn't already added (some of these datasets act as providers for multiple datasets)
 1. Create a new folder under `datasets/<your-dataset>`
 1. Add a `raw` folder containing your data
-1. Add an attached Snakefile that converts your `raw` data to `processed` data
-1. Add your snakefile to the top-level `run_snakemake.sh` file.
-1. If your dataset is a paper reproduction, add a `reproduction/raw` and `reproduction/processed` folder
+1. Add an attached Snakefile that converts your `raw` data to `processed` data.
+    - Make sure to use `uv` here. See `yeast-osmotic-stress`'s Snakefile for an example.
+1. Add your Snakefile to the top-level `run_snakemake.sh` file.
 1. Add your datasets to the appropiate `configs`
+    - If your dataset has gold standards, make sure to include them here.
 
 ## Adding an algorithm
 
