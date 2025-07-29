@@ -42,7 +42,7 @@ def main():
         df = df[['str_id']]
         df.to_csv(f"datasets/diseases/GS_files/{disease.replace(' ','_')}_GS.txt",sep = '	',index=False,header=None)
 
-    string = pd.read_csv('../raw/9606.protein.links.v12.0.txt',sep = ' ',skiprows=[0],header=None)
+    string = pd.read_csv('datasets/diseases/raw/9606.protein.links.v12.0.txt',sep = ' ',skiprows=[0],header=None)
     string = string[string.iloc[:,2]>900]
     string = string.iloc[:,[0,1]]
     string[len(string.columns)] = 1
