@@ -12,11 +12,6 @@ permissions:
   pages: write
   id-token: write
 
-# Allow one concurrent deployment
-concurrency:
-  group: 'pages'
-  cancel-in-progress: true
-
 jobs:
   pre-commit:
     name: Run pre-commit checks
@@ -61,7 +56,7 @@ jobs:
         run: sh run_snakemake.sh
       - name: Run Snakemake workflow for DMMMs
         shell: bash --login {0}
-        run: snakemake --cores 1 --configfile configs/dmmm.yaml --show-failed-logs -s spras/Snakefile
+        run: snakemake --cores 4 --configfile configs/dmmm.yaml --show-failed-logs -s spras/Snakefile
       # TODO: re-enable PRAs once RN/synthetic data PRs are merged.
       # - name: Run Snakemake workflow for PRAs
       #   shell: bash --login {0}
@@ -88,6 +83,9 @@ jobs:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
+    concurrency:
+      group: 'pages'
+      cancel-in-progress: true
     steps:
       - name: Download Artifacts
         uses: actions/download-artifact@v4
