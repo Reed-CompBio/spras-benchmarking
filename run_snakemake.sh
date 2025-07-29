@@ -7,9 +7,7 @@
 
 # Strict settings
 set -o errexit
-set -o pipefail
 set -o nounset
-
 
 # Forcibly use the current CWD
 cd "$(dirname "$0")"
