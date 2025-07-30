@@ -52,7 +52,7 @@ def main():
     string = string[string.iloc[:, 2] > 900]
     string = string.iloc[:, [0, 1]]
     string[len(string.columns)] = 1
-    string.to_csv("datasets/diseases/raw/string_interactome.txt", sep="\t", index=False, header=None)
+    string.to_csv(diseases_path / "raw" / "string_interactome.txt", sep="\t", index=False, header=None)
 
 if __name__ == "__main__":
     main()
