@@ -1,0 +1,97 @@
+﻿PARTICIPANT_A	INTERACTION_TYPE	PARTICIPANT_B	INTERACTION_DATA_SOURCE	INTERACTION_PUBMED_ID	PATHWAY_NAMES	MEDIATOR_IDS
+APAF1	controls-state-change-of	CASP3	PANTHER		FAS signaling pathway	panther:TRUNCATION_LEFT__Pro_Caspase3-RIGHT__Caspase3-_?-_r58;panther:_CATALYSIS___Complex__Caspase9_Apaf1__r58m1_r58
+APAF1	in-complex-with	CASP9	PANTHER		FAS signaling pathway	panther:_Complex__Caspase9_Apaf1__s67_a91_
+CASP10	controls-state-change-of	CASP7	PANTHER		FAS signaling pathway	panther:_CATALYSIS___Caspase10_r62m3_r62;panther:TRUNCATION_LEFT__Pro_Caspase7-RIGHT__Caspase7-_?-_r62
+CASP3	controls-state-change-of	CAPG	PANTHER		FAS signaling pathway	panther:_CATALYSIS___Caspase3_r64m1_r64;panther:STATE_TRANSITION_LEFT__Gelsolin-RIGHT__Gelsolin-_r64
+CASP3	controls-state-change-of	DFFB	PANTHER		FAS signaling pathway	panther:_CATALYSIS___Caspase3_r41m1_r41;panther:DISSOCIATION_LEFT__Complex__ICAD_CAD_-RIGHT__CAD-_ICAD-_r41
+CASP3	controls-state-change-of	GSN	PANTHER		FAS signaling pathway	panther:_CATALYSIS___Caspase3_r64m1_r64;panther:STATE_TRANSITION_LEFT__Gelsolin-RIGHT__Gelsolin-_r64
+CASP3	controls-state-change-of	LMNA	PANTHER		FAS signaling pathway	panther:_CATALYSIS___Caspase3_r66m3_r66;panther:STATE_TRANSITION_LEFT__Nuclear_Lamin-RIGHT__Nuclear_Lamin-_r66
+CASP3	controls-state-change-of	LMNB1	PANTHER		FAS signaling pathway	panther:_CATALYSIS___Caspase3_r66m3_r66;panther:STATE_TRANSITION_LEFT__Nuclear_Lamin-RIGHT__Nuclear_Lamin-_r66
+CASP3	controls-state-change-of	LMNB2	PANTHER		FAS signaling pathway	panther:_CATALYSIS___Caspase3_r66m3_r66;panther:STATE_TRANSITION_LEFT__Nuclear_Lamin-RIGHT__Nuclear_Lamin-_r66
+CASP3	controls-state-change-of	PARP1	PANTHER		FAS signaling pathway	panther:_CATALYSIS___Caspase3_r65m3_r65;panther:STATE_TRANSITION_LEFT__PARP-RIGHT__PARP-_r65
+CASP3	controls-state-change-of	PARP2	PANTHER		FAS signaling pathway	panther:_CATALYSIS___Caspase3_r65m3_r65;panther:STATE_TRANSITION_LEFT__PARP-RIGHT__PARP-_r65
+CASP3	controls-state-change-of	PARP3	PANTHER		FAS signaling pathway	panther:_CATALYSIS___Caspase3_r65m3_r65;panther:STATE_TRANSITION_LEFT__PARP-RIGHT__PARP-_r65
+CASP3	controls-state-change-of	PARP4	PANTHER		FAS signaling pathway	panther:_CATALYSIS___Caspase3_r65m3_r65;panther:STATE_TRANSITION_LEFT__PARP-RIGHT__PARP-_r65
+CASP3	controls-state-change-of	SCIN	PANTHER		FAS signaling pathway	panther:_CATALYSIS___Caspase3_r64m1_r64;panther:STATE_TRANSITION_LEFT__Gelsolin-RIGHT__Gelsolin-_r64
+CASP7	controls-state-change-of	PARP1	PANTHER		FAS signaling pathway	panther:STATE_TRANSITION_LEFT__PARP-RIGHT__PARP-_r65;panther:_CATALYSIS___Caspase7_r65m5_r65
+CASP7	controls-state-change-of	PARP2	PANTHER		FAS signaling pathway	panther:STATE_TRANSITION_LEFT__PARP-RIGHT__PARP-_r65;panther:_CATALYSIS___Caspase7_r65m5_r65
+CASP7	controls-state-change-of	PARP3	PANTHER		FAS signaling pathway	panther:STATE_TRANSITION_LEFT__PARP-RIGHT__PARP-_r65;panther:_CATALYSIS___Caspase7_r65m5_r65
+CASP7	controls-state-change-of	PARP4	PANTHER		FAS signaling pathway	panther:STATE_TRANSITION_LEFT__PARP-RIGHT__PARP-_r65;panther:_CATALYSIS___Caspase7_r65m5_r65
+CASP8	controls-state-change-of	CASP3	PANTHER		FAS signaling pathway	panther:TRUNCATION_LEFT__Pro_Caspase3-RIGHT__Caspase3-_?-_r58;panther:_CATALYSIS___Caspase8_r58m3_r58
+CASP8	controls-state-change-of	CASP7	PANTHER		FAS signaling pathway	panther:TRUNCATION_LEFT__Pro_Caspase7-RIGHT__Caspase7-_?-_r62;panther:_CATALYSIS___Caspase8_r62m1_r62
+CASP9	controls-state-change-of	CASP3	PANTHER		FAS signaling pathway	panther:TRUNCATION_LEFT__Pro_Caspase3-RIGHT__Caspase3-_?-_r58;panther:_CATALYSIS___Complex__Caspase9_Apaf1__r58m1_r58
+CFLAR	controls-state-change-of	CASP3	PANTHER		FAS signaling pathway	panther:TRUNCATION_LEFT__Pro_Caspase3-RIGHT__Caspase3-_?-_r58;panther:_CATALYSIS___Caspase8_r58m3_r58
+CFLAR	controls-state-change-of	CASP7	PANTHER		FAS signaling pathway	panther:TRUNCATION_LEFT__Pro_Caspase7-RIGHT__Caspase7-_?-_r62;panther:_CATALYSIS___Caspase8_r62m1_r62
+CYC1	controls-state-change-of	APAF1	PANTHER		FAS signaling pathway	panther:_CATALYSIS___CytochromeC_r63m1_r63;panther:TRUNCATION_LEFT__Pro_Caspase9-_Apaf1-RIGHT__Complex__Caspase9_Apaf1_-_?-_r63
+CYC1	controls-state-change-of	CASP9	PANTHER		FAS signaling pathway	panther:_CATALYSIS___CytochromeC_r63m1_r63;panther:TRUNCATION_LEFT__Pro_Caspase9-_Apaf1-RIGHT__Complex__Caspase9_Apaf1_-_?-_r63
+DAXX	controls-state-change-of	CASP10	PANTHER		FAS signaling pathway	panther:TRUNCATION_LEFT__Pro_Caspase10-RIGHT__Caspase10-_?-_r61;panther:_CATALYSIS___Complex__FasL_Fas__FasL_Fas__FADD_DAXX__FAF1__r61m1_r61
+DAXX	in-complex-with	FADD	PANTHER		FAS signaling pathway	panther:_Complex__FasL_Fas__FasL_Fas__FADD_DAXX__FAF1__s102_a121_
+DAXX	in-complex-with	FAF1	PANTHER		FAS signaling pathway	panther:_Complex__FasL_Fas__FasL_Fas__FADD_DAXX__FAF1__s102_a121_
+DAXX	in-complex-with	FASLG	PANTHER		FAS signaling pathway	panther:_Complex__FasL_Fas__FasL_Fas__FADD_DAXX__FAF1__s102_a121_
+DAXX	in-complex-with	FAS	PANTHER		FAS signaling pathway	panther:_Complex__FasL_Fas__FasL_Fas__FADD_DAXX__FAF1__s102_a121_
+DAXX	controls-phosphorylation-of	MAP3K5	PANTHER		FAS signaling pathway	panther:STATE_TRANSITION_LEFT__ASK1-_ATP-RIGHT__ADP-_ASK1-_r10;panther:_CATALYSIS___Complex__FasL_Fas__FasL_Fas__FADD_DAXX__FAF1__r10m1_r10
+DAXX	controls-state-change-of	MAP3K5	PANTHER		FAS signaling pathway	panther:STATE_TRANSITION_LEFT__ASK1-_ATP-RIGHT__ADP-_ASK1-_r10;panther:_CATALYSIS___Complex__FasL_Fas__FasL_Fas__FADD_DAXX__FAF1__r10m1_r10
+FADD	controls-state-change-of	CASP10	PANTHER		FAS signaling pathway	panther:TRUNCATION_LEFT__Pro_Caspase10-RIGHT__Caspase10-_?-_r61;panther:_CATALYSIS___Complex__FasL_Fas__FasL_Fas__FADD_DAXX__FAF1__r61m1_r61
+FADD	in-complex-with	FAF1	PANTHER		FAS signaling pathway	panther:_Complex__FasL_Fas__FasL_Fas__FADD_DAXX__FAF1__s102_a121_
+FADD	in-complex-with	FASLG	PANTHER		FAS signaling pathway	panther:_Complex__FasL_Fas__FasL_Fas__FADD_DAXX__FAF1__s102_a121_
+FADD	in-complex-with	FAS	PANTHER		FAS signaling pathway	panther:_Complex__FasL_Fas__FasL_Fas__FADD_DAXX__FAF1__s102_a121_
+FADD	controls-phosphorylation-of	MAP3K5	PANTHER		FAS signaling pathway	panther:STATE_TRANSITION_LEFT__ASK1-_ATP-RIGHT__ADP-_ASK1-_r10;panther:_CATALYSIS___Complex__FasL_Fas__FasL_Fas__FADD_DAXX__FAF1__r10m1_r10
+FADD	controls-state-change-of	MAP3K5	PANTHER		FAS signaling pathway	panther:STATE_TRANSITION_LEFT__ASK1-_ATP-RIGHT__ADP-_ASK1-_r10;panther:_CATALYSIS___Complex__FasL_Fas__FasL_Fas__FADD_DAXX__FAF1__r10m1_r10
+FAF1	controls-state-change-of	CASP10	PANTHER		FAS signaling pathway	panther:TRUNCATION_LEFT__Pro_Caspase10-RIGHT__Caspase10-_?-_r61;panther:_CATALYSIS___Complex__FasL_Fas__FasL_Fas__FADD_DAXX__FAF1__r61m1_r61
+FAF1	in-complex-with	FASLG	PANTHER		FAS signaling pathway	panther:_Complex__FasL_Fas__FasL_Fas__FADD_DAXX__FAF1__s102_a121_
+FAF1	in-complex-with	FAS	PANTHER		FAS signaling pathway	panther:_Complex__FasL_Fas__FasL_Fas__FADD_DAXX__FAF1__s102_a121_
+FAF1	controls-phosphorylation-of	MAP3K5	PANTHER		FAS signaling pathway	panther:STATE_TRANSITION_LEFT__ASK1-_ATP-RIGHT__ADP-_ASK1-_r10;panther:_CATALYSIS___Complex__FasL_Fas__FasL_Fas__FADD_DAXX__FAF1__r10m1_r10
+FAF1	controls-state-change-of	MAP3K5	PANTHER		FAS signaling pathway	panther:STATE_TRANSITION_LEFT__ASK1-_ATP-RIGHT__ADP-_ASK1-_r10;panther:_CATALYSIS___Complex__FasL_Fas__FasL_Fas__FADD_DAXX__FAF1__r10m1_r10
+FAS	controls-state-change-of	CASP10	PANTHER		FAS signaling pathway	panther:TRUNCATION_LEFT__Pro_Caspase10-RIGHT__Caspase10-_?-_r61;panther:_CATALYSIS___Complex__FasL_Fas__FasL_Fas__FADD_DAXX__FAF1__r61m1_r61
+FAS	in-complex-with	FASLG	PANTHER		FAS signaling pathway	panther:_Complex__FasL_FasL__Fas_Fas__s90_a101_;panther:_Complex__FasL_Fas__FasL_Fas__FADD_DAXX__FAF1__s102_a121_
+FASLG	controls-state-change-of	CASP10	PANTHER		FAS signaling pathway	panther:TRUNCATION_LEFT__Pro_Caspase10-RIGHT__Caspase10-_?-_r61;panther:_CATALYSIS___Complex__FasL_Fas__FasL_Fas__FADD_DAXX__FAF1__r61m1_r61
+FASLG	controls-phosphorylation-of	MAP3K5	PANTHER		FAS signaling pathway	panther:STATE_TRANSITION_LEFT__ASK1-_ATP-RIGHT__ADP-_ASK1-_r10;panther:_CATALYSIS___Complex__FasL_Fas__FasL_Fas__FADD_DAXX__FAF1__r10m1_r10
+FASLG	controls-state-change-of	MAP3K5	PANTHER		FAS signaling pathway	panther:STATE_TRANSITION_LEFT__ASK1-_ATP-RIGHT__ADP-_ASK1-_r10;panther:_CATALYSIS___Complex__FasL_Fas__FasL_Fas__FADD_DAXX__FAF1__r10m1_r10
+FAS	controls-phosphorylation-of	MAP3K5	PANTHER		FAS signaling pathway	panther:STATE_TRANSITION_LEFT__ASK1-_ATP-RIGHT__ADP-_ASK1-_r10;panther:_CATALYSIS___Complex__FasL_Fas__FasL_Fas__FADD_DAXX__FAF1__r10m1_r10
+FAS	controls-state-change-of	MAP3K5	PANTHER		FAS signaling pathway	panther:STATE_TRANSITION_LEFT__ASK1-_ATP-RIGHT__ADP-_ASK1-_r10;panther:_CATALYSIS___Complex__FasL_Fas__FasL_Fas__FADD_DAXX__FAF1__r10m1_r10
+MAP2K4	controls-phosphorylation-of	MAPK10	PANTHER		FAS signaling pathway	panther:_CATALYSIS___MKK4_r12m1_r12;panther:STATE_TRANSITION_LEFT__JNK-_ATP-RIGHT__JNK-_ADP-_r12
+MAP2K4	controls-state-change-of	MAPK10	PANTHER		FAS signaling pathway	panther:_CATALYSIS___MKK4_r12m1_r12;panther:STATE_TRANSITION_LEFT__JNK-_ATP-RIGHT__JNK-_ADP-_r12
+MAP2K4	controls-phosphorylation-of	MAPK8	PANTHER		FAS signaling pathway	panther:_CATALYSIS___MKK4_r12m1_r12;panther:STATE_TRANSITION_LEFT__JNK-_ATP-RIGHT__JNK-_ADP-_r12
+MAP2K4	controls-state-change-of	MAPK8	PANTHER		FAS signaling pathway	panther:_CATALYSIS___MKK4_r12m1_r12;panther:STATE_TRANSITION_LEFT__JNK-_ATP-RIGHT__JNK-_ADP-_r12
+MAP2K4	controls-phosphorylation-of	MAPK9	PANTHER		FAS signaling pathway	panther:_CATALYSIS___MKK4_r12m1_r12;panther:STATE_TRANSITION_LEFT__JNK-_ATP-RIGHT__JNK-_ADP-_r12
+MAP2K4	controls-state-change-of	MAPK9	PANTHER		FAS signaling pathway	panther:_CATALYSIS___MKK4_r12m1_r12;panther:STATE_TRANSITION_LEFT__JNK-_ATP-RIGHT__JNK-_ADP-_r12
+MAP3K5	controls-phosphorylation-of	MAP2K4	PANTHER		FAS signaling pathway	panther:_CATALYSIS___ASK1_r11m1_r11;panther:STATE_TRANSITION_LEFT__ATP-_MKK4-RIGHT__ADP-_MKK4-_r11
+MAP3K5	controls-state-change-of	MAP2K4	PANTHER		FAS signaling pathway	panther:_CATALYSIS___ASK1_r11m1_r11;panther:STATE_TRANSITION_LEFT__ATP-_MKK4-RIGHT__ADP-_MKK4-_r11
+MAPK10	controls-phosphorylation-of	JUN	PANTHER		FAS signaling pathway	panther:STATE_TRANSITION_LEFT__c_Jun-_ATP-RIGHT__ADP-_c_Jun-_r13;panther:_CATALYSIS___JNK_r13m1_r13
+MAPK10	controls-state-change-of	JUN	PANTHER		FAS signaling pathway	panther:STATE_TRANSITION_LEFT__c_Jun-_ATP-RIGHT__ADP-_c_Jun-_r13;panther:_CATALYSIS___JNK_r13m1_r13
+MAPK8	controls-phosphorylation-of	JUN	PANTHER		FAS signaling pathway	panther:STATE_TRANSITION_LEFT__c_Jun-_ATP-RIGHT__ADP-_c_Jun-_r13;panther:_CATALYSIS___JNK_r13m1_r13
+MAPK8	controls-state-change-of	JUN	PANTHER		FAS signaling pathway	panther:STATE_TRANSITION_LEFT__c_Jun-_ATP-RIGHT__ADP-_c_Jun-_r13;panther:_CATALYSIS___JNK_r13m1_r13
+MAPK9	controls-phosphorylation-of	JUN	PANTHER		FAS signaling pathway	panther:STATE_TRANSITION_LEFT__c_Jun-_ATP-RIGHT__ADP-_c_Jun-_r13;panther:_CATALYSIS___JNK_r13m1_r13
+MAPK9	controls-state-change-of	JUN	PANTHER		FAS signaling pathway	panther:STATE_TRANSITION_LEFT__c_Jun-_ATP-RIGHT__ADP-_c_Jun-_r13;panther:_CATALYSIS___JNK_r13m1_r13
+
+PARTICIPANT	PARTICIPANT_TYPE	PARTICIPANT_NAME	UNIFICATION_XREF	RELATIONSHIP_XREF
+FAF1	ProteinReference	FAF1_HUMAN	uniprot:Q9UNN5	hgnc.symbol:FAF1;ncbigene:11124
+FASLG	ProteinReference	TNFL6_HUMAN	uniprot:P48023	hgnc.symbol:FASLG;ncbigene:356
+CAPG	ProteinReference	CAPG_HUMAN	uniprot:P40121	hgnc.symbol:CAPG;ncbigene:822
+LMNB2	ProteinReference	LMNB2_HUMAN	uniprot:Q03252	hgnc.symbol:LMNB2;ncbigene:84823
+LMNB1	ProteinReference	LMNB1_HUMAN	uniprot:P20700	hgnc.symbol:LMNB1;ncbigene:4001
+CASP9	ProteinReference	CASP9_HUMAN	uniprot:P55211	hgnc.symbol:CASP9;ncbigene:842
+MAPK9	ProteinReference	MK09_HUMAN	uniprot:P45984	hgnc.symbol:MAPK9;ncbigene:5601
+MAPK8	ProteinReference	MK08_HUMAN	uniprot:P45983	hgnc.symbol:MAPK8;ncbigene:5599
+CASP7	ProteinReference	CASP7_HUMAN	uniprot:P55210	hgnc.symbol:CASP7;ncbigene:840
+SCIN	ProteinReference	SCIN_HUMAN	uniprot:Q9Y6U3	hgnc.symbol:SCIN;ncbigene:85477
+CASP8	ProteinReference	CASP8_HUMAN	uniprot:Q14790	hgnc.symbol:CASP8;ncbigene:841
+CASP10	ProteinReference	CASPA_HUMAN	uniprot:Q92851	hgnc.symbol:CASP10;ncbigene:843
+CASP3	ProteinReference	CASP3_HUMAN	uniprot:P42574	hgnc.symbol:CASP3;ncbigene:836
+LMNA	ProteinReference	LMNA_HUMAN	uniprot:P02545	hgnc.symbol:LMNA;ncbigene:4000
+FADD	ProteinReference	FADD_HUMAN	uniprot:Q13158	hgnc.symbol:FADD;ncbigene:8772
+CYC1	ProteinReference	CY1_HUMAN	uniprot:P08574	hgnc.symbol:CYC1;ncbigene:1537
+MAP3K5	ProteinReference	M3K5_HUMAN	uniprot:Q99683	hgnc.symbol:MAP3K5;ncbigene:4217
+MAP2K4	ProteinReference	MP2K4_HUMAN	uniprot:P45985	hgnc.symbol:MAP2K4;ncbigene:6416
+DFFB	ProteinReference	DFFB_HUMAN	uniprot:O76075	hgnc.symbol:DFFB;ncbigene:1677
+JUN	ProteinReference	JUN_HUMAN	uniprot:P05412	hgnc.symbol:JUN;ncbigene:3725
+DAXX	ProteinReference	DAXX_HUMAN	uniprot:Q9UER7	hgnc.symbol:DAXX;ncbigene:1616
+PARP3	ProteinReference	PARP3_HUMAN	uniprot:Q9Y6F1	hgnc.symbol:PARP3;ncbigene:10039
+GSN	ProteinReference	GELS_HUMAN	uniprot:P06396	hgnc.symbol:GSN;ncbigene:2934
+PARP4	ProteinReference	PARP4_HUMAN	uniprot:Q9UKK3	hgnc.symbol:PARP4;ncbigene:143
+APAF1	ProteinReference	APAF_HUMAN	uniprot:O14727	hgnc.symbol:APAF1;ncbigene:317
+PARP1	ProteinReference	PARP1_HUMAN	uniprot:P09874	hgnc.symbol:PARP1;ncbigene:142
+PARP2	ProteinReference	PARP2_HUMAN	uniprot:Q9UGN5	hgnc.symbol:PARP2;ncbigene:10038
+CFLAR	ProteinReference	CFLAR_HUMAN	uniprot:O15519	hgnc.symbol:CFLAR;ncbigene:8837
+MAPK10	ProteinReference	MK10_HUMAN	uniprot:P53779	hgnc.symbol:MAPK10;ncbigene:5602
+FAS	ProteinReference	TNR6_HUMAN	uniprot:P25445	hgnc.symbol:FAS;ncbigene:355
