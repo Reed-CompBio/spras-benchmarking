@@ -25,7 +25,7 @@ def main():
     request_url = "/".join([string_api_url, output_format, method])
     string_results = requests.post(request_url, data=str_params)
 
-    string_map = {}
+    string_map: dict[str, str] = {}
     for line in string_results.text.strip().split("\n"):
         l = line.split("\t")
         string_map.update({l[0]: l[2]})
@@ -34,13 +34,8 @@ def main():
 
     tiga_string_df = tiga_do.merge(string_df, left_on="ensemblId", right_on="ENSP", how="inner")
 
-    df = {"tiga_string_df": tiga_string_df}
-
-    with open("datasets/diseases/Pickles/Inputs.pkl", "wb") as file:
-        pickle.dump(df, file)
-
-    return
-
+    with open("datasets/diseases/pickles/inputs.pkl", "wb") as file:
+        pickle.dump(tiga_string_df, file)
 
 if __name__ == "__main__":
     main()

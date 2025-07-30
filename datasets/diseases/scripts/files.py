@@ -1,16 +1,21 @@
 import pickle
 import pandas as pd
+from pathlib import Path
+import os
 
+# https://stackoverflow.com/a/5137509/7589775
+dir_path = os.path.dirname(os.path.realpath(__file__))
+
+diseases_path = Path(dir_path, '..')
 
 def main():
-    with open("datasets/diseases/Pickles/GS.pkl", "rb") as file:
-        pklGS = pickle.load(file)
+    with open(diseases_path / "pickles" / "gold_standard.pkl", "rb") as file:
+        # See gold_standard.py
+        GS_string_df = pickle.load(file)
 
-    with open("datasets/diseases/Pickles/Inputs.pkl", "rb") as file:
-        pklInput = pickle.load(file)
-
-    GS_string_df = pklGS["GS_string_df"]
-    tiga_string_df = pklInput["tiga_string_df"]
+    with open(diseases_path / "pickles" / "inputs.pkl", "rb") as file:
+        # See inputs.py
+        tiga_string_df = pickle.load(file)
 
     GS_string_df = GS_string_df[GS_string_df["diseaseID"].isin(tiga_string_df["id"])]
     GS_combined_group = GS_string_df.groupby("diseaseName")
@@ -31,21 +36,23 @@ def main():
         df = tiga_prize_dict[disease]
         df = df[["str_id", "n_snpw"]]
         df = df.rename(columns={"str_id": "NODEID", "n_snpw": "prize"})
-        df.to_csv(f"datasets/diseases/prize_files/{disease.replace(' ', '_')}_prizes.txt", sep="	", index=False)
+        df.to_csv(f"datasets/diseases/prize_files/{disease.replace(' ', '_')}_prizes.txt", sep="\t", index=False)
 
     for disease in GS_combined_dict.keys():
         df = GS_combined_dict[disease]
         df = df[["str_id"]]
-        df.to_csv(f"datasets/diseases/GS_files/{disease.replace(' ', '_')}_GS.txt", sep="	", index=False, header=None)
+        df.to_csv(f"datasets/diseases/GS_files/{disease.replace(' ', '_')}_GS.txt", sep="\t", index=False, header=None)
 
-    string = pd.read_csv("datasets/diseases/raw/9606.protein.links.v12.0.txt", sep=" ", skiprows=[0], header=None)
+    # See /databases/stringdb.py for information on how this was grabbed.
+    # 9606 is the organism code for homo sapiens and the required background interactome of DISEASES.
+    string = pd.read_csv(
+        diseases_path / '..' / '..' / 'databases' / 'string' / '9606.protein.links.v12.0.txt',
+        sep=" ", skiprows=[0], header=None)
+    # Threshold anything above a confidence score of 900 to trim down the background interactome
     string = string[string.iloc[:, 2] > 900]
     string = string.iloc[:, [0, 1]]
     string[len(string.columns)] = 1
     string.to_csv("datasets/diseases/raw/string_interactome.txt", sep="\t", index=False, header=None)
-
-    return
-
 
 if __name__ == "__main__":
     main()

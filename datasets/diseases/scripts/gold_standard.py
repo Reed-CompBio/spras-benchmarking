@@ -1,18 +1,26 @@
 import pandas as pd
 import requests
-import statistics as stats
+import os
+from pathlib import Path
 import pickle
 
+# https://stackoverflow.com/a/5137509/7589775
+dir_path = os.path.dirname(os.path.realpath(__file__))
+
+diseases_path = Path(dir_path, '..')
 
 def main():
-    text_mining = pd.read_csv("datasets/diseases/raw/human_disease_textmining_filtered.tsv", sep="\t")
+    # Get our data from `fetch.py`
+    text_mining = pd.read_csv(diseases_path / "raw" / "human_disease_textmining_filtered.tsv", sep="\t")
+    knowledge = pd.read_csv(diseases_path / "raw" / "human_disease_knowledge_filtered.tsv", sep="\t")
+    # and correctly map their columns
     text_mining.columns = ["geneID", "geneName", "diseaseID", "diseaseName", "zScore", "confidenceScore", "sourceUrl"]
-
-    knowledge = pd.read_csv("datasets/diseases/raw/human_disease_knowledge_filtered.tsv", sep="\t")
     knowledge.columns = ["geneID", "geneName", "diseaseID", "diseaseName", "sourceDB", "evidenceType", "confidenceScore"]
 
-    knowledge_mapped = gp_convert(list(text_mining["geneID"]), "ENSG", text_mining)
-    text_mining_mapped = gp_convert(list(knowledge["geneID"]), "ENSG", knowledge)
+    # The DISEASES data is in the ENSP namespace, but we want to work in ENSG.
+    # TODO: why?
+    knowledge_mapped = gprofiler_convert(list(text_mining["geneID"]), "ENSG", text_mining)
+    text_mining_mapped = gprofiler_convert(list(knowledge["geneID"]), "ENSG", knowledge)
 
     inner = text_mining_mapped.merge(knowledge_mapped, on=["ENSG", "diseaseID"], how="inner")
     inner["confidenceScore"] = inner.apply(lambda x: max(x.confidenceScore_x, x.confidenceScore_y), axis=1)
@@ -68,15 +76,17 @@ def main():
     string_df.columns = ["ENSP", "str_id"]
     GS_string_df = GS_combined_threshold.merge(string_df, on="ENSP", how="inner")
 
-    df = {"GS_string_df": GS_string_df}
+    (diseases_path / "pickles").mkdir(exist_ok=True)
+    with open(diseases_path / "pickles" / "gold_standard.pkl", "wb") as file:
+        pickle.dump(GS_string_df, file)
 
-    with open("datasets/diseases/Pickles/GS.pkl", "wb") as file:
-        pickle.dump(df, file)
+def gprofiler_convert(ids: list, namespace: str, df: pd.DataFrame) -> pd.DataFrame:
+    """
+    Converts a list of IDs to a namespace, and associates it with a dataframe
+    (see code for more details) using the gprofiler API.
+    """
 
-    return
-
-
-def gp_convert(ids, namespace, df):
+    # See the associated API documentation at https://biit.cs.ut.ee/gprofiler/page/apis.
     r = requests.post(
         url="https://biit.cs.ut.ee/gprofiler/api/convert/convert/",
         json={
@@ -97,7 +107,6 @@ def gp_convert(ids, namespace, df):
     output_df = output_df.sort_values("confidenceScore", ascending=False).drop_duplicates(subset=["ENSG", "diseaseID"], keep=False).sort_index()
 
     return output_df
-
 
 if __name__ == "__main__":
     main()
