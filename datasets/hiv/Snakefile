@@ -4,10 +4,18 @@ rule all:
         "processed/processed_prize_060.txt",
         "processed/phosphosite-irefindex13.0-uniprot.txt"
 
+rule fetch:
+    output:
+        "raw/prize_05.tsv"
+        "raw/prize_060.tsv"
+        "raw/ko03250.xml"
+    shell:
+        "uv run scripts/fetch.py"
+
 rule data_prep:
     input: 
-        "raw/prize_05.csv",
-        "raw/prize_060.csv"
+        "raw/prize_05.tsv",
+        "raw/prize_060.tsv"
     output:
         "Pickles/NodeIDs.pkl"
     shell:

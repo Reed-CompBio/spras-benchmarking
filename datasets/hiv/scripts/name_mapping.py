@@ -1,3 +1,8 @@
+"""
+This code is almost fully copied from https://www.uniprot.org/help/id_mapping_prog,
+with the only exception being at the top of `main`.
+"""
+
 import re
 import time
 import json
@@ -17,6 +22,9 @@ session.mount("https://", HTTPAdapter(max_retries=retries))
 
 
 def main():
+    # This is the only major exception to this being example code from UniProt.
+    # See prepare.py for the NodeIDs generation: this is the deduplicated list of node IDs
+    # from the two prize files in `raw`.
     with open("Pickles/NodeIDs.pkl", "rb") as file:
         NodeIDs = pickle.load(file)["NodeIDs"]
 
