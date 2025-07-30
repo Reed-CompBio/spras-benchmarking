@@ -6,16 +6,16 @@ rule all:
 
 rule fetch:
     output:
-        "raw/prize_05.tsv"
-        "raw/prize_060.tsv"
+        "raw/prizes_05.tsv",
+        "raw/prizes_060.tsv",
         "raw/ko03250.xml"
     shell:
         "uv run scripts/fetch.py"
 
 rule data_prep:
     input: 
-        "raw/prize_05.tsv",
-        "raw/prize_060.tsv"
+        "raw/prizes_05.tsv",
+        "raw/prizes_060.tsv"
     output:
         "Pickles/NodeIDs.pkl"
     shell:

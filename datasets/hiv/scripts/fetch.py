@@ -18,7 +18,7 @@ prizes_05_url = base_url + "prize_05.csv"
 prizes_060_url = base_url + "prize_060.csv"
 
 def main():
-    # Note: These files are .tsv, but have the wrong file extension .csv.
+    # Note: These files are .tsv, but have the wrong file extension .csv in the original data source.
     urllib.request.urlretrieve(prizes_05_url, hiv_path / "raw" / "prizes_05.tsv")
     urllib.request.urlretrieve(prizes_060_url, hiv_path / "raw" / "prizes_060.tsv")
 

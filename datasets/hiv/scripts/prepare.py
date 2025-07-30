@@ -8,8 +8,8 @@ hiv_path = Path(os.path.dirname(os.path.realpath(__file__)), '..')
 
 def main():
     # See `fetch.py` for information about these two files.
-    prize_05 = pandas.read_csv(hiv_path / "raw" / "prize_05.tsv", sep="\t", lineterminator="\n")
-    prize_060 = pandas.read_csv(hiv_path / "raw" / "prize_060.tsv", sep="\t", lineterminator="\n")
+    prize_05 = pandas.read_csv(hiv_path / "raw" / "prizes_05.tsv", sep="\t", lineterminator="\n")
+    prize_060 = pandas.read_csv(hiv_path / "raw" / "prize_s060.tsv", sep="\t", lineterminator="\n")
 
     # Some proteins in the original prize files have the syntax `majorIdentifier-N` where N denotes isoforms.
     # We don't particurarly care about any particular isoform when doing pathway reconstruction,
