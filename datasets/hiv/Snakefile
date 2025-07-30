@@ -11,7 +11,7 @@ rule data_prep:
     output:
         "Pickles/NodeIDs.pkl"
     shell:
-        "uv run Scripts/Data_Prep.py"
+        "uv run scripts/prepare.py"
 
 rule name_mapping:
     input: 
@@ -19,7 +19,7 @@ rule name_mapping:
     output:
         "Pickles/UniprotIDs.pkl"
     shell:
-        "uv run Scripts/Name_Mapping.py"
+        "uv run scripts/name_mapping.py"
 
 rule spras_formatting:
     input:
@@ -29,7 +29,7 @@ rule spras_formatting:
         "processed/processed_prize_05.txt",
         "processed/processed_prize_060.txt"
     shell:
-        "uv run Scripts/SPRAS_Formatting.py"
+        "uv run scripts/spras_formatting.py"
 
 rule copy_network:
     input:
