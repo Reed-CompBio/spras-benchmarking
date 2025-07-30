@@ -56,7 +56,7 @@ hsa_uniprot_map.columns = ['Uniprot','HSA']
 final_df = ko_hsa_df.merge(hsa_uniprot_map,on = 'HSA')
 uniprotIDs = final_df['Uniprot'].apply(lambda x: x.split(':')[1]).tolist()
 
-#Filters the combined dataframe to include only rows where the uniprot code is in swissprot
+#Filters the combined dataframe to include only rows where the uniprot id is in swissprot
 u = UniProt()
 tst = u.mapping(fr='UniProtKB', to='UniProtKB-Swiss-Prot',query = ','.join(uniprotIDs))
 failed_uniprot = pd.Series(list(set(tst['failedIds']))).apply(lambda x: 'up:'+x)
