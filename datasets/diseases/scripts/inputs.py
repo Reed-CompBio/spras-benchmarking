@@ -10,10 +10,12 @@ dir_path = os.path.dirname(os.path.realpath(__file__))
 diseases_path = Path(dir_path, '..')
 
 def main():
+    # See fetch.py for information on this file's origin
     tiga = pd.read_csv(diseases_path / "raw" / "tiga_gene-trait_stats.tsv", sep="\t")
     tiga = tiga[["ensemblId", "efoId", "trait", "n_snp", "n_snpw"]]
     tiga = tiga.drop_duplicates(subset=["ensemblId", "trait"])
 
+    # See fetch.py for information on this file's origin
     human_do = pd.read_csv(diseases_path / "raw" / "HumanDO.tsv", sep="\t")
     human_do = human_do.drop_duplicates(subset="label")
     human_do = human_do[["id", "label"]]

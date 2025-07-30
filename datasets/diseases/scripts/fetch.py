@@ -1,7 +1,10 @@
 """
-Fetches the latest [desired] DISEASES database channels.
+Fetches the latest DISEASES database channels, TIGA data, and human disease ontology data that we need.
 
-See the diseases download page: https://diseases.jensenlab.org/Downloads
+Download pages:
+- DISEASES: https://diseases.jensenlab.org/Downloads
+- TIGA: https://unmtid-shinyapps.net/shiny/tiga/
+- Disease Ontology: https://disease-ontology.org/downloads/
 """
 
 from pathlib import Path
@@ -32,7 +35,19 @@ def main():
         raw_dir / "human_disease_knowledge_filtered.tsv"
     )
 
-    # TODO: we should make some assertions about its structure to check for correctness early
+    print("Fetching TIGA data...")
+    urllib.request.urlretrieve(
+        "https://unmtid-shinyapps.net/shiny/tiga/session/4fc1d570b85bb6fcc4e9660a7944a6e3/download/gt_file?w=",
+        raw_dir / "tiga_gene-trait_stats.tsv"
+    )
+
+    print("Fetching human disease ontology data...")
+    urllib.request.urlretrieve(
+        "https://raw.githubusercontent.com/DiseaseOntology/HumanDiseaseOntology/016a4ec33d1a1508d669650086cd92ccebe138e6/DOreports/HumanDO.tsv",
+        raw_dir / "HumanDO.tsv"
+    )
+
+    # TODO: we should make some assertions about these file structures to check for correctness early
 
 if __name__ == '__main__':
     main()
