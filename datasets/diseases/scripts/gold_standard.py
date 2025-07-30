@@ -18,7 +18,6 @@ def main():
     knowledge.columns = ["geneID", "geneName", "diseaseID", "diseaseName", "sourceDB", "evidenceType", "confidenceScore"]
 
     # The DISEASES data is in the ENSP namespace, but we want to work in ENSG.
-    # TODO: why?
     knowledge_mapped = gprofiler_convert(list(text_mining["geneID"]), "ENSG", text_mining)
     text_mining_mapped = gprofiler_convert(list(knowledge["geneID"]), "ENSG", knowledge)
 

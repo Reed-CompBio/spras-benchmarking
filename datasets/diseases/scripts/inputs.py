@@ -1,14 +1,20 @@
+from pathlib import Path
 import pandas as pd
 import requests
 import pickle
+import os
 
+# https://stackoverflow.com/a/5137509/7589775
+dir_path = os.path.dirname(os.path.realpath(__file__))
+
+diseases_path = Path(dir_path, '..')
 
 def main():
-    tiga = pd.read_csv("datasets/diseases/raw/tiga_gene-trait_stats.tsv", sep="\t")
+    tiga = pd.read_csv(diseases_path / "raw" / "tiga_gene-trait_stats.tsv", sep="\t")
     tiga = tiga[["ensemblId", "efoId", "trait", "n_snp", "n_snpw"]]
     tiga = tiga.drop_duplicates(subset=["ensemblId", "trait"])
 
-    human_do = pd.read_csv("datasets/diseases/raw/HumanDO.tsv", sep="\t")
+    human_do = pd.read_csv(diseases_path / "raw" / "HumanDO.tsv", sep="\t")
     human_do = human_do.drop_duplicates(subset="label")
     human_do = human_do[["id", "label"]]
 
@@ -34,7 +40,7 @@ def main():
 
     tiga_string_df = tiga_do.merge(string_df, left_on="ensemblId", right_on="ENSP", how="inner")
 
-    with open("datasets/diseases/pickles/inputs.pkl", "wb") as file:
+    with open(diseases_path / "pickles" / "inputs.pkl", "wb") as file:
         pickle.dump(tiga_string_df, file)
 
 if __name__ == "__main__":

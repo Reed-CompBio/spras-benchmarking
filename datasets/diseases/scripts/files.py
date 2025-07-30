@@ -36,12 +36,12 @@ def main():
         df = tiga_prize_dict[disease]
         df = df[["str_id", "n_snpw"]]
         df = df.rename(columns={"str_id": "NODEID", "n_snpw": "prize"})
-        df.to_csv(f"datasets/diseases/prize_files/{disease.replace(' ', '_')}_prizes.txt", sep="\t", index=False)
+        df.to_csv(diseases_path / "prize_files" / f"{disease.replace(' ', '_')}_prizes.txt", sep="\t", index=False)
 
     for disease in GS_combined_dict.keys():
         df = GS_combined_dict[disease]
         df = df[["str_id"]]
-        df.to_csv(f"datasets/diseases/GS_files/{disease.replace(' ', '_')}_GS.txt", sep="\t", index=False, header=None)
+        df.to_csv(diseases_path / "GS_files" / f"{disease.replace(' ', '_')}_GS.txt", sep="\t", index=False, header=None)
 
     # See /databases/stringdb.py for information on how this was grabbed.
     # 9606 is the organism code for homo sapiens and the required background interactome of DISEASES.
