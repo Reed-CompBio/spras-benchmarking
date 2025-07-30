@@ -1,5 +1,5 @@
 """
-Fetches the `prize_05.tsv` and `prize_060.tsv` files from
+Fetches the `prizes_05.tsv` and `prizes_060.tsv` files from
 https://github.com/gitter-lab/hiv1-aurkb, as well as the KGML file
 for `kegg_orthology.py`
 

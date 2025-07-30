@@ -1,7 +1,7 @@
 rule all:
     input:
-        "processed/processed_prize_05.txt",
-        "processed/processed_prize_060.txt",
+        "processed/processed_prizes_05.txt",
+        "processed/processed_prizes_060.txt",
         "processed/phosphosite-irefindex13.0-uniprot.txt"
 
 rule fetch:
@@ -34,8 +34,8 @@ rule spras_formatting:
         "Pickles/NodeIDs.pkl",
         "Pickles/UniprotIDs.pkl"
     output:
-        "processed/processed_prize_05.txt",
-        "processed/processed_prize_060.txt"
+        "processed/processed_prizes_05.txt",
+        "processed/processed_prizes_060.txt"
     shell:
         "uv run scripts/spras_formatting.py"
 

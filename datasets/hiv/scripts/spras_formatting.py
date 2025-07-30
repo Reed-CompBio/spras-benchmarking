@@ -23,8 +23,8 @@ def main():
     prize_05.columns = ["NODEID", "prize"]
     prize_060.columns = ["NODEID", "prize"]
 
-    prize_05.to_csv(processed_directory / "processed_prize_05.txt", sep="\t", header=True, index=False)
-    prize_060.to_csv(processed_directory / "processed_prize_060.txt", sep="\t", header=True, index=False)
+    prize_05.to_csv(processed_directory / "processed_prizes_05.txt", sep="\t", header=True, index=False)
+    prize_060.to_csv(processed_directory / "processed_prizes_060.txt", sep="\t", header=True, index=False)
 
 if __name__ == '__main__':
     main()
