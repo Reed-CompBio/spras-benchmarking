@@ -1,6 +1,6 @@
 """
 This code is almost fully copied from https://www.uniprot.org/help/id_mapping_prog,
-with the only exception being at the top of `main`.
+with the only exception being at the top and bottom of `main`.
 """
 
 import re
@@ -22,7 +22,7 @@ session.mount("https://", HTTPAdapter(max_retries=retries))
 
 
 def main():
-    # This is the only major exception to this being example code from UniProt.
+    # This is 1 of two major exceptions to this being example code from UniProt.
     # See prepare.py for the NodeIDs generation: this is the deduplicated list of node IDs
     # from the two prize files in `raw`.
     with open("Pickles/NodeIDs.pkl", "rb") as file:
@@ -41,11 +41,9 @@ def main():
 
     df = {"UniprotIDs": uniprot_IDs, "UniprotMap": uniprot_map}
 
+    # Second major exception: we save the Uniprot IDs.
     with open("Pickles/UniprotIDs.pkl", "wb") as file:
         pickle.dump(df, file)
-
-    return
-
 
 def check_response(response):
     try:
