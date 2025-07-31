@@ -1,3 +1,8 @@
+"""
+This code is almost fully copied from https://www.uniprot.org/help/id_mapping_prog,
+with the only exception being at the top and bottom of `main`.
+"""
+
 import re
 import time
 import json
@@ -17,35 +22,28 @@ session.mount("https://", HTTPAdapter(max_retries=retries))
 
 
 def main():
-
-    with open('Pickles/NodeIDs.pkl', 'rb') as file:
+    # This is 1 of two major exceptions to this being example code from UniProt.
+    # See prepare.py for the NodeIDs generation: this is the deduplicated list of node IDs
+    # from the two prize files in `raw`.
+    with open("Pickles/NodeIDs.pkl", "rb") as file:
         NodeIDs = pickle.load(file)["NodeIDs"]
 
-    job_id = submit_id_mapping(
-        from_db="UniProtKB_AC-ID", to_db="UniProtKB", ids= NodeIDs
-    )
+    job_id = submit_id_mapping(from_db="UniProtKB_AC-ID", to_db="UniProtKB", ids=NodeIDs)
     if check_id_mapping_results_ready(job_id):
         link = get_id_mapping_results_link(job_id)
         uniprot_results = get_id_mapping_results_search(link)
 
     uniprot_IDs = []
     uniprot_map = {}
-    for i in uniprot_results.get('results'):
+    for i in uniprot_results.get("results"):
         uniprot_IDs.append((i.get("to").get("uniProtkbId")))
-        uniprot_map.update({i.get("from"):i.get("to").get("uniProtkbId")})
+        uniprot_map.update({i.get("from"): i.get("to").get("uniProtkbId")})
 
-    df ={
-       "UniprotIDs": uniprot_IDs,
-       "UniprotMap": uniprot_map
-    }
+    df = {"UniprotIDs": uniprot_IDs, "UniprotMap": uniprot_map}
 
-    with open("Pickles/UniprotIDs.pkl","wb") as file:
-        pickle.dump(df,file)
-
-    return
-
-
-
+    # Second major exception: we save the Uniprot IDs.
+    with open("Pickles/UniprotIDs.pkl", "wb") as file:
+        pickle.dump(df, file)
 
 def check_response(response):
     try:
@@ -169,9 +167,7 @@ def get_id_mapping_results_search(url):
     else:
         size = 500
         query["size"] = size
-    compressed = (
-        query["compressed"][0].lower() == "true" if "compressed" in query else False
-    )
+    compressed = query["compressed"][0].lower() == "true" if "compressed" in query else False
     parsed = parsed._replace(query=urlencode(query, doseq=True))
     url = parsed.geturl()
     request = session.get(url)
@@ -195,9 +191,7 @@ def get_id_mapping_results_stream(url):
     parsed = urlparse(url)
     query = parse_qs(parsed.query)
     file_format = query["format"][0] if "format" in query else "json"
-    compressed = (
-        query["compressed"][0].lower() == "true" if "compressed" in query else False
-    )
+    compressed = query["compressed"][0].lower() == "true" if "compressed" in query else False
     return decode_results(request, file_format, compressed)
 
 

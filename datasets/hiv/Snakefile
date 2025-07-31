@@ -1,17 +1,25 @@
 rule all:
     input:
-        "processed/processed_prize_05.txt",
-        "processed/processed_prize_060.txt",
+        "processed/processed_prizes_05.txt",
+        "processed/processed_prizes_060.txt",
         "processed/phosphosite-irefindex13.0-uniprot.txt"
+
+rule fetch:
+    output:
+        "raw/prizes_05.tsv",
+        "raw/prizes_060.tsv",
+        "raw/ko03250.xml"
+    shell:
+        "uv run scripts/fetch.py"
 
 rule data_prep:
     input: 
-        "raw/prize_05.csv",
-        "raw/prize_060.csv"
+        "raw/prizes_05.tsv",
+        "raw/prizes_060.tsv"
     output:
         "Pickles/NodeIDs.pkl"
     shell:
-        "uv run Scripts/Data_Prep.py"
+        "uv run scripts/prepare.py"
 
 rule name_mapping:
     input: 
@@ -19,17 +27,17 @@ rule name_mapping:
     output:
         "Pickles/UniprotIDs.pkl"
     shell:
-        "uv run Scripts/Name_Mapping.py"
+        "uv run scripts/name_mapping.py"
 
 rule spras_formatting:
     input:
         "Pickles/NodeIDs.pkl",
         "Pickles/UniprotIDs.pkl"
     output:
-        "processed/processed_prize_05.txt",
-        "processed/processed_prize_060.txt"
+        "processed/processed_prizes_05.txt",
+        "processed/processed_prizes_060.txt"
     shell:
-        "uv run Scripts/SPRAS_Formatting.py"
+        "uv run scripts/spras_formatting.py"
 
 rule copy_network:
     input:
