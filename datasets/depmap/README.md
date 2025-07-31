@@ -40,9 +40,9 @@ Started processing with the FADU cell line:
 - Input prize file prepared from the damaging mutations dataset 
 - Gold standard file prepared from the CRISPR gene dependency dataset
 
-## Config 
-Example config file used to get preliminary results on OmicsIntegrator1 and 2 following the EGFR dataset example. Will test out more parameters and update. 
-The input edge file for the background network can be obtained from the SPRAS repo `input/phosphosite-irefindex13.0-uniprot.txt` 
+## config 
+Example Config file used to get preliminary results on OmicsIntegrator1 and 2 following the EGFR dataset example. Will test out more parameters and update. 
+The input edge file for the background network can be obtained from the SPRAS repo [`input/phosphosite-irefindex13.0-uniprot.txt`](https://github.com/Reed-CompBio/spras/blob/b5d7a2499afa8eab14c60ce0f99fa7e8a23a2c64/input/phosphosite-irefindex13.0-uniprot.txt)
 
 ## Release Citation 
 For DepMap Release data, including CRISPR Screens, PRISM Drug Screens, Copy Number, Mutation, Expression, and Fusions:
