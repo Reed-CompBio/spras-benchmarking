@@ -24,6 +24,7 @@ Future extension files:
 Currently contains:
 - `local_cell_line_preprocessing.ipynb`: Jupyter notebook for exploratory data analysis and initial pipeline development. Includes CRISPR dependency analysis with multiple thresholds, visualization of gene dependency distributions, UniProt ID mapping workflow (both gene symbols and gene numbers approaches currently), and step-by-step generation of prize input files and gold standard files for individual cell lines.
 - `cell_line_processing.py`: General cell line processing pipeline for generating prize input files and gold standard files converted into Python scripts. Should be reproducible for any cell line name, could be further organized and refined.
+- `uniprot_mapping.py`: Gene symbol extraction script for UniProt ID mapping preparation. Parses gene symbols from any DepMap dataset column headers (e.g., "GENE_NAME (12345)" format) and saves them as CSV files ready for input to the UniProt web service. Currently used to extract gene symbols from `OmicsSomaticMutationsMatrixDamaging.csv`, but should be compatible with any omics dataset.
 
 
 Files used for preparing required files:
