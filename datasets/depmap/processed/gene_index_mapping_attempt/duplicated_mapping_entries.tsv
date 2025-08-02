@@ -1,0 +1,70 @@
+From	Entry	Entry Name	Protein names	Gene Names	Reviewed
+23499	O94854	K0754_HUMAN	Microtubule-actin cross-linking factor 1, isoforms 6/7 (Uncharacterized protein KIAA0754)	MACF1 KIAA0754	reviewed
+23499	Q9UPN3	MACF1_HUMAN	Microtubule-actin cross-linking factor 1, isoforms 1/2/3/4/5 (620 kDa actin-binding protein) (ABP620) (Actin cross-linking family protein 7) (Macrophin-1) (Trabeculin-alpha)	MACF1 ABP620 ACF7 KIAA0465 KIAA0754 KIAA1251	reviewed
+9910	B7ZAP0	RBG10_HUMAN	Rab GTPase-activating protein 1-like, isoform 10	RABGAP1L HHL KIAA0471	reviewed
+9910	Q5R372	RBG1L_HUMAN	Rab GTPase-activating protein 1-like	RABGAP1L HHL KIAA0471	reviewed
+163590	Q8NFQ8	TOIP2_HUMAN	Torsin-1A-interacting protein 2 (Lumenal domain-like LAP1)	TOR1AIP2 IFRG15 LULL1	reviewed
+163590	Q9H496	IFG15_HUMAN	Torsin-1A-interacting protein 2, isoform IFRG15 (15 kDa interferon-responsive protein) (IFRG15)	TOR1AIP2 IFRG15	reviewed
+2074	P0DP91	ERPG3_HUMAN	Chimeric ERCC6-PGBD3 protein (Chimeric CSB-PGBD3 protein)	ERCC6	reviewed
+2074	Q03468	ERCC6_HUMAN	DNA excision repair protein ERCC-6 (EC 3.6.4.-) (ATP-dependent helicase ERCC6) (Cockayne syndrome protein CSB)	ERCC6 CSB	reviewed
+51207	Q6B8I1	DS13A_HUMAN	Dual specificity protein phosphatase 13A (DUSP13A) (EC 3.1.3.16) (EC 3.1.3.48) (Branching-enzyme interacting DSP) (Muscle-restricted DSP) (MDSP)	DUSP13A BEDP DUSP13 MDSP	reviewed
+51207	Q9UII6	DS13B_HUMAN	Dual specificity protein phosphatase 13B (EC 3.1.3.16) (EC 3.1.3.48) (Dual specificity phosphatase SKRP4) (Testis- and skeletal-muscle-specific DSP)	DUSP13B DUSP13 SKRP4 TMDP	reviewed
+9379	P58401	NRX2B_HUMAN	Neurexin-2-beta (Neurexin II-beta)	NRXN2	reviewed
+9379	Q9P2S2	NRX2A_HUMAN	Neurexin-2 (Neurexin II-alpha) (Neurexin-2-alpha)	NRXN2 KIAA0921	reviewed
+4666	E9PAV3	NACAM_HUMAN	Nascent polypeptide-associated complex subunit alpha, muscle-specific form (Alpha-NAC, muscle-specific form) (skNAC)	NACA	reviewed
+4666	Q13765	NACA_HUMAN	Nascent polypeptide-associated complex subunit alpha (NAC-alpha) (Alpha-NAC) (allergen Hom s 2)	NACA HSD48	reviewed
+7112	P42166	LAP2A_HUMAN	Lamina-associated polypeptide 2, isoform alpha (Thymopoietin isoform alpha) (TP alpha) (Thymopoietin-related peptide isoform alpha) (TPRP isoform alpha) [Cleaved into: Thymopoietin (TP) (Splenin); Thymopentin (TP5)]	TMPO LAP2	reviewed
+7112	P42167	LAP2B_HUMAN	Lamina-associated polypeptide 2, isoforms beta/gamma (Thymopoietin, isoforms beta/gamma) (TP beta/gamma) (Thymopoietin-related peptide isoforms beta/gamma) (TPRP isoforms beta/gamma) [Cleaved into: Thymopoietin (TP) (Splenin); Thymopentin (TP5)]	TMPO LAP2	reviewed
+51082	P0DPB5	RPC22_HUMAN	Protein POLR1D, isoform 2	POLR1D	reviewed
+51082	P0DPB6	RPAC2_HUMAN	DNA-directed RNA polymerases I and III subunit RPAC2 (RNA polymerases I and III subunit AC2) (AC19) (DNA-directed RNA polymerase I subunit D) (RNA polymerase I 16 kDa subunit) (RPA16) (RPC16) (hRPA19)	POLR1D	reviewed
+9369	Q9HDB5	NRX3B_HUMAN	Neurexin-3-beta (Neurexin III-beta) [Cleaved into: Neurexin-3-beta, soluble form; Neurexin-3-beta, C-terminal fragment (NRXN3-CTF)]	NRXN3 KIAA0743	reviewed
+9369	Q9Y4C0	NRX3A_HUMAN	Neurexin-3 (Neurexin III-alpha) (Neurexin-3-alpha)	NRXN3 C14orf60 KIAA0743	reviewed
+801	P0DP23	CALM1_HUMAN	Calmodulin-1	CALM1 CALM CAM CAM1	reviewed
+801	P0DP24	CALM2_HUMAN	Calmodulin-2	CALM2 CAM2 CAMB	reviewed
+801	P0DP25	CALM3_HUMAN	Calmodulin-3	CALM3 CALML2 CAM3 CAMC CAMIII	reviewed
+81488	P0CAP2	GRL1A_HUMAN	DNA-directed RNA polymerase II subunit GRINL1A (DNA-directed RNA polymerase II subunit M) (Glutamate receptor-like protein 1A)	POLR2M GRINL1A	reviewed
+81488	Q6EEV4	GL1AD_HUMAN	DNA-directed RNA polymerase II subunit GRINL1A, isoforms 4/5 (DNA-directed RNA polymerase II subunit M, isoforms 4/5)	POLR2M GRINL1A	reviewed
+83871	P0DI83	NARR_HUMAN	Ras-related protein Rab-34, isoform NARR (Nine amino-acid residue-repeats)	RAB34 NARR	reviewed
+83871	Q9BZG1	RAB34_HUMAN	Ras-related protein Rab-34 (EC 3.6.5.2) (Ras-related protein Rab-39) (Ras-related protein Rah)	RAB34 RAB39 RAH	reviewed
+388372	P13236	CCL4_HUMAN	C-C motif chemokine 4 (G-26 T-lymphocyte-secreted protein) (HC21) (Lymphocyte activation gene 1 protein) (LAG-1) (MIP-1-beta(1-69)) (Macrophage inflammatory protein 1-beta) (MIP-1-beta) (PAT 744) (Protein H400) (SIS-gamma) (Small-inducible cytokine A4) (T-cell activation protein 2) (ACT-2) [Cleaved into: MIP-1-beta(3-69)]	CCL4 LAG1 MIP1B SCYA4	reviewed
+388372	Q8NHW4	CC4L_HUMAN	C-C motif chemokine 4-like (Lymphocyte activation gene 1 protein) (LAG-1) (Macrophage inflammatory protein 1-beta) (MIP-1-beta) (Monocyte adherence-induced protein 5-alpha) (Small-inducible cytokine A4-like)	CCL4L1 CCL4L LAG1 SCYA4L1; CCL4L2 CCL4L SCYA4L2	reviewed
+730755	P0C7H8	KRA23_HUMAN	Keratin-associated protein 2-3 (High sulfur keratin-associated protein 2.4) (Keratin-associated protein 2.3)	KRTAP2-3 KAP2.3 KRTAP2.3	reviewed
+730755	Q9BYR9	KRA24_HUMAN	Keratin-associated protein 2-4 (High sulfur keratin-associated protein 2.4) (Keratin-associated protein 2.4)	KRTAP2-4 KAP2.4 KRTAP2.4	reviewed
+85294	P0C7H8	KRA23_HUMAN	Keratin-associated protein 2-3 (High sulfur keratin-associated protein 2.4) (Keratin-associated protein 2.3)	KRTAP2-3 KAP2.3 KRTAP2.3	reviewed
+85294	Q9BYR9	KRA24_HUMAN	Keratin-associated protein 2-4 (High sulfur keratin-associated protein 2.4) (Keratin-associated protein 2.4)	KRTAP2-4 KAP2.4 KRTAP2.4	reviewed
+808	P0DP23	CALM1_HUMAN	Calmodulin-1	CALM1 CALM CAM CAM1	reviewed
+808	P0DP24	CALM2_HUMAN	Calmodulin-2	CALM2 CAM2 CAMB	reviewed
+808	P0DP25	CALM3_HUMAN	Calmodulin-3	CALM3 CALML2 CAM3 CAMC CAMIII	reviewed
+27113	Q96PG8	BBC3B_HUMAN	Bcl-2-binding component 3, isoforms 3/4 (JFY-1) (p53 up-regulated modulator of apoptosis)	BBC3 PUMA	reviewed
+27113	Q9BXH1	BBC3_HUMAN	Bcl-2-binding component 3, isoforms 1/2 (JFY-1) (p53 up-regulated modulator of apoptosis)	BBC3 PUMA	reviewed
+805	P0DP23	CALM1_HUMAN	Calmodulin-1	CALM1 CALM CAM CAM1	reviewed
+805	P0DP24	CALM2_HUMAN	Calmodulin-2	CALM2 CAM2 CAMB	reviewed
+805	P0DP25	CALM3_HUMAN	Calmodulin-3	CALM3 CALML2 CAM3 CAMC CAMIII	reviewed
+9378	P58400	NRX1B_HUMAN	Neurexin-1-beta (Neurexin I-beta)	NRXN1	reviewed
+9378	Q9ULB1	NRX1A_HUMAN	Neurexin-1 (Neurexin I-alpha) (Neurexin-1-alpha)	NRXN1 KIAA0578	reviewed
+10326	O00241	SIRB1_HUMAN	Signal-regulatory protein beta-1 (SIRP-beta-1) (CD172 antigen-like family member B) (CD antigen CD172b)	SIRPB1	reviewed
+10326	Q5TFQ8	SIRBL_HUMAN	Signal-regulatory protein beta-1 isoform 3 (SIRP-beta-1 isoform 3)	SIRPB1	reviewed
+5621	F7VJQ1	APRIO_HUMAN	Alternative prion protein (AltPrP)	PRNP ALTPRP PRIP PRP	reviewed
+5621	P04156	PRIO_HUMAN	Major prion protein (PrP) (ASCR) (PrP27-30) (PrP33-35C) (CD antigen CD230)	PRNP ALTPRP PRIP PRP	reviewed
+2778	O95467	GNAS3_HUMAN	Neuroendocrine secretory protein 55 (NESP55) [Cleaved into: LHAL tetrapeptide; GPIPIRRH peptide]	GNAS GNAS1	reviewed
+2778	P63092	GNAS2_HUMAN	Guanine nucleotide-binding protein G(s) subunit alpha isoforms short (EC 3.6.5.-) (Adenylate cyclase-stimulating G alpha protein)	GNAS GNAS1 GSP	reviewed
+2778	P84996	ALEX_HUMAN	Protein ALEX (Alternative gene product encoded by XL-exon)	GNAS GNAS1	reviewed
+2778	Q5JWF2	GNAS1_HUMAN	Guanine nucleotide-binding protein G(s) subunit alpha isoforms XLas (EC 3.6.5.-) (Adenylate cyclase-stimulating G alpha protein) (Extra large alphas protein) (XLalphas)	GNAS GNAS1	reviewed
+386678	P60411	KR109_HUMAN	Keratin-associated protein 10-9 (High sulfur keratin-associated protein 10.9) (Keratin-associated protein 10.9) (Keratin-associated protein 18-9) (Keratin-associated protein 18.9)	KRTAP10-9 KAP10.9 KAP18-9 KRTAP10.9 KRTAP18-9 KRTAP18.9	reviewed
+386678	P60412	KR10B_HUMAN	Keratin-associated protein 10-11 (High sulfur keratin-associated protein 10.11) (Keratin-associated protein 10.11) (Keratin-associated protein 18-11) (Keratin-associated protein 18.11)	KRTAP10-11 KAP10.11 KAP18-11 KRTAP10.11 KRTAP18-11 KRTAP18.11	reviewed
+4338	O96007	MOC2B_HUMAN	Molybdopterin synthase catalytic subunit (EC 2.8.1.12) (MOCO1-B) (Molybdenum cofactor synthesis protein 2 large subunit) (Molybdenum cofactor synthesis protein 2B) (MOCS2B) (Molybdopterin-synthase large subunit) (MPT synthase large subunit)	MOCS2 MCBPE MOCO1	reviewed
+4338	O96033	MOC2A_HUMAN	Molybdopterin synthase sulfur carrier subunit (MOCO1-A) (Molybdenum cofactor synthesis protein 2 small subunit) (Molybdenum cofactor synthesis protein 2A) (MOCS2A) (Molybdopterin-synthase small subunit) (Sulfur carrier protein MOCS2A)	MOCS2 MOCO1	reviewed
+3017	P58876	H2B1D_HUMAN	Histone H2B type 1-D (H2B-clustered histone 5) (HIRA-interacting protein 2) (Histone H2B.1 B) (Histone H2B.b) (H2B/b)	H2BC5 H2BFB HIRIP2 HIST1H2BD	reviewed
+3017	P62807	H2B1C_HUMAN	Histone H2B type 1-C/E/F/G/I (Histone H2B.1 A) (Histone H2B.a) (H2B/a) (Histone H2B.g) (H2B/g) (Histone H2B.h) (H2B/h) (Histone H2B.k) (H2B/k) (Histone H2B.l) (H2B/l)	H2BC4 H2BFL HIST1H2BC; H2BC6 H2BFH HIST1H2BE; H2BC7 H2BFG HIST1H2BF; H2BC8 H2BFA HIST1H2BG; H2BC10 H2BFK HIST1H2BI	reviewed
+9465	O43687	AKA7A_HUMAN	A-kinase anchor protein 7 isoforms alpha and beta (AKAP-7 isoforms alpha and beta) (A-kinase anchor protein 18 kDa) (AKAP 18) (Protein kinase A-anchoring protein 7 isoforms alpha/beta) (PRKA7 isoforms alpha/beta)	AKAP7 AKAP15 AKAP18	reviewed
+9465	Q9P0M2	AKA7G_HUMAN	A-kinase anchor protein 7 isoform gamma (AKAP-7 isoform gamma) (A-kinase anchor protein 18 kDa) (AKAP 18) (Protein kinase A-anchoring protein 7 isoform gamma) (PRKA7 isoform gamma)	AKAP7 AKAP18	reviewed
+1523	P39880	CUX1_HUMAN	Homeobox protein cut-like 1 (CCAAT displacement protein) (CDP) (CDP/Cux p200) (Homeobox protein cux-1) [Cleaved into: CDP/Cux p110]	CUX1 CUTL1	reviewed
+1523	Q13948	CASP_HUMAN	Protein CASP	CUX1 CUTL1	reviewed
+1029	P42771	CDN2A_HUMAN	Cyclin-dependent kinase inhibitor 2A (Cyclin-dependent kinase 4 inhibitor A) (CDK4I) (Multiple tumor suppressor 1) (MTS-1) (p16-INK4a) (p16-INK4) (p16INK4A)	CDKN2A CDKN2 MTS1	reviewed
+1029	Q8N726	ARF_HUMAN	Tumor suppressor ARF (Alternative reading frame) (ARF) (Cyclin-dependent kinase inhibitor 2A) (p14ARF)	CDKN2A CDKN2 MLM	reviewed
+27433	Q5JU69	TOR2A_HUMAN	Torsin-2A (Torsin family 2 member A) (Torsin-related protein 1)	TOR2A TORP1 UNQ6408/PRO21181	reviewed
+27433	Q8N2E6	TOR2X_HUMAN	Prosalusin (Torsin family 2 member A) (Torsin-2A) [Cleaved into: Salusin-alpha; Salusin-beta]	TOR2A HEMBA1005096 PSEC0218	reviewed
+6399	P0DI81	TPC2A_HUMAN	Trafficking protein particle complex subunit 2 (Sedlin)	TRAPPC2 SEDL	reviewed
+6399	P0DI82	TPC2B_HUMAN	Trafficking protein particle complex subunit 2B (MBP-1-interacting protein 2A) (MIP-2A)	TRAPPC2B SEDLP1 TRAPPC2.19 TRAPPC2P1	reviewed
+11013	P0CG34	TB15A_HUMAN	Thymosin beta-15A (NB thymosin beta) (Thymosin-like protein 8)	TMSB15A TMSL8 TMSNB	reviewed
+11013	P0CG35	TB15B_HUMAN	Thymosin beta-15B	TMSB15B	reviewed
