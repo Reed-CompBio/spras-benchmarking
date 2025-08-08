@@ -3,7 +3,7 @@ Fetches the `prizes_05.tsv` and `prizes_060.tsv` files from
 https://github.com/gitter-lab/hiv1-aurkb, as well as the KGML file
 for `kegg_orthology.py`
 
-Associated paper: https://doi.org/10.1371/journal.ppat.1011492
+Associated paper for the prizes file: https://doi.org/10.1371/journal.ppat.1011492
 """
 
 import urllib.request
