@@ -13,15 +13,22 @@ rule prizes:
 
 rule prizes_unsprased:
     input:
-        "raw/p-values-first.tsv",
-        "raw/p-values-prev.tsv",
+        "download/tps_input_pvals_first.tsv",
+        "download/tps_input_pvals_prev.tsv",
         "raw/peptide-mapping.tsv"
     output:
         # We haven't made the final SPRAS adjustments yet.
         "processed/egfr-prizes-unSPRASed.txt"
     shell:
         "uv run scripts/generate_prizes.py " \
-            "--firstfile=raw/p-values-first.tsv " \
-            "--prevfile=raw/p-values-prev.tsv " \
+            "--firstfile=download/tps_input_pvals_first.tsv " \
+            "--prevfile=download/tps_input_pvals_prev.tsv " \
             "--mapfile=raw/peptide-mapping.tsv " \
             "--outfile={output}"
+
+rule get_prize_files:
+    output:
+        "download/tps_input_pvals_first.tsv",
+        "download/tps_input_pvals_prev.tsv"
+    shell:
+        "uv run scripts/fetch-tps-data.py"

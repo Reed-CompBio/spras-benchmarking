@@ -1,9 +1,10 @@
 """
-Fetches the first supplementary data from the TPS paper:
-https://doi.org/10.1016/j.celrep.2018.08.085.
+Fetches the second supplementary data from the TPS paper:
+https://doi.org/10.1016/j.celrep.2018.08.085. We trust the processed data from the paper:
+see the README for motivation.
 
-This contains the raw data necessary to get `p-values-first.tsv` and `p-values-prev.tsv`,
-which are fed in to generate the prizes.
+The ZIP contains `p-values-first.tsv` and `p-values-prev.tsv`,
+which are fed in to generate the prizes file.
 """
 
 import requests
@@ -14,7 +15,7 @@ import zipfile
 
 current_directory = Path(os.path.dirname(os.path.realpath(__file__)))
 
-DOWNLOAD_URL = "https://ars.els-cdn.com/content/image/1-s2.0-S2211124718313895-mmc2.zip"
+DOWNLOAD_URL = "https://ars.els-cdn.com/content/image/1-s2.0-S2211124718313895-mmc3.zip"
 
 def main():
     # https://stackoverflow.com/a/14260592/7589775
@@ -24,9 +25,6 @@ def main():
     download_folder = current_directory / '..' / 'download'
     download_folder.mkdir(exist_ok=True)
     zipf.extractall(current_directory / '..' / 'download')
-
-    initial_xlsx = download_folder / 'initial.xlsx'
-    assert initial_xlsx.exists(), "initial.xlsx should be present from the DOWNLOAD_URL!"
 
 if __name__ == '__main__':
     main()

@@ -30,9 +30,8 @@ We want to generate the [egfr-prizes.txt](https://github.com/gitter-lab/tps/blob
 The script depends on three files, all inside the TPS [data/timeseries](https://github.com/koksal/tps/tree/bb58d6d89e24dbc39e976a02f1e31387dbe17dfb/data/timeseries)
 folder, which also depend on their own raw files.
 
-`firstfile` and `prevfile`, mapped to `p-values-first.tsv` and `p-values-prev.tsv` are processed from the raw data provided by first supplementary data in the TPS paper.
-
-We first get the raw data with `fetch-tps-data.py`, then TODO.
+`firstfile` and `prevfile`, mapped to `p-values-first.tsv` and `p-values-prev.tsv` are processed from the raw data provided by first supplementary data in the TPS paper. However, since the raw data inside the paper is unlikely
+to be updated with the same output format, we trust that the second supplementary data (or the processed data) is correct.
 
 `mapfile`, or `peptide-mapping.tsv`, is, as quoted by the TPS paper:
 > Obtained by mapping the UniProt accession number (e.g. P00533) to the UniProt ID (e.g. EGFR_HUMAN, also known as the UniProt entry name).
