@@ -27,14 +27,18 @@ file from the TPS repository ([origin commit](https://github.com/koksal/tps/blob
 
 We want to generate the [egfr-prizes.txt](https://github.com/gitter-lab/tps/blob/1d716fb5ae402328a4dd4a43ebe5517bfc67bc31/data/pcsf/egfr-prizes.txt) file from the TPS repository. This file is dynamically generated using a [`generate_prizes.sh` script](https://github.com/koksal/tps/blob/bb58d6d89e24dbc39e976a02f1e31387dbe17dfb/pcsf/generate_prizes.sh), which we clean up and embed into this repository (see [scripts/generate_prizes.py](scripts/generate_prizes.py)).
 
-The script depends on three files, all inside the TPS [data/timeseries](https://github.com/koksal/tps/tree/bb58d6d89e24dbc39e976a02f1e31387dbe17dfb/data/timeseries) folder (the 'key' is the argument name passed to `generate_prizes.sh`):
+The script depends on three files, all inside the TPS [data/timeseries](https://github.com/koksal/tps/tree/bb58d6d89e24dbc39e976a02f1e31387dbe17dfb/data/timeseries)
+folder, which also depend on their own raw files.
 
-- `firstfile`: `p-values-first.tsv`
-    - We get this file from ???
-- `prevfile`: `p-values-prev.tsv`
-    - We get this file from ???
-- `mapfile`: `peptide-mapping.tsv`
-    - We get this file from ???
+`firstfile` and `prevfile`, mapped to `p-values-first.tsv` and `p-values-prev.tsv` are processed from the raw data provided by first supplementary data in the TPS paper.
+
+We first get the raw data with `fetch-tps-data.py`, then TODO.
+
+`mapfile`, or `peptide-mapping.tsv`, is, as quoted by the TPS paper:
+> Obtained by mapping the UniProt accession number (e.g. P00533) to the UniProt ID (e.g. EGFR_HUMAN, also known as the UniProt entry name).
+_PSEUDONODE is used to denote a peptide that only maps to obsolete UniProt IDs.
+
+TODO: reproduce these
 
 
 ## SPRAS adjustments
