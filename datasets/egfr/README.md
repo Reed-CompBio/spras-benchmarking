@@ -5,8 +5,8 @@ This dataset represents protein phosphorylation changes in response to epidermal
 The network includes protein-protein interactions from the (unfortunately now defunct) [iRefIndex](http://irefindex.org/)
 and kinase-substrate interactions from [PhosphoSitePlus](http://www.phosphosite.org/).
 
-These files have been reverse engineered from the [Temporal Pathway Synthesizer (TPS)](https://github.com/gitter-lab/tps) repository,
-to enable full transparency about data origins.
+The processed versions of the provided files can be found in the [Temporal Pathway Synthesizer (TPS)](https://github.com/gitter-lab/tps) repository (and its [associated paper](https://doi.org/10.1016/j.celrep.2018.08.085)). We attach scripts to
+reproduce some of the TPS data (when reasonable) to better enable reproducibility.
 
 Specifically, we break this dataset processing down into three phases:
 - Collecting raw data
@@ -33,12 +33,14 @@ folder, which also depend on their own raw files.
 `firstfile` and `prevfile`, mapped to `p-values-first.tsv` and `p-values-prev.tsv` are processed from the raw data provided by first supplementary data in the TPS paper. However, since the raw data inside the paper is unlikely
 to be updated with the same output format, we trust that the second supplementary data (or the processed data) is correct.
 
-`mapfile`, or `peptide-mapping.tsv`, is, as quoted by the TPS paper:
-> Obtained by mapping the UniProt accession number (e.g. P00533) to the UniProt ID (e.g. EGFR_HUMAN, also known as the UniProt entry name).
-_PSEUDONODE is used to denote a peptide that only maps to obsolete UniProt IDs.
+---
 
-TODO: reproduce these
+`mapfile`, or `peptide-mapping.tsv`, is, as quoted by the README attached to the second supplementary data:
+> Obtained by mapping the UniProt accession number (e.g. P00533)
+> to the UniProt ID (e.g. EGFR_HUMAN, also known as the UniProt entry name).
+> _PSEUDONODE is used to denote a peptide that only maps to obsolete UniProt IDs.
 
+The UniProt accession numbers are provided by the `processed.xlsx` file in the first supplementary dataset. While we just ignored the 'rawer' data for `p-values-first.tsv` and `p-values-prev.tsv`, no data from the second supplementary dataset comes with the associated UniProt accession numbers. TODO: use.
 
 ## SPRAS adjustments
 
