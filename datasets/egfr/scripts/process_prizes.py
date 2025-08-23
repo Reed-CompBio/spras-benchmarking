@@ -1,5 +1,7 @@
 """
 Makes the final SPRAS-necessary adjustments to file prizes.
+
+Specifically, we truncate the prize precision and sort by node ID.
 """
 
 import argparse
