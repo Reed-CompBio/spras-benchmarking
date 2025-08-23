@@ -55,8 +55,8 @@ datasets:
     edge_files: ["phosphosite-irefindex13.0-uniprot.txt"]
     other_files: []
     data_dir: "datasets/hiv/processed"
+  # Yeast: https://github.com/tristan-f-r/spras-benchmarking/blob/9477d85871024a5e3a4b0b8b9be7e78c0d0ee961/yeast-osmotic-stress/config.yaml
   - label: dmmmyeast
-    # Yeast: https://github.com/tristan-f-r/spras-benchmarking/blob/9477d85871024a5e3a4b0b8b9be7e78c0d0ee961/yeast-osmotic-stress/config.yaml
     node_files: ["prizes1_dummies.txt"]
     edge_files: ["network1.txt"]
     other_files: []

@@ -3,9 +3,9 @@ import re
 import os
 
 # configuration - change cell line list and dependency cutoff as needed
-cell_line_names = ["FADU", "BHY", "SCC4", "INVALID_CELLLINE"] 
+cell_line_names = ["FADU", "BHY", "SCC4", "INVALID_CELLLINE"]
 dependency_threshold = 0.5
-require_all_datasets = False  # set to true to require all data types  
+require_all_datasets = False  # set to true to require all data types
 
 class CellLineProcessingError(Exception):
     """Custom exception for cell line processing errors."""
@@ -16,7 +16,7 @@ def check_cell_line(cell_line_name, omics_profiles, damaging_mutations_df, CRISP
 
     if match.empty:
         raise CellLineProcessingError(f"Cell line '{cell_line_name}' not found in OmicsProfiles.")
-    
+
     model_id = match.index[0]
     profile_row = match.index[0]
     print(f"Found '{cell_line_name}' cell line, model ID: {model_id} (row {profile_row})")
@@ -34,39 +34,39 @@ def check_cell_line(cell_line_name, omics_profiles, damaging_mutations_df, CRISP
         row_dep = CRISPR_dependency.index.get_loc(model_id)
         print(f"{cell_line_name} cell line (Model ID: {model_id}) present in CRISPR dependencies at row {row_dep}")
 
-    # check other datasets 
+    # check other datasets
     if require_all_datasets:
-        
+
         if model_id not in omics_cnv.index:
             raise CellLineProcessingError(f"Cell line '{cell_line_name}' not found in required omics CNV data")
         else:
             row_cnv = omics_cnv.index.get_loc(model_id)
             print(f"{cell_line_name} cell line (Model ID: {model_id}) present in omics CNV at row {row_cnv}")
-        
+
         if model_id not in omics_expression.index:
             raise CellLineProcessingError(f"Cell line '{cell_line_name}' not found in required expression data")
         else:
             row_exp = omics_expression.index.get_loc(model_id)
             print(f"{cell_line_name} cell line (Model ID: {model_id}) present in omics expressions at row {row_exp}")
-        
+
         print(f"All required datasets contain the cell line '{cell_line_name}' (Model ID: {model_id})")
     else:
         # log availability of optional datasets
         cnv_present = model_id in omics_cnv.index
         expression_present = model_id in omics_expression.index
-        
+
         if cnv_present:
             row_cnv = omics_cnv.index.get_loc(model_id)
             print(f"{cell_line_name} cell line (Model ID: {model_id}) present in omics CNV at row {row_cnv}")
         else:
             print(f"WARNING: {cell_line_name} not found in omics CNV data (optional dataset)")
-            
+
         if expression_present:
             row_exp = omics_expression.index.get_loc(model_id)
             print(f"{cell_line_name} cell line (Model ID: {model_id}) present in omics expressions at row {row_exp}")
         else:
             print(f"WARNING: {cell_line_name} not found in expression data (optional dataset)")
-        
+
         print(f"Required datasets contain the cell line '{cell_line_name}' (Model ID: {model_id})")
 
     return True, model_id
@@ -103,13 +103,13 @@ def generate_prize_files(cell_line_name, model_id, damaging_mutations_df, unipro
 
     return gene_to_uniprot
 
-def process_single_cell_line(cell_line_name, omics_profiles, damaging_mutations_df, CRISPR_dependency, 
+def process_single_cell_line(cell_line_name, omics_profiles, damaging_mutations_df, CRISPR_dependency,
                            omics_expression, omics_cnv, uniprot_map):
     """Process a single cell line and generate output files."""
     try:
         print(f"\n=== Processing cell line: {cell_line_name} ===")
-        
-        is_present, model_id = check_cell_line(cell_line_name, omics_profiles, damaging_mutations_df, 
+
+        is_present, model_id = check_cell_line(cell_line_name, omics_profiles, damaging_mutations_df,
                                              CRISPR_dependency, omics_expression, omics_cnv)
 
         if is_present:
@@ -120,7 +120,7 @@ def process_single_cell_line(cell_line_name, omics_profiles, damaging_mutations_
             generate_gold_standard(cell_line_name, model_id, CRISPR_dependency, gene_to_uniprot, dependency_threshold)
             print(f"Processing for cell line '{cell_line_name}' completed successfully.")
             return True
-            
+
     except CellLineProcessingError as e:
         print(f"ERROR: {e}")
         return False
@@ -158,7 +158,7 @@ def main():
     try:
         # Load raw dataset files
         print("Loading datasets...")
-        base_dir = os.path.join("..", "raw") 
+        base_dir = os.path.join("..", "raw")
         damaging_mutations_df = pd.read_csv(os.path.join(base_dir, "OmicsSomaticMutationsMatrixDamaging.csv"), index_col=0)
         omics_profiles = pd.read_csv(os.path.join(base_dir, "OmicsProfiles.csv"), index_col=0)
         omics_expression = pd.read_csv(os.path.join(base_dir, "OmicsExpressionProteinCodingGenesTPMLogp1.csv"), index_col=0)
@@ -168,7 +168,7 @@ def main():
         # Load uniprot mapping file form gene symbols
         print("Loading UniProt mapping file...")
         uniprot_map = pd.read_csv(os.path.join("..", "processed", "DamagingMutations_idMapping_20250718.tsv"), sep='\t')
-        
+
     except FileNotFoundError as e:
         print(f"ERROR: Required data file not found: {e}")
         raise SystemExit(1)
@@ -181,9 +181,9 @@ def main():
     failed_count = 0
     successful_cell_lines = []
     failed_cell_lines = []
-    
+
     for cell_line_name in cell_line_names:
-        success = process_single_cell_line(cell_line_name, omics_profiles, damaging_mutations_df, 
+        success = process_single_cell_line(cell_line_name, omics_profiles, damaging_mutations_df,
                                          CRISPR_dependency, omics_expression, omics_cnv, uniprot_map)
         if success:
             successful_count += 1
@@ -192,18 +192,18 @@ def main():
             failed_count += 1
             failed_cell_lines.append(cell_line_name)
 
-    # summary stats 
-    print(f"\n=== Processing Summary ===")
+    # summary stats
+    print("\n=== Processing Summary ===")
     print(f"Total cell lines processed: {len(cell_line_names)}")
     print(f"Successfully processed: {successful_count}")
     print(f"Failed to process: {failed_count}")
-    
+
     if successful_cell_lines:
         print(f"Successfully processed cell lines: {', '.join(successful_cell_lines)}")
-    
+
     if failed_cell_lines:
         print(f"Failed cell lines: {', '.join(failed_cell_lines)}")
-    
+
     # Exit with error code if any cell line processing failed
     if failed_count > 0:
         print("Some cell lines failed to process. Check error messages above.")

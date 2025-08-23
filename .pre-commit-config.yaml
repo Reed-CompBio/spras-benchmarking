@@ -28,4 +28,3 @@ repos:
     rev: v0.17.0
     hooks:
       - id: yamlfmt
-        exclude: \.pre-commit-config\.yaml$
