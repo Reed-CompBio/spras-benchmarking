@@ -23,7 +23,7 @@ file from the TPS repository ([origin commit](https://github.com/koksal/tps/blob
 
 ???
 
-### Gold standard
+### Prizes
 
 We want to generate the [egfr-prizes.txt](https://github.com/gitter-lab/tps/blob/1d716fb5ae402328a4dd4a43ebe5517bfc67bc31/data/pcsf/egfr-prizes.txt) file from the TPS repository. This file is dynamically generated using a [`generate_prizes.sh` script](https://github.com/koksal/tps/blob/bb58d6d89e24dbc39e976a02f1e31387dbe17dfb/pcsf/generate_prizes.sh), which we clean up and embed into this repository (see [scripts/generate_prizes.py](scripts/generate_prizes.py)).
 
@@ -47,6 +47,8 @@ These files have been lightly modified for SPRAS by:
 - Considering all proteins with phosphorylation-based prizes as targets.
 - Considering all nodes as active.
 - Truncate the prizes down to `Y.YYYYYYYYY` with rounding.
+
+See the `Snakefile` for specific SPRAS post-processing scripts.
 
 ## Citation
 
