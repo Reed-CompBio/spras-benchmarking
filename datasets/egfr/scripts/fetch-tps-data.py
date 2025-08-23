@@ -24,7 +24,7 @@ def main():
 
     download_folder = current_directory / '..' / 'download'
     download_folder.mkdir(exist_ok=True)
-    zipf.extractall(current_directory / '..' / 'download')
+    zipf.extractall(download_folder)
 
 if __name__ == '__main__':
     main()
