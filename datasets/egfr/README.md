@@ -1,0 +1,66 @@
+# EGFR
+
+This dataset represents protein phosphorylation changes in response to epidermal growth factor (EGF) treatment.
+
+The network includes protein-protein interactions from the (unfortunately now defunct) [iRefIndex](http://irefindex.org/)
+and kinase-substrate interactions from [PhosphoSitePlus](http://www.phosphosite.org/).
+
+These files have been reverse engineered from the [Temporal Pathway Synthesizer (TPS)](https://github.com/gitter-lab/tps) repository,
+to enable full transparency about data origins.
+
+Specifically, we break this dataset processing down into three phases:
+- Collecting raw data
+- Reproducing the TPS EGFR data
+- Applying the final SPRAS adjustments.
+
+## Reproducing TPS EGFR data
+
+### Interactome
+
+We want to generate the
+[phosphosite-irefindex13.0-uniprot.txt](https://github.com/gitter-lab/tps/blob/1d716fb5ae402328a4dd4a43ebe5517bfc67bc31/data/networks/phosphosite-irefindex13.0-uniprot.txt)
+file from the TPS repository ([origin commit](https://github.com/koksal/tps/blob/52f9f3da752db8b1be6ada5d7e4216c3984fdba5/data/networks/PhosphoSite_iRefIndex13.0_uniprot_overwrite_pcsf.txt)) ([explanation commit](https://github.com/koksal/tps/pull/4/commits/2219d9570fa5fe85bf47a8bbad8853bf649151f7#diff-c5ad97885a9f1a8caa04e64629373a0484c8c150e9abc68bf74a4ec5c8bdb9c7R30-R32)).
+
+???
+
+### Gold standard
+
+We want to generate the [egfr-prizes.txt](https://github.com/gitter-lab/tps/blob/1d716fb5ae402328a4dd4a43ebe5517bfc67bc31/data/pcsf/egfr-prizes.txt) file from the TPS repository. This file is dynamically generated using a [`generate_prizes.sh` script](https://github.com/koksal/tps/blob/bb58d6d89e24dbc39e976a02f1e31387dbe17dfb/pcsf/generate_prizes.sh), which we clean up and embed into this repository (see [scripts/generate_prizes.py](scripts/generate_prizes.py)).
+
+The script depends on three files, all inside the TPS [data/timeseries](https://github.com/koksal/tps/tree/bb58d6d89e24dbc39e976a02f1e31387dbe17dfb/data/timeseries) folder (the 'key' is the argument name passed to `generate_prizes.sh`):
+
+- `firstfile`: `p-values-first.tsv`
+    - We get this file from ???
+- `prevfile`: `p-values-prev.tsv`
+    - We get this file from ???
+- `mapfile`: `peptide-mapping.tsv`
+    - We get this file from ???
+
+
+## SPRAS adjustments
+
+These files have been lightly modified for SPRAS by:
+- Lowering one edge weight that was greater than 1.
+- Removing 182 self-edges.
+- Removing a `PSEUDONODE` prize.
+- Adding a prize of 10.0 to `EGF_HUMAN`, as the only source is `EGF_HUMAN`.
+- Considering all proteins with phosphorylation-based prizes as targets.
+- Considering all nodes as active.
+- Truncate the prizes down to `Y.YYYYYYYYY` with rounding.
+
+## Citation
+
+If you use this dataset, please reference the following publications: (if you only use the background interactome, the latter two publications suffice.)
+
+[Synthesizing Signaling Pathways from Temporal Phosphoproteomic Data](https://doi.org/10.1016/j.celrep.2018.08.085).
+Ali Sinan Köksal, Kirsten Beck, Dylan R. Cronin, Aaron McKenna, Nathan D. Camp, Saurabh Srivastava, Matthew E. MacGilvray,
+Rastislav Bodík, Alejandro Wolf-Yadlin, Ernest Fraenkel, Jasmin Fisher, Anthony Gitter.
+*Cell Reports* 24(13):3607-3618 2018.
+
+[iRefIndex: a consolidated protein interaction database with provenance](https://doi.org/10.1186/1471-2105-9-405).
+Sabry Razick, George Magklaras, Ian M Donaldson.
+*BMC Bioinformatics* 9(405) 2008.
+
+[PhosphoSitePlus, 2014: mutations, PTMs and recalibrations](https://doi.org/10.1093/nar/gku1267).
+Peter V Hornbeck, Bin Zhang, Beth Murray, Jon M Kornhauser, Vaughan Latham, Elzbieta Skrzypek.
+*Nucleic Acids Research* 43(D1):D512-520 2015.

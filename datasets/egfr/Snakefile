@@ -1,0 +1,27 @@
+rule all:
+    input:
+        "processed/egfr-prizes.txt"
+
+rule prizes:
+    # Make the SPRAS adjustments
+    input:
+        "processed/egfr-prizes-unSPRASed.txt"
+    output:
+        "processed/egfr-prizes.txt"
+    shell:
+        "uv run scripts/process_prizes.py --input={input} --output={output}"
+
+rule prizes_unsprased:
+    input:
+        "raw/p-values-first.tsv",
+        "raw/p-values-prev.tsv",
+        "raw/peptide-mapping.tsv"
+    output:
+        # We haven't made the final SPRAS adjustments yet.
+        "processed/egfr-prizes-unSPRASed.txt"
+    shell:
+        "uv run scripts/generate_prizes.py " \
+            "--firstfile=raw/p-values-first.tsv " \
+            "--prevfile=raw/p-values-prev.tsv " \
+            "--mapfile=raw/peptide-mapping.tsv " \
+            "--outfile={output}"
