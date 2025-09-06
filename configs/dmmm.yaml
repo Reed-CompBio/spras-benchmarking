@@ -10,7 +10,6 @@ container_registry:
 reconstruction_settings:
   locations:
     reconstruction_dir: "output"
-    run: true
 
 analysis:
   summary:
