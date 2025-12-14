@@ -10,12 +10,9 @@ container_registry:
 reconstruction_settings:
   locations:
     reconstruction_dir: "output"
-    run: true
 
 analysis:
   summary:
-    include: false
-  graphspace:
     include: false
   cytoscape:
     include: false

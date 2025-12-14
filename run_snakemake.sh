@@ -13,8 +13,8 @@ set -o nounset
 cd "$(dirname "$0")"
 
 main() {
-    uv tool run snakemake --cores 1 -d datasets/yeast-osmotic-stress -s datasets/yeast-osmotic-stress/Snakefile
-    uv tool run snakemake --cores 1 -d datasets/hiv -s datasets/hiv/Snakefile
+    uv run snakemake --cores 1 -d datasets/yeast-osmotic-stress -s datasets/yeast-osmotic-stress/Snakefile
+    uv run snakemake --cores 1 -d datasets/hiv -s datasets/hiv/Snakefile
 }
 
 main "$@"
