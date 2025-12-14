@@ -22,7 +22,7 @@ def main():
     # three channels (as mentioned from Damian Szklarczyk)
 
     raw_dir.mkdir(exist_ok=True)
-    
+
     print("Fetching DISEASES text channel...")
     urllib.request.urlretrieve(
         "https://download.jensenlab.org/human_disease_textmining_filtered.tsv",

@@ -70,5 +70,3 @@ gold_standards:
     # List of dataset labels to compare with the specific gold standard dataset
     dataset_labels: ["diabetes_mellitus"]
 
-
-
