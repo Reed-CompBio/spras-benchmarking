@@ -12,11 +12,6 @@ permissions:
   pages: write
   id-token: write
 
-# Allow one concurrent deployment
-concurrency:
-  group: 'pages'
-  cancel-in-progress: true
-
 jobs:
   pre-commit:
     name: Run pre-commit checks
@@ -87,6 +82,9 @@ jobs:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
+    concurrency:
+      group: 'pages'
+      cancel-in-progress: true
     steps:
       - name: Download Artifacts
         uses: actions/download-artifact@v4

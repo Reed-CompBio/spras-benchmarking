@@ -13,7 +13,7 @@ dependencies = [
 [dependency-groups]
 dev = [
     "pre-commit>=4.2.0",
-    "snakemake>=9.6.0",
+    "snakemake==9.9.0",
 ]
 
 [tool.ruff]
