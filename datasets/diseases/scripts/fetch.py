@@ -37,7 +37,7 @@ def main():
 
     print("Fetching TIGA data...")
     urllib.request.urlretrieve(
-        "https://unmtid-shinyapps.net/shiny/tiga/session/4fc1d570b85bb6fcc4e9660a7944a6e3/download/gt_file?w=",
+        "https://unmtid-shinyapps.net/shiny/tiga/session/3540ae3a93d3494ca59ebe1ace3fc6be/download/gt_file?w=",
         raw_dir / "tiga_gene-trait_stats.tsv"
     )
 

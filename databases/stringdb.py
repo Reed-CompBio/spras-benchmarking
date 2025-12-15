@@ -22,7 +22,7 @@ def parse_args():
                         For example, 9606 is the homo sapiens background interactome.
                         For an example usage, see datasets/diseases's Snakefile.
                         """,
-                        type=int)
+                        type=int, required=True)
 
     return parser.parse_args()
 

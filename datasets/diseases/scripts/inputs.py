@@ -8,6 +8,7 @@ import os
 dir_path = os.path.dirname(os.path.realpath(__file__))
 
 diseases_path = Path(dir_path, '..')
+(diseases_path / "pickles").mkdir(exist_ok=True, parents=True)
 
 def main():
     # See fetch.py for information on this file's origin
@@ -22,6 +23,7 @@ def main():
 
     tiga_do = tiga.merge(human_do, left_on="trait", right_on="label", how="inner", validate="m:1")
 
+    print("Fetching STRING IDs...")
     string_api_url = "https://version-12-0.string-db.org/api"
     output_format = "tsv-no-header"
     method = "get_string_ids"

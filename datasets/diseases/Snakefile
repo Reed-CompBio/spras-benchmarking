@@ -1,0 +1,39 @@
+rule of_db:
+    output:
+        "../../databases/9606.protein.links.v12.0.txt"
+    shell:
+        "uv run ../../databases/string.py --id 9606"
+
+rule fetch:
+    output:
+        "raw/human_disease_knowledge_filtered.tsv"
+        "raw/human_disease_textmining_filtered.tsv"
+        "raw/HumanDO.tsv"
+        "raw/tiga_gene-trait_stats.tsv"
+    shell:
+        "uv run scripts/fetch.py"
+
+rule inputs:
+    input:
+        "raw/HumanDO.tsv"
+        "raw/tiga_gene-trait_stats.tsv"
+    output:
+        "pickles/inputs.pkl"
+    shell:
+        "uv run scripts/inputs.py"
+
+rule gold_standard:
+    input:
+        "raw/human_disease_knowledge_filtered.tsv"
+        "raw/human_disease_textmining_filtered.tsv"
+    output:
+        "pickles/gold_standard.pkl"
+    shell:
+        "uv run scripts/gold_standard.py"
+
+rule files:
+    input:
+        "pickles/inputs.pkl"
+        "pickles/gold_standard.pkl"
+        "../../databases/9606.protein.links.v12.0.txt"
+    output:

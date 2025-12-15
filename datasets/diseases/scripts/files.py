@@ -7,6 +7,8 @@ import os
 dir_path = os.path.dirname(os.path.realpath(__file__))
 
 diseases_path = Path(dir_path, '..')
+(diseases_path / 'prize_files').mkdir(exist_ok=True, parents=True)
+(diseases_path / 'GS_files').mkdir(exist_ok=True, parents=True)
 
 def main():
     with open(diseases_path / "pickles" / "gold_standard.pkl", "rb") as file:
