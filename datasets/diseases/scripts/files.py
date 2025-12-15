@@ -11,9 +11,7 @@ diseases_path = Path(dir_path, '..')
 (diseases_path / 'GS_files').mkdir(exist_ok=True, parents=True)
 
 def main():
-    with open(diseases_path / "pickles" / "gold_standard.pkl", "rb") as file:
-        # See gold_standard.py
-        GS_string_df = pickle.load(file)
+    GS_string_df = pd.read_csv(diseases_path / "data" / "gold_standard.csv")
 
     with open(diseases_path / "pickles" / "inputs.pkl", "rb") as file:
         # See inputs.py

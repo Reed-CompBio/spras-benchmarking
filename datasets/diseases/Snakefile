@@ -1,6 +1,8 @@
 rule all:
     "GS_files/Alopecia_areata_GS.txt"
     "GS_files/Alopecia_areata_GS.txt"
+    "prize_files/alopecia_areata_prizes.txt"
+    "prize_files/diabetes_mellitus_prizes.txt"
 
 rule of_db:
     output:
@@ -22,7 +24,7 @@ rule inputs:
         "raw/HumanDO.tsv"
         "raw/tiga_gene-trait_stats.tsv"
     output:
-        "pickles/inputs.pkl"
+        "data/inputs.csv"
     shell:
         "uv run scripts/inputs.py"
 
@@ -31,18 +33,20 @@ rule gold_standard:
         "raw/human_disease_knowledge_filtered.tsv"
         "raw/human_disease_textmining_filtered.tsv"
     output:
-        "pickles/gold_standard.pkl"
+        "data/gold_standard.csv"
     shell:
         "uv run scripts/gold_standard.py"
 
 rule files:
     input:
-        "pickles/inputs.pkl"
-        "pickles/gold_standard.pkl"
+        "data/inputs.csv"
+        "data/gold_standard.csv"
         "../../databases/9606.protein.links.v12.0.txt"
     output:
         # These are the two we use for the SPRAS run for now
         "GS_files/Alopecia_areata_GS.txt"
         "GS_files/Alopecia_areata_GS.txt"
+        "prize_files/alopecia_areata_prizes.txt"
+        "prize_files/diabetes_mellitus_prizes.txt"
     shell:
         "uv run scripts/files.py"

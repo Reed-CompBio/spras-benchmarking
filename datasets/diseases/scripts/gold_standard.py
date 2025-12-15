@@ -2,7 +2,6 @@ import pandas as pd
 import requests
 import os
 from pathlib import Path
-import pickle
 
 # https://stackoverflow.com/a/5137509/7589775
 dir_path = os.path.dirname(os.path.realpath(__file__))
@@ -60,18 +59,20 @@ def main():
     }
     request_url = "/".join([string_api_url, output_format, method])
     string_results = requests.post(request_url, data=str_params)
+    string_results = string_results.text.strip()
 
+    (diseases_path / "data").mkdir(exist_ok=True)
+
+    # Archive the STRING data
+    (diseases_path / "data" / "string-call.txt").write_text(string_results)
     string_map = {}
-    for line in string_results.text.strip().split("\n"):
+    for line in string_results.split("\n"):
         l = line.split("\t")
         string_map.update({l[0]: l[2]})
     string_df = pd.DataFrame.from_dict(string_map.items())
     string_df.columns = ["ENSP", "str_id"]
     GS_string_df = GS_combined_threshold.merge(string_df, on="ENSP", how="inner")
-
-    (diseases_path / "pickles").mkdir(exist_ok=True)
-    with open(diseases_path / "pickles" / "gold_standard.pkl", "wb") as file:
-        pickle.dump(GS_string_df, file)
+    GS_string_df.to_csv(diseases_path / "data" / "gold_standard.csv", index=False)
 
 def gprofiler_convert(ids: list, namespace: str, df: pd.DataFrame) -> pd.DataFrame:
     """
