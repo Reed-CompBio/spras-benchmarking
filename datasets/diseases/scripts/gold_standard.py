@@ -43,12 +43,6 @@ def main():
     df_list = [inner, txt_only, kn_only]
     GS_ids = pd.concat(df_list)
 
-    # GS_group = GS_ids.groupby('diseaseName')
-    # GS_dict = {k:v for k,v in GS_group}
-    # GS_count = {x:len(GS_dict[x]) for x in GS_dict.keys()}
-    # print('count quantiles: ',stats.quantiles(GS_count.values()))
-    # print('score quantiles: ',stats.quantiles(GS_ids['confidenceScore']))
-
     GS_score_threshold = GS_ids.loc[(GS_ids["confidenceScore"] >= 4)]
     GS_score_group = GS_ids.groupby("diseaseName")
     GS_score_dict = {k: v for k, v in GS_score_group}

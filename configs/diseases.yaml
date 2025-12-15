@@ -56,7 +56,7 @@ analysis:
 gold_standards:
   - # Labels can only contain letters, numbers, or underscores
     label: gs0
-    node_files: ['/GS_files/Alopecia_areata_GS.txt']
+    node_files: ['GS_files/Alopecia_areata_GS.txt']
     # edge_files: [] TODO: later iteration
     data_dir: "datasets/diseases"
     # List of dataset labels to compare with the specific gold standard dataset

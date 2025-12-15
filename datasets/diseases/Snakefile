@@ -1,3 +1,7 @@
+rule all:
+    "GS_files/Alopecia_areata_GS.txt"
+    "GS_files/Alopecia_areata_GS.txt"
+
 rule of_db:
     output:
         "../../databases/9606.protein.links.v12.0.txt"
@@ -37,3 +41,8 @@ rule files:
         "pickles/gold_standard.pkl"
         "../../databases/9606.protein.links.v12.0.txt"
     output:
+        # These are the two we use for the SPRAS run for now
+        "GS_files/Alopecia_areata_GS.txt"
+        "GS_files/Alopecia_areata_GS.txt"
+    shell:
+        "uv run scripts/files.py"
