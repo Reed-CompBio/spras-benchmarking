@@ -12,10 +12,7 @@ diseases_path = Path(dir_path, '..')
 
 def main():
     GS_string_df = pd.read_csv(diseases_path / "data" / "gold_standard.csv")
-
-    with open(diseases_path / "pickles" / "inputs.pkl", "rb") as file:
-        # See inputs.py
-        tiga_string_df = pickle.load(file)
+    tiga_string_df = pd.read_csv(diseases_path / "data" / "inputs.csv")
 
     GS_string_df = GS_string_df[GS_string_df["diseaseID"].isin(tiga_string_df["id"])]
     GS_combined_group = GS_string_df.groupby("diseaseName")

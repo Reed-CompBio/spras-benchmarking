@@ -3,6 +3,34 @@ import requests
 import os
 from pathlib import Path
 
+def gprofiler_convert(ids: list, namespace: str, df: pd.DataFrame) -> pd.DataFrame:
+    """
+    Converts a list of IDs to a namespace, and associates it with a dataframe
+    (see code for more details) using the gprofiler API.
+    """
+
+    # See the associated API documentation at https://biit.cs.ut.ee/gprofiler/page/apis.
+    r = requests.post(
+        url="https://biit.cs.ut.ee/gprofiler/api/convert/convert/",
+        json={
+            "organism": "hsapiens",
+            "target": namespace,
+            "query": ids,
+        },
+    )
+    results = r.json()["result"]
+    mapping = {}
+    for x in results:
+        if x["converted"] != "None":
+            mapping.update({x["incoming"]: x["converted"]})
+
+    mapping_df = pd.DataFrame.from_dict(mapping.items())
+    mapping_df.columns = ["ENSP", "ENSG"]
+    output_df = df.merge(mapping_df, left_on="geneID", right_on="ENSP", how="inner", validate="m:1")
+    output_df = output_df.sort_values("confidenceScore", ascending=False).drop_duplicates(subset=["ENSG", "diseaseID"], keep=False).sort_index()
+
+    return output_df
+
 # https://stackoverflow.com/a/5137509/7589775
 dir_path = os.path.dirname(os.path.realpath(__file__))
 
@@ -73,34 +101,6 @@ def main():
     string_df.columns = ["ENSP", "str_id"]
     GS_string_df = GS_combined_threshold.merge(string_df, on="ENSP", how="inner")
     GS_string_df.to_csv(diseases_path / "data" / "gold_standard.csv", index=False)
-
-def gprofiler_convert(ids: list, namespace: str, df: pd.DataFrame) -> pd.DataFrame:
-    """
-    Converts a list of IDs to a namespace, and associates it with a dataframe
-    (see code for more details) using the gprofiler API.
-    """
-
-    # See the associated API documentation at https://biit.cs.ut.ee/gprofiler/page/apis.
-    r = requests.post(
-        url="https://biit.cs.ut.ee/gprofiler/api/convert/convert/",
-        json={
-            "organism": "hsapiens",
-            "target": namespace,
-            "query": ids,
-        },
-    )
-    results = r.json()["result"]
-    mapping = {}
-    for x in results:
-        if x["converted"] != "None":
-            mapping.update({x["incoming"]: x["converted"]})
-
-    mapping_df = pd.DataFrame.from_dict(mapping.items())
-    mapping_df.columns = ["ENSP", "ENSG"]
-    output_df = df.merge(mapping_df, left_on="geneID", right_on="ENSP", how="inner", validate="m:1")
-    output_df = output_df.sort_values("confidenceScore", ascending=False).drop_duplicates(subset=["ENSG", "diseaseID"], keep=False).sort_index()
-
-    return output_df
 
 if __name__ == "__main__":
     main()
