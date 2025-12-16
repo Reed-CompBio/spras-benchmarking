@@ -3,7 +3,7 @@ hash_length: 7
 containers:
   registry:
     base_url: docker.io
-  owner: reedcompbio
+    owner: reedcompbio
   framework: docker
   unpack_singularity: false
 
