@@ -8,7 +8,7 @@ rule get_interactome:
     output:
         "raw/Muscle_Skeletal-Dec2018.tsv"
     shell:
-        "uv run gdown https://drive.google.com/file/d/1mkvWrCkeDz1DU-PSEsRaGNM20EcpVLwE/view?usp=sharing -O raw/Muscle_Skeletal-Dec2018.tsv"
+        "uv run gdown https://drive.google.com/uc?id=1mkvWrCkeDz1DU-PSEsRaGNM20EcpVLwE -O raw/Muscle_Skeletal-Dec2018.tsv"
 
 rule process_interactome:
     input:
