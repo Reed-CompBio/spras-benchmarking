@@ -3,7 +3,8 @@ import gzip
 import os
 from pathlib import Path
 import shutil
-import urllib.request
+
+from spras_benchmarking.cache.directory import get_cache_item
 
 # https://stackoverflow.com/a/5137509/7589775
 dir_path = os.path.dirname(os.path.realpath(__file__))
@@ -30,13 +31,8 @@ def main():
     args = parse_args()
     string_path.mkdir(exist_ok=True)
 
-    # args.id is typed to `int` - this is safe to do.
-    formatted_url = f"http://stringdb-downloads.org/download/protein.links.v12.0/{args.id}.protein.links.v12.0.txt.gz"
-
-    print(f"Downloading the STRING DB associated with {args.id}...")
-    print(f"URL: {formatted_url}")
     output_file = string_path / f"{args.id}.protein.links.v12.0.txt.gz"
-    urllib.request.urlretrieve(formatted_url, output_file)
+    get_cache_item(['STRING', str(args.id)]).download(output_file)
 
     output_file_uncompressed = string_path / f"{args.id}.protein.links.v12.0.txt"
     # Uncompressing a .gz file: https://stackoverflow.com/a/44712152/7589775
