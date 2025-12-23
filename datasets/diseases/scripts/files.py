@@ -6,9 +6,10 @@ import os
 # https://stackoverflow.com/a/5137509/7589775
 dir_path = os.path.dirname(os.path.realpath(__file__))
 
-diseases_path = Path(dir_path, '..')
-(diseases_path / 'prize_files').mkdir(exist_ok=True, parents=True)
-(diseases_path / 'GS_files').mkdir(exist_ok=True, parents=True)
+diseases_path = Path(dir_path, "..")
+(diseases_path / "prize_files").mkdir(exist_ok=True, parents=True)
+(diseases_path / "GS_files").mkdir(exist_ok=True, parents=True)
+
 
 def main():
     GS_string_df = pd.read_csv(diseases_path / "data" / "gold_standard.csv")
@@ -42,14 +43,13 @@ def main():
 
     # See /databases/stringdb.py for information on how this was grabbed.
     # 9606 is the organism code for homo sapiens and the required background interactome of DISEASES.
-    string = pd.read_csv(
-        diseases_path / '..' / '..' / 'databases' / 'string' / '9606.protein.links.v12.0.txt',
-        sep=" ", skiprows=[0], header=None)
+    string = pd.read_csv(diseases_path / ".." / ".." / "databases" / "string" / "9606.protein.links.v12.0.txt", sep=" ", skiprows=[0], header=None)
     # Threshold anything above a confidence score of 900 to trim down the background interactome
     string = string[string.iloc[:, 2] > 900]
     string = string.iloc[:, [0, 1]]
     string[len(string.columns)] = 1
     string.to_csv(diseases_path / "raw" / "string_interactome.txt", sep="\t", index=False, header=None)
+
 
 if __name__ == "__main__":
     main()

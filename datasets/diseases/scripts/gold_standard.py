@@ -3,6 +3,7 @@ import requests
 import os
 from pathlib import Path
 
+
 def gprofiler_convert(ids: list, namespace: str, df: pd.DataFrame) -> pd.DataFrame:
     """
     Converts a list of IDs to a namespace, and associates it with a dataframe
@@ -31,10 +32,12 @@ def gprofiler_convert(ids: list, namespace: str, df: pd.DataFrame) -> pd.DataFra
 
     return output_df
 
+
 # https://stackoverflow.com/a/5137509/7589775
 dir_path = os.path.dirname(os.path.realpath(__file__))
 
-diseases_path = Path(dir_path, '..')
+diseases_path = Path(dir_path, "..")
+
 
 def main():
     # Get our data from `fetch.py`
@@ -101,6 +104,7 @@ def main():
     string_df.columns = ["ENSP", "str_id"]
     GS_string_df = GS_combined_threshold.merge(string_df, on="ENSP", how="inner")
     GS_string_df.to_csv(diseases_path / "data" / "gold_standard.csv", index=False)
+
 
 if __name__ == "__main__":
     main()

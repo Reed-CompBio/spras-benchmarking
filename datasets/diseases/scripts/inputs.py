@@ -6,8 +6,9 @@ import os
 # https://stackoverflow.com/a/5137509/7589775
 dir_path = os.path.dirname(os.path.realpath(__file__))
 
-diseases_path = Path(dir_path, '..')
+diseases_path = Path(dir_path, "..")
 (diseases_path / "data").mkdir(exist_ok=True, parents=True)
+
 
 def main():
     # See fetch.py for information on this file's origin
@@ -44,6 +45,7 @@ def main():
     tiga_string_df = tiga_do.merge(string_df, left_on="ensemblId", right_on="ENSP", how="inner")
 
     tiga_string_df.to_csv(diseases_path / "data" / "inputs.csv", index=False)
+
 
 if __name__ == "__main__":
     main()

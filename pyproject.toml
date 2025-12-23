@@ -23,6 +23,5 @@ line-length = 150
 [tool.uv]
 package = true
 
-[tool.setuptools.package-dir]
-"spras_benchmarking.cache" = "cache"
-"spras_benchmarking.databases" = "databases"
+[tool.setuptools.packages]
+find = {namespaces = false} 
