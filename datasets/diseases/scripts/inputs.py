@@ -30,7 +30,6 @@ def main():
         sep="\t", usecols=["#string_protein_id", "alias"])
     string_aliases.columns = ["ensp", "ensg"]
     string_aliases = string_aliases.drop_duplicates()
-    string_aliases.to_csv(diseases_path / 'test.csv')
 
     # We can create our TIGA-mapped file through merging on the ENSPs
     tiga_string_df = tiga_do.merge(string_aliases, left_on="ensemblId", right_on="ensg", how='inner')

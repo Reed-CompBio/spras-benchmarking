@@ -91,7 +91,7 @@ def main():
     string_aliases = string_aliases.drop_duplicates()
 
     GS_string_df = GS_combined_threshold.merge(string_aliases, on="ENSP", how="inner")
-    GS_string_df = GS_string_df.drop_duplicates()
+    GS_string_df = GS_string_df.drop_duplicates(subset=["ENSG", "ENSP", "geneName", "diseaseID", "diseaseName"])
     
     GS_string_df.to_csv(diseases_path / "data" / "gold_standard.csv", index=False)
 
