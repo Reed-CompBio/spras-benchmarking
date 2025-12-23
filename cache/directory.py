@@ -32,10 +32,16 @@ CacheDirectory = dict[str, Union[CacheItem, "CacheDirectory"]]
 # An *unversioned* directory list.
 directory: CacheDirectory = {
     "STRING": {
-        "9606": CacheItem(
-            cached="https://drive.google.com/uc?id=1fvjdIbgzbgJrdJxWRRRwwS1zuegf6DOj",
-            online="http://stringdb-downloads.org/download/protein.links.v12.0/9606.protein.links.v12.0.txt.gz",
-        )
+        "9606": {
+            "links": CacheItem(
+                cached="https://drive.google.com/uc?id=1fvjdIbgzbgJrdJxWRRRwwS1zuegf6DOj",
+                online="http://stringdb-downloads.org/download/protein.links.v12.0/9606.protein.links.v12.0.txt.gz",
+            ),
+            "aliases": CacheItem(
+                cached="https://drive.google.com/uc?id=1IWrQeTVCcw1A-jDk-4YiReWLnwP0S9bY",
+                online="https://stringdb-downloads.org/download/protein.aliases.v12.0/9606.protein.aliases.v12.0.txt.gz",
+            )
+        }
     },
     "DISEASES": {
         # Instead of going through https://unmtid-shinyapps.net/shiny/tiga/, we use their

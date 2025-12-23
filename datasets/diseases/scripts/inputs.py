@@ -13,7 +13,7 @@ diseases_path = Path(dir_path, "..")
 def main():
     # See fetch.py for information on this file's origin
     tiga = pd.read_csv(diseases_path / "raw" / "tiga_gene-trait_stats.tsv", sep="\t")
-    tiga = tiga[["ensemblId", "efoId", "trait", "n_snp", "n_snpw"]]
+    tiga = tiga[["ensemblId", "trait", "n_snp", "n_snpw"]]
     tiga = tiga.drop_duplicates(subset=["ensemblId", "trait"])
 
     # See fetch.py for information on this file's origin
@@ -24,7 +24,7 @@ def main():
     tiga_do = tiga.merge(human_do, left_on="trait", right_on="label", how="inner", validate="many_to_one")
 
     # https://string-db.org/cgi/help.pl?subpage=api%23mapping-identifiers
-    # We need to map ENSP IDs to STRING IDs
+    # We need to map ENSG IDs to STRING IDs
     print("Fetching STRING IDs...")
     string_api_url = "https://version-12-0.string-db.org/api"
     output_format = "tsv-no-header"

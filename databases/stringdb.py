@@ -32,20 +32,26 @@ def parse_args():
 
     return parser.parse_args()
 
+def uncompress(source: Path, target: Path):
+    """Uncompresses a .gz file"""
+    # Uncompressing a .gz file: https://stackoverflow.com/a/44712152/7589775
+    with gzip.open(source, "rb") as f_compressed:
+        with open(target, "wb") as f_uncompressed:
+            shutil.copyfileobj(f_compressed, f_uncompressed)
 
 def main():
     args = parse_args()
     string_path.mkdir(exist_ok=True)
 
-    output_file = string_path / f"{args.id}.protein.links.v12.0.txt.gz"
-    get_cache_item(["STRING", str(args.id)]).download(output_file)
+    # We download the links file
+    links_file = string_path / f"{args.id}.protein.links.v12.0.txt.gz"
+    get_cache_item(["STRING", str(args.id), "links"]).download(links_file)
+    uncompress(links_file, links_file.with_suffix(".txt"))
 
-    output_file_uncompressed = string_path / f"{args.id}.protein.links.v12.0.txt"
-    # Uncompressing a .gz file: https://stackoverflow.com/a/44712152/7589775
-    with gzip.open(output_file, "rb") as f_compressed:
-        with open(output_file_uncompressed, "wb") as f_uncompressed:
-            shutil.copyfileobj(f_compressed, f_uncompressed)
-
+    # and its associated aliases
+    aliases_file = string_path / f"{args.id}.9606.protein.aliases.v12.0.txt.gz"
+    get_cache_item(["STRING", str(args.id), "aliases"]).download(aliases_file)
+    uncompress(aliases_file, aliases_file.with_suffix(".txt"))
 
 if __name__ == "__main__":
     main()
