@@ -80,25 +80,19 @@ def main():
     GS_count_threshold = {k: v for (k, v) in GS_score_count.items() if (v > 10)}
     GS_combined_threshold = GS_score_threshold.loc[GS_score_threshold["diseaseName"].isin(list(GS_count_threshold.keys()))]
 
-    string_api_url = "https://version-12-0.string-db.org/api"
-    output_format = "tsv-no-header"
-    method = "get_string_ids"
-    str_params = {
-        "identifiers": "\r".join(list(GS_combined_threshold["ENSP"])),
-        "species": 9606,
-        "echo_query": 1,
-    }
-    request_url = "/".join([string_api_url, output_format, method])
-    string_results = requests.post(request_url, data=str_params)
-    string_results = string_results.text.strip()
+    GS_combined_threshold.to_csv("test.csv")
 
-    string_map = {}
-    for line in string_results.split("\n"):
-        l = line.split("\t")
-        string_map.update({l[0]: l[2]})
-    string_df = pd.DataFrame.from_dict(string_map.items())
-    string_df.columns = ["ENSP", "str_id"]
-    GS_string_df = GS_combined_threshold.merge(string_df, on="ENSP", how="inner")
+    # Mapping ENSG IDs to STRING IDs through the STRING aliases file
+    # given our ENSG and ENSP (non one-to-one!) mapping `string_aliases`,
+    string_aliases = pd.read_csv(
+        diseases_path / ".." / ".." / "databases" / "string" / "9606.protein.aliases.v12.0.txt",
+        sep="\t", usecols=["#string_protein_id", "alias"])
+    string_aliases.columns = ["str_id", "ENSP"]
+    string_aliases = string_aliases.drop_duplicates()
+
+    GS_string_df = GS_combined_threshold.merge(string_aliases, on="ENSP", how="inner")
+    GS_string_df = GS_string_df.drop_duplicates()
+    
     GS_string_df.to_csv(diseases_path / "data" / "gold_standard.csv", index=False)
 
 
