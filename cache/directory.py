@@ -38,9 +38,11 @@ directory: CacheDirectory = {
         )
     },
     "DISEASES": {
+        # Instead of going through https://unmtid-shinyapps.net/shiny/tiga/, we use their
+        # archived files directory instead.
         "tiga_gene-trait_stats.tsv": CacheItem(
             cached="https://drive.google.com/uc?id=114qyuNDy4qdmYDHHJAW-yBeTxcGTDUnK",
-            online="https://unmtid-shinyapps.net/shiny/tiga/session/3540ae3a93d3494ca59ebe1ace3fc6be/download/gt_file?w=",
+            online="https://unmtid-dbs.net/download/TIGA/20250916/tiga_gene-trait_stats.tsv",
         ),
         "HumanDO.tsv": CacheItem(
             cached="https://drive.google.com/uc?id=1lfB1DGJgrXTxP_50L6gGu_Nq6OyDjiIi",

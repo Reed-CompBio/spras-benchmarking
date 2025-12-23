@@ -20,7 +20,7 @@ raw_dir = Path(dir_path, "..", "raw")
 def main():
     # We only need the text mining and knowledge channels
     # and avoid the integrated channel as it is the multiplied probabilities of all
-    # three channels (as mentioned from Damian Szklarczyk)
+    # three channels (personal correspondence with Damian Szklarczyk)
 
     raw_dir.mkdir(exist_ok=True)
 

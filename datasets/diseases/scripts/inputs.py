@@ -21,8 +21,10 @@ def main():
     human_do = human_do.drop_duplicates(subset="label")
     human_do = human_do[["id", "label"]]
 
-    tiga_do = tiga.merge(human_do, left_on="trait", right_on="label", how="inner", validate="m:1")
+    tiga_do = tiga.merge(human_do, left_on="trait", right_on="label", how="inner", validate="many_to_one")
 
+    # https://string-db.org/cgi/help.pl?subpage=api%23mapping-identifiers
+    # We need to map ENSP IDs to STRING IDs
     print("Fetching STRING IDs...")
     string_api_url = "https://version-12-0.string-db.org/api"
     output_format = "tsv-no-header"

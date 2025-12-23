@@ -27,7 +27,8 @@ The most recent DISEASES paper (Grissa et al. 2022) integrates a GWAS database c
 
 TIGA calculates confidence scores for gene-trait associations across genome-wide association studies. They include both citation-based and SNP-based measures in their confidence scores (called their mean rank scores); we only take their SNP data for the inputs. These SNPs are weighted by the distance inverse exponential to handle linkage disequilibrium described in their paper (called `N_snpw`). The SNPs themselves are collected from an Ensemble pipeline - TIGA does not do any novel mapping.
 
-The TIGA gene-trait association data can be obtained from [their shiny app page](https://unmtid-shinyapps.net/shiny/tiga/).
+The TIGA gene-trait association data can be obtained from [their shiny app page](https://unmtid-shinyapps.net/shiny/tiga/), either through
+all gene-trait associations, or through their [archived files](https://unmtid-dbs.net/download/TIGA/).
 
 ## Disease Ontology
 

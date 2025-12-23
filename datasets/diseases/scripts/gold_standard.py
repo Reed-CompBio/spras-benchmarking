@@ -92,10 +92,6 @@ def main():
     string_results = requests.post(request_url, data=str_params)
     string_results = string_results.text.strip()
 
-    (diseases_path / "data").mkdir(exist_ok=True)
-
-    # Archive the STRING data
-    (diseases_path / "data" / "string-call.txt").write_text(string_results)
     string_map = {}
     for line in string_results.split("\n"):
         l = line.split("\t")

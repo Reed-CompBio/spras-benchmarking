@@ -23,7 +23,7 @@ def main():
     tiga_group = tiga_filtered.groupby("trait")
     tiga_dict = {k: v for k, v in tiga_group}
     tiga_count = {x: len(tiga_dict[x]) for x in tiga_dict.keys()}
-    tiga_count_threshold = {k: v for (k, v) in tiga_count.items() if (v > 10)}
+    tiga_count_threshold = {k: v for (k, v) in tiga_count.items() if v > 10}
 
     tiga_threshold = tiga_filtered.loc[tiga_filtered["trait"].isin(list(tiga_count_threshold.keys()))]
 
@@ -44,6 +44,7 @@ def main():
     # See /databases/stringdb.py for information on how this was grabbed.
     # 9606 is the organism code for homo sapiens and the required background interactome of DISEASES.
     string = pd.read_csv(diseases_path / ".." / ".." / "databases" / "string" / "9606.protein.links.v12.0.txt", sep=" ", skiprows=[0], header=None)
+
     # Threshold anything above a confidence score of 900 to trim down the background interactome
     string = string[string.iloc[:, 2] > 900]
     string = string.iloc[:, [0, 1]]
