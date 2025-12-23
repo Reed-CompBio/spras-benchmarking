@@ -46,12 +46,12 @@ def main():
     # We download the links file
     links_file = string_path / f"{args.id}.protein.links.v12.0.txt.gz"
     get_cache_item(["STRING", str(args.id), "links"]).download(links_file)
-    uncompress(links_file, links_file.with_suffix(".txt"))
+    uncompress(links_file, links_file.with_suffix("")) # an extra call of with_suffix strips the `.gz` prefix
 
     # and its associated aliases
-    aliases_file = string_path / f"{args.id}.9606.protein.aliases.v12.0.txt.gz"
+    aliases_file = string_path / f"{args.id}.protein.aliases.v12.0.txt.gz"
     get_cache_item(["STRING", str(args.id), "aliases"]).download(aliases_file)
-    uncompress(aliases_file, aliases_file.with_suffix(".txt"))
+    uncompress(aliases_file, aliases_file.with_suffix(""))
 
 if __name__ == "__main__":
     main()
