@@ -1,6 +1,5 @@
 from pathlib import Path
 import pandas as pd
-import requests
 import os
 
 # https://stackoverflow.com/a/5137509/7589775

@@ -84,6 +84,10 @@ def main():
 
     # Mapping ENSG IDs to STRING IDs through the STRING aliases file
     # given our ENSG and ENSP (non one-to-one!) mapping `string_aliases`,
+
+    # NOTE: the STRING API call to map genes to proteins
+    # also does text search, which brings up more false positives than true positives: because
+    # of this, we specifically only care about ENSG -> ENSP and nothing greater.
     string_aliases = pd.read_csv(
         diseases_path / ".." / ".." / "databases" / "string" / "9606.protein.aliases.v12.0.txt",
         sep="\t", usecols=["#string_protein_id", "alias"])
@@ -92,7 +96,7 @@ def main():
 
     GS_string_df = GS_combined_threshold.merge(string_aliases, on="ENSP", how="inner")
     GS_string_df = GS_string_df.drop_duplicates(subset=["ENSG", "ENSP", "geneName", "diseaseID", "diseaseName"])
-    
+
     GS_string_df.to_csv(diseases_path / "data" / "gold_standard.csv", index=False)
 
 
