@@ -165,11 +165,5 @@ cython_debug/
 # pnpm
 .pnpm-store
 
-# Prize and Gold Standard Files
-datasets/diseases/GS_files
-datasets/diseases/prize_files
-datasets/diseases/raw
-datasets/diseases/Pickles
-
 # mac
 .DS_Store

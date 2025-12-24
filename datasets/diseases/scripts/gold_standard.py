@@ -80,8 +80,6 @@ def main():
     GS_count_threshold = {k: v for (k, v) in GS_score_count.items() if (v > 10)}
     GS_combined_threshold = GS_score_threshold.loc[GS_score_threshold["diseaseName"].isin(list(GS_count_threshold.keys()))]
 
-    GS_combined_threshold.to_csv("test.csv")
-
     # Mapping ENSG IDs to STRING IDs through the STRING aliases file
     # given our ENSG and ENSP (non one-to-one!) mapping `string_aliases`,
 
