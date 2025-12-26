@@ -1,22 +1,19 @@
-# Base Settings
 # TODO: (same for dmmm.yaml): can we deduplicate this using snakemake?
 hash_length: 7
-container_framework: docker
-unpack_singularity: false
 
-container_registry:
-  base_url: docker.io
-  owner: reedcompbio
+containers:
+  registry:
+    base_url: docker.io
+    owner: reedcompbio
+  framework: docker
+  unpack_singularity: false
 
 reconstruction_settings:
   locations:
     reconstruction_dir: "output"
-    run: true
 
 analysis:
   summary:
-    include: false
-  graphspace:
     include: false
   cytoscape:
     include: false
