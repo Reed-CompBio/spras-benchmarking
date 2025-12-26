@@ -36,6 +36,9 @@ def main():
     print("Fetching human disease ontology data...")
     get_cache_item(["DISEASES", "HumanDO.tsv"]).download(raw_dir / "HumanDO.tsv")
 
+    print("Fetching BioMart ENSG - ENSP mapping...")
+    get_cache_item(["BioMart", "ensg-ensp.tsv"]).download(raw_dir / "ensg-ensp.tsv")
+
 
 if __name__ == "__main__":
     main()

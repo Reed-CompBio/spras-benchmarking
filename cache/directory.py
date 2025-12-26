@@ -4,9 +4,17 @@ from os import PathLike
 from tempfile import NamedTemporaryFile
 import urllib.request
 import filecmp
+import urllib.parse
+import os
+from pathlib import Path
 
 import gdown
 
+dir_path = Path(os.path.dirname(os.path.realpath(__file__)))
+
+def fetch_biomart_url(xml: str) -> str:
+    ROOT = "http://www.ensembl.org/biomart/martservice?query="
+    return ROOT + urllib.parse.quote_plus(xml)
 
 @dataclass
 class CacheItem:
@@ -63,6 +71,12 @@ directory: CacheDirectory = {
             online="https://download.jensenlab.org/human_disease_knowledge_filtered.tsv",
         ),
     },
+    "BioMart": {
+        "ensg-ensp.tsv": CacheItem(
+            cached="https://drive.google.com/uc?id=1-gPrDoluXIGydzWKjWEnW-nWhYu3YkHL",
+            online=fetch_biomart_url((dir_path / "biomart" / "ensg-ensp.xml").read_text())
+        )
+    }
 }
 
 
