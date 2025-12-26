@@ -13,6 +13,10 @@ import gdown
 dir_path = Path(os.path.dirname(os.path.realpath(__file__)))
 
 def fetch_biomart_url(xml: str) -> str:
+    """
+    Access BioMart data through the BioMart REST API:
+    https://useast.ensembl.org/info/data/biomart/biomart_restful.html#biomartxml
+    """
     ROOT = "http://www.ensembl.org/biomart/martservice?query="
     return ROOT + urllib.parse.quote_plus(xml)
 
