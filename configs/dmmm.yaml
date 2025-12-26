@@ -58,14 +58,14 @@ datasets:
     edge_files: ["network1.txt"]
     other_files: []
     data_dir: "datasets/yeast-osmotic-stress/processed"
-  - label: alopecia_areata
+  - label: dmmm_alopecia_areata
     data_dir: datasets/diseases
     edge_files:
       - raw/string_interactome.txt
     node_files:
       - prize_files/alopecia_areata_prizes.txt
     other_files: []
-  - label: diabetes_mellitus
+  - label: dmmm_diabetes_mellitus
     data_dir: datasets/diseases
     edge_files:
       - raw/string_interactome.txt
@@ -77,8 +77,8 @@ gold_standards:
   - label: gs0
     node_files: ['GS_files/Alopecia_areata_GS.txt']
     data_dir: "datasets/diseases"
-    dataset_labels: ["alopecia_areata"]
+    dataset_labels: ["dmmm_alopecia_areata"]
   - label: gs1
     node_files: ['GS_files/Diabetes_mellitus_GS.txt']
     data_dir: "datasets/diseases"
-    dataset_labels: ["diabetes_mellitus"]
+    dataset_labels: ["dmmm_diabetes_mellitus"]
