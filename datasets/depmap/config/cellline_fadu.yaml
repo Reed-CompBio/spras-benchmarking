@@ -6,22 +6,21 @@ hash_length: 7
 singularity: false
 
 algorithms:
-  -
-    name: pathlinker
+  - name: pathlinker
     params:
       include: false
       run1:
         k:
           - 10
           - 20
-  -
-    name: omicsintegrator1
+  - name: omicsintegrator1
     params:
       include: true
       run1:
         b:
-          - 0.55
           - 2
+          - 4
+          - 7
           - 10
         d:
           - 10
@@ -31,11 +30,12 @@ algorithms:
           - 0.01
         w:
           - 0.1
+          - 1
         mu:
-          - 0.008
+          - 0.01
+          - 0.1
         dummy_mode: ["terminal"]
-  -
-    name: omicsintegrator2
+  - name: omicsintegrator2
     params:
       include: true
       run1:
@@ -48,8 +48,7 @@ algorithms:
           - 2
         g:
           - 3
-  -
-    name: meo
+  - name: meo
     params:
       include: false
       run1:
@@ -59,8 +58,7 @@ algorithms:
           - 3
         rand_restarts:
           - 10
-  -
-    name: domino
+  - name: domino
     params:
       include: false
       run1:
@@ -69,14 +67,20 @@ algorithms:
         module_threshold:
           - 0.05
 datasets:
-  -
-    data_dir: input
+  - data_dir: input
     edge_files:
       - phosphosite-irefindex13.0-uniprot.txt
     label: cellline
     node_files:
       - cellline_fadu_nodes.txt
     other_files: []
+gold_standards:
+  - label: gs_fadu
+    node_files:
+      - FADU_gold_standard.txt
+    data_dir: input
+    dataset_labels:
+      - cellline_fadu
 reconstruction_settings:
   locations:
     reconstruction_dir: output/cellline_fadu

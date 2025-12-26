@@ -44,12 +44,12 @@ jobs:
           environment-file: spras/environment.yml
           auto-activate-base: false
           miniconda-version: 'latest'
+      # Install spras in the environment using pip
       - name: Install spras in conda env
-        # Install spras in the environment using pip
         shell: bash --login {0}
         run: pip install ./spras
+      # Log conda environment contents
       - name: Log conda environment
-        # Log conda environment contents
         shell: bash --login {0}
         run: conda list
       - name: Process raw data through Snakemake
