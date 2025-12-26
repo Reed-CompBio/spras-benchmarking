@@ -164,3 +164,6 @@ cython_debug/
 
 # pnpm
 .pnpm-store
+
+# mac
+.DS_Store
