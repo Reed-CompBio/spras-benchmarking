@@ -1,37 +1,6 @@
 import pandas as pd
-import requests
 import os
 from pathlib import Path
-
-
-def gprofiler_convert(ids: list, namespace: str, df: pd.DataFrame) -> pd.DataFrame:
-    """
-    Converts a list of IDs to a namespace, and associates it with a dataframe
-    (see code for more details) using the gprofiler API.
-    """
-
-    # See the associated API documentation at https://biit.cs.ut.ee/gprofiler/page/apis.
-    r = requests.post(
-        url="https://biit.cs.ut.ee/gprofiler/api/convert/convert/",
-        json={
-            "organism": "hsapiens",
-            "target": namespace,
-            "query": ids,
-        },
-    )
-    results = r.json()["result"]
-    mapping = {}
-    for x in results:
-        if x["converted"] != "None":
-            mapping.update({x["incoming"]: x["converted"]})
-
-    mapping_df = pd.DataFrame.from_dict(mapping.items())
-    mapping_df.columns = ["ENSP", "ENSG"]
-    output_df = df.merge(mapping_df, left_on="geneID", right_on="ENSP", how="inner", validate="m:1")
-    output_df = output_df.sort_values("confidenceScore", ascending=False).drop_duplicates(subset=["ENSG", "diseaseID"], keep=False).sort_index()
-
-    return output_df
-
 
 # https://stackoverflow.com/a/5137509/7589775
 dir_path = os.path.dirname(os.path.realpath(__file__))
@@ -47,9 +16,19 @@ def main():
     text_mining.columns = ["geneID", "geneName", "diseaseID", "diseaseName", "zScore", "confidenceScore", "sourceUrl"]
     knowledge.columns = ["geneID", "geneName", "diseaseID", "diseaseName", "sourceDB", "evidenceType", "confidenceScore"]
 
+    # Get the BioMart ENSP -> ENSG mapping
+    biomart_data = pd.read_csv(diseases_path / "raw" / "ensg-ensp.tsv", sep="\t", names=["ENSP", "ENSG"])
+
     # The DISEASES data is in the ENSP namespace, but we want to work in ENSG.
-    knowledge_mapped = gprofiler_convert(list(text_mining["geneID"]), "ENSG", text_mining)
-    text_mining_mapped = gprofiler_convert(list(knowledge["geneID"]), "ENSG", knowledge)
+    knowledge_mapped = text_mining.merge(biomart_data, left_on="geneID", right_on="ENSP", how="inner")
+    text_mining_mapped = knowledge.merge(biomart_data, left_on="geneID", right_on="ENSP", how="inner")
+
+    knowledge_mapped = (
+        knowledge_mapped.sort_values("confidenceScore", ascending=False).drop_duplicates(subset=["ENSG", "diseaseID"], keep=False).sort_index()
+    )
+    text_mining_mapped = (
+        text_mining_mapped.sort_values("confidenceScore", ascending=False).drop_duplicates(subset=["ENSG", "diseaseID"], keep=False).sort_index()
+    )
 
     inner = text_mining_mapped.merge(knowledge_mapped, on=["ENSG", "diseaseID"], how="inner")
     inner["confidenceScore"] = inner.apply(lambda x: max(x.confidenceScore_x, x.confidenceScore_y), axis=1)
@@ -87,8 +66,8 @@ def main():
     # also does text search, which brings up more false positives than true positives: because
     # of this, we specifically only care about ENSG -> ENSP and nothing greater.
     string_aliases = pd.read_csv(
-        diseases_path / ".." / ".." / "databases" / "string" / "9606.protein.aliases.v12.0.txt",
-        sep="\t", usecols=["#string_protein_id", "alias"])
+        diseases_path / ".." / ".." / "databases" / "string" / "9606.protein.aliases.v12.0.txt", sep="\t", usecols=["#string_protein_id", "alias"]
+    )
     string_aliases.columns = ["str_id", "ENSP"]
     string_aliases = string_aliases.drop_duplicates()
 

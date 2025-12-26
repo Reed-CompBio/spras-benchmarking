@@ -25,14 +25,15 @@ def main():
     # Mapping ENSG IDs to STRING IDs through the STRING aliases file
     # given our ENSG and ENSP (non one-to-one!) mapping `string_aliases`,
     string_aliases = pd.read_csv(
-        diseases_path / ".." / ".." / "databases" / "string" / "9606.protein.aliases.v12.0.txt",
-        sep="\t", usecols=["#string_protein_id", "alias"])
+        diseases_path / ".." / ".." / "databases" / "string" / "9606.protein.aliases.v12.0.txt", sep="\t", usecols=["#string_protein_id", "alias"]
+    )
     string_aliases.columns = ["str_id", "ENSP"]
     string_aliases = string_aliases.drop_duplicates()
 
     # We can create our TIGA-mapped file through merging on the ENSPs
-    tiga_string_df = tiga_do.merge(string_aliases, left_on="ensemblId", right_on="ENSP", how='inner')
+    tiga_string_df = tiga_do.merge(string_aliases, left_on="ensemblId", right_on="ENSP", how="inner")
     tiga_string_df.to_csv(diseases_path / "data" / "inputs.csv", index=False)
+
 
 if __name__ == "__main__":
     main()
