@@ -7,12 +7,15 @@ cell_line_names = ["FADU", "BHY", "SCC4", "INVALID_CELLLINE"]
 dependency_threshold = 0.5
 require_all_datasets = False  # set to true to require all data types
 
+
 class CellLineProcessingError(Exception):
     """Custom exception for cell line processing errors."""
+
     pass
 
+
 def check_cell_line(cell_line_name, omics_profiles, damaging_mutations_df, CRISPR_dependency, omics_expression, omics_cnv):
-    match = omics_profiles[omics_profiles["StrippedCellLineName"].str.lower()== cell_line_name.lower()]
+    match = omics_profiles[omics_profiles["StrippedCellLineName"].str.lower() == cell_line_name.lower()]
 
     if match.empty:
         raise CellLineProcessingError(f"Cell line '{cell_line_name}' not found in OmicsProfiles.")
@@ -36,7 +39,6 @@ def check_cell_line(cell_line_name, omics_profiles, damaging_mutations_df, CRISP
 
     # check other datasets
     if require_all_datasets:
-
         if model_id not in omics_cnv.index:
             raise CellLineProcessingError(f"Cell line '{cell_line_name}' not found in required omics CNV data")
         else:
@@ -71,15 +73,16 @@ def check_cell_line(cell_line_name, omics_profiles, damaging_mutations_df, CRISP
 
     return True, model_id
 
+
 def generate_prize_files(cell_line_name, model_id, damaging_mutations_df, uniprot_map):
-    '''Generate prize input file for the cell line based on damaging mutations and uniprot mapping.'''
+    """Generate prize input file for the cell line based on damaging mutations and uniprot mapping."""
     # Extract mutation data for the cell line
     mutation_row = damaging_mutations_df.loc[model_id]
     # mapping gene symbols to Uniprot IDs
     gene_to_uniprot = dict(zip(uniprot_map["From"], uniprot_map["Entry Name"]))
     rows = []
     for col, score in mutation_row.items():
-        #extract gene symbols for mapping
+        # extract gene symbols for mapping
         match = re.match(r"^(.*?) \(", col)
         gene_symbol = match.group(1) if match else col
         # only map for gene symbols in uniprot map
@@ -89,28 +92,27 @@ def generate_prize_files(cell_line_name, model_id, damaging_mutations_df, unipro
     mapped_prizes_df = pd.DataFrame(rows, columns=["GeneSymbol", "UniprotID", "Prize"])
 
     # prize input file for all genes
-    prizes_input_file = mapped_prizes_df[mapped_prizes_df.columns[1:]].rename(columns={"UniprotID": "NODEID", "Prize":"prize"})
+    prizes_input_file = mapped_prizes_df[mapped_prizes_df.columns[1:]].rename(columns={"UniprotID": "NODEID", "Prize": "prize"})
     output_path = os.path.join("..", "processed", f"{cell_line_name}_cell_line_prizes.txt")
-    prizes_input_file.to_csv(output_path, sep='\t', index=False, header=True)
+    prizes_input_file.to_csv(output_path, sep="\t", index=False, header=True)
     print(f"Prize file saved for cell line '{cell_line_name}' at: {output_path}")
 
     # nonzero prizes input file
     nonzero_prizes_input_file = prizes_input_file[prizes_input_file["prize"] > 0]
     nonzero_prizes_input_file
     nonzero_output_path = os.path.join("..", "processed", f"{cell_line_name}_cell_line_prizes_input_nonzero.txt")
-    nonzero_prizes_input_file.to_csv(nonzero_output_path, sep='\t', index=False, header=True)
+    nonzero_prizes_input_file.to_csv(nonzero_output_path, sep="\t", index=False, header=True)
     print(f"Nonzero prize file saved for cell line '{cell_line_name}' at: {nonzero_output_path}")
 
     return gene_to_uniprot
 
-def process_single_cell_line(cell_line_name, omics_profiles, damaging_mutations_df, CRISPR_dependency,
-                           omics_expression, omics_cnv, uniprot_map):
+
+def process_single_cell_line(cell_line_name, omics_profiles, damaging_mutations_df, CRISPR_dependency, omics_expression, omics_cnv, uniprot_map):
     """Process a single cell line and generate output files."""
     try:
         print(f"\n=== Processing cell line: {cell_line_name} ===")
 
-        is_present, model_id = check_cell_line(cell_line_name, omics_profiles, damaging_mutations_df,
-                                             CRISPR_dependency, omics_expression, omics_cnv)
+        is_present, model_id = check_cell_line(cell_line_name, omics_profiles, damaging_mutations_df, CRISPR_dependency, omics_expression, omics_cnv)
 
         if is_present:
             # make prize input files
@@ -128,8 +130,9 @@ def process_single_cell_line(cell_line_name, omics_profiles, damaging_mutations_
         print(f"ERROR: Unexpected error processing cell line '{cell_line_name}': {e}")
         return False
 
+
 def generate_gold_standard(cell_line_name, model_id, CRISPR_dependency, gene_to_uniprot, threshold: float):
-    '''Generate gold standard file for the cell line based on CRISPR dependency and gene to Uniprot mapping.'''
+    """Generate gold standard file for the cell line based on CRISPR dependency and gene to Uniprot mapping."""
     # map Uniprot IDs to gene symbols in the CRISPR dependency data
     cell_line_dependency = CRISPR_dependency.loc[model_id]
     filtered_dependency = cell_line_dependency[cell_line_dependency > threshold]
@@ -145,11 +148,12 @@ def generate_gold_standard(cell_line_name, model_id, CRISPR_dependency, gene_to_
 
     # save mapped dependency as gold standard file
     gold_standard = mapped_dependency_df[mapped_dependency_df.columns[1]]
-    threshold_str = str(dependency_threshold).replace('.', '_')
+    threshold_str = str(dependency_threshold).replace(".", "_")
     gold_standard_output_path = os.path.join("..", "processed", f"{cell_line_name}_gold_standard_thresh_{threshold_str}.txt")
-    gold_standard.to_csv(gold_standard_output_path, sep='\t', index=False, header=False)
+    gold_standard.to_csv(gold_standard_output_path, sep="\t", index=False, header=False)
     print(f"Gold standard file saved for cell line '{cell_line_name}' at: {gold_standard_output_path}")
     print(f"Threshold: {dependency_threshold} Number of genes in gold standard: {len(gold_standard)}")
+
 
 def main():
     print(f"Processing cell lines: {cell_line_names}")
@@ -167,7 +171,7 @@ def main():
 
         # Load uniprot mapping file form gene symbols
         print("Loading UniProt mapping file...")
-        uniprot_map = pd.read_csv(os.path.join("..", "processed", "DamagingMutations_idMapping_20250718.tsv"), sep='\t')
+        uniprot_map = pd.read_csv(os.path.join("..", "processed", "DamagingMutations_idMapping_20250718.tsv"), sep="\t")
 
     except FileNotFoundError as e:
         print(f"ERROR: Required data file not found: {e}")
@@ -183,8 +187,9 @@ def main():
     failed_cell_lines = []
 
     for cell_line_name in cell_line_names:
-        success = process_single_cell_line(cell_line_name, omics_profiles, damaging_mutations_df,
-                                         CRISPR_dependency, omics_expression, omics_cnv, uniprot_map)
+        success = process_single_cell_line(
+            cell_line_name, omics_profiles, damaging_mutations_df, CRISPR_dependency, omics_expression, omics_cnv, uniprot_map
+        )
         if success:
             successful_count += 1
             successful_cell_lines.append(cell_line_name)
@@ -210,5 +215,7 @@ def main():
         raise SystemExit(1)
     else:
         print("All cell lines processed successfully.")
+
+
 if __name__ == "__main__":
     main()
