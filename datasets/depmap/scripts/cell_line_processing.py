@@ -1,11 +1,14 @@
 import pandas as pd
 import re
 import os
+from pathlib import Path
 
 # configuration - change cell line list and dependency cutoff as needed
 cell_line_names = ["FADU", "BHY", "SCC4", "INVALID_CELLLINE"]
 dependency_threshold = 0.5
 require_all_datasets = False  # set to true to require all data types
+
+dir_path = Path(os.path.dirname(os.path.realpath(__file__)))
 
 
 class CellLineProcessingError(Exception):
@@ -93,21 +96,28 @@ def generate_prize_files(cell_line_name, model_id, damaging_mutations_df, unipro
 
     # prize input file for all genes
     prizes_input_file = mapped_prizes_df[mapped_prizes_df.columns[1:]].rename(columns={"UniprotID": "NODEID", "Prize": "prize"})
-    output_path = os.path.join("..", "processed", f"{cell_line_name}_cell_line_prizes.txt")
+    output_path = dir_path / ".." / "processed" / f"{cell_line_name}_cell_line_prizes.txt"
     prizes_input_file.to_csv(output_path, sep="\t", index=False, header=True)
     print(f"Prize file saved for cell line '{cell_line_name}' at: {output_path}")
 
     # nonzero prizes input file
     nonzero_prizes_input_file = prizes_input_file[prizes_input_file["prize"] > 0]
-    nonzero_prizes_input_file
-    nonzero_output_path = os.path.join("..", "processed", f"{cell_line_name}_cell_line_prizes_input_nonzero.txt")
+    nonzero_output_path = dir_path / ".." / "processed" / f"{cell_line_name}_cell_line_prizes_input_nonzero.txt"
     nonzero_prizes_input_file.to_csv(nonzero_output_path, sep="\t", index=False, header=True)
     print(f"Nonzero prize file saved for cell line '{cell_line_name}' at: {nonzero_output_path}")
 
     return gene_to_uniprot
 
 
-def process_single_cell_line(cell_line_name, omics_profiles, damaging_mutations_df, CRISPR_dependency, omics_expression, omics_cnv, uniprot_map):
+def process_single_cell_line(
+    cell_line_name: str,
+    omics_profiles: pd.DataFrame,
+    damaging_mutations_df: pd.DataFrame,
+    CRISPR_dependency: pd.DataFrame,
+    omics_expression: pd.DataFrame,
+    omics_cnv: pd.DataFrame,
+    uniprot_map: pd.DataFrame,
+):
     """Process a single cell line and generate output files."""
     try:
         print(f"\n=== Processing cell line: {cell_line_name} ===")
@@ -162,16 +172,16 @@ def main():
     try:
         # Load raw dataset files
         print("Loading datasets...")
-        base_dir = os.path.join("..", "raw")
-        damaging_mutations_df = pd.read_csv(os.path.join(base_dir, "OmicsSomaticMutationsMatrixDamaging.csv"), index_col=0)
-        omics_profiles = pd.read_csv(os.path.join(base_dir, "OmicsProfiles.csv"), index_col=0)
-        omics_expression = pd.read_csv(os.path.join(base_dir, "OmicsExpressionProteinCodingGenesTPMLogp1.csv"), index_col=0)
-        omics_cnv = pd.read_csv(os.path.join(base_dir, "OmicsCNGeneWGS.csv"), index_col=0)
-        CRISPR_dependency = pd.read_csv(os.path.join(base_dir, "CRISPRGeneDependency.csv"), index_col=0)
+        base_dir = dir_path / "raw"
+        damaging_mutations_df = pd.read_csv(base_dir / "OmicsSomaticMutationsMatrixDamaging.csv", index_col=0)
+        omics_profiles = pd.read_csv(base_dir / "OmicsProfiles.csv", index_col=0)
+        omics_expression = pd.read_csv(base_dir / "OmicsExpressionProteinCodingGenesTPMLogp1.csv", index_col=0)
+        omics_cnv = pd.read_csv(base_dir / "OmicsCNGeneWGS.csv", index_col=0)
+        CRISPR_dependency = pd.read_csv(base_dir / "CRISPRGeneDependency.csv", index_col=0)
 
         # Load uniprot mapping file form gene symbols
         print("Loading UniProt mapping file...")
-        uniprot_map = pd.read_csv(os.path.join("..", "processed", "DamagingMutations_idMapping_20250718.tsv"), sep="\t")
+        uniprot_map = pd.read_csv(dir_path / ".." / "processed" / "DamagingMutations_idMapping_20250718.tsv", sep="\t")
 
     except FileNotFoundError as e:
         print(f"ERROR: Required data file not found: {e}")

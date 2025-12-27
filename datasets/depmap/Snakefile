@@ -1,0 +1,9 @@
+rule fetch:
+    output:
+        "raw/CRISPRGeneDependency.csv",
+        "raw/OmicsProfiles.csv",
+        "raw/OmicsSomaticMutationsMatrixDamaging.csv",
+        "raw/OmicsExpressionProteinCodingGenesTPMLogp1.csv",
+        "raw/OmicsCNGeneWGS.csv"
+    shell:
+        "uv run scripts/fetch.py"

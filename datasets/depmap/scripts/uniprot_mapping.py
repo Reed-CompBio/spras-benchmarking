@@ -1,6 +1,7 @@
 import pandas as pd
 import re
 import os
+from pathlib import Path
 
 """Extracts gene symbols from dataset for UniProt mapping"""
 
@@ -8,8 +9,10 @@ import os
 input_file = "OmicsSomaticMutationsMatrixDamaging.csv"
 output_date = "20250801"
 
+dir_path = Path(os.path.dirname(os.path.realpath(__file__)))
 
-def extract_gene_symbols(input_df, input_filename):
+
+def extract_gene_symbols(input_df: pd.DataFrame, input_filename):
     """
     Extracts gene symbols from the input file
     """
