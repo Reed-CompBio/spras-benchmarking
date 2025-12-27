@@ -159,7 +159,7 @@ def generate_gold_standard(cell_line_name, model_id, CRISPR_dependency, gene_to_
     # save mapped dependency as gold standard file
     gold_standard = mapped_dependency_df[mapped_dependency_df.columns[1]]
     threshold_str = str(dependency_threshold).replace(".", "_")
-    gold_standard_output_path = os.path.join("..", "processed", f"{cell_line_name}_gold_standard_thresh_{threshold_str}.txt")
+    gold_standard_output_path = dir_path / ".." / "processed" / f"{cell_line_name}_gold_standard_thresh_{threshold_str}.txt"
     gold_standard.to_csv(gold_standard_output_path, sep="\t", index=False, header=False)
     print(f"Gold standard file saved for cell line '{cell_line_name}' at: {gold_standard_output_path}")
     print(f"Threshold: {dependency_threshold} Number of genes in gold standard: {len(gold_standard)}")
@@ -172,7 +172,7 @@ def main():
     try:
         # Load raw dataset files
         print("Loading datasets...")
-        base_dir = dir_path / "raw"
+        base_dir = dir_path / ".." / "raw"
         damaging_mutations_df = pd.read_csv(base_dir / "OmicsSomaticMutationsMatrixDamaging.csv", index_col=0)
         omics_profiles = pd.read_csv(base_dir / "OmicsProfiles.csv", index_col=0)
         omics_expression = pd.read_csv(base_dir / "OmicsExpressionProteinCodingGenesTPMLogp1.csv", index_col=0)

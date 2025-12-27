@@ -40,8 +40,7 @@ def save_gene_symbols(gene_symbols_df, output_date):
 
 def main():
     # load dataset
-    base_dir = os.path.join("..", "raw")
-    input_df = pd.read_csv(os.path.join(base_dir, input_file), index_col=0)
+    input_df = pd.read_csv(dir_path / ".." / "raw" / input_file, index_col=0)
 
     gene_symbols_df = extract_gene_symbols(input_df, input_file)
 
