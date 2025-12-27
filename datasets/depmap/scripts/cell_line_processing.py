@@ -24,8 +24,7 @@ def check_cell_line(cell_line_name, omics_profiles, damaging_mutations_df, CRISP
         raise CellLineProcessingError(f"Cell line '{cell_line_name}' not found in OmicsProfiles.")
 
     model_id = match.index[0]
-    profile_row = match.index[0]
-    print(f"Found '{cell_line_name}' cell line, model ID: {model_id} (row {profile_row})")
+    print(f"Found '{cell_line_name}' cell line, model ID: {model_id}")
 
     # Check required datasets (mutations + CRISPR) - always raise errors if missing
     if model_id not in damaging_mutations_df.index:
@@ -119,27 +118,18 @@ def process_single_cell_line(
     uniprot_map: pd.DataFrame,
 ):
     """Process a single cell line and generate output files."""
-    try:
-        print(f"\n=== Processing cell line: {cell_line_name} ===")
+    print(f"\n=== Processing cell line: {cell_line_name} ===")
 
-        is_present, model_id = check_cell_line(cell_line_name, omics_profiles, damaging_mutations_df, CRISPR_dependency, omics_expression, omics_cnv)
+    is_present, model_id = check_cell_line(cell_line_name, omics_profiles, damaging_mutations_df, CRISPR_dependency, omics_expression, omics_cnv)
 
-        if is_present:
-            # make prize input files
-            gene_to_uniprot = generate_prize_files(cell_line_name, model_id, damaging_mutations_df, uniprot_map)
+    if is_present:
+        # make prize input files
+        gene_to_uniprot = generate_prize_files(cell_line_name, model_id, damaging_mutations_df, uniprot_map)
 
-            # make gold standard file
-            generate_gold_standard(cell_line_name, model_id, CRISPR_dependency, gene_to_uniprot, dependency_threshold)
-            print(f"Processing for cell line '{cell_line_name}' completed successfully.")
-            return True
-
-    except CellLineProcessingError as e:
-        print(f"ERROR: {e}")
-        return False
-    except Exception as e:
-        print(f"ERROR: Unexpected error processing cell line '{cell_line_name}': {e}")
-        return False
-
+        # make gold standard file
+        generate_gold_standard(cell_line_name, model_id, CRISPR_dependency, gene_to_uniprot, dependency_threshold)
+        print(f"Processing for cell line '{cell_line_name}' completed successfully.")
+        return True
 
 def generate_gold_standard(cell_line_name, model_id, CRISPR_dependency, gene_to_uniprot, threshold: float):
     """Generate gold standard file for the cell line based on CRISPR dependency and gene to Uniprot mapping."""
