@@ -33,8 +33,8 @@ Files used for preparing required files:
 
 ## Processed Data
 Files used for UniProt ID mapping:
-- `DamagingMutationsGeneSymbols_20250718.csv`: Gene symbols parsed from gene columns in `OmicsSomaticMutationsMatrixDamaging.csv` on the date described
-- `DamagingMutations_idMapping_20250718.tsv`: Gene symbols from `DamagingMutationsGeneSymbols_20250718.csv` mapped to UniProt IDs using UniProt Web Service on the date described
+- `DamagingMutationsGeneSymbols.csv`: Gene symbols parsed from gene columns in `OmicsSomaticMutationsMatrixDamaging.csv` on the date described
+- `DamagingMutations_idMapping.tsv`: Gene symbols from `DamagingMutationsGeneSymbols_20250718.csv` mapped to UniProt SwissProt IDs using the [UniProt Web Service](https://www.uniprot.org/id-mapping) on the date described from gene names to UniProtKB over humans.
 - Folder of processed data for an attempt to do UniProt mapping with the gene index numbers instead, got stuck due to duplicate matches for the same gene number. A future step could be referring to the original mutations file (OmicsSomaticMutations.csv on DepMap, URL: https://depmap.org/portal/data_page/?tab=allData&releasename=DepMap%20Public%2025Q2&filename=OmicsSomaticMutations.csv) for gene numbers with duplicate matches and do exact matches by seeing where the mutation is located and get more accurate mappings. Contains preliminary processed data (all as of 07/24/2025):
     - `gene_index_mapping_attempt\gene_numbers.txt`: Gene index numbers parsed from gene columns in `OmicsSomaticMutationsMatrixDamaging.csv`
     - `raw_uniprot_idmapping_2025_07_24.tsv`: Initial mapping results, contains both reviewed and unreviewed results, wasn't able to filter directly on UniProt Web Service due to volume

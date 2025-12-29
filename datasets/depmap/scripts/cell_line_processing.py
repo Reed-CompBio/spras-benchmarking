@@ -171,7 +171,7 @@ def main():
 
         # Load uniprot mapping file form gene symbols
         print("Loading UniProt mapping file...")
-        uniprot_map = pd.read_csv(dir_path / ".." / "processed" / "DamagingMutations_idMapping_20250718.tsv", sep="\t")
+        uniprot_map = pd.read_csv(dir_path / ".." / "processed" / "DamagingMutationsGeneSymbols_idMapping.tsv", sep="\t")
 
     except FileNotFoundError as e:
         print(f"ERROR: Required data file not found: {e}")

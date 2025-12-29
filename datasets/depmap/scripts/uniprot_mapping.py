@@ -32,7 +32,7 @@ def save_gene_symbols(gene_symbols_df):
     """
     output_dir = dir_path / ".." / "processed"
     os.makedirs(output_dir, exist_ok=True)
-    output_path = output_dir / f"DamagingMutationsGeneSymbols_test.csv"
+    output_path = output_dir / f"DamagingMutationsGeneSymbols.csv"
     gene_symbols_df.to_csv(output_path, index=False)
     return output_path
 
