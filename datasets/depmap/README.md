@@ -28,18 +28,15 @@ Files used for preparing required files:
 - `OmicsProfiles.csv` used for mapping cell line names to DepMap model IDs.
 - `OmicsSomaticMutationsMatrixDamaging.csv` used for preparing prize input file.
 - `CRISPRGeneDependency.csv` used for preparing gold standard output.  
-- `OmicsExpressionProteinCodingGenesTPMLogp1.csv`: TODO
-- `OmicsCNGeneWGS.csv`: TODO
+- `OmicsExpressionProteinCodingGenesTPMLogp1.csv`: Model-level TPMs derived from Salmon v1.10.0 (Patro et al 2017) Rows: Model IDs Columns: Gene names.
+- `OmicsCNGeneWGS.csv`: Gene-level copy number data inferred from WGS data only. Additional copy number datasets are available for download as part of the full DepMap Data Release.
 
 ## Processed Data
 Files used for UniProt ID mapping:
-- `DamagingMutationsGeneSymbols.csv`: Gene symbols parsed from gene columns in `OmicsSomaticMutationsMatrixDamaging.csv` on the date described
-- `DamagingMutations_idMapping.tsv`: Gene symbols from `DamagingMutationsGeneSymbols_20250718.csv` mapped to UniProt SwissProt IDs using the [UniProt Web Service](https://www.uniprot.org/id-mapping) on the date described from gene names to UniProtKB over humans.
-- Folder of processed data for an attempt to do UniProt mapping with the gene index numbers instead, got stuck due to duplicate matches for the same gene number. A future step could be referring to the original mutations file (OmicsSomaticMutations.csv on DepMap, URL: https://depmap.org/portal/data_page/?tab=allData&releasename=DepMap%20Public%2025Q2&filename=OmicsSomaticMutations.csv) for gene numbers with duplicate matches and do exact matches by seeing where the mutation is located and get more accurate mappings. Contains preliminary processed data (all as of 07/24/2025):
-    - `gene_index_mapping_attempt\gene_numbers.txt`: Gene index numbers parsed from gene columns in `OmicsSomaticMutationsMatrixDamaging.csv`
-    - `raw_uniprot_idmapping_2025_07_24.tsv`: Initial mapping results, contains both reviewed and unreviewed results, wasn't able to filter directly on UniProt Web Service due to volume
-    - `reviewed_id_mapping_2025_07_24.tsv`: Filtered mapping results to only reviewed matches
-    - `duplicated_mapping_entries.tsv`: Gene index numbers with duplicate matches
+- `DamagingMutationsGeneSymbols.csv`: Gene symbols and Gene IDs parsed from gene columns in `OmicsSomaticMutationsMatrixDamaging.csv` on the date described
+- `DamagingMutations_idMapping.tsv`: Gene symbols from `DamagingMutationsGeneSymbols_20250718.csv` mapped to UniProt SwissProt IDs, using Gene ID data
+to provide more accurate mappings when possible, since gene symbol -> UniProt mappings are not one-to-one mapping. (TODO: some Gene ID -> UniProt
+mappings are also not one-to-one: the accuracy could be improved by identifying the gene via the mutations present in the associated matrix.)
 
 Started processing with the FADU cell line:
 - Input prize file prepared from the damaging mutations dataset

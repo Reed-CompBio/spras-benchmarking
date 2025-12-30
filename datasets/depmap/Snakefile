@@ -4,6 +4,8 @@ rule fetch:
         "raw/OmicsProfiles.csv",
         "raw/OmicsSomaticMutationsMatrixDamaging.csv",
         "raw/OmicsExpressionProteinCodingGenesTPMLogp1.csv",
-        "raw/OmicsCNGeneWGS.csv"
+        "raw/OmicsCNGeneWGS.csv",
+        "raw/HUMAN_9606_idmapping.tsv",
+        "raw/HUMAN_9606_idmapping_selected.tsv"
     shell:
         "uv run scripts/fetch.py"

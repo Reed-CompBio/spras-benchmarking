@@ -55,6 +55,24 @@ directory: CacheDirectory = {
             )
         }
     },
+    "UniProt": {
+        # We use FTP when possible, but we delegate to the UniProt REST API in cases that would save significant bandwidth.
+        "9606": {
+            # We prefer manually curated genes.
+            "SwissProt_9606.tsv": CacheItem(
+                cached="https://drive.google.com/uc?id=1h2Cl-60qcKse-djcsqlRXm_n60mVY7lk",
+                online="https://rest.uniprot.org/uniprotkb/stream?fields=accession%2Cid%2Cprotein_name%2Cgene_names&format=tsv&query=%28*%29+AND+%28reviewed%3Atrue%29+AND+%28model_organism%3A9606%29"
+            ),
+            "HUMAN_9606_idmapping_selected.tab.gz": CacheItem(
+                cached="https://drive.google.com/uc?id=1Oysa5COq31H771rVeyrs-6KFhE3VJqoX",
+                online="https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/idmapping/by_organism/HUMAN_9606_idmapping_selected.tab.gz"
+            ),
+            "HUMAN_9606_idmapping.dat.gz": CacheItem(
+                cached="https://drive.google.com/uc?id=1lGxrx_kGyNdupwIOUXzfIZScc7rQKP-O",
+                online="https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/idmapping/by_organism/HUMAN_9606_idmapping.dat.gz"
+            )
+        }
+    },
     "DISEASES": {
         # Instead of going through https://unmtid-shinyapps.net/shiny/tiga/, we use their
         # archived files directory instead.
