@@ -4,7 +4,7 @@ import os
 from pathlib import Path
 
 # configuration - change cell line list and dependency cutoff as needed
-cell_line_names = ["FADU", "BHY", "SCC4", "INVALID_CELLLINE"]
+cell_line_names = ["FADU", "BHY", "SCC4"]
 dependency_threshold = 0.5
 require_all_datasets = False  # set to true to require all data types
 
