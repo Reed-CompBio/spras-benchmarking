@@ -53,7 +53,9 @@ def main():
     curated_df = pd.read_csv(dir_path / ".." / "raw" / "SwissProt_9606.tsv", sep='\t', usecols=["Entry", "Entry Name", "Gene Names"])
     curated_df.columns = ["UniProtKB-AC", "Entry Name", "Gene Names"]
 
-    idmapping_df = pd.read_csv(dir_path / ".." / "raw" / "HUMAN_9606_idmapping.tsv", header=None, names=["UniProtKB-AC", "ID_type", "Value"], sep='\t')
+    idmapping_df = pd.read_csv(
+        dir_path / ".." / "raw" / "HUMAN_9606_idmapping.tsv",
+        header=None, names=["UniProtKB-AC", "ID_type", "Value"], sep='\t')
     idmapping_df = idmapping_df[idmapping_df["ID_type"] == "Gene_Name"].drop(columns=["ID_type"]).rename(columns={"Value": "GeneSymbol"})
     idmapping_df = idmapping_df.merge(curated_df, on="UniProtKB-AC", how="inner")
     gene_symbols_df_nid = gene_symbols_df_nid.merge(idmapping_df, on="GeneSymbol", how="inner").drop(columns=["GeneID"])
