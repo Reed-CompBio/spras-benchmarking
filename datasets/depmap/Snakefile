@@ -31,11 +31,11 @@ rule mapping:
 
 rule process:
     input:
-        "processed/DamagingMutations_idMapping.tsv"
-        "raw/OmicsSomaticMutationsMatrixDamaging.csv"
-        "raw/OmicsProfiles.csv"
-        "raw/OmicsExpressionProteinCodingGenesTPMLogp1.csv"
-        "raw/OmicsCNGeneWGS.csv"
+        "processed/DamagingMutations_idMapping.tsv",
+        "raw/OmicsSomaticMutationsMatrixDamaging.csv",
+        "raw/OmicsProfiles.csv",
+        "raw/OmicsExpressionProteinCodingGenesTPMLogp1.csv",
+        "raw/OmicsCNGeneWGS.csv",
         "raw/CRISPRGeneDependency.csv"
     output:
         "processed/FADU_cell_line_prizes_input_nonzero.txt",
