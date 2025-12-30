@@ -2,7 +2,6 @@ rule all:
     input:
         "processed/processed_prize_05.txt",
         "processed/processed_prize_060.txt",
-        "processed/phosphosite-irefindex13.0-uniprot.txt"
 
 rule data_prep:
     input: 
@@ -30,11 +29,3 @@ rule spras_formatting:
         "processed/processed_prize_060.txt"
     shell:
         "uv run Scripts/SPRAS_Formatting.py"
-
-rule copy_network:
-    input:
-        "raw/phosphosite-irefindex13.0-uniprot.txt"
-    output:
-        "processed/phosphosite-irefindex13.0-uniprot.txt"
-    shell:
-        "cp raw/phosphosite-irefindex13.0-uniprot.txt processed/phosphosite-irefindex13.0-uniprot.txt"
