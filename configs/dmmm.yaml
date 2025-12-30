@@ -72,7 +72,7 @@ datasets:
     node_files:
       - prize_files/diabetes_mellitus_prizes.txt
     other_files: []
-  - label: cellline_fadu
+  - label: dmmm_cellline_fadu
     data_dir: datasets/depmap
     edge_files: ["../../databases/irefindex/phosphosite-irefindex13.0-uniprot.txt"]
     node_files: ["processed/FADU_cell_line_prizes_input_nonzero.txt"]
@@ -89,4 +89,4 @@ gold_standards:
   - label: gs_fadu
     node_files: ["processed/FADU_gold_standard.txt"]
     data_dir: datasets/depmap
-    dataset_labels: ["cellline_fadu"]
+    dataset_labels: ["dmmm_cellline_fadu"]
