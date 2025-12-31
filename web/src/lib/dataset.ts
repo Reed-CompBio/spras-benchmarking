@@ -8,8 +8,6 @@ const configs: Record<string, Record<string, unknown>> = {
   pra: parse(praYaml),
 };
 
-const datasets = Object.entries(configs)
+export const datasets = Object.entries(configs)
   .map(([type, entry]) => (entry["datasets"] as Record<string, unknown>[]).map((dataset) => ({ ...dataset, type })))
   .flat();
-
-function getDatasetData(datasetName: string): Dataset {}
