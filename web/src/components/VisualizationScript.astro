@@ -1,33 +1,37 @@
 <script>
-    import { Network } from 'vis-network/esnext';
-    import { DataSet } from 'vis-data/peer'
+  import { Network } from "vis-network/esnext";
+  import { DataSet } from "vis-data/peer";
 
-    const visjsContainer = document.querySelector<HTMLDivElement>("#visjsVisualizer")!;
-    const visjsSizeWarning = document.querySelector<HTMLParagraphElement>("#visjsSizeWarning")!
+  const visjsContainer = document.querySelector<HTMLDivElement>("#visjsVisualizer")!;
+  const visjsSizeWarning = document.querySelector<HTMLParagraphElement>("#visjsSizeWarning")!;
 
-    function produceCytoscape(edges: string[][]) {
-        const nodes = [...new Set(edges.map(edge => [edge[0], edge[1]]).flat())]
+  function produceCytoscape(edges: string[][]) {
+    const nodes = [...new Set(edges.map((edge) => [edge[0], edge[1]]).flat())];
 
-        // TODO: findIndex the best thing to run on the client
-        const e = edges.map(([from, to, _, dir]) => ({
-            from: nodes.findIndex(n => n == from),
-            to: nodes.findIndex(n => n == to),
-            arrows: dir === "D" ? "to" : null
-        }))
+    // TODO: findIndex the best thing to run on the client
+    const e = edges.map(([from, to, _, dir]) => ({
+      from: nodes.findIndex((n) => n == from),
+      to: nodes.findIndex((n) => n == to),
+      arrows: dir === "D" ? "to" : null,
+    }));
 
-        new Network(visjsContainer, {
-            nodes: new DataSet(nodes.map((node, i) => ({ id: i + 1, label: node }))),
-            edges: new DataSet(e as any[]) // TODO: badly typed?
-        }, {});
-    }
-    
-    const interactome = visjsContainer.dataset.interactome as string;
-    if (interactome.trim() == 'BIG') {
-        visjsSizeWarning.hidden = false;
-    } else {
-        const interactomeLines: string[] = interactome.split("\n").filter(line => line.trim() !== '');
-        const edges = interactomeLines.map(line => line.split("\t"))
+    new Network(
+      visjsContainer,
+      {
+        nodes: new DataSet(nodes.map((node, i) => ({ id: i + 1, label: node }))),
+        edges: new DataSet(e as any[]), // TODO: badly typed?
+      },
+      {},
+    );
+  }
 
-        produceCytoscape(edges);
-    }
+  const interactome = visjsContainer.dataset.interactome as string;
+  if (interactome.trim() == "BIG") {
+    visjsSizeWarning.hidden = false;
+  } else {
+    const interactomeLines: string[] = interactome.split("\n").filter((line) => line.trim() !== "");
+    const edges = interactomeLines.map((line) => line.split("\t"));
+
+    produceCytoscape(edges);
+  }
 </script>

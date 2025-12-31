@@ -1,39 +1,48 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import Visualization from '../../components/Visualization.astro'
-import { addOptional, algorithmDocumentationUrl, asFolderName, parseOutputString, styleOutput } from '../../lib/outputStyle';
-import { getDataFiles } from '../../lib/paths';
-import { Code } from 'astro:components';
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Visualization from "../../components/Visualization.astro";
+import {
+  addOptional,
+  algorithmDocumentationUrl,
+  asFolderName,
+  parseOutputString,
+  styleOutput,
+} from "../../lib/outputStyle";
+import { getDataFiles } from "../../lib/paths";
+import { Code } from "astro:components";
 
 export function getStaticPaths() {
-  const filteredPaths = new Set(getDataFiles()
-    // We can safely filter for these prefixes, as datasets start with their type.
-    // Specifically, we do not want to make pages for our prepared inputs and logs.
-    .filter(path => !path.startsWith('prepared'))
-    .filter(path => !path.startsWith('logs'))
-    // Then, we don't want to make pages for our root-level files
-    .filter(path => path.includes("/"))
-    // We specifically want the folder names
-    .map(path => path.split("/")[0])
-    // And we want to only have the dataset a-b-c-d params, not analysis ones
-    .filter(path => path.split("-").length === 4)
-    // Then, we exclude -params-
-    .map(path => path.replace("-params", "")));
+  const filteredPaths = new Set(
+    getDataFiles()
+      // We can safely filter for these prefixes, as datasets start with their type.
+      // Specifically, we do not want to make pages for our prepared inputs and logs.
+      .filter((path) => !path.startsWith("prepared"))
+      .filter((path) => !path.startsWith("logs"))
+      // Then, we don't want to make pages for our root-level files
+      .filter((path) => path.includes("/"))
+      // We specifically want the folder names
+      .map((path) => path.split("/")[0])
+      // And we want to only have the dataset a-b-c-d params, not analysis ones
+      .filter((path) => path.split("-").length === 4)
+      // Then, we exclude -params-
+      .map((path) => path.replace("-params", "")),
+  );
 
-  return [...filteredPaths]
-    .map(path => ({ params: { uid: styleOutput(parseOutputString(path)) }}));
+  return [...filteredPaths].map((path) => ({ params: { uid: styleOutput(parseOutputString(path)) } }));
 }
 
 const { uid } = Astro.params;
 const output = parseOutputString(uid);
 // We get the raw files associated to this specific run
-const subPaths = getDataFiles().filter(path => path.startsWith(asFolderName(output)))
+const subPaths = getDataFiles().filter((path) => path.startsWith(asFolderName(output)));
 
 // The paramater config content
-const parametersCode = (await import(`../../../../output/logs/parameters-${output.algorithm}-params-${output.paramsHash}.yaml?raw`)).default
+const parametersCode = (
+  await import(`../../../../output/logs/parameters-${output.algorithm}-params-${output.paramsHash}.yaml?raw`)
+).default;
 
 // The interactome content
-const interactome = (await import(`../../../../output/${asFolderName(output)}/pathway.txt?raw`)).default
+const interactome = (await import(`../../../../output/${asFolderName(output)}/pathway.txt?raw`)).default;
 ---
 
 <style is:global>
@@ -53,19 +62,29 @@ const interactome = (await import(`../../../../output/${asFolderName(output)}/pa
 
   <Code code={parametersCode} lang="yaml" theme="vitesse-light" />
 
-  For information about the algorithm parameters, see the associated <a href={algorithmDocumentationUrl(output.algorithm)}>documentation page</a>.
-  For information about the dataset itself, go to the respective <a href={`/spras-benchmarking/type-category-dataset/${output.dataType}-${output.datasetCategory}${addOptional(output.datasetName, { prefix: '-'})}/`}>dataset page</a>.
+  For information about the algorithm parameters, see the associated <a
+    href={algorithmDocumentationUrl(output.algorithm)}>documentation page</a
+  >. For information about the dataset itself, go to the respective <a
+    href={`/spras-benchmarking/type-category-dataset/${output.dataType}-${output.datasetCategory}${addOptional(output.datasetName, { prefix: "-" })}/`}
+    >dataset page</a
+  >.
 
   <h2>Output Files</h2>
 
   <ul>
-    {subPaths.map(path => (
-      // We remove the unnecessary prefix from the filename
-      <li><a href={import.meta.env.BASE_URL + 'data/output/' + path}>{path.substring((asFolderName(output) + '/').length)}</a></li>
-    ))}
+    {
+      subPaths.map((path) => (
+        // We remove the unnecessary prefix from the filename
+        <li>
+          <a href={import.meta.env.BASE_URL + "data/output/" + path}>
+            {path.substring((asFolderName(output) + "/").length)}
+          </a>
+        </li>
+      ))
+    }
   </ul>
 
   <h1>Visualization</h1>
 
-  <Visualization {interactome}></Visualization>
+  <Visualization {interactome} />
 </BaseLayout>

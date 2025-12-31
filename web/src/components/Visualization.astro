@@ -1,5 +1,5 @@
 ---
-import VisualizationScript from './VisualizationScript.astro';
+import VisualizationScript from "./VisualizationScript.astro";
 
 interface Props {
   interactome: string;
@@ -9,39 +9,39 @@ const { interactome } = Astro.props;
 
 const edgeLimit = 300;
 
-const noHeaderInteractomeArray = interactome.trim().split("\n").slice(1)
-const noHeaderInteractome = (noHeaderInteractomeArray.length > edgeLimit ? "BIG" : noHeaderInteractomeArray.join("\n"))
+const noHeaderInteractomeArray = interactome.trim().split("\n").slice(1);
+const noHeaderInteractome = noHeaderInteractomeArray.length > edgeLimit ? "BIG" : noHeaderInteractomeArray.join("\n");
 ---
 
 <style>
-    #visjsVisualizer {
-        width: 100%;
-        border: 1px solid gray;
-        margin-bottom: 1rem;
-        height: 500px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
+  #visjsVisualizer {
+    width: 100%;
+    border: 1px solid gray;
+    margin-bottom: 1rem;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
-    #visjsSizeWarning {
-        text-align: center;
-        max-width: 60ch;
-    }
+  #visjsSizeWarning {
+    text-align: center;
+    max-width: 60ch;
+  }
 </style>
 
 {
-    noHeaderInteractome === '' ? <p>There is nothing to visualize.</p> :
+  noHeaderInteractome === "" ? (
+    <p>There is nothing to visualize.</p>
+  ) : (
     <div data-interactome={noHeaderInteractome} id="visjsVisualizer">
-        <p id="visjsSizeWarning" hidden>
-            There are {noHeaderInteractomeArray.length} edges,
-            which is over the {edgeLimit} edge maximum.
-            Visualizing it may lag your machine, and 
-            may also not be visually meaningful. If you do want to see this
-            data visualized, using the local Cytoscape analyzer SPRAS has may
-            be a better option.
-        </p>
+      <p id="visjsSizeWarning" hidden>
+        There are {noHeaderInteractomeArray.length} edges, which is over the {edgeLimit} edge maximum. Visualizing it
+        may lag your machine, and may also not be visually meaningful. If you do want to see this data visualized, using
+        the local Cytoscape analyzer SPRAS has may be a better option.
+      </p>
     </div>
+  )
 }
 
-{noHeaderInteractome !== '' && <VisualizationScript />}
+{noHeaderInteractome !== "" && <VisualizationScript />}
