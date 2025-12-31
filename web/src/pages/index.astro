@@ -48,7 +48,7 @@ import Description from './description.md'
 				<li><a href={`./${uid}/`}>
 					<span class="color-1-dark">{output.dataType}</span><span>-</span>
 					<span class="color-2-dark">{output.datasetCategory}</span><span>-</span>
-					<span class="color-3-dark">{output.datasetName}</span><span>-</span>
+					{output.datasetName && <><span class="color-3-dark">{output.datasetName}</span><span>-</span></>}
 					<span class="color-4-dark">{output.algorithm}</span><span>-</span>
 					<span class="color-5-dark">{output.paramsHash}</span>
 				</a></li>

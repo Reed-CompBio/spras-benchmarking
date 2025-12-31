@@ -1,7 +1,7 @@
 interface Output {
     dataType: string;
     datasetCategory: string;
-    datasetName: string;
+    datasetName?: string;
     algorithm: string;
     paramsHash: string;
 }
@@ -69,6 +69,9 @@ export function parseOutputString(str: string): Output {
     if (components.length === 5) {
         // This is a slug URL (type-...)
         [dataType, datasetCategory, datasetName, algorithm, paramsHash] = components
+    } else if (components.length === 4) {
+        // This is also a slug URL w/o a name
+        [dataType, datasetCategory, algorithm, paramsHash] = components
     } else if (components.length === 3) {
         // This is fetched straight from the folder - we ignored -params previously
         [datasetName, algorithm, paramsHash] = components
@@ -80,6 +83,7 @@ export function parseOutputString(str: string): Output {
     // We didn't get a data type in the first passthrough - lets extract the data
     // type from the name
     if (!dataType || !datasetCategory) {
+        if (!datasetName) throw new Error(`datasetName ${datasetName} isn't set - this is an internal error.`)
         const { type, name: name1 } = extractDatasetType(datasetName);
         const { category, name } = extractDatasetCategory(name1)
         dataType = type;
@@ -96,12 +100,16 @@ export function parseOutputString(str: string): Output {
     }
 }
 
+export function addOptional(name: string | undefined, settings: { prefix?: string, suffix?: string }): string {
+    return name ? `${settings.prefix ?? ''}${name}${settings.suffix ?? ''}` : ''
+}
+
 export function styleOutput(output: Output): string {
-    return `${output.dataType}-${output.datasetCategory}-${output.datasetName}-${output.algorithm}-${output.paramsHash}`
+    return `${output.dataType}-${output.datasetCategory}-${addOptional(output.datasetName, { suffix: '-' })}${output.algorithm}-${output.paramsHash}`
 }
 
 export function asFolderName(output: Output): string {
-    return `${output.dataType}${output.datasetCategory}_${output.datasetName}-${output.algorithm}-params-${output.paramsHash}`
+    return `${output.dataType}${output.datasetCategory}${addOptional(output.datasetName, { prefix: '_' })}-${output.algorithm}-params-${output.paramsHash}`
 }
 
 export function algorithmDocumentationUrl(algorithm: string): string {
