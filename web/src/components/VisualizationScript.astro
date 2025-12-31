@@ -1,32 +1,33 @@
 <script>
-    import cytoscape from 'cytoscape';
+    import { Network } from 'vis-network/esnext';
+    import { DataSet } from 'vis-data/peer'
 
-    const cytoscapeContainer = document.querySelector<HTMLDivElement>("#cytoscapeVisualizer")!;
-    const cytoscapeSizeWarning = document.querySelector<HTMLParagraphElement>("#cytoscapeSizeWarning")!
+    const visjsContainer = document.querySelector<HTMLDivElement>("#visjsVisualizer")!;
+    const visjsSizeWarning = document.querySelector<HTMLParagraphElement>("#visjsSizeWarning")!
 
-    const interactome = cytoscapeContainer.dataset.interactome as string;
-    const interactomeLines: string[] = interactome.split("\n").filter(line => line.trim() !== '');
-    const edges = interactomeLines.map(line => line.split("\t"))
-
-    function produceCytoscape() {
+    function produceCytoscape(edges: string[][]) {
         const nodes = [...new Set(edges.map(edge => [edge[0], edge[1]]).flat())]
 
-        cytoscape({
-            container: cytoscapeContainer,
-            elements: {
-                nodes: nodes.map(node => ({ data: { id: node }})),
-                edges: edges.map(([source, target, rank, dir]) => ({ data: { id: `${source}-${target}`, source, target }}))
-            },
-            layout: {
-                name: 'grid',
-                rows: 5
-            }
-        });
-    }
+        // TODO: not the best thing to run on the client
+        const e = edges.map(([a, b]) => ({ from: nodes.findIndex(n => n == a), to: nodes.findIndex(n => n == b) }))
 
-    if (edges.length > 200) {
-        cytoscapeSizeWarning.hidden = false;
+        new Network(visjsContainer, {
+            nodes: new DataSet(nodes.map((node, i) => ({ id: i + 1, label: node }))),
+            edges: new DataSet(e as any[]) // TODO: badly typed?
+        }, {});
+    }
+    
+    const interactome = visjsContainer.dataset.interactome as string;
+    if (interactome.trim() == 'BIG') {
+        visjsSizeWarning.hidden = false;
     } else {
-        produceCytoscape();
+        const interactomeLines: string[] = interactome.split("\n").filter(line => line.trim() !== '');
+        const edges = interactomeLines.map(line => line.split("\t"))
+
+        if (edges.length > 200) {
+            visjsSizeWarning.hidden = false;
+        } else {
+            produceCytoscape(edges);
+        }
     }
 </script>

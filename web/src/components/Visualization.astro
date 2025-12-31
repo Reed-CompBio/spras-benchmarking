@@ -7,11 +7,12 @@ interface Props {
 
 const { interactome } = Astro.props;
 
-const noHeaderInteractome = interactome.trim().split("\n").slice(1).join("\n")
+const noHeaderInteractomeArray = interactome.trim().split("\n").slice(1)
+const noHeaderInteractome = (noHeaderInteractomeArray.length > 200 ? "BIG" : noHeaderInteractomeArray.join("\n"))
 ---
 
 <style>
-    #cytoscapeVisualizer {
+    #visjsVisualizer {
         width: 100%;
         border: 1px solid gray;
         margin-bottom: 1rem;
@@ -27,10 +28,10 @@ const noHeaderInteractome = interactome.trim().split("\n").slice(1).join("\n")
     }
 </style>
 
-<div data-interactome={noHeaderInteractome} id="cytoscapeVisualizer">
+<div data-interactome={noHeaderInteractome} id="visjsVisualizer">
     {
         noHeaderInteractome === '' ? <p>There is nothing to visualize.</p> :
-        <p id="cytoscapeSizeWarning" hidden>
+        <p id="visjsSizeWarning" hidden>
             There are over 200 edges in this graph. Visualizing it may lag your machine, and 
             may also not be visually meaningful. If you do want to see this
             data visualized, using the local Cytoscape analyzer SPRAS has may

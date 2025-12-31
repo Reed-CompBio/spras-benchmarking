@@ -58,21 +58,21 @@ datasets:
     edge_files: ["network1.txt"]
     other_files: []
     data_dir: "datasets/yeast-osmotic-stress/processed"
-  - label: dmmm_alopecia_areata
+  - label: dmmmalopecia_areata
     data_dir: datasets/diseases
     edge_files:
       - raw/string_interactome.txt
     node_files:
       - prize_files/alopecia_areata_prizes.txt
     other_files: []
-  - label: dmmm_diabetes_mellitus
+  - label: dmmmdiabetes_mellitus
     data_dir: datasets/diseases
     edge_files:
       - raw/string_interactome.txt
     node_files:
       - prize_files/diabetes_mellitus_prizes.txt
     other_files: []
-  - label: dmmm_cellline_fadu
+  - label: dmmmcellline_fadu
     data_dir: datasets/depmap
     edge_files: ["../../databases/irefindex/phosphosite-irefindex13.0-uniprot.txt"]
     node_files: ["processed/FADU_cell_line_prizes_input_nonzero.txt"]
@@ -81,12 +81,12 @@ gold_standards:
   - label: gs0
     node_files: ['GS_files/Alopecia_areata_GS.txt']
     data_dir: "datasets/diseases"
-    dataset_labels: ["dmmm_alopecia_areata"]
+    dataset_labels: ["dmmmalopecia_areata"]
   - label: gs1
     node_files: ['GS_files/Diabetes_mellitus_GS.txt']
     data_dir: "datasets/diseases"
-    dataset_labels: ["dmmm_diabetes_mellitus"]
+    dataset_labels: ["dmmmdiabetes_mellitus"]
   - label: gs_fadu
     node_files: ["processed/FADU_gold_standard.txt"]
     data_dir: datasets/depmap
-    dataset_labels: ["dmmm_cellline_fadu"]
+    dataset_labels: ["dmmmcellline_fadu"]
