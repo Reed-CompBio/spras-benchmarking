@@ -12,10 +12,12 @@ All information provided is orchestrated through our GitHub Actions pipeline, an
 
 ## Format
 
-Each run's slug has the <code class="color-1">type</code>, the <code class="color-2">dataset</code>, the
-<code class="color-3">algorithm</code>, and the <code class="color-4">paramaters</code> [hash](https://en.wikipedia.org/wiki/Hash_function).
+Each run's slug has the <code class="color-1">type</code>, the (dataset) <code class="color-2">category</code>, the <code class="color-3">dataset</code>, the
+<code class="color-4">algorithm</code>, and the <code class="color-5">paramaters</code> [hash](https://en.wikipedia.org/wiki/Hash_function).
 
 There are also pages related to different categories of these runs:
-- <code><a href="/spras-benchmarking/type-dataset/"><span class="color-1">type</span>-<span class="color-2">dataset</span></a></code>
+- <code><a href="/spras-benchmarking/type-category-dataset/"><span class="color-1">type</span>-<span class="color-2">category</span>-<span class="color-3">dataset</span></a></code>
 
 The <code class="color-1">type</code> classifies a dataset and the algorithms it runs on. In this case, PRA datasets run on all algorithms, while disease module datasets only run on DMMM algorithms.
+
+The <code class="color-2">category</code> classifies what provider a dataset comes from.

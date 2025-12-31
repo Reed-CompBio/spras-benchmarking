@@ -55,7 +55,7 @@ const dataCategories = {
 // TODO: replace this once we have proper dataset categories
 export function extractDatasetCategory(name: string): { category: string, name: string } {
     const { prefix, name: newName } = extractPrefix(name, "dataset category", Object.keys(dataCategories))
-    return { category: prefix.slice(0, -1), name: newName }
+    return { category: prefix, name: newName.slice(1) }
 }
 
 export function parseOutputString(str: string): Output {

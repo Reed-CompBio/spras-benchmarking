@@ -1,4 +1,4 @@
-import { extractDatasetType } from "./outputStyle";
+import { extractDatasetCategory, extractDatasetType } from "./outputStyle";
 
 export function getDataFiles() {
     const dataFiles = import.meta.glob('../../public/data/output/**', { query: '?raw' });
@@ -12,4 +12,5 @@ export function getDatasets() {
         .map(file => file.substring("logs/datasets-".length))
         .map(file => file.slice(0, -".yaml".length))
         .map(file => extractDatasetType(file))
+        .map(({ type, name }) => ({ type, ...extractDatasetCategory(name) }))
 }
