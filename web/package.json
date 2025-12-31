@@ -10,11 +10,11 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@fontsource-variable/noto-sans": "^5.2.7",
-    "astro": "^5.9.4",
-    "cytoscape": "^3.32.0",
-    "dayjs": "^1.11.13",
+    "@fontsource-variable/noto-sans": "^5.2.10",
+    "astro": "^5.16.6",
+    "cytoscape": "^3.33.1",
+    "dayjs": "^1.11.19",
     "medium-zoom": "^1.1.0",
-    "sass": "^1.89.2"
+    "sass": "^1.97.1"
   }
 }
