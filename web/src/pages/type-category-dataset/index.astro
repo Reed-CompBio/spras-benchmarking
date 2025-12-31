@@ -8,7 +8,7 @@ import Colors from '../../components/Colors.astro';
 <BaseLayout>
     <h1>Type-Category-Datasets</h1>
 
-    <p>This contains analysis associated with datasets running on a particular algorithm type.</p>
+    <p>This contains analysis associated with datasets running on a particular algorithm type under some category.</p>
 
     <ul>
         {getStaticPaths().map(({ params: { slug, type, category, name }}) => (<li>
