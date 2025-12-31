@@ -1,0 +1,27 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import { getDatasets } from "../../../lib/paths";
+
+export function getStaticPaths() {
+  return getDatasets()
+    .map((obj) => ({ ...obj, id: `${obj.type}-${obj.category}` }))
+    .filter(
+      (value, index, self) =>
+        // Removing duplicate entries
+        index === self.findIndex((t) => t.id === value.id),
+    )
+    .map(({ category, type }) => ({
+      params: { category, type },
+    }));
+}
+
+const { category, type } = Astro.params;
+---
+
+<BaseLayout>
+  <h1>{type}-{category}</h1>
+
+  <a href={import.meta.env.BASE_URL}>(go to home)</a>
+  <br />
+  <a href={import.meta.env.BASE_URL + "type-category/"}>(go to type-category)</a>
+</BaseLayout>
