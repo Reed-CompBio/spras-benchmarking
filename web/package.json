@@ -3,7 +3,7 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
-    "prepare-output": "mkdir -p public/data && cp -r ../output/ public/data",
+    "prepare-output": "mkdir -p public/data && cp -r ../output/ public/data && cp -r ../configs/ public/data",
     "dev": "pnpm prepare-output && astro dev",
     "build": "pnpm prepare-output && astro build",
     "preview": "astro preview",
@@ -14,7 +14,8 @@
     "astro": "^5.16.6",
     "dayjs": "^1.11.19",
     "medium-zoom": "^1.1.0",
-    "sass": "^1.97.1"
+    "sass": "^1.97.1",
+    "yaml": "^2.8.2"
   },
   "devDependencies": {
     "vis-data": "^8.0.3",

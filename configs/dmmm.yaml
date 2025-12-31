@@ -42,12 +42,12 @@ algorithms:
 datasets:
   # TODO: use old paramaters for datasets
   # HIV: https://github.com/Reed-CompBio/spras-benchmarking/blob/0293ae4dc0be59502fac06b42cfd9796a4b4413e/hiv-benchmarking/spras-config/config.yaml
-  - label: dmmmhiv060
+  - label: dmmmhiv_060
     node_files: ["processed_prize_060.txt"]
     edge_files: ["../../../databases/irefindex/phosphosite-irefindex13.0-uniprot.txt"]
     other_files: []
     data_dir: "datasets/hiv/processed"
-  - label: dmmmhiv05
+  - label: dmmmhiv_05
     node_files: ["processed_prize_05.txt"]
     edge_files: ["../../../databases/irefindex/phosphosite-irefindex13.0-uniprot.txt"]
     other_files: []
@@ -58,21 +58,21 @@ datasets:
     edge_files: ["network1.txt"]
     other_files: []
     data_dir: "datasets/yeast-osmotic-stress/processed"
-  - label: dmmmalopecia_areata
+  - label: dmmmdiseases_alopecia_areata
     data_dir: datasets/diseases
     edge_files:
       - raw/string_interactome.txt
     node_files:
       - prize_files/alopecia_areata_prizes.txt
     other_files: []
-  - label: dmmmdiabetes_mellitus
+  - label: dmmmdiseases_diabetes_mellitus
     data_dir: datasets/diseases
     edge_files:
       - raw/string_interactome.txt
     node_files:
       - prize_files/diabetes_mellitus_prizes.txt
     other_files: []
-  - label: dmmmcellline_fadu
+  - label: dmmmdepmap_cellline_fadu
     data_dir: datasets/depmap
     edge_files: ["../../databases/irefindex/phosphosite-irefindex13.0-uniprot.txt"]
     node_files: ["processed/FADU_cell_line_prizes_input_nonzero.txt"]
@@ -81,12 +81,12 @@ gold_standards:
   - label: gs0
     node_files: ['GS_files/Alopecia_areata_GS.txt']
     data_dir: "datasets/diseases"
-    dataset_labels: ["dmmmalopecia_areata"]
+    dataset_labels: ["dmmmdiseases_alopecia_areata"]
   - label: gs1
     node_files: ['GS_files/Diabetes_mellitus_GS.txt']
     data_dir: "datasets/diseases"
-    dataset_labels: ["dmmmdiabetes_mellitus"]
+    dataset_labels: ["dmmmdiseases_diabetes_mellitus"]
   - label: gs_fadu
     node_files: ["processed/FADU_gold_standard.txt"]
     data_dir: datasets/depmap
-    dataset_labels: ["dmmmcellline_fadu"]
+    dataset_labels: ["dmmmdepmap_cellline_fadu"]

@@ -2,7 +2,7 @@
 
 [SPRAS](https://github.com/Reed-CompBio/spras) is a
 utility software designed for performing [signaling pathway](https://en.wikipedia.org/wiki/Cell_signaling#Signal_transduction_pathways) reconstruction
-with various algorithms. [SPRAS's documentation](https://spras.readthedocs.io/en/latest/) has more information about its inner workings software.
+with various algorithms. [SPRAS's documentation](https://spras.readthedocs.io/en/latest/) has more information about its inner workings.
 
 This benchmarking repository ([see the GitHub](https://github.com/Reed-CompBio/spras-benchmarking/)) is meant to display the performance
 of all of the algorithms currently supported by SPRAS on signaling pathways and diseases (to test out <abbr title="Disease Module Mining Methods">DMMMs</abbr>),
@@ -18,4 +18,4 @@ Each run's slug has the <code class="color-1">type</code>, the <code class="colo
 There are also pages related to different categories of these runs:
 - <code><a href="/spras-benchmarking/type-dataset/"><span class="color-1">type</span>-<span class="color-2">dataset</span></a></code>
 
-The <code class="color-1">type</code> classifies a dataset and the algorithms it runs on. For example, PRA datasets run on all algorithms, while disease module datasets only run on DMMM algorithms.
+The <code class="color-1">type</code> classifies a dataset and the algorithms it runs on. In this case, PRA datasets run on all algorithms, while disease module datasets only run on DMMM algorithms.

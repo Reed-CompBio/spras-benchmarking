@@ -1,9 +1,10 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro"
 import { getStaticPaths } from "./[type]-[name]/index.astro"
-
+import Colors from '../../components/Colors.astro';
 ---
 
+<Colors />
 <BaseLayout>
     <h1>Type-Datasets</h1>
 
@@ -11,7 +12,9 @@ import { getStaticPaths } from "./[type]-[name]/index.astro"
 
     <ul>
         {getStaticPaths().map(({ params: { type, name }}) => (<li>
-            <a href={`/spras-benchmarking/type-dataset/${type}-${name}/`}>{type}-{name}</a>
+            <a href={`/spras-benchmarking/type-dataset/${type}-${name}/`}>
+                <span class="color-1-dark">{type}</span>-<span class="color-2-dark">{name}</span>
+            </a>
         </li>))}
     </ul>
 </BaseLayout>
