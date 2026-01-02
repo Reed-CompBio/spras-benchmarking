@@ -120,6 +120,12 @@ directory: CacheDirectory = {
             cached="https://drive.google.com/uc?id=1TPp3cfK7OZUrftucr3fLO-krXSQAA6Ub",
             online="https://depmap.org/portal/download/api/download?file_name=downloads-by-canonical-id%2Fpublic-25q2-c5ef.104%2FOmicsCNGeneWGS.csv&dl_name=OmicsCNGeneWGS.csv&bucket=depmap-external-downloads"
         )
+    },
+    "WikiPathways": {
+        "WP428.gpml": CacheItem(
+            cached="https://drive.google.com/uc?id=1oPA_J49dkY5uvINMsPLLaEweaAhNBZui",
+            online="https://www.wikipathways.org/wikipathways-assets/pathways/WP428/WP428.gpml"
+        )
     }
 }
 
