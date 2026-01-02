@@ -27,8 +27,19 @@ class CacheItem:
     cached: str
     online: str
 
+    @classmethod
+    def cache_only(cls, cached: str) -> "CacheItem":
+        """Wrapper method to explicitly declare a CacheItem as cached only."""
+        return cls(online=cached, cached="")
+
     def download(self, output: str | PathLike):
         print(f"Downloading {self.online}...")
+
+        if self.cached == "":
+            # From CacheItem.cached_only
+            # (gdown doesn't take in Paths for the output_file, so we must stringify it here)
+            gdown.download(self.online, str(output))
+            return
 
         urllib.request.urlretrieve(self.online, output)
 
@@ -97,6 +108,10 @@ directory: CacheDirectory = {
         "ensg-ensp.tsv": CacheItem(
             cached="https://drive.google.com/uc?id=1-gPrDoluXIGydzWKjWEnW-nWhYu3YkHL",
             online=fetch_biomart_url((dir_path / "biomart" / "ensg-ensp.xml").read_text())
+        ),
+        "entrez-ensg.tsv": CacheItem(
+            cached="https://drive.google.com/uc?id=1VedTQ_cSd5mq6YnBudHjkxiBTM1fPpsA",
+            online=fetch_biomart_url((dir_path / "biomart" / "entrez-ensg.xml").read_text())
         )
     },
     "DepMap": {
@@ -120,6 +135,32 @@ directory: CacheDirectory = {
             cached="https://drive.google.com/uc?id=1TPp3cfK7OZUrftucr3fLO-krXSQAA6Ub",
             online="https://depmap.org/portal/download/api/download?file_name=downloads-by-canonical-id%2Fpublic-25q2-c5ef.104%2FOmicsCNGeneWGS.csv&dl_name=OmicsCNGeneWGS.csv&bucket=depmap-external-downloads"
         )
+    },
+    "WikiPathways": {
+        "WP428.gpml": CacheItem(
+            cached="https://drive.google.com/uc?id=1oPA_J49dkY5uvINMsPLLaEweaAhNBZui",
+            online="https://www.wikipathways.org/wikipathways-assets/pathways/WP428/WP428.gpml"
+        )
+    },
+    # A special section specifically for supplementary information from papers.
+    # Since these can come in varying complicated formats (e.g. .xlsx), we take the heuristic approach
+    # of caching reasonably-preserved supplementary info sections.
+    "DOI": {
+        "10.1016/j.cell.2010.01.044": {
+            "mmc1.tsv": CacheItem.cache_only(
+                cached="https://drive.google.com/uc?id=1e2-XOk5MArY5DCZ-bBsRqXcCFAvsxenc"
+            )
+        },
+        "10.1186/1741-7007-7-50": {
+            "12915_2009_258_MOESM1_ESM - Data.tsv": CacheItem.cache_only(
+                cached="https://drive.google.com/uc?id=1tMwX1BWB3FSGT7AIFaBSuwwe4nDhTcJz"
+            )
+        },
+        "10.1038/nrg2538": {
+            "st2.tsv": CacheItem.cache_only(
+                cached="https://drive.google.com/uc?id=17XcVLg7WzsaPxrkMaJwLdBh2K2UTCLdJ"
+            )
+        }
     }
 }
 

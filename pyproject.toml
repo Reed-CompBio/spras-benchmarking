@@ -23,5 +23,13 @@ line-length = 150
 [tool.uv]
 package = true
 
+[tool.uv.workspace]
+members = [
+    "datasets/wikipathways/wikinetworks",
+]
+
+[tool.uv.sources]
+wikinetworks = { workspace = true }
+
 [tool.setuptools.packages]
 find = {namespaces = false} 
