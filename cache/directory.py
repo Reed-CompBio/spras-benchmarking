@@ -99,7 +99,7 @@ directory: CacheDirectory = {
             online=fetch_biomart_url((dir_path / "biomart" / "ensg-ensp.xml").read_text())
         ),
         "entrez-ensg.tsv": CacheItem(
-            cached="",
+            cached="https://drive.google.com/uc?id=1VedTQ_cSd5mq6YnBudHjkxiBTM1fPpsA",
             online=fetch_biomart_url((dir_path / "biomart" / "entrez-ensg.xml").read_text())
         )
     },
