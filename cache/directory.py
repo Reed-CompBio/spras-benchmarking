@@ -97,6 +97,10 @@ directory: CacheDirectory = {
         "ensg-ensp.tsv": CacheItem(
             cached="https://drive.google.com/uc?id=1-gPrDoluXIGydzWKjWEnW-nWhYu3YkHL",
             online=fetch_biomart_url((dir_path / "biomart" / "ensg-ensp.xml").read_text())
+        ),
+        "entrez-ensg.tsv": CacheItem(
+            cached="",
+            online=fetch_biomart_url((dir_path / "biomart" / "entrez-ensg.xml").read_text())
         )
     },
     "DepMap": {

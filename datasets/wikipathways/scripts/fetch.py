@@ -1,3 +1,4 @@
+import argparse
 from pathlib import Path
 import os
 from cache.directory import get_cache_item
@@ -16,14 +17,23 @@ def runParsePathway(gpml: str) -> nx.DiGraph:
     graph = wikinetworks.makeGraph(featureDFs, featureList)
     return graph
 
+def args():
+    parser = argparse.ArgumentParser(
+                    prog='WikiPathways fetch',
+                    description='fetches and converts WikiPathways pathways to directed graphs.')
+    parser.add_argument('-p', '--pathway', required=True)
+    return parser.parse_args()
+
 def main():
     raw_dir.mkdir(exist_ok=True)
 
-    # TODO: Pass as CLI argument
-    pathway = "WP428"
+    pathway = args().pathway
+
+    print(f"Fetching BioMart Entrez -> ENSG mapping...")
+    get_cache_item(["BioMart", "entrez-ensg.tsv"]).download(raw_dir / "entrez-ensg.tsv")
 
     out_path = raw_dir / f"{pathway}.gpml"
-    print(f"Fetching WikiPathways {pathway} GPML...")
+    print(f"Fetching WikiPathways {pathway} GPML (https://www.wikipathways.org/pathways/{pathway}.html)...")
     get_cache_item(["WikiPathways", f"{pathway}.gpml"]).download(out_path)
 
     graph = runParsePathway(out_path.read_text())

@@ -5,6 +5,8 @@
 We use [WikiNetworks](https://doi.org/10.1093/bioinformatics/btab699) to convert signaling pathways of interest into directed graphs.
 Due to various flaws, we do clone it locally inside this folder.
 
+> NOTE: WikiNetworks is still moderately inaccurate. A further direction could be improving its accuracy.
+
 ## Processing
 
 After getting the underlying graph with WikiNetworks, we convert interactions between grouped proteins
