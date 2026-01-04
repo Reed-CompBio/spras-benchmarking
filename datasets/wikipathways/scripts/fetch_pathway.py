@@ -11,6 +11,7 @@ dir_path = os.path.dirname(os.path.realpath(__file__))
 
 raw_dir = Path(dir_path, "..", "raw")
 
+
 def runParsePathway(gpml: str) -> nx.DiGraph:
     featureList = wikinetworks.makeFeatureLists(gpml, isFromFile=True)
     featureDFs = wikinetworks.getFeatureDFs(featureList)

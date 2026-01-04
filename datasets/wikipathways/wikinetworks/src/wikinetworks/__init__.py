@@ -26,10 +26,12 @@ def givenCodeGetGPML(s, code):
     newres = binascii.a2b_base64(bytes(res, "ascii"))  # convert to ascii
     return newres
 
+
 def getCurationTags(s, code):
     url = "https://webservice.wikipathways.org/getCurationTags?pwId=" + str(code) + "&format=xml"
     res = s.http_get(url + "&format=json")
     return res
+
 
 def processCurationTags(curationTagsDict):
     """Processes the output of getCurationTags to get a readable list of warning labels. The user should consider this list of tags as a quality indicator."""

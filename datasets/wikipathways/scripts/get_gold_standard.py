@@ -182,7 +182,7 @@ def main():
     # and save our new gold standard file.
     graph = networkx.relabel_nodes(graph, {node: data["ENSP"] for node, data in graph.nodes(data=True)})
     networkx.set_edge_attributes(graph, "D", "Direction")
-    networkx.write_edgelist(graph, dir_path / ".." / "processed" / f"gs-{pathway}.tsv", delimiter="\t", data=["Direction"])
+    networkx.write_edgelist(graph, dir_path / ".." / "processed" / f"gs-{pathway}-unprocessed.tsv", delimiter="\t", data=["Direction"])
 
 
 if __name__ == "__main__":
