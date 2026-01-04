@@ -14,17 +14,17 @@ raw_dir = Path(dir_path, "..", "raw")
 def runParsePathway(gpml: str) -> nx.DiGraph:
     featureList = wikinetworks.makeFeatureLists(gpml, isFromFile=True)
     featureDFs = wikinetworks.getFeatureDFs(featureList)
-    featureDFs['interactDF'] = wikinetworks.mapEndPoints(featureDFs)
-    featureDFs['interactDF'] = wikinetworks.processInteractDF(featureDFs, featureList)
+    featureDFs["interactDF"] = wikinetworks.mapEndPoints(featureDFs)
+    featureDFs["interactDF"] = wikinetworks.processInteractDF(featureDFs, featureList)
     graph = wikinetworks.makeGraph(featureDFs, featureList)
     return graph
 
+
 def args():
-    parser = argparse.ArgumentParser(
-                    prog='WikiPathways fetch',
-                    description='fetches and converts WikiPathways pathways to directed graphs.')
-    parser.add_argument('-p', '--pathway', required=True)
+    parser = argparse.ArgumentParser(prog="WikiPathways fetch", description="fetches and converts WikiPathways pathways to directed graphs.")
+    parser.add_argument("-p", "--pathway", required=True)
     return parser.parse_args()
+
 
 def main():
     raw_dir.mkdir(exist_ok=True)
@@ -39,5 +39,6 @@ def main():
     (raw_dir / ".." / "processed").mkdir(exist_ok=True)
     nx.write_graphml(graph, raw_dir / ".." / "processed" / f"{pathway}.graphml")
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     main()

@@ -15,5 +15,6 @@ def main():
     print(f"Fetching BioMart Entrez -> ENSG mapping...")
     get_cache_item(["BioMart", "entrez-ensg.tsv"]).download(raw_dir / "entrez-ensg.tsv")
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     main()
