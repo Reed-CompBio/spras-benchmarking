@@ -12,7 +12,7 @@ thresholds = [1, 100, 200, 300, 400, 500, 600, 700, 800, 900]
 
 rule all:
     input:
-        "intermediate/9606.protein.links.full.v12.0.txt",
+        "../../databases/string/9606.protein.links.full.v12.0.txt",
         expand([
             "processed/{pathway}/{pathway}_node_prizes.txt",
             "processed/{pathway}/{pathway}_gs_edges.txt",
@@ -21,6 +21,12 @@ rule all:
         expand(
             "processed/interactomes/uniprot-combined-threshold-interactomes/uniprot_combined_interactome_{threshold}.txt",
             threshold=thresholds)
+
+rule of_db:
+    output:
+        "../../databases/string/9606.protein.links.full.v12.0.txt"
+    run:
+        "uv run ../../databases/stringdb.py --id 9606"
 
 rule combine_interactomes:
     input:
@@ -39,7 +45,7 @@ rule combine_interactomes:
 
 rule threshold_interactomes:
     input:
-        "intermediate/9606.protein.links.full.v12.0.txt",
+        "../../databases/string/9606.protein.links.full.v12.0.txt",
         expand([
             "processed/{pathway}/{pathway}_node_prizes.txt",
             "processed/{pathway}/{pathway}_gs_edges.txt",
@@ -84,17 +90,3 @@ rule make_spras_compatible:
         ]
     shell:
         "uv run src/SPRAS_compatible_files.py {wildcards.pathway}"
-
-rule download_interactome:
-    output:
-        "intermediate/9606.protein.links.full.v12.0.txt.gz"
-    shell:
-        "uv run src/download_interactome.py"
-
-rule unpack_interactome:
-    input:
-        "intermediate/9606.protein.links.full.v12.0.txt.gz"
-    output:
-        "intermediate/9606.protein.links.full.v12.0.txt"
-    shell:
-        "gunzip intermediate/9606.protein.links.full.v12.0.txt.gz"

@@ -36,7 +36,7 @@ def main():
     string_path.mkdir(exist_ok=True)
 
     # We download the links file
-    links_file = string_path / f"{args.id}.protein.links.v12.0.txt.gz"
+    links_file = string_path / f"{args.id}.protein.links.full.v12.0.txt.gz"
     get_cache_item(["STRING", str(args.id), "links"]).download(links_file)
     uncompress(links_file, links_file.with_suffix("")) # an extra call of with_suffix strips the `.gz` prefix
 

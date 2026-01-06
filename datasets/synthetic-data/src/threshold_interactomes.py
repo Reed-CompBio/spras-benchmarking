@@ -13,7 +13,7 @@ UniProt_AC = pd.read_csv(data_directory / "raw" / "human-interactome" / "String_
 one_to_many_dict = UniProt_AC.groupby("From")["Entry"].apply(list).to_dict()
 
 # read in interactome
-human_interactome = pd.read_csv(data_directory / "intermediate" / '9606.protein.links.full.v12.0.txt', sep=' ', header = 0)
+human_interactome = pd.read_csv(data_directory / ".." / ".." / "databases" / "string" / '9606.protein.links.full.v12.0.txt', sep=' ', header = 0)
 
 def get_aliases(protein_id):
     return one_to_many_dict.get(protein_id, [])

@@ -46,8 +46,8 @@ directory: CacheDirectory = {
     "STRING": {
         "9606": {
             "links": CacheItem(
-                cached="https://drive.google.com/uc?id=1fvjdIbgzbgJrdJxWRRRwwS1zuegf6DOj",
-                online="http://stringdb-downloads.org/download/protein.links.v12.0/9606.protein.links.v12.0.txt.gz",
+                cached="https://drive.google.com/uc?id=13tE_-A6g7McZs_lZGz9As7iE-5cBFvqE",
+                online="http://stringdb-downloads.org/download/protein.links.full.v12.0/9606.protein.links.full.v12.0.txt.gz",
             ),
             "aliases": CacheItem(
                 cached="https://drive.google.com/uc?id=1IWrQeTVCcw1A-jDk-4YiReWLnwP0S9bY",
