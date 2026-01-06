@@ -7,7 +7,7 @@ rule all:
 
 rule of_db:
     output:
-        "../../databases/string/9606.protein.links.v12.0.txt",
+        "../../databases/string/9606.protein.links.full.v12.0.txt",
         "../../databases/string/9606.protein.aliases.v12.0.txt"
     shell:
         "uv run ../../databases/stringdb.py --id 9606"
@@ -45,7 +45,7 @@ rule files:
     input:
         "data/inputs.csv",
         "data/gold_standard.csv",
-        "../../databases/string/9606.protein.links.v12.0.txt"
+        "../../databases/string/9606.protein.links.full.v12.0.txt"
     output:
         # These are the two we use for the SPRAS run for now
         "GS_files/Alopecia_areata_GS.txt",
