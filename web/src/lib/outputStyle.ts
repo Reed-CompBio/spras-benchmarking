@@ -1,80 +1,119 @@
-const dataTypes = [
-    'pra',
-    'dmmm'
-]
-
 interface Output {
-    dataType: string;
-    datasetName: string;
-    algorithm: string;
-    paramsHash: string;
+  dataType: string;
+  datasetCategory: string;
+  datasetName?: string;
+  algorithm: string;
+  paramsHash: string;
 }
 
-export function extractDatasetType(name: string): { type: string, name: string } {
-    let newType;
-    let newName;
-    
-    for (let type of dataTypes) {
-        if (name.startsWith(type)) {
-            newType = type;
-            newName = name.substring(type.length);
-            break;
-        }
-    }
+function extractPrefix(name: string, prefixName: string, prefixes: string[]): { prefix: string; name: string } {
+  const foundPrefix = prefixes.find((prefix) => name.startsWith(prefix));
 
-    // We add the !newName there for type-checking purposes.
-    if (!newType || !newName) {
-        throw new Error(`Dataset name should begin with a type (one of ${dataTypes})`)
-    }
+  if (!foundPrefix) {
+    throw new Error(`${name} should begin with a ${prefixName} (one of ${prefixes})`);
+  }
 
-    return { 
-        type: newType,
-        name: newName
-    }
+  return {
+    prefix: foundPrefix,
+    name: name.substring(foundPrefix.length),
+  };
+}
+
+const dataTypes = ["pra", "dmmm"];
+
+export function extractDatasetType(name: string): { type: string; name: string } {
+  const { prefix, name: newName } = extractPrefix(name, "dataset type", dataTypes);
+  return { type: prefix, name: newName };
+}
+
+const dataCategories = {
+  diseases: {
+    name: "DISEASES",
+    directory: "diseases",
+  },
+  depmap: {
+    name: "DepMap",
+    directory: "depmap",
+  },
+  hiv: {
+    name: "HIV",
+    directory: "hiv",
+  },
+  rn: {
+    name: "ResponseNet",
+    directory: "rn-muscle-skeletal",
+  },
+  yeast: {
+    name: "Yeast",
+    directory: "yeast-osmotic-stress",
+  },
+};
+
+// TODO: replace this once we have proper dataset categories
+export function extractDatasetCategory(name: string): { category: string; name: string } {
+  const { prefix, name: newName } = extractPrefix(name, "dataset category", Object.keys(dataCategories));
+  return { category: prefix, name: newName.slice(1) };
 }
 
 export function parseOutputString(str: string): Output {
-    const components = str.split("-");
-    let dataType;
-    let datasetName;
-    let algorithm;
-    let paramsHash;
+  const components = str.split("-");
+  let dataType;
+  let datasetCategory;
+  let datasetName;
+  let algorithm;
+  let paramsHash;
 
-    if (components.length === 4) {
-        if (dataTypes.includes(components[0])) {
-            // This is a slug URL (type-...)
-            [dataType, datasetName, algorithm, paramsHash] = components
-        } else {
-            // This is fetched straight from the folder - we ignore -params-
-            [datasetName, algorithm, , paramsHash] = components
-        }
-    } else if (components.length === 3) {
-        [datasetName, algorithm, paramsHash] = components
-    } else {
-        throw new Error(`Unexpected length of components in ${components}.`)
-    }
+  if (components.length === 5) {
+    // This is a slug URL (type-...)
+    [dataType, datasetCategory, datasetName, algorithm, paramsHash] = components;
+  } else if (components.length === 4) {
+    // This is also a slug URL w/o a name
+    [dataType, datasetCategory, algorithm, paramsHash] = components;
+  } else if (components.length === 3) {
+    // This is fetched straight from the folder - we ignored -params previously
+    [datasetName, algorithm, paramsHash] = components;
+  } else {
+    throw new Error(`Unexpected length of components in ${components}.`);
+  }
 
+  // We didn't get a data type in the first passthrough - lets extract the data
+  // type from the name
+  if (!dataType || !datasetCategory) {
+    if (!datasetName) throw new Error(`datasetName ${datasetName} isn't set - this is an internal error.`);
+    const { type, name: name1 } = extractDatasetType(datasetName);
+    const { category, name } = extractDatasetCategory(name1);
+    dataType = type;
+    datasetCategory = category;
+    datasetName = name;
+  }
 
-    // We didn't get a data type in the first passthrough - lets extract the data
-    // type from the name
-    if (!dataType) {
-        const { type, name } = extractDatasetType(datasetName);
-        dataType = type;
-        datasetName = name;
-    }
+  return {
+    dataType,
+    datasetCategory,
+    datasetName,
+    algorithm,
+    paramsHash,
+  };
+}
 
-    return {
-        dataType,
-        datasetName,
-        algorithm,
-        paramsHash
-    }
+export function addOptional(name: string | undefined, settings: { prefix?: string; suffix?: string }): string {
+  return name ? `${settings.prefix ?? ""}${name}${settings.suffix ?? ""}` : "";
 }
 
 export function styleOutput(output: Output): string {
-    return `${output.dataType}-${output.datasetName}-${output.algorithm}-${output.paramsHash}`
+  return `${output.dataType}-${output.datasetCategory}-${addOptional(output.datasetName, { suffix: "-" })}${output.algorithm}-${output.paramsHash}`;
 }
 
 export function asFolderName(output: Output): string {
-    return `${output.dataType}${output.datasetName}-${output.algorithm}-params-${output.paramsHash}`
+  return `${output.dataType}${output.datasetCategory}${addOptional(output.datasetName, { prefix: "_" })}-${output.algorithm}-params-${output.paramsHash}`;
+}
+
+export function algorithmDocumentationUrl(algorithm: string): string {
+  const map: Record<string, string> = {
+    omicsintegrator1: "oi1",
+    omicsintegrator2: "oi2",
+  };
+
+  const foundAlgorithm = algorithm in map ? map[algorithm] : algorithm;
+  return `https://spras.readthedocs.io/en/latest/prms/${foundAlgorithm}.html`;
 }

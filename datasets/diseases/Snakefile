@@ -1,0 +1,56 @@
+rule all:
+    input:
+        "GS_files/Alopecia_areata_GS.txt",
+        "GS_files/Diabetes_mellitus_GS.txt",
+        "prize_files/alopecia_areata_prizes.txt",
+        "prize_files/diabetes_mellitus_prizes.txt"
+
+rule of_db:
+    output:
+        "../../databases/string/9606.protein.links.v12.0.txt",
+        "../../databases/string/9606.protein.aliases.v12.0.txt"
+    shell:
+        "uv run ../../databases/stringdb.py --id 9606"
+
+rule fetch:
+    output:
+        "raw/human_disease_knowledge_filtered.tsv",
+        "raw/human_disease_textmining_filtered.tsv",
+        "raw/HumanDO.tsv",
+        "raw/tiga_gene-trait_stats.tsv"
+    shell:
+        "uv run scripts/fetch.py"
+
+rule inputs:
+    input:
+        "raw/HumanDO.tsv",
+        "raw/tiga_gene-trait_stats.tsv",
+        "../../databases/string/9606.protein.aliases.v12.0.txt"
+    output:
+        "data/inputs.csv"
+    shell:
+        "uv run scripts/inputs.py"
+
+rule gold_standard:
+    input:
+        "raw/human_disease_knowledge_filtered.tsv",
+        "raw/human_disease_textmining_filtered.tsv",
+        "../../databases/string/9606.protein.aliases.v12.0.txt"
+    output:
+        "data/gold_standard.csv"
+    shell:
+        "uv run scripts/gold_standard.py"
+
+rule files:
+    input:
+        "data/inputs.csv",
+        "data/gold_standard.csv",
+        "../../databases/string/9606.protein.links.v12.0.txt"
+    output:
+        # These are the two we use for the SPRAS run for now
+        "GS_files/Alopecia_areata_GS.txt",
+        "GS_files/Diabetes_mellitus_GS.txt",
+        "prize_files/alopecia_areata_prizes.txt",
+        "prize_files/diabetes_mellitus_prizes.txt"
+    shell:
+        "uv run scripts/files.py"

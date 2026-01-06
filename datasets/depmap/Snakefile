@@ -1,0 +1,45 @@
+rule all:
+    # We currently only care about the FADU cell line.
+    input:
+        "processed/FADU_cell_line_prizes_input_nonzero.txt",
+        "processed/FADU_cell_line_prizes.txt",
+        "processed/FADU_gold_standard_thresh_0_5.txt"
+
+rule fetch:
+    output:
+        "raw/CRISPRGeneDependency.csv",
+        "raw/OmicsProfiles.csv",
+        "raw/OmicsSomaticMutationsMatrixDamaging.csv",
+        "raw/OmicsExpressionProteinCodingGenesTPMLogp1.csv",
+        "raw/OmicsCNGeneWGS.csv",
+        "raw/HUMAN_9606_idmapping.tsv",
+        "raw/HUMAN_9606_idmapping_selected.tsv",
+        "raw/SwissProt_9606.tsv"
+    shell:
+        "uv run scripts/fetch.py"
+
+rule mapping:
+    input:
+        "raw/SwissProt_9606.tsv",
+        "raw/HUMAN_9606_idmapping.tsv",
+        "raw/HUMAN_9606_idmapping_selected.tsv",
+        "raw/OmicsSomaticMutationsMatrixDamaging.csv"
+    output:
+        "processed/DamagingMutations_idMapping.tsv"
+    shell:
+        "uv run scripts/uniprot_mapping.py"
+
+rule process:
+    input:
+        "processed/DamagingMutations_idMapping.tsv",
+        "raw/OmicsSomaticMutationsMatrixDamaging.csv",
+        "raw/OmicsProfiles.csv",
+        "raw/OmicsExpressionProteinCodingGenesTPMLogp1.csv",
+        "raw/OmicsCNGeneWGS.csv",
+        "raw/CRISPRGeneDependency.csv"
+    output:
+        "processed/FADU_cell_line_prizes_input_nonzero.txt",
+        "processed/FADU_cell_line_prizes.txt",
+        "processed/FADU_gold_standard_thresh_0_5.txt"
+    shell:
+        "uv run scripts/cell_line_processing.py"

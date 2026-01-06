@@ -1,0 +1,24 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getStaticPaths } from "./[type]-[category]/index.astro";
+import Colors from "../../components/Colors.astro";
+---
+
+<Colors />
+<BaseLayout>
+  <h1>Type-Datasets</h1>
+
+  <p>This contains analysis associated with datasets running on a particular algorithm type.</p>
+
+  <ul>
+    {
+      getStaticPaths().map(({ params: { type, category } }) => (
+        <li>
+          <a href={`/spras-benchmarking/type-category/${type}-${category}/`}>
+            <span class="color-1-dark">{type}</span>-<span class="color-2-dark">{category}</span>
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</BaseLayout>

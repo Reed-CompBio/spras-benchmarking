@@ -1,21 +1,18 @@
-# Base Settings
 hash_length: 7
-container_framework: docker
-unpack_singularity: false
 
-container_registry:
-  base_url: docker.io
-  owner: reedcompbio
+containers:
+  registry:
+    base_url: docker.io
+    owner: reedcompbio
+  framework: docker
+  unpack_singularity: false
 
 reconstruction_settings:
   locations:
     reconstruction_dir: "output"
-    run: true
 
 analysis:
   summary:
-    include: false
-  graphspace:
     include: false
   cytoscape:
     include: false
@@ -45,14 +42,14 @@ algorithms:
 datasets:
   # TODO: use old paramaters for datasets
   # HIV: https://github.com/Reed-CompBio/spras-benchmarking/blob/0293ae4dc0be59502fac06b42cfd9796a4b4413e/hiv-benchmarking/spras-config/config.yaml
-  - label: dmmmhiv060
+  - label: dmmmhiv_060
     node_files: ["processed_prize_060.txt"]
-    edge_files: ["phosphosite-irefindex13.0-uniprot.txt"]
+    edge_files: ["../../../databases/irefindex/phosphosite-irefindex13.0-uniprot.txt"]
     other_files: []
     data_dir: "datasets/hiv/processed"
-  - label: dmmmhiv05
+  - label: dmmmhiv_05
     node_files: ["processed_prize_05.txt"]
-    edge_files: ["phosphosite-irefindex13.0-uniprot.txt"]
+    edge_files: ["../../../databases/irefindex/phosphosite-irefindex13.0-uniprot.txt"]
     other_files: []
     data_dir: "datasets/hiv/processed"
   # Yeast: https://github.com/tristan-f-r/spras-benchmarking/blob/9477d85871024a5e3a4b0b8b9be7e78c0d0ee961/yeast-osmotic-stress/config.yaml
@@ -61,3 +58,35 @@ datasets:
     edge_files: ["network1.txt"]
     other_files: []
     data_dir: "datasets/yeast-osmotic-stress/processed"
+  - label: dmmmdiseases_alopecia_areata
+    data_dir: datasets/diseases
+    edge_files:
+      - raw/string_interactome.txt
+    node_files:
+      - prize_files/alopecia_areata_prizes.txt
+    other_files: []
+  - label: dmmmdiseases_diabetes_mellitus
+    data_dir: datasets/diseases
+    edge_files:
+      - raw/string_interactome.txt
+    node_files:
+      - prize_files/diabetes_mellitus_prizes.txt
+    other_files: []
+  - label: dmmmdepmap_cellline_fadu
+    data_dir: datasets/depmap
+    edge_files: ["../../databases/irefindex/phosphosite-irefindex13.0-uniprot.txt"]
+    node_files: ["processed/FADU_cell_line_prizes_input_nonzero.txt"]
+    other_files: []
+gold_standards:
+  - label: gs0
+    node_files: ['GS_files/Alopecia_areata_GS.txt']
+    data_dir: "datasets/diseases"
+    dataset_labels: ["dmmmdiseases_alopecia_areata"]
+  - label: gs1
+    node_files: ['GS_files/Diabetes_mellitus_GS.txt']
+    data_dir: "datasets/diseases"
+    dataset_labels: ["dmmmdiseases_diabetes_mellitus"]
+  - label: gs_fadu
+    node_files: ["processed/FADU_gold_standard.txt"]
+    data_dir: datasets/depmap
+    dataset_labels: ["dmmmdepmap_cellline_fadu"]

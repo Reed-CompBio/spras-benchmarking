@@ -1,0 +1,29 @@
+rule all:
+    input:
+        "processed/sources.txt",
+        "processed/targets.txt",
+        "processed/interactome.tsv"
+
+rule get_interactome:
+    output:
+        "raw/Muscle_Skeletal-Dec2018.tsv"
+    shell:
+        "uv run gdown https://drive.google.com/uc?id=1mkvWrCkeDz1DU-PSEsRaGNM20EcpVLwE -O raw/Muscle_Skeletal-Dec2018.tsv"
+
+rule process_interactome:
+    input:
+        "raw/Muscle_Skeletal-Dec2018.tsv"
+    output:
+        "processed/interactome.tsv"
+    shell:
+        "uv run process.py"
+
+rule copy_curated:
+    input:
+        "curated/sources.txt",
+        "curated/targets.txt"
+    output:
+        "processed/sources.txt",
+        "processed/targets.txt"
+    shell:
+        "mkdir -p processed && cp curated/* processed"
