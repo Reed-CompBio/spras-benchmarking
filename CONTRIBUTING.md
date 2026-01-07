@@ -2,7 +2,7 @@
 
 ## Helping Out
 
-There are `TODOs` that better enhance the reproducability of datasets or analysis of algorithm outputs, as well as
+There are `TODOs` that better enhance the reproducability and accuracy of datasets or analysis of algorithm outputs, as well as
 [open resolvable issues](https://github.com/Reed-CompBio/spras-benchmarking/).
 
 ## Adding a dataset

@@ -1,3 +1,5 @@
+include: "../../cache/Snakefile"
+
 rule all:
     input:
         "GS_files/Alopecia_areata_GS.txt",
@@ -5,27 +7,21 @@ rule all:
         "prize_files/alopecia_areata_prizes.txt",
         "prize_files/diabetes_mellitus_prizes.txt"
 
-rule of_db:
-    output:
-        "../../databases/string/9606.protein.links.v12.0.txt",
-        "../../databases/string/9606.protein.aliases.v12.0.txt"
-    shell:
-        "uv run ../../databases/stringdb.py --id 9606"
-
-rule fetch:
-    output:
-        "raw/human_disease_knowledge_filtered.tsv",
-        "raw/human_disease_textmining_filtered.tsv",
-        "raw/HumanDO.tsv",
-        "raw/tiga_gene-trait_stats.tsv"
-    shell:
-        "uv run scripts/fetch.py"
+produce_fetch_rules({
+    "raw/human_disease_textmining_filtered.tsv": ["DISEASES", "human_disease_textmining_filtered.tsv"],
+    "raw/human_disease_knowledge_filtered.tsv": ["DISEASES", "human_disease_knowledge_filtered.tsv"],
+    "raw/HumanDO.tsv": ["DISEASES", "HumanDO.tsv"],
+    "raw/tiga_gene-trait_stats.tsv": ["DISEASES", "tiga_gene-trait_stats.tsv"],
+    "raw/ensg-ensp.tsv": ["BioMart", "ensg-ensp.tsv"],
+    "raw/9606.protein.links.txt": FetchConfig(["STRING", "9606", "9606.protein.links.txt.gz"], uncompress=True),
+    "raw/9606.protein.aliases.txt": FetchConfig(["STRING", "9606", "9606.protein.aliases.txt.gz"], uncompress=True),
+})
 
 rule inputs:
     input:
         "raw/HumanDO.tsv",
         "raw/tiga_gene-trait_stats.tsv",
-        "../../databases/string/9606.protein.aliases.v12.0.txt"
+        "raw/9606.protein.aliases.txt"
     output:
         "data/inputs.csv"
     shell:
@@ -35,7 +31,8 @@ rule gold_standard:
     input:
         "raw/human_disease_knowledge_filtered.tsv",
         "raw/human_disease_textmining_filtered.tsv",
-        "../../databases/string/9606.protein.aliases.v12.0.txt"
+        "raw/9606.protein.aliases.txt",
+        "raw/ensg-ensp.tsv"
     output:
         "data/gold_standard.csv"
     shell:
@@ -45,7 +42,7 @@ rule files:
     input:
         "data/inputs.csv",
         "data/gold_standard.csv",
-        "../../databases/string/9606.protein.links.v12.0.txt"
+        "raw/9606.protein.links.txt"
     output:
         # These are the two we use for the SPRAS run for now
         "GS_files/Alopecia_areata_GS.txt",
