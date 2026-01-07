@@ -1,3 +1,5 @@
+from cache import link
+
 rule all:
     input:
         "GS_files/Alopecia_areata_GS.txt",
@@ -5,21 +7,23 @@ rule all:
         "prize_files/alopecia_areata_prizes.txt",
         "prize_files/diabetes_mellitus_prizes.txt"
 
-rule of_db:
-    output:
-        "../../databases/string/9606.protein.links.v12.0.txt",
-        "../../databases/string/9606.protein.aliases.v12.0.txt"
-    shell:
-        "uv run ../../databases/stringdb.py --id 9606"
-
 rule fetch:
     output:
-        "raw/human_disease_knowledge_filtered.tsv",
-        "raw/human_disease_textmining_filtered.tsv",
-        "raw/HumanDO.tsv",
-        "raw/tiga_gene-trait_stats.tsv"
-    shell:
-        "uv run scripts/fetch.py"
+        a="raw/human_disease_knowledge_filtered.tsv",
+        b="raw/human_disease_textmining_filtered.tsv",
+        c="raw/HumanDO.tsv",
+        d="raw/tiga_gene-trait_stats.tsv",
+        e="raw/ensg-ensp.tsv"
+        f="raw/9606.protein.links.v12.0.txt",
+        g="raw/9606.protein.aliases.v12.0.txt"
+    run:
+        link(output.a, ["DISEASES", "human_disease_textmining_filtered.tsv"])
+        link(output.b, ["DISEASES", "human_disease_textmining_filtered.tsv"])
+        link(output.c, ["DISEASES", "HumanDO.tsv"])
+        link(output.d, ["DISEASES", "tiga_gene-tra)it_stats.tsv"])
+        link(output.e, ["BioMart", "ensg-ensp.tsv"])
+        link(output.f, ["STRING", "9606", "9606.protein.links.v12.0.txt"])
+        link(output.g, ["STRING", "9606", "9606.protein.aliases.v12.0.txt"])
 
 rule inputs:
     input:
