@@ -1,3 +1,5 @@
+include: "../../cache/Snakefile"
+
 rule all:
     # We currently only care about the FADU cell line.
     input:
@@ -5,18 +7,16 @@ rule all:
         "processed/FADU_cell_line_prizes.txt",
         "processed/FADU_gold_standard_thresh_0_5.txt"
 
-rule fetch:
-    output:
-        "raw/CRISPRGeneDependency.csv",
-        "raw/OmicsProfiles.csv",
-        "raw/OmicsSomaticMutationsMatrixDamaging.csv",
-        "raw/OmicsExpressionProteinCodingGenesTPMLogp1.csv",
-        "raw/OmicsCNGeneWGS.csv",
-        "raw/HUMAN_9606_idmapping.tsv",
-        "raw/HUMAN_9606_idmapping_selected.tsv",
-        "raw/SwissProt_9606.tsv"
-    shell:
-        "uv run scripts/fetch.py"
+produce_fetch_rules({
+    "raw/CRISPRGeneDependency.csv": ["DepMap", "CRISPRGeneDependency.csv"],
+    "raw/OmicsProfiles.csv": ["DepMap", "OmicsProfiles.csv"],
+    "raw/OmicsSomaticMutationsMatrixDamaging.csv": ["DepMap", "OmicsSomaticMutationsMatrixDamaging.csv"],
+    "raw/OmicsExpressionProteinCodingGenesTPMLogp1.csv": ["DepMap", "OmicsExpressionProteinCodingGenesTPMLogp1.csv"],
+    "raw/OmicsCNGeneWGS.csv": ["DepMap", "OmicsCNGeneWGS.csv"],
+    "raw/HUMAN_9606_idmapping.tsv": FetchConfig(["UniProt", "9606", "HUMAN_9606_idmapping.dat.gz"], uncompress=True),
+    "raw/HUMAN_9606_idmapping_selected.tsv": FetchConfig(["UniProt", "9606", "HUMAN_9606_idmapping_selected.tab.gz"], uncompress=True),
+    "raw/SwissProt_9606.tsv": ["UniProt", "9606", "SwissProt_9606.tsv"],
+})
 
 rule mapping:
     input:

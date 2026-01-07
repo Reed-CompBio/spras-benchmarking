@@ -44,7 +44,7 @@ def has_expired(directive: list[str]) -> bool:
         with open(metadata_file, 'wb') as f:
             pickle.dump(cache_item, f)
         return True
-    
+
     # metadata hasn't changed and already existed: this hasn't expired
     return False
 
