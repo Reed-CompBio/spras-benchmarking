@@ -1,4 +1,4 @@
-from cache import link
+include: "../../cache/Snakefile"
 
 rule all:
     input:
@@ -7,29 +7,21 @@ rule all:
         "prize_files/alopecia_areata_prizes.txt",
         "prize_files/diabetes_mellitus_prizes.txt"
 
-rule fetch:
-    output:
-        a="raw/human_disease_knowledge_filtered.tsv",
-        b="raw/human_disease_textmining_filtered.tsv",
-        c="raw/HumanDO.tsv",
-        d="raw/tiga_gene-trait_stats.tsv",
-        e="raw/ensg-ensp.tsv"
-        f="raw/9606.protein.links.v12.0.txt",
-        g="raw/9606.protein.aliases.v12.0.txt"
-    run:
-        link(output.a, ["DISEASES", "human_disease_textmining_filtered.tsv"])
-        link(output.b, ["DISEASES", "human_disease_textmining_filtered.tsv"])
-        link(output.c, ["DISEASES", "HumanDO.tsv"])
-        link(output.d, ["DISEASES", "tiga_gene-tra)it_stats.tsv"])
-        link(output.e, ["BioMart", "ensg-ensp.tsv"])
-        link(output.f, ["STRING", "9606", "9606.protein.links.v12.0.txt"])
-        link(output.g, ["STRING", "9606", "9606.protein.aliases.v12.0.txt"])
+produce_fetch_rules({
+    "raw/human_disease_textmining_filtered.tsv": ["DISEASES", "human_disease_textmining_filtered.tsv"],
+    "raw/human_disease_knowledge_filtered.tsv": ["DISEASES", "human_disease_knowledge_filtered.tsv"],
+    "raw/HumanDO.tsv": ["DISEASES", "HumanDO.tsv"],
+    "raw/tiga_gene-trait_stats.tsv": ["DISEASES", "tiga_gene-trait_stats.tsv"],
+    "raw/ensg-ensp.tsv": ["BioMart", "ensg-ensp.tsv"],
+    "raw/9606.protein.links.txt": FetchConfig(["STRING", "9606", "9606.protein.links.txt.gz"], uncompress=True),
+    "raw/9606.protein.aliases.txt": FetchConfig(["STRING", "9606", "9606.protein.aliases.txt.gz"], uncompress=True),
+})
 
 rule inputs:
     input:
         "raw/HumanDO.tsv",
         "raw/tiga_gene-trait_stats.tsv",
-        "raw/9606.protein.aliases.v12.0.txt"
+        "raw/9606.protein.aliases.txt"
     output:
         "data/inputs.csv"
     shell:
@@ -39,7 +31,8 @@ rule gold_standard:
     input:
         "raw/human_disease_knowledge_filtered.tsv",
         "raw/human_disease_textmining_filtered.tsv",
-        "raw/9606.protein.aliases.v12.0.txt"
+        "raw/9606.protein.aliases.txt",
+        "raw/ensg-ensp.tsv"
     output:
         "data/gold_standard.csv"
     shell:
@@ -49,7 +42,7 @@ rule files:
     input:
         "data/inputs.csv",
         "data/gold_standard.csv",
-        "raw/9606.protein.links.v12.0.txt"
+        "raw/9606.protein.links.txt"
     output:
         # These are the two we use for the SPRAS run for now
         "GS_files/Alopecia_areata_GS.txt",

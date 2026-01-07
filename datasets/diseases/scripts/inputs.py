@@ -24,7 +24,7 @@ def main():
 
     # Mapping ENSG IDs to STRING IDs through the STRING aliases file
     # given our ENSG and ENSP (non one-to-one!) mapping `string_aliases`,
-    string_aliases = pd.read_csv(diseases_path / "raw" / "9606.protein.aliases.v12.0.txt", sep="\t", usecols=["#string_protein_id", "alias"])
+    string_aliases = pd.read_csv(diseases_path / "raw" / "9606.protein.aliases.txt", sep="\t", usecols=["#string_protein_id", "alias"])
     string_aliases.columns = ["str_id", "ENSP"]
     string_aliases = string_aliases.drop_duplicates()
 

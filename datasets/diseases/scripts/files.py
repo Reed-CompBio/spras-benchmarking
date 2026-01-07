@@ -40,9 +40,9 @@ def main():
         df = df[["str_id"]]
         df.to_csv(diseases_path / "GS_files" / f"{disease.replace(' ', '_')}_GS.txt", sep="\t", index=False, header=None)
 
-    # See /databases/stringdb.py for information on how this was grabbed.
+    # See /cache/directory.py for information on how this was grabbed.
     # 9606 is the organism code for homo sapiens and the required background interactome of DISEASES.
-    string = pd.read_csv(diseases_path / ".." / ".." / "databases" / "string" / "9606.protein.links.v12.0.txt", sep=" ", skiprows=[0], header=None)
+    string = pd.read_csv(diseases_path / "raw" / "9606.protein.links.txt", sep=" ", skiprows=[0], header=None)
 
     # Threshold anything above a confidence score of 900 to trim down the background interactome
     string = string[string.iloc[:, 2] > 900]
