@@ -15,10 +15,12 @@ def extract_gene_symbols(input_df: pd.DataFrame) -> pd.DataFrame:
     gene_columns = input_df.columns.tolist()[1:]
     gene_symbols = [
         # We want to extract GENE_NAME from GENE_NAME (Unknown)
-        (col[:col.find("(") - 1], None) if "(Unknown)" in col else
+        (col[: col.find("(") - 1], None)
+        if "(Unknown)" in col
         # or GENE_ID from "GENE_NAME (GENE_ID)"
-        (col[:col.find("(") - 1], col[col.find("(") + 1:-1]) if "(" in col else
-        (col, None)
+        else (col[: col.find("(") - 1], col[col.find("(") + 1 : -1])
+        if "(" in col
+        else (col, None)
         for col in gene_columns
     ]
 
@@ -50,19 +52,22 @@ def main():
     # while idmapping will be used for GeneSymbol -> UniProtKB-AC mapping.
 
     # We'll also take the idmapping data and trim for specifically Swiss-Prot (curated) genes.
-    curated_df = pd.read_csv(dir_path / ".." / "raw" / "SwissProt_9606.tsv", sep='\t', usecols=["Entry", "Entry Name", "Gene Names"])
+    curated_df = pd.read_csv(dir_path / ".." / "raw" / "SwissProt_9606.tsv", sep="\t", usecols=["Entry", "Entry Name", "Gene Names"])
     curated_df.columns = ["UniProtKB-AC", "Entry Name", "Gene Names"]
 
     idmapping_df = pd.read_csv(
-        dir_path / ".." / "raw" / "HUMAN_9606_idmapping.tsv",
-        header=None, names=["UniProtKB-AC", "ID_type", "Value"], sep='\t')
+        dir_path / ".." / "raw" / "HUMAN_9606_idmapping.tsv", header=None, names=["UniProtKB-AC", "ID_type", "Value"], sep="\t"
+    )
     idmapping_df = idmapping_df[idmapping_df["ID_type"] == "Gene_Name"].drop(columns=["ID_type"]).rename(columns={"Value": "GeneSymbol"})
     idmapping_df = idmapping_df.merge(curated_df, on="UniProtKB-AC", how="inner")
     gene_symbols_df_nid = gene_symbols_df_nid.merge(idmapping_df, on="GeneSymbol", how="inner").drop(columns=["GeneID"])
 
     idmapping_selected_df = pd.read_csv(
         dir_path / ".." / "raw" / "HUMAN_9606_idmapping_selected.tsv",
-        header=None, usecols=[0, 1, 2], names=["UniProtKB-AC", "UniProtKB-ID", "GeneID"], sep='\t'
+        header=None,
+        usecols=[0, 1, 2],
+        names=["UniProtKB-AC", "UniProtKB-ID", "GeneID"],
+        sep="\t",
     )
     idmapping_selected_df = idmapping_selected_df[~idmapping_selected_df["GeneID"].isna()]
     idmapping_selected_df = idmapping_selected_df.merge(curated_df, on="UniProtKB-AC", how="inner")
@@ -72,7 +77,7 @@ def main():
     gene_symbol_df = gene_symbols_df_id.merge(gene_symbols_df_nid, on=["GeneSymbol", "UniProtKB-AC", "Entry Name", "Gene Names"], how="outer")
     gene_symbol_df = gene_symbol_df.drop(columns=["Gene Names"])
     gene_symbol_df = gene_symbol_df.rename(columns={"GeneSymbol": "From"})
-    gene_symbol_df.to_csv(dir_path / ".." / "processed" / "DamagingMutations_idMapping.tsv", sep='\t', index=False)
+    gene_symbol_df.to_csv(dir_path / ".." / "processed" / "DamagingMutations_idMapping.tsv", sep="\t", index=False)
 
 
 if __name__ == "__main__":

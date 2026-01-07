@@ -11,11 +11,12 @@ __all__ = ["link"]
 
 dir_path = Path(os.path.dirname(os.path.realpath(__file__)))
 
+
 def link(output: str, directive: list[str]):
     """
     Links output files from cache.directory directives.
     For example,
-    
+
     ```py
     link("output/ensg-ensp.tsv", ["BioMart", "ensg-ensp.tsv"])
     ```

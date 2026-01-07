@@ -44,5 +44,6 @@ def main():
     print("Fetching UniProt SwissProt genes...")
     get_cache_item(["UniProt", "9606", "SwissProt_9606.tsv"]).download(raw_dir / "SwissProt_9606.tsv")
 
+
 if __name__ == "__main__":
     main()

@@ -131,6 +131,7 @@ def process_single_cell_line(
         print(f"Processing for cell line '{cell_line_name}' completed successfully.")
         return True
 
+
 def generate_gold_standard(cell_line_name, model_id, CRISPR_dependency, gene_to_uniprot, threshold: float):
     """Generate gold standard file for the cell line based on CRISPR dependency and gene to Uniprot mapping."""
     # map Uniprot IDs to gene symbols in the CRISPR dependency data
