@@ -26,16 +26,24 @@ To run the benchmarking pipeline, use:
 snakemake --cores 1 --configfile configs/dmmm.yaml --show-failed-logs -s spras/Snakefile
 ```
 
+To run an individual dataset pipeline, run the respective `Snakefile` in the dataset directory using [uv](https://docs.astral.sh/uv/):
+
+```sh
+cd datasets/[dataset]
+uv run snakemake --cores 1
+```
+
 > [!NOTE]
 > Each one of the dataset categories (at the time of writing, DMMM and PRA) are split into different configuration files.
 > Run each one as you would want.
 
 ## Organization
 
-There are four primary folders in this repository:
+There are five primary folders in this repository:
 
 ```
 .
+├── cache
 ├── configs
 ├── datasets
 ├── spras
@@ -44,7 +52,8 @@ There are four primary folders in this repository:
 
 `spras` is the cloned submodule of [SPRAS](https://github.com/reed-compbio/spras), `web` is an
 [astro](https://astro.build/) app which generates the `spras-benchmarking` [output](https://reed-compbio.github.io/spras-benchmarking/),
-`configs` is the YAML file used to talk to SPRAS, and `datasets` contains the raw data.
+`configs` is the YAML file used to talk to SPRAS, and `datasets` contains the raw data. `cache` is utility for `datasets` which provides a convenient
+way to fetch online files for further processing.
 
 The workflow runs as so:
 
