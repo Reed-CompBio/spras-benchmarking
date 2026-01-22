@@ -4,13 +4,11 @@ rule all:
         "processed/processed_prizes_060.txt",
         "processed/phosphosite-irefindex13.0-uniprot.txt"
 
-rule fetch:
-    output:
-        "raw/prizes_05.tsv",
-        "raw/prizes_060.tsv",
-        "raw/ko03250.xml"
-    shell:
-        "uv run scripts/fetch.py"
+produce_fetch_rules({
+    "raw/prizes_05.tsv": ["HIV1", "prizes_05.tsv"],
+    "raw/prizes_060.tsv": ["HIV1", "prizes_060.tsv"],
+    "raw/ko03250.xml": ["DISEASES", "HumanDO.tsv"]
+})
 
 rule data_prep:
     input: 

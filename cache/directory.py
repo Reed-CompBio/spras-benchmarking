@@ -2,6 +2,7 @@ from dataclasses import dataclass
 from typing import Union
 from os import PathLike
 from tempfile import NamedTemporaryFile
+from typing import Optional
 import urllib.request
 import filecmp
 import urllib.parse
@@ -24,17 +25,33 @@ def fetch_biomart_url(xml: str) -> str:
 
 @dataclass
 class CacheItem:
-    """Class for differentriating between offline and online items in a cache."""
+    """
+    Class for differentriating between offline and online items in a cache.
+
+    NOTE: If cached is "", we assume that online is a Google Drive URL (for cases where there is no
+    remaining online data source.)
+    """
 
     name: str
     """The display name of the artifact, used for human-printing."""
     cached: str
     online: str
+    online_headers: Optional[list[tuple[str, str]]] = None
 
     @classmethod
     def cache_only(cls, name: str, cached: str) -> "CacheItem":
         """Wrapper method to explicitly declare a CacheItem as cached only."""
         return cls(name=name, online=cached, cached="")
+
+    def download_online(self, output: str | PathLike):
+        # https://stackoverflow.com/a/45313194/7589775: this is to add optional headers to requests.
+        # We remove the opener at the end by re-installing the default opener.
+        opener = urllib.request.build_opener()
+        if self.online_headers:
+            opener.addheaders = self.online_headers
+        urllib.request.install_opener(opener)
+        urllib.request.urlretrieve(self.online, output)
+        urllib.request.install_opener(urllib.request.build_opener())
 
     def download(self, output: str | PathLike):
         print(f"Fetching {self.name}...")
@@ -46,7 +63,7 @@ class CacheItem:
             gdown.download(self.online, str(output))
             return
 
-        urllib.request.urlretrieve(self.online, output)
+        self.download_online(output)
 
         with NamedTemporaryFile() as cached_file:
             print(f"Downloading cache {self.cached}...")
@@ -152,6 +169,26 @@ directory: CacheDirectory = {
             online="https://depmap.org/portal/download/api/download?file_name=downloads-by-canonical-id%2Fpublic-25q2-c5ef.104%2FOmicsCNGeneWGS.csv&dl_name=OmicsCNGeneWGS.csv&bucket=depmap-external-downloads",
         ),
     },
+    "KEGG": {
+        "ko03250.xml": CacheItem(
+            name="KEGG 03250",
+            cached="https://drive.google.com/uc?id=16dtWKHCQMp2qrLfFDE7nVhbwBCr2H5a9",
+            online="https://www.kegg.jp/kegg-bin/download?entry=ko03250&format=kgml",
+            online_headers = [('Referer', 'https://www.kegg.jp/pathway/ko03250')],
+        )
+    },
+    "HIV1": {
+        "prize_05.csv": CacheItem(
+            name="HIV_05 prizes",
+            cached="https://drive.google.com/uc?id=1jVWNRPfYkbqimO44GdzXYB3-7NXhet1m",
+            online="https://raw.githubusercontent.com/gitter-lab/hiv1-aurkb/ac9278d447e4188eea3bf4b24c4c4e0c19b0c6d9/Results/base_analysis/prize_05.csv"
+        ),
+        "prize_060.csv": CacheItem(
+            name="HIV_060 prizes",
+            cached="https://drive.google.com/uc?id=1Aucgp7pcooGr9oT4m2bvYEuYW6186WxQ",
+            online="https://raw.githubusercontent.com/gitter-lab/hiv1-aurkb/ac9278d447e4188eea3bf4b24c4c4e0c19b0c6d9/Results/base_analysis/prize_060.csv"
+        )
+    }
 }
 
 

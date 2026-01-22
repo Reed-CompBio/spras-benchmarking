@@ -3,10 +3,8 @@ from bioservices import UniProt, KEGG
 import pandas as pd
 from more_itertools import chunked
 from pathlib import Path
-import os
 
-# https://stackoverflow.com/a/5137509/7589775
-hiv_path = Path(os.path.dirname(os.path.realpath(__file__)), '..')
+hiv_path = Path(__file__).parent.resolve().parent
 
 def main():
     pathway = read(open(hiv_path / "raw" / "ko03250.xml", "r"))

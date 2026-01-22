@@ -25,7 +25,7 @@ def main():
     # This is 1 of two major exceptions to this being example code from UniProt.
     # See prepare.py for the NodeIDs generation: this is the deduplicated list of node IDs
     # from the two prize files in `raw`.
-    with open("Pickles/NodeIDs.pkl", "rb") as file:
+    with open("pickles/NodeIDs.pkl", "rb") as file:
         NodeIDs = pickle.load(file)["NodeIDs"]
 
     job_id = submit_id_mapping(from_db="UniProtKB_AC-ID", to_db="UniProtKB", ids=NodeIDs)
@@ -42,7 +42,7 @@ def main():
     df = {"UniprotIDs": uniprot_IDs, "UniprotMap": uniprot_map}
 
     # Second major exception: we save the Uniprot IDs.
-    with open("Pickles/UniprotIDs.pkl", "wb") as file:
+    with open("pickles/UniprotIDs.pkl", "wb") as file:
         pickle.dump(df, file)
 
 def check_response(response):
