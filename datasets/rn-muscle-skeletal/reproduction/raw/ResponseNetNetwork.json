@@ -1,0 +1,4868 @@
+{
+    "elements" :{
+      "nodes": [
+        {
+          "data": {
+            "Drugs": [],
+            "Ensembl": "ENSG00000022267",
+            "Entrez": 2273,
+            "GeneType": "Protein",
+            "MIM_morbid_accession": "300163",
+            "MIM_morbid_description": "REDUCING BODY MYOPATHY, X-LINKED 1B, WITH LATE CHILDHOOD OR ADULTONSET; RBMX1B",
+            "RandomNetworks": 0,
+            "RandomNetworksPPI": "N/A",
+            "RandomNetworksSource": 0,
+            "RandomNetworksTarget": "N/A",
+            "Symbol": "FHL1",
+            "color": 1,
+            "id": "ENSG00000022267",
+            "variability": "83.6",
+            "shape": "octagon"
+          },
+          "position": {
+            "x": -255.89999999999992,
+            "y": 7.333333333333314
+          },
+          "group": "nodes",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "Drugs": [],
+            "Ensembl": "ENSG00000026025",
+            "Entrez": 7431,
+            "GeneType": "Gene",
+            "MIM_morbid_accession": "193060",
+            "MIM_morbid_description": "CATARACT 30; CTRCT30;;CATARACT 30, PULVERULENT",
+            "RandomNetworks": 0,
+            "RandomNetworksPPI": "N/A",
+            "RandomNetworksSource": "N/A",
+            "RandomNetworksTarget": 0,
+            "Symbol": "VIM",
+            "color": 2,
+            "id": "ENSG00000026025",
+            "variability": "85.8",
+            "shape": "octagon"
+          },
+          "position": {
+            "x": -62.69999999999999,
+            "y": 212.66666666666666
+          },
+          "group": "nodes",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "Drugs": [],
+            "Ensembl": "ENSG00000054654",
+            "Entrez": 23224,
+            "GeneType": "Protein",
+            "MIM_morbid_accession": "608442",
+            "MIM_morbid_description": "EMERY-DREIFUSS MUSCULAR DYSTROPHY 5, AUTOSOMAL DOMINANT; EDMD5",
+            "RandomNetworks": 0,
+            "RandomNetworksPPI": "N/A",
+            "RandomNetworksSource": 0,
+            "RandomNetworksTarget": "N/A",
+            "Symbol": "SYNE2",
+            "color": 1,
+            "id": "ENSG00000054654",
+            "variability": "83.2",
+            "shape": "octagon"
+          },
+          "position": {
+            "x": -159.3,
+            "y": 7.333333333333314
+          },
+          "group": "nodes",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "Drugs": [
+              {
+                "DrugBankID": "DB00191",
+                "DrugName": "Phentermine",
+                "status": "approved"
+              },
+              {
+                "DrugBankID": "DB00752",
+                "DrugName": "Tranylcypromine",
+                "status": "approved"
+              },
+              {
+                "DrugBankID": "DB00780",
+                "DrugName": "Phenelzine",
+                "status": "approved"
+              },
+              {
+                "DrugBankID": "DB01247",
+                "DrugName": "Isocarboxazid",
+                "status": "approved"
+              },
+              {
+                "DrugBankID": "DB01363",
+                "DrugName": "Ephedra",
+                "status": "approved"
+              },
+              {
+                "DrugBankID": "DB01367",
+                "DrugName": "Rasagiline",
+                "status": "approved"
+              },
+              {
+                "DrugBankID": "DB01626",
+                "DrugName": "Pargyline",
+                "status": "approved"
+              },
+              {
+                "DrugBankID": "DB06654",
+                "DrugName": "Safinamide",
+                "status": "approved"
+              },
+              {
+                "DrugBankID": "DB01442",
+                "DrugName": "MMDA",
+                "status": "experimental"
+              },
+              {
+                "DrugBankID": "DB00752",
+                "DrugName": "Tranylcypromine",
+                "status": "investigational"
+              },
+              {
+                "DrugBankID": "DB06654",
+                "DrugName": "Safinamide",
+                "status": "investigational"
+              }
+            ],
+            "Ensembl": "ENSG00000069535",
+            "Entrez": 4129,
+            "GeneType": "Gene",
+            "MIM_morbid_accession": "309860",
+            "MIM_morbid_description": "",
+            "RandomNetworks": 0,
+            "RandomNetworksPPI": "N/A",
+            "RandomNetworksSource": "N/A",
+            "RandomNetworksTarget": 0,
+            "Symbol": "MAOB",
+            "color": 2,
+            "id": "ENSG00000069535",
+            "variability": "86.2",
+            "shape": "octagon"
+          },
+          "position": {
+            "x": 999.8999999999999,
+            "y": 212.66666666666666
+          },
+          "group": "nodes",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "Drugs": [],
+            "Ensembl": "ENSG00000082397",
+            "Entrez": 23136,
+            "GeneType": "Gene",
+            "MIM_morbid_accession": "605331",
+            "MIM_morbid_description": "",
+            "RandomNetworks": 0,
+            "RandomNetworksPPI": "N/A",
+            "RandomNetworksSource": "N/A",
+            "RandomNetworksTarget": 0,
+            "Symbol": "EPB41L3",
+            "color": 2,
+            "id": "ENSG00000082397",
+            "variability": "63.4",
+            "shape": "octagon"
+          },
+          "position": {
+            "x": 710.1,
+            "y": 212.66666666666666
+          },
+          "group": "nodes",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "Drugs": [],
+            "Ensembl": "ENSG00000100393",
+            "Entrez": 2033,
+            "GeneType": "Protein",
+            "MIM_morbid_accession": "602700",
+            "MIM_morbid_description": "RUBINSTEIN-TAYBI SYNDROME 2; RSTS2",
+            "RandomNetworks": 0,
+            "RandomNetworksPPI": 0,
+            "RandomNetworksSource": "N/A",
+            "RandomNetworksTarget": "N/A",
+            "Symbol": "EP300",
+            "color": 3,
+            "id": "ENSG00000100393",
+            "variability": "38.6",
+            "shape": "octagon"
+          },
+          "position": {
+            "x": -207.60000000000008,
+            "y": 110
+          },
+          "group": "nodes",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "Drugs": [],
+            "Ensembl": "ENSG00000102119",
+            "Entrez": 2010,
+            "GeneType": "Protein",
+            "MIM_morbid_accession": "300384",
+            "MIM_morbid_description": "EMERY-DREIFUSS MUSCULAR DYSTROPHY 1, X-LINKED; EDMD1;;EMD1;;MUSCULAR DYSTROPHY, TARDIVE, DREIFUSS-EMERY TYPE, WITH CONTRACTURES;;SCAPULOPERONEAL SYNDROME, X-LINKED, FORMERLY;;HUMEROPERONEAL NEUROMUSCULAR DISEASE, FORMERLY",
+            "RandomNetworks": 0,
+            "RandomNetworksPPI": "N/A",
+            "RandomNetworksSource": 0,
+            "RandomNetworksTarget": "N/A",
+            "Symbol": "EMD",
+            "color": 1,
+            "id": "ENSG00000102119",
+            "variability": "44.2",
+            "shape": "octagon"
+          },
+          "position": {
+            "x": -62.69999999999999,
+            "y": 7.333333333333314
+          },
+          "group": "nodes",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "Drugs": [],
+            "Ensembl": "ENSG00000102683",
+            "Entrez": 6445,
+            "GeneType": "Protein",
+            "MIM_morbid_accession": "608896",
+            "MIM_morbid_description": "MUSCULAR DYSTROPHY, LIMB-GIRDLE, TYPE 2C; LGMD2C;;MUSCULAR DYSTROPHY, DUCHENNE-LIKE;;DUCHENNE-LIKE MUSCULAR DYSTROPHY, AUTOSOMAL RECESSIVE, TYPE 1;DMDA1;;DMDA;;ADHALIN DEFICIENCY, SECONDARY;;SARCOGLYCAN, GAMMA, DEFICIENCY OF;;SEVERE CHILDHOOD AUTOSO /.../CESSIVE MUSCULAR DYSTROPHY, NORTHAFRICAN TYPE; SCARMD;;MAGHREBIAN MYOPATHY",
+            "RandomNetworks": 0,
+            "RandomNetworksPPI": "N/A",
+            "RandomNetworksSource": 0,
+            "RandomNetworksTarget": "N/A",
+            "Symbol": "SGCG",
+            "color": 1,
+            "id": "ENSG00000102683",
+            "variability": "95.8",
+            "shape": "octagon"
+          },
+          "position": {
+            "x": 33.89999999999998,
+            "y": 7.333333333333314
+          },
+          "group": "nodes",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "Drugs": [],
+            "Ensembl": "ENSG00000105993",
+            "Entrez": 10049,
+            "GeneType": "Protein",
+            "MIM_morbid_accession": "611332",
+            "MIM_morbid_description": "MUSCULAR DYSTROPHY, LIMB-GIRDLE, TYPE 1E; LGMD1E;;MUSCULAR DYSTROPHY, LIMB-GIRDLE, TYPE 1D, FORMERLY; LGMD1D, FORMERLY",
+            "RandomNetworks": 0,
+            "RandomNetworksPPI": "N/A",
+            "RandomNetworksSource": 0,
+            "RandomNetworksTarget": "N/A",
+            "Symbol": "DNAJB6",
+            "color": 1,
+            "id": "ENSG00000105993",
+            "variability": "11.0",
+            "shape": "octagon"
+          },
+          "position": {
+            "x": 130.49999999999994,
+            "y": 7.333333333333314
+          },
+          "group": "nodes",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "Drugs": [],
+            "Ensembl": "ENSG00000108679",
+            "Entrez": 3959,
+            "GeneType": "Gene",
+            "MIM_morbid_accession": "600626",
+            "MIM_morbid_description": "",
+            "RandomNetworks": 0,
+            "RandomNetworksPPI": "N/A",
+            "RandomNetworksSource": "N/A",
+            "RandomNetworksTarget": 0,
+            "Symbol": "LGALS3BP",
+            "color": 2,
+            "id": "ENSG00000108679",
+            "variability": "83.4",
+            "shape": "octagon"
+          },
+          "position": {
+            "x": 822.6923076923076,
+            "y": 315.3333333333333
+          },
+          "group": "nodes",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "Drugs": [],
+            "Ensembl": "ENSG00000112658",
+            "Entrez": 6722,
+            "GeneType": "Protein",
+            "MIM_morbid_accession": "600589",
+            "MIM_morbid_description": "",
+            "RandomNetworks": 0,
+            "RandomNetworksPPI": 0,
+            "RandomNetworksSource": "N/A",
+            "RandomNetworksTarget": "N/A",
+            "Symbol": "SRF",
+            "color": 3,
+            "id": "ENSG00000112658",
+            "variability": "9.0",
+            "shape": "octagon"
+          },
+          "position": {
+            "x": -111.00000000000006,
+            "y": 110
+          },
+          "group": "nodes",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "Drugs": [],
+            "Ensembl": "ENSG00000113140",
+            "Entrez": 6678,
+            "GeneType": "Gene",
+            "MIM_morbid_accession": "182120",
+            "MIM_morbid_description": "OSTEOGENESIS IMPERFECTA, TYPE XVII; OI17",
+            "RandomNetworks": 0,
+            "RandomNetworksPPI": "N/A",
+            "RandomNetworksSource": "N/A",
+            "RandomNetworksTarget": 0,
+            "Symbol": "SPARC",
+            "color": 2,
+            "id": "ENSG00000113140",
+            "variability": "59.2",
+            "shape": "octagon"
+          },
+          "position": {
+            "x": 121.61538461538453,
+            "y": 315.3333333333333
+          },
+          "group": "nodes",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "Drugs": [],
+            "Ensembl": "ENSG00000119401",
+            "Entrez": 22954,
+            "GeneType": "Protein",
+            "MIM_morbid_accession": "602290",
+            "MIM_morbid_description": "BARDET-BIEDL SYNDROME 11; BBS11",
+            "RandomNetworks": 0,
+            "RandomNetworksPPI": "N/A",
+            "RandomNetworksSource": 0,
+            "RandomNetworksTarget": "N/A",
+            "Symbol": "TRIM32",
+            "color": 1,
+            "id": "ENSG00000119401",
+            "variability": "34.6",
+            "shape": "octagon"
+          },
+          "position": {
+            "x": 227.09999999999994,
+            "y": 7.333333333333314
+          },
+          "group": "nodes",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "Drugs": [],
+            "Ensembl": "ENSG00000120729",
+            "Entrez": 9499,
+            "GeneType": "Protein",
+            "MIM_morbid_accession": "604103",
+            "MIM_morbid_description": "MYOPATHY, MYOFIBRILLAR, 3; MFM3;;MYOTILINOPATHY;;MYOPATHY, MYOFIBRILLAR, MYOTILIN-RELATED",
+            "RandomNetworks": 0,
+            "RandomNetworksPPI": "N/A",
+            "RandomNetworksSource": 0,
+            "RandomNetworksTarget": "N/A",
+            "Symbol": "MYOT",
+            "color": 1,
+            "id": "ENSG00000120729",
+            "variability": "91.4",
+            "shape": "octagon"
+          },
+          "position": {
+            "x": 323.69999999999993,
+            "y": 7.333333333333314
+          },
+          "group": "nodes",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "Drugs": [],
+            "Ensembl": "ENSG00000122359",
+            "Entrez": 311,
+            "GeneType": "Gene",
+            "MIM_morbid_accession": "602572",
+            "MIM_morbid_description": "",
+            "RandomNetworks": 0,
+            "RandomNetworksPPI": "N/A",
+            "RandomNetworksSource": "N/A",
+            "RandomNetworksTarget": 0,
+            "Symbol": "ANXA11",
+            "color": 2,
+            "id": "ENSG00000122359",
+            "variability": "56.6",
+            "shape": "octagon"
+          },
+          "position": {
+            "x": -62.00000000000006,
+            "y": 418
+          },
+          "group": "nodes",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "Drugs": [],
+            "Ensembl": "ENSG00000128591",
+            "Entrez": 2318,
+            "GeneType": "Protein",
+            "MIM_morbid_accession": "102565",
+            "MIM_morbid_description": "CARDIOMYOPATHY, FAMILIAL HYPERTROPHIC, 26; CMH26CARDIOMYOPATHY, FAMILIAL RESTRICTIVE, 5, INCLUDED; RCM5, INCLUDED",
+            "RandomNetworks": 0,
+            "RandomNetworksPPI": 0,
+            "RandomNetworksSource": "N/A",
+            "RandomNetworksTarget": "N/A",
+            "Symbol": "FLNC",
+            "color": 4,
+            "id": "ENSG00000128591",
+            "variability": "95.2",
+            "shape": "octagon"
+          },
+          "position": {
+            "x": 178.8,
+            "y": 110
+          },
+          "group": "nodes",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "Drugs": [],
+            "Ensembl": "ENSG00000131018",
+            "Entrez": 23345,
+            "GeneType": "Protein",
+            "MIM_morbid_accession": "608441",
+            "MIM_morbid_description": "EMERY-DREIFUSS MUSCULAR DYSTROPHY 4, AUTOSOMAL DOMINANT; EDMD4;;EMERY-DREIFUSS MUSCULAR DYSTROPHY 4 WITH VARIABLE FEATURES",
+            "RandomNetworks": 0,
+            "RandomNetworksPPI": "N/A",
+            "RandomNetworksSource": 0,
+            "RandomNetworksTarget": "N/A",
+            "Symbol": "SYNE1",
+            "color": 1,
+            "id": "ENSG00000131018",
+            "variability": "88.6",
+            "shape": "octagon"
+          },
+          "position": {
+            "x": 420.3,
+            "y": 7.333333333333314
+          },
+          "group": "nodes",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "Drugs": [],
+            "Ensembl": "ENSG00000136235",
+            "Entrez": 10457,
+            "GeneType": "Gene",
+            "MIM_morbid_accession": "604368",
+            "MIM_morbid_description": "",
+            "RandomNetworks": 0,
+            "RandomNetworksPPI": "N/A",
+            "RandomNetworksSource": "N/A",
+            "RandomNetworksTarget": 0,
+            "Symbol": "GPNMB",
+            "color": 2,
+            "id": "ENSG00000136235",
+            "variability": "89.0",
+            "shape": "octagon"
+          },
+          "position": {
+            "x": 420.3,
+            "y": 212.66666666666666
+          },
+          "group": "nodes",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "Drugs": [],
+            "Ensembl": "ENSG00000136717",
+            "Entrez": 274,
+            "GeneType": "Protein",
+            "MIM_morbid_accession": "601248",
+            "MIM_morbid_description": "MYOPATHY, CENTRONUCLEAR, 2; CNM2;;MYOPATHY, CENTRONUCLEAR, AUTOSOMAL RECESSIVE;;MYOTUBULAR MYOPATHY, AUTOSOMAL RECESSIVE",
+            "RandomNetworks": 0,
+            "RandomNetworksPPI": 0,
+            "RandomNetworksSource": "N/A",
+            "RandomNetworksTarget": "N/A",
+            "Symbol": "BIN1",
+            "color": 3,
+            "id": "ENSG00000136717",
+            "variability": "34.4",
+            "shape": "octagon"
+          },
+          "position": {
+            "x": -14.400000000000034,
+            "y": 110
+          },
+          "group": "nodes",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "Drugs": [],
+            "Ensembl": "ENSG00000136997",
+            "Entrez": 4609,
+            "GeneType": "Protein",
+            "MIM_morbid_accession": "190080",
+            "MIM_morbid_description": "BURKITT LYMPHOMA; BL",
+            "RandomNetworks": 0,
+            "RandomNetworksPPI": 0,
+            "RandomNetworksSource": "N/A",
+            "RandomNetworksTarget": "N/A",
+            "Symbol": "MYC",
+            "color": 3,
+            "id": "ENSG00000136997",
+            "variability": "99.8",
+            "shape": "octagon"
+          },
+          "position": {
+            "x": -159.3,
+            "y": 212.66666666666666
+          },
+          "group": "nodes",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "Drugs": [],
+            "Ensembl": "ENSG00000141510",
+            "Entrez": 7157,
+            "GeneType": "Protein",
+            "MIM_morbid_accession": "191170",
+            "MIM_morbid_description": "BASAL CELL CARCINOMA, SUSCEPTIBILITY TO, 7; BCC7",
+            "RandomNetworks": 0,
+            "RandomNetworksPPI": 0,
+            "RandomNetworksSource": "N/A",
+            "RandomNetworksTarget": "N/A",
+            "Symbol": "TP53",
+            "color": 3,
+            "id": "ENSG00000141510",
+            "variability": "64.0",
+            "shape": "octagon"
+          },
+          "position": {
+            "x": 275.4,
+            "y": 110
+          },
+          "group": "nodes",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "Drugs": [],
+            "Ensembl": "ENSG00000141753",
+            "Entrez": 3487,
+            "GeneType": "Gene",
+            "MIM_morbid_accession": "146733",
+            "MIM_morbid_description": "",
+            "RandomNetworks": 0,
+            "RandomNetworksPPI": "N/A",
+            "RandomNetworksSource": "N/A",
+            "RandomNetworksTarget": 0,
+            "Symbol": "IGFBP4",
+            "color": 2,
+            "id": "ENSG00000141753",
+            "variability": "97.4",
+            "shape": "octagon"
+          },
+          "position": {
+            "x": 1096.5,
+            "y": 212.66666666666666
+          },
+          "group": "nodes",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "Drugs": [],
+            "Ensembl": "ENSG00000142156",
+            "Entrez": 1291,
+            "GeneType": "Protein",
+            "MIM_morbid_accession": "120220",
+            "MIM_morbid_description": "ULLRICH CONGENITAL MUSCULAR DYSTROPHY 1; UCMD1;;ULLRICH CONGENITAL MUSCULAR DYSTROPHY; UCMD;;MUSCULAR DYSTROPHY, SCLEROATONIC;;ULLRICH DISEASE;;ULLRICH SCLEROATONIC MUSCULAR DYSTROPHY",
+            "RandomNetworks": 0,
+            "RandomNetworksPPI": "N/A",
+            "RandomNetworksSource": 0,
+            "RandomNetworksTarget": "N/A",
+            "Symbol": "COL6A1",
+            "color": 1,
+            "id": "ENSG00000142156",
+            "variability": "90.0",
+            "shape": "octagon"
+          },
+          "position": {
+            "x": 516.9,
+            "y": 7.333333333333314
+          },
+          "group": "nodes",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "Drugs": [],
+            "Ensembl": "ENSG00000152795",
+            "Entrez": 9987,
+            "GeneType": "Protein",
+            "MIM_morbid_accession": "607137",
+            "MIM_morbid_description": "LIMB-GIRDLE MUSCULAR DYSTROPHY, TYPE 1G; LGMD1G",
+            "RandomNetworks": 0,
+            "RandomNetworksPPI": "N/A",
+            "RandomNetworksSource": 0,
+            "RandomNetworksTarget": "N/A",
+            "Symbol": "HNRNPDL",
+            "color": 1,
+            "id": "ENSG00000152795",
+            "variability": "15.0",
+            "shape": "octagon"
+          },
+          "position": {
+            "x": 613.5,
+            "y": 7.333333333333314
+          },
+          "group": "nodes",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "Drugs": [],
+            "Ensembl": "ENSG00000155313",
+            "Entrez": 29761,
+            "GeneType": "Protein",
+            "MIM_morbid_accession": "604736",
+            "MIM_morbid_description": "",
+            "RandomNetworks": 0,
+            "RandomNetworksPPI": 0,
+            "RandomNetworksSource": "N/A",
+            "RandomNetworksTarget": "N/A",
+            "Symbol": "USP25",
+            "color": 4,
+            "id": "ENSG00000155313",
+            "variability": "59.8",
+            "shape": "octagon"
+          },
+          "position": {
+            "x": 130.49999999999994,
+            "y": 212.66666666666666
+          },
+          "group": "nodes",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "Drugs": [],
+            "Ensembl": "ENSG00000155657",
+            "Entrez": 7273,
+            "GeneType": "Protein",
+            "MIM_morbid_accession": "188840",
+            "MIM_morbid_description": "CARDIOMYOPATHY, FAMILIAL HYPERTROPHIC, 9; CMH9",
+            "RandomNetworks": 0,
+            "RandomNetworksPPI": "N/A",
+            "RandomNetworksSource": 0,
+            "RandomNetworksTarget": "N/A",
+            "Symbol": "TTN",
+            "color": 1,
+            "id": "ENSG00000155657",
+            "variability": "48.4",
+            "shape": "octagon"
+          },
+          "position": {
+            "x": 710.1,
+            "y": 7.333333333333314
+          },
+          "group": "nodes",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "Drugs": [],
+            "Ensembl": "ENSG00000157554",
+            "Entrez": 2078,
+            "GeneType": "Protein",
+            "MIM_morbid_accession": "165080",
+            "MIM_morbid_description": "",
+            "RandomNetworks": 0,
+            "RandomNetworksPPI": 0,
+            "RandomNetworksSource": "N/A",
+            "RandomNetworksTarget": "N/A",
+            "Symbol": "ERG",
+            "color": 3,
+            "id": "ENSG00000157554",
+            "variability": "74.0",
+            "shape": "octagon"
+          },
+          "position": {
+            "x": 661.8,
+            "y": 110
+          },
+          "group": "nodes",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "Drugs": [],
+            "Ensembl": "ENSG00000158022",
+            "Entrez": 84676,
+            "GeneType": "Protein",
+            "MIM_morbid_accession": "606131",
+            "MIM_morbid_description": "",
+            "RandomNetworks": 0,
+            "RandomNetworksPPI": 0,
+            "RandomNetworksSource": "N/A",
+            "RandomNetworksTarget": "N/A",
+            "Symbol": "TRIM63",
+            "color": 4,
+            "id": "ENSG00000158022",
+            "variability": "98.0",
+            "shape": "octagon"
+          },
+          "position": {
+            "x": 758.3999999999999,
+            "y": 110
+          },
+          "group": "nodes",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "Drugs": [],
+            "Ensembl": "ENSG00000159216",
+            "Entrez": 861,
+            "GeneType": "Gene",
+            "MIM_morbid_accession": "151385",
+            "MIM_morbid_description": "",
+            "RandomNetworks": 0,
+            "RandomNetworksPPI": "N/A",
+            "RandomNetworksSource": "N/A",
+            "RandomNetworksTarget": 0,
+            "Symbol": "RUNX1",
+            "color": 2,
+            "id": "ENSG00000159216",
+            "variability": "99.6",
+            "shape": "octagon"
+          },
+          "position": {
+            "x": 371.99999999999994,
+            "y": 623.3333333333333
+          },
+          "group": "nodes",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "Drugs": [],
+            "Ensembl": "ENSG00000160789",
+            "Entrez": 4000,
+            "GeneType": "Protein",
+            "MIM_morbid_accession": "150330",
+            "MIM_morbid_description": "EMERY-DREIFUSS MUSCULAR DYSTROPHY 3, AUTOSOMAL RECESSIVE; EDMD3",
+            "RandomNetworks": 0,
+            "RandomNetworksPPI": "N/A",
+            "RandomNetworksSource": 0,
+            "RandomNetworksTarget": "N/A",
+            "Symbol": "LMNA",
+            "color": 1,
+            "id": "ENSG00000160789",
+            "variability": "31.6",
+            "shape": "octagon"
+          },
+          "position": {
+            "x": 806.6999999999999,
+            "y": 7.333333333333314
+          },
+          "group": "nodes",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "Drugs": [],
+            "Ensembl": "ENSG00000162946",
+            "Entrez": 27185,
+            "GeneType": "Protein",
+            "MIM_morbid_accession": "605210",
+            "MIM_morbid_description": "SCHIZOPHRENIA 9; SCZD9;;SCHIZOPHRENIA SUSCEPTIBILITY LOCUS, CHROMOSOME 1q42-RELATED",
+            "RandomNetworks": 0,
+            "RandomNetworksPPI": 0,
+            "RandomNetworksSource": "N/A",
+            "RandomNetworksTarget": "N/A",
+            "Symbol": "DISC1",
+            "color": 4,
+            "id": "ENSG00000162946",
+            "variability": "N/A",
+            "shape": "octagon"
+          },
+          "position": {
+            "x": 468.5999999999999,
+            "y": 110
+          },
+          "group": "nodes",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "Drugs": [],
+            "Ensembl": "ENSG00000164692",
+            "Entrez": 1278,
+            "GeneType": "Gene",
+            "MIM_morbid_accession": "120160",
+            "MIM_morbid_description": "OSTEOGENESIS IMPERFECTA, TYPE III; OI3;;OI, TYPE III;;OSTEOGENESIS IMPERFECTA, PROGRESSIVELY DEFORMING, WITH NORMAL SCLERAE",
+            "RandomNetworks": 0,
+            "RandomNetworksPPI": "N/A",
+            "RandomNetworksSource": "N/A",
+            "RandomNetworksTarget": 0,
+            "Symbol": "COL1A2",
+            "color": 2,
+            "id": "ENSG00000164692",
+            "variability": "96.0",
+            "shape": "octagon"
+          },
+          "position": {
+            "x": 321.92307692307685,
+            "y": 315.3333333333333
+          },
+          "group": "nodes",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "Drugs": [
+              {
+                "DrugBankID": "DB12010",
+                "DrugName": "Fostamatinib",
+                "status": "approved"
+              },
+              {
+                "DrugBankID": "DB12010",
+                "DrugName": "Fostamatinib",
+                "status": "investigational"
+              }
+            ],
+            "Ensembl": "ENSG00000165025",
+            "Entrez": 6850,
+            "GeneType": "Protein",
+            "MIM_morbid_accession": "600085",
+            "MIM_morbid_description": "",
+            "RandomNetworks": 0,
+            "RandomNetworksPPI": 0,
+            "RandomNetworksSource": "N/A",
+            "RandomNetworksTarget": "N/A",
+            "Symbol": "SYK",
+            "color": 4,
+            "id": "ENSG00000165025",
+            "variability": "N/A",
+            "shape": "octagon"
+          },
+          "position": {
+            "x": 722.5384615384617,
+            "y": 315.3333333333333
+          },
+          "group": "nodes",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "Drugs": [],
+            "Ensembl": "ENSG00000165458",
+            "Entrez": 3636,
+            "GeneType": "Protein",
+            "MIM_morbid_accession": "600829",
+            "MIM_morbid_description": "OPSISMODYSPLASIA; OPSMD",
+            "RandomNetworks": 0,
+            "RandomNetworksPPI": 0,
+            "RandomNetworksSource": "N/A",
+            "RandomNetworksTarget": "N/A",
+            "Symbol": "INPPL1",
+            "color": 4,
+            "id": "ENSG00000165458",
+            "variability": "5.0",
+            "shape": "octagon"
+          },
+          "position": {
+            "x": 227.09999999999994,
+            "y": 212.66666666666666
+          },
+          "group": "nodes",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "Drugs": [],
+            "Ensembl": "ENSG00000167004",
+            "Entrez": 2923,
+            "GeneType": "Protein",
+            "MIM_morbid_accession": "602046",
+            "MIM_morbid_description": "",
+            "RandomNetworks": 0,
+            "RandomNetworksPPI": 0,
+            "RandomNetworksSource": "N/A",
+            "RandomNetworksTarget": "N/A",
+            "Symbol": "PDIA3",
+            "color": 4,
+            "id": "ENSG00000167004",
+            "variability": "44.2",
+            "shape": "octagon"
+          },
+          "position": {
+            "x": 565.1999999999999,
+            "y": 110
+          },
+          "group": "nodes",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "Drugs": [],
+            "Ensembl": "ENSG00000168036",
+            "Entrez": 1499,
+            "GeneType": "Protein",
+            "MIM_morbid_accession": "116806",
+            "MIM_morbid_description": "MENTAL RETARDATION, AUTOSOMAL DOMINANT 19; MRD19",
+            "RandomNetworks": 0,
+            "RandomNetworksPPI": 0,
+            "RandomNetworksSource": "N/A",
+            "RandomNetworksTarget": "N/A",
+            "Symbol": "CTNNB1",
+            "color": 3,
+            "id": "ENSG00000168036",
+            "variability": "0.2",
+            "shape": "octagon"
+          },
+          "position": {
+            "x": 371.99999999999994,
+            "y": 110
+          },
+          "group": "nodes",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "Drugs": [],
+            "Ensembl": "ENSG00000168542",
+            "Entrez": 1281,
+            "GeneType": "Gene",
+            "MIM_morbid_accession": "120180",
+            "MIM_morbid_description": "EHLERS-DANLOS SYNDROME, TYPE IV, AUTOSOMAL DOMINANT;;EHLERS-DANLOS SYNDROME, VASCULAR TYPE;;EDS IV; EDS4;;EHLERS-DANLOS SYNDROME, ARTERIAL TYPE;;EHLERS-DANLOS SYNDROME, ECCHYMOTIC TYPE;;EHLERS-DANLOS SYNDROME, SACK-BARABAS TYPE",
+            "RandomNetworks": 0,
+            "RandomNetworksPPI": "N/A",
+            "RandomNetworksSource": "N/A",
+            "RandomNetworksTarget": 0,
+            "Symbol": "COL3A1",
+            "color": 2,
+            "id": "ENSG00000168542",
+            "variability": "97.6",
+            "shape": "octagon"
+          },
+          "position": {
+            "x": 371.99999999999994,
+            "y": 418
+          },
+          "group": "nodes",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "Drugs": [],
+            "Ensembl": "ENSG00000168610",
+            "Entrez": 6774,
+            "GeneType": "Protein",
+            "MIM_morbid_accession": "102582",
+            "MIM_morbid_description": "",
+            "RandomNetworks": 0,
+            "RandomNetworksPPI": 0,
+            "RandomNetworksSource": "N/A",
+            "RandomNetworksTarget": "N/A",
+            "Symbol": "STAT3",
+            "color": 3,
+            "id": "ENSG00000168610",
+            "variability": "95.6",
+            "shape": "octagon"
+          },
+          "position": {
+            "x": 613.5,
+            "y": 212.66666666666666
+          },
+          "group": "nodes",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "Drugs": [],
+            "Ensembl": "ENSG00000169136",
+            "Entrez": 22809,
+            "GeneType": "Protein",
+            "MIM_morbid_accession": "606398",
+            "MIM_morbid_description": "",
+            "RandomNetworks": 0,
+            "RandomNetworksPPI": 0,
+            "RandomNetworksSource": "N/A",
+            "RandomNetworksTarget": "N/A",
+            "Symbol": "ATF5",
+            "color": 3,
+            "id": "ENSG00000169136",
+            "variability": "76.6",
+            "shape": "octagon"
+          },
+          "position": {
+            "x": 516.9,
+            "y": 212.66666666666666
+          },
+          "group": "nodes",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "Drugs": [],
+            "Ensembl": "ENSG00000169504",
+            "Entrez": 25932,
+            "GeneType": "Gene",
+            "MIM_morbid_accession": "606536",
+            "MIM_morbid_description": "",
+            "RandomNetworks": 0,
+            "RandomNetworksPPI": "N/A",
+            "RandomNetworksSource": "N/A",
+            "RandomNetworksTarget": 0,
+            "Symbol": "CLIC4",
+            "color": 2,
+            "id": "ENSG00000169504",
+            "variability": "81.4",
+            "shape": "octagon"
+          },
+          "position": {
+            "x": 154.99999999999994,
+            "y": 418
+          },
+          "group": "nodes",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "Drugs": [],
+            "Ensembl": "ENSG00000170606",
+            "Entrez": 3308,
+            "GeneType": "Protein",
+            "MIM_morbid_accession": "601113",
+            "MIM_morbid_description": "",
+            "RandomNetworks": 0,
+            "RandomNetworksPPI": 0,
+            "RandomNetworksSource": "N/A",
+            "RandomNetworksTarget": "N/A",
+            "Symbol": "HSPA4",
+            "color": 4,
+            "id": "ENSG00000170606",
+            "variability": "26.8",
+            "shape": "octagon"
+          },
+          "position": {
+            "x": 806.6999999999999,
+            "y": 212.66666666666666
+          },
+          "group": "nodes",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "Drugs": [
+              {
+                "DrugBankID": "DB00030",
+                "DrugName": "Insulin Human",
+                "status": "approved"
+              },
+              {
+                "DrugBankID": "DB00046",
+                "DrugName": "Insulin Lispro",
+                "status": "approved"
+              },
+              {
+                "DrugBankID": "DB00047",
+                "DrugName": "Insulin Glargine",
+                "status": "approved"
+              },
+              {
+                "DrugBankID": "DB00071",
+                "DrugName": "Insulin Pork",
+                "status": "approved"
+              },
+              {
+                "DrugBankID": "DB01306",
+                "DrugName": "Insulin Aspart",
+                "status": "approved"
+              },
+              {
+                "DrugBankID": "DB01307",
+                "DrugName": "Insulin Detemir",
+                "status": "approved"
+              },
+              {
+                "DrugBankID": "DB01309",
+                "DrugName": "Insulin Glulisine",
+                "status": "approved"
+              },
+              {
+                "DrugBankID": "DB09129",
+                "DrugName": "Chromic chloride",
+                "status": "approved"
+              },
+              {
+                "DrugBankID": "DB09564",
+                "DrugName": "Insulin Degludec",
+                "status": "approved"
+              },
+              {
+                "DrugBankID": "DB00030",
+                "DrugName": "Insulin Human",
+                "status": "investigational"
+              }
+            ],
+            "Ensembl": "ENSG00000171105",
+            "Entrez": 3643,
+            "GeneType": "Protein",
+            "MIM_morbid_accession": "147670",
+            "MIM_morbid_description": "DIABETES MELLITUS, INSULIN-RESISTANT, WITH ACANTHOSIS NIGRICANS;;INSULIN RECEPTOR, DEFECT IN, WITH INSULIN-RESISTANT DIABETES MELLITUSAND ACANTHOSIS NIGRICANS;;DIABETES MELLITUS, INSULIN-RESISTANT, WITH ACANTHOSIS NIGRICANS, TYPEA;;IRAN, TYPE A",
+            "RandomNetworks": 0,
+            "RandomNetworksPPI": 0,
+            "RandomNetworksSource": "N/A",
+            "RandomNetworksTarget": "N/A",
+            "Symbol": "INSR",
+            "color": 4,
+            "id": "ENSG00000171105",
+            "variability": "67.0",
+            "shape": "octagon"
+          },
+          "position": {
+            "x": 221.7692307692307,
+            "y": 315.3333333333333
+          },
+          "group": "nodes",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "Drugs": [
+              {
+                "DrugBankID": "DB14059",
+                "DrugName": "SC-236",
+                "status": "experimental"
+              },
+              {
+                "DrugBankID": "DB14059",
+                "DrugName": "SC-236",
+                "status": "investigational"
+              }
+            ],
+            "Ensembl": "ENSG00000173039",
+            "Entrez": 5970,
+            "GeneType": "Protein",
+            "MIM_morbid_accession": "164014",
+            "MIM_morbid_description": "",
+            "RandomNetworks": 0,
+            "RandomNetworksPPI": 0,
+            "RandomNetworksSource": "N/A",
+            "RandomNetworksTarget": "N/A",
+            "Symbol": "RELA",
+            "color": 3,
+            "id": "ENSG00000173039",
+            "variability": "34.6",
+            "shape": "octagon"
+          },
+          "position": {
+            "x": 922.8461538461538,
+            "y": 315.3333333333333
+          },
+          "group": "nodes",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "Drugs": [],
+            "Ensembl": "ENSG00000173402",
+            "Entrez": 1605,
+            "GeneType": "Protein",
+            "MIM_morbid_accession": "128239",
+            "MIM_morbid_description": "",
+            "RandomNetworks": 0,
+            "RandomNetworksPPI": "N/A",
+            "RandomNetworksSource": 0,
+            "RandomNetworksTarget": "N/A",
+            "Symbol": "DAG1",
+            "color": 1,
+            "id": "ENSG00000173402",
+            "variability": "55.6",
+            "shape": "octagon"
+          },
+          "position": {
+            "x": 903.2999999999997,
+            "y": 7.333333333333314
+          },
+          "group": "nodes",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "Drugs": [],
+            "Ensembl": "ENSG00000174744",
+            "Entrez": 25855,
+            "GeneType": "Protein",
+            "MIM_morbid_accession": "606259",
+            "MIM_morbid_description": "",
+            "RandomNetworks": 0,
+            "RandomNetworksPPI": 0,
+            "RandomNetworksSource": "N/A",
+            "RandomNetworksTarget": "N/A",
+            "Symbol": "BRMS1",
+            "color": 4,
+            "id": "ENSG00000174744",
+            "variability": "72.6",
+            "shape": "octagon"
+          },
+          "position": {
+            "x": 82.19999999999999,
+            "y": 110
+          },
+          "group": "nodes",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "Drugs": [],
+            "Ensembl": "ENSG00000175387",
+            "Entrez": 4087,
+            "GeneType": "Protein",
+            "MIM_morbid_accession": "601366",
+            "MIM_morbid_description": "",
+            "RandomNetworks": 0,
+            "RandomNetworksPPI": 0,
+            "RandomNetworksSource": "N/A",
+            "RandomNetworksTarget": "N/A",
+            "Symbol": "SMAD2",
+            "color": 3,
+            "id": "ENSG00000175387",
+            "variability": "5.4",
+            "shape": "octagon"
+          },
+          "position": {
+            "x": 806,
+            "y": 418
+          },
+          "group": "nodes",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "Drugs": [],
+            "Ensembl": "ENSG00000177885",
+            "Entrez": 2885,
+            "GeneType": "Protein",
+            "MIM_morbid_accession": "108355",
+            "MIM_morbid_description": "",
+            "RandomNetworks": 0,
+            "RandomNetworksPPI": 0,
+            "RandomNetworksSource": "N/A",
+            "RandomNetworksTarget": "N/A",
+            "Symbol": "GRB2",
+            "color": 4,
+            "id": "ENSG00000177885",
+            "variability": "2.4",
+            "shape": "octagon"
+          },
+          "position": {
+            "x": 855,
+            "y": 110
+          },
+          "group": "nodes",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "Drugs": [],
+            "Ensembl": "ENSG00000178209",
+            "Entrez": 5339,
+            "GeneType": "Protein",
+            "MIM_morbid_accession": "601282",
+            "MIM_morbid_description": "EPIDERMOLYSIS BULLOSA SIMPLEX WITH NAIL DYSTROPHY; EBSND",
+            "RandomNetworks": 0,
+            "RandomNetworksPPI": "N/A",
+            "RandomNetworksSource": 0,
+            "RandomNetworksTarget": "N/A",
+            "Symbol": "PLEC",
+            "color": 1,
+            "id": "ENSG00000178209",
+            "variability": "28.2",
+            "shape": "octagon"
+          },
+          "position": {
+            "x": 999.8999999999999,
+            "y": 7.333333333333314
+          },
+          "group": "nodes",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "Drugs": [],
+            "Ensembl": "ENSG00000182492",
+            "Entrez": 633,
+            "GeneType": "Gene",
+            "MIM_morbid_accession": "301870",
+            "MIM_morbid_description": "MEESTER-LOEYS SYNDROME; MRLS",
+            "RandomNetworks": 0,
+            "RandomNetworksPPI": "N/A",
+            "RandomNetworksSource": "N/A",
+            "RandomNetworksTarget": 0,
+            "Symbol": "BGN",
+            "color": 2,
+            "id": "ENSG00000182492",
+            "variability": "95.6",
+            "shape": "octagon"
+          },
+          "position": {
+            "x": 589,
+            "y": 418
+          },
+          "group": "nodes",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "Drugs": [],
+            "Ensembl": "ENSG00000182568",
+            "Entrez": 6304,
+            "GeneType": "Protein",
+            "MIM_morbid_accession": "602075",
+            "MIM_morbid_description": "",
+            "RandomNetworks": 0,
+            "RandomNetworksPPI": 0,
+            "RandomNetworksSource": "N/A",
+            "RandomNetworksTarget": "N/A",
+            "Symbol": "SATB1",
+            "color": 3,
+            "id": "ENSG00000182568",
+            "variability": "73.4",
+            "shape": "octagon"
+          },
+          "position": {
+            "x": 33.89999999999998,
+            "y": 212.66666666666666
+          },
+          "group": "nodes",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "Drugs": [],
+            "Ensembl": "ENSG00000185591",
+            "Entrez": 6667,
+            "GeneType": "Protein",
+            "MIM_morbid_accession": "189906",
+            "MIM_morbid_description": "",
+            "RandomNetworks": 0,
+            "RandomNetworksPPI": 0,
+            "RandomNetworksSource": "N/A",
+            "RandomNetworksTarget": "N/A",
+            "Symbol": "SP1",
+            "color": 3,
+            "id": "ENSG00000185591",
+            "variability": "44.2",
+            "shape": "octagon"
+          },
+          "position": {
+            "x": 951.6000000000001,
+            "y": 110
+          },
+          "group": "nodes",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "Drugs": [],
+            "Ensembl": "ENSG00000196154",
+            "Entrez": 6275,
+            "GeneType": "Gene",
+            "MIM_morbid_accession": "114210",
+            "MIM_morbid_description": "",
+            "RandomNetworks": 0,
+            "RandomNetworksPPI": "N/A",
+            "RandomNetworksSource": "N/A",
+            "RandomNetworksTarget": 0,
+            "Symbol": "S100A4",
+            "color": 2,
+            "id": "ENSG00000196154",
+            "variability": "96.8",
+            "shape": "octagon"
+          },
+          "position": {
+            "x": -352.49999999999994,
+            "y": 212.66666666666666
+          },
+          "group": "nodes",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "Drugs": [],
+            "Ensembl": "ENSG00000196396",
+            "Entrez": 5770,
+            "GeneType": "Protein",
+            "MIM_morbid_accession": "176885",
+            "MIM_morbid_description": "DIABETES MELLITUS, NONINSULIN-DEPENDENT; NIDDM;;DIABETES MELLITUS, TYPE II; T2D;;NONINSULIN-DEPENDENT DIABETES MELLITUS;;MATURITY-ONSET DIABETESINSULIN RESISTANCE, SUSCEPTIBILITY TO, INCLUDED;;DIABETES MELLITUS, TYPE 2, PROTECTION AGAINST, INCLUDED",
+            "RandomNetworks": 0,
+            "RandomNetworksPPI": 0,
+            "RandomNetworksSource": "N/A",
+            "RandomNetworksTarget": "N/A",
+            "Symbol": "PTPN1",
+            "color": 3,
+            "id": "ENSG00000196396",
+            "variability": "98.4",
+            "shape": "octagon"
+          },
+          "position": {
+            "x": 903.2999999999997,
+            "y": 212.66666666666666
+          },
+          "group": "nodes",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "Drugs": [
+              {
+                "DrugBankID": "DB00277",
+                "DrugName": "Theophylline",
+                "status": "approved"
+              },
+              {
+                "DrugBankID": "DB01223",
+                "DrugName": "Aminophylline",
+                "status": "approved"
+              },
+              {
+                "DrugBankID": "DB01303",
+                "DrugName": "Oxtriphylline",
+                "status": "approved"
+              },
+              {
+                "DrugBankID": "DB02546",
+                "DrugName": "Vorinostat",
+                "status": "approved"
+              },
+              {
+                "DrugBankID": "DB06176",
+                "DrugName": "Romidepsin",
+                "status": "approved"
+              },
+              {
+                "DrugBankID": "DB09091",
+                "DrugName": "Tixocortol",
+                "status": "approved"
+              },
+              {
+                "DrugBankID": "DB05015",
+                "DrugName": "Belinostat",
+                "status": "approved"
+              },
+              {
+                "DrugBankID": "DB06603",
+                "DrugName": "Panobinostat",
+                "status": "approved"
+              },
+              {
+                "DrugBankID": "DB02546",
+                "DrugName": "Vorinostat",
+                "status": "investigational"
+              },
+              {
+                "DrugBankID": "DB06176",
+                "DrugName": "Romidepsin",
+                "status": "investigational"
+              },
+              {
+                "DrugBankID": "DB05015",
+                "DrugName": "Belinostat",
+                "status": "investigational"
+              },
+              {
+                "DrugBankID": "DB06603",
+                "DrugName": "Panobinostat",
+                "status": "investigational"
+              }
+            ],
+            "Ensembl": "ENSG00000196591",
+            "Entrez": 3066,
+            "GeneType": "Protein",
+            "MIM_morbid_accession": "605164",
+            "MIM_morbid_description": "",
+            "RandomNetworks": 0,
+            "RandomNetworksPPI": 0,
+            "RandomNetworksSource": "N/A",
+            "RandomNetworksTarget": "N/A",
+            "Symbol": "HDAC2",
+            "color": 3,
+            "id": "ENSG00000196591",
+            "variability": "38.2",
+            "shape": "octagon"
+          },
+          "position": {
+            "x": 323.69999999999993,
+            "y": 212.66666666666666
+          },
+          "group": "nodes",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "Drugs": [],
+            "Ensembl": "ENSG00000198947",
+            "Entrez": 1756,
+            "GeneType": "Gene",
+            "MIM_morbid_accession": "300377",
+            "MIM_morbid_description": "",
+            "RandomNetworks": 0,
+            "RandomNetworksPPI": "N/A",
+            "RandomNetworksSource": "N/A",
+            "RandomNetworksTarget": 0,
+            "Symbol": "DMD",
+            "color": 2,
+            "id": "ENSG00000198947",
+            "variability": "62.8",
+            "shape": "octagon"
+          },
+          "position": {
+            "x": -255.89999999999992,
+            "y": 212.66666666666666
+          },
+          "group": "nodes",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "Drugs": [],
+            "Ensembl": "ENSG00000245848",
+            "Entrez": 1050,
+            "GeneType": "Protein",
+            "MIM_morbid_accession": "116897",
+            "MIM_morbid_description": "LEUKEMIA, ACUTE MYELOID; AML;;LEUKEMIA, ACUTE MYELOGENOUSLEUKEMIA, ACUTE MYELOID, SUSCEPTIBILITY TO, INCLUDED",
+            "RandomNetworks": 0,
+            "RandomNetworksPPI": 0,
+            "RandomNetworksSource": "N/A",
+            "RandomNetworksTarget": "N/A",
+            "Symbol": "CEBPA",
+            "color": 3,
+            "id": "ENSG00000245848",
+            "variability": "97.2",
+            "shape": "octagon"
+          },
+          "position": {
+            "x": 622.3846153846154,
+            "y": 315.3333333333333
+          },
+          "group": "nodes",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "Drugs": [],
+            "Ensembl": "HSA-MIR-122",
+            "Entrez": "HSA-MIR-122",
+            "GeneType": "MIR",
+            "MIM_morbid_accession": "",
+            "MIM_morbid_description": "",
+            "RandomNetworks": 0,
+            "RandomNetworksPPI": 0,
+            "RandomNetworksSource": "N/A",
+            "RandomNetworksTarget": "N/A",
+            "Symbol": "HSA-MIR-122",
+            "color": 5,
+            "id": "HSA-MIR-122",
+            "variability": "N/A",
+            "shape": "octagon"
+          },
+          "position": {
+            "x": 522.2307692307693,
+            "y": 315.3333333333333
+          },
+          "group": "nodes",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "Drugs": [],
+            "Ensembl": "HSA-MIR-27A",
+            "Entrez": "HSA-MIR-27A",
+            "GeneType": "MIR",
+            "MIM_morbid_accession": "",
+            "MIM_morbid_description": "",
+            "RandomNetworks": 0,
+            "RandomNetworksPPI": 0,
+            "RandomNetworksSource": "N/A",
+            "RandomNetworksTarget": "N/A",
+            "Symbol": "HSA-MIR-27A",
+            "color": 5,
+            "id": "HSA-MIR-27A",
+            "variability": "N/A",
+            "shape": "octagon"
+          },
+          "position": {
+            "x": 371.99999999999994,
+            "y": 520.6666666666666
+          },
+          "group": "nodes",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "Drugs": [],
+            "Ensembl": "HSA-MIR-29A",
+            "Entrez": "HSA-MIR-29A",
+            "GeneType": "MIR",
+            "MIM_morbid_accession": "",
+            "MIM_morbid_description": "",
+            "RandomNetworks": 0,
+            "RandomNetworksPPI": 0,
+            "RandomNetworksSource": "N/A",
+            "RandomNetworksTarget": "N/A",
+            "Symbol": "HSA-MIR-29A",
+            "color": 5,
+            "id": "HSA-MIR-29A",
+            "variability": "N/A",
+            "shape": "octagon"
+          },
+          "position": {
+            "x": -178.84615384615387,
+            "y": 315.3333333333333
+          },
+          "group": "nodes",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "Drugs": [],
+            "Ensembl": "HSA-MIR-29B",
+            "Entrez": "HSA-MIR-29B",
+            "GeneType": "MIR",
+            "MIM_morbid_accession": "",
+            "MIM_morbid_description": "",
+            "RandomNetworks": 0,
+            "RandomNetworksPPI": 0,
+            "RandomNetworksSource": "N/A",
+            "RandomNetworksTarget": "N/A",
+            "Symbol": "HSA-MIR-29B",
+            "color": 5,
+            "id": "HSA-MIR-29B",
+            "variability": "N/A",
+            "shape": "octagon"
+          },
+          "position": {
+            "x": -78.69230769230774,
+            "y": 315.3333333333333
+          },
+          "group": "nodes",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "Drugs": [],
+            "Ensembl": "HSA-MIR-29C",
+            "Entrez": "HSA-MIR-29C",
+            "GeneType": "MIR",
+            "MIM_morbid_accession": "",
+            "MIM_morbid_description": "",
+            "RandomNetworks": 0,
+            "RandomNetworksPPI": 0,
+            "RandomNetworksSource": "N/A",
+            "RandomNetworksTarget": "N/A",
+            "Symbol": "HSA-MIR-29C",
+            "color": 5,
+            "id": "HSA-MIR-29C",
+            "variability": "N/A",
+            "shape": "octagon"
+          },
+          "position": {
+            "x": 21.461538461538396,
+            "y": 315.3333333333333
+          },
+          "group": "nodes",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "Drugs": [],
+            "Ensembl": "S",
+            "Entrez": "S",
+            "GeneType": "Pseudo",
+            "MIM_morbid_accession": "",
+            "MIM_morbid_description": "",
+            "RandomNetworks": 0,
+            "RandomNetworksPPI": 0,
+            "RandomNetworksSource": "N/A",
+            "RandomNetworksTarget": "N/A",
+            "Symbol": "S",
+            "color": 0,
+            "id": "S",
+            "variability": "N/A",
+            "shape": "octagon"
+          },
+          "position": {
+            "x": 371.99999999999994,
+            "y": -95.33333333333337
+          },
+          "group": "nodes",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "Drugs": [],
+            "Ensembl": "T",
+            "Entrez": "T",
+            "GeneType": "Pseudo",
+            "MIM_morbid_accession": "",
+            "MIM_morbid_description": "",
+            "RandomNetworks": 0,
+            "RandomNetworksPPI": 0,
+            "RandomNetworksSource": "N/A",
+            "RandomNetworksTarget": "N/A",
+            "Symbol": "T",
+            "color": 0,
+            "id": "T",
+            "variability": "N/A",
+            "shape": "octagon"
+          },
+          "position": {
+            "x": 168.11104994113668,
+            "y": 589.2965193144573
+          },
+          "group": "nodes",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        }
+      ],
+      "edges": [
+        {
+          "data": {
+            "InteractionType": "PPI",
+            "RandomNetworks": 0,
+            "SourceName": "ENSG00000022267",
+            "SourceType": "Protein",
+            "TargetName": "ENSG00000100393",
+            "TargetType": "Protein",
+            "directed": false,
+            "flow": 0.022941764701680703,
+            "mi": [
+              {
+                "db": "BioGrid",
+                "mi": "MI:0004",
+                "name": "affinity chromatography technology",
+                "throughput": "Low"
+              }
+            ],
+            "source": "ENSG00000022267",
+            "sourceSymbol": "FHL1",
+            "target": "ENSG00000100393",
+            "targetSymbol": "EP300",
+            "weight": 0.660797,
+            "id": "ENSG00000022267-ENSG00000100393"
+          },
+          "position": {},
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "InteractionType": "PPI",
+            "RandomNetworks": 0,
+            "SourceName": "ENSG00000022267",
+            "SourceType": "Protein",
+            "TargetName": "ENSG00000112658",
+            "TargetType": "Protein",
+            "directed": false,
+            "flow": 0.048486296526453386,
+            "mi": [
+              {
+                "db": "BioGrid",
+                "mi": "MI:0096",
+                "name": "pull down",
+                "throughput": "Low"
+              }
+            ],
+            "source": "ENSG00000022267",
+            "sourceSymbol": "FHL1",
+            "target": "ENSG00000112658",
+            "targetSymbol": "SRF",
+            "weight": 0.660797,
+            "id": "ENSG00000022267-ENSG00000112658"
+          },
+          "position": {},
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "InteractionType": "TargetNodesToTNode",
+            "RandomNetworks": 0,
+            "SourceName": "ENSG00000026025",
+            "SourceType": "Gene",
+            "TargetName": "T",
+            "TargetType": "Pseudo",
+            "directed": false,
+            "flow": 0.07142806122813408,
+            "mi": [],
+            "source": "ENSG00000026025",
+            "sourceSymbol": "VIM",
+            "target": "T",
+            "targetSymbol": "T",
+            "weight": 1,
+            "id": "ENSG00000026025-T"
+          },
+          "position": {},
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "InteractionType": "PPI",
+            "RandomNetworks": 0,
+            "SourceName": "ENSG00000054654",
+            "SourceType": "Protein",
+            "TargetName": "ENSG00000136717",
+            "TargetType": "Protein",
+            "directed": false,
+            "flow": 0.07142806122813408,
+            "mi": [
+              {
+                "db": "BioGrid",
+                "mi": "MI:0018",
+                "name": "two hybrid",
+                "throughput": "Low"
+              },
+              {
+                "db": "BioGrid",
+                "mi": "MI:0004",
+                "name": "affinity chromatography technology",
+                "throughput": "Low"
+              },
+              {
+                "db": "BioGrid",
+                "mi": "MI:0096",
+                "name": "pull down",
+                "throughput": "Low"
+              }
+            ],
+            "source": "ENSG00000054654",
+            "sourceSymbol": "SYNE2",
+            "target": "ENSG00000136717",
+            "targetSymbol": "BIN1",
+            "weight": 0.910388,
+            "id": "ENSG00000054654-ENSG00000136717"
+          },
+          "position": {},
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "InteractionType": "TargetNodesToTNode",
+            "RandomNetworks": 0,
+            "SourceName": "ENSG00000069535",
+            "SourceType": "Gene",
+            "TargetName": "T",
+            "TargetType": "Pseudo",
+            "directed": false,
+            "flow": 0.07142806122813408,
+            "mi": [],
+            "source": "ENSG00000069535",
+            "sourceSymbol": "MAOB",
+            "target": "T",
+            "targetSymbol": "T",
+            "weight": 1,
+            "id": "ENSG00000069535-T"
+          },
+          "position": {},
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "InteractionType": "TargetNodesToTNode",
+            "RandomNetworks": 0,
+            "SourceName": "ENSG00000082397",
+            "SourceType": "Gene",
+            "TargetName": "T",
+            "TargetType": "Pseudo",
+            "directed": false,
+            "flow": 0.07142806122813408,
+            "mi": [],
+            "source": "ENSG00000082397",
+            "sourceSymbol": "EPB41L3",
+            "target": "T",
+            "targetSymbol": "T",
+            "weight": 1,
+            "id": "ENSG00000082397-T"
+          },
+          "position": {},
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "InteractionType": "TranscriptionRegulation-Unknown",
+            "RandomNetworks": 0,
+            "SourceName": "ENSG00000100393",
+            "SourceType": "Protein",
+            "TargetName": "ENSG00000196154",
+            "TargetType": "Gene",
+            "directed": false,
+            "flow": 0.022941764701680703,
+            "mi": [],
+            "source": "ENSG00000100393",
+            "sourceSymbol": "EP300",
+            "target": "ENSG00000196154",
+            "targetSymbol": "S100A4",
+            "weight": 1,
+            "id": "ENSG00000100393-ENSG00000196154"
+          },
+          "position": {},
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "InteractionType": "PPI",
+            "RandomNetworks": 0,
+            "SourceName": "ENSG00000102119",
+            "SourceType": "Protein",
+            "TargetName": "ENSG00000168036",
+            "TargetType": "Protein",
+            "directed": false,
+            "flow": 0.07142806122813408,
+            "mi": [
+              {
+                "db": "BioGrid",
+                "mi": "MI:0004",
+                "name": "affinity chromatography technology",
+                "throughput": "High"
+              },
+              {
+                "db": "BioGrid",
+                "mi": "MI:0096",
+                "name": "pull down",
+                "throughput": "Low"
+              },
+              {
+                "db": "BioGrid",
+                "mi": "MI:0004",
+                "name": "affinity chromatography technology",
+                "throughput": "Low"
+              }
+            ],
+            "source": "ENSG00000102119",
+            "sourceSymbol": "EMD",
+            "target": "ENSG00000168036",
+            "targetSymbol": "CTNNB1",
+            "weight": 0.660797,
+            "id": "ENSG00000102119-ENSG00000168036"
+          },
+          "position": {},
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "InteractionType": "PPI",
+            "RandomNetworks": 0,
+            "SourceName": "ENSG00000102683",
+            "SourceType": "Protein",
+            "TargetName": "ENSG00000128591",
+            "TargetType": "Protein",
+            "directed": false,
+            "flow": 0.07142806122813408,
+            "mi": [
+              {
+                "db": "BioGrid",
+                "mi": "MI:0018",
+                "name": "two hybrid",
+                "throughput": "Low"
+              },
+              {
+                "db": "BioGrid",
+                "mi": "MI:0004",
+                "name": "affinity chromatography technology",
+                "throughput": "Low"
+              },
+              {
+                "db": "BioGrid",
+                "mi": "MI:0096",
+                "name": "pull down",
+                "throughput": "Low"
+              },
+              {
+                "db": "BioGrid",
+                "mi": "MI:0018",
+                "name": "two hybrid",
+                "throughput": "Low"
+              }
+            ],
+            "source": "ENSG00000102683",
+            "sourceSymbol": "SGCG",
+            "target": "ENSG00000128591",
+            "targetSymbol": "FLNC",
+            "weight": 0.910388,
+            "id": "ENSG00000102683-ENSG00000128591"
+          },
+          "position": {},
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "InteractionType": "PPI",
+            "RandomNetworks": 0,
+            "SourceName": "ENSG00000105993",
+            "SourceType": "Protein",
+            "TargetName": "ENSG00000174744",
+            "TargetType": "Protein",
+            "directed": false,
+            "flow": 0.07142806122813408,
+            "mi": [
+              {
+                "db": "BioGrid",
+                "mi": "MI:0018",
+                "name": "two hybrid",
+                "throughput": "Low"
+              },
+              {
+                "db": "BioGrid",
+                "mi": "MI:0004",
+                "name": "affinity chromatography technology",
+                "throughput": "Low"
+              }
+            ],
+            "source": "ENSG00000105993",
+            "sourceSymbol": "DNAJB6",
+            "target": "ENSG00000174744",
+            "targetSymbol": "BRMS1",
+            "weight": 0.910388,
+            "id": "ENSG00000105993-ENSG00000174744"
+          },
+          "position": {},
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "InteractionType": "TargetNodesToTNode",
+            "RandomNetworks": 0,
+            "SourceName": "ENSG00000108679",
+            "SourceType": "Gene",
+            "TargetName": "T",
+            "TargetType": "Pseudo",
+            "directed": false,
+            "flow": 0.07142806122813408,
+            "mi": [],
+            "source": "ENSG00000108679",
+            "sourceSymbol": "LGALS3BP",
+            "target": "T",
+            "targetSymbol": "T",
+            "weight": 1,
+            "id": "ENSG00000108679-T"
+          },
+          "position": {},
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "InteractionType": "TranscriptionRegulation-Unknown",
+            "RandomNetworks": 0,
+            "SourceName": "ENSG00000112658",
+            "SourceType": "Protein",
+            "TargetName": "ENSG00000198947",
+            "TargetType": "Gene",
+            "directed": false,
+            "flow": 0.048486296526453386,
+            "mi": [],
+            "source": "ENSG00000112658",
+            "sourceSymbol": "SRF",
+            "target": "ENSG00000198947",
+            "targetSymbol": "DMD",
+            "weight": 1,
+            "id": "ENSG00000112658-ENSG00000198947"
+          },
+          "position": {},
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "InteractionType": "TargetNodesToTNode",
+            "RandomNetworks": 0,
+            "SourceName": "ENSG00000113140",
+            "SourceType": "Gene",
+            "TargetName": "T",
+            "TargetType": "Pseudo",
+            "directed": false,
+            "flow": 0.07142806122813408,
+            "mi": [],
+            "source": "ENSG00000113140",
+            "sourceSymbol": "SPARC",
+            "target": "T",
+            "targetSymbol": "T",
+            "weight": 1,
+            "id": "ENSG00000113140-T"
+          },
+          "position": {},
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "InteractionType": "PPI",
+            "RandomNetworks": 0,
+            "SourceName": "ENSG00000119401",
+            "SourceType": "Protein",
+            "TargetName": "ENSG00000141510",
+            "TargetType": "Protein",
+            "directed": false,
+            "flow": 0.07142806122813408,
+            "mi": [
+              {
+                "db": "BioGrid",
+                "mi": "MI:0004",
+                "name": "affinity chromatography technology",
+                "throughput": "Low"
+              }
+            ],
+            "source": "ENSG00000119401",
+            "sourceSymbol": "TRIM32",
+            "target": "ENSG00000141510",
+            "targetSymbol": "TP53",
+            "weight": 0.660797,
+            "id": "ENSG00000119401-ENSG00000141510"
+          },
+          "position": {},
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "InteractionType": "PPI",
+            "RandomNetworks": 0,
+            "SourceName": "ENSG00000120729",
+            "SourceType": "Protein",
+            "TargetName": "ENSG00000128591",
+            "TargetType": "Protein",
+            "directed": false,
+            "flow": 0.07142806122813408,
+            "mi": [
+              {
+                "db": "BioGrid",
+                "mi": "MI:0004",
+                "name": "affinity chromatography technology",
+                "throughput": "Low"
+              }
+            ],
+            "source": "ENSG00000120729",
+            "sourceSymbol": "MYOT",
+            "target": "ENSG00000128591",
+            "targetSymbol": "FLNC",
+            "weight": 0.660797,
+            "id": "ENSG00000120729-ENSG00000128591"
+          },
+          "position": {},
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "InteractionType": "TargetNodesToTNode",
+            "RandomNetworks": 0,
+            "SourceName": "ENSG00000122359",
+            "SourceType": "Gene",
+            "TargetName": "T",
+            "TargetType": "Pseudo",
+            "directed": false,
+            "flow": 0.07142806122813408,
+            "mi": [],
+            "source": "ENSG00000122359",
+            "sourceSymbol": "ANXA11",
+            "target": "T",
+            "targetSymbol": "T",
+            "weight": 1,
+            "id": "ENSG00000122359-T"
+          },
+          "position": {},
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "InteractionType": "PPI",
+            "RandomNetworks": 0,
+            "SourceName": "ENSG00000128591",
+            "SourceType": "Protein",
+            "TargetName": "ENSG00000155313",
+            "TargetType": "Protein",
+            "directed": false,
+            "flow": 0.07142806122813408,
+            "mi": [
+              {
+                "db": "BioGrid",
+                "mi": "MI:0018",
+                "name": "two hybrid",
+                "throughput": "Low"
+              }
+            ],
+            "source": "ENSG00000128591",
+            "sourceSymbol": "FLNC",
+            "target": "ENSG00000155313",
+            "targetSymbol": "USP25",
+            "weight": 0.571183,
+            "id": "ENSG00000128591-ENSG00000155313"
+          },
+          "position": {},
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "InteractionType": "PPI",
+            "RandomNetworks": 0,
+            "SourceName": "ENSG00000128591",
+            "SourceType": "Protein",
+            "TargetName": "ENSG00000165458",
+            "TargetType": "Protein",
+            "directed": false,
+            "flow": 0.07142806122813408,
+            "mi": [
+              {
+                "db": "BioGrid",
+                "mi": "MI:0018",
+                "name": "two hybrid",
+                "throughput": "Low"
+              },
+              {
+                "db": "BioGrid",
+                "mi": "MI:0004",
+                "name": "affinity chromatography technology",
+                "throughput": "Low"
+              }
+            ],
+            "source": "ENSG00000128591",
+            "sourceSymbol": "FLNC",
+            "target": "ENSG00000165458",
+            "targetSymbol": "INPPL1",
+            "weight": 0.910388,
+            "id": "ENSG00000128591-ENSG00000165458"
+          },
+          "position": {},
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "InteractionType": "PPI",
+            "RandomNetworks": 0,
+            "SourceName": "ENSG00000131018",
+            "SourceType": "Protein",
+            "TargetName": "ENSG00000162946",
+            "TargetType": "Protein",
+            "directed": false,
+            "flow": 0.07142806122813408,
+            "mi": [
+              {
+                "db": "BioGrid",
+                "mi": "MI:0004",
+                "name": "affinity chromatography technology",
+                "throughput": "Low"
+              },
+              {
+                "db": "BioGrid",
+                "mi": "MI:0018",
+                "name": "two hybrid",
+                "throughput": "Low"
+              },
+              {
+                "db": "BioGrid",
+                "mi": "MI:0018",
+                "name": "two hybrid",
+                "throughput": "High"
+              }
+            ],
+            "source": "ENSG00000131018",
+            "sourceSymbol": "SYNE1",
+            "target": "ENSG00000162946",
+            "targetSymbol": "DISC1",
+            "weight": 0.910388,
+            "id": "ENSG00000131018-ENSG00000162946"
+          },
+          "position": {},
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "InteractionType": "TargetNodesToTNode",
+            "RandomNetworks": 0,
+            "SourceName": "ENSG00000136235",
+            "SourceType": "Gene",
+            "TargetName": "T",
+            "TargetType": "Pseudo",
+            "directed": false,
+            "flow": 0.07142806122813408,
+            "mi": [],
+            "source": "ENSG00000136235",
+            "sourceSymbol": "GPNMB",
+            "target": "T",
+            "targetSymbol": "T",
+            "weight": 1,
+            "id": "ENSG00000136235-T"
+          },
+          "position": {},
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "InteractionType": "PPI",
+            "RandomNetworks": 0,
+            "SourceName": "ENSG00000136717",
+            "SourceType": "Protein",
+            "TargetName": "ENSG00000136997",
+            "TargetType": "Protein",
+            "directed": false,
+            "flow": 0.07142806122813408,
+            "mi": [
+              {
+                "db": "BioGrid",
+                "mi": "MI:0004",
+                "name": "affinity chromatography technology",
+                "throughput": "Low"
+              },
+              {
+                "db": "BioGrid",
+                "mi": "MI:0018",
+                "name": "two hybrid",
+                "throughput": "Low"
+              },
+              {
+                "db": "BioGrid",
+                "mi": "MI:0114",
+                "name": "x-ray crystallography",
+                "throughput": "Low"
+              },
+              {
+                "db": "BioGrid",
+                "mi": "MI:0004",
+                "name": "affinity chromatography technology",
+                "throughput": "High"
+              },
+              {
+                "db": "BioGrid",
+                "mi": "MI:0096",
+                "name": "pull down",
+                "throughput": "Low"
+              },
+              {
+                "db": "BioGrid",
+                "mi": "MI:0004",
+                "name": "affinity chromatography technology",
+                "throughput": "Low"
+              },
+              {
+                "db": "BioGrid",
+                "mi": "MI:0096",
+                "name": "pull down",
+                "throughput": "Low"
+              }
+            ],
+            "source": "ENSG00000136717",
+            "sourceSymbol": "BIN1",
+            "target": "ENSG00000136997",
+            "targetSymbol": "MYC",
+            "weight": 0.949459,
+            "id": "ENSG00000136717-ENSG00000136997"
+          },
+          "position": {},
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "InteractionType": "MIR-Repression",
+            "RandomNetworks": 0,
+            "SourceName": "ENSG00000136997",
+            "SourceType": "Protein",
+            "TargetName": "HSA-MIR-122",
+            "TargetType": "MIR",
+            "directed": false,
+            "flow": 0.020736780451568203,
+            "mi": [],
+            "source": "ENSG00000136997",
+            "sourceSymbol": "MYC",
+            "target": "HSA-MIR-122",
+            "targetSymbol": "HSA-MIR-122",
+            "weight": 1,
+            "id": "ENSG00000136997-HSA-MIR-122"
+          },
+          "position": {},
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "InteractionType": "MIR-Repression(feedback)",
+            "RandomNetworks": 0,
+            "SourceName": "ENSG00000136997",
+            "SourceType": "Protein",
+            "TargetName": "HSA-MIR-29A",
+            "TargetType": "MIR",
+            "directed": false,
+            "flow": 0.012763480260855279,
+            "mi": [],
+            "source": "ENSG00000136997",
+            "sourceSymbol": "MYC",
+            "target": "HSA-MIR-29A",
+            "targetSymbol": "HSA-MIR-29A",
+            "weight": 1,
+            "id": "ENSG00000136997-HSA-MIR-29A"
+          },
+          "position": {},
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "InteractionType": "MIR-Repression",
+            "RandomNetworks": 0,
+            "SourceName": "ENSG00000136997",
+            "SourceType": "Protein",
+            "TargetName": "HSA-MIR-29B",
+            "TargetType": "MIR",
+            "directed": false,
+            "flow": 0.011388347226091243,
+            "mi": [],
+            "source": "ENSG00000136997",
+            "sourceSymbol": "MYC",
+            "target": "HSA-MIR-29B",
+            "targetSymbol": "HSA-MIR-29B",
+            "weight": 1,
+            "id": "ENSG00000136997-HSA-MIR-29B"
+          },
+          "position": {},
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "InteractionType": "MIR-Repression",
+            "RandomNetworks": 0,
+            "SourceName": "ENSG00000136997",
+            "SourceType": "Protein",
+            "TargetName": "HSA-MIR-29C",
+            "TargetType": "MIR",
+            "directed": false,
+            "flow": 0.02653945328961936,
+            "mi": [],
+            "source": "ENSG00000136997",
+            "sourceSymbol": "MYC",
+            "target": "HSA-MIR-29C",
+            "targetSymbol": "HSA-MIR-29C",
+            "weight": 1,
+            "id": "ENSG00000136997-HSA-MIR-29C"
+          },
+          "position": {},
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "InteractionType": "TranscriptionRegulation-Unknown",
+            "RandomNetworks": 0,
+            "SourceName": "ENSG00000141510",
+            "SourceType": "Protein",
+            "TargetName": "ENSG00000136235",
+            "TargetType": "Gene",
+            "directed": false,
+            "flow": 0.07142806122813408,
+            "mi": [],
+            "source": "ENSG00000141510",
+            "sourceSymbol": "TP53",
+            "target": "ENSG00000136235",
+            "targetSymbol": "GPNMB",
+            "weight": 1,
+            "id": "ENSG00000141510-ENSG00000136235"
+          },
+          "position": {},
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "InteractionType": "TargetNodesToTNode",
+            "RandomNetworks": 0,
+            "SourceName": "ENSG00000141753",
+            "SourceType": "Gene",
+            "TargetName": "T",
+            "TargetType": "Pseudo",
+            "directed": false,
+            "flow": 0.07142806122813408,
+            "mi": [],
+            "source": "ENSG00000141753",
+            "sourceSymbol": "IGFBP4",
+            "target": "T",
+            "targetSymbol": "T",
+            "weight": 1,
+            "id": "ENSG00000141753-T"
+          },
+          "position": {},
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "InteractionType": "PPI",
+            "RandomNetworks": 0,
+            "SourceName": "ENSG00000142156",
+            "SourceType": "Protein",
+            "TargetName": "ENSG00000167004",
+            "TargetType": "Protein",
+            "directed": false,
+            "flow": 0.07142806122813408,
+            "mi": [
+              {
+                "db": "BioGrid",
+                "mi": "MI:0004",
+                "name": "affinity chromatography technology",
+                "throughput": "Low"
+              }
+            ],
+            "source": "ENSG00000142156",
+            "sourceSymbol": "COL6A1",
+            "target": "ENSG00000167004",
+            "targetSymbol": "PDIA3",
+            "weight": 0.660797,
+            "id": "ENSG00000142156-ENSG00000167004"
+          },
+          "position": {},
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "InteractionType": "PPI",
+            "RandomNetworks": 0,
+            "SourceName": "ENSG00000152795",
+            "SourceType": "Protein",
+            "TargetName": "ENSG00000157554",
+            "TargetType": "Protein",
+            "directed": false,
+            "flow": 0.07142806122813408,
+            "mi": [
+              {
+                "db": "BioGrid",
+                "mi": "MI:0096",
+                "name": "pull down",
+                "throughput": "High"
+              },
+              {
+                "db": "BioGrid",
+                "mi": "MI:0004",
+                "name": "affinity chromatography technology",
+                "throughput": "High"
+              },
+              {
+                "db": "BioGrid",
+                "mi": "MI:0004",
+                "name": "affinity chromatography technology",
+                "throughput": "High"
+              }
+            ],
+            "source": "ENSG00000152795",
+            "sourceSymbol": "HNRNPDL",
+            "target": "ENSG00000157554",
+            "targetSymbol": "ERG",
+            "weight": 0.203452,
+            "id": "ENSG00000152795-ENSG00000157554"
+          },
+          "position": {},
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "InteractionType": "PPI",
+            "RandomNetworks": 0,
+            "SourceName": "ENSG00000155313",
+            "SourceType": "Protein",
+            "TargetName": "ENSG00000165025",
+            "TargetType": "Protein",
+            "directed": false,
+            "flow": 0.07142806122813408,
+            "mi": [
+              {
+                "db": "BioGrid",
+                "mi": "MI:0018",
+                "name": "two hybrid",
+                "throughput": "High"
+              },
+              {
+                "db": "BioGrid",
+                "mi": "MI:0018",
+                "name": "two hybrid",
+                "throughput": "High"
+              },
+              {
+                "db": "BioGrid",
+                "mi": "MI:0018",
+                "name": "two hybrid",
+                "throughput": "High"
+              },
+              {
+                "db": "BioGrid",
+                "mi": "MI:0004",
+                "name": "affinity chromatography technology",
+                "throughput": "Low"
+              },
+              {
+                "db": "BioGrid",
+                "mi": "MI:0018",
+                "name": "two hybrid",
+                "throughput": "Low"
+              }
+            ],
+            "source": "ENSG00000155313",
+            "sourceSymbol": "USP25",
+            "target": "ENSG00000165025",
+            "targetSymbol": "SYK",
+            "weight": 0.910388,
+            "id": "ENSG00000155313-ENSG00000165025"
+          },
+          "position": {},
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "InteractionType": "PPI",
+            "RandomNetworks": 0,
+            "SourceName": "ENSG00000155657",
+            "SourceType": "Protein",
+            "TargetName": "ENSG00000158022",
+            "TargetType": "Protein",
+            "directed": false,
+            "flow": 0.07142806122813408,
+            "mi": [
+              {
+                "db": "BioGrid",
+                "mi": "MI:0096",
+                "name": "pull down",
+                "throughput": "Low"
+              },
+              {
+                "db": "BioGrid",
+                "mi": "MI:0004",
+                "name": "affinity chromatography technology",
+                "throughput": "Low"
+              },
+              {
+                "db": "BioGrid",
+                "mi": "MI:0018",
+                "name": "two hybrid",
+                "throughput": "High"
+              },
+              {
+                "db": "BioGrid",
+                "mi": "MI:0096",
+                "name": "pull down",
+                "throughput": "Low"
+              },
+              {
+                "db": "BioGrid",
+                "mi": "MI:0018",
+                "name": "two hybrid",
+                "throughput": "High"
+              },
+              {
+                "db": "BioGrid",
+                "mi": "MI:0018",
+                "name": "two hybrid",
+                "throughput": "Low"
+              },
+              {
+                "db": "BioGrid",
+                "mi": "MI:0114",
+                "name": "x-ray crystallography",
+                "throughput": "Low"
+              },
+              {
+                "db": "BioGrid",
+                "mi": "MI:0018",
+                "name": "two hybrid",
+                "throughput": "Low"
+              },
+              {
+                "db": "BioGrid",
+                "mi": "MI:0415",
+                "name": "enzymatic study",
+                "throughput": "Low"
+              }
+            ],
+            "source": "ENSG00000155657",
+            "sourceSymbol": "TTN",
+            "target": "ENSG00000158022",
+            "targetSymbol": "TRIM63",
+            "weight": 0.949459,
+            "id": "ENSG00000155657-ENSG00000158022"
+          },
+          "position": {},
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "InteractionType": "TranscriptionRegulation-Repression",
+            "RandomNetworks": 0,
+            "SourceName": "ENSG00000157554",
+            "SourceType": "Protein",
+            "TargetName": "ENSG00000082397",
+            "TargetType": "Gene",
+            "directed": false,
+            "flow": 0.07142806122813408,
+            "mi": [],
+            "source": "ENSG00000157554",
+            "sourceSymbol": "ERG",
+            "target": "ENSG00000082397",
+            "targetSymbol": "EPB41L3",
+            "weight": 1,
+            "id": "ENSG00000157554-ENSG00000082397"
+          },
+          "position": {},
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "InteractionType": "PPI",
+            "RandomNetworks": 0,
+            "SourceName": "ENSG00000158022",
+            "SourceType": "Protein",
+            "TargetName": "ENSG00000170606",
+            "TargetType": "Protein",
+            "directed": false,
+            "flow": 0.07142806122813408,
+            "mi": [
+              {
+                "db": "BioGrid",
+                "mi": "MI:0004",
+                "name": "affinity chromatography technology",
+                "throughput": "Low"
+              }
+            ],
+            "source": "ENSG00000158022",
+            "sourceSymbol": "TRIM63",
+            "target": "ENSG00000170606",
+            "targetSymbol": "HSPA4",
+            "weight": 0.660797,
+            "id": "ENSG00000158022-ENSG00000170606"
+          },
+          "position": {},
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "InteractionType": "TargetNodesToTNode",
+            "RandomNetworks": 0,
+            "SourceName": "ENSG00000159216",
+            "SourceType": "Gene",
+            "TargetName": "T",
+            "TargetType": "Pseudo",
+            "directed": false,
+            "flow": 0.07142806122813408,
+            "mi": [],
+            "source": "ENSG00000159216",
+            "sourceSymbol": "RUNX1",
+            "target": "T",
+            "targetSymbol": "T",
+            "weight": 1,
+            "id": "ENSG00000159216-T"
+          },
+          "position": {},
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "InteractionType": "PPI",
+            "RandomNetworks": 0,
+            "SourceName": "ENSG00000160789",
+            "SourceType": "Protein",
+            "TargetName": "ENSG00000168036",
+            "TargetType": "Protein",
+            "directed": false,
+            "flow": 0.07142806122813408,
+            "mi": [
+              {
+                "db": "BioGrid",
+                "mi": "MI:0004",
+                "name": "affinity chromatography technology",
+                "throughput": "Low"
+              },
+              {
+                "db": "BioGrid",
+                "mi": "MI:0004",
+                "name": "affinity chromatography technology",
+                "throughput": "High"
+              }
+            ],
+            "source": "ENSG00000160789",
+            "sourceSymbol": "LMNA",
+            "target": "ENSG00000168036",
+            "targetSymbol": "CTNNB1",
+            "weight": 0.660797,
+            "id": "ENSG00000160789-ENSG00000168036"
+          },
+          "position": {},
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "InteractionType": "PPI",
+            "RandomNetworks": 0,
+            "SourceName": "ENSG00000162946",
+            "SourceType": "Protein",
+            "TargetName": "ENSG00000169136",
+            "TargetType": "Protein",
+            "directed": false,
+            "flow": 0.07142806122813408,
+            "mi": [
+              {
+                "db": "BioGrid",
+                "mi": "MI:0004",
+                "name": "affinity chromatography technology",
+                "throughput": "Low"
+              },
+              {
+                "db": "BioGrid",
+                "mi": "MI:0018",
+                "name": "two hybrid",
+                "throughput": "Low"
+              }
+            ],
+            "source": "ENSG00000162946",
+            "sourceSymbol": "DISC1",
+            "target": "ENSG00000169136",
+            "targetSymbol": "ATF5",
+            "weight": 0.910388,
+            "id": "ENSG00000162946-ENSG00000169136"
+          },
+          "position": {},
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "InteractionType": "TargetNodesToTNode",
+            "RandomNetworks": 0,
+            "SourceName": "ENSG00000164692",
+            "SourceType": "Gene",
+            "TargetName": "T",
+            "TargetType": "Pseudo",
+            "directed": false,
+            "flow": 0.07142806122813408,
+            "mi": [],
+            "source": "ENSG00000164692",
+            "sourceSymbol": "COL1A2",
+            "target": "T",
+            "targetSymbol": "T",
+            "weight": 1,
+            "id": "ENSG00000164692-T"
+          },
+          "position": {},
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "InteractionType": "PPI",
+            "RandomNetworks": 0,
+            "SourceName": "ENSG00000165025",
+            "SourceType": "Protein",
+            "TargetName": "ENSG00000185591",
+            "TargetType": "Protein",
+            "directed": false,
+            "flow": 0.07142806122813408,
+            "mi": [
+              {
+                "db": "BioGrid",
+                "mi": "MI:0004",
+                "name": "affinity chromatography technology",
+                "throughput": "Low"
+              }
+            ],
+            "source": "ENSG00000165025",
+            "sourceSymbol": "SYK",
+            "target": "ENSG00000185591",
+            "targetSymbol": "SP1",
+            "weight": 0.660797,
+            "id": "ENSG00000165025-ENSG00000185591"
+          },
+          "position": {},
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "InteractionType": "PPI",
+            "RandomNetworks": 0,
+            "SourceName": "ENSG00000165458",
+            "SourceType": "Protein",
+            "TargetName": "ENSG00000171105",
+            "TargetType": "Protein",
+            "directed": false,
+            "flow": 0.07142806122813408,
+            "mi": [
+              {
+                "db": "BioGrid",
+                "mi": "MI:0004",
+                "name": "affinity chromatography technology",
+                "throughput": "Low"
+              },
+              {
+                "db": "BioGrid",
+                "mi": "MI:0004",
+                "name": "affinity chromatography technology",
+                "throughput": "Low"
+              }
+            ],
+            "source": "ENSG00000165458",
+            "sourceSymbol": "INPPL1",
+            "target": "ENSG00000171105",
+            "targetSymbol": "INSR",
+            "weight": 0.660797,
+            "id": "ENSG00000165458-ENSG00000171105"
+          },
+          "position": {},
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "InteractionType": "PPI",
+            "RandomNetworks": 0,
+            "SourceName": "ENSG00000167004",
+            "SourceType": "Protein",
+            "TargetName": "ENSG00000168610",
+            "TargetType": "Protein",
+            "directed": false,
+            "flow": 0.07142806122813408,
+            "mi": [
+              {
+                "db": "BioGrid",
+                "mi": "MI:0004",
+                "name": "affinity chromatography technology",
+                "throughput": "Low"
+              },
+              {
+                "db": "BioGrid",
+                "mi": "MI:0004",
+                "name": "affinity chromatography technology",
+                "throughput": "Low"
+              }
+            ],
+            "source": "ENSG00000167004",
+            "sourceSymbol": "PDIA3",
+            "target": "ENSG00000168610",
+            "targetSymbol": "STAT3",
+            "weight": 0.660797,
+            "id": "ENSG00000167004-ENSG00000168610"
+          },
+          "position": {},
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "InteractionType": "TranscriptionRegulation-Activation",
+            "RandomNetworks": 0,
+            "SourceName": "ENSG00000168036",
+            "SourceType": "Protein",
+            "TargetName": "ENSG00000026025",
+            "TargetType": "Gene",
+            "directed": false,
+            "flow": 0.07142806122813408,
+            "mi": [],
+            "source": "ENSG00000168036",
+            "sourceSymbol": "CTNNB1",
+            "target": "ENSG00000026025",
+            "targetSymbol": "VIM",
+            "weight": 1,
+            "id": "ENSG00000168036-ENSG00000026025"
+          },
+          "position": {},
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "InteractionType": "PPI",
+            "RandomNetworks": 0,
+            "SourceName": "ENSG00000168036",
+            "SourceType": "Protein",
+            "TargetName": "ENSG00000182568",
+            "TargetType": "Protein",
+            "directed": false,
+            "flow": 0.07142806122813408,
+            "mi": [
+              {
+                "db": "BioGrid",
+                "mi": "MI:0096",
+                "name": "pull down",
+                "throughput": "Low"
+              },
+              {
+                "db": "BioGrid",
+                "mi": "MI:0004",
+                "name": "affinity chromatography technology",
+                "throughput": "Low"
+              }
+            ],
+            "source": "ENSG00000168036",
+            "sourceSymbol": "CTNNB1",
+            "target": "ENSG00000182568",
+            "targetSymbol": "SATB1",
+            "weight": 0.660797,
+            "id": "ENSG00000168036-ENSG00000182568"
+          },
+          "position": {},
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "InteractionType": "TargetNodesToTNode",
+            "RandomNetworks": 0,
+            "SourceName": "ENSG00000168542",
+            "SourceType": "Gene",
+            "TargetName": "T",
+            "TargetType": "Pseudo",
+            "directed": false,
+            "flow": 0.07142806122813408,
+            "mi": [],
+            "source": "ENSG00000168542",
+            "sourceSymbol": "COL3A1",
+            "target": "T",
+            "targetSymbol": "T",
+            "weight": 1,
+            "id": "ENSG00000168542-T"
+          },
+          "position": {},
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "InteractionType": "TranscriptionRegulation-Repression",
+            "RandomNetworks": 0,
+            "SourceName": "ENSG00000168610",
+            "SourceType": "Protein",
+            "TargetName": "ENSG00000108679",
+            "TargetType": "Gene",
+            "directed": false,
+            "flow": 0.07142806122813408,
+            "mi": [],
+            "source": "ENSG00000168610",
+            "sourceSymbol": "STAT3",
+            "target": "ENSG00000108679",
+            "targetSymbol": "LGALS3BP",
+            "weight": 1,
+            "id": "ENSG00000168610-ENSG00000108679"
+          },
+          "position": {},
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "InteractionType": "PPI",
+            "RandomNetworks": 0,
+            "SourceName": "ENSG00000169136",
+            "SourceType": "Protein",
+            "TargetName": "ENSG00000245848",
+            "TargetType": "Protein",
+            "directed": false,
+            "flow": 0.07142806122813408,
+            "mi": [
+              {
+                "db": "BioGrid",
+                "mi": "MI:0055",
+                "name": "fluorescent resonance energy transfer",
+                "throughput": "High"
+              }
+            ],
+            "source": "ENSG00000169136",
+            "sourceSymbol": "ATF5",
+            "target": "ENSG00000245848",
+            "targetSymbol": "CEBPA",
+            "weight": 0.911729,
+            "id": "ENSG00000169136-ENSG00000245848"
+          },
+          "position": {},
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "InteractionType": "TargetNodesToTNode",
+            "RandomNetworks": 0,
+            "SourceName": "ENSG00000169504",
+            "SourceType": "Gene",
+            "TargetName": "T",
+            "TargetType": "Pseudo",
+            "directed": false,
+            "flow": 0.07142806122813408,
+            "mi": [],
+            "source": "ENSG00000169504",
+            "sourceSymbol": "CLIC4",
+            "target": "T",
+            "targetSymbol": "T",
+            "weight": 1,
+            "id": "ENSG00000169504-T"
+          },
+          "position": {},
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "InteractionType": "PPI",
+            "RandomNetworks": 0,
+            "SourceName": "ENSG00000170606",
+            "SourceType": "Protein",
+            "TargetName": "ENSG00000173039",
+            "TargetType": "Protein",
+            "directed": false,
+            "flow": 0.07142806122813408,
+            "mi": [
+              {
+                "db": "BioGrid",
+                "mi": "MI:0004",
+                "name": "affinity chromatography technology",
+                "throughput": "Low"
+              },
+              {
+                "db": "BioGrid",
+                "mi": "MI:0096",
+                "name": "pull down",
+                "throughput": "Low"
+              }
+            ],
+            "source": "ENSG00000170606",
+            "sourceSymbol": "HSPA4",
+            "target": "ENSG00000173039",
+            "targetSymbol": "RELA",
+            "weight": 0.660797,
+            "id": "ENSG00000170606-ENSG00000173039"
+          },
+          "position": {},
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "InteractionType": "PPI",
+            "RandomNetworks": 0,
+            "SourceName": "ENSG00000171105",
+            "SourceType": "Protein",
+            "TargetName": "ENSG00000175387",
+            "TargetType": "Protein",
+            "directed": false,
+            "flow": 0.07142806122813408,
+            "mi": [
+              {
+                "db": "BioGrid",
+                "mi": "MI:0018",
+                "name": "two hybrid",
+                "throughput": "Low"
+              },
+              {
+                "db": "BioGrid",
+                "mi": "MI:0004",
+                "name": "affinity chromatography technology",
+                "throughput": "Low"
+              },
+              {
+                "db": "BioGrid",
+                "mi": "MI:0096",
+                "name": "pull down",
+                "throughput": "Low"
+              }
+            ],
+            "source": "ENSG00000171105",
+            "sourceSymbol": "INSR",
+            "target": "ENSG00000175387",
+            "targetSymbol": "SMAD2",
+            "weight": 0.910388,
+            "id": "ENSG00000171105-ENSG00000175387"
+          },
+          "position": {},
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "InteractionType": "TranscriptionRegulation-Activation",
+            "RandomNetworks": 0,
+            "SourceName": "ENSG00000173039",
+            "SourceType": "Protein",
+            "TargetName": "ENSG00000182492",
+            "TargetType": "Gene",
+            "directed": false,
+            "flow": 0.07142806122813408,
+            "mi": [],
+            "source": "ENSG00000173039",
+            "sourceSymbol": "RELA",
+            "target": "ENSG00000182492",
+            "targetSymbol": "BGN",
+            "weight": 1,
+            "id": "ENSG00000173039-ENSG00000182492"
+          },
+          "position": {},
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "InteractionType": "PPI",
+            "RandomNetworks": 0,
+            "SourceName": "ENSG00000173402",
+            "SourceType": "Protein",
+            "TargetName": "ENSG00000177885",
+            "TargetType": "Protein",
+            "directed": false,
+            "flow": 0.07142806122813408,
+            "mi": [
+              {
+                "db": "BioGrid",
+                "mi": "MI:0004",
+                "name": "affinity chromatography technology",
+                "throughput": "Low"
+              },
+              {
+                "db": "BioGrid",
+                "mi": "MI:0096",
+                "name": "pull down",
+                "throughput": "Low"
+              }
+            ],
+            "source": "ENSG00000173402",
+            "sourceSymbol": "DAG1",
+            "target": "ENSG00000177885",
+            "targetSymbol": "GRB2",
+            "weight": 0.660797,
+            "id": "ENSG00000173402-ENSG00000177885"
+          },
+          "position": {},
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "InteractionType": "PPI",
+            "RandomNetworks": 0,
+            "SourceName": "ENSG00000174744",
+            "SourceType": "Protein",
+            "TargetName": "ENSG00000196591",
+            "TargetType": "Protein",
+            "directed": false,
+            "flow": 0.07142806122813408,
+            "mi": [
+              {
+                "db": "BioGrid",
+                "mi": "MI:0004",
+                "name": "affinity chromatography technology",
+                "throughput": "High"
+              },
+              {
+                "db": "BioGrid",
+                "mi": "MI:0004",
+                "name": "affinity chromatography technology",
+                "throughput": "Low"
+              },
+              {
+                "db": "BioGrid",
+                "mi": "MI:0004",
+                "name": "affinity chromatography technology",
+                "throughput": "High"
+              },
+              {
+                "db": "BioGrid",
+                "mi": "MI:0004",
+                "name": "affinity chromatography technology",
+                "throughput": "Low"
+              }
+            ],
+            "source": "ENSG00000174744",
+            "sourceSymbol": "BRMS1",
+            "target": "ENSG00000196591",
+            "targetSymbol": "HDAC2",
+            "weight": 0.660797,
+            "id": "ENSG00000174744-ENSG00000196591"
+          },
+          "position": {},
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "InteractionType": "MIR-Activation(feedback)",
+            "RandomNetworks": 0,
+            "SourceName": "ENSG00000175387",
+            "SourceType": "Protein",
+            "TargetName": "HSA-MIR-27A",
+            "TargetType": "MIR",
+            "directed": false,
+            "flow": 0.07142806122813408,
+            "mi": [],
+            "source": "ENSG00000175387",
+            "sourceSymbol": "SMAD2",
+            "target": "HSA-MIR-27A",
+            "targetSymbol": "HSA-MIR-27A",
+            "weight": 1,
+            "id": "ENSG00000175387-HSA-MIR-27A"
+          },
+          "position": {},
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "InteractionType": "PPI",
+            "RandomNetworks": 0,
+            "SourceName": "ENSG00000177885",
+            "SourceType": "Protein",
+            "TargetName": "ENSG00000196396",
+            "TargetType": "Protein",
+            "directed": false,
+            "flow": 0.07142806122813408,
+            "mi": [
+              {
+                "db": "BioGrid",
+                "mi": "MI:0096",
+                "name": "pull down",
+                "throughput": "Low"
+              },
+              {
+                "db": "BioGrid",
+                "mi": "MI:0004",
+                "name": "affinity chromatography technology",
+                "throughput": "High"
+              },
+              {
+                "db": "BioGrid",
+                "mi": "MI:0096",
+                "name": "pull down",
+                "throughput": "Low"
+              },
+              {
+                "db": "BioGrid",
+                "mi": "MI:0004",
+                "name": "affinity chromatography technology",
+                "throughput": "High"
+              }
+            ],
+            "source": "ENSG00000177885",
+            "sourceSymbol": "GRB2",
+            "target": "ENSG00000196396",
+            "targetSymbol": "PTPN1",
+            "weight": 0.660797,
+            "id": "ENSG00000177885-ENSG00000196396"
+          },
+          "position": {},
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "InteractionType": "PPI",
+            "RandomNetworks": 0,
+            "SourceName": "ENSG00000178209",
+            "SourceType": "Protein",
+            "TargetName": "ENSG00000185591",
+            "TargetType": "Protein",
+            "directed": false,
+            "flow": 0.07142806122813408,
+            "mi": [
+              {
+                "db": "BioGrid",
+                "mi": "MI:0004",
+                "name": "affinity chromatography technology",
+                "throughput": "High"
+              }
+            ],
+            "source": "ENSG00000178209",
+            "sourceSymbol": "PLEC",
+            "target": "ENSG00000185591",
+            "targetSymbol": "SP1",
+            "weight": 0.203452,
+            "id": "ENSG00000178209-ENSG00000185591"
+          },
+          "position": {},
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "InteractionType": "TargetNodesToTNode",
+            "RandomNetworks": 0,
+            "SourceName": "ENSG00000182492",
+            "SourceType": "Gene",
+            "TargetName": "T",
+            "TargetType": "Pseudo",
+            "directed": false,
+            "flow": 0.07142806122813408,
+            "mi": [],
+            "source": "ENSG00000182492",
+            "sourceSymbol": "BGN",
+            "target": "T",
+            "targetSymbol": "T",
+            "weight": 1,
+            "id": "ENSG00000182492-T"
+          },
+          "position": {},
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "InteractionType": "TranscriptionRegulation-Activation",
+            "RandomNetworks": 0,
+            "SourceName": "ENSG00000182568",
+            "SourceType": "Protein",
+            "TargetName": "ENSG00000113140",
+            "TargetType": "Gene",
+            "directed": false,
+            "flow": 0.07142806122813408,
+            "mi": [],
+            "source": "ENSG00000182568",
+            "sourceSymbol": "SATB1",
+            "target": "ENSG00000113140",
+            "targetSymbol": "SPARC",
+            "weight": 1,
+            "id": "ENSG00000182568-ENSG00000113140"
+          },
+          "position": {},
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "InteractionType": "TranscriptionRegulation-Unknown",
+            "RandomNetworks": 0,
+            "SourceName": "ENSG00000185591",
+            "SourceType": "Protein",
+            "TargetName": "ENSG00000069535",
+            "TargetType": "Gene",
+            "directed": false,
+            "flow": 0.07142806122813408,
+            "mi": [],
+            "source": "ENSG00000185591",
+            "sourceSymbol": "SP1",
+            "target": "ENSG00000069535",
+            "targetSymbol": "MAOB",
+            "weight": 1,
+            "id": "ENSG00000185591-ENSG00000069535"
+          },
+          "position": {},
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "InteractionType": "TranscriptionRegulation-Unknown",
+            "RandomNetworks": 0,
+            "SourceName": "ENSG00000185591",
+            "SourceType": "Protein",
+            "TargetName": "ENSG00000141753",
+            "TargetType": "Gene",
+            "directed": false,
+            "flow": 0.07142806122813408,
+            "mi": [],
+            "source": "ENSG00000185591",
+            "sourceSymbol": "SP1",
+            "target": "ENSG00000141753",
+            "targetSymbol": "IGFBP4",
+            "weight": 1,
+            "id": "ENSG00000185591-ENSG00000141753"
+          },
+          "position": {},
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "InteractionType": "TargetNodesToTNode",
+            "RandomNetworks": 0,
+            "SourceName": "ENSG00000196154",
+            "SourceType": "Gene",
+            "TargetName": "T",
+            "TargetType": "Pseudo",
+            "directed": false,
+            "flow": 0.022941764701680703,
+            "mi": [],
+            "source": "ENSG00000196154",
+            "sourceSymbol": "S100A4",
+            "target": "T",
+            "targetSymbol": "T",
+            "weight": 1,
+            "id": "ENSG00000196154-T"
+          },
+          "position": {},
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "InteractionType": "MIR-Repression(feedback)",
+            "RandomNetworks": 0,
+            "SourceName": "ENSG00000196396",
+            "SourceType": "Protein",
+            "TargetName": "HSA-MIR-122",
+            "TargetType": "MIR",
+            "directed": false,
+            "flow": 0.07142806122813408,
+            "mi": [],
+            "source": "ENSG00000196396",
+            "sourceSymbol": "PTPN1",
+            "target": "HSA-MIR-122",
+            "targetSymbol": "HSA-MIR-122",
+            "weight": 1,
+            "id": "ENSG00000196396-HSA-MIR-122"
+          },
+          "position": {},
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "InteractionType": "TranscriptionRegulation-Repression",
+            "RandomNetworks": 0,
+            "SourceName": "ENSG00000196591",
+            "SourceType": "Protein",
+            "TargetName": "ENSG00000164692",
+            "TargetType": "Gene",
+            "directed": false,
+            "flow": 0.07142806122813408,
+            "mi": [],
+            "source": "ENSG00000196591",
+            "sourceSymbol": "HDAC2",
+            "target": "ENSG00000164692",
+            "targetSymbol": "COL1A2",
+            "weight": 1,
+            "id": "ENSG00000196591-ENSG00000164692"
+          },
+          "position": {},
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "InteractionType": "TargetNodesToTNode",
+            "RandomNetworks": 0,
+            "SourceName": "ENSG00000198947",
+            "SourceType": "Gene",
+            "TargetName": "T",
+            "TargetType": "Pseudo",
+            "directed": false,
+            "flow": 0.048486296526453386,
+            "mi": [],
+            "source": "ENSG00000198947",
+            "sourceSymbol": "DMD",
+            "target": "T",
+            "targetSymbol": "T",
+            "weight": 1,
+            "id": "ENSG00000198947-T"
+          },
+          "position": {},
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "InteractionType": "MIR-Activation",
+            "RandomNetworks": 0,
+            "SourceName": "ENSG00000245848",
+            "SourceType": "Protein",
+            "TargetName": "HSA-MIR-122",
+            "TargetType": "MIR",
+            "directed": false,
+            "flow": 0.05069128077656588,
+            "mi": [],
+            "source": "ENSG00000245848",
+            "sourceSymbol": "CEBPA",
+            "target": "HSA-MIR-122",
+            "targetSymbol": "HSA-MIR-122",
+            "weight": 1,
+            "id": "ENSG00000245848-HSA-MIR-122"
+          },
+          "position": {},
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "InteractionType": "MIR-Regulation",
+            "RandomNetworks": 0,
+            "SourceName": "ENSG00000245848",
+            "SourceType": "Protein",
+            "TargetName": "HSA-MIR-29A",
+            "TargetType": "MIR",
+            "directed": false,
+            "flow": 0.012549767501660702,
+            "mi": [],
+            "source": "ENSG00000245848",
+            "sourceSymbol": "CEBPA",
+            "target": "HSA-MIR-29A",
+            "targetSymbol": "HSA-MIR-29A",
+            "weight": 1,
+            "id": "ENSG00000245848-HSA-MIR-29A"
+          },
+          "position": {},
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "InteractionType": "MIR-Regulation",
+            "RandomNetworks": 0,
+            "SourceName": "ENSG00000245848",
+            "SourceType": "Protein",
+            "TargetName": "HSA-MIR-29B",
+            "TargetType": "MIR",
+            "directed": false,
+            "flow": 0.0081870129499075,
+            "mi": [],
+            "source": "ENSG00000245848",
+            "sourceSymbol": "CEBPA",
+            "target": "HSA-MIR-29B",
+            "targetSymbol": "HSA-MIR-29B",
+            "weight": 1,
+            "id": "ENSG00000245848-HSA-MIR-29B"
+          },
+          "position": {},
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "InteractionType": "MIR",
+            "RandomNetworks": 0,
+            "SourceName": "HSA-MIR-122",
+            "SourceType": "MIR",
+            "TargetName": "ENSG00000122359",
+            "TargetType": "Gene",
+            "directed": false,
+            "flow": 0.07142806122813408,
+            "mi": [],
+            "source": "HSA-MIR-122",
+            "sourceSymbol": "HSA-MIR-122",
+            "target": "ENSG00000122359",
+            "targetSymbol": "ANXA11",
+            "weight": 1,
+            "id": "HSA-MIR-122-ENSG00000122359"
+          },
+          "position": {},
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "InteractionType": "MIR",
+            "RandomNetworks": 0,
+            "SourceName": "HSA-MIR-122",
+            "SourceType": "MIR",
+            "TargetName": "ENSG00000169504",
+            "TargetType": "Gene",
+            "directed": false,
+            "flow": 0.07142806122813408,
+            "mi": [],
+            "source": "HSA-MIR-122",
+            "sourceSymbol": "HSA-MIR-122",
+            "target": "ENSG00000169504",
+            "targetSymbol": "CLIC4",
+            "weight": 1,
+            "id": "HSA-MIR-122-ENSG00000169504"
+          },
+          "position": {},
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "InteractionType": "MIR",
+            "RandomNetworks": 0,
+            "SourceName": "HSA-MIR-27A",
+            "SourceType": "MIR",
+            "TargetName": "ENSG00000159216",
+            "TargetType": "Gene",
+            "directed": false,
+            "flow": 0.07142806122813408,
+            "mi": [],
+            "source": "HSA-MIR-27A",
+            "sourceSymbol": "HSA-MIR-27A",
+            "target": "ENSG00000159216",
+            "targetSymbol": "RUNX1",
+            "weight": 1,
+            "id": "HSA-MIR-27A-ENSG00000159216"
+          },
+          "position": {},
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "InteractionType": "MIR",
+            "RandomNetworks": 0,
+            "SourceName": "HSA-MIR-29A",
+            "SourceType": "MIR",
+            "TargetName": "ENSG00000168542",
+            "TargetType": "Gene",
+            "directed": false,
+            "flow": 0.025313176334454755,
+            "mi": [],
+            "source": "HSA-MIR-29A",
+            "sourceSymbol": "HSA-MIR-29A",
+            "target": "ENSG00000168542",
+            "targetSymbol": "COL3A1",
+            "weight": 1,
+            "id": "HSA-MIR-29A-ENSG00000168542"
+          },
+          "position": {},
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "InteractionType": "MIR",
+            "RandomNetworks": 0,
+            "SourceName": "HSA-MIR-29B",
+            "SourceType": "MIR",
+            "TargetName": "ENSG00000168542",
+            "TargetType": "Gene",
+            "directed": false,
+            "flow": 0.019575431604059973,
+            "mi": [],
+            "source": "HSA-MIR-29B",
+            "sourceSymbol": "HSA-MIR-29B",
+            "target": "ENSG00000168542",
+            "targetSymbol": "COL3A1",
+            "weight": 1,
+            "id": "HSA-MIR-29B-ENSG00000168542"
+          },
+          "position": {},
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "InteractionType": "MIR",
+            "RandomNetworks": 0,
+            "SourceName": "HSA-MIR-29C",
+            "SourceType": "MIR",
+            "TargetName": "ENSG00000168542",
+            "TargetType": "Gene",
+            "directed": false,
+            "flow": 0.02653945328961936,
+            "mi": [],
+            "source": "HSA-MIR-29C",
+            "sourceSymbol": "HSA-MIR-29C",
+            "target": "ENSG00000168542",
+            "targetSymbol": "COL3A1",
+            "weight": 1,
+            "id": "HSA-MIR-29C-ENSG00000168542"
+          },
+          "position": {},
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "InteractionType": "SNodeToSourceNodes",
+            "RandomNetworks": 0,
+            "SourceName": "S",
+            "SourceType": "Pseudo",
+            "TargetName": "ENSG00000022267",
+            "TargetType": "Protein",
+            "directed": false,
+            "flow": 0.07142806122813408,
+            "mi": [],
+            "source": "S",
+            "sourceSymbol": "S",
+            "target": "ENSG00000022267",
+            "targetSymbol": "FHL1",
+            "weight": 1,
+            "id": "S-ENSG00000022267"
+          },
+          "position": {},
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "InteractionType": "SNodeToSourceNodes",
+            "RandomNetworks": 0,
+            "SourceName": "S",
+            "SourceType": "Pseudo",
+            "TargetName": "ENSG00000054654",
+            "TargetType": "Protein",
+            "directed": false,
+            "flow": 0.07142806122813408,
+            "mi": [],
+            "source": "S",
+            "sourceSymbol": "S",
+            "target": "ENSG00000054654",
+            "targetSymbol": "SYNE2",
+            "weight": 1,
+            "id": "S-ENSG00000054654"
+          },
+          "position": {},
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "InteractionType": "SNodeToSourceNodes",
+            "RandomNetworks": 0,
+            "SourceName": "S",
+            "SourceType": "Pseudo",
+            "TargetName": "ENSG00000102119",
+            "TargetType": "Protein",
+            "directed": false,
+            "flow": 0.07142806122813408,
+            "mi": [],
+            "source": "S",
+            "sourceSymbol": "S",
+            "target": "ENSG00000102119",
+            "targetSymbol": "EMD",
+            "weight": 1,
+            "id": "S-ENSG00000102119"
+          },
+          "position": {},
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "InteractionType": "SNodeToSourceNodes",
+            "RandomNetworks": 0,
+            "SourceName": "S",
+            "SourceType": "Pseudo",
+            "TargetName": "ENSG00000102683",
+            "TargetType": "Protein",
+            "directed": false,
+            "flow": 0.07142806122813408,
+            "mi": [],
+            "source": "S",
+            "sourceSymbol": "S",
+            "target": "ENSG00000102683",
+            "targetSymbol": "SGCG",
+            "weight": 1,
+            "id": "S-ENSG00000102683"
+          },
+          "position": {},
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "InteractionType": "SNodeToSourceNodes",
+            "RandomNetworks": 0,
+            "SourceName": "S",
+            "SourceType": "Pseudo",
+            "TargetName": "ENSG00000105993",
+            "TargetType": "Protein",
+            "directed": false,
+            "flow": 0.07142806122813408,
+            "mi": [],
+            "source": "S",
+            "sourceSymbol": "S",
+            "target": "ENSG00000105993",
+            "targetSymbol": "DNAJB6",
+            "weight": 1,
+            "id": "S-ENSG00000105993"
+          },
+          "position": {},
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "InteractionType": "SNodeToSourceNodes",
+            "RandomNetworks": 0,
+            "SourceName": "S",
+            "SourceType": "Pseudo",
+            "TargetName": "ENSG00000119401",
+            "TargetType": "Protein",
+            "directed": false,
+            "flow": 0.07142806122813408,
+            "mi": [],
+            "source": "S",
+            "sourceSymbol": "S",
+            "target": "ENSG00000119401",
+            "targetSymbol": "TRIM32",
+            "weight": 1,
+            "id": "S-ENSG00000119401"
+          },
+          "position": {},
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "InteractionType": "SNodeToSourceNodes",
+            "RandomNetworks": 0,
+            "SourceName": "S",
+            "SourceType": "Pseudo",
+            "TargetName": "ENSG00000120729",
+            "TargetType": "Protein",
+            "directed": false,
+            "flow": 0.07142806122813408,
+            "mi": [],
+            "source": "S",
+            "sourceSymbol": "S",
+            "target": "ENSG00000120729",
+            "targetSymbol": "MYOT",
+            "weight": 1,
+            "id": "S-ENSG00000120729"
+          },
+          "position": {},
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "InteractionType": "SNodeToSourceNodes",
+            "RandomNetworks": 0,
+            "SourceName": "S",
+            "SourceType": "Pseudo",
+            "TargetName": "ENSG00000131018",
+            "TargetType": "Protein",
+            "directed": false,
+            "flow": 0.07142806122813408,
+            "mi": [],
+            "source": "S",
+            "sourceSymbol": "S",
+            "target": "ENSG00000131018",
+            "targetSymbol": "SYNE1",
+            "weight": 1,
+            "id": "S-ENSG00000131018"
+          },
+          "position": {},
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "InteractionType": "SNodeToSourceNodes",
+            "RandomNetworks": 0,
+            "SourceName": "S",
+            "SourceType": "Pseudo",
+            "TargetName": "ENSG00000142156",
+            "TargetType": "Protein",
+            "directed": false,
+            "flow": 0.07142806122813408,
+            "mi": [],
+            "source": "S",
+            "sourceSymbol": "S",
+            "target": "ENSG00000142156",
+            "targetSymbol": "COL6A1",
+            "weight": 1,
+            "id": "S-ENSG00000142156"
+          },
+          "position": {},
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "InteractionType": "SNodeToSourceNodes",
+            "RandomNetworks": 0,
+            "SourceName": "S",
+            "SourceType": "Pseudo",
+            "TargetName": "ENSG00000152795",
+            "TargetType": "Protein",
+            "directed": false,
+            "flow": 0.07142806122813408,
+            "mi": [],
+            "source": "S",
+            "sourceSymbol": "S",
+            "target": "ENSG00000152795",
+            "targetSymbol": "HNRNPDL",
+            "weight": 1,
+            "id": "S-ENSG00000152795"
+          },
+          "position": {},
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "InteractionType": "SNodeToSourceNodes",
+            "RandomNetworks": 0,
+            "SourceName": "S",
+            "SourceType": "Pseudo",
+            "TargetName": "ENSG00000155657",
+            "TargetType": "Protein",
+            "directed": false,
+            "flow": 0.07142806122813408,
+            "mi": [],
+            "source": "S",
+            "sourceSymbol": "S",
+            "target": "ENSG00000155657",
+            "targetSymbol": "TTN",
+            "weight": 1,
+            "id": "S-ENSG00000155657"
+          },
+          "position": {},
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "InteractionType": "SNodeToSourceNodes",
+            "RandomNetworks": 0,
+            "SourceName": "S",
+            "SourceType": "Pseudo",
+            "TargetName": "ENSG00000160789",
+            "TargetType": "Protein",
+            "directed": false,
+            "flow": 0.07142806122813408,
+            "mi": [],
+            "source": "S",
+            "sourceSymbol": "S",
+            "target": "ENSG00000160789",
+            "targetSymbol": "LMNA",
+            "weight": 1,
+            "id": "S-ENSG00000160789"
+          },
+          "position": {},
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "InteractionType": "SNodeToSourceNodes",
+            "RandomNetworks": 0,
+            "SourceName": "S",
+            "SourceType": "Pseudo",
+            "TargetName": "ENSG00000173402",
+            "TargetType": "Protein",
+            "directed": false,
+            "flow": 0.07142806122813408,
+            "mi": [],
+            "source": "S",
+            "sourceSymbol": "S",
+            "target": "ENSG00000173402",
+            "targetSymbol": "DAG1",
+            "weight": 1,
+            "id": "S-ENSG00000173402"
+          },
+          "position": {},
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "InteractionType": "SNodeToSourceNodes",
+            "RandomNetworks": 0,
+            "SourceName": "S",
+            "SourceType": "Pseudo",
+            "TargetName": "ENSG00000178209",
+            "TargetType": "Protein",
+            "directed": false,
+            "flow": 0.07142806122813408,
+            "mi": [],
+            "source": "S",
+            "sourceSymbol": "S",
+            "target": "ENSG00000178209",
+            "targetSymbol": "PLEC",
+            "weight": 1,
+            "id": "S-ENSG00000178209"
+          },
+          "position": {},
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "classes": ""
+        }
+      ]
+    }}

@@ -6,6 +6,7 @@ readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
     "bioservices>=1.12.1",
+    "gdown>=5.2.0",
     "more-itertools>=10.7.0",
     "pandas>=2.3.0",
 ]
@@ -13,8 +14,14 @@ dependencies = [
 [dependency-groups]
 dev = [
     "pre-commit>=4.2.0",
-    "snakemake>=9.6.0",
+    "snakemake==9.9.0",
 ]
 
 [tool.ruff]
 line-length = 150
+
+[tool.uv]
+package = true
+
+[tool.setuptools.packages]
+find = {namespaces = false} 

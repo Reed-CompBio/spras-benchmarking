@@ -3,18 +3,25 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
-    "prepare-output": "mkdir -p public/data && cp -r ../output/ public/data",
+    "prepare-output": "mkdir -p public/data && cp -r ../output/ public/data && cp -r ../configs/ public/data",
     "dev": "pnpm prepare-output && astro dev",
     "build": "pnpm prepare-output && astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "format": "pnpm exec prettier . --write"
   },
   "dependencies": {
-    "@fontsource-variable/noto-sans": "^5.2.7",
-    "astro": "^5.9.4",
-    "cytoscape": "^3.32.0",
-    "dayjs": "^1.11.13",
+    "@fontsource-variable/noto-sans": "^5.2.10",
+    "astro": "^5.16.6",
+    "dayjs": "^1.11.19",
     "medium-zoom": "^1.1.0",
-    "sass": "^1.89.2"
+    "sass": "^1.97.1",
+    "yaml": "^2.8.2"
+  },
+  "devDependencies": {
+    "prettier": "3.7.4",
+    "prettier-plugin-astro": "0.14.1",
+    "vis-data": "^8.0.3",
+    "vis-network": "^10.0.2"
   }
 }

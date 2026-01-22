@@ -1,0 +1,1 @@
+The input edge file for the background network can be obtained from the SPRAS repo [`input/phosphosite-irefindex13.0-uniprot.txt`](https://github.com/Reed-CompBio/spras/blob/b5d7a2499afa8eab14c60ce0f99fa7e8a23a2c64/input/phosphosite-irefindex13.0-uniprot.txt). The actual originating site for this dataset is down.

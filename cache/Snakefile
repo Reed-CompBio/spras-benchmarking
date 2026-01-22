@@ -1,0 +1,34 @@
+from cache import link
+from cache.util import uncompress
+import urllib.parse
+from dataclasses import dataclass
+from typing import Union
+from pathlib import Path
+
+@dataclass
+class FetchConfig:
+    directive: list[str]
+    uncompress: bool = False
+
+def produce_fetch_rules(input_dict: dict[str, Union[FetchConfig, list[str]]]):
+    """
+    Produces fetch rules based on a dictionary mapping
+    output files to their directory.py-based directive.
+    """
+    # Map inputs to be wrapped with FetchConfig if list[str]
+    input_dict = {k: FetchConfig(v) if isinstance(v, list) else v for k, v in input_dict.items()}
+
+    directives = [urllib.parse.quote_plus("/".join(directive.directive)) for directive in input_dict.values()]
+    assert len(directives) == len(set(directives)), "Directives aren't unique!"
+
+    for output_file, config in input_dict.items():
+        # Since placeholders are evaluated when the job is actually ran,
+        # we pass data using params and output.
+        rule:
+            name: f"fetch_{urllib.parse.quote_plus("/".join(config.directive))}_to_{urllib.parse.quote_plus(output_file)}"
+            output: file=output_file
+            params:
+                config=config
+            run:
+                Path(output.file).parent.mkdir(exist_ok=True)
+                link(Path(output.file), params.config.directive, uncompress=params.config.uncompress)
