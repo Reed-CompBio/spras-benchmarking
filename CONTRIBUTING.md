@@ -63,7 +63,7 @@ Now, we need to make these files SPRAS-compatible. To do this, we'll set up a `S
 Create a `Snakefile` under your dataset with the top-level directives:
 
 ```python
-# This allows us to automatically fetch the Google Drive data.
+# This provides the `produce_fetch_rules` util to allows us to automatically fetch the Google Drive data.
 include: "../../cache/Snakefile"
 
 rule all:
@@ -72,7 +72,7 @@ rule all:
         "raw/sources.txt",
         "raw/targets.txt",
         # The two files we will be processing
-        "processed/gold-standard.tsv"
+        "processed/gold-standard.tsv",
         "processed/interactome.tsv"
 ```
 
