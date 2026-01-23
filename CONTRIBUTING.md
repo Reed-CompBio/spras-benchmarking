@@ -33,8 +33,10 @@ Once shared, copying the URL should look something like:
 
 > https://drive.google.com/file/d/1Agte0Aezext-8jLhGP4GmaF3tS7gHX-h/view?usp=sharing
 
-We always drop the `/view?` from the end, and replace `/file/d/` with `uc?id=`, which turns the URL to a direct download link, which is internally
-downloaded with [gdown](https://github.com/wkentaro/gdown).
+We always drop the entire `/view?...` suffix, and replace `/file/d/` with `/uc?id=`, which turns the URL to a direct download link, which is internally
+downloaded with [gdown](https://github.com/wkentaro/gdown). Those post-processing steps should make the URL now look as so:
+
+> https://drive.google.com/uc?id=1Agte0Aezext-8jLhGP4GmaF3tS7gHX-h
 
 Now, add a directive to `cache/directory.py` under `Contributing`. Since this doesn't have an online URL, this should use `CacheItem.cache_only`, to
 indicate that no other online database serves this URL.
