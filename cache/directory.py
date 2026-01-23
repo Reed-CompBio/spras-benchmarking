@@ -152,6 +152,40 @@ directory: CacheDirectory = {
             online="https://depmap.org/portal/download/api/download?file_name=downloads-by-canonical-id%2Fpublic-25q2-c5ef.104%2FOmicsCNGeneWGS.csv&dl_name=OmicsCNGeneWGS.csv&bucket=depmap-external-downloads",
         ),
     },
+    "OsmoticStress": {
+        "yeast_pcsf_network.sif": CacheItem.cache_only(
+            # In the paper https://doi.org/10.1016/j.celrep.2018.08.085
+            name="Case Study Edge Results, from Supplementary Data 3",
+            cached="https://drive.google.com/uc?id=1Agte0Aezext-8jLhGP4GmaF3tS7gHX-h"
+        ),
+        # The following files are from https://github.com/gitter-lab/osmotic-stress
+        "prizes.txt": CacheItem(
+            name="Osmotic Stress Prizes",
+            online="https://raw.githubusercontent.com/gitter-lab/osmotic-stress/refs/heads/master/Input%20Data/prizes.txt",
+            cached="https://drive.google.com/uc?id=16WDQs0Vjv6rI12-hbifsbnpH31jMGhJg"
+        ),
+        # TODO: what is this file actually named after?
+        "ChasmanNetwork-DirUndir.txt": CacheItem(
+            name="Network Input",
+            online="https://raw.githubusercontent.com/gitter-lab/osmotic-stress/refs/heads/master/Input%20Data/ChasmanNetwork-DirUndir.txt",
+            cached="https://drive.google.com/uc?id=1qYXPaWcPU72YYME7NaBzD7thYCHRzrLH"
+        ),
+        "dummy.txt": CacheItem(
+            name="Dummy Nodes File",
+            online="https://raw.githubusercontent.com/gitter-lab/osmotic-stress/refs/heads/master/Input%20Data/dummy.txt",
+            cached="https://drive.google.com/uc?id=1dsFIhBrIEahggg0JPxw64JwS51pKxoQU"
+        ),
+        "_edgeFreq.eda ": CacheItem(
+            name="Case Study Omics Integrator Edge Frequencies",
+            online="https://raw.githubusercontent.com/gitter-lab/osmotic-stress/refs/heads/master/Notebooks/Forest-TPS/_edgeFreq.eda",
+            cached="https://drive.google.com/uc?id=1M_rxEzUCo_EVuFyM47OEH2J-4LB3eeCR"
+        ),
+        "goldStandardUnionDetailed.txt": CacheItem(
+            name="Gold Standard Reference Pathways",
+            online="https://raw.githubusercontent.com/gitter-lab/osmotic-stress/refs/heads/master/data/evaluation/goldStandardUnionDetailed.txt",
+            cached="https://drive.google.com/uc?id=1-_zF9oKFCNmJbDCC2vq8OM17HJw80s2T"
+        ),
+    },
 }
 
 

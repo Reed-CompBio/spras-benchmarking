@@ -1,7 +1,19 @@
+include: "../../cache/Snakefile"
+
 rule all:
     input:
         "processed/prizes1_dummies.txt",
         "processed/network1.txt"
+
+# Not all of these files are used. 
+produce_fetch_rules({
+    "raw/yeast_pcsf_network.sif": ["OsmoticStress", "yeast_pcsf_network.sif"],
+    "raw/prizes.txt": ["OsmoticStress", "prizes.txt"],
+    "raw/ChasmanNetwork-DirUndir.txt": ["OsmoticStress", "ChasmanNetwork-DirUndir.txt"],
+    "raw/dummy.txt": ["OsmoticStress", "dummy.txt"],
+    "raw/_edgeFreq.eda": ["OsmoticStress", "_edgeFreq.eda"],
+    "raw/goldStandardUnionDetailed.txt": ["OsmoticStress", "goldStandardUnionDetailed.txt"]
+})
 
 rule process_prizes:
     input:
