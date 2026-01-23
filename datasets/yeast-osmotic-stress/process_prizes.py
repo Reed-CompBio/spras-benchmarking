@@ -10,7 +10,7 @@ if __name__ == "__main__":
     prizes_df = pd.read_csv(prizes, sep="\t", header=None, names=["NODEID", "prize"])
 
     # Use the manually curated prize info
-    # TODO: where did this come from? Nothing in the original documents even mention this.
+    # TODO: where did this score come from? These must be our three 'dummy' nodes, but this prize isn't even the highest prize.
     prizes_df2 = pd.DataFrame(data={"NODEID": ["YGR014W", "YDR420W", "YER118C"], "prize": 10.051863}, index=[1596, 1597, 1598])
 
     new_prizes_path = data_directory / "processed" / "prizes1_dummies.txt"

@@ -164,7 +164,6 @@ directory: CacheDirectory = {
             online="https://raw.githubusercontent.com/gitter-lab/osmotic-stress/refs/heads/master/Input%20Data/prizes.txt",
             cached="https://drive.google.com/uc?id=16WDQs0Vjv6rI12-hbifsbnpH31jMGhJg"
         ),
-        # TODO: what is this file actually named after?
         "ChasmanNetwork-DirUndir.txt": CacheItem(
             name="Network Input",
             online="https://raw.githubusercontent.com/gitter-lab/osmotic-stress/refs/heads/master/Input%20Data/ChasmanNetwork-DirUndir.txt",
