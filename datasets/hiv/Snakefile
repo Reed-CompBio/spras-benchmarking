@@ -1,7 +1,14 @@
+include: "../../cache/Snakefile"
+
 rule all:
     input:
         "processed/processed_prize_05.txt",
         "processed/processed_prize_060.txt",
+        "raw/phosphosite-irefindex13.0-uniprot.txt"
+
+produce_fetch_rules({
+    "raw/phosphosite-irefindex13.0-uniprot.txt": ["iRefIndex", "phosphosite-irefindex13.0-uniprot.txt"],
+})
 
 rule data_prep:
     input: 

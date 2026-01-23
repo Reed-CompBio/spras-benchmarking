@@ -5,7 +5,6 @@ description = "SPRAS Benchmarking Repository"
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
-    "bioservices>=1.12.1",
     "gdown>=5.2.0",
     "more-itertools>=10.7.0",
     "networkx>=3.6.1",

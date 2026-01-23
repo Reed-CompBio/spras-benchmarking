@@ -2,6 +2,7 @@ from dataclasses import dataclass
 from typing import Union
 from os import PathLike
 from tempfile import NamedTemporaryFile
+from typing import Optional
 import urllib.request
 import filecmp
 import urllib.parse
@@ -24,17 +25,33 @@ def fetch_biomart_url(xml: str) -> str:
 
 @dataclass
 class CacheItem:
-    """Class for differentriating between offline and online items in a cache."""
+    """
+    Class for differentriating between offline and online items in a cache.
+
+    NOTE: If cached is "", we assume that online is a Google Drive URL (for cases where there is no
+    remaining online data source.)
+    """
 
     name: str
     """The display name of the artifact, used for human-printing."""
     cached: str
     online: str
+    online_headers: Optional[list[tuple[str, str]]] = None
 
     @classmethod
     def cache_only(cls, name: str, cached: str) -> "CacheItem":
         """Wrapper method to explicitly declare a CacheItem as cached only."""
         return cls(name=name, online=cached, cached="")
+
+    def download_online(self, output: str | PathLike):
+        # https://stackoverflow.com/a/45313194/7589775: this is to add optional headers to requests.
+        # We remove the opener at the end by re-installing the default opener.
+        opener = urllib.request.build_opener()
+        if self.online_headers:
+            opener.addheaders = self.online_headers
+        urllib.request.install_opener(opener)
+        urllib.request.urlretrieve(self.online, output)
+        urllib.request.install_opener(urllib.request.build_opener())
 
     def download(self, output: str | PathLike):
         print(f"Fetching {self.name}...")
@@ -46,7 +63,7 @@ class CacheItem:
             gdown.download(self.online, str(output))
             return
 
-        urllib.request.urlretrieve(self.online, output)
+        self.download_online(output)
 
         with NamedTemporaryFile() as cached_file:
             print(f"Downloading cache {self.cached}...")
@@ -75,13 +92,16 @@ directory: CacheDirectory = {
     },
     "UniProt": {
         # We use FTP when possible, but we delegate to the UniProt REST API in cases that would save significant bandwidth.
+        # See https://ftp.uniprot.org/pub/databases/uniprot/current_release/README for the FTP README.
         "9606": {
-            # We prefer manually curated genes.
+            # We prefer manually curated, or SwissProt, genes. This URL selects these genes using the REST API.
             "SwissProt_9606.tsv": CacheItem(
                 name="UniProt 9606 SwissProt genes",
                 cached="https://drive.google.com/uc?id=1h2Cl-60qcKse-djcsqlRXm_n60mVY7lk",
                 online="https://rest.uniprot.org/uniprotkb/stream?fields=accession%2Cid%2Cprotein_name%2Cgene_names&format=tsv&query=%28*%29+AND+%28reviewed%3Atrue%29+AND+%28model_organism%3A9606%29",
             ),
+            # idmapping FTP files. See the associated README:
+            # https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/idmapping/README
             "HUMAN_9606_idmapping_selected.tab.gz": CacheItem(
                 name="UniProt 9606 ID external database mapping",
                 cached="https://drive.google.com/uc?id=1Oysa5COq31H771rVeyrs-6KFhE3VJqoX",
@@ -151,6 +171,15 @@ directory: CacheDirectory = {
             cached="https://drive.google.com/uc?id=1TPp3cfK7OZUrftucr3fLO-krXSQAA6Ub",
             online="https://depmap.org/portal/download/api/download?file_name=downloads-by-canonical-id%2Fpublic-25q2-c5ef.104%2FOmicsCNGeneWGS.csv&dl_name=OmicsCNGeneWGS.csv&bucket=depmap-external-downloads",
         ),
+    },
+    "iRefIndex": {
+        # This can also be obtained from the SPRAS repo
+        # (https://github.com/Reed-CompBio/spras/blob/b5d7a2499afa8eab14c60ce0f99fa7e8a23a2c64/input/phosphosite-irefindex13.0-uniprot.txt).
+        # iRefIndex has been down for quite some time, so this is only from the cache.
+        "phosphosite-irefindex13.0-uniprot.txt": CacheItem.cache_only(
+            name="iRefIndex v13.0 UniProt interactome",
+            cached="https://drive.google.com/uc?id=1fQ8Z3FjEwUseEtsExO723zj7mAAtdomo"
+        )
     },
     "OsmoticStress": {
         "yeast_pcsf_network.sif": CacheItem.cache_only(
