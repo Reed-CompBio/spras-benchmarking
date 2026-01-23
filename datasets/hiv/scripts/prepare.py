@@ -1,25 +1,36 @@
 import pandas
-import pickle
-import os
+from pathlib import Path
 
-prize_05 = pandas.read_csv("raw/prize_05.csv", sep="\t", lineterminator="\n")
-prize_060 = pandas.read_csv("raw/prize_060.csv", sep="\t", lineterminator="\n")
+hiv_path = Path(__file__).parent.resolve().parent
 
-prize_05["Uniprot"] = prize_05["Uniprot"].str.split("-", expand=False).str[0]
-prize_05 = prize_05.sort_values("Prize", ascending=False).drop_duplicates("Uniprot").sort_index()
+def process_prizes(prizes: pandas.DataFrame):
+    # Some proteins in the original prize files have the syntax `majorIdentifier-N` where N denotes isoforms.
+    # We don't particurarly care about any particular isoform when doing pathway reconstruction,
+    # so we treat -N isoforms as duplicates and remove them.
+    prizes["Uniprot"] = prizes["Uniprot"].str.split("-", expand=False).str[0]
 
-prize_060["Uniprot"] = prize_060["Uniprot"].str.split("-", expand=False).str[0]
-prize_060 = prize_060.sort_values("Prize", ascending=False).drop_duplicates("Uniprot").sort_index()
+    # We sort for the highest Prize for all of the isoform (and non-isoform) variants
+    # to make the output more readable.
+    prizes = prizes.sort_values("Prize", ascending=False).drop_duplicates("Uniprot").sort_index()
 
-prize_060_nodes = prize_060["Uniprot"].tolist()
-prize_05_nodes = prize_05["Uniprot"].tolist()
+    return prizes
 
-nodeset = list(set(prize_05_nodes + prize_060_nodes))
+def main():
+    # Follow `Snakefile` or the README for information about these two files.
+    prize_05 = process_prizes(pandas.read_csv(hiv_path / "raw" / "prize_05.tsv", sep="\t"))
+    prize_060 = process_prizes(pandas.read_csv(hiv_path / "raw" / "prize_060.tsv", sep="\t"))
 
-df = {"NodeIDs": nodeset, "prize_05": prize_05, "prize_060": prize_060}
+    prize_060_nodes = prize_060["Uniprot"].tolist()
+    prize_05_nodes = prize_05["Uniprot"].tolist()
+    node_set = list(set(prize_05_nodes + prize_060_nodes))
 
-if not os.path.exists("./Pickles"):
-    os.makedirs("./Pickles")
+    # Save files to the intermediate path
+    intermediate_path = hiv_path / "intermediate"
+    intermediate_path.mkdir(exist_ok=True)
+    prize_05.to_csv(intermediate_path / "prize_05.tsv", index=False, sep='\t')
+    prize_060.to_csv(intermediate_path / "prize_060.tsv", index=False, sep='\t')
+    (intermediate_path / "node_set.txt").write_text("\n".join(node_set))
 
-with open("Pickles/NodeIDs.pkl", "wb") as file:
-    pickle.dump(df, file)
+if __name__ == '__main__':
+    main()
+

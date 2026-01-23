@@ -1,28 +1,32 @@
-import pickle
 from pathlib import Path
-import os
+import pandas
 
-current_directory = Path(os.path.dirname(os.path.realpath(__file__)))
-PROCESSED_DIR = current_directory.parent / "processed"
+hiv_directory = Path(__file__).parent.resolve().parent
 
-with open("Pickles/UniprotIDs.pkl", "rb") as file:
-    UniprotIDs = pickle.load(file)
+def format(prizes: pandas.DataFrame, uniprot_mapping: dict[str, str]):
+    prizes["Uniprot"] = prizes["Uniprot"].apply(lambda x: uniprot_mapping.get(x))
 
-UIDs = UniprotIDs["UniprotIDs"]
-UMap = UniprotIDs["UniprotMap"]
+    # We also filter for proteins whose UniProtKB accession numbers no longer exist
+    # (usually for being wrongly predicted). Older versions of the UniProtKB mapping can be used
+    # to preserve these invalid protein codes.
+    prizes = prizes[prizes['Uniprot'].notnull()]
 
-with open("Pickles/NodeIDs.pkl", "rb") as file2:
-    prizes = pickle.load(file2)
+    # Format with SPRAS column names
+    prizes.columns = ["NODEID", "prize"]
 
-prize_05 = prizes["prize_05"]
-prize_060 = prizes["prize_060"]
+    return prizes
 
-prize_05["Uniprot"] = prize_05["Uniprot"].apply(lambda x: UMap.get(x))
-prize_060["Uniprot"] = prize_060["Uniprot"].apply(lambda x: UMap.get(x))
+def main():
+    # See name_mapping.py for the origins of mapping.tsv
+    mapping = pandas.read_csv(hiv_directory / 'intermediate' / 'mapping.tsv', sep='\t')
+    uniprot_mapping = dict(zip(mapping["UniProtKB"], mapping["UniProtKB-ID"]))
 
-prize_05.columns = ["NODEID", "prize"]
-prize_060.columns = ["NODEID", "prize"]
+    # See prepare.py for the origins of these files.
+    prize_05 = format(pandas.read_csv(hiv_directory / "intermediate" / "prize_05.tsv", sep='\t'), uniprot_mapping)
+    prize_060 = format(pandas.read_csv(hiv_directory / "intermediate" / "prize_060.tsv", sep='\t'), uniprot_mapping)
 
+    prize_05.to_csv(hiv_directory / "processed" / "processed_prizes_05.txt", sep="\t", header=True, index=False)
+    prize_060.to_csv(hiv_directory / "processed" / "processed_prizes_060.txt", sep="\t", header=True, index=False)
 
-prize_05.to_csv(PROCESSED_DIR / "processed_prize_05.txt", sep="\t", header=True, index=False)
-prize_060.to_csv(PROCESSED_DIR / "processed_prize_060.txt", sep="\t", header=True, index=False)
+if __name__ == '__main__':
+    main()
