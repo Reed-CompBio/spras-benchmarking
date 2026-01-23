@@ -2,29 +2,31 @@ from pathlib import Path
 import pandas
 
 hiv_directory = Path(__file__).parent.resolve().parent
-processed_directory = hiv_directory / "processed"
 
-def main():
-    mapping = pandas.read_csv(hiv_directory / 'intermediate' / 'mapping.tsv', sep='\t')
-    dict_map = dict(zip(mapping["UniProtKB"], mapping["UniProtKB-ID"]))
+def format(prizes: pandas.DataFrame, uniprot_mapping: dict[str, str]):
+    prizes["Uniprot"] = prizes["Uniprot"].apply(lambda x: uniprot_mapping.get(x))
 
-    # See prepare.py for the origins of these files.
-    prize_05 = pandas.read_csv(hiv_directory / "intermediate" / "prize_05.tsv", sep='\t')
-    prize_060 = pandas.read_csv(hiv_directory / "intermediate" / "prize_060.tsv", sep='\t')
-
-    prize_05["Uniprot"] = prize_05["Uniprot"].apply(lambda x: dict_map.get(x))
-    prize_060["Uniprot"] = prize_060["Uniprot"].apply(lambda x: dict_map.get(x))
     # We also filter for proteins whose UniProtKB accession numbers no longer exist
-    # (usually for being wrongly predicted).
-    prize_05 = prize_05[prize_05['Uniprot'].notnull()]
-    prize_060 = prize_060[prize_060['Uniprot'].notnull()]
+    # (usually for being wrongly predicted). Older versions of the UniProtKB mapping can be used
+    # to preserve these invalid protein codes.
+    prizes = prizes[prizes['Uniprot'].notnull()]
 
     # Format with SPRAS column names
-    prize_05.columns = ["NODEID", "prize"]
-    prize_060.columns = ["NODEID", "prize"]
+    prizes.columns = ["NODEID", "prize"]
 
-    prize_05.to_csv(processed_directory / "processed_prizes_05.txt", sep="\t", header=True, index=False)
-    prize_060.to_csv(processed_directory / "processed_prizes_060.txt", sep="\t", header=True, index=False)
+    return prizes
+
+def main():
+    # See name_mapping.py for the origins of mapping.tsv
+    mapping = pandas.read_csv(hiv_directory / 'intermediate' / 'mapping.tsv', sep='\t')
+    uniprot_mapping = dict(zip(mapping["UniProtKB"], mapping["UniProtKB-ID"]))
+
+    # See prepare.py for the origins of these files.
+    prize_05 = format(pandas.read_csv(hiv_directory / "intermediate" / "prize_05.tsv", sep='\t'), uniprot_mapping)
+    prize_060 = format(pandas.read_csv(hiv_directory / "intermediate" / "prize_060.tsv", sep='\t'), uniprot_mapping)
+
+    prize_05.to_csv(hiv_directory / "processed" / "processed_prizes_05.txt", sep="\t", header=True, index=False)
+    prize_060.to_csv(hiv_directory / "processed" / "processed_prizes_060.txt", sep="\t", header=True, index=False)
 
 if __name__ == '__main__':
     main()

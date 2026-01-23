@@ -9,27 +9,27 @@ def process_prizes(prizes: pandas.DataFrame):
     # so we treat -N isoforms as duplicates and remove them.
     prizes["Uniprot"] = prizes["Uniprot"].str.split("-", expand=False).str[0]
 
-    # We want to preserve the highest Prize column out of all of the isoform (and non-isoform) variants.
-    # TODO: why?
+    # We sort for the highest Prize for all of the isoform (and non-isoform) variants
+    # to make the output more readable.
     prizes = prizes.sort_values("Prize", ascending=False).drop_duplicates("Uniprot").sort_index()
 
     return prizes
 
 def main():
-    # Follow `Snakefile` for information about these two files.
+    # Follow `Snakefile` or the README for information about these two files.
     prize_05 = process_prizes(pandas.read_csv(hiv_path / "raw" / "prize_05.tsv", sep="\t"))
     prize_060 = process_prizes(pandas.read_csv(hiv_path / "raw" / "prize_060.tsv", sep="\t"))
 
     prize_060_nodes = prize_060["Uniprot"].tolist()
     prize_05_nodes = prize_05["Uniprot"].tolist()
-    nodeset = list(set(prize_05_nodes + prize_060_nodes))
+    node_set = list(set(prize_05_nodes + prize_060_nodes))
 
     # Save files to the intermediate path
     intermediate_path = hiv_path / "intermediate"
     intermediate_path.mkdir(exist_ok=True)
     prize_05.to_csv(intermediate_path / "prize_05.tsv", index=False, sep='\t')
     prize_060.to_csv(intermediate_path / "prize_060.tsv", index=False, sep='\t')
-    (intermediate_path / "node_set.txt").write_text("\n".join(nodeset))
+    (intermediate_path / "node_set.txt").write_text("\n".join(node_set))
 
 if __name__ == '__main__':
     main()
