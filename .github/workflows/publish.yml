@@ -33,12 +33,6 @@ jobs:
         uses: actions/checkout@v4
         with:
           submodules: true
-      - name: Cache Artifact Cache
-        id: cache-cache
-        uses: actions/cache@v5
-        with:
-          path: cache/artifacts
-          key: cache-artifacts
       - name: Install uv for scripting
         uses: astral-sh/setup-uv@v6.1.0
         with:
@@ -58,8 +52,20 @@ jobs:
       - name: Log conda environment
         shell: bash --login {0}
         run: conda list
+      - name: Fetch Artifact Cache
+        id: fetch-cache
+        uses: actions/cache/restore@v4
+        with:
+          path: cache/artifacts
+          key: cache-artifacts
       - name: Process raw data through Snakemake
         run: sh run_snakemake.sh
+      - name: Cache Artifact Cache
+        id: cache-cache
+        uses: actions/cache/save@v4
+        with:
+          path: cache/artifacts
+          key: cache-artifacts
       - name: Run Snakemake workflow for DMMMs
         shell: bash --login {0}
         run: snakemake --cores 4 --configfile configs/dmmm.yaml --show-failed-logs -s spras/Snakefile
