@@ -17,7 +17,7 @@ def main():
     entries_df = pd.DataFrame(entries_data)
 
     # Some orthologs have multiple KO codes in the same row
-    # The following two lines move all ko codes to individual rows
+    # The following two lines move all KO codes to individual rows
     orthology_ids = entries_df["name"].str.split(" ").explode()
     orthology_ids = orthology_ids.apply(lambda x: x.split(":")[1]).tolist()
 
@@ -63,7 +63,6 @@ def main():
     failed_uniprot = pd.Series(list(set(tst["failedIds"]))).apply(lambda x: "up:" + x)
 
     final_df = final_df[~final_df["Uniprot"].isin(failed_uniprot)]
-    print(final_df)
 
 if __name__ == '__main__':
     main()
