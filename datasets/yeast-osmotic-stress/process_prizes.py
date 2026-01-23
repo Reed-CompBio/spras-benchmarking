@@ -2,7 +2,7 @@
 import pandas as pd
 from pathlib import Path
 
-data_directory = Path(__file__).parent.resolve().parent
+data_directory = Path(__file__).parent.resolve()
 
 if __name__ == "__main__":
     # Get the raw prizes DF
