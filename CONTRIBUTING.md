@@ -82,7 +82,8 @@ We'll generate four `fetch` rules, or rules that tell Snakemake to download the 
 produce_fetch_rules({
     # The value array is a path into the dictionary from `cache/directory.py`.
     "raw/sources.txt": ["Contributing", "sources.txt"],
-    # and so on for targets, gold-standard, and interactome: note that excluding these two stops the Snakemake file from working by design!
+    # and so on for targets, gold-standard, and interactome:
+    # note that excluding these three stops the Snakemake file from working by design!
     ...
 })
 ```
