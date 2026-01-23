@@ -74,7 +74,7 @@ datasets:
     other_files: []
   - label: dmmmdepmap_cellline_fadu
     data_dir: datasets/depmap
-    edge_files: ["../raw/phosphosite-irefindex13.0-uniprot.txt"]
+    edge_files: ["raw/phosphosite-irefindex13.0-uniprot.txt"]
     node_files: ["processed/FADU_cell_line_prizes_input_nonzero.txt"]
     other_files: []
 gold_standards:
