@@ -9,13 +9,13 @@ rule all:
 produce_fetch_rules({
     "raw/prize_05.tsv": ["HIV1", "prize_05.tsv"],
     "raw/prize_060.tsv": ["HIV1", "prize_060.tsv"],
-    "raw/ko03250.xml": ["DISEASES", "HumanDO.tsv"],
+    "raw/ko03250.xml": ["KEGG", "ko03250.xml"],
     "raw/phosphosite-irefindex13.0-uniprot.txt": ["iRefIndex", "phosphosite-irefindex13.0-uniprot.txt"],
     "raw/HUMAN_9606_idmapping.tsv": FetchConfig(["UniProt", "9606", "HUMAN_9606_idmapping.dat.gz"], uncompress=True),
 })
 
 rule data_prep:
-    input: 
+    input:
         "raw/prize_05.tsv",
         "raw/prize_060.tsv"
     output:
@@ -44,3 +44,11 @@ rule spras_formatting:
         "processed/processed_prizes_060.txt"
     shell:
         "uv run scripts/spras_formatting.py"
+
+rule kegg_orthology:
+    input:
+        "raw/ko03250.xml"
+    output:
+        "a.txt"
+    shell:
+        "uv run scripts/kegg_orthology.py"

@@ -9,14 +9,14 @@ hiv_path = Path(__file__).parent.resolve().parent
 def main():
     pathway = read(open(hiv_path / "raw" / "ko03250.xml", "r"))
 
-    # Read in Kegg pathway data and keep only orthologs
+    # Read in KEGG pathway data and keep only orthologs
     entries_data = []
     for entry in pathway.entries.values():
         if entry.type == "ortholog":
             entries_data.append({"name": entry.name})
     entries_df = pd.DataFrame(entries_data)
 
-    # Some orthologs have multiple ko codes in the same row
+    # Some orthologs have multiple KO codes in the same row
     # The following two lines move all ko codes to individual rows
     orthology_ids = entries_df["name"].str.split(" ").explode()
     orthology_ids = orthology_ids.apply(lambda x: x.split(":")[1]).tolist()
@@ -63,6 +63,7 @@ def main():
     failed_uniprot = pd.Series(list(set(tst["failedIds"]))).apply(lambda x: "up:" + x)
 
     final_df = final_df[~final_df["Uniprot"].isin(failed_uniprot)]
+    print(final_df)
 
 if __name__ == '__main__':
     main()
