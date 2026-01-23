@@ -1,35 +1,38 @@
 import pandas
 from pathlib import Path
-import pickle
 
-hiv_path = Path(__file__).parent.resolve()
+hiv_path = Path(__file__).parent.resolve().parent
 
-def main():
-    # See `fetch.py` for information about these two files.
-    prize_05 = pandas.read_csv(hiv_path / "raw" / "prizes_05.tsv", sep="\t", lineterminator="\n")
-    prize_060 = pandas.read_csv(hiv_path / "raw" / "prizes_060.tsv", sep="\t", lineterminator="\n")
-
+def process_prizes(prizes: pandas.DataFrame):
     # Some proteins in the original prize files have the syntax `majorIdentifier-N` where N denotes isoforms.
     # We don't particurarly care about any particular isoform when doing pathway reconstruction,
     # so we treat -N isoforms as duplicates and remove them.
-    prize_05["Uniprot"] = prize_05["Uniprot"].str.split("-", expand=False).str[0]
-    prize_060["Uniprot"] = prize_060["Uniprot"].str.split("-", expand=False).str[0]
+    prizes["Uniprot"] = prizes["Uniprot"].str.split("-", expand=False).str[0]
 
     # We want to preserve the highest Prize column out of all of the isoform (and non-isoform) variants.
-    prize_05 = prize_05.sort_values("Prize", ascending=False).drop_duplicates("Uniprot").sort_index()
-    prize_060 = prize_060.sort_values("Prize", ascending=False).drop_duplicates("Uniprot").sort_index()
+    # TODO: why?
+    prizes = prizes.sort_values("Prize", ascending=False).drop_duplicates("Uniprot").sort_index()
+
+    return prizes
+
+def main():
+    # Follow `Snakefile` for information about these two files.
+    prize_05 = pandas.read_csv(hiv_path / "raw" / "prize_05.tsv", sep="\t", lineterminator="\n")
+    prize_060 = pandas.read_csv(hiv_path / "raw" / "prize_060.tsv", sep="\t", lineterminator="\n")
+
+    prize_05 = process_prizes(prize_05)
+    prize_060 = process_prizes(prize_060)
 
     prize_060_nodes = prize_060["Uniprot"].tolist()
     prize_05_nodes = prize_05["Uniprot"].tolist()
     nodeset = list(set(prize_05_nodes + prize_060_nodes))
 
-    # See `name_mapping.py`` for the NodeIDs storage motivation.
-    df = {"NodeIDs": nodeset, "prize_05": prize_05, "prize_060": prize_060}
-
-    (hiv_path / "pickles").mkdir(exist_ok=True)
-
-    with open(hiv_path / "pickles" / "NodeIDs.pkl", "wb") as file:
-        pickle.dump(df, file)
+    # Save files to the intermediate path
+    intermediate_path = hiv_path / "intermediate"
+    intermediate_path.mkdir(exist_ok=True)
+    prize_05.to_csv(intermediate_path / "prize_05.tsv", index=False, sep='\t')
+    prize_060.to_csv(intermediate_path / "prize_060.tsv", index=False, sep='\t')
+    (intermediate_path / "node_set.txt").write_text("\n".join(nodeset))
 
 if __name__ == '__main__':
     main()

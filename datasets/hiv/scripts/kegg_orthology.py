@@ -27,7 +27,7 @@ def main():
     ko_hsa_dict = {x.split("\t")[0].split(":")[1]: x.split("\t")[1] for x in ko_hsa_map.split("\n")[:-1]}
     ko_hsa_df = pd.DataFrame(ko_hsa_dict.items(), columns=["KEGG_Orthology", "HSA"])
 
-    # Kegg .get is limited to 10 entries per call
+    # KEGG .get is limited to 10 entries per call
     # The following code chunks the hsa list into sets of 10
     # then calls the .get function on each which returns kegg api data in string format
     hsa_chunked = list(chunked(ko_hsa_df["HSA"].tolist(), 10))
@@ -35,7 +35,7 @@ def main():
     for entry in hsa_chunked:
         raw_uniprot.append(k.get("+".join(entry)).split("\n///\n\n"))
 
-    # Raw Kegg api data is filtered to obtain hsa and uniprot codes for each protein
+    # Raw KEGG api data is filtered to obtain hsa and uniprot codes for each protein
     # Note: Although bioservices .link and .conv return cleaner outputs, they do not support
     # one to many relationships at this time.
     # Note: bioservices also supplies a parser method for the kegg api but it is also broken at this time.

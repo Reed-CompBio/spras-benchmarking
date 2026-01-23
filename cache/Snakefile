@@ -25,7 +25,7 @@ def produce_fetch_rules(input_dict: dict[str, Union[FetchConfig, list[str]]]):
         # Since placeholders are evaluated when the job is actually ran,
         # we pass data using params and output.
         rule:
-            name: f"fetch_{urllib.parse.quote_plus("/".join(config.directive))}_to_{urllib.parse.quote_plus(output_file)}"
+            name: f"fetch_{urllib.parse.quote_plus('/'.join(config.directive))}_to_{urllib.parse.quote_plus(output_file)}"
             output: file=output_file
             params:
                 config=config

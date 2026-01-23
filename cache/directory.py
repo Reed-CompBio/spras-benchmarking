@@ -92,13 +92,16 @@ directory: CacheDirectory = {
     },
     "UniProt": {
         # We use FTP when possible, but we delegate to the UniProt REST API in cases that would save significant bandwidth.
+        # See https://ftp.uniprot.org/pub/databases/uniprot/current_release/README for the FTP README.
         "9606": {
-            # We prefer manually curated genes.
+            # We prefer manually curated, or SwissProt, genes. This URL selects these genes using the REST API.
             "SwissProt_9606.tsv": CacheItem(
                 name="UniProt 9606 SwissProt genes",
                 cached="https://drive.google.com/uc?id=1h2Cl-60qcKse-djcsqlRXm_n60mVY7lk",
                 online="https://rest.uniprot.org/uniprotkb/stream?fields=accession%2Cid%2Cprotein_name%2Cgene_names&format=tsv&query=%28*%29+AND+%28reviewed%3Atrue%29+AND+%28model_organism%3A9606%29",
             ),
+            # idmapping FTP files. See the associated README:
+            # https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/idmapping/README
             "HUMAN_9606_idmapping_selected.tab.gz": CacheItem(
                 name="UniProt 9606 ID external database mapping",
                 cached="https://drive.google.com/uc?id=1Oysa5COq31H771rVeyrs-6KFhE3VJqoX",
@@ -170,6 +173,7 @@ directory: CacheDirectory = {
         ),
     },
     "KEGG": {
+        # For some reason, KEGG requires a Referer header: opening this URL otherwise fails.
         "ko03250.xml": CacheItem(
             name="KEGG 03250",
             cached="https://drive.google.com/uc?id=16dtWKHCQMp2qrLfFDE7nVhbwBCr2H5a9",
@@ -178,15 +182,24 @@ directory: CacheDirectory = {
         )
     },
     "HIV1": {
-        "prize_05.csv": CacheItem(
+        "prize_05.tsv": CacheItem(
             name="HIV_05 prizes",
             cached="https://drive.google.com/uc?id=1jVWNRPfYkbqimO44GdzXYB3-7NXhet1m",
             online="https://raw.githubusercontent.com/gitter-lab/hiv1-aurkb/ac9278d447e4188eea3bf4b24c4c4e0c19b0c6d9/Results/base_analysis/prize_05.csv"
         ),
-        "prize_060.csv": CacheItem(
+        "prize_060.tsv": CacheItem(
             name="HIV_060 prizes",
             cached="https://drive.google.com/uc?id=1Aucgp7pcooGr9oT4m2bvYEuYW6186WxQ",
             online="https://raw.githubusercontent.com/gitter-lab/hiv1-aurkb/ac9278d447e4188eea3bf4b24c4c4e0c19b0c6d9/Results/base_analysis/prize_060.csv"
+        )
+    },
+    "iRefIndex": {
+        # This can also be obtained from the SPRAS repo
+        # (https://github.com/Reed-CompBio/spras/blob/b5d7a2499afa8eab14c60ce0f99fa7e8a23a2c64/input/phosphosite-irefindex13.0-uniprot.txt).
+        # iRefIndex has been down for quite some time, so this is only from the cache.
+        "phosphosite-irefindex13.0-uniprot.txt": CacheItem.cache_only(
+            name="iRefIndex v13.0 UniProt interactome",
+            cached="https://drive.google.com/uc?id=1fQ8Z3FjEwUseEtsExO723zj7mAAtdomo"
         )
     }
 }
