@@ -33,6 +33,11 @@ jobs:
         uses: actions/checkout@v4
         with:
           submodules: true
+      - name: Cache Artifact Cache
+        uses: actions/cache@v4
+        with:
+          path: cache/artifacts
+          key: cache-artifacts
       - name: Install uv for scripting
         uses: astral-sh/setup-uv@v6.1.0
         with:
