@@ -2,3 +2,12 @@
 
 Datasets contains both the raw data (straight from the study/database), as well as Python scripts and an associated Snakemake file
 which take all of the raw data and produce SPRAS-compatible data.
+
+## Prior work
+
+Many of the datasets here have been stripped of their extra post-analysis. Here, we provide commit links to the original work.
+
+- [`hiv`](https://github.com/Reed-CompBio/spras-benchmarking/blob/0293ae4dc0be59502fac06b42cfd9796a4b4413e/hiv-benchmarking)
+- [`diseases`](https://github.com/Reed-CompBio/spras-benchmarking/tree/3c0155567dbc43278531b91f9173f6d4f4486dd8/datasets/diseases)
+- [`depmap`](https://github.com/Reed-CompBio/spras-benchmarking/tree/b332c0ab53868f111cb89cd4e9f485e8c19aa9e3/datasets/depmap)
+- [`yeast-osmotic-stress`](https://github.com/Reed-CompBio/spras-benchmarking/tree/8f69dcdf4a52607347fe3a962b753df396e44cda/yeast-osmotic-stress)
