@@ -13,7 +13,7 @@ Follow the `Snakemake` directive to find the fetched URLs for these.
 
 - `prize_05.tsv`: Prizes files from HIV expressing Jurkat cells grown for 5 minutes, from the original paper above.
 - `prize_060.tsv`: Prizes files from growing for 60 minutes.
-- `ko03250.xml`: KEGG Orthology Pathway ID 03250
+- `ko03250.xml`: KEGG Orthology Pathway ID 03250 (currently unused - was used previously for an attempt at gold standard generation.)
 - `HUMAN_9606_idmapping.tsv`: File provided by UniProt, used for mapping UniProt identifiers for  `name_mapping.py`.
 - `phosphosite-irefindex13.0-uniprot.txt`: The background interactome from the now-gone iRefIndex.
 
@@ -24,4 +24,7 @@ See `Snakefile` for the way that all of the IO files are connected.
 1. `prepare.py` - This cleans up the prize files in `raw`; specifically to remove duplicates, and to prepare the list of UniProt nodes to be mapped by `name_mapping.py`
 1. `name_mapping.py` - Converts from UniProt KB-ACID to UniProt KB to meet in the middle with `kegg_ortholog.py`, and to match with the proteins for the iRefIndex interactome. We chose UniProt KB for its generality. We also remove identifiers with an `-N` suffix and remove duplicates, to make sure isoforms aren't considered as distinct during pathway reconstruction.
 1. `spras_formatting.py` - Formats the input files into the universal SPRAS format.
-1. `kegg_orthology.py` - This is used to generate the KEGG ortholog file for gold standards. While this is nearly ready, the KEGG pathway has very little overlap with the results from the above paper, and is an insufficient gold standard.
+
+> [!NOTE]
+> This dataset does not have a gold standard. There was a prior attempt [see original](../README.md) to use KEGG as the gold standard,
+> but there was very little overlap between the nodes generated from this paper and the current KEGG HIV pathway.

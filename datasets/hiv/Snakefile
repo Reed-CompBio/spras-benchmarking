@@ -44,11 +44,3 @@ rule spras_formatting:
         "processed/processed_prizes_060.txt"
     shell:
         "uv run scripts/spras_formatting.py"
-
-rule kegg_orthology:
-    input:
-        "raw/ko03250.xml"
-    output:
-        "a.txt"
-    shell:
-        "uv run scripts/kegg_orthology.py"
