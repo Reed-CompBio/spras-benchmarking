@@ -17,11 +17,8 @@ def process_prizes(prizes: pandas.DataFrame):
 
 def main():
     # Follow `Snakefile` for information about these two files.
-    prize_05 = pandas.read_csv(hiv_path / "raw" / "prize_05.tsv", sep="\t", lineterminator="\n")
-    prize_060 = pandas.read_csv(hiv_path / "raw" / "prize_060.tsv", sep="\t", lineterminator="\n")
-
-    prize_05 = process_prizes(prize_05)
-    prize_060 = process_prizes(prize_060)
+    prize_05 = process_prizes(pandas.read_csv(hiv_path / "raw" / "prize_05.tsv", sep="\t"))
+    prize_060 = process_prizes(pandas.read_csv(hiv_path / "raw" / "prize_060.tsv", sep="\t"))
 
     prize_060_nodes = prize_060["Uniprot"].tolist()
     prize_05_nodes = prize_05["Uniprot"].tolist()
