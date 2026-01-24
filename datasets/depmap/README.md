@@ -45,6 +45,19 @@ Started processing with the FADU cell line:
 ## Config
 Example Config file used to get preliminary results on OmicsIntegrator1 and 2 following the EGFR dataset example. Will test out more parameters and update.
 
+## Data types
+The variant (i.e. mutation) scores from DepMap are originally described as
+> A variant is considered a damaging mutation if LikelyLoF == True. (0 == no mutation; If there is one or more damaging mutations in the same gene for the same cell line, the allele frequencies are summed, and if the sum is greater than 0.95, a value of 2 is assigned and if not, a value of 1 is assigned.)
+
+Our interpretation of this is
+- 0: their variant scoring algorithm assesses this variant to be not functional, that is, not damaging, so we ignore it when assigning prizes
+- 1: their scoring algorithm assesses the variant to be functional and it occurs less than all the time (AF < 0.95), which can happen in many ways in cancer (there are multiple clones in the tumor, there is a single clone but one copy of the gene has the mutation and one doesn't); there could also be multiple different mutations in the same gene but they all have frequencies that still sum to less than 0.95
+- 2: the gene is predicted to be severely functionally impacted because there are multiple different mutations each assessed to be functional, and cumulatively they have allele frequency approaching 1 or more
+
+We retain the difference in score of 1 or 2 because genes with a score of 2 are more important than genes with a score of 1, per the DepMap scoring scheme.
+The DepMap [pipeline documentation](https://storage.googleapis.com/shared-portal-files/Tools/25Q3_Mutation_Pipeline_Documentation.pdf) provides more information about how they derive the original scores, such as VEP for variant effect prediction and gnomAD for allele frequencies.
+
+
 ## Release Citation
 For DepMap Release data, including CRISPR Screens, PRISM Drug Screens, Copy Number, Mutation, Expression, and Fusions:
 DepMap, Broad (2025). DepMap Public 25Q2. Dataset. depmap.org
