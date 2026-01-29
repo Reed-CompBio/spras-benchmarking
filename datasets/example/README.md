@@ -1,4 +1,4 @@
-# Contributing Guide dataset
+# Example dataset for the contributing guide
 
 **This is an artificial dataset** for how to make datasets.
 
