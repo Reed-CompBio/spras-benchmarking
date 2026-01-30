@@ -28,7 +28,7 @@ def raise_unknown_direction(dir: str):
     raise ValueError(f"Unknown direction {dir}")
 
 
-if __name__ == "__main__":
+def main():
     spras_compatible_dir.mkdir(exist_ok=True)
 
     pathway = sys.argv[1]
@@ -95,3 +95,6 @@ if __name__ == "__main__":
     prizes_df.rename(columns={"uniprot": "NODEID", "prizes": "prize"}, inplace=True)
     result_df = prizes_df[["NODEID", "prize", "sources", "targets", "active", "dummy"]]
     result_df.to_csv(out_folder / f"{pathway}_node_prizes.txt", sep="\t", index=False, header=True)
+
+if __name__ == "__main__":
+    main()

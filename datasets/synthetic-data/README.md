@@ -27,12 +27,12 @@
 
 ### 1. Process PANTHER Pathways
 
-1. Open `process_panther_pathway.py` and add the name of any new pathways to the `pathways` vector on **line 6**.
+1. Open `Snakefile` and add the name of any new pathways to the `pathways` entry.
 2. Run the command:
    ```
-   uv run scripts/process_panther_pathway.py
+   uv run scripts/process_panther_pathway.py <pathway>
    ```
-3. This will create five new files in each subfolder of the `pathway-data/` directory:
+3. This will create five new files in the respective `pathway` subfolder of the `pathway-data/` directory:
 - `EDGES.txt`
 - `NODES.txt`
 - `PRIZES-100.txt`
@@ -50,36 +50,6 @@ Each subfolder will include the following three files:
 - `<pathway_name>_gs_edges.txt`
 - `<pathway_name>_gs_nodes.txt`
 - `<pathway_name>_node_prizes.txt`
-
-4. From the synthetic-data/ directory, run the command:
-```
-python scripts/ratios.py
-```
-5. This will create a new file `data_ratio.txt` in `spras-compatible-pathway-data` to explain the edge to target/sources ratios.
-
-## Steps to get the interactomes
-### 1. Steps to get threshold interactomes
-1. From the synthetic-data/ directory, run the command:
-```
-python scripts/threshold_interactomes.py
-```
-2.	This will create a new folder named `interactomes`, containing a subfolder called `uniprot-threshold-interactomes`.
-The subfolder will include the following 12 files:
-- 10 thresholded interactomes: `uniprot_human_interactome_<threshold>.txt` (thresholds range from 1 to 900)
-- `proteins_missing_aliases.csv`: STRING IDs that are missing UniProt accession identifiers
-- `removed_edges.txt`: All edges removed from the uniprot_human_interactome_<threshold>.txt files
-
-### 2. Steps to get combined interactomes (Panther pathways and threshold interactomes)
-1. In `combine.py`, adjust the `pathway_dirs` list on **line 11** to be the pathways to be included in the combined networks
-2. From the synthetic-data/ directory, run the command:
-```
-python scripts/combine.py
-```
-3. This will create a new a subfolder called `uniprot-combined-threshold-interactomes` in `interactomes`.
-This subfolder will include 12 files:
-- 10 combined threshold interactomes combined with the chosen pathways: `uniprot_combined_interactome_<threshold>.txt` (thresholds range from 1 to 900)
-- `overlap_combined_info.csv`
-- `overlap_info.csv`
 
 # Pilot Data
 For the pilot data, use the list `["Wnt_signaling", "JAK_STAT_signaling", "Interferon_gamma_signaling", "FGF_signaling", "Ras"]` in both:

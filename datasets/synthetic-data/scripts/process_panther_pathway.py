@@ -1,3 +1,4 @@
+import argparse
 import io
 import pandas as pd
 from pathlib import Path
@@ -7,7 +8,6 @@ current_directory = Path(__file__).parent.resolve()
 
 data_directory = current_directory / ".." / "raw" / "pathway-data"
 interactome_folder = current_directory / ".." / "raw" / "human-interactome"
-
 
 def process_pathway(file: Path, folder: Path):
     file_content = file.read_text()
@@ -65,9 +65,15 @@ def process_pathway(file: Path, folder: Path):
     scores["active"] = "true"
     scores.to_csv(folder / "PRIZES.txt", sep="\t", index=False)
 
+def parser():
+    parser = argparse.ArgumentParser(prog='PANTHER pathway parser')
+
+    parser.add_argument('pathway', choices=[file.stem for file in data_directory.iterdir()])
+
+    return parser
 
 if __name__ == "__main__":
-    pathway = sys.argv[1]
+    pathway = parser().parse_args().pathway
     pathway_file = data_directory / Path(pathway).with_suffix(".txt")
     intermediate_folder = current_directory / ".." / "intermediate" / pathway
     intermediate_folder.mkdir(parents=True, exist_ok=True)
