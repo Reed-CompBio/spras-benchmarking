@@ -78,15 +78,12 @@ def main():
     # prizes, targets, sources
     prizes_file = pathway_folder / "PRIZES.txt"
     prizes_df = pd.read_csv(prizes_file, sep="\t")
-    prizes_uniprot = prizes_df[["uniprot", "prizes", "active"]]
 
     target_file = pathway_folder / "TARGETS.txt"
     target_df = pd.read_csv(target_file, sep="\t")
-    target_uniprot = target_df[["uniprot"]]
 
     source_file = pathway_folder / "SOURCES.txt"
     source_df = pd.read_csv(source_file, sep="\t")
-    source_uniprot = source_df[["uniprot"]]
 
     # final resulting df combining all the sources, targets, and prizes
     prizes_df["sources"] = prizes_df["uniprot"].isin(source_df["uniprot"])

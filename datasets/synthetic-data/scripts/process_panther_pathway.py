@@ -2,7 +2,6 @@ import argparse
 import io
 import pandas as pd
 from pathlib import Path
-import sys
 
 current_directory = Path(__file__).parent.resolve()
 
@@ -26,7 +25,7 @@ def process_pathway(file: Path, folder: Path):
     # First, get the relevant info from the edges
     edges_df = edges_df[["PARTICIPANT_A", "INTERACTION_TYPE", "PARTICIPANT_B"]]
     edges_df.columns = ["NODE1", "INTERACTION_TYPE", "NODE2"]
-    # removing the chebi: prefix
+    # removing ChEBI identifiers: these aren't proteins and we therefore are not interested in them.
     edges_df = edges_df[~edges_df["NODE1"].str.startswith("chebi:")]
     edges_df = edges_df[~edges_df["NODE2"].str.startswith("chebi:")]
 
