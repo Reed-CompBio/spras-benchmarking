@@ -40,10 +40,10 @@
 - `TARGETS.txt`
 
 ### 2. Convert Pathways to SPRAS-Compatible Format
-1.	In `SPRAS_compatible_files.py`, add the name of any new pathways to the `pathway_dirs` list on **line 8**.
+1.	In `panther_spras_formatting.py`, add the name of any new pathways to the `pathway_dirs` list on **line 8**.
 2.	From the synthetic-data/ directory, run the command:
 ```
-python scripts/SPRAS_compatible_files.py
+python scripts/panther_spras_formatting.py
 ```
 3. This will create a new folder named `spras-compatible-pathway-data`, containing subfolders for each PANTHER pathway in SPRAS-compatible format.  
 Each subfolder will include the following three files:
@@ -58,6 +58,6 @@ For the pilot data, use the list `["Wnt_signaling", "JAK_STAT_signaling", "Inter
 
 Make sure these pathways in the list are also added `["Wnt_signaling", "JAK_STAT_signaling", "Interferon_gamma_signaling", "FGF_signaling", "Ras"]`to:
 - the `pathways` vector in `ProcessPantherPathway.R`
-- the list in `SPRAS_compatible_files.py`
+- the list in `panther_spras_formatting.py`
 
 **Once you’ve updated the pathway lists in all relevant scripts, run all the steps above to generate the Pilot dataset.**

@@ -46,4 +46,4 @@ rule make_spras_compatible:
         "processed/{pathway}/{pathway}_gs_edges.txt",
         "processed/{pathway}/{pathway}_gs_nodes.txt"
     shell:
-        "uv run scripts/SPRAS_compatible_files.py {wildcards.pathway}"
+        "uv run scripts/panther_spras_formatting.py {wildcards.pathway}"
