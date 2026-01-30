@@ -46,7 +46,7 @@ feedback. For example, use the "New pull request" button from
 https://github.com/agitter/spras-benchmarking/pulls and set ``agitter/spras-benchmarking`` as both
 the base repository and the head repository with ``example-dataset`` as the compare branch.
 
-The [SPRAS Contributing Guide](https://spras.readthedocs.io/en/latest/contributing/index.html) also provides instructions so you can push changes to both the Reed-CompBio version of spras-benchmarking and your fork. 
+The [SPRAS Contributing Guide](https://spras.readthedocs.io/en/latest/contributing/index.html) also provides instructions so you can push changes to both the Reed-CompBio version of spras-benchmarking and your fork.
 
 ### Step 1: Install `uv`
 
@@ -73,7 +73,7 @@ The goal of a dataset is to take raw data and produce data to be fed to SPRAS. I
 
 ### 2.1: Generate an example dataset
 
-Generate a fake dataset by running 
+Generate a fake dataset by running
 
 ```sh
 uv run datasets/example/raw_generation.py
@@ -129,7 +129,7 @@ Now, we need to make these files SPRAS-compatible. To do this, we'll set up a `S
 
 In the example dataset, `sources.txt` and `targets.txt` are already in a SPRAS-ready format, but we need to process `gold-standard.tsv` and `interactome.tsv`.
 
-### 3.1: Write a `Snakefile` to fetch datasets 
+### 3.1: Write a `Snakefile` to fetch datasets
 
 Navigate to the `dataset/example` directory and create a `Snakefile` with the top-level directives:
 
@@ -194,7 +194,7 @@ your processed dataset files to be reproduced. You can test it with `uv run snak
 To make sure your dataset is run along with all other datasets when benchmarking is run,
 you need to run your new `Snakefile` to `run_snakemake.sh` file in the top-level directory, and add it to the appropiate SPRAS configuration in `configs`.
 
-The example dataset inputs indicate that algorithms designed for pathway reconstruction analysis should be run on this example (as opposed to a disease mining analysis, which would not have sources and targets). Therefore, we will add this dataset to be run when pathway reconstruction analysis (PRA) methods are used. The configuration file for these methods is in `configs/pra.yaml`. 
+The example dataset inputs indicate that algorithms designed for pathway reconstruction analysis should be run on this example (as opposed to a disease mining analysis, which would not have sources and targets). Therefore, we will add this dataset to be run when pathway reconstruction analysis (PRA) methods are used. The configuration file for these methods is in `configs/pra.yaml`.
 
 ### Adding to `run_snakemake.sh`
 
