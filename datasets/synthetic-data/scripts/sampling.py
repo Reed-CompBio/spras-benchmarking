@@ -17,9 +17,9 @@ def main():
     # To guarantee similar topologies, we first build up the 10% interactome that preserves the connectedness of our interactome,
     # _then_ we build up the interactome in further 10% increments until we get our desired list of thresholded interactomes.
 
-    # For performance reasons (groupby is quite slow), we stream in the interactome using the pre-computed bucket-counts.tsv file
-    bucket_counts = pandas.read_csv(current_directory / '..' / 'processed' / 'bucket-counts.tsv', sep='\t', usecols=['count'])
-    total_rows = bucket_counts['count'].sum()
+    # For performance reasons (groupby is quite slow), we stream in the interactome using the pre-computed weight-counts.tsv file
+    weight_counts = pandas.read_csv(current_directory / '..' / 'processed' / 'weight-counts.tsv', sep='\t')
+    total_rows = weight_counts['count'].sum()
 
     interactome_path = current_directory / '..' / 'processed' / 'interactome.tsv'
 
