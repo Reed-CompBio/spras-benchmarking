@@ -2,8 +2,7 @@
 
 This guide walks new contributors through the process of adding a new dataset for SPRAS benchmarking and running SPRAS on that dataset. It is considered a companion to the [SPRAS Contributing Guide](https://spras.readthedocs.io/en/latest/contributing/index.html), which walks users through adding and algorithm to the SPRAS software. It is useful, but not necessary, to complete that contributing guide before beginning this one.
 
-Prerequisites
--------------
+## Prerequisites
 
 Before following this guide, a contributor will need
 
@@ -13,8 +12,7 @@ Before following this guide, a contributor will need
   or [beginner's guide](http://ivory.idyll.org/blog/2023-snakemake-slithering-section-1.html))
 - The ability to post files to Google Drive
 
-Step 0: Fork the repository and create a branch
------------------------------------------------
+## Step 0: Fork the repository and create a branch
 
 From the [spras-benchmarking repository](https://github.com/Reed-CompBio/spras-benchmarking),
 click the "Fork" button in the upper right corner to create a copy of
@@ -29,15 +27,15 @@ cloning the repository, create a new git branch called
 following commands, replace the example username ``agitter`` with your
 GitHub username.
 
-```
-   git clone https://github.com/agitter/spras-benchmarking.git
-   git checkout -b example-dataset
+```sh
+git clone https://github.com/agitter/spras-benchmarking.git
+git checkout -b example-dataset
 ```
 
 Then you can make commits and push them to your fork of the repository
 on the ``example-dataset`` branch
 
-```
+```sh
 git push origin example-dataset
 ```
 
@@ -50,10 +48,16 @@ the base repository and the head repository with ``example-dataset`` as the comp
 
 The [SPRAS Contributing Guide](https://spras.readthedocs.io/en/latest/contributing/index.html) also provides instructions so you can push changes to both the Reed-CompBio version of spras-benchmarking and your fork. 
 
-Step 1: Activate the spras environment and install SPRAS as a submdule. 
----------------
+### Step 1: Install `uv`
 
-This repository depends on SPRAS. If you want to reproduce the results of benchmarking locally,
+Unlike in the main SPRAS repository, we use `uv`, an equivalent to `pip`, for running our dataset pipelines. As we will see later in `1.1`,
+we still use Conda for running SPRAS itself.
+
+You can follow `uv`'s installation instructions [on their website](https://docs.astral.sh/uv/getting-started/installation/).
+
+### 1.1: Activate the spras environment and install SPRAS as a submdule.
+
+This repository depends on SPRAS. If you want to reproduce the results of running SPRAS on datasets locally,
 you will need to setup SPRAS. SPRAS depends on [Docker](https://www.docker.com/) and [Conda](https://docs.conda.io/projects/conda/en/stable/). If it is hard to install either of these tools,
 a [devcontainer](https://containers.dev/) is available for easy setup.
 
@@ -63,8 +67,7 @@ conda activate spras
 pip install ./spras
 ```
 
-Step 2: Add a dataset
---------------
+## Step 2: Add a dataset
 
 The goal of a dataset is to take raw data and produce data to be fed to SPRAS. In this guide, we will add a dataset that is provided in `datasets/example`.
 
@@ -72,9 +75,10 @@ The goal of a dataset is to take raw data and produce data to be fed to SPRAS. I
 
 Generate a fake dataset by running 
 
-```py
-python datasets/example/raw_generation.py <ADD ARGUMENTS>
+```sh
+uv run datasets/example/raw_generation.py
 ```
+
 The following artifacts will be placed in `dataset/example/`:
 - `sources.txt`
 - `targets.txt`
@@ -157,14 +161,16 @@ produce_fetch_rules({
 
 ### 3.2: Write code to put example dataset files in a SPRAS-compatible format
 
-Create two scripts that make `gold-standard.tsv` and `interactome.tsv` SPRAS-ready, consulting
+Create two scripts that output SPRAS-ready variants of `raw/gold-standard.tsv` and `raw/interactome.tsv` to `processed/`, consulting
 the [SPRAS file format documentation](https://spras.readthedocs.io/en/latest/output.html). You can use any dependencies inside the top-level
-`pyproject.toml`, and you can test out your scripts with `uv run <script>`, an installation requirement from the top-level README.
+`pyproject.toml`, though [pandas](https://pandas.pydata.org/) should suffice, and you can test out your scripts with `uv run <script>`,
+an installation requirement from Step 1.
 
 
 > [!TIP]
-> Getting the current directory of your script prevents path errors. We use the snippet `Path(__file__).parent.resolve()`
-> throughout the repository.
+> While scripts will usually be run through `Snakemake`, they can also be run standalone through `uv run <script>.py`.
+> Users not running scripts from `datasets/<dataset>` will encounter path errors, unless you resolve the file's current directory
+> to be its current location through `current_dir = Path(__file__).parent.resolve()`.
 
 ### 3.3: Write Snakemake rules to produce SPRAS-compatible files
 
@@ -180,14 +186,16 @@ rule interactome:
         "uv run scripts/process_interactome.py"
 ```
 
-Once you do the same for `gold-standard.tsv`, your data pipeline is ready! You can test it with `uv run snakemake --cores 1`.
+Once you do the same for `gold-standard.tsv`, your dataset recreation pipeline is ready! This will not run SPRAS itself, but it will allow
+your processed dataset files to be reproduced. You can test it with `uv run snakemake --cores 1`.
 
-Step 4: Add the example dataset to the set of benchmark data
-----------------
+## Step 4: Add the example dataset to the set of benchmark data
 
-If you want to add the dataset so it is run along with all other datasets, add a call to run the new `Snakefile` in `run_snakemake.sh` file in the top-level directory.
+To make sure your dataset is run along with all other datasets when benchmarking is run,
+you need to run your new `Snakefile` to `run_snakemake.sh` file in the top-level directory, and add it to the appropiate SPRAS configuration in `configs`.
 
 The example dataset inputs indicate that algorithms designed for pathway reconstruction analysis should be run on this example (as opposed to a disease mining analysis, which would not have sources and targets). Therefore, we will add this dataset to be run when pathway reconstruction analysis (PRA) methods are used. The configuration file for these methods is in `configs/pra.yaml`. 
+
 ### Adding to `run_snakemake.sh`
 
 Make sure that your `Snakefile` is run inside the top-level `run_snakemake.sh` file.
@@ -196,7 +204,7 @@ Make sure that your `Snakefile` is run inside the top-level `run_snakemake.sh` f
 
 Since this is a pathway problem and not a disease mining problem, we'll mutate `configs/pra.yaml`. Add your dataset and gold standard to the configuration. Since this dataset passes in a mix of raw and processed files, it would be best to make the `data_dir` set to `datasets/example`, then refer to individual files when linking node or edge files in the configuration. Under the `datasets` tag, add lines like this:
 
-```
+```yaml
   - label: exampleDataset
     node_files: ["raw/sources.txt", "raw/targets.txt"]
     edge_files: ["processed/interactome.tsv"]
@@ -214,6 +222,6 @@ snakemake --cores 1 --configfile configs/pra.yaml --show-failed-logs -s spras/Sn
 You can now add your own datasets to the `spras-benchmarking` repo, which will be reviewed by the maintainers. **Check that your data provider isn't already a dataset in `datasets`.** There are some datasets that are able to serve more data, and only use a subset of it: these datasets can be extended for your needs. Code contributions will be licensed using the project's MIT license.
 
 If you wish to contribute to the codebase beyond adding datasets, there are `TODOs` that better enhance the reproducibility and accuracy of datasets or analysis of algorithm outputs, as well as
-[open resolvable issues](https://github.com/Reed-CompBio/spras-benchmarking/).
+[open resolvable issues](https://github.com/Reed-CompBio/spras-benchmarking/issues).
 
 If you want to add an algorithm to SPRAS, refer to the [SPRAS repository](https://github.com/Reed-CompBio/SPRAS) instead. If you want to test your new algorithm you PRed to SPRAS, you can swap out the `spras` submodule that this repository uses with your fork of SPRAS.
