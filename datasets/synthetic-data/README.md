@@ -5,7 +5,7 @@
 2. Move the downloaded file into the `raw/human-interactome/` folder.
 3. From the `raw/synthetic-data/` directory, extract the file using:
 
-   ```
+   ```sh
    gunzip human-interactome/9606.protein.links.full.v12.0.txt.gz
    ```
 
@@ -30,7 +30,7 @@
 1. Open `process_panther_pathway.py` and add the name of any new pathways to the `pathways` vector on **line 6**.
 2. Run the command:
    ```
-   uv run src/process_panther_pathway.py
+   uv run scripts/process_panther_pathway.py
    ```
 3. This will create five new files in each subfolder of the `pathway-data/` directory:
 - `EDGES.txt`
@@ -43,7 +43,7 @@
 1.	In `SPRAS_compatible_files.py`, add the name of any new pathways to the `pathway_dirs` list on **line 8**.
 2.	From the synthetic-data/ directory, run the command:
 ```
-python src/SPRAS_compatible_files.py
+python scripts/SPRAS_compatible_files.py
 ```
 3. This will create a new folder named `spras-compatible-pathway-data`, containing subfolders for each PANTHER pathway in SPRAS-compatible format.  
 Each subfolder will include the following three files:
@@ -53,7 +53,7 @@ Each subfolder will include the following three files:
 
 4. From the synthetic-data/ directory, run the command:
 ```
-python src/ratios.py
+python scripts/ratios.py
 ```
 5. This will create a new file `data_ratio.txt` in `spras-compatible-pathway-data` to explain the edge to target/sources ratios.
 
@@ -61,7 +61,7 @@ python src/ratios.py
 ### 1. Steps to get threshold interactomes
 1. From the synthetic-data/ directory, run the command:
 ```
-python src/threshold_interactomes.py
+python scripts/threshold_interactomes.py
 ```
 2.	This will create a new folder named `interactomes`, containing a subfolder called `uniprot-threshold-interactomes`.
 The subfolder will include the following 12 files:
@@ -73,7 +73,7 @@ The subfolder will include the following 12 files:
 1. In `combine.py`, adjust the `pathway_dirs` list on **line 11** to be the pathways to be included in the combined networks
 2. From the synthetic-data/ directory, run the command:
 ```
-python src/combine.py
+python scripts/combine.py
 ```
 3. This will create a new a subfolder called `uniprot-combined-threshold-interactomes` in `interactomes`.
 This subfolder will include 12 files:

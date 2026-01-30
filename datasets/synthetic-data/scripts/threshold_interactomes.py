@@ -1,8 +1,7 @@
 import pandas as pd
 from pathlib import Path
-import os
 
-current_directory = Path(os.path.dirname(os.path.realpath(__file__)))
+current_directory = Path(__file__).parent.resolve()
 data_directory = current_directory / '..'
 
 if not (data_directory / "processed" / "interactomes" / "uniprot-threshold-interactomes").exists():

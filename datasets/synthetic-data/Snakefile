@@ -41,7 +41,7 @@ rule combine_interactomes:
             "processed/interactomes/uniprot-combined-threshold-interactomes/uniprot_combined_interactome_{threshold}.txt",
             threshold=thresholds)
     shell:
-        "uv run src/combine.py"
+        "uv run scripts/combine.py"
 
 rule threshold_interactomes:
     input:
@@ -58,7 +58,7 @@ rule threshold_interactomes:
             "processed/interactomes/uniprot-threshold-interactomes/uniprot_human_interactome_{threshold}.txt",
             threshold=thresholds)
     shell:
-        "uv run src/threshold_interactomes.py"
+        "uv run scripts/threshold_interactomes.py"
 
 rule process_panther_pathway:
     input: "raw/pathway-data/{pathway}.txt"
@@ -69,7 +69,7 @@ rule process_panther_pathway:
         "intermediate/{pathway}/SOURCES.txt",
         "intermediate/{pathway}/PRIZES.txt"
     shell:
-        "uv run src/process_panther_pathway.py {wildcards.pathway}"
+        "uv run scripts/process_panther_pathway.py {wildcards.pathway}"
 
 rule make_spras_compatible:
     input:
@@ -83,4 +83,4 @@ rule make_spras_compatible:
         "processed/{pathway}/{pathway}_gs_edges.txt",
         "processed/{pathway}/{pathway}_gs_nodes.txt"
     shell:
-        "uv run src/SPRAS_compatible_files.py {wildcards.pathway}"
+        "uv run scripts/SPRAS_compatible_files.py {wildcards.pathway}"
