@@ -25,17 +25,19 @@ def gnp_noise(graph: networkx.DiGraph, p: float):
 
 def generate_parser():
     parser = argparse.ArgumentParser(prog='Pathway generator')
-    parser.add_argument("--path-count", type=int, default=10)
-    parser.add_argument("--path-length", type=int, default=7)
+    parser.add_argument("--path-count", type=int, default=10, help="The number of paths, whose starts and ends are marked as sources and targets.")
+    parser.add_argument("--path-length", type=int, default=7, help="The length of every path from --path-count.")
 
     parser.add_argument("--sources-output", type=str, default="sources.txt")
     parser.add_argument("--targets-output", type=str, default="targets.txt")
 
-    parser.add_argument("--gold-standard-noise", type=float, default=0.03)
+    parser.add_argument("--gold-standard-noise", type=float, default=0.03,
+                        help="The probability that edges in the gold standard are connected to each other.")
     parser.add_argument("--gold-standard-output", type=str, default="gold-standard.tsv")
 
     parser.add_argument("--interactome-extra-nodes", type=int, default=400)
-    parser.add_argument("--interactome-noise", type=float, default=0.01)
+    parser.add_argument("--interactome-noise", type=float, default=0.01,
+                        help="The probability that edges in the larger interactome are connected to each other.")
     parser.add_argument("--interactome-output", type=str, default="interactome.tsv")
     return parser
 
