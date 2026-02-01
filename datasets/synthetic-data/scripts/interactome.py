@@ -22,9 +22,11 @@ def main():
     print('Processing interactome...')
     df['Weight'] = df['Weight'].div(1000) # scores are from 1-1000: we normalize from 0-1.
     df['Direction'] = 'U'
+    print('Sorting interactome...')
+    df = df.sort_values('Weight', kind='stable')
 
     print('Saving interactome...')
-    df.to_csv(current_directory / '..' / 'processed' / 'interactome.tsv', sep='\t', header=False)
+    df.to_csv(current_directory / '..' / 'processed' / 'interactome.tsv', sep='\t', header=False, index=False)
 
 
 if __name__ == "__main__":
