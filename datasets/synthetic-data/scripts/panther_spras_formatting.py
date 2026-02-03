@@ -93,5 +93,6 @@ def main():
     result_df = prizes_df[["NODEID", "prize", "sources", "targets", "active", "dummy"]]
     result_df.to_csv(out_folder / f"{pathway}_node_prizes.txt", sep="\t", index=False, header=True)
 
+
 if __name__ == "__main__":
     main()
