@@ -214,6 +214,20 @@ directory: CacheDirectory = {
             cached="https://drive.google.com/uc?id=1-_zF9oKFCNmJbDCC2vq8OM17HJw80s2T"
         ),
     },
+    "Surfaceome": {
+        "table_S3_surfaceome.xlsx": CacheItem(
+            name="Human surfaceome",
+            online="http://wlab.ethz.ch/surfaceome/table_S3_surfaceome.xlsx",
+            cached="https://docs.google.com/uc?id=1cBXYbDnAJVet0lv3BRrizV5FuqfMbBr0"
+        )
+    },
+    "TranscriptionFactors": {
+        "Homo_sapiens_TF.tsv": CacheItem(
+            name="Human transcription factors",
+            online="https://guolab.wchscu.cn/AnimalTFDB4_static/download/TF_list_final/Homo_sapiens_TF",
+            cached="https://drive.google.com/uc?id=1fVi18GpudUlquRPHgUJl3H1jy54gO-uz"
+        )
+    }
 }
 
 

@@ -19,9 +19,9 @@
 
 ## Sources and Targets
 
-[Sources](https://www.pnas.org/doi/full/10.1073/pnas.1808790115) are silico human surfaceomes receptors.
+[Sources](http://wlab.ethz.ch/surfaceome/) (see [original paper](https://doi.org/10.1073/pnas.1808790115)) are silico human surfaceomes receptors.
 
-[Targets](https://academic.oup.com/nar/article/51/D1/D39/6765312) are human transcription factors.
+[Targets]( https://guolab.wchscu.cn/AnimalTFDB4//#/) (see [original paper](https://doi.org/10.1093/nar/gkac907)) are human transcription factors.
 
 ## Steps to Generate SPRAS-Compatible Pathways
 

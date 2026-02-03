@@ -13,18 +13,23 @@ pathways = ["Apoptosis_signaling", "B_cell_activation",
 rule all:
     input:
         "raw/9606.protein.links.full.v12.0.txt",
-        expand([
-            "processed/{pathway}/{pathway}_node_prizes.txt",
-            "processed/{pathway}/{pathway}_gs_edges.txt",
-            "processed/{pathway}/{pathway}_gs_nodes.txt"
-        ], pathway=pathways)
+        # expand([
+        #     "processed/{pathway}/{pathway}_node_prizes.txt",
+        #     "processed/{pathway}/{pathway}_gs_edges.txt",
+        #     "processed/{pathway}/{pathway}_gs_nodes.txt"
+        # ], pathway=pathways)
+        "intermediate/JAK_STAT_signaling/PRIZES.txt"
 
 produce_fetch_rules({
     "raw/9606.protein.links.full.v12.0.txt": FetchConfig(["STRING", "9606", "9606.protein.links.full.txt.gz"], uncompress=True),
+    "raw/human-interactome/table_S3_surfaceome.xlsx": ["Surfaceome", "table_S3_surfaceome.xlsx"],
+    "raw/human-interactome/Homo_sapiens_TF.tsv": ["TranscriptionFactors", "Homo_sapiens_TF.tsv"]
 })
 
 rule process_panther_pathway:
-    input: "raw/pathway-data/{pathway}.txt"
+    input:
+        "raw/pathway-data/{pathway}.txt",
+        "raw/human-interactome/table_S3_surfaceome.xlsx"
     output:
         "intermediate/{pathway}/EDGES.txt",
         "intermediate/{pathway}/NODES.txt",

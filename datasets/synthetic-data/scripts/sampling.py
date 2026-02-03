@@ -67,8 +67,8 @@ def sources_and_targets(pathway_name: str) -> SourcesTargets:
     nodes_df = pandas.read_csv(
         current_directory / '..' / 'processed' / pathway_name / f'{pathway_name}_node_prizes.txt', sep='\t',
         usecols=['NODEID', 'sources', 'targets'])
-    sources: list[str] = list(nodes_df[nodes_df['sources'] == 'True']['NODEID'])
-    targets: list[str] = list(nodes_df[nodes_df['targets'] == 'True']['NODEID'])
+    sources: list[str] = list(nodes_df[nodes_df['sources'] == True]['NODEID'])
+    targets: list[str] = list(nodes_df[nodes_df['targets'] == True]['NODEID'])
 
     return SourcesTargets(sources, targets)
 
@@ -88,7 +88,10 @@ def main():
     pathway_df = read_pathway(pathway)
     sources, targets = sources_and_targets(pathway)
 
+    attempt_number = 1
     while attempt_sample(pathway, pathway_df, weight_mapping, interactome_df, sources, targets) is None:
+        attempt_number += 1
+        print(f"Attempt number {attempt_number}")
         pass
 
 def attempt_sample(pathway: str,
@@ -97,7 +100,7 @@ def attempt_sample(pathway: str,
                    interactome_df: pandas.DataFrame,
                    sources: list[str], targets: list[str]) -> Optional[tuple[str, str]]:
 
-    interactome_df = sample_interactome(interactome_df, weight_mapping, percentage=0.1)
+    interactome_df = sample_interactome(interactome_df, weight_mapping, percentage=0.05)
 
     print(f'Merging {pathway} with interactome...')
     pathway_df = pathway_df.merge(interactome_df, how='inner', on=["Interactor1", "Interactor2"])

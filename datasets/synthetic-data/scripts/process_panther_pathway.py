@@ -50,8 +50,8 @@ def process_pathway(file: Path, folder: Path):
     human_tfs = human_tfs[["NODE", "uniprot"]]
     human_tfs.to_csv(folder / "TARGETS.txt", sep="\t", index=False)
 
-    # Then, for our receptors
-    human_receptors = pd.read_csv(interactome_folder / "Homo_sapiens_surfaceome.txt", sep="\t")
+    # Then, for our receptors. NOTE: we skip the first row since it's empty in the XLSX, so this might break if the surfaceome authors fix this.
+    human_receptors = pd.read_excel(interactome_folder / "table_S3_surfaceome.xlsx", sheet_name="in silico surfaceome only", skiprows=1)
     human_receptors = human_receptors[["UniProt accession", "Ensembl gene", "Membranome Almen main-class"]]
     human_receptors = human_receptors[human_receptors["Membranome Almen main-class"] == "Receptors"]
     human_receptors = nodes_df.merge(human_receptors, how="inner", left_on="uniprot", right_on="UniProt accession")
