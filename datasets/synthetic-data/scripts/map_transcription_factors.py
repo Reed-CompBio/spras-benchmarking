@@ -18,7 +18,7 @@ def main():
         sep="\t",
     )
     idmapping_selected_df = idmapping_selected_df[idmapping_selected_df["Ensembl"].notnull()]
-    # Handle our ; list
+    # Handle our ;-delimited list
     idmapping_selected_df['Ensembl'] = idmapping_selected_df['Ensembl'].str.split("; ")
     idmapping_selected_df = idmapping_selected_df.explode('Ensembl')
     # Drop isoforms
