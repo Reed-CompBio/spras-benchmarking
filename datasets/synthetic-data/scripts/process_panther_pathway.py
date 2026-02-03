@@ -46,7 +46,7 @@ def process_pathway(file: Path, folder: Path):
 
     # First, for our targets, or transcription factors
     human_tfs = pd.read_csv(interactome_folder / "Homo_sapiens_TF_Uniprot.txt", sep="\t")
-    human_tfs = nodes_df.merge(human_tfs, how="inner", left_on="uniprot", right_on="Uniprot_Accession")
+    human_tfs = nodes_df.merge(human_tfs, how="inner", left_on="uniprot", right_on="UniProtKB-AC")
     human_tfs = human_tfs[["NODE", "uniprot"]]
     human_tfs.to_csv(folder / "TARGETS.txt", sep="\t", index=False)
 

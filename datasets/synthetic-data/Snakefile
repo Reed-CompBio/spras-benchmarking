@@ -13,24 +13,33 @@ pathways = ["Apoptosis_signaling", "B_cell_activation",
 rule all:
     input:
         "raw/9606.protein.links.full.v12.0.txt",
-        # expand([
-        #     "processed/{pathway}/{pathway}_node_prizes.txt",
-        #     "processed/{pathway}/{pathway}_gs_edges.txt",
-        #     "processed/{pathway}/{pathway}_gs_nodes.txt"
-        # ], pathway=pathways)
-        "intermediate/JAK_STAT_signaling/PRIZES.txt"
+        expand([
+            "processed/{pathway}/{pathway}_node_prizes.txt",
+            "processed/{pathway}/{pathway}_gs_edges.txt",
+            "processed/{pathway}/{pathway}_gs_nodes.txt"
+        ], pathway=pathways)
 
 produce_fetch_rules({
     "raw/9606.protein.links.full.v12.0.txt": FetchConfig(["STRING", "9606", "9606.protein.links.full.txt.gz"], uncompress=True),
     "raw/human-interactome/table_S3_surfaceome.xlsx": ["Surfaceome", "table_S3_surfaceome.xlsx"],
-    "raw/human-interactome/Homo_sapiens_TF.tsv": ["TranscriptionFactors", "Homo_sapiens_TF.tsv"]
+    "raw/human-interactome/Homo_sapiens_TF.tsv": ["TranscriptionFactors", "Homo_sapiens_TF.tsv"],
+    "raw/human-interactome/HUMAN_9606_idmapping_selected.tsv": FetchConfig(["UniProt", "9606", "HUMAN_9606_idmapping_selected.tab.gz"], uncompress=True),
 })
+
+rule process_tfs:
+    input:
+        "raw/human-interactome/Homo_sapiens_TF.tsv",
+        "raw/human-interactome/HUMAN_9606_idmapping_selected.tsv"
+    output:
+        "raw/human-interactome/Homo_sapiens_TF_Uniprot.tsv"
+    shell:
+        "uv run scripts/map_transcription_factors.py"
 
 rule process_panther_pathway:
     input:
         "raw/pathway-data/{pathway}.txt",
         "raw/human-interactome/table_S3_surfaceome.xlsx",
-        "raw/human-interactome/Homo_sapiens_TF.tsv"
+        "raw/human-interactome/Homo_sapiens_TF_Uniprot.tsv"
     output:
         "intermediate/{pathway}/EDGES.txt",
         "intermediate/{pathway}/NODES.txt",
