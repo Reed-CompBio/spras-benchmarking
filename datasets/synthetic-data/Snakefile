@@ -29,7 +29,8 @@ produce_fetch_rules({
 rule process_panther_pathway:
     input:
         "raw/pathway-data/{pathway}.txt",
-        "raw/human-interactome/table_S3_surfaceome.xlsx"
+        "raw/human-interactome/table_S3_surfaceome.xlsx",
+        "raw/human-interactome/Homo_sapiens_TF.tsv"
     output:
         "intermediate/{pathway}/EDGES.txt",
         "intermediate/{pathway}/NODES.txt",

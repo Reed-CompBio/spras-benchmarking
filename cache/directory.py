@@ -222,10 +222,13 @@ directory: CacheDirectory = {
         )
     },
     "TranscriptionFactors": {
-        "Homo_sapiens_TF.tsv": CacheItem(
+        "Homo_sapiens_TF.tsv": CacheItem.cache_only(
             name="Human transcription factors",
-            online="https://guolab.wchscu.cn/AnimalTFDB4_static/download/TF_list_final/Homo_sapiens_TF",
-            cached="https://drive.google.com/uc?id=1fVi18GpudUlquRPHgUJl3H1jy54gO-uz"
+            # This server has anti-bot protection, so to respect their wishes, we don't download from the server.
+            # The original URL is https://guolab.wchscu.cn/AnimalTFDB4_static/download/TF_list_final/Homo_sapiens_TF,
+            # which is accessible from https://guolab.wchscu.cn/AnimalTFDB4//#/Download -> Homo sapiens
+            # (also under the Internet Archive as of Feb 2nd, 2026. If the original artifact disappears, the drive link below should suffice.)
+            cached="https://drive.google.com/uc?id=1fVi18GpudUlquRPHgUJl3H1jy54gO-uz",
         )
     }
 }

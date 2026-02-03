@@ -19,9 +19,11 @@
 
 ## Sources and Targets
 
-[Sources](http://wlab.ethz.ch/surfaceome/) (see [original paper](https://doi.org/10.1073/pnas.1808790115)) are silico human surfaceomes receptors.
+[Sources](http://wlab.ethz.ch/surfaceome/), or `table_S3_surfaceome.xlsx`, (see [original paper](https://doi.org/10.1073/pnas.1808790115))
+are silico human surfaceomes receptors.
 
-[Targets]( https://guolab.wchscu.cn/AnimalTFDB4//#/) (see [original paper](https://doi.org/10.1093/nar/gkac907)) are human transcription factors.
+[Targets]( https://guolab.wchscu.cn/AnimalTFDB4//#/), or `Homo_sapiens_TF.tsv`, (see [original paper](https://doi.org/10.1093/nar/gkac907))
+are human transcription factors.
 
 ## Steps to Generate SPRAS-Compatible Pathways
 
@@ -29,7 +31,7 @@
 
 1. Open `Snakefile` and add the name of any new pathways to the `pathways` entry.
 2. Run the command:
-   ```
+   ```sh
    uv run scripts/process_panther_pathway.py <pathway>
    ```
 3. This will create five new files in the respective `pathway` subfolder of the `pathway-data/` directory:
