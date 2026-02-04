@@ -230,6 +230,105 @@ directory: CacheDirectory = {
             # (also under the Internet Archive as of Feb 2nd, 2026. If the original artifact disappears, the drive link below should suffice.)
             cached="https://drive.google.com/uc?id=1fVi18GpudUlquRPHgUJl3H1jy54gO-uz",
         )
+    },
+    "PathwayCommons": {
+        "KEGG": {
+            "Apoptosis_signaling_pathway.txt": CacheItem(
+                name="Apoptosis Signaling Pathway",
+                cached="",
+                online=""
+            ),
+            "B_cell_activation.txt": CacheItem(
+                name="B cell activation",
+                cached="",
+                online=""
+            ),
+            "Beta3_adrenergic_receptor_signaling_pathway.txt": CacheItem(
+                name="Beta3_adrenergic_receptor_signaling_pathway",
+                cached="",
+                online=""
+            ),
+            "Cadherin_signaling_pathway.txt": CacheItem(
+                name="Cadherin_signaling_pathway",
+                cached="",
+                online=""
+            ),
+            "Fas_signaling_pathway.txt": CacheItem(
+                name="Fas_signaling_pathway",
+                cached="",
+                online=""
+            ),
+            "FGF_signaling_pathway.txt": CacheItem(
+                name="FGF_signaling_pathway",
+                cached="",
+                online=""
+            ),
+            "Hedgehog_signaling_pathway.txt": CacheItem(
+                name="Hedgehog_signaling_pathway",
+                cached="",
+                online=""
+            ),
+            "Insulin_IGF_pathway_protein_kinase_B_signaling_cascade.txt": CacheItem(
+                name="Insulin_IGF_pathway_protein_kinase_B_signaling_cascade",
+                cached="",
+                online=""
+            ),
+            "Interferon_gamma_signaling_pathway.txt": CacheItem(
+                name="Interferon_gamma_signaling_pathway",
+                cached="",
+                online=""
+            ),
+            "Interleukin_signaling_pathway.txt": CacheItem(
+                name="Interleukin_signaling_pathway",
+                cached="",
+                online=""
+            ),
+            "JAK_STAT_signaling_pathway.txt": CacheItem(
+                name="JAK_STAT_signaling_pathway",
+                cached="",
+                online=""
+            ),
+            "Nicotinic_acetylcholine_receptor_signaling_pathway.txt": CacheItem(
+                name="Nicotinic_acetylcholine_receptor_signaling_pathway",
+                cached="",
+                online=""
+            ),
+            "Notch_signaling_pathway.txt": CacheItem(
+                name="Notch_signaling_pathway",
+                cached="",
+                online=""
+            ),
+            "PDGF_signaling_pathway.txt": CacheItem(
+                name="PDGF_signaling_pathway",
+                cached="",
+                online=""
+            ),
+            "Ras_pathway.txt": CacheItem(
+                name="Ras_pathway",
+                cached="",
+                online=""
+            ),
+            "T_cell_activation.txt": CacheItem(
+                name="T_cell_activation",
+                cached="",
+                online=""
+            ),
+            "Toll_receptor_signaling_pathway.txt": CacheItem(
+                name="Toll_receptor_signaling_pathway",
+                cached="",
+                online=""
+            ),
+            "VEGF_signaling_pathway.txt": CacheItem(
+                name="VEGF_signaling_pathway",
+                cached="",
+                online=""
+            ),
+            "Wnt_signaling_pathway.txt": CacheItem(
+                name="Wnt_signaling_pathway",
+                cached="",
+                online=""
+            ),
+        }
     }
 }
 
