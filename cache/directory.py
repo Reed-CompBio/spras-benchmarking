@@ -232,101 +232,102 @@ directory: CacheDirectory = {
         )
     },
     "PathwayCommons": {
-        "KEGG": {
+        # TODO: all of these share the same common URL: can we make this API a little nicer?
+        "PANTHER": {
             "Apoptosis_signaling_pathway.txt": CacheItem(
                 name="Apoptosis Signaling Pathway",
-                cached="",
-                online=""
+                cached="https://drive.google.com/uc?id=1BPcnvqHrGMQeX4oQx2ow3OribgPxzwhG",
+                online="https://www.pathwaycommons.org/pc2/get?format=TXT&uri=https%3A%2F%2Fidentifiers.org%2Fpanther.pathway%3AP00006"
             ),
             "B_cell_activation.txt": CacheItem(
                 name="B cell activation",
-                cached="",
-                online=""
+                cached="https://drive.google.com/uc?id=1iWcb5AfdobGncRB6xQ6T5qunXzb6Gxd-",
+                online="https://www.pathwaycommons.org/pc2/get?format=TXT&uri=https%3A%2F%2Fidentifiers.org%2Fpanther.pathway%3AP00010"
             ),
             "Beta3_adrenergic_receptor_signaling_pathway.txt": CacheItem(
                 name="Beta3_adrenergic_receptor_signaling_pathway",
-                cached="",
-                online=""
+                cached="https://drive.google.com/uc?id=1jrJzrDvhDAs818wYjQ_dm1irOz8Bv4lk",
+                online="https://www.pathwaycommons.org/pc2/get?format=TXT&uri=https%3A%2F%2Fidentifiers.org%2Fpanther.pathway%3AP04379"
             ),
             "Cadherin_signaling_pathway.txt": CacheItem(
-                name="Cadherin_signaling_pathway",
-                cached="",
-                online=""
+                name="Cadherin signaling pathway",
+                cached="https://drive.google.com/uc?id=14Of-6mwIpul_QciyJ-Xb9f7t-IrVcIna",
+                online="https://www.pathwaycommons.org/pc2/get?format=TXT&uri=https%3A%2F%2Fidentifiers.org%2Fpanther.pathway%3AP00012"
             ),
             "Fas_signaling_pathway.txt": CacheItem(
-                name="Fas_signaling_pathway",
-                cached="",
-                online=""
+                name="FAS signaling_pathway",
+                cached="https://drive.google.com/uc?id=121cHJf0ZtglQHvy9xuEpYSjwBbJV9Fju",
+                online="https://www.pathwaycommons.org/pc2/get?format=TXT&uri=https%3A%2F%2Fidentifiers.org%2Fpanther.pathway%3AP00020"
             ),
             "FGF_signaling_pathway.txt": CacheItem(
-                name="FGF_signaling_pathway",
-                cached="",
-                online=""
+                name="FGF signaling pathway",
+                cached="https://drive.google.com/uc?id=1PIiWK1-ImXE1YHdDh1hGUVB01Ye8brQg",
+                online="https://www.pathwaycommons.org/pc2/get?format=TXT&uri=https%3A%2F%2Fidentifiers.org%2Fpanther.pathway%3AP00021"
             ),
             "Hedgehog_signaling_pathway.txt": CacheItem(
-                name="Hedgehog_signaling_pathway",
-                cached="",
-                online=""
+                name="Hedgehog signaling pathway",
+                cached="https://drive.google.com/uc?id=1i7HKn4nlJQcaXUDXpbpDFBxbkBXZC0xQ",
+                online="https://www.pathwaycommons.org/pc2/get?format=TXT&uri=https%3A%2F%2Fidentifiers.org%2Fpanther.pathway%3AP00025"
             ),
             "Insulin_IGF_pathway_protein_kinase_B_signaling_cascade.txt": CacheItem(
-                name="Insulin_IGF_pathway_protein_kinase_B_signaling_cascade",
-                cached="",
-                online=""
+                name="Insulin/IGF pathway-protein kinase B signaling cascade",
+                cached="https://drive.google.com/uc?id=1Xkxcm0ngrE8otau9ccyPeCg7KZUdhJf7",
+                online="https://www.pathwaycommons.org/pc2/get?format=TXT&uri=https%3A%2F%2Fidentifiers.org%2Fpanther.pathway%3AP00033"
             ),
             "Interferon_gamma_signaling_pathway.txt": CacheItem(
-                name="Interferon_gamma_signaling_pathway",
-                cached="",
-                online=""
+                name="Interferon-gamma signaling pathway",
+                cached="https://drive.google.com/uc?id=1aPqi0A5ZIOA5kKELVUI_NvC8taiHll5z",
+                online="https://www.pathwaycommons.org/pc2/get?format=TXT&uri=https%3A%2F%2Fidentifiers.org%2Fpanther.pathway%3AP00035"
             ),
             "Interleukin_signaling_pathway.txt": CacheItem(
-                name="Interleukin_signaling_pathway",
-                cached="",
-                online=""
+                name="Interleukin signaling pathway",
+                cached="https://drive.google.com/uc?id=1IOv14pRJ8aN9LRnkZ4BQXf3QGUAashku",
+                online="https://www.pathwaycommons.org/pc2/get?format=TXT&uri=https%3A%2F%2Fidentifiers.org%2Fpanther.pathway%3AP00036"
             ),
             "JAK_STAT_signaling_pathway.txt": CacheItem(
-                name="JAK_STAT_signaling_pathway",
-                cached="",
-                online=""
+                name="JAK/STAT signaling pathway",
+                cached="https://drive.google.com/uc?id=1QzMEMUZzeoxUYZZRGcm6Al_HzH6pmwED",
+                online="https://www.pathwaycommons.org/pc2/get?format=TXT&uri=https%3A%2F%2Fidentifiers.org%2Fpanther.pathway%3AP00038"
             ),
             "Nicotinic_acetylcholine_receptor_signaling_pathway.txt": CacheItem(
-                name="Nicotinic_acetylcholine_receptor_signaling_pathway",
-                cached="",
-                online=""
+                name="Nicotinic acetylcholine receptor signaling pathway",
+                cached="https://drive.google.com/uc?id=1SdnKr4TthfmZWgMA_FOlTmf-EEpNsdzx",
+                online="https://www.pathwaycommons.org/pc2/get?format=TXT&uri=https%3A%2F%2Fidentifiers.org%2Fpanther.pathway%3AP00044"
             ),
             "Notch_signaling_pathway.txt": CacheItem(
-                name="Notch_signaling_pathway",
-                cached="",
-                online=""
+                name="Notch signaling pathway",
+                cached="https://drive.google.com/uc?id=1qfyxuc1EomOKGRyI7QyQ7LUUhLPZytz5",
+                online="https://www.pathwaycommons.org/pc2/get?format=TXT&uri=https%3A%2F%2Fidentifiers.org%2Fpanther.pathway%3AP00045"
             ),
             "PDGF_signaling_pathway.txt": CacheItem(
-                name="PDGF_signaling_pathway",
-                cached="",
-                online=""
+                name="PDGF signaling pathway",
+                cached="https://drive.google.com/uc?id=1A9hl340XKnZeNfd3hiiX7lxOVV94lQ5s",
+                online="https://www.pathwaycommons.org/pc2/get?format=TXT&uri=https%3A%2F%2Fidentifiers.org%2Fpanther.pathway%3AP00047"
             ),
             "Ras_pathway.txt": CacheItem(
-                name="Ras_pathway",
-                cached="",
-                online=""
+                name="Ras pathway",
+                cached="https://drive.google.com/uc?id=1wNizL5wDh48E5YxHcZjURa9UeKMONrgr",
+                online="https://www.pathwaycommons.org/pc2/get?format=TXT&uri=https%3A%2F%2Fidentifiers.org%2Fpanther.pathway%3AP04393"
             ),
             "T_cell_activation.txt": CacheItem(
-                name="T_cell_activation",
-                cached="",
-                online=""
+                name="T cell activation",
+                cached="https://drive.google.com/uc?id=1t5G_jN8QSOiVceQGAmKvbYebkV1G5oJy",
+                online="https://www.pathwaycommons.org/pc2/get?format=TXT&uri=https%3A%2F%2Fidentifiers.org%2Fpanther.pathway%3AP00053"
             ),
             "Toll_receptor_signaling_pathway.txt": CacheItem(
-                name="Toll_receptor_signaling_pathway",
-                cached="",
-                online=""
+                name="Toll receptor signaling pathway",
+                cached="https://drive.google.com/uc?id=1nFix8mMvuU_Vu9tExwgaS279nynqM_Oo",
+                online="https://www.pathwaycommons.org/pc2/get?format=TXT&uri=https%3A%2F%2Fidentifiers.org%2Fpanther.pathway%3AP00054"
             ),
             "VEGF_signaling_pathway.txt": CacheItem(
-                name="VEGF_signaling_pathway",
-                cached="",
-                online=""
+                name="VEGF signaling pathway",
+                cached="https://drive.google.com/uc?id=JLF9pIZD0TR4w95IwG2IALs",
+                online="https://www.pathwaycommons.org/pc2/get?format=TXT&uri=https%3A%2F%2Fidentifiers.org%2Fpanther.pathway%3AP00056"
             ),
             "Wnt_signaling_pathway.txt": CacheItem(
-                name="Wnt_signaling_pathway",
-                cached="",
-                online=""
+                name="Wnt signaling pathway",
+                cached="https://drive.google.com/uc?id=1diaacbik5hcA9Fo7vMXFAP_wXRe0xCLB",
+                online="https://www.pathwaycommons.org/pc2/get?format=TXT&uri=https%3A%2F%2Fidentifiers.org%2Fpanther.pathway%3AP00057"
             ),
         }
     }
