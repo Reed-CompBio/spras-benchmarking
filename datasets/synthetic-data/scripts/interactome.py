@@ -5,14 +5,14 @@ current_directory = Path(__file__).parent.resolve()
 
 
 def main():
-    # convert the interactome to SPRAS format
+    # Convert the interactome to SPRAS format
     print("Reading interactome...")
     interactome_df = pandas.read_csv(
         current_directory / ".." / "raw" / "9606.protein.links.full.v12.0.txt", sep=" ", usecols=["protein1", "protein2", "combined_score"]
     )
     interactome_df.columns = ["Protein1", "Protein2", "Weight"]
 
-    # we also want to representatively remove a certain percentage of elements from the interactome,
+    # We also want to representatively remove a certain percentage of elements from the interactome,
     # to make sure our interactome downsampling preserves edge weight distributions
     # (we don't care to preserve other major topological properties just yet.)
     # since this file is large, we opt for streaming the interactome for removing edges instead

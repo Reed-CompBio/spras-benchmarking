@@ -80,8 +80,8 @@ def sources_and_targets(pathway_name: str) -> SourcesTargets:
     nodes_df = pandas.read_csv(
         current_directory / ".." / "processed" / pathway_name / f"{pathway_name}_node_prizes.txt", sep="\t", usecols=["NODEID", "sources", "targets"]
     )
-    sources: list[str] = list(nodes_df[nodes_df["sources"] == True]["NODEID"])
-    targets: list[str] = list(nodes_df[nodes_df["targets"] == True]["NODEID"])
+    sources: list[str] = list(nodes_df[nodes_df["sources"] is True]["NODEID"])
+    targets: list[str] = list(nodes_df[nodes_df["targets"] is True]["NODEID"])
 
     return SourcesTargets(sources, targets)
 

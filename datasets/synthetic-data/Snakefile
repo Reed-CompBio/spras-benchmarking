@@ -38,6 +38,7 @@ produce_fetch_rules({
         "raw/human-interactome/Homo_sapiens_TF.tsv": ["TranscriptionFactors", "Homo_sapiens_TF.tsv"],
         "raw/human-interactome/HUMAN_9606_idmapping_selected.tsv": FetchConfig(["UniProt", "9606", "HUMAN_9606_idmapping_selected.tab.gz"], uncompress=True),
     },
+    # See directory.py for the online/cached location of all pathways from PathwayCommons.
     **{f"raw/pathway-data/{k}.txt": ["PathwayCommons", "PANTHER", f"{k}.txt"] for k in pathways}
 })
 rule process_tfs:
@@ -55,21 +56,21 @@ rule process_panther_pathway:
         "raw/human-interactome/table_S3_surfaceome.xlsx",
         "raw/human-interactome/Homo_sapiens_TF_Uniprot.tsv"
     output:
-        "intermediate/{pathway}/EDGES.txt",
-        "intermediate/{pathway}/NODES.txt",
-        "intermediate/{pathway}/TARGETS.txt",
-        "intermediate/{pathway}/SOURCES.txt",
-        "intermediate/{pathway}/PRIZES.txt"
+        "intermediate/{pathway}/edges.txt",
+        "intermediate/{pathway}/nodes.txt",
+        "intermediate/{pathway}/sources.txt",
+        "intermediate/{pathway}/targets.txt",
+        "intermediate/{pathway}/prizes.txt"
     shell:
         "uv run scripts/process_panther_pathway.py {wildcards.pathway}"
 
 rule make_spras_compatible:
     input:
-        "intermediate/{pathway}/EDGES.txt",
-        "intermediate/{pathway}/NODES.txt",
-        "intermediate/{pathway}/TARGETS.txt",
-        "intermediate/{pathway}/SOURCES.txt",
-        "intermediate/{pathway}/PRIZES.txt"
+        "intermediate/{pathway}/edges.txt",
+        "intermediate/{pathway}/nodes.txt",
+        "intermediate/{pathway}/sources.txt",
+        "intermediate/{pathway}/targets.txt",
+        "intermediate/{pathway}/prizes.txt"
     output:
         "processed/{pathway}/{pathway}_node_prizes.txt",
         "processed/{pathway}/{pathway}_gs_edges.txt",

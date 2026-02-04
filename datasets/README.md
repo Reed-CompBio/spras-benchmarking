@@ -11,3 +11,8 @@ Many of the datasets here have been stripped of their extra post-analysis. Here,
 - [`diseases`](https://github.com/Reed-CompBio/spras-benchmarking/tree/3c0155567dbc43278531b91f9173f6d4f4486dd8/datasets/diseases)
 - [`depmap`](https://github.com/Reed-CompBio/spras-benchmarking/tree/b332c0ab53868f111cb89cd4e9f485e8c19aa9e3/datasets/depmap)
 - [`yeast-osmotic-stress`](https://github.com/Reed-CompBio/spras-benchmarking/tree/8f69dcdf4a52607347fe3a962b753df396e44cda/yeast-osmotic-stress)
+
+## `explore` folders
+
+To motivate certain decisions made in-code, such as `synthetic-data`'s PANTHER pathway choices, we provide scripts that use live data
+to assist in data curation. These folders can also contain exploratory CLIs for motivating e.g. magic constants.

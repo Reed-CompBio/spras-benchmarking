@@ -35,11 +35,11 @@ are human transcription factors.
    uv run scripts/process_panther_pathway.py <pathway>
    ```
 3. This will create five new files in the respective `pathway` subfolder of the `pathway-data/` directory:
-- `EDGES.txt`
-- `NODES.txt`
-- `PRIZES-100.txt`
-- `SOURCES.txt`
-- `TARGETS.txt`
+- `edges.txt`
+- `nodes.txt`
+- `prizes-100.txt`
+- `sources.txt`
+- `targets.txt`
 
 ### 2. Convert Pathways to SPRAS-Compatible Format
 1.	In `panther_spras_formatting.py`, add the name of any new pathways to the `pathway_dirs` list on **line 8**.

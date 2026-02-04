@@ -38,7 +38,7 @@ def main():
     out_folder = spras_compatible_dir / pathway
     out_folder.mkdir(exist_ok=True)
 
-    nodes_file = pathway_folder / "NODES.txt"
+    nodes_file = pathway_folder / "nodes.txt"
     nodes_df = pd.read_csv(nodes_file, sep="\t")
 
     # a dictionary mapping gene -> Uniprot accession ID
@@ -49,7 +49,7 @@ def main():
     nodes_uniprot.to_csv(out_folder / f"{pathway}_gs_nodes.txt", sep="\t", index=False, header=False)
 
     # edges
-    edges_file = pathway_folder / "EDGES.txt"
+    edges_file = pathway_folder / "edges.txt"
     edges_df = pd.read_csv(edges_file, sep="\t", header=0)
     edges_df["NODE1"] = edges_df["NODE1"].map(gene_to_uniprot)
     edges_df["NODE2"] = edges_df["NODE2"].map(gene_to_uniprot)
@@ -76,13 +76,13 @@ def main():
     edges_df.to_csv(out_folder / f"{pathway}_gs_edges.txt", sep="\t", index=False, header=False)
 
     # prizes, targets, sources
-    prizes_file = pathway_folder / "PRIZES.txt"
+    prizes_file = pathway_folder / "prizes.txt"
     prizes_df = pd.read_csv(prizes_file, sep="\t")
 
-    target_file = pathway_folder / "TARGETS.txt"
+    target_file = pathway_folder / "targets.txt"
     target_df = pd.read_csv(target_file, sep="\t")
 
-    source_file = pathway_folder / "SOURCES.txt"
+    source_file = pathway_folder / "sources.txt"
     source_df = pd.read_csv(source_file, sep="\t")
 
     # final resulting df combining all the sources, targets, and prizes
