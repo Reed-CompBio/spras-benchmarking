@@ -27,6 +27,8 @@ are human transcription factors.
 
 ## Steps to Generate SPRAS-Compatible Pathways
 
+This entire workflow can also be done with `uv run snakemake --cores 1` inside this directory.
+
 ### 1. Process PANTHER Pathways
 
 1. Open `Snakefile` and add the name of any new pathways to the `pathways` entry.

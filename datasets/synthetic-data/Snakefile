@@ -22,14 +22,16 @@ pathways = [
     "Wnt_signaling_pathway",
 ]
 
+# TODO: deduplicate from sampling.py
+thresholds = list(map(str, map(lambda x: (x + 1) / 10, range(10))))
+
 rule all:
     input:
         "raw/9606.protein.links.full.v12.0.txt",
         expand([
-            "processed/{pathway}/{pathway}_node_prizes.txt",
-            "processed/{pathway}/{pathway}_gs_edges.txt",
-            "processed/{pathway}/{pathway}_gs_nodes.txt"
-        ], pathway=pathways)
+            "thresholded/{threshold}/{pathway}/interactome.txt",
+            "thresholded/{threshold}/{pathway}/gold_standard_edges.txt",
+        ], pathway=pathways, threshold=thresholds)
 
 produce_fetch_rules({
     **{
@@ -77,3 +79,13 @@ rule make_spras_compatible:
         "processed/{pathway}/{pathway}_gs_nodes.txt"
     shell:
         "uv run scripts/panther_spras_formatting.py {wildcards.pathway}"
+
+rule threshold:
+    input:
+        "processed/{pathway}/{pathway}_node_prizes.txt",
+        "processed/{pathway}/{pathway}_gs_edges.txt"
+    output:
+        expand("thresholded/{threshold}/{{pathway}}/interactome.txt", threshold=thresholds),
+        expand("thresholded/{threshold}/{{pathway}}/gold_standard_edges.txt", threshold=thresholds)
+    shell:
+        "uv run scripts/sampling.py {wildcards.pathway}"
