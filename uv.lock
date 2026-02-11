@@ -499,6 +499,15 @@ wheels = [
 ]
 
 [[package]]
+name = "paxtools"
+version = "6.0.0.post1"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/2d/76/e65fc320494d07339a7f6b83c23deeb7337e3b7e3814880093114b6f488a/paxtools-6.0.0.post1.tar.gz", hash = "sha256:2fddd9155e92e5a8d5cc4b83427f8e804e6957aa8362d4abbf7656c6f858b9a8", size = 13690012, upload-time = "2026-02-11T07:29:45.375Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/9f/fb/5299ab3d3e4bfb686c36a017c098bfaafd5f3b8e3fa81a8a2e618a50638a/paxtools-6.0.0.post1-py3-none-any.whl", hash = "sha256:c10318fc2a7767c4d39dd7365bfbcf1c1e8052201315024f7bf1c62cca2ef8fe", size = 13693939, upload-time = "2026-02-11T07:29:42.783Z" },
+]
+
+[[package]]
 name = "platformdirs"
 version = "4.4.0"
 source = { registry = "https://pypi.org/simple" }
@@ -948,6 +957,7 @@ dependencies = [
     { name = "networkx" },
     { name = "openpyxl" },
     { name = "pandas" },
+    { name = "paxtools" },
     { name = "pydantic" },
     { name = "requests" },
 ]
@@ -965,6 +975,7 @@ requires-dist = [
     { name = "networkx", specifier = ">=3.6.1" },
     { name = "openpyxl", specifier = ">=3.1.5" },
     { name = "pandas", specifier = ">=2.3.0" },
+    { name = "paxtools", specifier = ">=6.0.0.post1" },
     { name = "pydantic", specifier = ">=2.12.5" },
     { name = "requests", specifier = ">=2.32.5" },
 ]
