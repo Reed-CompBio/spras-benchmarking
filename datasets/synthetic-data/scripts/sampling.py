@@ -98,13 +98,11 @@ def main():
         while attempt_sample(
                 pathway_name, pathway_df, percentage,
                 weight_mapping, interactome_df, sources, targets,
-                # TODO: save attempt number
-                # TODO: save sources & targets using trim.py
                 output_interactome=output_interactome,
                 output_gold_standard=output_gold_standard) is None:
             attempt_number += 1
             print(f"Attempt number {attempt_number}")
-        
+
         # We're done sampling:
         (output_directory / 'attempt-number.txt').write_text(attempt_number)
         # we need to trim our data file as well.

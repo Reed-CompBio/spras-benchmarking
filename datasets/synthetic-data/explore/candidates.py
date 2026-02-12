@@ -6,17 +6,11 @@ This is meant to be interactive for easily examining the available pathways from
 See https://www.pathwaycommons.org/pc2/swagger-ui/index.html#/api-controller-v-2 for the API.
 """
 
-import argparse
 import requests
 
 from pydantic import BaseModel
 
 SEARCH_URL = "https://www.pathwaycommons.org/pc2/v2/search"
-
-def parser():
-    parser = argparse.ArgumentParser(prog="PathwayCommons PANTHER data explorer")
-
-    return parser
 
 # These schemas were manually examined from the API response, and are thus not exhaustive.
 class SearchHit(BaseModel):
@@ -52,8 +46,6 @@ def request(page: int) -> SearchResponse:
     ).json())
 
 def main():
-    args = parser().parse_args()
-
     # TODO: weirdly constructed loop? could be nicer if we use numHits and maxHitsPerPage
     hits: list[SearchHit] = []
     page = 0
@@ -64,7 +56,7 @@ def main():
         page += 1
         response = request(page)
         print(f"Paginating {page}...")
-    
+
     for hit in hits:
         print(f"({hit.numParticipants}) {hit.name}")
 

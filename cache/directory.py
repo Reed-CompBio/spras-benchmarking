@@ -45,7 +45,7 @@ class OnlineStatus(Enum):
     Services that are always online. If these fail, we fail the workflow and
     log this.
     """
-    
+
     INTERMITTENT_ERROR_CODE = 2
     """
     Services that error often (not go down!)
@@ -87,13 +87,15 @@ class CacheItem:
             print(f"Downloading cache {self.cached}...")
             gdown.download(self.cached, cached_file)
 
-            if self.online is None: return
+            if self.online is None:
+                return
 
             print(f"Downloading {self.online}...")
             with self.online.download(output) as response:
 
                 print("Checking that downloaded artifact matches with cached artifact...")
-                if filecmp.cmp(output, cached_file.name): return # It does!
+                if filecmp.cmp(output, cached_file.name):
+                    return # It does!
 
                 # For debug purposes, we allow the output artifact to be viewed in some kind of temporary folder.
                 debug_file_path = Path(NamedTemporaryFile(prefix="spras-benchmarking-debug-artifact", delete=False).name)
@@ -101,11 +103,13 @@ class CacheItem:
                 shutil.move(output, debug_file_path)
                 if (self.status == OnlineStatus.INTERMITTENT_ERROR_CODE and not response.ok) \
                     or (self.status == OnlineStatus.INTERMITTENT_HTML and Path(debug_file_path).read_text().strip().startswith("<!DOCTYPE html>")):
-                    warnings.warn(f"Online url {self.online} erroring with status code {response.status_code}. See {debug_file_path} for the online output. Using the cached file instead...")
+                    warnings.warn(f"Online url {self.online} erroring with status code {response.status_code}. " \
+                                  f"See {debug_file_path} for the online output. Using the cached file instead...")
                     # Back up to the cached_file
                     shutil.move(cached_file.name, output)
                 else:
-                    raise RuntimeError(f"Cached and online files did not match with status code {response.status_code}! See {debug_file_path} for the online output.")
+                    raise RuntimeError(f"Cached and online files did not match with status code {response.status_code}! " \
+                                       f"See {debug_file_path} for the online output.")
 
 
 CacheDirectory = dict[str, Union[CacheItem, "CacheDirectory"]]
