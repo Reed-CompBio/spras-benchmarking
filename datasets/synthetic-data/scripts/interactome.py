@@ -1,8 +1,9 @@
 import pandas
 from pathlib import Path
+from ensembl_uniprot_mapping import idmapping_as_ensp_uniprot_mapping, idmapping_uniprot_mapping
 
 current_directory = Path(__file__).parent.resolve()
-
+interactome_folder = current_directory / ".." / "raw" / "human-interactome"
 
 def main():
     # Convert the interactome to SPRAS format
@@ -22,60 +23,40 @@ def main():
     interactome_df["Direction"] = "U"
     print("Sorting interactome...")
     interactome_df = interactome_df.sort_values("Weight", kind="stable")
+    interactome_df = interactome_df.reset_index(drop=True)
+
+    print("Fetching mapping data...")
+
+    # Mapping ENSP IDs to ENSG IDs through the STRING aliases file
+    string_aliases = pandas.read_csv(current_directory / ".." / "raw" / "9606.protein.aliases.txt", sep="\t", usecols=["#string_protein_id", "alias"])
+    string_aliases.columns = ["ENSG", "ENSP"]
+    string_aliases = string_aliases.drop_duplicates()
+
+    # (ENSG) idmapping -> (ENSG <-> ENSP) -> (ENSP) idmapping
+    idmapping_df = idmapping_uniprot_mapping(interactome_folder / "HUMAN_9606_idmapping_selected.tsv")
+    idmapping_df = idmapping_as_ensp_uniprot_mapping(idmapping_df)
 
     print("Mapping interactome...")
-    # STRINGDB -> UniProt accession ID pairings
-    UniProt_AC = pandas.read_csv(current_directory / ".." / "raw" / "human-interactome" / "String_to_Uniprot_ids_2025_04_06.tsv", sep="\t", header=0)
-    one_to_many_dict = UniProt_AC.groupby("From")["Entry"].apply(list).to_dict()
+    # We also use astype(str) as these are read as numpy objects for convenience, but this messes with merging
+    interactome_df["Protein1"] = interactome_df["Protein1"].str.removeprefix("9606.").astype(str)
+    interactome_df["Protein2"] = interactome_df["Protein2"].str.removeprefix("9606.").astype(str)
 
-    def get_aliases(protein_id):
-        return one_to_many_dict.get(protein_id, [])
-
-    interactome_df["Protein1_uniprot"] = interactome_df["Protein1"].apply(get_aliases)
-    interactome_df["Protein2_uniprot"] = interactome_df["Protein2"].apply(get_aliases)
-
-    interactome_df = interactome_df.explode("Protein1_uniprot").explode("Protein2_uniprot")
-
-    missing_alias_edges = interactome_df[(interactome_df["Protein1_uniprot"].isna()) | (interactome_df["Protein2_uniprot"].isna())]
-
-    proteins_without_aliases = (
-        pandas.concat(
-            [
-                missing_alias_edges.loc[missing_alias_edges["Protein1_uniprot"].isna(), "Protein1"],
-                missing_alias_edges.loc[missing_alias_edges["Protein2_uniprot"].isna(), "Protein2"],
-            ],
-            ignore_index=True,
-        )
+    interactome_df = interactome_df.merge(idmapping_df, left_on="Protein1", right_on="Ensembl", how="left") \
+        .drop(columns=["Protein1", "Ensembl"]) \
+        .rename(columns={"UniProtKB-AC": "Protein1"}) \
         .drop_duplicates()
-        .reset_index(drop=True)
-    )
-    proteins_without_aliases = proteins_without_aliases.to_frame(name="protein")
+    interactome_df = interactome_df.merge(idmapping_df, left_on="Protein2", right_on="Ensembl", how="left") \
+        .drop(columns=["Protein2", "Ensembl"]) \
+        .rename(columns={"UniProtKB-AC": "Protein2"})
 
-    removed_edges = missing_alias_edges[["Protein1", "Protein2"]]
-    removed_edges = removed_edges.drop_duplicates().reset_index(drop=True)
-
-    (current_directory / ".." / "processed" / "interactomes" / "uniprot-threshold-interactomes").mkdir(exist_ok=True, parents=True)
-    proteins_without_aliases.to_csv(
-        current_directory / ".." / "processed" / "interactomes" / "uniprot-threshold-interactomes" / "proteins_missing_aliases.csv",
-        sep="\t",
-        index=False,
-        header=True,
-    )
-    removed_edges.to_csv(
-        current_directory / ".." / "processed" / "interactomes" / "uniprot-threshold-interactomes" / "removed_edges.txt",
-        sep="\t",
-        index=False,
-        header=True,
-    )
-    interactome_df = interactome_df.dropna(subset=["Protein1_uniprot", "Protein2_uniprot"]).reset_index(drop=True)
-    interactome_df = interactome_df[["Protein1_uniprot", "Protein2_uniprot", "Weight", "Direction"]]
+    interactome_df = interactome_df.dropna(subset=["Protein1", "Protein2"]).reset_index(drop=True)
+    interactome_df = interactome_df[["Protein1", "Protein2", "Weight", "Direction"]]
 
     print("Counting weight counts...")
     interactome_df["Weight"].value_counts(sort=False).to_csv(current_directory / ".." / "processed" / "weight-counts.tsv", sep="\t")
 
     print("Saving interactome...")
     interactome_df.to_csv(current_directory / ".." / "processed" / "interactome.tsv", sep="\t", header=False, index=False)
-
 
 if __name__ == "__main__":
     main()

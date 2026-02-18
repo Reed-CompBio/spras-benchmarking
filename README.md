@@ -39,7 +39,7 @@ uv run snakemake --cores 1
 
 ## Organization
 
-There are five primary folders in this repository:
+There are six primary folders in this repository:
 
 ```
 .
@@ -47,13 +47,14 @@ There are five primary folders in this repository:
 ├── configs
 ├── datasets
 ├── spras
+├── tools
 └── web
 ```
 
 `spras` is the cloned submodule of [SPRAS](https://github.com/reed-compbio/spras), `web` is an
 [astro](https://astro.build/) app which generates the `spras-benchmarking` [output](https://reed-compbio.github.io/spras-benchmarking/),
 `configs` is the YAML file used to talk to SPRAS, and `datasets` contains the raw data. `cache` is utility for `datasets` which provides a convenient
-way to fetch online files for further processing.
+way to fetch online files for further processing. `tools` is the miscellaneous utilities for dataset processing, for tasks common to datasets.
 
 The workflow runs as so:
 

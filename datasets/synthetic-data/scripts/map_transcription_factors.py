@@ -1,5 +1,6 @@
 import pandas
 from pathlib import Path
+from ensembl_uniprot_mapping import idmapping_uniprot_mapping, idmapping_as_ensg_uniprot_mapping
 
 current_directory = Path(__file__).parent.resolve()
 
@@ -8,23 +9,8 @@ interactome_folder = current_directory / ".." / "raw" / "human-interactome"
 
 def main():
     tf_df = pandas.read_csv(interactome_folder / "Homo_sapiens_TF.tsv", sep="\t", header=0)
-    # The very powerful UniProt-provided mapping file: its Ensembl mappings are a semicolon-delimeted list of Emsembl IDs containing
-    # attached isoforms (and not all UniProtKB-AC identifiers have those!) so we'll need to do some extra post-processing.
-    idmapping_selected_df = pandas.read_csv(
-        interactome_folder / "HUMAN_9606_idmapping_selected.tsv",
-        header=None,
-        # See directory.py for the README associated with this mapping file.
-        usecols=[0, 18],
-        names=["UniProtKB-AC", "Ensembl"],
-        sep="\t",
-    )
-    idmapping_selected_df = idmapping_selected_df[idmapping_selected_df["Ensembl"].notnull()]
-    # Handle our ;-delimited list
-    idmapping_selected_df["Ensembl"] = idmapping_selected_df["Ensembl"].str.split("; ")
-    idmapping_selected_df = idmapping_selected_df.explode("Ensembl")
-    # Drop isoforms
-    idmapping_selected_df["Ensembl"] = idmapping_selected_df["Ensembl"].str.split(".").str[0]
-
+    idmapping_selected_df = idmapping_uniprot_mapping(interactome_folder / "HUMAN_9606_idmapping_selected.tsv")
+    idmapping_selected_df = idmapping_as_ensg_uniprot_mapping(idmapping_selected_df)
     tf_df = tf_df.merge(idmapping_selected_df, on="Ensembl", how="inner")
     tf_df = tf_df.explode("UniProtKB-AC")
     tf_df = tf_df.fillna("NA")

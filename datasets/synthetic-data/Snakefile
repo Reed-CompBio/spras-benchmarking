@@ -41,8 +41,21 @@ produce_fetch_rules({
         "raw/human-interactome/HUMAN_9606_idmapping_selected.tsv": FetchConfig(["UniProt", "9606", "HUMAN_9606_idmapping_selected.tab.gz"], uncompress=True),
     },
     # See directory.py for the online/cached location of all pathways from PathwayCommons.
-    **{f"raw/pathway-data/{k}.txt": ["PathwayCommons", "PANTHER", f"{k}.txt"] for k in pathways}
+    **{f"raw/pathway-data/{k}.txt": ["PathwayCommons", "PANTHER", f"{k}.txt"] for k in pathways},
+    "raw/9606.protein.aliases.txt": FetchConfig(["STRING", "9606", "9606.protein.aliases.txt.gz"], uncompress=True),
 })
+
+rule interactome:
+    input:
+        "raw/9606.protein.links.full.v12.0.txt",
+        "raw/9606.protein.aliases.txt"
+    output:
+        "processed/proteins_missing_aliases.csv",
+        "processed/removed_edges.txt",
+        "processed/interactome.tsv"
+    shell:
+        "uv run scripts/interactome.py"
+
 rule process_tfs:
     input:
         "raw/human-interactome/Homo_sapiens_TF.tsv",
