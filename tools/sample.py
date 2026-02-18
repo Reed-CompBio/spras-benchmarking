@@ -81,7 +81,7 @@ def sample_interactome(
         percentage: float
 ):
     """
-    Samples an interactome with its weight_counts dictionary. (See `count_weights` for generating `weight_counts`.)
+    Samples X% of an interactome using its weight_counts dictionary. (See `count_weights` for generating `weight_counts`.)
     """
     if percentage > 1:
         raise RuntimeError(f"Got a percentage above 1 ({percentage})?")
