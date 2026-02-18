@@ -1,6 +1,6 @@
 import pandas as pd
 from pathlib import Path
-import sys
+from parser import parser
 
 current_directory = Path(__file__).parent.resolve()
 
@@ -29,10 +29,10 @@ def raise_unknown_direction(dir: str):
 
 
 def main():
-    spras_compatible_dir.mkdir(exist_ok=True)
-
-    pathway = sys.argv[1]
+    pathway = Path(parser().parse_args().pathway)
     pathway_folder = directory / pathway
+
+    spras_compatible_dir.mkdir(exist_ok=True)
 
     # Create the output folder "uniprot" within the pathway directory
     out_folder = spras_compatible_dir / pathway

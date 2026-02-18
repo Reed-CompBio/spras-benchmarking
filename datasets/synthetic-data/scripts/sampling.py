@@ -1,10 +1,10 @@
-import argparse
 import pandas
 from pathlib import Path
 import collections
 from typing import OrderedDict, NamedTuple
 from tools.sample import attempt_sample
 from tools.trim import trim_data_file
+from parser import parser
 
 current_directory = Path(__file__).parent.resolve()
 
@@ -18,14 +18,6 @@ def convert_undirected_to_directed(df: pandas.DataFrame) -> pandas.DataFrame:
     df.loc[mask, "Direction"] = "D"
     df = pandas.concat([df, new_df], ignore_index=True)
     return df
-
-
-def parser():
-    parser = argparse.ArgumentParser(prog="PANTHER pathway parser")
-
-    parser.add_argument("pathway", choices=[file.stem for file in (current_directory / ".." / "raw" / "pathway-data").iterdir()])
-
-    return parser
 
 
 def count_weights() -> OrderedDict[int, int]:
@@ -62,8 +54,8 @@ def sources_and_targets(pathway_node_prizes_df: pandas.DataFrame) -> SourcesTarg
     """
     Returns the sources and targets associated with a particular pathway
     """
-    sources: list[str] = list(pathway_node_prizes_df[pathway_node_prizes_df["sources"] is True]["NODEID"])
-    targets: list[str] = list(pathway_node_prizes_df[pathway_node_prizes_df["targets"] is True]["NODEID"])
+    sources: list[str] = list(pathway_node_prizes_df[pathway_node_prizes_df["sources"] == True]["NODEID"])
+    targets: list[str] = list(pathway_node_prizes_df[pathway_node_prizes_df["targets"] == True]["NODEID"])
 
     return SourcesTargets(sources, targets)
 
