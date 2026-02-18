@@ -1,0 +1,24 @@
+include: "../../cache/Snakefile"
+
+rule all:
+    input:
+        "processed/gold-standard-nodes.txt",
+        "processed/interactome.tsv",
+
+produce_fetch_rules({
+    "raw/eight-egfr-reference-all.txt": ["EGFR", "eight-egfr-reference-all.txt"],
+    "raw/9606.protein.links.txt": FetchConfig(["STRING", "9606", "9606.protein.links.txt.gz"], uncompress=True),
+    "raw/HUMAN_9606_idmapping_selected.tsv": FetchConfig(["UniProt", "9606", "HUMAN_9606_idmapping_selected.tab.gz"], uncompress=True),
+})
+
+rule process_gold_standard:
+    input:
+        "raw/HUMAN_9606_idmapping_selected.tsv",
+        "raw/eight-egfr-reference-all.txt"
+    output: "processed/gold-standard-nodes.txt"
+    shell: "uv run scripts/process_gold_standard.py"
+
+rule process_interactome:
+    input: "raw/9606.protein.links.txt"
+    output: "processed/interactome.tsv"
+    shell: "uv run scripts/process_interactome.py"

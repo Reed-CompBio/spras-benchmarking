@@ -214,6 +214,13 @@ directory: CacheDirectory = {
             cached="https://drive.google.com/uc?id=1-_zF9oKFCNmJbDCC2vq8OM17HJw80s2T"
         ),
     },
+    "EGFR": {
+        "eight-egfr-reference-all.txt": CacheItem(
+            name="EGFR Gold Standard Reference",
+            online="https://raw.githubusercontent.com/gitter-lab/tps/ca7cafd1e1c17f45ddea07c3fb54d0d70b86ff45/data/resources/eight-egfr-reference-all.txt",
+            cached="https://drive.google.com/uc?id=15MqpIbH1GRA1tq0ZXH9oMnKytoFSzXyw"
+        )
+    },
 }
 
 
