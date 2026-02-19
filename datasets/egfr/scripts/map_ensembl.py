@@ -25,7 +25,7 @@ def main():
     idmapping_prizes_df = idmapping_prizes_df.drop(columns=['UniProtKB-ID', 'UniProtKB-AC', 'Ensembl', 'NODEID'])
     idmapping_prizes_df = idmapping_prizes_df[~idmapping_prizes_df['Ensembl_PRO'].isna()]
     idmapping_prizes_df = idmapping_prizes_df.rename(columns={'Ensembl_PRO': 'NODEID'})
-    idmapping_prizes_df = idmapping_prizes_df[["NODEID", "prize"]]
+    idmapping_prizes_df = idmapping_prizes_df[["NODEID", "prize", "active", "dummy", "source"]]
     idmapping_prizes_df.to_csv(egfr_directory / 'processed' / 'prizes.txt', sep='\t', index=False)
 
 if __name__ == "__main__":
