@@ -12,7 +12,7 @@ def main():
 
     # We grab our UniProt <-> ENSP mapping
     idmapping_df = idmapping_uniprot_mapping(egfr_directory / 'raw' / 'HUMAN_9606_idmapping_selected.tsv')
-    
+
     # and map the nodes
     idmapping_nodes_df = pandas.DataFrame(nodes, columns=['UniProtKB-ID']).merge(idmapping_df, on='UniProtKB-ID', how='left')
     idmapping_nodes_df = idmapping_nodes_df.drop(columns=['UniProtKB-ID', 'UniProtKB-AC', 'Ensembl'])
