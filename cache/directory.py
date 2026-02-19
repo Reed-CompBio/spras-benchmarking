@@ -80,7 +80,7 @@ directory: CacheDirectory = {
         "9606": {
             "9606.protein.links.txt.gz": CacheItem(
                 name="STRING 9606 protein links",
-                cached="https://drive.google.com/uc?id=1fvjdIbgzbgJrdJxWRRRwwS1zuegf6DOj",
+                cached="https://drive.google.com/uc?id=13tE_-A6g7McZs_lZGz9As7iE-5cBFvqE",
                 online="http://stringdb-downloads.org/download/protein.links.v12.0/9606.protein.links.v12.0.txt.gz",
             ),
             "9606.protein.aliases.txt.gz": CacheItem(
@@ -219,6 +219,11 @@ directory: CacheDirectory = {
             name="EGFR Gold Standard Reference",
             online="https://raw.githubusercontent.com/gitter-lab/tps/ca7cafd1e1c17f45ddea07c3fb54d0d70b86ff45/data/resources/eight-egfr-reference-all.txt",
             cached="https://drive.google.com/uc?id=15MqpIbH1GRA1tq0ZXH9oMnKytoFSzXyw"
+        ),
+        "egfr-prizes.txt": CacheItem(
+            name="EGFR prizes",
+            online="https://raw.githubusercontent.com/gitter-lab/tps/refs/heads/master/data/pcsf/egfr-prizes.txt",
+            cached="https://drive.google.com/file/d/1nI5hw-rYRZPs15UJiqokHpHEAabRq6Xj/view?usp=sharing"
         )
     },
 }
