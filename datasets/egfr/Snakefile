@@ -38,6 +38,7 @@ rule process_prizes:
 rule map_ensembl:
     input:
         "raw/HUMAN_9606_idmapping_selected.tsv",
+        "processed/interactome.tsv",
         
         "processed/prizes-uniprot.txt",
         "processed/gold-standard-nodes-uniprot.txt",
