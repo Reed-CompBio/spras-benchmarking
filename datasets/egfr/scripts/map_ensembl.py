@@ -5,6 +5,12 @@ from tools.mapping.ensembl_uniprot import idmapping_uniprot_mapping
 egfr_directory = Path(__file__).parent.resolve() / '..'
 
 def main():
+    # We get specifically the STRING nodes, as the mapping from UniProt overeagerly maps
+    string_nodes = pandas.read_csv(
+        egfr_directory / 'processed' / 'interactome.tsv',
+        header=None, sep='\t', names=['Interactor1', 'Interactor2', 'Weight', 'Direction'])
+    interactor_series = pandas.concat([string_nodes['Interactor1'], string_nodes['Interactor2']], ignore_index=True)
+
     # Re-read the uniprot nodes from `process_gold_standard.py`
     nodes = (egfr_directory / 'processed' / 'gold-standard-nodes-uniprot.txt').read_text().splitlines()
     # and the prizes from `process_prizes.py`
@@ -12,6 +18,8 @@ def main():
 
     # We grab our UniProt <-> ENSP mapping
     idmapping_df = idmapping_uniprot_mapping(egfr_directory / 'raw' / 'HUMAN_9606_idmapping_selected.tsv')
+    # Trim it with the interactor series
+    idmapping_df = idmapping_df[idmapping_df["Ensembl_PRO"].isin(interactor_series)]
 
     # and map the nodes
     idmapping_nodes_df = pandas.DataFrame(nodes, columns=['UniProtKB-ID']).merge(idmapping_df, on='UniProtKB-ID', how='left')
