@@ -254,20 +254,24 @@ directory: CacheDirectory = {
         "ko03250.xml": CacheItem(
             name="KEGG 03250",
             cached="https://drive.google.com/uc?id=16dtWKHCQMp2qrLfFDE7nVhbwBCr2H5a9",
-            online="https://www.kegg.jp/kegg-bin/download?entry=ko03250&format=kgml",
-            online_headers = [('Referer', 'https://www.kegg.jp/pathway/ko03250')],
+            unpinned=Service(
+                "https://www.kegg.jp/kegg-bin/download?entry=ko03250&format=kgml",
+                headers={'Referer': 'https://www.kegg.jp/pathway/ko03250'})
         )
     },
     "HIV1": {
+        # The following files are from https://github.com/gitter-lab/hiv1-aurkb.
+        # While the following files do point to the repository's main branch,
+        # they aren't expected to actually change.
         "prize_05.tsv": CacheItem(
             name="HIV_05 prizes",
             cached="https://drive.google.com/uc?id=1jVWNRPfYkbqimO44GdzXYB3-7NXhet1m",
-            online="https://raw.githubusercontent.com/gitter-lab/hiv1-aurkb/ac9278d447e4188eea3bf4b24c4c4e0c19b0c6d9/Results/base_analysis/prize_05.csv"
+            pinned="https://raw.githubusercontent.com/gitter-lab/hiv1-aurkb/refs/heads/main/Results/base_analysis/prize_05.csv"
         ),
         "prize_060.tsv": CacheItem(
             name="HIV_060 prizes",
             cached="https://drive.google.com/uc?id=1Aucgp7pcooGr9oT4m2bvYEuYW6186WxQ",
-            online="https://raw.githubusercontent.com/gitter-lab/hiv1-aurkb/ac9278d447e4188eea3bf4b24c4c4e0c19b0c6d9/Results/base_analysis/prize_060.csv"
+            pinned="https://raw.githubusercontent.com/gitter-lab/hiv1-aurkb/refs/heads/main/Results/base_analysis/prize_060.csv"
         )
     },
     "iRefIndex": {
