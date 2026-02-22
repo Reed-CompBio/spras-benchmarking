@@ -2,37 +2,45 @@ include: "../../cache/Snakefile"
 
 rule all:
     input:
-        "processed/processed_prize_05.txt",
-        "processed/processed_prize_060.txt",
+        "processed/processed_prizes_05.txt",
+        "processed/processed_prizes_060.txt",
         "raw/phosphosite-irefindex13.0-uniprot.txt"
 
 produce_fetch_rules({
+    "raw/prize_05.tsv": ["HIV1", "prize_05.tsv"],
+    "raw/prize_060.tsv": ["HIV1", "prize_060.tsv"],
+    "raw/ko03250.xml": ["KEGG", "ko03250.xml"],
     "raw/phosphosite-irefindex13.0-uniprot.txt": ["iRefIndex", "phosphosite-irefindex13.0-uniprot.txt"],
+    "raw/HUMAN_9606_idmapping.tsv": FetchConfig(["UniProt", "9606", "HUMAN_9606_idmapping.dat.gz"], uncompress=True),
 })
 
 rule data_prep:
-    input: 
-        "raw/prize_05.csv",
-        "raw/prize_060.csv"
+    input:
+        "raw/prize_05.tsv",
+        "raw/prize_060.tsv"
     output:
-        "Pickles/NodeIDs.pkl"
+        "intermediate/node_set.txt",
+        "intermediate/prize_05.tsv",
+        "intermediate/prize_060.tsv"
     shell:
-        "uv run Scripts/Data_Prep.py"
+        "uv run scripts/prepare.py"
 
 rule name_mapping:
     input: 
-        "Pickles/NodeIDs.pkl"
+        "intermediate/node_set.txt",
+        "raw/HUMAN_9606_idmapping.tsv"
     output:
-        "Pickles/UniprotIDs.pkl"
+        "intermediate/mapping.tsv"
     shell:
-        "uv run Scripts/Name_Mapping.py"
+        "uv run scripts/name_mapping.py"
 
 rule spras_formatting:
     input:
-        "Pickles/NodeIDs.pkl",
-        "Pickles/UniprotIDs.pkl"
+        "intermediate/prize_05.tsv",
+        "intermediate/prize_060.tsv",
+        "intermediate/mapping.tsv"
     output:
-        "processed/processed_prize_05.txt",
-        "processed/processed_prize_060.txt"
+        "processed/processed_prizes_05.txt",
+        "processed/processed_prizes_060.txt"
     shell:
-        "uv run Scripts/SPRAS_Formatting.py"
+        "uv run scripts/spras_formatting.py"
