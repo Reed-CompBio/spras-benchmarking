@@ -17,7 +17,10 @@ dir_path = Path(__file__).parent.resolve()
 
 # Our cache emits warnings for files with unpinned versions that don't match the cache.
 (dir_path / 'logs').mkdir(exist_ok=True)
-logger.add(dir_path / 'logs' / "cache.log")
+logger.add(dir_path / 'logs' / "cache.log", level="WARNING")
+
+class DownloadFileCheckException(RuntimeError):
+    """See Service#download_against_cache for some motivation for this custom error"""
 
 @dataclass
 class Service:
@@ -34,12 +37,51 @@ class Service:
             with open(output, 'wb') as f:
                 shutil.copyfileobj(response.raw, f)
             return response
-    
+
+    # NOTE: this is slightly yucky code deduplication. The only intended values of `downloaded_file_type` are `pinned` and `unpinned`.
+    def download_against_cache(
+            self,
+            cache: Path,
+            downloaded_file_type: str,
+            move_output: bool
+        ):
+        """
+        Downloads `this` Service and checks it against the provided `cache` at path. In logs,
+        the file will be referred to as `downloaded_file_type`.
+
+        @param move_output: Whether or not output should be irrecoverably moved instead of just copied.
+        """
+        logger.info(f"Downloading {downloaded_file_type} file {self.url} to check against with artifact at {cache}...")
+        downloaded_file_path = Path(NamedTemporaryFile(delete=False).name)
+
+        self.download(downloaded_file_path)
+        logger.info(f"Checking that the {downloaded_file_type} artifact {downloaded_file_path} matches with cached artifact at {cache}...")
+
+        if not filecmp.cmp(cache, downloaded_file_path):
+            # This entire if-branch is debug schenanigans: we want to be able to easily compare our current cached file to the online file,
+            # especially since some `Service`s have special errors that can make the request hard to compare in the browser.
+
+            debug_file_path = Path(NamedTemporaryFile(prefix="spras-benchmarking-debug-artifact", delete=False).name)
+            # We use shutil over Path#rename since temporary directories can be mounted to a different file system.
+            if move_output:
+                shutil.move(cache, debug_file_path)
+            else:
+                shutil.copy(cache, debug_file_path)
+            # We use a custom error type to prevent any overlap with RuntimeError. I am not sure if there is any.
+            raise DownloadFileCheckException(f"The {downloaded_file_type} file {downloaded_file_path} and " + \
+                                             f"cached file originally at {cache} do not match! " + \
+                                             f"Compare the pinned {downloaded_file_path} and the cached {debug_file_path}.")
+        else:
+            # Since we don't clean up pinned_file_path for the above branch's debugging,
+            # we need to clean it up here.
+            downloaded_file_path.unlink()
+
     @staticmethod
     def coerce(obj: 'Service | str') -> 'Service':
         # TODO: This could also be replaced by coercing str to Service in CacheItem via pydantic.
-        if isinstance(obj, str): return Service(url=obj)
-        else: return obj
+        if isinstance(obj, str):
+            return Service(url=obj)
+        return obj
 
 def fetch_biomart_service(xml: str) -> Service:
     """
@@ -93,38 +135,29 @@ class CacheItem:
     def download(self, output: str | PathLike):
         logger.info(f"Fetching {self.name}...")
 
-        with NamedTemporaryFile() as cached_file:
-            logger.info(f"Downloading cache {self.cached}...")
-            gdown.download(self.cached, cached_file)
+        logger.info(f"Downloading cache {self.cached} to {output}...")
+        gdown.download(self.cached, str(output)) # gdown doesn't have a type signature, but it expects a string :/
 
-            if self.pinned is not None:
-                logger.info(f"Downloading pinned URL {self.pinned}...")
-                Service.coerce(self.pinned).download(output)
+        if self.pinned is not None:
+            Service.coerce(self.pinned).download_against_cache(cache=Path(output), downloaded_file_type="pinned", move_output=True)
+        if self.unpinned is not None:
+            # Normally, download_against_cache raises a DownloadFileCheckException: we catch it and warn instead if that happens.
+            try:
+                Service.coerce(self.unpinned).download_against_cache(cache=Path(output), downloaded_file_type="unpinned", move_output=False)
+            except DownloadFileCheckException as err:
+                logger.warning(err)
 
-                logger.info("Checking that the downloaded pinned artifact matches with cached artifact...")
-                assert filecmp.cmp(output, cached_file.name)
-            
-            if self.unpinned is not None:
-                logger.info(f"Downloading unpinned URL {self.unpinned}...")
-                with NamedTemporaryFile() as unpinned_file:
-                    Service.coerce(self.unpinned).download(unpinned_file.name)
-
-                    logger.info("Checking that the downloaded unpinned artifact matches with cached artifact...")
-                    if not filecmp.cmp(unpinned_file.name, cached_file.name):
-                        # This gets saved to a file. Search for `logger.add` for more info.
-                        logger.warning(f"Unpinned file {self.unpinned} for {self.name} does not match cache - this source should be updated!")
-
-
+        # TODO: yikes! same with self.unpinned
 CacheDirectory = dict[str, Union[CacheItem, "CacheDirectory"]]
 
 # An *unversioned* directory list.
 directory: CacheDirectory = {
     "STRING": {
         "9606": {
-            "9606.protein.links.txt.gz": CacheItem(
-                name="STRING 9606 protein links",
+            "9606.protein.links.full.txt.gz": CacheItem(
+                name="STRING 9606 full protein links",
                 cached="https://drive.google.com/uc?id=13tE_-A6g7McZs_lZGz9As7iE-5cBFvqE",
-                pinned="http://stringdb-downloads.org/download/protein.links.v12.0/9606.protein.links.v12.0.txt.gz",
+                pinned="http://stringdb-downloads.org/download/protein.links.full.v12.0/9606.protein.links.full.v12.0.txt.gz",
             ),
             "9606.protein.aliases.txt.gz": CacheItem(
                 name="STRING 9606 protein aliases",
@@ -272,7 +305,7 @@ directory: CacheDirectory = {
         "egfr-prizes.txt": CacheItem(
             name="EGFR prizes",
             pinned="https://raw.githubusercontent.com/gitter-lab/tps/refs/heads/master/data/pcsf/egfr-prizes.txt",
-            cached="https://drive.google.com/file/d/1nI5hw-rYRZPs15UJiqokHpHEAabRq6Xj/view?usp=sharing"
+            cached="https://drive.google.com/uc?id=1nI5hw-rYRZPs15UJiqokHpHEAabRq6Xj"
         )
     },
 }
@@ -290,5 +323,10 @@ def get_cache_item(path: list[str]) -> CacheItem:
 
     if not isinstance(current_item, CacheItem):
         raise ValueError(f"Path {path} doesn't lead to a cache item")
+
+    # Google Drive validation. TODO: remove if move to OSDF.
+    if "uc?id=" not in current_item.cached or "/view?usp=sharing" in current_item.cached:
+        raise RuntimeError("Make sure your Google Drive URLs are in https://drive.google.com/uc?id=... format " + \
+                           "with no /view?usp=sharing at the end. See CONTRIBUTING.md for more info.")
 
     return current_item

@@ -15,7 +15,7 @@ rule all:
 produce_fetch_rules({
     "raw/eight-egfr-reference-all.txt": ["EGFR", "eight-egfr-reference-all.txt"],
     "raw/egfr-prizes.txt": ["EGFR", "egfr-prizes.txt"],
-    "raw/9606.protein.links.txt": FetchConfig(["STRING", "9606", "9606.protein.links.txt.gz"], uncompress=True),
+    "raw/9606.protein.links.full.txt": FetchConfig(["STRING", "9606", "9606.protein.links.full.txt.gz"], uncompress=True),
     "raw/HUMAN_9606_idmapping_selected.tsv": FetchConfig(["UniProt", "9606", "HUMAN_9606_idmapping_selected.tab.gz"], uncompress=True),
     "processed/phosphosite-irefindex13.0-uniprot.txt": ["iRefIndex", "phosphosite-irefindex13.0-uniprot.txt"]
 })
@@ -26,7 +26,7 @@ rule process_gold_standard:
     shell: "uv run scripts/process_gold_standard.py"
 
 rule process_interactome:
-    input: "raw/9606.protein.links.txt"
+    input: "raw/9606.protein.links.full.txt"
     output: "processed/interactome.tsv"
     shell: "uv run scripts/process_interactome.py"
 
