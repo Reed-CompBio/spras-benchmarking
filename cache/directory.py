@@ -275,12 +275,15 @@ directory: CacheDirectory = {
         )
     },
     "iRefIndex": {
-        # This can also be obtained from the SPRAS repo
+        # This can also be obtained from the SPRAS repo, though the SPRAS repo removes self loops. We don't.
         # (https://github.com/Reed-CompBio/spras/blob/b5d7a2499afa8eab14c60ce0f99fa7e8a23a2c64/input/phosphosite-irefindex13.0-uniprot.txt).
-        # iRefIndex has been down for quite some time, so this is only from the cache.
+        # iRefIndex has been down for quite some time, so we grab this from a repository instead.
+        # While the following files do point to the repository's main branch,
+        # they aren't expected to actually change, so we make them `pinned`.
         "phosphosite-irefindex13.0-uniprot.txt": CacheItem(
             name="iRefIndex v13.0 UniProt interactome",
-            cached="https://drive.google.com/uc?id=1fQ8Z3FjEwUseEtsExO723zj7mAAtdomo"
+            cached="https://drive.google.com/uc?id=1fQ8Z3FjEwUseEtsExO723zj7mAAtdomo",
+            pinned="https://raw.githubusercontent.com/gitter-lab/tps/refs/heads/master/data/networks/phosphosite-irefindex13.0-uniprot.txt"
         )
     },
     "OsmoticStress": {
