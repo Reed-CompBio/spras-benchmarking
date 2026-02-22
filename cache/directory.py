@@ -172,6 +172,27 @@ directory: CacheDirectory = {
             online="https://depmap.org/portal/download/api/download?file_name=downloads-by-canonical-id%2Fpublic-25q2-c5ef.104%2FOmicsCNGeneWGS.csv&dl_name=OmicsCNGeneWGS.csv&bucket=depmap-external-downloads",
         ),
     },
+    "KEGG": {
+        # For some reason, KEGG requires a Referer header: opening this URL otherwise fails.
+        "ko03250.xml": CacheItem(
+            name="KEGG 03250",
+            cached="https://drive.google.com/uc?id=16dtWKHCQMp2qrLfFDE7nVhbwBCr2H5a9",
+            online="https://www.kegg.jp/kegg-bin/download?entry=ko03250&format=kgml",
+            online_headers = [('Referer', 'https://www.kegg.jp/pathway/ko03250')],
+        )
+    },
+    "HIV1": {
+        "prize_05.tsv": CacheItem(
+            name="HIV_05 prizes",
+            cached="https://drive.google.com/uc?id=1jVWNRPfYkbqimO44GdzXYB3-7NXhet1m",
+            online="https://raw.githubusercontent.com/gitter-lab/hiv1-aurkb/ac9278d447e4188eea3bf4b24c4c4e0c19b0c6d9/Results/base_analysis/prize_05.csv"
+        ),
+        "prize_060.tsv": CacheItem(
+            name="HIV_060 prizes",
+            cached="https://drive.google.com/uc?id=1Aucgp7pcooGr9oT4m2bvYEuYW6186WxQ",
+            online="https://raw.githubusercontent.com/gitter-lab/hiv1-aurkb/ac9278d447e4188eea3bf4b24c4c4e0c19b0c6d9/Results/base_analysis/prize_060.csv"
+        )
+    },
     "iRefIndex": {
         # This can also be obtained from the SPRAS repo
         # (https://github.com/Reed-CompBio/spras/blob/b5d7a2499afa8eab14c60ce0f99fa7e8a23a2c64/input/phosphosite-irefindex13.0-uniprot.txt).
