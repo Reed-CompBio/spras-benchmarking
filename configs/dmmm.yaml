@@ -62,14 +62,14 @@ datasets:
   - label: dmmmdiseases_alopecia_areata
     data_dir: datasets/diseases
     edge_files:
-      - raw/string_interactome.txt
+      - processed/string_interactome.tsv
     node_files:
       - prize_files/alopecia_areata_prizes.txt
     other_files: []
   - label: dmmmdiseases_diabetes_mellitus
     data_dir: datasets/diseases
     edge_files:
-      - raw/string_interactome.txt
+      - processed/string_interactome.tsv
     node_files:
       - prize_files/diabetes_mellitus_prizes.txt
     other_files: []
