@@ -47,6 +47,10 @@ const dataCategories = {
     name: "Yeast",
     directory: "yeast-osmotic-stress",
   },
+  egfr: {
+    name: "EGFR",
+    directory: "egfr"
+  }
 };
 
 // TODO: replace this once we have proper dataset categories
@@ -57,11 +61,11 @@ export function extractDatasetCategory(name: string): { category: string; name: 
 
 export function parseOutputString(str: string): Output {
   const components = str.split("-");
-  let dataType;
-  let datasetCategory;
-  let datasetName;
-  let algorithm;
-  let paramsHash;
+  let dataType: string | undefined;
+  let datasetCategory: string | undefined;
+  let datasetName: string | undefined;
+  let algorithm: string | undefined;
+  let paramsHash: string | undefined;
 
   if (components.length === 5) {
     // This is a slug URL (type-...)
