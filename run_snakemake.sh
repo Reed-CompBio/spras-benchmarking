@@ -19,6 +19,7 @@ main() {
     uv run snakemake --cores 1 -d datasets/rn-muscle-skeletal -s datasets/rn-muscle-skeletal/Snakefile
     uv run snakemake --cores 1 -d datasets/depmap -s datasets/depmap/Snakefile
     uv run snakemake --cores 1 -d datasets/synthetic-data -s datasets/synthetic-data/Snakefile
+    uv run snakemake --cores 1 -d datasets/egfr -s datasets/egfr/Snakefile
 }
 
 main "$@"

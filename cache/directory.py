@@ -5,15 +5,22 @@ from tempfile import NamedTemporaryFile
 from typing import Optional, Mapping
 import filecmp
 from pathlib import Path
-from enum import Enum
 import warnings
 import requests
 import shutil
 import urllib.parse
 
 import gdown
+from loguru import logger
 
 dir_path = Path(__file__).parent.resolve()
+
+# Our cache emits warnings for files with unpinned versions that don't match the cache.
+(dir_path / 'logs').mkdir(exist_ok=True)
+logger.add(dir_path / 'logs' / "cache.log", level="WARNING")
+
+class DownloadFileCheckException(RuntimeError):
+    """See Service#download_against_cache for some motivation for this custom error"""
 
 @dataclass
 class Service:
@@ -31,6 +38,51 @@ class Service:
                 shutil.copyfileobj(response.raw, f)
             return response
 
+    # NOTE: this is slightly yucky code deduplication. The only intended values of `downloaded_file_type` are `pinned` and `unpinned`.
+    def download_against_cache(
+            self,
+            cache: Path,
+            downloaded_file_type: str,
+            move_output: bool
+        ):
+        """
+        Downloads `this` Service and checks it against the provided `cache` at path. In logs,
+        the file will be referred to as `downloaded_file_type`.
+
+        @param move_output: Whether or not output should be irrecoverably moved instead of just copied.
+        """
+        logger.info(f"Downloading {downloaded_file_type} file {self.url} to check against with artifact at {cache}...")
+        downloaded_file_path = Path(NamedTemporaryFile(delete=False).name)
+
+        self.download(downloaded_file_path)
+        logger.info(f"Checking that the {downloaded_file_type} artifact {downloaded_file_path} matches with cached artifact at {cache}...")
+
+        if not filecmp.cmp(cache, downloaded_file_path):
+            # This entire if-branch is debug schenanigans: we want to be able to easily compare our current cached file to the online file,
+            # especially since some `Service`s have special errors that can make the request hard to compare in the browser.
+
+            debug_file_path = Path(NamedTemporaryFile(prefix="spras-benchmarking-debug-artifact", delete=False).name)
+            # We use shutil over Path#rename since temporary directories can be mounted to a different file system.
+            if move_output:
+                shutil.move(cache, debug_file_path)
+            else:
+                shutil.copy(cache, debug_file_path)
+            # We use a custom error type to prevent any overlap with RuntimeError. I am not sure if there is any.
+            raise DownloadFileCheckException(f"The {downloaded_file_type} file {downloaded_file_path} and " + \
+                                             f"cached file originally at {cache} do not match! " + \
+                                             f"Compare the pinned {downloaded_file_path} and the cached {debug_file_path}.")
+        else:
+            # Since we don't clean up pinned_file_path for the above branch's debugging,
+            # we need to clean it up here.
+            downloaded_file_path.unlink()
+
+    @staticmethod
+    def coerce(obj: 'Service | str') -> 'Service':
+        # TODO: This could also be replaced by coercing str to Service in CacheItem via pydantic.
+        if isinstance(obj, str):
+            return Service(url=obj)
+        return obj
+
 def fetch_biomart_service(xml: str) -> Service:
     """
     Access BioMart data through the BioMart REST API:
@@ -39,79 +91,63 @@ def fetch_biomart_service(xml: str) -> Service:
     ROOT = "http://www.ensembl.org/biomart/martservice?query="
     return Service(ROOT + urllib.parse.quote_plus(xml))
 
-class OnlineStatus(Enum):
-    ONLINE = 1
-    """
-    Services that are always online. If these fail, we fail the workflow and
-    log this.
-    """
-
-    INTERMITTENT_ERROR_CODE = 2
-    """
-    Services that error often (not go down!)
-    these will be logged when they fail, but we continue with the cached option.
-    """
-
-    # (we choose to do this over arbitrary lambdas because its nicer. For now.)
-    INTERMITTENT_HTML = 3
-    """
-    Like INTERMITTENT_ERROR_CODE, but errors when HTML is returned.
-    """
-
 @dataclass
 class CacheItem:
     """
-    Class for differentriating between offline and online items in a cache.
-
-    NOTE: If cached is "", we assume that online is a Google Drive URL (for cases where there is no
-    remaining online data source.)
+    Class for differentriating between different ways of fetching data.
+    As mentioned in the ./README.md, `cached` is always needed, and we differentriate between service outage (`pinned`)
+    and data needing updates (`unpinned`). There is no need to specify both keys at once, but the choice does matter
+    for how errors are presented during benchmarking runs.
     """
 
     name: str
     """The display name of the artifact, used for human-printing."""
+
     cached: str
-    online: Optional[Service] = None
-    status: OnlineStatus = OnlineStatus.ONLINE
-    """How much to care about errors from downloading the online file."""
+    """
+    The URL of the cached file, which is currently a Google Drive URL.
+    """
+
+    pinned: Optional[Service | str] = None
+    """
+    The Service (URL + headers) of the file, which is the 'pinned' file.
+    By a pinned file, we say that the file has a dedicated version, and should not change.
+    If this is None, we go for the `unpinned` file or `cached` if `unpinned` is None.
+    """
+
+    unpinned: Optional[Service | str] = None
+    """
+    Analogously to `pinned`, this is a Service (URL + headers) which is 'unpinned,'
+    or lacks a dedicated version. When `pinned` matches `cached` but `unpinned` doesn't match `pinned`,
+    we say that the file has a new version.
+
+    If `pinned` is None and `unpinned` doesn't match `cached`, we warn instead of erroring.
+
+    We will still error if the status code is not 2XX (a successful request).
+    """
 
     @classmethod
     @warnings.deprecated("Pending for removal after the CONTRIBUTING guide is updated.")
     def cache_only(cls, name: str, cached: str) -> "CacheItem":
         """Wrapper method to explicitly declare a CacheItem as cached only."""
-        return cls(name=name, cached=cached, online=None)
+        return cls(name=name, cached=cached)
 
     def download(self, output: str | PathLike):
-        print(f"Fetching {self.name}...")
+        logger.info(f"Fetching {self.name}...")
 
-        with NamedTemporaryFile() as cached_file:
-            print(f"Downloading cache {self.cached}...")
-            gdown.download(self.cached, cached_file)
+        logger.info(f"Downloading cache {self.cached} to {output}...")
+        gdown.download(self.cached, str(output)) # gdown doesn't have a type signature, but it expects a string :/
 
-            if self.online is None:
-                return
+        if self.pinned is not None:
+            Service.coerce(self.pinned).download_against_cache(cache=Path(output), downloaded_file_type="pinned", move_output=True)
+        if self.unpinned is not None:
+            # Normally, download_against_cache raises a DownloadFileCheckException: we catch it and warn instead if that happens.
+            try:
+                Service.coerce(self.unpinned).download_against_cache(cache=Path(output), downloaded_file_type="unpinned", move_output=False)
+            except DownloadFileCheckException as err:
+                logger.warning(err)
 
-            print(f"Downloading {self.online}...")
-            with self.online.download(output) as response:
-
-                print("Checking that downloaded artifact matches with cached artifact...")
-                if filecmp.cmp(output, cached_file.name):
-                    return # It does!
-
-                # For debug purposes, we allow the output artifact to be viewed in some kind of temporary folder.
-                debug_file_path = Path(NamedTemporaryFile(prefix="spras-benchmarking-debug-artifact", delete=False).name)
-                # (and we pedantically use this over Path#rename since temporary directories can be mounted to a different file system.)
-                shutil.move(output, debug_file_path)
-                if (self.status == OnlineStatus.INTERMITTENT_ERROR_CODE and not response.ok) \
-                    or (self.status == OnlineStatus.INTERMITTENT_HTML and Path(debug_file_path).read_text().strip().startswith("<!DOCTYPE html>")):
-                    warnings.warn(f"Online url {self.online} erroring with status code {response.status_code}. " \
-                                  f"See {debug_file_path} for the online output. Using the cached file instead...")
-                    # Back up to the cached_file
-                    shutil.move(cached_file.name, output)
-                else:
-                    raise RuntimeError(f"Cached and online files did not match with status code {response.status_code}! " \
-                                       f"See {debug_file_path} for the online output.")
-
-
+        # TODO: yikes! same with self.unpinned
 CacheDirectory = dict[str, Union[CacheItem, "CacheDirectory"]]
 
 # An *unversioned* directory list.
@@ -119,14 +155,14 @@ directory: CacheDirectory = {
     "STRING": {
         "9606": {
             "9606.protein.links.full.txt.gz": CacheItem(
-                name="STRING 9606 full links",
+                name="STRING 9606 full protein links",
                 cached="https://drive.google.com/uc?id=13tE_-A6g7McZs_lZGz9As7iE-5cBFvqE",
-                online=Service("http://stringdb-downloads.org/download/protein.links.full.v12.0/9606.protein.links.full.v12.0.txt.gz"),
+                pinned="http://stringdb-downloads.org/download/protein.links.full.v12.0/9606.protein.links.full.v12.0.txt.gz",
             ),
             "9606.protein.aliases.txt.gz": CacheItem(
                 name="STRING 9606 protein aliases",
                 cached="https://drive.google.com/uc?id=1IWrQeTVCcw1A-jDk-4YiReWLnwP0S9bY",
-                online=Service("https://stringdb-downloads.org/download/protein.aliases.v12.0/9606.protein.aliases.v12.0.txt.gz"),
+                pinned="https://stringdb-downloads.org/download/protein.aliases.v12.0/9606.protein.aliases.v12.0.txt.gz",
             ),
         }
     },
@@ -138,19 +174,19 @@ directory: CacheDirectory = {
             "SwissProt_9606.tsv": CacheItem(
                 name="UniProt 9606 SwissProt genes",
                 cached="https://drive.google.com/uc?id=1h2Cl-60qcKse-djcsqlRXm_n60mVY7lk",
-                online=Service("https://rest.uniprot.org/uniprotkb/stream?fields=accession%2Cid%2Cprotein_name%2Cgene_names&format=tsv&query=%28*%29+AND+%28reviewed%3Atrue%29+AND+%28model_organism%3A9606%29"),
+                unpinned="https://rest.uniprot.org/uniprotkb/stream?fields=accession%2Cid%2Cprotein_name%2Cgene_names&format=tsv&query=%28*%29+AND+%28reviewed%3Atrue%29+AND+%28model_organism%3A9606%29",
             ),
             # idmapping FTP files. See the associated README:
             # https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/idmapping/README
             "HUMAN_9606_idmapping_selected.tab.gz": CacheItem(
                 name="UniProt 9606 ID external database mapping",
                 cached="https://drive.google.com/uc?id=1Oysa5COq31H771rVeyrs-6KFhE3VJqoX",
-                online=Service("https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/idmapping/by_organism/HUMAN_9606_idmapping_selected.tab.gz"),
+                unpinned="https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/idmapping/by_organism/HUMAN_9606_idmapping_selected.tab.gz",
             ),
             "HUMAN_9606_idmapping.dat.gz": CacheItem(
                 name="UniProt 9606 internal id mapping",
                 cached="https://drive.google.com/uc?id=1lGxrx_kGyNdupwIOUXzfIZScc7rQKP-O",
-                online=Service("https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/idmapping/by_organism/HUMAN_9606_idmapping.dat.gz"),
+                unpinned="https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/idmapping/by_organism/HUMAN_9606_idmapping.dat.gz",
             ),
         }
     },
@@ -160,104 +196,150 @@ directory: CacheDirectory = {
         "tiga_gene-trait_stats.tsv": CacheItem(
             name="TIGA data",
             cached="https://drive.google.com/uc?id=114qyuNDy4qdmYDHHJAW-yBeTxcGTDUnK",
-            online=Service("https://unmtid-dbs.net/download/TIGA/20250916/tiga_gene-trait_stats.tsv"),
+            pinned="https://unmtid-dbs.net/download/TIGA/20250916/tiga_gene-trait_stats.tsv",
         ),
         "HumanDO.tsv": CacheItem(
             name="Disease ontology data",
             cached="https://drive.google.com/uc?id=1lfB1DGJgrXTxP_50L6gGu_Nq6OyDjiIi",
-            online=Service("https://raw.githubusercontent.com/DiseaseOntology/HumanDiseaseOntology/016a4ec33d1a1508d669650086cd92ccebe138e6/DOreports/HumanDO.tsv"),
+            # DiseaseOntology is a decently updating repository!
+            unpinned="https://raw.githubusercontent.com/DiseaseOntology/HumanDiseaseOntology/refs/heads/main/DOreports/HumanDO.tsv",
         ),
         "human_disease_textmining_filtered.tsv": CacheItem(
             name="DISEASES textmining channel",
             cached="https://drive.google.com/uc?id=1vD8KbT9sk04VEJx9r3_LglCTGYJdhN0D",
-            online=Service("https://download.jensenlab.org/human_disease_textmining_filtered.tsv"),
+            unpinned="https://download.jensenlab.org/human_disease_textmining_filtered.tsv",
         ),
         "human_disease_knowledge_filtered.tsv": CacheItem(
             name="DISEASES knowledge channel",
             cached="https://drive.google.com/uc?id=1qGUnjVwF9-8p5xvp8_6CfVsbMSM_wkld",
-            online=Service("https://download.jensenlab.org/human_disease_knowledge_filtered.tsv"),
+            unpinned="https://download.jensenlab.org/human_disease_knowledge_filtered.tsv",
         ),
     },
     "BioMart": {
         "ensg-ensp.tsv": CacheItem(
             name="BioMart ENSG <-> ENSP mapping",
             cached="https://drive.google.com/uc?id=1-gPrDoluXIGydzWKjWEnW-nWhYu3YkHL",
-            online=fetch_biomart_service((dir_path / "biomart" / "ensg-ensp.xml").read_text()),
+            unpinned=fetch_biomart_service((dir_path / "biomart" / "ensg-ensp.xml").read_text()),
         )
     },
     "DepMap": {
         "OmicsProfiles.csv": CacheItem(
             name="DepMap omics metadata",
             cached="https://drive.google.com/uc?id=1i54aKfO0Ci2QKLTNJnuQ_jgGhH4c9rTL",
-            online=Service("https://depmap.org/portal/download/api/download?file_name=downloads-by-canonical-id%2F2025-05-01-master-mapping-table-28c2.12%2Fpublic_release_date.2025-05-01.master_mapping_table.csv&dl_name=OmicsProfiles.csv&bucket=depmap-external-downloads"),
+            pinned="https://depmap.org/portal/download/api/download?file_name=downloads-by-canonical-id%2F2025-05-01-master-mapping-table-28c2.12%2Fpublic_release_date.2025-05-01.master_mapping_table.csv&dl_name=OmicsProfiles.csv&bucket=depmap-external-downloads",
         ),
         "CRISPRGeneDependency.csv": CacheItem(
             name="DepMap gene dependency probability estimates",
             cached="https://drive.google.com/uc?id=122rWNqT_u3M7B_11WYZMtOLiPbBykkaz",
-            online=Service("https://depmap.org/portal/download/api/download?file_name=downloads-by-canonical-id%2F25q2-public-557c.3%2FCRISPRGeneDependency.csv&dl_name=CRISPRGeneDependency.csv&bucket=depmap-external-downloads"),
+            pinned="https://depmap.org/portal/download/api/download?file_name=downloads-by-canonical-id%2F25q2-public-557c.3%2FCRISPRGeneDependency.csv&dl_name=CRISPRGeneDependency.csv&bucket=depmap-external-downloads",
         ),
         "OmicsSomaticMutationsMatrixDamaging.csv": CacheItem(
             name="DepMap genotyped matrix",
             cached="https://drive.google.com/uc?id=1W7N2H0Qi7NwmTmNChcwa2ZZ4WxAuz-Xh",
-            online=Service("https://depmap.org/portal/download/api/download?file_name=downloads-by-canonical-id%2Fpublic-25q2-c5ef.87%2FOmicsSomaticMutationsMatrixDamaging.csv&dl_name=OmicsSomaticMutationsMatrixDamaging.csv&bucket=depmap-external-downloads"),
+            pinned="https://depmap.org/portal/download/api/download?file_name=downloads-by-canonical-id%2Fpublic-25q2-c5ef.87%2FOmicsSomaticMutationsMatrixDamaging.csv&dl_name=OmicsSomaticMutationsMatrixDamaging.csv&bucket=depmap-external-downloads",
         ),
         "OmicsExpressionProteinCodingGenesTPMLogp1.csv": CacheItem(
             name="DepMap model-level TPMs",
             cached="https://drive.google.com/uc?id=1P0m88eXJ8GPdru8h9oOcHPeXKU7ljIrP",
-            online=Service("https://depmap.org/portal/download/api/download?file_name=downloads-by-canonical-id%2Fpublic-25q2-c5ef.73%2FOmicsExpressionProteinCodingGenesTPMLogp1.csv&dl_name=OmicsExpressionProteinCodingGenesTPMLogp1.csv&bucket=depmap-external-downloads"),
+            pinned="https://depmap.org/portal/download/api/download?file_name=downloads-by-canonical-id%2Fpublic-25q2-c5ef.73%2FOmicsExpressionProteinCodingGenesTPMLogp1.csv&dl_name=OmicsExpressionProteinCodingGenesTPMLogp1.csv&bucket=depmap-external-downloads",
         ),
         "OmicsCNGeneWGS.csv": CacheItem(
             name="DepMap gene-level copy number data",
             cached="https://drive.google.com/uc?id=1TPp3cfK7OZUrftucr3fLO-krXSQAA6Ub",
-            online=Service("https://depmap.org/portal/download/api/download?file_name=downloads-by-canonical-id%2Fpublic-25q2-c5ef.104%2FOmicsCNGeneWGS.csv&dl_name=OmicsCNGeneWGS.csv&bucket=depmap-external-downloads"),
+            pinned="https://depmap.org/portal/download/api/download?file_name=downloads-by-canonical-id%2Fpublic-25q2-c5ef.104%2FOmicsCNGeneWGS.csv&dl_name=OmicsCNGeneWGS.csv&bucket=depmap-external-downloads",
         ),
     },
+    "KEGG": {
+        # For some reason, KEGG requires a Referer header: opening this URL otherwise fails.
+        "ko03250.xml": CacheItem(
+            name="KEGG 03250",
+            cached="https://drive.google.com/uc?id=16dtWKHCQMp2qrLfFDE7nVhbwBCr2H5a9",
+            unpinned=Service(
+                "https://www.kegg.jp/kegg-bin/download?entry=ko03250&format=kgml",
+                headers={'Referer': 'https://www.kegg.jp/pathway/ko03250'})
+        )
+    },
+    "HIV1": {
+        # The following files are from https://github.com/gitter-lab/hiv1-aurkb.
+        # While the following files do point to the repository's main branch,
+        # they aren't expected to actually change.
+        "prize_05.tsv": CacheItem(
+            name="HIV_05 prizes",
+            cached="https://drive.google.com/uc?id=1jVWNRPfYkbqimO44GdzXYB3-7NXhet1m",
+            pinned="https://raw.githubusercontent.com/gitter-lab/hiv1-aurkb/refs/heads/main/Results/base_analysis/prize_05.csv"
+        ),
+        "prize_060.tsv": CacheItem(
+            name="HIV_060 prizes",
+            cached="https://drive.google.com/uc?id=1Aucgp7pcooGr9oT4m2bvYEuYW6186WxQ",
+            pinned="https://raw.githubusercontent.com/gitter-lab/hiv1-aurkb/refs/heads/main/Results/base_analysis/prize_060.csv"
+        )
+    },
     "iRefIndex": {
-        # This can also be obtained from the SPRAS repo
+        # This can also be obtained from the SPRAS repo, though the SPRAS repo removes self loops. We don't.
         # (https://github.com/Reed-CompBio/spras/blob/b5d7a2499afa8eab14c60ce0f99fa7e8a23a2c64/input/phosphosite-irefindex13.0-uniprot.txt).
-        # iRefIndex has been down for quite some time, so this is only from the cache.
-        "phosphosite-irefindex13.0-uniprot.txt": CacheItem.cache_only(
+        # iRefIndex has been down for quite some time, so we grab this from a repository instead.
+        # While the following files do point to the repository's main branch,
+        # they aren't expected to actually change, so we make them `pinned`.
+        "phosphosite-irefindex13.0-uniprot.txt": CacheItem(
             name="iRefIndex v13.0 UniProt interactome",
-            cached="https://drive.google.com/uc?id=1fQ8Z3FjEwUseEtsExO723zj7mAAtdomo"
+            cached="https://drive.google.com/uc?id=1fQ8Z3FjEwUseEtsExO723zj7mAAtdomo",
+            pinned="https://raw.githubusercontent.com/gitter-lab/tps/refs/heads/master/data/networks/phosphosite-irefindex13.0-uniprot.txt"
         )
     },
     "OsmoticStress": {
-        "yeast_pcsf_network.sif": CacheItem.cache_only(
+        "yeast_pcsf_network.sif": CacheItem(
             # In the paper https://doi.org/10.1016/j.celrep.2018.08.085
             name="Case Study Edge Results, from Supplementary Data 3",
             cached="https://drive.google.com/uc?id=1Agte0Aezext-8jLhGP4GmaF3tS7gHX-h"
         ),
-        # The following files are from https://github.com/gitter-lab/osmotic-stress
+        # The following files are from https://github.com/gitter-lab/osmotic-stress.
+        # While the following files do point to the repository's main branch,
+        # they aren't expected to actually change.
         "prizes.txt": CacheItem(
             name="Osmotic Stress Prizes",
-            online=Service("https://raw.githubusercontent.com/gitter-lab/osmotic-stress/refs/heads/master/Input%20Data/prizes.txt"),
+            pinned="https://raw.githubusercontent.com/gitter-lab/osmotic-stress/refs/heads/master/Input%20Data/prizes.txt",
             cached="https://drive.google.com/uc?id=16WDQs0Vjv6rI12-hbifsbnpH31jMGhJg"
         ),
         "ChasmanNetwork-DirUndir.txt": CacheItem(
             name="Network Input",
-            online=Service("https://raw.githubusercontent.com/gitter-lab/osmotic-stress/refs/heads/master/Input%20Data/ChasmanNetwork-DirUndir.txt"),
+            pinned="https://raw.githubusercontent.com/gitter-lab/osmotic-stress/refs/heads/master/Input%20Data/ChasmanNetwork-DirUndir.txt",
             cached="https://drive.google.com/uc?id=1qYXPaWcPU72YYME7NaBzD7thYCHRzrLH"
         ),
         "dummy.txt": CacheItem(
             name="Dummy Nodes File",
-            online=Service("https://raw.githubusercontent.com/gitter-lab/osmotic-stress/refs/heads/master/Input%20Data/dummy.txt"),
+            pinned="https://raw.githubusercontent.com/gitter-lab/osmotic-stress/refs/heads/master/Input%20Data/dummy.txt",
             cached="https://drive.google.com/uc?id=1dsFIhBrIEahggg0JPxw64JwS51pKxoQU"
         ),
         "_edgeFreq.eda ": CacheItem(
             name="Case Study Omics Integrator Edge Frequencies",
-            online=Service("https://raw.githubusercontent.com/gitter-lab/osmotic-stress/refs/heads/master/Notebooks/Forest-TPS/_edgeFreq.eda"),
+            pinned="https://raw.githubusercontent.com/gitter-lab/osmotic-stress/refs/heads/master/Notebooks/Forest-TPS/_edgeFreq.eda",
             cached="https://drive.google.com/uc?id=1M_rxEzUCo_EVuFyM47OEH2J-4LB3eeCR"
         ),
         "goldStandardUnionDetailed.txt": CacheItem(
             name="Gold Standard Reference Pathways",
-            online=Service("https://raw.githubusercontent.com/gitter-lab/osmotic-stress/refs/heads/master/data/evaluation/goldStandardUnionDetailed.txt"),
+            pinned="https://raw.githubusercontent.com/gitter-lab/osmotic-stress/refs/heads/master/data/evaluation/goldStandardUnionDetailed.txt",
             cached="https://drive.google.com/uc?id=1-_zF9oKFCNmJbDCC2vq8OM17HJw80s2T"
         ),
+    },
+    "EGFR": {
+        # The following files are from https://github.com/gitter-lab/tps.
+        # While the following files do point to the repository's main branch,
+        # they aren't expected to actually change.
+        "eight-egfr-reference-all.txt": CacheItem(
+            name="EGFR Gold Standard Reference",
+            pinned="https://raw.githubusercontent.com/gitter-lab/tps/refs/heads/master/data/resources/eight-egfr-reference-all.txt",
+            cached="https://drive.google.com/uc?id=15MqpIbH1GRA1tq0ZXH9oMnKytoFSzXyw"
+        ),
+        "egfr-prizes.txt": CacheItem(
+            name="EGFR prizes",
+            pinned="https://raw.githubusercontent.com/gitter-lab/tps/refs/heads/master/data/pcsf/egfr-prizes.txt",
+            cached="https://drive.google.com/uc?id=1nI5hw-rYRZPs15UJiqokHpHEAabRq6Xj"
+        )
     },
     "Surfaceome": {
         "table_S3_surfaceome.xlsx": CacheItem(
             name="Human surfaceome",
-            online=Service("http://wlab.ethz.ch/surfaceome/table_S3_surfaceome.xlsx"),
+            unpinned="http://wlab.ethz.ch/surfaceome/table_S3_surfaceome.xlsx",
             cached="https://docs.google.com/uc?id=1cBXYbDnAJVet0lv3BRrizV5FuqfMbBr0"
         )
     },
@@ -277,116 +359,97 @@ directory: CacheDirectory = {
             "Apoptosis_signaling_pathway.txt": CacheItem(
                 name="Apoptosis Signaling Pathway",
                 cached="https://drive.google.com/uc?id=1BPcnvqHrGMQeX4oQx2ow3OribgPxzwhG",
-                online=Service("https://www.pathwaycommons.org/pc2/get?format=TXT&uri=https%3A%2F%2Fidentifiers.org%2Fpanther.pathway%3AP00006"),
-                status=OnlineStatus.INTERMITTENT_HTML
+                unpinned="https://www.pathwaycommons.org/pc2/get?format=TXT&uri=https%3A%2F%2Fidentifiers.org%2Fpanther.pathway%3AP00006"
             ),
             "B_cell_activation.txt": CacheItem(
                 name="B cell activation",
                 cached="https://drive.google.com/uc?id=1iWcb5AfdobGncRB6xQ6T5qunXzb6Gxd-",
-                online=Service("https://www.pathwaycommons.org/pc2/get?format=TXT&uri=https%3A%2F%2Fidentifiers.org%2Fpanther.pathway%3AP00010"),
-                status=OnlineStatus.INTERMITTENT_HTML
+                unpinned="https://www.pathwaycommons.org/pc2/get?format=TXT&uri=https%3A%2F%2Fidentifiers.org%2Fpanther.pathway%3AP00010"
             ),
             "Beta3_adrenergic_receptor_signaling_pathway.txt": CacheItem(
                 name="Beta3_adrenergic_receptor_signaling_pathway",
                 cached="https://drive.google.com/uc?id=1jrJzrDvhDAs818wYjQ_dm1irOz8Bv4lk",
-                online=Service("https://www.pathwaycommons.org/pc2/get?format=TXT&uri=https%3A%2F%2Fidentifiers.org%2Fpanther.pathway%3AP04379"),
-                status=OnlineStatus.INTERMITTENT_HTML
+                unpinned="https://www.pathwaycommons.org/pc2/get?format=TXT&uri=https%3A%2F%2Fidentifiers.org%2Fpanther.pathway%3AP04379"
             ),
             "Cadherin_signaling_pathway.txt": CacheItem(
                 name="Cadherin signaling pathway",
                 cached="https://drive.google.com/uc?id=14Of-6mwIpul_QciyJ-Xb9f7t-IrVcIna",
-                online=Service("https://www.pathwaycommons.org/pc2/get?format=TXT&uri=https%3A%2F%2Fidentifiers.org%2Fpanther.pathway%3AP00012"),
-                status=OnlineStatus.INTERMITTENT_HTML
+                unpinned="https://www.pathwaycommons.org/pc2/get?format=TXT&uri=https%3A%2F%2Fidentifiers.org%2Fpanther.pathway%3AP00012"
             ),
             "Fas_signaling_pathway.txt": CacheItem(
                 name="FAS signaling_pathway",
                 cached="https://drive.google.com/uc?id=121cHJf0ZtglQHvy9xuEpYSjwBbJV9Fju",
-                online=Service("https://www.pathwaycommons.org/pc2/get?format=TXT&uri=https%3A%2F%2Fidentifiers.org%2Fpanther.pathway%3AP00020"),
-                status=OnlineStatus.INTERMITTENT_HTML
+                unpinned="https://www.pathwaycommons.org/pc2/get?format=TXT&uri=https%3A%2F%2Fidentifiers.org%2Fpanther.pathway%3AP00020"
             ),
             "FGF_signaling_pathway.txt": CacheItem(
                 name="FGF signaling pathway",
                 cached="https://drive.google.com/uc?id=1PIiWK1-ImXE1YHdDh1hGUVB01Ye8brQg",
-                online=Service("https://www.pathwaycommons.org/pc2/get?format=TXT&uri=https%3A%2F%2Fidentifiers.org%2Fpanther.pathway%3AP00021"),
-                status=OnlineStatus.INTERMITTENT_HTML
+                unpinned="https://www.pathwaycommons.org/pc2/get?format=TXT&uri=https%3A%2F%2Fidentifiers.org%2Fpanther.pathway%3AP00021"
             ),
             "Hedgehog_signaling_pathway.txt": CacheItem(
                 name="Hedgehog signaling pathway",
                 cached="https://drive.google.com/uc?id=1i7HKn4nlJQcaXUDXpbpDFBxbkBXZC0xQ",
-                online=Service("https://www.pathwaycommons.org/pc2/get?format=TXT&uri=https%3A%2F%2Fidentifiers.org%2Fpanther.pathway%3AP00025"),
-                status=OnlineStatus.INTERMITTENT_HTML
+                unpinned="https://www.pathwaycommons.org/pc2/get?format=TXT&uri=https%3A%2F%2Fidentifiers.org%2Fpanther.pathway%3AP00025"
             ),
             "Insulin_IGF_pathway_protein_kinase_B_signaling_cascade.txt": CacheItem(
                 name="Insulin/IGF pathway-protein kinase B signaling cascade",
                 cached="https://drive.google.com/uc?id=1Xkxcm0ngrE8otau9ccyPeCg7KZUdhJf7",
-                online=Service("https://www.pathwaycommons.org/pc2/get?format=TXT&uri=https%3A%2F%2Fidentifiers.org%2Fpanther.pathway%3AP00033"),
-                status=OnlineStatus.INTERMITTENT_HTML
+                unpinned="https://www.pathwaycommons.org/pc2/get?format=TXT&uri=https%3A%2F%2Fidentifiers.org%2Fpanther.pathway%3AP00033"
             ),
             "Interferon_gamma_signaling_pathway.txt": CacheItem(
                 name="Interferon-gamma signaling pathway",
                 cached="https://drive.google.com/uc?id=1aPqi0A5ZIOA5kKELVUI_NvC8taiHll5z",
-                online=Service("https://www.pathwaycommons.org/pc2/get?format=TXT&uri=https%3A%2F%2Fidentifiers.org%2Fpanther.pathway%3AP00035"),
-                status=OnlineStatus.INTERMITTENT_HTML
+                unpinned="https://www.pathwaycommons.org/pc2/get?format=TXT&uri=https%3A%2F%2Fidentifiers.org%2Fpanther.pathway%3AP00035"
             ),
             "Interleukin_signaling_pathway.txt": CacheItem(
                 name="Interleukin signaling pathway",
                 cached="https://drive.google.com/uc?id=1IOv14pRJ8aN9LRnkZ4BQXf3QGUAashku",
-                online=Service("https://www.pathwaycommons.org/pc2/get?format=TXT&uri=https%3A%2F%2Fidentifiers.org%2Fpanther.pathway%3AP00036"),
-                status=OnlineStatus.INTERMITTENT_HTML
+                unpinned="https://www.pathwaycommons.org/pc2/get?format=TXT&uri=https%3A%2F%2Fidentifiers.org%2Fpanther.pathway%3AP00036"
             ),
             "JAK_STAT_signaling_pathway.txt": CacheItem(
                 name="JAK/STAT signaling pathway",
                 cached="https://drive.google.com/uc?id=1QzMEMUZzeoxUYZZRGcm6Al_HzH6pmwED",
-                online=Service("https://www.pathwaycommons.org/pc2/get?format=TXT&uri=https%3A%2F%2Fidentifiers.org%2Fpanther.pathway%3AP00038"),
-                status=OnlineStatus.INTERMITTENT_HTML
+                unpinned="https://www.pathwaycommons.org/pc2/get?format=TXT&uri=https%3A%2F%2Fidentifiers.org%2Fpanther.pathway%3AP00038"
             ),
             "Nicotinic_acetylcholine_receptor_signaling_pathway.txt": CacheItem(
                 name="Nicotinic acetylcholine receptor signaling pathway",
                 cached="https://drive.google.com/uc?id=1SdnKr4TthfmZWgMA_FOlTmf-EEpNsdzx",
-                online=Service("https://www.pathwaycommons.org/pc2/get?format=TXT&uri=https%3A%2F%2Fidentifiers.org%2Fpanther.pathway%3AP00044"),
-                status=OnlineStatus.INTERMITTENT_HTML
+                unpinned="https://www.pathwaycommons.org/pc2/get?format=TXT&uri=https%3A%2F%2Fidentifiers.org%2Fpanther.pathway%3AP00044"
             ),
             "Notch_signaling_pathway.txt": CacheItem(
                 name="Notch signaling pathway",
                 cached="https://drive.google.com/uc?id=1qfyxuc1EomOKGRyI7QyQ7LUUhLPZytz5",
-                online=Service("https://www.pathwaycommons.org/pc2/get?format=TXT&uri=https%3A%2F%2Fidentifiers.org%2Fpanther.pathway%3AP00045"),
-                status=OnlineStatus.INTERMITTENT_HTML
+                unpinned="https://www.pathwaycommons.org/pc2/get?format=TXT&uri=https%3A%2F%2Fidentifiers.org%2Fpanther.pathway%3AP00045"
             ),
             "PDGF_signaling_pathway.txt": CacheItem(
                 name="PDGF signaling pathway",
                 cached="https://drive.google.com/uc?id=1A9hl340XKnZeNfd3hiiX7lxOVV94lQ5s",
-                online=Service("https://www.pathwaycommons.org/pc2/get?format=TXT&uri=https%3A%2F%2Fidentifiers.org%2Fpanther.pathway%3AP00047"),
-                status=OnlineStatus.INTERMITTENT_HTML
+                unpinned="https://www.pathwaycommons.org/pc2/get?format=TXT&uri=https%3A%2F%2Fidentifiers.org%2Fpanther.pathway%3AP00047"
             ),
             "Ras_pathway.txt": CacheItem(
                 name="Ras pathway",
                 cached="https://drive.google.com/uc?id=1wNizL5wDh48E5YxHcZjURa9UeKMONrgr",
-                online=Service("https://www.pathwaycommons.org/pc2/get?format=TXT&uri=https%3A%2F%2Fidentifiers.org%2Fpanther.pathway%3AP04393"),
-                status=OnlineStatus.INTERMITTENT_HTML
+                unpinned="https://www.pathwaycommons.org/pc2/get?format=TXT&uri=https%3A%2F%2Fidentifiers.org%2Fpanther.pathway%3AP04393"
             ),
             "T_cell_activation.txt": CacheItem(
                 name="T cell activation",
                 cached="https://drive.google.com/uc?id=1t5G_jN8QSOiVceQGAmKvbYebkV1G5oJy",
-                online=Service("https://www.pathwaycommons.org/pc2/get?format=TXT&uri=https%3A%2F%2Fidentifiers.org%2Fpanther.pathway%3AP00053"),
-                status=OnlineStatus.INTERMITTENT_HTML
+                unpinned="https://www.pathwaycommons.org/pc2/get?format=TXT&uri=https%3A%2F%2Fidentifiers.org%2Fpanther.pathway%3AP00053"
             ),
             "Toll_receptor_signaling_pathway.txt": CacheItem(
                 name="Toll receptor signaling pathway",
                 cached="https://drive.google.com/uc?id=1nFix8mMvuU_Vu9tExwgaS279nynqM_Oo",
-                online=Service("https://www.pathwaycommons.org/pc2/get?format=TXT&uri=https%3A%2F%2Fidentifiers.org%2Fpanther.pathway%3AP00054"),
-                status=OnlineStatus.INTERMITTENT_HTML
+                unpinned="https://www.pathwaycommons.org/pc2/get?format=TXT&uri=https%3A%2F%2Fidentifiers.org%2Fpanther.pathway%3AP00054"
             ),
             "VEGF_signaling_pathway.txt": CacheItem(
                 name="VEGF signaling pathway",
                 cached="https://drive.google.com/uc?id=1W1G0TmA6-JLF9pIZD0TR4w95IwG2IALs",
-                online=Service("https://www.pathwaycommons.org/pc2/get?format=TXT&uri=https%3A%2F%2Fidentifiers.org%2Fpanther.pathway%3AP00056"),
-                status=OnlineStatus.INTERMITTENT_HTML
+                unpinned="https://www.pathwaycommons.org/pc2/get?format=TXT&uri=https%3A%2F%2Fidentifiers.org%2Fpanther.pathway%3AP00056"
             ),
             "Wnt_signaling_pathway.txt": CacheItem(
                 name="Wnt signaling pathway",
                 cached="https://drive.google.com/uc?id=1diaacbik5hcA9Fo7vMXFAP_wXRe0xCLB",
-                online=Service("https://www.pathwaycommons.org/pc2/get?format=TXT&uri=https%3A%2F%2Fidentifiers.org%2Fpanther.pathway%3AP00057"),
-                status=OnlineStatus.INTERMITTENT_HTML
+                unpinned="https://www.pathwaycommons.org/pc2/get?format=TXT&uri=https%3A%2F%2Fidentifiers.org%2Fpanther.pathway%3AP00057"
             ),
         }
     }
@@ -405,5 +468,10 @@ def get_cache_item(path: list[str]) -> CacheItem:
 
     if not isinstance(current_item, CacheItem):
         raise ValueError(f"Path {path} doesn't lead to a cache item")
+
+    # Google Drive validation. TODO: remove if move to OSDF.
+    if "uc?id=" not in current_item.cached or "/view?usp=sharing" in current_item.cached:
+        raise RuntimeError("Make sure your Google Drive URLs are in https://drive.google.com/uc?id=... format " + \
+                           "with no /view?usp=sharing at the end. See CONTRIBUTING.md for more info.")
 
     return current_item

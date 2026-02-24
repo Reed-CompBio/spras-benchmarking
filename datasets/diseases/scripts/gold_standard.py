@@ -1,9 +1,7 @@
 import pandas as pd
-import os
 from pathlib import Path
 
-# https://stackoverflow.com/a/5137509/7589775
-dir_path = os.path.dirname(os.path.realpath(__file__))
+dir_path = Path(__file__).parent.resolve()
 
 diseases_path = Path(dir_path, "..")
 
