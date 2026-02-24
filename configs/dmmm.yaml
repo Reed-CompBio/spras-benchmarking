@@ -17,7 +17,9 @@ analysis:
   cytoscape:
     include: false
   ml:
-    include: true
+    # TODO: we either need at least one non-empty pathway in all algorithm runs,
+    # or we need to get rid of validate_df hard-erroring. The latter seems better.
+    include: false
     aggregate_per_algorithm: true
   evaluation:
     include: false
@@ -25,19 +27,20 @@ analysis:
 # Custom settings
 algorithms:
   - name: "omicsintegrator1"
-    params:
-      include: true
+    include: true
+    runs:
       run1:
-        b: [2]
-        w: [.5]
-        d: [10]
-        mu: [2]
+        b: 2
+        w: .5
+        d: 10
+        mu: 2
+        # TODO: egfr prefers dummy_mode: ["file"] since we manually specify EGF_HUMAN as one.
   - name: "omicsintegrator2"
-    params:
-      include: true
+    include: true
+    runs:
       run1:
-        b: [4]
-        g: [0]
+        b: 4
+        g: 0
 
 datasets:
   # TODO: use old paramaters for datasets
@@ -61,14 +64,14 @@ datasets:
   - label: dmmmdiseases_alopecia_areata
     data_dir: datasets/diseases
     edge_files:
-      - raw/string_interactome.txt
+      - processed/string_interactome.tsv
     node_files:
       - prize_files/alopecia_areata_prizes.txt
     other_files: []
   - label: dmmmdiseases_diabetes_mellitus
     data_dir: datasets/diseases
     edge_files:
-      - raw/string_interactome.txt
+      - processed/string_interactome.tsv
     node_files:
       - prize_files/diabetes_mellitus_prizes.txt
     other_files: []
@@ -76,6 +79,16 @@ datasets:
     data_dir: datasets/depmap
     edge_files: ["raw/phosphosite-irefindex13.0-uniprot.txt"]
     node_files: ["processed/FADU_cell_line_prizes_input_nonzero.txt"]
+    other_files: []
+  - label: dmmmegfr_string
+    data_dir: datasets/egfr
+    edge_files: ["processed/interactome.tsv"]
+    node_files: ["processed/prizes.txt"]
+    other_files: []
+  - label: dmmmegfr_irefindex
+    data_dir: datasets/egfr
+    edge_files: ["processed/phosphosite-irefindex13.0-uniprot.txt"]
+    node_files: ["processed/prizes-uniprot.txt"]
     other_files: []
 gold_standards:
   - label: gs0
@@ -90,3 +103,11 @@ gold_standards:
     node_files: ["processed/FADU_gold_standard.txt"]
     data_dir: datasets/depmap
     dataset_labels: ["dmmmdepmap_cellline_fadu"]
+  - label: gs_egfr_string
+    node_files: ["processed/gold-standard-nodes.txt"]
+    data_dir: datasets/egfr
+    dataset_labels: ["dmmmegfr_string"]
+  - label: gs_egfr_irefindex
+    node_files: ["processed/gold-standard-nodes-uniprot.txt"]
+    data_dir: datasets/egfr
+    dataset_labels: ["dmmmegfr_irefindex"]

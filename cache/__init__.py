@@ -67,9 +67,9 @@ def link(output: str, directive: list[str], uncompress=False):
 
     Path(output).unlink(missing_ok=True)
 
-    # Re-download if the directive has expired.
+    # Re-download if the file doesn't exist or the directive has expired.
     cache_item = get_cache_item(directive)
-    if has_expired(directive):
+    if not (artifacts_dir / artifact_name).exists() or has_expired(directive):
         (artifacts_dir / artifact_name).unlink(missing_ok=True)
         cache_item.download(artifacts_dir / artifact_name)
 

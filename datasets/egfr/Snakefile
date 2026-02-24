@@ -1,0 +1,48 @@
+include: "../../cache/Snakefile"
+
+rule all:
+    input:
+        # Our UniProt based files over the older iRefIndex interactome
+        "processed/gold-standard-nodes-uniprot.txt",
+        "processed/prizes-uniprot.txt",
+        "processed/phosphosite-irefindex13.0-uniprot.txt",
+
+        # Our Ensembl protein based files over the STRING interactome 
+        "processed/gold-standard-nodes.txt",
+        "processed/prizes.txt",
+        "processed/interactome.tsv",
+
+produce_fetch_rules({
+    "raw/eight-egfr-reference-all.txt": ["EGFR", "eight-egfr-reference-all.txt"],
+    "raw/egfr-prizes.txt": ["EGFR", "egfr-prizes.txt"],
+    "raw/9606.protein.links.full.txt": FetchConfig(["STRING", "9606", "9606.protein.links.full.txt.gz"], uncompress=True),
+    "raw/HUMAN_9606_idmapping_selected.tsv": FetchConfig(["UniProt", "9606", "HUMAN_9606_idmapping_selected.tab.gz"], uncompress=True),
+    "processed/phosphosite-irefindex13.0-uniprot.txt": ["iRefIndex", "phosphosite-irefindex13.0-uniprot.txt"]
+})
+
+rule process_gold_standard:
+    input: "raw/eight-egfr-reference-all.txt"
+    output: "processed/gold-standard-nodes-uniprot.txt",
+    shell: "uv run scripts/process_gold_standard.py"
+
+rule process_interactome:
+    input: "raw/9606.protein.links.full.txt"
+    output: "processed/interactome.tsv"
+    shell: "uv run scripts/process_interactome.py"
+
+rule process_prizes:
+    input: "raw/egfr-prizes.txt"
+    output: "processed/prizes-uniprot.txt"
+    shell: "uv run scripts/process_prizes.py"
+
+rule map_ensembl:
+    input:
+        "raw/HUMAN_9606_idmapping_selected.tsv",
+        "processed/interactome.tsv",
+        
+        "processed/prizes-uniprot.txt",
+        "processed/gold-standard-nodes-uniprot.txt",
+    output:
+        "processed/prizes.txt",
+        "processed/gold-standard-nodes.txt"
+    shell: "uv run scripts/map_ensembl.py"

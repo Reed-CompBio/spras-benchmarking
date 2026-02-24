@@ -6,6 +6,7 @@ readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
     "gdown>=5.2.0",
+    "loguru>=0.7.3",
     "more-itertools>=10.7.0",
     "networkx>=3.6.1",
     "pandas>=2.3.0",
@@ -25,3 +26,7 @@ package = true
 
 [tool.setuptools.packages]
 find = {namespaces = false} 
+
+[build-system]
+requires = ["setuptools", "wheel", "pip"]
+build-backend = "setuptools.build_meta"

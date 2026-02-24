@@ -1,8 +1,11 @@
 import { extractDatasetCategory, extractDatasetType } from "./outputStyle";
+import { globSync } from 'glob'
 
-export function getDataFiles() {
-  const dataFiles = import.meta.glob("../../public/data/output/**", { query: "?raw" });
-  return Object.keys(dataFiles).map((path) => path.substring("../../public/data/output/".length));
+export function getDataFiles(): string[] {
+  // We prefer this over import.meta.glob, as import.meta.glob currently
+  // leads to OOM for large raw imports, and OOM is especially plausible on CD.
+  const dataFiles = globSync("public/data/output/**");
+  return dataFiles.map((path) => path.substring("public/data/output/".length));
 }
 
 export function getDatasets() {

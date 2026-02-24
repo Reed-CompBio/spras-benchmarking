@@ -20,7 +20,7 @@ pip install ./spras
 To run the postprocess output scripts, we have a `pyproject.toml` which can be used with your desired python package manager. This separates
 the `spras` conda environment from the small scripts we have. (on CI, we use [`uv`](https://docs.astral.sh/uv/).)
 
-To run the benchmarking pipeline, use:
+To run the benchmarking pipeline, use (this example is specifically for disease module mining):
 
 ```sh
 snakemake --cores 1 --configfile configs/dmmm.yaml --show-failed-logs -s spras/Snakefile

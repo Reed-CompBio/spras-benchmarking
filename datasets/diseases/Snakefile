@@ -2,6 +2,7 @@ include: "../../cache/Snakefile"
 
 rule all:
     input:
+        "processed/string_interactome.tsv",
         "GS_files/Alopecia_areata_GS.txt",
         "GS_files/Diabetes_mellitus_GS.txt",
         "prize_files/alopecia_areata_prizes.txt",
@@ -13,7 +14,7 @@ produce_fetch_rules({
     "raw/HumanDO.tsv": ["DISEASES", "HumanDO.tsv"],
     "raw/tiga_gene-trait_stats.tsv": ["DISEASES", "tiga_gene-trait_stats.tsv"],
     "raw/ensg-ensp.tsv": ["BioMart", "ensg-ensp.tsv"],
-    "raw/9606.protein.links.txt": FetchConfig(["STRING", "9606", "9606.protein.links.txt.gz"], uncompress=True),
+    "raw/9606.protein.links.full.txt": FetchConfig(["STRING", "9606", "9606.protein.links.full.txt.gz"], uncompress=True),
     "raw/9606.protein.aliases.txt": FetchConfig(["STRING", "9606", "9606.protein.aliases.txt.gz"], uncompress=True),
 })
 
@@ -41,8 +42,7 @@ rule gold_standard:
 rule files:
     input:
         "data/inputs.csv",
-        "data/gold_standard.csv",
-        "raw/9606.protein.links.txt"
+        "data/gold_standard.csv"
     output:
         # These are the two we use for the SPRAS run for now
         "GS_files/Alopecia_areata_GS.txt",
@@ -51,3 +51,8 @@ rule files:
         "prize_files/diabetes_mellitus_prizes.txt"
     shell:
         "uv run scripts/files.py"
+
+rule interactome:
+    input: "raw/9606.protein.links.full.txt"
+    output: "processed/string_interactome.tsv"
+    shell: "uv run scripts/interactome.py"

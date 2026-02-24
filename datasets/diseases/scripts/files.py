@@ -1,9 +1,7 @@
 import pandas as pd
 from pathlib import Path
-import os
 
-# https://stackoverflow.com/a/5137509/7589775
-dir_path = os.path.dirname(os.path.realpath(__file__))
+dir_path = Path(__file__).parent.resolve()
 
 diseases_path = Path(dir_path, "..")
 (diseases_path / "prize_files").mkdir(exist_ok=True, parents=True)
@@ -16,7 +14,7 @@ def main():
 
     GS_string_df = GS_string_df[GS_string_df["diseaseID"].isin(tiga_string_df["id"])]
     GS_combined_group = GS_string_df.groupby("diseaseName")
-    GS_combined_dict = {k: v for k, v in GS_combined_group}
+    GS_combined_dict = {str(k): v for k, v in GS_combined_group}
 
     tiga_filtered = tiga_string_df[tiga_string_df["id"].isin(GS_string_df["diseaseID"])]
     tiga_group = tiga_filtered.groupby("trait")
@@ -27,7 +25,7 @@ def main():
     tiga_threshold = tiga_filtered.loc[tiga_filtered["trait"].isin(list(tiga_count_threshold.keys()))]
 
     tiga_prizes = tiga_threshold.groupby("trait")
-    tiga_prize_dict = {k: v for k, v in tiga_prizes}
+    tiga_prize_dict = {str(k): v for k, v in tiga_prizes}
 
     for disease in tiga_prize_dict.keys():
         df = tiga_prize_dict[disease]
@@ -38,17 +36,7 @@ def main():
     for disease in GS_combined_dict.keys():
         df = GS_combined_dict[disease]
         df = df[["str_id"]]
-        df.to_csv(diseases_path / "GS_files" / f"{disease.replace(' ', '_')}_GS.txt", sep="\t", index=False, header=None)
-
-    # See /cache/directory.py for information on how this was grabbed.
-    # 9606 is the organism code for homo sapiens and the required background interactome of DISEASES.
-    string = pd.read_csv(diseases_path / "raw" / "9606.protein.links.txt", sep=" ", skiprows=[0], header=None)
-
-    # Threshold anything above a confidence score of 900 to trim down the background interactome
-    string = string[string.iloc[:, 2] > 900]
-    string = string.iloc[:, [0, 1]]
-    string[len(string.columns)] = 1
-    string.to_csv(diseases_path / "raw" / "string_interactome.txt", sep="\t", index=False, header=None)
+        df.to_csv(diseases_path / "GS_files" / f"{disease.replace(' ', '_')}_GS.txt", sep="\t", index=False, header=False)
 
 
 if __name__ == "__main__":

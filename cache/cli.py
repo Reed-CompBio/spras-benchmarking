@@ -3,7 +3,7 @@ Downloads the online variants of cache items.
 
 This may be expanded in the future, so only depend on this file as a debugging utility.
 
-For example, `python cache/cli.py KEGG/ko03250.xml ko03250.xm` allows running the KEGG query
+For example, `python cache/cli.py KEGG/ko03250.xml ko03250.xml` allows running the KEGG query
 for ko03250.xml, which can not be normally accessed automatically in the browser.
 """
 
@@ -23,7 +23,7 @@ def main():
     args = parse_args()
     cache_item = get_cache_item(args.path.split("/"))
 
-    cache_item.download_online(args.output)
+    cache_item.download(args.output)
 
 if __name__ == "__main__":
     main()
