@@ -1,6 +1,6 @@
 import pandas
 from pathlib import Path
-from ensembl_uniprot_mapping import idmapping_as_ensp_uniprot_mapping, idmapping_uniprot_mapping
+from tools.mapping.ensembl_uniprot import idmapping_as_ensp_uniprot_mapping, idmapping_uniprot_mapping
 
 current_directory = Path(__file__).parent.resolve()
 interactome_folder = current_directory / ".." / "raw" / "human-interactome"

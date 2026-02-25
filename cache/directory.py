@@ -344,7 +344,7 @@ directory: CacheDirectory = {
         )
     },
     "TranscriptionFactors": {
-        "Homo_sapiens_TF.tsv": CacheItem.cache_only(
+        "Homo_sapiens_TF.tsv": CacheItem(
             name="Human transcription factors",
             # This server has anti-bot protection, so to respect their wishes, we don't download from the server.
             # The original URL is https://guolab.wchscu.cn/AnimalTFDB4_static/download/TF_list_final/Homo_sapiens_TF,
@@ -354,104 +354,11 @@ directory: CacheDirectory = {
         )
     },
     "PathwayCommons": {
-        # TODO: all of these share the same common URL: can we make this API a little nicer?
-        "PANTHER": {
-            "Apoptosis_signaling_pathway.txt": CacheItem(
-                name="Apoptosis Signaling Pathway",
-                cached="https://drive.google.com/uc?id=1BPcnvqHrGMQeX4oQx2ow3OribgPxzwhG",
-                unpinned="https://www.pathwaycommons.org/pc2/get?format=TXT&uri=https%3A%2F%2Fidentifiers.org%2Fpanther.pathway%3AP00006"
-            ),
-            "B_cell_activation.txt": CacheItem(
-                name="B cell activation",
-                cached="https://drive.google.com/uc?id=1iWcb5AfdobGncRB6xQ6T5qunXzb6Gxd-",
-                unpinned="https://www.pathwaycommons.org/pc2/get?format=TXT&uri=https%3A%2F%2Fidentifiers.org%2Fpanther.pathway%3AP00010"
-            ),
-            "Beta3_adrenergic_receptor_signaling_pathway.txt": CacheItem(
-                name="Beta3_adrenergic_receptor_signaling_pathway",
-                cached="https://drive.google.com/uc?id=1jrJzrDvhDAs818wYjQ_dm1irOz8Bv4lk",
-                unpinned="https://www.pathwaycommons.org/pc2/get?format=TXT&uri=https%3A%2F%2Fidentifiers.org%2Fpanther.pathway%3AP04379"
-            ),
-            "Cadherin_signaling_pathway.txt": CacheItem(
-                name="Cadherin signaling pathway",
-                cached="https://drive.google.com/uc?id=14Of-6mwIpul_QciyJ-Xb9f7t-IrVcIna",
-                unpinned="https://www.pathwaycommons.org/pc2/get?format=TXT&uri=https%3A%2F%2Fidentifiers.org%2Fpanther.pathway%3AP00012"
-            ),
-            "Fas_signaling_pathway.txt": CacheItem(
-                name="FAS signaling_pathway",
-                cached="https://drive.google.com/uc?id=121cHJf0ZtglQHvy9xuEpYSjwBbJV9Fju",
-                unpinned="https://www.pathwaycommons.org/pc2/get?format=TXT&uri=https%3A%2F%2Fidentifiers.org%2Fpanther.pathway%3AP00020"
-            ),
-            "FGF_signaling_pathway.txt": CacheItem(
-                name="FGF signaling pathway",
-                cached="https://drive.google.com/uc?id=1PIiWK1-ImXE1YHdDh1hGUVB01Ye8brQg",
-                unpinned="https://www.pathwaycommons.org/pc2/get?format=TXT&uri=https%3A%2F%2Fidentifiers.org%2Fpanther.pathway%3AP00021"
-            ),
-            "Hedgehog_signaling_pathway.txt": CacheItem(
-                name="Hedgehog signaling pathway",
-                cached="https://drive.google.com/uc?id=1i7HKn4nlJQcaXUDXpbpDFBxbkBXZC0xQ",
-                unpinned="https://www.pathwaycommons.org/pc2/get?format=TXT&uri=https%3A%2F%2Fidentifiers.org%2Fpanther.pathway%3AP00025"
-            ),
-            "Insulin_IGF_pathway_protein_kinase_B_signaling_cascade.txt": CacheItem(
-                name="Insulin/IGF pathway-protein kinase B signaling cascade",
-                cached="https://drive.google.com/uc?id=1Xkxcm0ngrE8otau9ccyPeCg7KZUdhJf7",
-                unpinned="https://www.pathwaycommons.org/pc2/get?format=TXT&uri=https%3A%2F%2Fidentifiers.org%2Fpanther.pathway%3AP00033"
-            ),
-            "Interferon_gamma_signaling_pathway.txt": CacheItem(
-                name="Interferon-gamma signaling pathway",
-                cached="https://drive.google.com/uc?id=1aPqi0A5ZIOA5kKELVUI_NvC8taiHll5z",
-                unpinned="https://www.pathwaycommons.org/pc2/get?format=TXT&uri=https%3A%2F%2Fidentifiers.org%2Fpanther.pathway%3AP00035"
-            ),
-            "Interleukin_signaling_pathway.txt": CacheItem(
-                name="Interleukin signaling pathway",
-                cached="https://drive.google.com/uc?id=1IOv14pRJ8aN9LRnkZ4BQXf3QGUAashku",
-                unpinned="https://www.pathwaycommons.org/pc2/get?format=TXT&uri=https%3A%2F%2Fidentifiers.org%2Fpanther.pathway%3AP00036"
-            ),
-            "JAK_STAT_signaling_pathway.txt": CacheItem(
-                name="JAK/STAT signaling pathway",
-                cached="https://drive.google.com/uc?id=1QzMEMUZzeoxUYZZRGcm6Al_HzH6pmwED",
-                unpinned="https://www.pathwaycommons.org/pc2/get?format=TXT&uri=https%3A%2F%2Fidentifiers.org%2Fpanther.pathway%3AP00038"
-            ),
-            "Nicotinic_acetylcholine_receptor_signaling_pathway.txt": CacheItem(
-                name="Nicotinic acetylcholine receptor signaling pathway",
-                cached="https://drive.google.com/uc?id=1SdnKr4TthfmZWgMA_FOlTmf-EEpNsdzx",
-                unpinned="https://www.pathwaycommons.org/pc2/get?format=TXT&uri=https%3A%2F%2Fidentifiers.org%2Fpanther.pathway%3AP00044"
-            ),
-            "Notch_signaling_pathway.txt": CacheItem(
-                name="Notch signaling pathway",
-                cached="https://drive.google.com/uc?id=1qfyxuc1EomOKGRyI7QyQ7LUUhLPZytz5",
-                unpinned="https://www.pathwaycommons.org/pc2/get?format=TXT&uri=https%3A%2F%2Fidentifiers.org%2Fpanther.pathway%3AP00045"
-            ),
-            "PDGF_signaling_pathway.txt": CacheItem(
-                name="PDGF signaling pathway",
-                cached="https://drive.google.com/uc?id=1A9hl340XKnZeNfd3hiiX7lxOVV94lQ5s",
-                unpinned="https://www.pathwaycommons.org/pc2/get?format=TXT&uri=https%3A%2F%2Fidentifiers.org%2Fpanther.pathway%3AP00047"
-            ),
-            "Ras_pathway.txt": CacheItem(
-                name="Ras pathway",
-                cached="https://drive.google.com/uc?id=1wNizL5wDh48E5YxHcZjURa9UeKMONrgr",
-                unpinned="https://www.pathwaycommons.org/pc2/get?format=TXT&uri=https%3A%2F%2Fidentifiers.org%2Fpanther.pathway%3AP04393"
-            ),
-            "T_cell_activation.txt": CacheItem(
-                name="T cell activation",
-                cached="https://drive.google.com/uc?id=1t5G_jN8QSOiVceQGAmKvbYebkV1G5oJy",
-                unpinned="https://www.pathwaycommons.org/pc2/get?format=TXT&uri=https%3A%2F%2Fidentifiers.org%2Fpanther.pathway%3AP00053"
-            ),
-            "Toll_receptor_signaling_pathway.txt": CacheItem(
-                name="Toll receptor signaling pathway",
-                cached="https://drive.google.com/uc?id=1nFix8mMvuU_Vu9tExwgaS279nynqM_Oo",
-                unpinned="https://www.pathwaycommons.org/pc2/get?format=TXT&uri=https%3A%2F%2Fidentifiers.org%2Fpanther.pathway%3AP00054"
-            ),
-            "VEGF_signaling_pathway.txt": CacheItem(
-                name="VEGF signaling pathway",
-                cached="https://drive.google.com/uc?id=1W1G0TmA6-JLF9pIZD0TR4w95IwG2IALs",
-                unpinned="https://www.pathwaycommons.org/pc2/get?format=TXT&uri=https%3A%2F%2Fidentifiers.org%2Fpanther.pathway%3AP00056"
-            ),
-            "Wnt_signaling_pathway.txt": CacheItem(
-                name="Wnt signaling pathway",
-                cached="https://drive.google.com/uc?id=1diaacbik5hcA9Fo7vMXFAP_wXRe0xCLB",
-                unpinned="https://www.pathwaycommons.org/pc2/get?format=TXT&uri=https%3A%2F%2Fidentifiers.org%2Fpanther.pathway%3AP00057"
-            ),
-        }
+        "pc-biopax.owl.gz": CacheItem(
+            name="PathwayCommons Universal BioPAX file",
+            cached="https://drive.google.com/uc?id=1R7uE2ky7fGlZThIWCOblu7iqbpC-aRr0",
+            pinned="https://download.baderlab.org/PathwayCommons/PC2/v14/pc-biopax.owl.gz"
+        )
     }
 }
 

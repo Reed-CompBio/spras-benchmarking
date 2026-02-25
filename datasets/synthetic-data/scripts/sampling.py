@@ -4,7 +4,7 @@ import collections
 from typing import OrderedDict, NamedTuple
 from tools.sample import attempt_sample
 from tools.trim import trim_data_file
-from parser import parser
+from .util.parser import parser
 
 current_directory = Path(__file__).parent.resolve()
 

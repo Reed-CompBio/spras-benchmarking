@@ -1,6 +1,6 @@
 import pandas as pd
 from pathlib import Path
-from parser import parser
+from .util.parser import parser
 
 current_directory = Path(__file__).parent.resolve()
 

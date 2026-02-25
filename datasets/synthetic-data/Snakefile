@@ -34,15 +34,11 @@ rule all:
         ], pathway=pathways, threshold=thresholds)
 
 produce_fetch_rules({
-    **{
-        "raw/9606.protein.links.full.v12.0.txt": FetchConfig(["STRING", "9606", "9606.protein.links.full.txt.gz"], uncompress=True),
-        "raw/human-interactome/table_S3_surfaceome.xlsx": ["Surfaceome", "table_S3_surfaceome.xlsx"],
-        "raw/human-interactome/Homo_sapiens_TF.tsv": ["TranscriptionFactors", "Homo_sapiens_TF.tsv"],
-        "raw/human-interactome/HUMAN_9606_idmapping_selected.tsv": FetchConfig(["UniProt", "9606", "HUMAN_9606_idmapping_selected.tab.gz"], uncompress=True),
-    },
-    # See directory.py for the online/cached location of all pathways from PathwayCommons.
-    **{f"raw/pathway-data/{k}.txt": ["PathwayCommons", "PANTHER", f"{k}.txt"] for k in pathways},
-    "raw/9606.protein.aliases.txt": FetchConfig(["STRING", "9606", "9606.protein.aliases.txt.gz"], uncompress=True),
+    "raw/9606.protein.links.full.v12.0.txt": FetchConfig(["STRING", "9606", "9606.protein.links.full.txt.gz"], uncompress=True),
+    "raw/human-interactome/table_S3_surfaceome.xlsx": ["Surfaceome", "table_S3_surfaceome.xlsx"],
+    "raw/human-interactome/Homo_sapiens_TF.tsv": ["TranscriptionFactors", "Homo_sapiens_TF.tsv"],
+    "raw/human-interactome/HUMAN_9606_idmapping_selected.tsv": FetchConfig(["UniProt", "9606", "HUMAN_9606_idmapping_selected.tab.gz"], uncompress=True),
+    "raw/pc-biopax.owl": FetchConfig(["PathwayCommons", "pc-biopax.owl.gz"], uncompress=True)
 })
 
 rule interactome:
