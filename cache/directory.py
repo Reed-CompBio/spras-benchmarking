@@ -358,6 +358,11 @@ directory: CacheDirectory = {
             name="PathwayCommons Universal BioPAX file",
             cached="https://drive.google.com/uc?id=1R7uE2ky7fGlZThIWCOblu7iqbpC-aRr0",
             pinned="https://download.baderlab.org/PathwayCommons/PC2/v14/pc-biopax.owl.gz"
+        ),
+        "pathways.txt.gz": CacheItem(
+            name="PathwayCommons Pathway Identifiers",
+            cached="https://drive.google.com/uc?id=1SMwuuohuZuNFnTev4zRNJrBnBsLlCHcK",
+            pinned="https://download.baderlab.org/PathwayCommons/PC2/v14/pathways.txt.gz",
         )
     }
 }

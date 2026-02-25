@@ -1,0 +1,11 @@
+include: "../../../cache/Snakefile"
+
+rule all:
+    input:
+        # TODO: pass to script
+        "raw/pathways.txt"   
+
+produce_fetch_rules({
+    "raw/pc-biopax.owl": FetchConfig(["PathwayCommons", "pc-biopax.owl.gz"], uncompress=True),
+    "raw/pathways.txt": FetchConfig(["PathwayCommons", "pathways.txt.gz"], uncompress=True)
+})

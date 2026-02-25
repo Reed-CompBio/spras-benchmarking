@@ -1,13 +1,11 @@
 # Synthetic Data
 
-## Download STRING Human Interactome
-1. Download the STRING *Homo sapiens* `9606.protein.links.full.v12.0.txt.gz` database file from [STRING](https://string-db.org/cgi/download?sessionId=bL9sRTdIaUEt&species_text=Homo+sapiens&settings_expanded=0&min_download_score=0&filter_redundant_pairs=0&delimiter_type=txt).
-2. Move the downloaded file into the `raw/human-interactome/` folder.
-3. From the `raw/synthetic-data/` directory, extract the file using:
+## PANTHER Pathway Fetching
 
-   ```sh
-   gunzip human-interactome/9606.protein.links.full.v12.0.txt.gz
-   ```
+This dataset has a kind of 'sub'-dataset, which is a separate Snakemake rule
+used for generating the pathway files and their associated metadata to be used inside this one.
+
+Located under `./panther_pathways`, it provides TODO.
 
 ## Download New PANTHER Pathways
 1. Visit [Pathway Commons](https://www.pathwaycommons.org/).

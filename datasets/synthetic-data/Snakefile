@@ -38,7 +38,6 @@ produce_fetch_rules({
     "raw/human-interactome/table_S3_surfaceome.xlsx": ["Surfaceome", "table_S3_surfaceome.xlsx"],
     "raw/human-interactome/Homo_sapiens_TF.tsv": ["TranscriptionFactors", "Homo_sapiens_TF.tsv"],
     "raw/human-interactome/HUMAN_9606_idmapping_selected.tsv": FetchConfig(["UniProt", "9606", "HUMAN_9606_idmapping_selected.tab.gz"], uncompress=True),
-    "raw/pc-biopax.owl": FetchConfig(["PathwayCommons", "pc-biopax.owl.gz"], uncompress=True)
 })
 
 rule interactome:
