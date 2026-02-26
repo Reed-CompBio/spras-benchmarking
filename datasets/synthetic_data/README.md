@@ -1,19 +1,23 @@
 # Synthetic Data
 
+_Synthetic Data_ is a generic dataset label for a class of synthetic pathways provided by [PathwayCommons](https://www.pathwaycommons.org/).
+Currently, we only use [PANTHER](https://pantherdb.org/) pathways from PantherCommons, specifically enumerated in `./pathways.jsonc`.
+
+This entire workflow can also be done with `uv run snakemake --cores 1` inside this directory, as like any other dataset.
+
+## Workflow
+
 ## PANTHER Pathway Fetching
 
-This dataset has a kind of 'sub'-dataset, which is a separate Snakemake rule
-used for generating the pathway files and their associated metadata to be used inside this one.
+PANTHER pathways are fetched from a singular OWL file containing a bundled collection of all pathways. Since the OWL file that
+PathwayCommons provides is over 10gb, we have a separate Snakemake workflow, located nuder `./panther_pathways`, that trims down the OWL file
+to only contain pathways from PANTHER.
 
-Located under `./panther_pathways`, it provides TODO.
+Inside `scripts/fetch_pathway.py`, we use this intermediately-generated (and cached!) OWL file to individually generate associated OWL and
+SIF files for each pathway.
 
-## Download New PANTHER Pathways
-1. Visit [Pathway Commons](https://www.pathwaycommons.org/).
-2. Search for the desired pathway (e.g., "signaling") and filter the results by the **PANTHER pathway** data source.  
-   Example: [Search for "Signaling" filtered by PANTHER pathway](https://apps.pathwaycommons.org/search?datasource=panther&q=Signaling&type=Pathway)
-3. Click on the desired pathway and download the **Extended SIF** version of the pathway.
-4. In the `raw/pathway-data/` folder, create a new subfolder named after the pathway you downloaded.
-5. Move the downloaded Extended SIF file to this new folder (as a `.txt` file). Rename the file to match the subfolder name exactly.
+We have a `./util/parse_pc_pathways.py`, which takes a `pathways.txt` provided by PathwayCommons, and allows us to map the
+human-readable pathway names in `pathways.jsonc` into [identifiers.org](https://identifiers.org/) identifiers.
 
 ## Sources and Targets
 
@@ -22,10 +26,6 @@ are silico human surfaceomes receptors.
 
 [Targets]( https://guolab.wchscu.cn/AnimalTFDB4//#/), or `Homo_sapiens_TF.tsv`, (see [original paper](https://doi.org/10.1093/nar/gkac907))
 are human transcription factors.
-
-## Steps to Generate SPRAS-Compatible Pathways
-
-This entire workflow can also be done with `uv run snakemake --cores 1` inside this directory.
 
 ### 1. Process PANTHER Pathways
 
@@ -53,13 +53,3 @@ Each subfolder will include the following three files:
 - `<pathway_name>_gs_nodes.txt`
 - `<pathway_name>_node_prizes.txt`
 
-# Pilot Data
-For the pilot data, use the list `["Wnt_signaling", "JAK_STAT_signaling", "Interferon_gamma_signaling", "FGF_signaling", "Ras"]` in both:
-- the list in `combine.py`
-- the list in `overlap_analytics.py`
-
-Make sure these pathways in the list are also added `["Wnt_signaling", "JAK_STAT_signaling", "Interferon_gamma_signaling", "FGF_signaling", "Ras"]`to:
-- the `pathways` vector in `ProcessPantherPathway.R`
-- the list in `panther_spras_formatting.py`
-
-**Once you’ve updated the pathway lists in all relevant scripts, run all the steps above to generate the Pilot dataset.**

@@ -46,7 +46,7 @@ rule process_tfs:
 
 rule process_panther_pathway:
     input:
-        "raw/pathway-data/{pathway}.txt",
+        "intermediate/pathway-data/{pathway}.txt",
         "raw/human-interactome/table_S3_surfaceome.xlsx",
         "raw/human-interactome/Homo_sapiens_TF_Uniprot.tsv"
     output:
