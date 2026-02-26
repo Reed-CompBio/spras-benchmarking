@@ -363,7 +363,18 @@ directory: CacheDirectory = {
             name="PathwayCommons Pathway Identifiers",
             cached="https://drive.google.com/uc?id=1SMwuuohuZuNFnTev4zRNJrBnBsLlCHcK",
             pinned="https://download.baderlab.org/PathwayCommons/PC2/v14/pathways.txt.gz",
-        )
+        ),
+        "denylist.txt": CacheItem(
+            name="PathwayCommons small molecule denylist",
+            cached="https://drive.google.com/uc?id=1QmISJXPvVljA8oKuNYRUNbJJvZKPa_-u",
+            pinned="https://download.baderlab.org/PathwayCommons/PC2/v14/blacklist.txt"
+        ),
+        "intermediate": {
+            "pc-panther-biopax.owl": CacheItem(
+                name="PathwayCommons PANTHER-only BioPAX file",
+                cached="https://drive.google.com/uc?id=1MklrD8CJ1BIjh_wWr_g5rrIJ5XJB7FUI"
+            )
+        }
     }
 }
 

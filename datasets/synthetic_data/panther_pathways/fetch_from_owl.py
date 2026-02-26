@@ -10,7 +10,7 @@ def main():
     (current_directory / 'output').mkdir(exist_ok=True)
     fetch(
         current_directory / 'raw' / 'pc-biopax.owl',
-        output=(current_directory / 'output' / "pc-biopax-selected.owl"),
+        output=(current_directory / 'output' / "pc-panther-biopax.owl"),
         uris=list(pathways_df["PATHWAY_URI"]),
         memory=f"{2**(16 - 1)}m" # this is why we don't run this in CI! This is 32gb of memory.
     )

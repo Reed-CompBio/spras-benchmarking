@@ -1,26 +1,7 @@
 include: "../../cache/Snakefile"
+from jsonc_parser.parser import JsoncParser
 
-pathways = [
-    "Apoptosis_signaling_pathway",
-    "B_cell_activation",
-    "Beta3_adrenergic_receptor_signaling_pathway",
-    "Cadherin_signaling_pathway",
-    "Fas_signaling_pathway",
-    "FGF_signaling_pathway",
-    "Hedgehog_signaling_pathway",
-    "Insulin_IGF_pathway_protein_kinase_B_signaling_cascade",
-    "Interferon_gamma_signaling_pathway",
-    "Interleukin_signaling_pathway",
-    "JAK_STAT_signaling_pathway",
-    "Nicotinic_acetylcholine_receptor_signaling_pathway",
-    "Notch_signaling_pathway",
-    "PDGF_signaling_pathway",
-    "Ras_pathway",
-    "T_cell_activation",
-    "Toll_receptor_signaling_pathway",
-    "VEGF_signaling_pathway",
-    "Wnt_signaling_pathway",
-]
+pathways = JsoncParser.parse_file("pathways.jsonc")
 
 # TODO: deduplicate from sampling.py
 thresholds = list(map(str, map(lambda x: (x + 1) / 10, range(10))))
@@ -38,6 +19,9 @@ produce_fetch_rules({
     "raw/human-interactome/table_S3_surfaceome.xlsx": ["Surfaceome", "table_S3_surfaceome.xlsx"],
     "raw/human-interactome/Homo_sapiens_TF.tsv": ["TranscriptionFactors", "Homo_sapiens_TF.tsv"],
     "raw/human-interactome/HUMAN_9606_idmapping_selected.tsv": FetchConfig(["UniProt", "9606", "HUMAN_9606_idmapping_selected.tab.gz"], uncompress=True),
+    "raw/pc-panther-biopax.owl": ["PathwayCommons", "intermediate", "pc-panther-biopax.owl"],
+    "raw/denylist.txt": ["PathwayCommons", "denylist.txt"],
+    "raw/pathways.txt": FetchConfig(["PathwayCommons", "pathways.txt.gz"], uncompress=True)
 })
 
 rule interactome:
