@@ -3,7 +3,8 @@ include: "../../../cache/Snakefile"
 rule all:
     input:
         # TODO: pass to script
-        "raw/pathways.txt"   
+        "raw/pathways.txt",
+        "raw/pc-biopax.owl"
 
 produce_fetch_rules({
     "raw/pc-biopax.owl": FetchConfig(["PathwayCommons", "pc-biopax.owl.gz"], uncompress=True),
