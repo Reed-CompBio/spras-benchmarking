@@ -1,0 +1,31 @@
+[
+    // "CCKR signaling map", TODO: not a valid pathway name?
+    "Wnt signaling pathway",
+    "VEGF signaling pathway",
+    "Toll receptor signaling pathway",
+    "TGF-beta signaling pathway",
+    "PDGF signaling pathway",
+    "Notch signaling pathway",
+    "JAK/STAT signaling pathway",
+    "Interleukin signaling pathway",
+    "Interferon-gamma signaling pathway",
+    "Integrin signalling pathway",
+    "Insulin/IGF pathway-protein kinase B signaling cascade",
+    "Inflammation mediated by chemokine and cytokine signaling pathway",
+    "Hedgehog signaling pathway",
+    "FGF signaling pathway",
+    "FAS signaling pathway",
+    // "Endothelin signaling pathway", TODO: not a valid pathway name?
+    "EGF receptor signaling pathway",
+    "Cadherin signaling pathway",
+    "Apoptosis signaling pathway",
+    "Ras Pathway",
+    "PI3 kinase pathway",
+    "p38 MAPK pathway",
+    "Insulin/IGF pathway-mitogen activated protein kinase kinase/MAP kinase cascade",
+    "p53 pathway",
+    "Hypoxia response via HIF activation",
+    "Oxidative stress response",
+    "B cell activation",
+    "T cell activation"
+]
