@@ -522,11 +522,11 @@ wheels = [
 
 [[package]]
 name = "paxtools"
-version = "6.0.0.post1"
+version = "6.0.0.2"
 source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/2d/76/e65fc320494d07339a7f6b83c23deeb7337e3b7e3814880093114b6f488a/paxtools-6.0.0.post1.tar.gz", hash = "sha256:2fddd9155e92e5a8d5cc4b83427f8e804e6957aa8362d4abbf7656c6f858b9a8", size = 13690012, upload-time = "2026-02-11T07:29:45.375Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/e4/7e/bcaa11908406cdffb5eeae6797244e99d4d5111e0a4e22a7eea13607af52/paxtools-6.0.0.2.tar.gz", hash = "sha256:0a313311fa313fc222c53874dfa5641b86cbedc49a2fb5da3b120949f7b84377", size = 13691523, upload-time = "2026-02-25T08:23:37.519Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/9f/fb/5299ab3d3e4bfb686c36a017c098bfaafd5f3b8e3fa81a8a2e618a50638a/paxtools-6.0.0.post1-py3-none-any.whl", hash = "sha256:c10318fc2a7767c4d39dd7365bfbcf1c1e8052201315024f7bf1c62cca2ef8fe", size = 13693939, upload-time = "2026-02-11T07:29:42.783Z" },
+    { url = "https://files.pythonhosted.org/packages/f0/e7/369d85283551f0770e16ce7054a62b4eb92107d72d2108fc563856323a67/paxtools-6.0.0.2-py3-none-any.whl", hash = "sha256:2301d374f0f5a7a72c7dcff5528ab3b0cd524c946a7246984e4221c8d36d0430", size = 13695547, upload-time = "2026-02-25T08:23:34.992Z" },
 ]
 
 [[package]]
@@ -1001,7 +1001,7 @@ requires-dist = [
     { name = "networkx", specifier = ">=3.6.1" },
     { name = "openpyxl", specifier = ">=3.1.5" },
     { name = "pandas", specifier = ">=2.3.0" },
-    { name = "paxtools", specifier = ">=6.0.0.post1" },
+    { name = "paxtools", specifier = ">=6.0.0.2" },
     { name = "pydantic", specifier = ">=2.12.5" },
     { name = "requests", specifier = ">=2.32.5" },
 ]
