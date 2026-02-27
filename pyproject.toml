@@ -25,6 +25,10 @@ dev = [
 
 [tool.ruff]
 line-length = 150
+exclude = ["spras"]
+
+[tool.ruff.lint]
+unfixable = ["E712"]
 
 [tool.uv]
 package = true

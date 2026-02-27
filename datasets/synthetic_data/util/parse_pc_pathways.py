@@ -17,7 +17,7 @@ def parse_pc_pathways(pathways_txt_path: str | PathLike) -> pandas.DataFrame:
     needle = "\n\n"
     _, text = Path(pathways_txt_path).read_text().split(needle)
 
-    pathways_df = pandas.read_csv(StringIO(text), sep='\t')
+    pathways_df = pandas.read_csv(StringIO(text), sep="\t")
     pathways_df = pathways_df.loc[pathways_df["DATASOURCE"] == "PANTHER"]
     pathways_df = pathways_df.loc[pathways_df["NUM_DIRECT_COMPONENT_OR_STEP_PROCESSES"] != 0]
     pathways_df = pathways_df.reset_index(drop=True)

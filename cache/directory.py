@@ -16,11 +16,13 @@ from loguru import logger
 dir_path = Path(__file__).parent.resolve()
 
 # Our cache emits warnings for files with unpinned versions that don't match the cache.
-(dir_path / 'logs').mkdir(exist_ok=True)
-logger.add(dir_path / 'logs' / "cache.log", level="WARNING")
+(dir_path / "logs").mkdir(exist_ok=True)
+logger.add(dir_path / "logs" / "cache.log", level="WARNING")
+
 
 class DownloadFileCheckException(RuntimeError):
     """See Service#download_against_cache for some motivation for this custom error"""
+
 
 @dataclass
 class Service:
@@ -34,17 +36,12 @@ class Service:
         # As per https://stackoverflow.com/a/39217788/7589775 to enable download streaming.
         with requests.get(self.url, stream=True, headers=self.headers) as response:
             response.raw.decode_content = True
-            with open(output, 'wb') as f:
+            with open(output, "wb") as f:
                 shutil.copyfileobj(response.raw, f)
             return response
 
     # NOTE: this is slightly yucky code deduplication. The only intended values of `downloaded_file_type` are `pinned` and `unpinned`.
-    def download_against_cache(
-            self,
-            cache: Path,
-            downloaded_file_type: str,
-            move_output: bool
-        ):
+    def download_against_cache(self, cache: Path, downloaded_file_type: str, move_output: bool):
         """
         Downloads `this` Service and checks it against the provided `cache` at path. In logs,
         the file will be referred to as `downloaded_file_type`.
@@ -68,20 +65,23 @@ class Service:
             else:
                 shutil.copy(cache, debug_file_path)
             # We use a custom error type to prevent any overlap with RuntimeError. I am not sure if there is any.
-            raise DownloadFileCheckException(f"The {downloaded_file_type} file {downloaded_file_path} and " + \
-                                             f"cached file originally at {cache} do not match! " + \
-                                             f"Compare the pinned {downloaded_file_path} and the cached {debug_file_path}.")
+            raise DownloadFileCheckException(
+                f"The {downloaded_file_type} file {downloaded_file_path} and "
+                + f"cached file originally at {cache} do not match! "
+                + f"Compare the pinned {downloaded_file_path} and the cached {debug_file_path}."
+            )
         else:
             # Since we don't clean up pinned_file_path for the above branch's debugging,
             # we need to clean it up here.
             downloaded_file_path.unlink()
 
     @staticmethod
-    def coerce(obj: 'Service | str') -> 'Service':
+    def coerce(obj: "Service | str") -> "Service":
         # TODO: This could also be replaced by coercing str to Service in CacheItem via pydantic.
         if isinstance(obj, str):
             return Service(url=obj)
         return obj
+
 
 def fetch_biomart_service(xml: str) -> Service:
     """
@@ -90,6 +90,7 @@ def fetch_biomart_service(xml: str) -> Service:
     """
     ROOT = "http://www.ensembl.org/biomart/martservice?query="
     return Service(ROOT + urllib.parse.quote_plus(xml))
+
 
 @dataclass
 class CacheItem:
@@ -136,7 +137,7 @@ class CacheItem:
         logger.info(f"Fetching {self.name}...")
 
         logger.info(f"Downloading cache {self.cached} to {output}...")
-        gdown.download(self.cached, str(output)) # gdown doesn't have a type signature, but it expects a string :/
+        gdown.download(self.cached, str(output))  # gdown doesn't have a type signature, but it expects a string :/
 
         if self.pinned is not None:
             Service.coerce(self.pinned).download_against_cache(cache=Path(output), downloaded_file_type="pinned", move_output=True)
@@ -148,6 +149,8 @@ class CacheItem:
                 logger.warning(err)
 
         # TODO: yikes! same with self.unpinned
+
+
 CacheDirectory = dict[str, Union[CacheItem, "CacheDirectory"]]
 
 # An *unversioned* directory list.
@@ -255,8 +258,8 @@ directory: CacheDirectory = {
             name="KEGG 03250",
             cached="https://drive.google.com/uc?id=16dtWKHCQMp2qrLfFDE7nVhbwBCr2H5a9",
             unpinned=Service(
-                "https://www.kegg.jp/kegg-bin/download?entry=ko03250&format=kgml",
-                headers={'Referer': 'https://www.kegg.jp/pathway/ko03250'})
+                "https://www.kegg.jp/kegg-bin/download?entry=ko03250&format=kgml", headers={"Referer": "https://www.kegg.jp/pathway/ko03250"}
+            ),
         )
     },
     "HIV1": {
@@ -266,13 +269,13 @@ directory: CacheDirectory = {
         "prize_05.tsv": CacheItem(
             name="HIV_05 prizes",
             cached="https://drive.google.com/uc?id=1jVWNRPfYkbqimO44GdzXYB3-7NXhet1m",
-            pinned="https://raw.githubusercontent.com/gitter-lab/hiv1-aurkb/refs/heads/main/Results/base_analysis/prize_05.csv"
+            pinned="https://raw.githubusercontent.com/gitter-lab/hiv1-aurkb/refs/heads/main/Results/base_analysis/prize_05.csv",
         ),
         "prize_060.tsv": CacheItem(
             name="HIV_060 prizes",
             cached="https://drive.google.com/uc?id=1Aucgp7pcooGr9oT4m2bvYEuYW6186WxQ",
-            pinned="https://raw.githubusercontent.com/gitter-lab/hiv1-aurkb/refs/heads/main/Results/base_analysis/prize_060.csv"
-        )
+            pinned="https://raw.githubusercontent.com/gitter-lab/hiv1-aurkb/refs/heads/main/Results/base_analysis/prize_060.csv",
+        ),
     },
     "iRefIndex": {
         # This can also be obtained from the SPRAS repo, though the SPRAS repo removes self loops. We don't.
@@ -283,14 +286,14 @@ directory: CacheDirectory = {
         "phosphosite-irefindex13.0-uniprot.txt": CacheItem(
             name="iRefIndex v13.0 UniProt interactome",
             cached="https://drive.google.com/uc?id=1fQ8Z3FjEwUseEtsExO723zj7mAAtdomo",
-            pinned="https://raw.githubusercontent.com/gitter-lab/tps/refs/heads/master/data/networks/phosphosite-irefindex13.0-uniprot.txt"
+            pinned="https://raw.githubusercontent.com/gitter-lab/tps/refs/heads/master/data/networks/phosphosite-irefindex13.0-uniprot.txt",
         )
     },
     "OsmoticStress": {
         "yeast_pcsf_network.sif": CacheItem(
             # In the paper https://doi.org/10.1016/j.celrep.2018.08.085
             name="Case Study Edge Results, from Supplementary Data 3",
-            cached="https://drive.google.com/uc?id=1Agte0Aezext-8jLhGP4GmaF3tS7gHX-h"
+            cached="https://drive.google.com/uc?id=1Agte0Aezext-8jLhGP4GmaF3tS7gHX-h",
         ),
         # The following files are from https://github.com/gitter-lab/osmotic-stress.
         # While the following files do point to the repository's main branch,
@@ -298,27 +301,27 @@ directory: CacheDirectory = {
         "prizes.txt": CacheItem(
             name="Osmotic Stress Prizes",
             pinned="https://raw.githubusercontent.com/gitter-lab/osmotic-stress/refs/heads/master/Input%20Data/prizes.txt",
-            cached="https://drive.google.com/uc?id=16WDQs0Vjv6rI12-hbifsbnpH31jMGhJg"
+            cached="https://drive.google.com/uc?id=16WDQs0Vjv6rI12-hbifsbnpH31jMGhJg",
         ),
         "ChasmanNetwork-DirUndir.txt": CacheItem(
             name="Network Input",
             pinned="https://raw.githubusercontent.com/gitter-lab/osmotic-stress/refs/heads/master/Input%20Data/ChasmanNetwork-DirUndir.txt",
-            cached="https://drive.google.com/uc?id=1qYXPaWcPU72YYME7NaBzD7thYCHRzrLH"
+            cached="https://drive.google.com/uc?id=1qYXPaWcPU72YYME7NaBzD7thYCHRzrLH",
         ),
         "dummy.txt": CacheItem(
             name="Dummy Nodes File",
             pinned="https://raw.githubusercontent.com/gitter-lab/osmotic-stress/refs/heads/master/Input%20Data/dummy.txt",
-            cached="https://drive.google.com/uc?id=1dsFIhBrIEahggg0JPxw64JwS51pKxoQU"
+            cached="https://drive.google.com/uc?id=1dsFIhBrIEahggg0JPxw64JwS51pKxoQU",
         ),
         "_edgeFreq.eda ": CacheItem(
             name="Case Study Omics Integrator Edge Frequencies",
             pinned="https://raw.githubusercontent.com/gitter-lab/osmotic-stress/refs/heads/master/Notebooks/Forest-TPS/_edgeFreq.eda",
-            cached="https://drive.google.com/uc?id=1M_rxEzUCo_EVuFyM47OEH2J-4LB3eeCR"
+            cached="https://drive.google.com/uc?id=1M_rxEzUCo_EVuFyM47OEH2J-4LB3eeCR",
         ),
         "goldStandardUnionDetailed.txt": CacheItem(
             name="Gold Standard Reference Pathways",
             pinned="https://raw.githubusercontent.com/gitter-lab/osmotic-stress/refs/heads/master/data/evaluation/goldStandardUnionDetailed.txt",
-            cached="https://drive.google.com/uc?id=1-_zF9oKFCNmJbDCC2vq8OM17HJw80s2T"
+            cached="https://drive.google.com/uc?id=1-_zF9oKFCNmJbDCC2vq8OM17HJw80s2T",
         ),
     },
     "EGFR": {
@@ -328,19 +331,19 @@ directory: CacheDirectory = {
         "eight-egfr-reference-all.txt": CacheItem(
             name="EGFR Gold Standard Reference",
             pinned="https://raw.githubusercontent.com/gitter-lab/tps/refs/heads/master/data/resources/eight-egfr-reference-all.txt",
-            cached="https://drive.google.com/uc?id=15MqpIbH1GRA1tq0ZXH9oMnKytoFSzXyw"
+            cached="https://drive.google.com/uc?id=15MqpIbH1GRA1tq0ZXH9oMnKytoFSzXyw",
         ),
         "egfr-prizes.txt": CacheItem(
             name="EGFR prizes",
             pinned="https://raw.githubusercontent.com/gitter-lab/tps/refs/heads/master/data/pcsf/egfr-prizes.txt",
-            cached="https://drive.google.com/uc?id=1nI5hw-rYRZPs15UJiqokHpHEAabRq6Xj"
-        )
+            cached="https://drive.google.com/uc?id=1nI5hw-rYRZPs15UJiqokHpHEAabRq6Xj",
+        ),
     },
     "Surfaceome": {
         "table_S3_surfaceome.xlsx": CacheItem(
             name="Human surfaceome",
             unpinned="http://wlab.ethz.ch/surfaceome/table_S3_surfaceome.xlsx",
-            cached="https://docs.google.com/uc?id=1cBXYbDnAJVet0lv3BRrizV5FuqfMbBr0"
+            cached="https://docs.google.com/uc?id=1cBXYbDnAJVet0lv3BRrizV5FuqfMbBr0",
         )
     },
     "TranscriptionFactors": {
@@ -357,7 +360,7 @@ directory: CacheDirectory = {
         "pc-biopax.owl.gz": CacheItem(
             name="PathwayCommons Universal BioPAX file",
             cached="https://drive.google.com/uc?id=1R7uE2ky7fGlZThIWCOblu7iqbpC-aRr0",
-            pinned="https://download.baderlab.org/PathwayCommons/PC2/v14/pc-biopax.owl.gz"
+            pinned="https://download.baderlab.org/PathwayCommons/PC2/v14/pc-biopax.owl.gz",
         ),
         "pathways.txt.gz": CacheItem(
             name="PathwayCommons Pathway Identifiers",
@@ -367,15 +370,14 @@ directory: CacheDirectory = {
         "denylist.txt": CacheItem(
             name="PathwayCommons small molecule denylist",
             cached="https://drive.google.com/uc?id=1QmISJXPvVljA8oKuNYRUNbJJvZKPa_-u",
-            pinned="https://download.baderlab.org/PathwayCommons/PC2/v14/blacklist.txt"
+            pinned="https://download.baderlab.org/PathwayCommons/PC2/v14/blacklist.txt",
         ),
         "intermediate": {
             "pc-panther-biopax.owl": CacheItem(
-                name="PathwayCommons PANTHER-only BioPAX file",
-                cached="https://drive.google.com/uc?id=1MklrD8CJ1BIjh_wWr_g5rrIJ5XJB7FUI"
+                name="PathwayCommons PANTHER-only BioPAX file", cached="https://drive.google.com/uc?id=1MklrD8CJ1BIjh_wWr_g5rrIJ5XJB7FUI"
             )
-        }
-    }
+        },
+    },
 }
 
 
@@ -394,7 +396,9 @@ def get_cache_item(path: list[str]) -> CacheItem:
 
     # Google Drive validation. TODO: remove if move to OSDF.
     if "uc?id=" not in current_item.cached or "/view?usp=sharing" in current_item.cached:
-        raise RuntimeError("Make sure your Google Drive URLs are in https://drive.google.com/uc?id=... format " + \
-                           "with no /view?usp=sharing at the end. See CONTRIBUTING.md for more info.")
+        raise RuntimeError(
+            "Make sure your Google Drive URLs are in https://drive.google.com/uc?id=... format "
+            + "with no /view?usp=sharing at the end. See CONTRIBUTING.md for more info."
+        )
 
     return current_item

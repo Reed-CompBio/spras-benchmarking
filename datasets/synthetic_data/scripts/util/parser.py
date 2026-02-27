@@ -3,6 +3,7 @@ from pathlib import Path
 
 scripts_directory = Path(__file__).parent.resolve()
 
+
 def parser():
     parser = argparse.ArgumentParser(prog="PANTHER pathway parser")
 

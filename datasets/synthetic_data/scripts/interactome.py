@@ -5,6 +5,7 @@ from tools.mapping.ensembl_uniprot import idmapping_as_ensp_uniprot_mapping, idm
 current_directory = Path(__file__).parent.resolve()
 interactome_folder = current_directory / ".." / "raw" / "human-interactome"
 
+
 def main():
     # Convert the interactome to SPRAS format
     print("Reading interactome...")
@@ -41,13 +42,17 @@ def main():
     interactome_df["Protein1"] = interactome_df["Protein1"].str.removeprefix("9606.").astype(str)
     interactome_df["Protein2"] = interactome_df["Protein2"].str.removeprefix("9606.").astype(str)
 
-    interactome_df = interactome_df.merge(idmapping_df, left_on="Protein1", right_on="Ensembl", how="left") \
-        .drop(columns=["Protein1", "Ensembl"]) \
-        .rename(columns={"UniProtKB-AC": "Protein1"}) \
+    interactome_df = (
+        interactome_df.merge(idmapping_df, left_on="Protein1", right_on="Ensembl", how="left")
+        .drop(columns=["Protein1", "Ensembl"])
+        .rename(columns={"UniProtKB-AC": "Protein1"})
         .drop_duplicates()
-    interactome_df = interactome_df.merge(idmapping_df, left_on="Protein2", right_on="Ensembl", how="left") \
-        .drop(columns=["Protein2", "Ensembl"]) \
+    )
+    interactome_df = (
+        interactome_df.merge(idmapping_df, left_on="Protein2", right_on="Ensembl", how="left")
+        .drop(columns=["Protein2", "Ensembl"])
         .rename(columns={"UniProtKB-AC": "Protein2"})
+    )
 
     interactome_df = interactome_df.dropna(subset=["Protein1", "Protein2"]).reset_index(drop=True)
     interactome_df = interactome_df[["Protein1", "Protein2", "Weight", "Direction"]]
@@ -57,6 +62,7 @@ def main():
 
     print("Saving interactome...")
     interactome_df.to_csv(current_directory / ".." / "processed" / "interactome.tsv", sep="\t", header=False, index=False)
+
 
 if __name__ == "__main__":
     main()

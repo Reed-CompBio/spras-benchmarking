@@ -10,6 +10,7 @@ import random
 from typing import OrderedDict, Optional
 import os
 
+
 def count_weights(weights: dict[float, int]) -> OrderedDict[float, int]:
     """
     Returns an ordered map (lowest to highest weight) from the
@@ -22,16 +23,14 @@ def count_weights(weights: dict[float, int]) -> OrderedDict[float, int]:
     """
     return collections.OrderedDict(sorted({k: int(v) for k, v in weights.items()}.items()))
 
-def find_connected_sources_targets(
-        sources: list[str],
-        targets: list[str],
-        graph: networkx.Graph
-) -> list[tuple[str, str]]:
+
+def find_connected_sources_targets(sources: list[str], targets: list[str], graph: networkx.Graph) -> list[tuple[str, str]]:
     connections: list[tuple[str, str]] = []
     for source, target in itertools.product(sources, targets):
         if graph.has_node(source) and graph.has_node(target) and networkx.has_path(graph, source, target):
             connections.append((source, target))
     return connections
+
 
 def attempt_sample(
     pathway_name: str,
@@ -42,7 +41,7 @@ def attempt_sample(
     sources: list[str],
     targets: list[str],
     output_interactome: str | os.PathLike,
-    output_gold_standard: str | os.PathLike
+    output_gold_standard: str | os.PathLike,
 ) -> Optional[list[tuple[str, str]]]:
     # TODO: generalize to node prizes/actives
     """
@@ -70,16 +69,13 @@ def attempt_sample(
     if percentage < connection_percentage:
         print(f"Got {connection_percentage * 100:.1f}% connections above the {percentage * 100:.1f}% threshold.")
         pathway_df.to_csv(output_gold_standard, sep="\t", index=False, header=False)
-        interactome_df.to_csv(output_interactome, sep='\t', index=False, header=False)
+        interactome_df.to_csv(output_interactome, sep="\t", index=False, header=False)
         return curr_connections
     print(f"Failed {connection_percentage * 100:.1f}% connections below the {percentage * 100:.1f}% threshold.")
     return None
 
-def sample_interactome(
-        interactome_df: pandas.DataFrame,
-        weight_mapping: OrderedDict[int, int],
-        percentage: float
-):
+
+def sample_interactome(interactome_df: pandas.DataFrame, weight_mapping: OrderedDict[int, int], percentage: float):
     """
     Samples X% of an interactome using its weight_counts dictionary. (See `count_weights` for generating `weight_counts`.)
     """

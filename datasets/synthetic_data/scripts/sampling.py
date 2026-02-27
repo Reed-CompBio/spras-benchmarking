@@ -45,10 +45,12 @@ class SourcesTargets(NamedTuple):
     sources: list[str]
     targets: list[str]
 
+
 def get_node_data(pathway_name: str) -> pandas.DataFrame:
     return pandas.read_csv(
         current_directory / ".." / "processed" / pathway_name / f"{pathway_name}_node_prizes.txt", sep="\t", usecols=["NODEID", "sources", "targets"]
     )
+
 
 def sources_and_targets(pathway_node_prizes_df: pandas.DataFrame) -> SourcesTargets:
     """
@@ -81,24 +83,34 @@ def main():
 
     # TODO: isolate percentage constant (this currently builds up 0%, 10%, ..., 100%)
     for percentage in map(lambda x: (x + 1) / 10, range(10)):
-        output_directory = current_directory / '..' / 'thresholded' / str(percentage) / pathway_name
-        output_interactome = output_directory / 'interactome.txt'
-        output_gold_standard = output_directory / 'gold_standard_edges.txt'
+        output_directory = current_directory / ".." / "thresholded" / str(percentage) / pathway_name
+        output_interactome = output_directory / "interactome.txt"
+        output_gold_standard = output_directory / "gold_standard_edges.txt"
 
         print(f"Sampling with {percentage * 100:.1f}% of edges...")
         attempt_number = 1
-        while attempt_sample(
-                pathway_name, pathway_df, percentage,
-                weight_mapping, interactome_df, sources, targets,
+        while (
+            attempt_sample(
+                pathway_name,
+                pathway_df,
+                percentage,
+                weight_mapping,
+                interactome_df,
+                sources,
+                targets,
                 output_interactome=output_interactome,
-                output_gold_standard=output_gold_standard) is None:
+                output_gold_standard=output_gold_standard,
+            )
+            is None
+        ):
             attempt_number += 1
             print(f"Attempt number {attempt_number}")
 
         # We're done sampling:
-        (output_directory / 'attempt-number.txt').write_text(attempt_number)
+        (output_directory / "attempt-number.txt").write_text(attempt_number)
         # we need to trim our data file as well.
-        trim_data_file(data_df=node_data_df, gold_standard_df=pathway_df).to_csv(output_directory / 'node_prizes.tsv', sep='\t', index=False)
+        trim_data_file(data_df=node_data_df, gold_standard_df=pathway_df).to_csv(output_directory / "node_prizes.tsv", sep="\t", index=False)
+
 
 if __name__ == "__main__":
     main()

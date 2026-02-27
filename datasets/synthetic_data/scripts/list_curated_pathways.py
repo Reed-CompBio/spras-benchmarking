@@ -6,9 +6,10 @@ from datasets.synthetic_data.util.parse_pc_pathways import parse_pc_pathways
 
 synthetic_directory = Path(__file__).parent.parent.resolve()
 
+
 def main():
     # TODO: pass as arguments
-    pathways_df = parse_pc_pathways(synthetic_directory / 'raw' / 'pathways.txt')
+    pathways_df = parse_pc_pathways(synthetic_directory / "raw" / "pathways.txt")
 
     # We use the top-level pathways.jsonc, which is a hand-curated list of pathways, as it is not deterministically
     # automatable to decide whether or not a pathway is a signaling pathway. Yet.
@@ -23,7 +24,8 @@ def main():
     curated_pathway_df = pandas.DataFrame(pathway_mapping.items())
     curated_pathway_df.columns = ["Name", "ID"]
     (synthetic_directory / "intermediate").mkdir(exist_ok=True)
-    curated_pathway_df.to_csv(synthetic_directory / "intermediate" / "curated_pathways.tsv", index=False, sep='\t')
+    curated_pathway_df.to_csv(synthetic_directory / "intermediate" / "curated_pathways.tsv", index=False, sep="\t")
+
 
 if __name__ == "__main__":
     main()
