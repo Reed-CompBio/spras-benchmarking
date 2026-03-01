@@ -1,7 +1,7 @@
 import argparse
+import json
 from pathlib import Path
 
-import pandas
 from paxtools.fetch import fetch
 from paxtools.sif import toSIF
 
@@ -18,10 +18,10 @@ def parser():
 
 def main():
     args = parser().parse_args()
-    curated_pathways_df = pandas.read_csv(synthetic_directory / "intermediate" / "curated_pathways.tsv", sep="\t")
-    associated_id = curated_pathways_df.loc[curated_pathways_df["Name"] == args.pathway_name].reset_index(drop=True).loc[0]["ID"]
+    curated_pathways_df = json.loads((synthetic_directory / "intermediate" / "curated_pathways_id_mapping.json").read_text())
+    associated_id = curated_pathways_df[args.pathway_name]
 
-    pathway_data_dir = synthetic_directory / "intermediate" / "pathway-data"
+    pathway_data_dir = synthetic_directory / "intermediate" / "pathway-pc-data"
     pathway_data_dir.mkdir(exist_ok=True, parents=True)
 
     fetch(

@@ -17,9 +17,8 @@
     "Hedgehog signaling pathway",
     "FGF signaling pathway",
     "FAS signaling pathway",
-    // This is actually the Endothelin signaling pathway.
     // TODO: report to PathwayCommons: see https://apps.pathwaycommons.org/pathways?uri=https%3A%2F%2Fidentifiers.org%2Fpanther.pathway%3AP00019.
-    "untitled",
+    // We want to add the Endothelin signaling pathway, but it is currently labelled under "untitled."
     "EGF receptor signaling pathway",
     "Cadherin signaling pathway",
     "Apoptosis signaling pathway",

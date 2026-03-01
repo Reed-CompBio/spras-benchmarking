@@ -1,12 +1,13 @@
-import argparse
 import io
 import pandas as pd
 from pathlib import Path
 
-current_directory = Path(__file__).parent.resolve()
+from datasets.synthetic_data.scripts.util.parser import parser
 
-data_directory = current_directory / ".." / "raw" / "pathway-data"
-interactome_folder = current_directory / ".." / "raw" / "human-interactome"
+synthetic_directory = Path(__file__).parent.parent.resolve()
+
+data_directory = synthetic_directory / "intermediate" / "pathway-pc-data"
+interactome_folder = synthetic_directory / "raw" / "human-interactome"
 
 
 def process_pathway(file: Path, folder: Path):
@@ -65,18 +66,9 @@ def process_pathway(file: Path, folder: Path):
     scores["active"] = "true"
     scores.to_csv(folder / "prizes.txt", sep="\t", index=False)
 
-
-def parser():
-    parser = argparse.ArgumentParser(prog="PANTHER pathway parser")
-
-    parser.add_argument("pathway", choices=[file.stem for file in data_directory.iterdir()])
-
-    return parser
-
-
 if __name__ == "__main__":
     pathway = parser().parse_args().pathway
-    pathway_file = data_directory / Path(pathway).with_suffix(".txt")
-    intermediate_folder = current_directory / ".." / "intermediate" / pathway
+    pathway_file = data_directory / Path(pathway).with_suffix(".sif")
+    intermediate_folder = synthetic_directory / "intermediate" / pathway
     intermediate_folder.mkdir(parents=True, exist_ok=True)
     process_pathway(pathway_file, intermediate_folder)
