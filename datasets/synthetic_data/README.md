@@ -43,7 +43,7 @@ are human transcription factors.
 
 ### 2. Convert Pathways to SPRAS-Compatible Format
 1.	In `panther_spras_formatting.py`, add the name of any new pathways to the `pathway_dirs` list on **line 8**.
-2.	From the synthetic-data/ directory, run the command:
+2.	From the synthetic_data/ directory, run the command:
 ```
 python scripts/panther_spras_formatting.py
 ```

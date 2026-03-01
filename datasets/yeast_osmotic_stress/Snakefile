@@ -5,7 +5,7 @@ rule all:
         "processed/prizes1_dummies.txt",
         "processed/network1.txt"
 
-# Not all of these files are used. Most of these were used in the original yeast-osmotic-stress data processing (see ../README.md)
+# Not all of these files are used. Most of these were used in the original yeast_osmotic_stress data processing (see ../README.md)
 produce_fetch_rules({
     "raw/yeast_pcsf_network.sif": ["OsmoticStress", "yeast_pcsf_network.sif"],
     "raw/prizes.txt": ["OsmoticStress", "prizes.txt"],

@@ -13,12 +13,12 @@ set -o nounset
 cd "$(dirname "$0")"
 
 main() {
-    uv run snakemake --cores 1 -d datasets/yeast-osmotic-stress -s datasets/yeast-osmotic-stress/Snakefile
+    uv run snakemake --cores 1 -d datasets/yeast_osmotic_stress -s datasets/yeast_osmotic_stress/Snakefile
     uv run snakemake --cores 1 -d datasets/hiv -s datasets/hiv/Snakefile
     uv run snakemake --cores 1 -d datasets/diseases -s datasets/diseases/Snakefile
-    uv run snakemake --cores 1 -d datasets/rn-muscle-skeletal -s datasets/rn-muscle-skeletal/Snakefile
+    uv run snakemake --cores 1 -d datasets/rn_muscle_skeletal -s datasets/rn_muscle_skeletal/Snakefile
     uv run snakemake --cores 1 -d datasets/depmap -s datasets/depmap/Snakefile
-    uv run snakemake --cores 1 -d datasets/synthetic-data -s datasets/synthetic-data/Snakefile
+    uv run snakemake --cores 1 -d datasets/synthetic_data -s datasets/synthetic_data/Snakefile
     uv run snakemake --cores 1 -d datasets/egfr -s datasets/egfr/Snakefile
 }
 
