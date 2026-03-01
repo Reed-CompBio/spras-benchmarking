@@ -66,6 +66,7 @@ def process_pathway(file: Path, folder: Path):
     scores["active"] = "true"
     scores.to_csv(folder / "prizes.txt", sep="\t", index=False)
 
+
 if __name__ == "__main__":
     pathway = parser().parse_args().pathway
     pathway_file = data_directory / Path(pathway).with_suffix(".sif")

@@ -22,10 +22,19 @@ We have a `./util/parse_pc_pathways.py`, which takes a `pathways.txt` provided b
 human-readable pathway names into [identifiers.org](https://identifiers.org/) identifiers, which we later trim down
 with our provided list of pathway names in `pathways.jsonc` using `list_curated_pathways.py`.
 
-## Sources and Targets
+## SIF Pathway Processing
 
-[Sources](http://wlab.ethz.ch/surfaceome/), or `table_S3_surfaceome.xlsx`, (see [original paper](https://doi.org/10.1073/pnas.1808790115))
+The scripts `process_panther_pathway.py` and `panther_spras_formatting` convert pathways from the fetching step into ones usable by SPRAS, using
+external data:
+- [Sources](http://wlab.ethz.ch/surfaceome/), or `table_S3_surfaceome.xlsx`, (see [original paper](https://doi.org/10.1073/pnas.1808790115))
 are silico human surfaceomes receptors.
+- [Targets]( https://guolab.wchscu.cn/AnimalTFDB4//#/), or `Homo_sapiens_TF.tsv`, (see [original paper](https://doi.org/10.1093/nar/gkac907))
+are human transcription factors. We map these to UniProt in `map_transcription_factors.py`.
 
-[Targets]( https://guolab.wchscu.cn/AnimalTFDB4//#/), or `Homo_sapiens_TF.tsv`, (see [original paper](https://doi.org/10.1093/nar/gkac907))
-are human transcription factors.
+## Interactome Generation
+
+`interactome.py` uses STRING and UniProt data to produce a UniProt-based interactome.
+
+## Thresholding
+
+Using the interactome and processed pathway files, we threshold pathways. TODO write more about this.
