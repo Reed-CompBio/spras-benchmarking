@@ -1,5 +1,7 @@
 [
-    // "CCKR signaling map", TODO: not a valid pathway name?
+    // Commonly known as the "CCKR signaling map", PathwayCommons also does not map this one correctly:
+    // TODO: report to PathwayCommons: see https://apps.pathwaycommons.org/pathways?uri=https%3A%2F%2Fidentifiers.org%2Fpanther.pathway%3AP06959
+    "Gastrin_CCK2R_240212",
     "Wnt signaling pathway",
     "VEGF signaling pathway",
     "Toll receptor signaling pathway",
@@ -15,7 +17,9 @@
     "Hedgehog signaling pathway",
     "FGF signaling pathway",
     "FAS signaling pathway",
-    // "Endothelin signaling pathway", TODO: not a valid pathway name?
+    // This is actually the Endothelin signaling pathway.
+    // TODO: report to PathwayCommons: see https://apps.pathwaycommons.org/pathways?uri=https%3A%2F%2Fidentifiers.org%2Fpanther.pathway%3AP00019.
+    "untitled",
     "EGF receptor signaling pathway",
     "Cadherin signaling pathway",
     "Apoptosis signaling pathway",

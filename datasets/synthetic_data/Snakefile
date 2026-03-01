@@ -81,3 +81,22 @@ rule threshold:
         expand("thresholded/{threshold}/{{pathway}}/gold_standard_edges.txt", threshold=thresholds)
     shell:
         "uv run scripts/sampling.py {wildcards.pathway}"
+
+rule make_pathway_map:
+    input:
+        "raw/pathways.txt"
+    output:
+        "processed/pathway_id_mapping.tsv"
+    shell:
+        "uv run scripts/list_curated_pathways.py"
+
+for pathway in pathways:
+    rule:
+        input:
+            "processed/pathway_id_mapping.tsv",
+            "raw/pc-panther-biopax.owl"
+        output:
+            "intermediate/pathway-data/{pathway}.owl",
+            "intermediate/pathway-data/{pathway}.sif"
+        shell:
+            f"uv run scripts/fetch_pathway.py {pathway}"
