@@ -64,7 +64,7 @@ def attempt_sample(
     curr_connections = find_connected_sources_targets(sources, targets, curr_graph)
 
     # We ask that at least `percentage` of the sources and targets are connected with one another.
-    connection_percentage = float(len(curr_connections)) / float(len(prev_connections))
+    connection_percentage = float(len(curr_connections)) / float(len(prev_connections)) if len(prev_connections) != 0 else 0
 
     if percentage <= connection_percentage:
         print(f"Got {connection_percentage * 100:.1f}% connections above the {percentage * 100:.1f}% threshold.")
