@@ -5,6 +5,7 @@ from typing import OrderedDict, NamedTuple
 from tools.sample import attempt_sample
 from tools.trim import trim_data_file
 from datasets.synthetic_data.scripts.util.parser import parser
+import random
 
 synthetic_directory = Path(__file__).parent.parent.resolve()
 
@@ -63,7 +64,13 @@ def sources_and_targets(pathway_node_prizes_df: pandas.DataFrame) -> SourcesTarg
 
 
 def main():
-    pathway_name = parser().parse_args().pathway
+    arg_parser = parser()
+    arg_parser.add_argument("--seed", "The seed to use", type=int, required=False)
+    args = arg_parser.parse_args()
+    pathway_name = args.pathway
+    if args.seed is not None:
+        random.seed(args.seed)
+
     print("Reading interactome...")
     interactome_df = pandas.read_csv(
         synthetic_directory / "processed" / "interactome.tsv",
