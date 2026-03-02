@@ -66,7 +66,7 @@ def attempt_sample(
     # We ask that at least `percentage` of the sources and targets are connected with one another.
     connection_percentage = float(len(curr_connections)) / float(len(prev_connections))
 
-    if percentage < connection_percentage:
+    if percentage <= connection_percentage:
         print(f"Got {connection_percentage * 100:.1f}% connections above the {percentage * 100:.1f}% threshold.")
         pathway_df.to_csv(output_gold_standard, sep="\t", index=False, header=False)
         interactome_df.to_csv(output_interactome, sep="\t", index=False, header=False)
