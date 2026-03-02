@@ -14,7 +14,10 @@ import os
 def count_weights(weights: dict[float, int]) -> OrderedDict[float, int]:
     """
     Returns an ordered map (lowest to highest weight) from the
-    weight to the number of elements the weight has.
+    weight to the number of elements of that weight.
+
+    This is to preserve the weight distribution across the interactome
+    when we sample it.
 
     The full workflow for this function should be:
     ```python
@@ -24,7 +27,7 @@ def count_weights(weights: dict[float, int]) -> OrderedDict[float, int]:
     return collections.OrderedDict(sorted({k: int(v) for k, v in weights.items()}.items()))
 
 
-def find_connected_sources_targets(sources: list[str], targets: list[str], graph: networkx.Graph) -> list[tuple[str, str]]:
+def find_connected_sources_targets(sources: list[str], targets: list[str], graph: networkx.DiGraph) -> list[tuple[str, str]]:
     connections: list[tuple[str, str]] = []
     for source, target in itertools.product(sources, targets):
         if graph.has_node(source) and graph.has_node(target) and networkx.has_path(graph, source, target):
@@ -54,13 +57,15 @@ def attempt_sample(
     interactome_df = sample_interactome(interactome_df, weight_mapping, percentage)
 
     print(f"Merging {pathway_name} with interactome...")
-    # While we are merging this graph, we are preparing to compare the connectedness of the prev[ious] and curr[ent] (merged) graph.
-    prev_graph = networkx.from_pandas_edgelist(pathway_df, source="Interactor1", target="Interactor2")
+    # While we are merging this graph, we are preparing to compare the connectedness of the prev[ious] and curr[ent] (merged) graph
+    # where the previous graph is the one before we restrict the gold standard to the sampled interactome
+    prev_graph = networkx.from_pandas_edgelist(pathway_df, source="Interactor1", target="Interactor2", create_using=networkx.DiGraph)
     prev_connections = find_connected_sources_targets(sources, targets, prev_graph)
 
+    # and the current graph is the one restricted to the sampled interactome.
     print("Checking for pathway connectedness...")
     pathway_df = pathway_df.merge(interactome_df, how="inner", on=["Interactor1", "Interactor2"])
-    curr_graph = networkx.from_pandas_edgelist(pathway_df, source="Interactor1", target="Interactor2")
+    curr_graph = networkx.from_pandas_edgelist(pathway_df, source="Interactor1", target="Interactor2", create_using=networkx.DiGraph)
     curr_connections = find_connected_sources_targets(sources, targets, curr_graph)
 
     # We ask that at least `percentage` of the sources and targets are connected with one another.
@@ -87,6 +92,9 @@ def sample_interactome(interactome_df: pandas.DataFrame, weight_mapping: Ordered
     print("Creating item samples...")
     full_list: list[int] = []
     curr_v = 0
+    # Sampling a percentage of the edges from each weight bucket is equivalent to
+    # sampling a percentage of the full interactome such that the weight
+    # distribution is preserved, since the buckets partition edges by weight.
     for k, v in weight_mapping.items():
         full_list.extend(map(lambda x: x + curr_v, random.sample(range(1, v), round(percentage * v))))
         curr_v += v

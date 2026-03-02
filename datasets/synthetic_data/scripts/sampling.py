@@ -28,7 +28,7 @@ def count_weights() -> OrderedDict[int, int]:
 
 def read_pathway(pathway_name: str) -> pandas.DataFrame:
     """
-    Returns the directed-only pathway from a pathway name,
+    Returns the directed-coerced pathway from a pathway name,
     with columns Interactor1 -> Interactor2.
     """
     pathway_df = pandas.read_csv(

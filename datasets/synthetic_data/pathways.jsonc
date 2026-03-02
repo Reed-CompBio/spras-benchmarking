@@ -10,7 +10,8 @@
     "Notch signaling pathway",
     "JAK/STAT signaling pathway",
     "Interleukin signaling pathway",
-    "Interferon-gamma signaling pathway",
+    // TODO: Inspect why this pathway doesn't work well for sampling.
+    // "Interferon-gamma signaling pathway",
     "Integrin signalling pathway",
     "Insulin/IGF pathway-protein kinase B signaling cascade",
     "Inflammation mediated by chemokine and cytokine signaling pathway",
