@@ -1,7 +1,6 @@
 import json
 from pathlib import Path
 from jsonc_parser.parser import JsoncParser
-import pandas
 
 from datasets.synthetic_data.util.parse_pc_pathways import parse_pc_pathways
 

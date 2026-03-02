@@ -13,7 +13,7 @@ All information provided is orchestrated through our GitHub Actions pipeline, an
 ## Format
 
 Each run's slug has the <code class="color-1">type</code>, the (dataset) <code class="color-2">category</code>, the <code class="color-3">dataset</code>, the
-<code class="color-4">algorithm</code>, and the <code class="color-5">paramaters</code> [hash](https://en.wikipedia.org/wiki/Hash_function).
+<code class="color-4">algorithm</code>, and the <code class="color-5">parameters</code> [hash](https://en.wikipedia.org/wiki/Hash_function).
 
 There are also pages related to different categories of these runs:
 

@@ -55,7 +55,7 @@ class Service:
         logger.info(f"Checking that the {downloaded_file_type} artifact {downloaded_file_path} matches with cached artifact at {cache}...")
 
         if not filecmp.cmp(cache, downloaded_file_path):
-            # This entire if-branch is debug schenanigans: we want to be able to easily compare our current cached file to the online file,
+            # This entire if-branch is debug shenanigans: we want to be able to easily compare our current cached file to the online file,
             # especially since some `Service`s have special errors that can make the request hard to compare in the browser.
 
             debug_file_path = Path(NamedTemporaryFile(prefix="spras-benchmarking-debug-artifact", delete=False).name)
