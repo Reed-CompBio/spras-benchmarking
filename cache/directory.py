@@ -92,7 +92,7 @@ def fetch_biomart_service(xml: str) -> Service:
     return Service(ROOT + urllib.parse.quote_plus(xml))
 
 
-@dataclass
+@dataclass(frozen=True)
 class CacheItem:
     """
     Class for differentriating between different ways of fetching data.
@@ -126,6 +126,14 @@ class CacheItem:
 
     We will still error if the status code is not 2XX (a successful request).
     """
+
+    def __post_init__(self):
+        # Google Drive validation. TODO: remove if move to OSDF.
+        if "uc?id=" not in self.cached or "/view?usp=sharing" in self.cached:
+            raise RuntimeError(
+                "Make sure your Google Drive URLs are in https://drive.google.com/uc?id=... format "
+                + "with no /view?usp=sharing at the end. See CONTRIBUTING.md for more info."
+            )
 
     @classmethod
     @warnings.deprecated("Pending for removal after the CONTRIBUTING guide is updated.")
@@ -193,89 +201,12 @@ directory: CacheDirectory = {
             ),
         }
     },
-    "DISEASES": {
-        # Instead of going through https://unmtid-shinyapps.net/shiny/tiga/, we use their
-        # archived files directory instead.
-        "tiga_gene-trait_stats.tsv": CacheItem(
-            name="TIGA data",
-            cached="https://drive.google.com/uc?id=114qyuNDy4qdmYDHHJAW-yBeTxcGTDUnK",
-            pinned="https://unmtid-dbs.net/download/TIGA/20250916/tiga_gene-trait_stats.tsv",
-        ),
-        "HumanDO.tsv": CacheItem(
-            name="Disease ontology data",
-            cached="https://drive.google.com/uc?id=1lfB1DGJgrXTxP_50L6gGu_Nq6OyDjiIi",
-            # DiseaseOntology is a decently updating repository!
-            unpinned="https://raw.githubusercontent.com/DiseaseOntology/HumanDiseaseOntology/refs/heads/main/DOreports/HumanDO.tsv",
-        ),
-        "human_disease_textmining_filtered.tsv": CacheItem(
-            name="DISEASES textmining channel",
-            cached="https://drive.google.com/uc?id=1vD8KbT9sk04VEJx9r3_LglCTGYJdhN0D",
-            unpinned="https://download.jensenlab.org/human_disease_textmining_filtered.tsv",
-        ),
-        "human_disease_knowledge_filtered.tsv": CacheItem(
-            name="DISEASES knowledge channel",
-            cached="https://drive.google.com/uc?id=1qGUnjVwF9-8p5xvp8_6CfVsbMSM_wkld",
-            unpinned="https://download.jensenlab.org/human_disease_knowledge_filtered.tsv",
-        ),
-    },
     "BioMart": {
         "ensg-ensp.tsv": CacheItem(
             name="BioMart ENSG <-> ENSP mapping",
             cached="https://drive.google.com/uc?id=1-gPrDoluXIGydzWKjWEnW-nWhYu3YkHL",
             unpinned=fetch_biomart_service((dir_path / "biomart" / "ensg-ensp.xml").read_text()),
         )
-    },
-    "DepMap": {
-        "OmicsProfiles.csv": CacheItem(
-            name="DepMap omics metadata",
-            cached="https://drive.google.com/uc?id=1i54aKfO0Ci2QKLTNJnuQ_jgGhH4c9rTL",
-            pinned="https://depmap.org/portal/download/api/download?file_name=downloads-by-canonical-id%2F2025-05-01-master-mapping-table-28c2.12%2Fpublic_release_date.2025-05-01.master_mapping_table.csv&dl_name=OmicsProfiles.csv&bucket=depmap-external-downloads",
-        ),
-        "CRISPRGeneDependency.csv": CacheItem(
-            name="DepMap gene dependency probability estimates",
-            cached="https://drive.google.com/uc?id=122rWNqT_u3M7B_11WYZMtOLiPbBykkaz",
-            pinned="https://depmap.org/portal/download/api/download?file_name=downloads-by-canonical-id%2F25q2-public-557c.3%2FCRISPRGeneDependency.csv&dl_name=CRISPRGeneDependency.csv&bucket=depmap-external-downloads",
-        ),
-        "OmicsSomaticMutationsMatrixDamaging.csv": CacheItem(
-            name="DepMap genotyped matrix",
-            cached="https://drive.google.com/uc?id=1W7N2H0Qi7NwmTmNChcwa2ZZ4WxAuz-Xh",
-            pinned="https://depmap.org/portal/download/api/download?file_name=downloads-by-canonical-id%2Fpublic-25q2-c5ef.87%2FOmicsSomaticMutationsMatrixDamaging.csv&dl_name=OmicsSomaticMutationsMatrixDamaging.csv&bucket=depmap-external-downloads",
-        ),
-        "OmicsExpressionProteinCodingGenesTPMLogp1.csv": CacheItem(
-            name="DepMap model-level TPMs",
-            cached="https://drive.google.com/uc?id=1P0m88eXJ8GPdru8h9oOcHPeXKU7ljIrP",
-            pinned="https://depmap.org/portal/download/api/download?file_name=downloads-by-canonical-id%2Fpublic-25q2-c5ef.73%2FOmicsExpressionProteinCodingGenesTPMLogp1.csv&dl_name=OmicsExpressionProteinCodingGenesTPMLogp1.csv&bucket=depmap-external-downloads",
-        ),
-        "OmicsCNGeneWGS.csv": CacheItem(
-            name="DepMap gene-level copy number data",
-            cached="https://drive.google.com/uc?id=1TPp3cfK7OZUrftucr3fLO-krXSQAA6Ub",
-            pinned="https://depmap.org/portal/download/api/download?file_name=downloads-by-canonical-id%2Fpublic-25q2-c5ef.104%2FOmicsCNGeneWGS.csv&dl_name=OmicsCNGeneWGS.csv&bucket=depmap-external-downloads",
-        ),
-    },
-    "KEGG": {
-        # For some reason, KEGG requires a Referer header: opening this URL otherwise fails.
-        "ko03250.xml": CacheItem(
-            name="KEGG 03250",
-            cached="https://drive.google.com/uc?id=16dtWKHCQMp2qrLfFDE7nVhbwBCr2H5a9",
-            unpinned=Service(
-                "https://www.kegg.jp/kegg-bin/download?entry=ko03250&format=kgml", headers={"Referer": "https://www.kegg.jp/pathway/ko03250"}
-            ),
-        )
-    },
-    "HIV1": {
-        # The following files are from https://github.com/gitter-lab/hiv1-aurkb.
-        # While the following files do point to the repository's main branch,
-        # they aren't expected to actually change.
-        "prize_05.tsv": CacheItem(
-            name="HIV_05 prizes",
-            cached="https://drive.google.com/uc?id=1jVWNRPfYkbqimO44GdzXYB3-7NXhet1m",
-            pinned="https://raw.githubusercontent.com/gitter-lab/hiv1-aurkb/refs/heads/main/Results/base_analysis/prize_05.csv",
-        ),
-        "prize_060.tsv": CacheItem(
-            name="HIV_060 prizes",
-            cached="https://drive.google.com/uc?id=1Aucgp7pcooGr9oT4m2bvYEuYW6186WxQ",
-            pinned="https://raw.githubusercontent.com/gitter-lab/hiv1-aurkb/refs/heads/main/Results/base_analysis/prize_060.csv",
-        ),
     },
     "iRefIndex": {
         # This can also be obtained from the SPRAS repo, though the SPRAS repo removes self loops. We don't.
@@ -289,99 +220,17 @@ directory: CacheDirectory = {
             pinned="https://raw.githubusercontent.com/gitter-lab/tps/refs/heads/master/data/networks/phosphosite-irefindex13.0-uniprot.txt",
         )
     },
-    "OsmoticStress": {
-        "yeast_pcsf_network.sif": CacheItem(
-            # In the paper https://doi.org/10.1016/j.celrep.2018.08.085
-            name="Case Study Edge Results, from Supplementary Data 3",
-            cached="https://drive.google.com/uc?id=1Agte0Aezext-8jLhGP4GmaF3tS7gHX-h",
-        ),
-        # The following files are from https://github.com/gitter-lab/osmotic-stress.
-        # While the following files do point to the repository's main branch,
-        # they aren't expected to actually change.
-        "prizes.txt": CacheItem(
-            name="Osmotic Stress Prizes",
-            pinned="https://raw.githubusercontent.com/gitter-lab/osmotic-stress/refs/heads/master/Input%20Data/prizes.txt",
-            cached="https://drive.google.com/uc?id=16WDQs0Vjv6rI12-hbifsbnpH31jMGhJg",
-        ),
-        "ChasmanNetwork-DirUndir.txt": CacheItem(
-            name="Network Input",
-            pinned="https://raw.githubusercontent.com/gitter-lab/osmotic-stress/refs/heads/master/Input%20Data/ChasmanNetwork-DirUndir.txt",
-            cached="https://drive.google.com/uc?id=1qYXPaWcPU72YYME7NaBzD7thYCHRzrLH",
-        ),
-        "dummy.txt": CacheItem(
-            name="Dummy Nodes File",
-            pinned="https://raw.githubusercontent.com/gitter-lab/osmotic-stress/refs/heads/master/Input%20Data/dummy.txt",
-            cached="https://drive.google.com/uc?id=1dsFIhBrIEahggg0JPxw64JwS51pKxoQU",
-        ),
-        "_edgeFreq.eda ": CacheItem(
-            name="Case Study Omics Integrator Edge Frequencies",
-            pinned="https://raw.githubusercontent.com/gitter-lab/osmotic-stress/refs/heads/master/Notebooks/Forest-TPS/_edgeFreq.eda",
-            cached="https://drive.google.com/uc?id=1M_rxEzUCo_EVuFyM47OEH2J-4LB3eeCR",
-        ),
-        "goldStandardUnionDetailed.txt": CacheItem(
-            name="Gold Standard Reference Pathways",
-            pinned="https://raw.githubusercontent.com/gitter-lab/osmotic-stress/refs/heads/master/data/evaluation/goldStandardUnionDetailed.txt",
-            cached="https://drive.google.com/uc?id=1-_zF9oKFCNmJbDCC2vq8OM17HJw80s2T",
-        ),
-    },
-    "EGFR": {
-        # The following files are from https://github.com/gitter-lab/tps.
-        # While the following files do point to the repository's main branch,
-        # they aren't expected to actually change.
-        "eight-egfr-reference-all.txt": CacheItem(
-            name="EGFR Gold Standard Reference",
-            pinned="https://raw.githubusercontent.com/gitter-lab/tps/refs/heads/master/data/resources/eight-egfr-reference-all.txt",
-            cached="https://drive.google.com/uc?id=15MqpIbH1GRA1tq0ZXH9oMnKytoFSzXyw",
-        ),
-        "egfr-prizes.txt": CacheItem(
-            name="EGFR prizes",
-            pinned="https://raw.githubusercontent.com/gitter-lab/tps/refs/heads/master/data/pcsf/egfr-prizes.txt",
-            cached="https://drive.google.com/uc?id=1nI5hw-rYRZPs15UJiqokHpHEAabRq6Xj",
-        ),
-    },
-    "Surfaceome": {
-        "table_S3_surfaceome.xlsx": CacheItem(
-            name="Human surfaceome",
-            unpinned="http://wlab.ethz.ch/surfaceome/table_S3_surfaceome.xlsx",
-            cached="https://docs.google.com/uc?id=1cBXYbDnAJVet0lv3BRrizV5FuqfMbBr0",
-        )
-    },
-    "TranscriptionFactors": {
-        "Homo_sapiens_TF.tsv": CacheItem(
-            name="Human transcription factors",
-            # This server has anti-bot protection, so to respect their wishes, we don't download from the server.
-            # The original URL is https://guolab.wchscu.cn/AnimalTFDB4_static/download/TF_list_final/Homo_sapiens_TF,
-            # which is accessible from https://guolab.wchscu.cn/AnimalTFDB4//#/Download -> Homo sapiens
-            # (also under the Internet Archive as of Feb 2nd, 2026. If the original artifact disappears, the drive link below should suffice.)
-            cached="https://drive.google.com/uc?id=1fVi18GpudUlquRPHgUJl3H1jy54gO-uz",
-        )
-    },
     "PathwayCommons": {
-        "pc-biopax.owl.gz": CacheItem(
-            name="PathwayCommons Universal BioPAX file",
-            cached="https://drive.google.com/uc?id=1R7uE2ky7fGlZThIWCOblu7iqbpC-aRr0",
-            pinned="https://download.baderlab.org/PathwayCommons/PC2/v14/pc-biopax.owl.gz",
-        ),
         "pathways.txt.gz": CacheItem(
             name="PathwayCommons Pathway Identifiers",
             cached="https://drive.google.com/uc?id=1SMwuuohuZuNFnTev4zRNJrBnBsLlCHcK",
             pinned="https://download.baderlab.org/PathwayCommons/PC2/v14/pathways.txt.gz",
         ),
-        "denylist.txt": CacheItem(
-            name="PathwayCommons small molecule denylist",
-            cached="https://drive.google.com/uc?id=1QmISJXPvVljA8oKuNYRUNbJJvZKPa_-u",
-            pinned="https://download.baderlab.org/PathwayCommons/PC2/v14/blacklist.txt",
-        ),
-        "intermediate": {
-            "pc-panther-biopax.owl": CacheItem(
-                name="PathwayCommons PANTHER-only BioPAX file", cached="https://drive.google.com/uc?id=1MklrD8CJ1BIjh_wWr_g5rrIJ5XJB7FUI"
-            )
-        },
     },
 }
 
 
-def get_cache_item(path: list[str]) -> CacheItem:
+def get_cache_item(path: tuple[str, ...]) -> CacheItem:
     """Takes a path and gets the underlying cache item."""
     assert len(path) != 0
 
@@ -393,12 +242,5 @@ def get_cache_item(path: list[str]) -> CacheItem:
 
     if not isinstance(current_item, CacheItem):
         raise ValueError(f"Path {path} doesn't lead to a cache item")
-
-    # Google Drive validation. TODO: remove if move to OSDF.
-    if "uc?id=" not in current_item.cached or "/view?usp=sharing" in current_item.cached:
-        raise RuntimeError(
-            "Make sure your Google Drive URLs are in https://drive.google.com/uc?id=... format "
-            + "with no /view?usp=sharing at the end. See CONTRIBUTING.md for more info."
-        )
 
     return current_item

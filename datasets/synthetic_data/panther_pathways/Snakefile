@@ -5,7 +5,11 @@ rule all:
         "output/pc-panther-biopax.owl"
 
 produce_fetch_rules({
-    "raw/pc-biopax.owl": FetchConfig(["PathwayCommons", "pc-biopax.owl.gz"], uncompress=True),
+    "raw/pc-biopax.owl": CacheItem(
+        name="PathwayCommons Universal BioPAX file",
+        cached="https://drive.google.com/uc?id=1R7uE2ky7fGlZThIWCOblu7iqbpC-aRr0",
+        pinned="https://download.baderlab.org/PathwayCommons/PC2/v14/pc-biopax.owl.gz",
+    ),
     "raw/pathways.txt": FetchConfig(["PathwayCommons", "pathways.txt.gz"], uncompress=True)
 })
 

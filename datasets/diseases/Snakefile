@@ -9,13 +9,32 @@ rule all:
         "prize_files/diabetes_mellitus_prizes.txt"
 
 produce_fetch_rules({
-    "raw/human_disease_textmining_filtered.tsv": ["DISEASES", "human_disease_textmining_filtered.tsv"],
-    "raw/human_disease_knowledge_filtered.tsv": ["DISEASES", "human_disease_knowledge_filtered.tsv"],
-    "raw/HumanDO.tsv": ["DISEASES", "HumanDO.tsv"],
-    "raw/tiga_gene-trait_stats.tsv": ["DISEASES", "tiga_gene-trait_stats.tsv"],
-    "raw/ensg-ensp.tsv": ["BioMart", "ensg-ensp.tsv"],
-    "raw/9606.protein.links.full.txt": FetchConfig(["STRING", "9606", "9606.protein.links.full.txt.gz"], uncompress=True),
-    "raw/9606.protein.aliases.txt": FetchConfig(["STRING", "9606", "9606.protein.aliases.txt.gz"], uncompress=True),
+    # Instead of going through https://unmtid-shinyapps.net/shiny/tiga/, we use their
+    # archived files directory instead.
+    "raw/tiga_gene-trait_stats.tsv": CacheItem(
+        name="TIGA data",
+        cached="https://drive.google.com/uc?id=114qyuNDy4qdmYDHHJAW-yBeTxcGTDUnK",
+        pinned="https://unmtid-dbs.net/download/TIGA/20250916/tiga_gene-trait_stats.tsv",
+    ),
+    "raw/HumanDO.tsv": CacheItem(
+        name="Disease ontology data",
+        cached="https://drive.google.com/uc?id=1lfB1DGJgrXTxP_50L6gGu_Nq6OyDjiIi",
+        # DiseaseOntology is a decently updating repository! We leave it unpinned
+        unpinned="https://raw.githubusercontent.com/DiseaseOntology/HumanDiseaseOntology/refs/heads/main/DOreports/HumanDO.tsv",
+    ),
+    "raw/human_disease_textmining_filtered.tsv": CacheItem(
+        name="DISEASES textmining channel",
+        cached="https://drive.google.com/uc?id=1vD8KbT9sk04VEJx9r3_LglCTGYJdhN0D",
+        unpinned="https://download.jensenlab.org/human_disease_textmining_filtered.tsv",
+    ),
+    "raw/human_disease_knowledge_filtered.tsv": CacheItem(
+        name="DISEASES knowledge channel",
+        cached="https://drive.google.com/uc?id=1qGUnjVwF9-8p5xvp8_6CfVsbMSM_wkld",
+        unpinned="https://download.jensenlab.org/human_disease_knowledge_filtered.tsv",
+    ),
+    "raw/ensg-ensp.tsv": ("BioMart", "ensg-ensp.tsv"),
+    "raw/9606.protein.links.full.txt": FetchConfig(("STRING", "9606", "9606.protein.links.full.txt.gz"), uncompress=True),
+    "raw/9606.protein.aliases.txt": FetchConfig(("STRING", "9606", "9606.protein.aliases.txt.gz"), uncompress=True),
 })
 
 rule inputs:
