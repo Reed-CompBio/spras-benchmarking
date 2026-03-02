@@ -42,7 +42,7 @@ produce_fetch_rules({
         cached="https://drive.google.com/uc?id=1QmISJXPvVljA8oKuNYRUNbJJvZKPa_-u",
         pinned="https://download.baderlab.org/PathwayCommons/PC2/v14/blacklist.txt",
     ),
-    "raw/pathways.txt": FetchConfig(["PathwayCommons", "pathways.txt.gz"], uncompress=True)
+    "raw/pathways.txt": FetchConfig(("PathwayCommons", "pathways.txt.gz"), uncompress=True)
 })
 
 rule interactome:
