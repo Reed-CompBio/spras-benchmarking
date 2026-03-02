@@ -1,11 +1,11 @@
 import pandas as pd
 from pathlib import Path
-from .util.parser import parser
+from datasets.synthetic_data.scripts.util.parser import parser
 
-current_directory = Path(__file__).parent.resolve()
+synthetic_directory = Path(__file__).parent.parent.resolve()
 
-spras_compatible_dir = Path(current_directory, "..", "processed")
-directory = Path(current_directory, "..", "intermediate")
+spras_compatible_dir = synthetic_directory / "processed"
+directory = synthetic_directory / "intermediate"
 
 directed = [
     "controls-state-change-of",

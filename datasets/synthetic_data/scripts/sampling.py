@@ -4,9 +4,9 @@ import collections
 from typing import OrderedDict, NamedTuple
 from tools.sample import attempt_sample
 from tools.trim import trim_data_file
-from .util.parser import parser
+from datasets.synthetic_data.scripts.util.parser import parser
 
-current_directory = Path(__file__).parent.resolve()
+synthetic_directory = Path(__file__).parent.parent.resolve()
 
 
 # From SPRAS. TODO: import once SPRAS uses pixi
@@ -22,7 +22,7 @@ def convert_undirected_to_directed(df: pandas.DataFrame) -> pandas.DataFrame:
 
 def count_weights() -> OrderedDict[int, int]:
     """Returns an ordered map (lowest to highest weight) from the weight to the number of elements the weight has"""
-    weight_counts = pandas.read_csv(current_directory / ".." / "processed" / "weight-counts.tsv", sep="\t")
+    weight_counts = pandas.read_csv(synthetic_directory / "processed" / "weight-counts.tsv", sep="\t")
     return collections.OrderedDict(sorted({int(k * 1000): int(v) for k, v in dict(weight_counts.values).items()}.items()))
 
 
@@ -32,7 +32,7 @@ def read_pathway(pathway_name: str) -> pandas.DataFrame:
     with columns Interactor1 -> Interactor2.
     """
     pathway_df = pandas.read_csv(
-        current_directory / ".." / "processed" / pathway_name / f"{pathway_name}_gs_edges.txt",
+        synthetic_directory / "processed" / pathway_name / f"{pathway_name}_gs_edges.txt",
         sep="\t",
         names=["Interactor1", "Interactor2", "Weight", "Direction"],
     )
@@ -48,7 +48,7 @@ class SourcesTargets(NamedTuple):
 
 def get_node_data(pathway_name: str) -> pandas.DataFrame:
     return pandas.read_csv(
-        current_directory / ".." / "processed" / pathway_name / f"{pathway_name}_node_prizes.txt", sep="\t", usecols=["NODEID", "sources", "targets"]
+        synthetic_directory / "processed" / pathway_name / f"{pathway_name}_node_prizes.txt", sep="\t", usecols=["NODEID", "sources", "targets"]
     )
 
 
@@ -66,7 +66,7 @@ def main():
     pathway_name = parser().parse_args().pathway
     print("Reading interactome...")
     interactome_df = pandas.read_csv(
-        current_directory / ".." / "processed" / "interactome.tsv",
+        synthetic_directory / "processed" / "interactome.tsv",
         header=None,
         sep="\t",
         names=["Interactor1", "Interactor2", "Weight", "Direction"],
@@ -83,7 +83,7 @@ def main():
 
     # TODO: isolate percentage constant (this currently builds up 0%, 10%, ..., 100%)
     for percentage in map(lambda x: (x + 1) / 10, range(10)):
-        output_directory = current_directory / ".." / "thresholded" / str(percentage) / pathway_name
+        output_directory = synthetic_directory / "thresholded" / str(percentage) / pathway_name
         output_interactome = output_directory / "interactome.txt"
         output_gold_standard = output_directory / "gold_standard_edges.txt"
 
@@ -107,7 +107,7 @@ def main():
             print(f"Attempt number {attempt_number}")
 
         # We're done sampling:
-        (output_directory / "attempt-number.txt").write_text(attempt_number)
+        (output_directory / "attempt-number.txt").write_text(str(attempt_number))
         # we need to trim our data file as well.
         trim_data_file(data_df=node_data_df, gold_standard_df=pathway_df).to_csv(output_directory / "node_prizes.tsv", sep="\t", index=False)
 

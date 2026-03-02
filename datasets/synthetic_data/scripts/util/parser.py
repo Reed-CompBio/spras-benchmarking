@@ -1,12 +1,14 @@
 import argparse
 from pathlib import Path
 
-scripts_directory = Path(__file__).parent.resolve()
+from jsonc_parser.parser import JsoncParser
+
+synthetic_directory = Path(__file__).parent.parent.parent.resolve()
 
 
 def parser():
     parser = argparse.ArgumentParser(prog="PANTHER pathway parser")
 
-    parser.add_argument("pathway", choices=[file.stem for file in (scripts_directory / ".." / "raw" / "pathway-data").iterdir()])
+    parser.add_argument("pathway", choices=JsoncParser.parse_file(synthetic_directory / "pathways.jsonc"))
 
     return parser

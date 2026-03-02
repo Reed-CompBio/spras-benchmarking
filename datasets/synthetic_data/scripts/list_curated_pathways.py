@@ -1,6 +1,6 @@
+import json
 from pathlib import Path
 from jsonc_parser.parser import JsoncParser
-import pandas
 
 from datasets.synthetic_data.util.parse_pc_pathways import parse_pc_pathways
 
@@ -21,10 +21,7 @@ def main():
         if selected_pathways_count != 1:
             raise RuntimeError(f"{pathway} references {selected_pathways_count} pathways, when we need to uniquely get one!")
         pathway_mapping[pathway] = selected_pathways["PATHWAY_URI"].loc[0]
-    curated_pathway_df = pandas.DataFrame(pathway_mapping.items())
-    curated_pathway_df.columns = ["Name", "ID"]
-    (synthetic_directory / "intermediate").mkdir(exist_ok=True)
-    curated_pathway_df.to_csv(synthetic_directory / "intermediate" / "curated_pathways.tsv", index=False, sep="\t")
+    (synthetic_directory / "intermediate" / "curated_pathways_id_mapping.json").write_text(json.dumps(pathway_mapping, indent=4))
 
 
 if __name__ == "__main__":

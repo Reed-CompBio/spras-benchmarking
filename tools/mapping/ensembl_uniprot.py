@@ -32,7 +32,7 @@ def idmapping_uniprot_mapping(path: str | os.PathLike) -> pandas.DataFrame:
     Ensembl: ENSG
     Ensembl_PRO: ENSG (Ensembl Protein IDs)
     """
-    # The very powerful UniProt-provided mapping file: its Ensembl mappings are a semicolon-delimeted list of Emsembl IDs containing
+    # The very powerful UniProt-provided mapping file: its Ensembl mappings are a semicolon-delimited list of Emsembl IDs containing
     # attached isoforms (and not all UniProtKB-AC identifiers have those!) so we'll need to do some extra post-processing.
     # This is `*_idmapping_selected`.
     idmapping_selected_df = pandas.read_csv(

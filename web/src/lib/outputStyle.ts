@@ -41,11 +41,11 @@ const dataCategories = {
   },
   rn: {
     name: "ResponseNet",
-    directory: "rn-muscle-skeletal",
+    directory: "rn_muscle_skeletal",
   },
   yeast: {
     name: "Yeast",
-    directory: "yeast-osmotic-stress",
+    directory: "yeast_osmotic_stress",
   },
   egfr: {
     name: "EGFR",

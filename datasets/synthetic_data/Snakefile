@@ -16,6 +16,7 @@ rule all:
 
 produce_fetch_rules({
     "raw/9606.protein.links.full.v12.0.txt": FetchConfig(["STRING", "9606", "9606.protein.links.full.txt.gz"], uncompress=True),
+    "raw/9606.protein.aliases.txt": FetchConfig(["STRING", "9606", "9606.protein.aliases.txt.gz"], uncompress=True),
     "raw/human-interactome/table_S3_surfaceome.xlsx": ["Surfaceome", "table_S3_surfaceome.xlsx"],
     "raw/human-interactome/Homo_sapiens_TF.tsv": ["TranscriptionFactors", "Homo_sapiens_TF.tsv"],
     "raw/human-interactome/HUMAN_9606_idmapping_selected.tsv": FetchConfig(["UniProt", "9606", "HUMAN_9606_idmapping_selected.tab.gz"], uncompress=True),
@@ -26,12 +27,10 @@ produce_fetch_rules({
 
 rule interactome:
     input:
+        "raw/human-interactome/HUMAN_9606_idmapping_selected.tsv",
         "raw/9606.protein.links.full.v12.0.txt",
         "raw/9606.protein.aliases.txt"
-    output:
-        "processed/proteins_missing_aliases.csv",
-        "processed/removed_edges.txt",
-        "processed/interactome.tsv"
+    output: "processed/interactome.tsv"
     shell:
         "uv run scripts/interactome.py"
 
@@ -46,7 +45,7 @@ rule process_tfs:
 
 rule process_panther_pathway:
     input:
-        "intermediate/pathway-data/{pathway}.txt",
+        "intermediate/pathway-pc-data/{pathway}.sif",
         "raw/human-interactome/table_S3_surfaceome.xlsx",
         "raw/human-interactome/Homo_sapiens_TF_Uniprot.tsv"
     output:
@@ -56,7 +55,7 @@ rule process_panther_pathway:
         "intermediate/{pathway}/targets.txt",
         "intermediate/{pathway}/prizes.txt"
     shell:
-        "uv run scripts/process_panther_pathway.py {wildcards.pathway}"
+        'uv run scripts/process_panther_pathway.py "{wildcards.pathway}"'
 
 rule make_spras_compatible:
     input:
@@ -70,33 +69,36 @@ rule make_spras_compatible:
         "processed/{pathway}/{pathway}_gs_edges.txt",
         "processed/{pathway}/{pathway}_gs_nodes.txt"
     shell:
-        "uv run scripts/panther_spras_formatting.py {wildcards.pathway}"
+        'uv run scripts/panther_spras_formatting.py "{wildcards.pathway}"'
 
 rule threshold:
     input:
         "processed/{pathway}/{pathway}_node_prizes.txt",
-        "processed/{pathway}/{pathway}_gs_edges.txt"
+        "processed/{pathway}/{pathway}_gs_edges.txt",
+        "processed/interactome.tsv"
     output:
         expand("thresholded/{threshold}/{{pathway}}/interactome.txt", threshold=thresholds),
         expand("thresholded/{threshold}/{{pathway}}/gold_standard_edges.txt", threshold=thresholds)
     shell:
-        "uv run scripts/sampling.py {wildcards.pathway}"
+        'uv run scripts/sampling.py "{wildcards.pathway}"'
 
 rule make_pathway_map:
     input:
         "raw/pathways.txt"
     output:
-        "processed/pathway_id_mapping.tsv"
+        "intermediate/curated_pathways_id_mapping.json"
     shell:
         "uv run scripts/list_curated_pathways.py"
 
-for pathway in pathways:
-    rule:
-        input:
-            "processed/pathway_id_mapping.tsv",
-            "raw/pc-panther-biopax.owl"
-        output:
-            "intermediate/pathway-data/{pathway}.owl",
-            "intermediate/pathway-data/{pathway}.sif"
-        shell:
-            f"uv run scripts/fetch_pathway.py {pathway}"
+rule process_pathways:
+    input:
+        "intermediate/curated_pathways_id_mapping.json",
+        "raw/pc-panther-biopax.owl"
+    params:
+        # A little trick from https://stackoverflow.com/a/71327709/7589775
+        pathway=lambda wildcards: wildcards.get("pathway")
+    output:
+        "intermediate/pathway-pc-data/{pathway}.owl",
+        "intermediate/pathway-pc-data/{pathway}.sif"
+    shell:
+        'uv run scripts/fetch_pathway.py "{params.pathway}"'
