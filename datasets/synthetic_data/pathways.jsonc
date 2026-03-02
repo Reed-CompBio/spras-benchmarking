@@ -10,27 +10,30 @@
     "Notch signaling pathway",
     "JAK/STAT signaling pathway",
     "Interleukin signaling pathway",
-    // TODO: Inspect why these pathway doesn't work well for sampling.
+    // TODO: These pathways do not have necessary data to work
     // "Interferon-gamma signaling pathway",
     // "Integrin signalling pathway",
-    "Insulin/IGF pathway-protein kinase B signaling cascade",
-    // TODO: and this one
-    // "Inflammation mediated by chemokine and cytokine signaling pathway",
+    // "Insulin/IGF pathway-protein kinase B signaling cascade",
+    "Inflammation mediated by chemokine and cytokine signaling pathway",
     "Hedgehog signaling pathway",
-    "FGF signaling pathway",
+    // This one has 0 targets
+    // "FGF signaling pathway",
     "FAS signaling pathway",
     // TODO: report to PathwayCommons: see https://apps.pathwaycommons.org/pathways?uri=https%3A%2F%2Fidentifiers.org%2Fpanther.pathway%3AP00019.
     // We want to add the Endothelin signaling pathway, but it is currently labelled under "untitled."
     "EGF receptor signaling pathway",
     "Cadherin signaling pathway",
     "Apoptosis signaling pathway",
-    "Ras Pathway",
+    // No sources in this one
+    // "Ras Pathway",
     "PI3 kinase pathway",
     "p38 MAPK pathway",
     "Insulin/IGF pathway-mitogen activated protein kinase kinase/MAP kinase cascade",
-    "p53 pathway",
+    // No sources in this one
+    // "p53 pathway",
     "Hypoxia response via HIF activation",
-    "Oxidative stress response",
+    // No sources in this one
+    // "Oxidative stress response",
     "B cell activation",
     "T cell activation"
 ]
