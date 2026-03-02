@@ -65,7 +65,7 @@ def sources_and_targets(pathway_node_prizes_df: pandas.DataFrame) -> SourcesTarg
 
 def main():
     arg_parser = parser()
-    arg_parser.add_argument("--seed", "The seed to use", type=int, required=False)
+    arg_parser.add_argument("--seed", help="The randomness seed to use", type=int, required=False)
     args = arg_parser.parse_args()
     pathway_name = args.pathway
     if args.seed is not None:
