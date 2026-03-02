@@ -124,4 +124,4 @@ def link(
         )
 
         Path(output).symlink_to(artifact_output)
-        
+

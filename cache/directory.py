@@ -156,8 +156,6 @@ class CacheItem:
             except DownloadFileCheckException as err:
                 logger.warning(err)
 
-        # TODO: yikes! same with self.unpinned
-
 
 CacheDirectory = dict[str, Union[CacheItem, "CacheDirectory"]]
 
