@@ -66,6 +66,10 @@ def sources_and_targets(pathway_node_prizes_df: pandas.DataFrame) -> SourcesTarg
 def main():
     arg_parser = parser()
     arg_parser.add_argument("--seed", help="The randomness seed to use", type=int, required=False)
+    arg_parser.add_argument("--amount", help="The amount of thresholds to use", type=int, default=10)
+    arg_parser.add_argument("--percentage_thresholding_multiplier", help="The percentage multiplier to threshold by, " + \
+                            "to unlink the sampling percentage to the actual required percentage of connections", type=float, default=1.0)
+
     args = arg_parser.parse_args()
     pathway_name = args.pathway
     if args.seed is not None:
@@ -88,19 +92,22 @@ def main():
     node_data_df = get_node_data(pathway_name)
     sources, targets = sources_and_targets(node_data_df)
 
-    # TODO: isolate percentage constant (this currently builds up 0%, 10%, ..., 100%)
-    for percentage in map(lambda x: (x + 1) / 10, range(10)):
-        output_directory = synthetic_directory / "thresholded" / str(percentage) / pathway_name
+    percentages = list(map(lambda x: (x + 1) / args.amount, range(args.amount)))
+    for percentage_to_sample in percentages:
+        percentage_to_threshold = percentage_to_sample * args.percentage_thresholding_multiplier
+
+        output_directory = synthetic_directory / "thresholded" / str(percentage_to_sample) / pathway_name
         output_interactome = output_directory / "interactome.txt"
         output_gold_standard = output_directory / "gold_standard_edges.txt"
 
-        print(f"Sampling with {percentage * 100:.1f}% of edges...")
+        print(f"Sampling with {percentage_to_sample * 100:.1f}% of edges...")
         attempt_number = 1
         while (
             attempt_sample(
                 pathway_name,
                 pathway_df,
-                percentage,
+                percentage_to_sample,
+                percentage_to_threshold,
                 weight_mapping,
                 interactome_df,
                 sources,

@@ -1,7 +1,7 @@
 include: "../../cache/Snakefile"
 from jsonc_parser.parser import JsoncParser
 
-pathways = JsoncParser.parse_file("pathways.jsonc")
+pathways = ["Interleukin signaling pathway"]
 
 # TODO: deduplicate from sampling.py
 thresholds = list(map(str, map(lambda x: (x + 1) / 10, range(10))))
@@ -100,7 +100,7 @@ rule threshold:
         expand("thresholded/{threshold}/{{pathway}}/interactome.txt", threshold=thresholds),
         expand("thresholded/{threshold}/{{pathway}}/gold_standard_edges.txt", threshold=thresholds)
     shell:
-        'uv run scripts/sampling.py "{wildcards.pathway}"'
+        'uv run scripts/sampling.py "{wildcards.pathway}" --percentage_thresholding_multiplier=0.9'
 
 rule make_pathway_map:
     input:
