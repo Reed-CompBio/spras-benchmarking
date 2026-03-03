@@ -69,8 +69,12 @@ def main():
     arg_parser = parser()
     arg_parser.add_argument("--seed", help="The randomness seed to use", type=int, required=False)
     arg_parser.add_argument("--amount", help="The amount of thresholds to use", type=int, default=10)
-    arg_parser.add_argument("--percentage_thresholding_multiplier", help="The percentage multiplier to threshold by, " + \
-                            "to unlink the sampling percentage to the actual required percentage of connections", type=float, default=1.0)
+    arg_parser.add_argument(
+        "--percentage_thresholding_multiplier",
+        help="The percentage multiplier to threshold by, " + "to unlink the sampling percentage to the actual required percentage of connections",
+        type=float,
+        default=1.0,
+    )
 
     args = arg_parser.parse_args()
     pathway_location = args.pathway

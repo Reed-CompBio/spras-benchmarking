@@ -75,9 +75,11 @@ def main():
     edges_df = edges_df.drop_duplicates(keep="first", ignore_index=True)
     # We trim the gold standard edges against the interactome
     interactome_df = pd.read_csv(
-        processed_directory / 'interactome.tsv', sep='\t',
-        header=None, names=["Interactor1", "Interactor2", "Weight", "Direction"],
-        dtype={"Interactor1": str, "Interactor2": str}
+        processed_directory / "interactome.tsv",
+        sep="\t",
+        header=None,
+        names=["Interactor1", "Interactor2", "Weight", "Direction"],
+        dtype={"Interactor1": str, "Interactor2": str},
     )
     edges_df = edges_df.merge(interactome_df, how="inner", on=["Interactor1", "Interactor2"])
     # We don't care about extraneous information provided by the interactome.
@@ -103,7 +105,6 @@ def main():
     # We trim the data file against the gold standard (which was already trimmed against the interactome)
     data_df = trim_data_file(data_df=result_df, gold_standard_df=edges_df)
     data_df.to_csv(out_folder / "node_prizes.txt", sep="\t", index=False, header=True)
-
 
 
 if __name__ == "__main__":

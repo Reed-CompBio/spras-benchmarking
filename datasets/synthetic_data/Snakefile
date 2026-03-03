@@ -15,8 +15,9 @@ rule all:
     input:
         "raw/9606.protein.links.full.v12.0.txt",
         expand([
-            "processed/pathways/{pathway}/node_prizes.txt",
-        ], pathway=file_compatible_pathways)
+            "thresholded/{threshold}/{pathway}/interactome.txt",
+            "thresholded/{threshold}/{pathway}/gold_standard_edges.txt",
+        ], pathway=file_compatible_pathways, threshold=thresholds)
 
 produce_fetch_rules({
     "raw/9606.protein.links.full.v12.0.txt": FetchConfig(("STRING", "9606", "9606.protein.links.full.txt.gz"), uncompress=True),
