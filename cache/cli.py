@@ -10,20 +10,21 @@ for ko03250.xml, which can not be normally accessed automatically in the browser
 import argparse
 from cache.directory import get_cache_item
 
+
 def parse_args():
-    parser = argparse.ArgumentParser(
-        prog='Cache',
-        description='CLI utility for directory.py')
-    parser.add_argument('path')
-    parser.add_argument('output')
+    parser = argparse.ArgumentParser(prog="Cache", description="CLI utility for directory.py")
+    parser.add_argument("path")
+    parser.add_argument("output")
 
     return parser.parse_args()
+
 
 def main():
     args = parse_args()
     cache_item = get_cache_item(args.path.split("/"))
 
     cache_item.download(args.output)
+
 
 if __name__ == "__main__":
     main()

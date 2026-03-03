@@ -16,6 +16,8 @@
 		// For web display
 		"ghcr.io/devcontainers/features/node:1": {},
 		// For scripting
-		"ghcr.io/va-h/devcontainers-features/uv:1": {}
+		"ghcr.io/va-h/devcontainers-features/uv:1": {},
+		// For paxtools
+		"ghcr.io/devcontainers/features/java:1": {}
 	}
 }

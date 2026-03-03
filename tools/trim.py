@@ -1,5 +1,6 @@
 import pandas
 
+
 def trim_data_file(data_df: pandas.DataFrame, gold_standard_df: pandas.DataFrame) -> pandas.DataFrame:
     """
     Trims the associated SPRAS data file with the nodes in the gold standard file.

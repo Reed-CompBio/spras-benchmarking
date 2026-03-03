@@ -43,7 +43,7 @@ algorithms:
         g: 0
 
 datasets:
-  # TODO: use old paramaters for datasets
+  # TODO: use old parameters for datasets
   # HIV: https://github.com/Reed-CompBio/spras-benchmarking/blob/0293ae4dc0be59502fac06b42cfd9796a4b4413e/hiv-benchmarking/spras-config/config.yaml
   - label: dmmmhiv_060
     node_files: ["processed_prizes_060.txt"]
@@ -55,12 +55,12 @@ datasets:
     edge_files: ["../raw/phosphosite-irefindex13.0-uniprot.txt"]
     other_files: []
     data_dir: "datasets/hiv/processed"
-  # Yeast: https://github.com/tristan-f-r/spras-benchmarking/blob/9477d85871024a5e3a4b0b8b9be7e78c0d0ee961/yeast-osmotic-stress/config.yaml
+  # Yeast: https://github.com/tristan-f-r/spras-benchmarking/blob/9477d85871024a5e3a4b0b8b9be7e78c0d0ee961/yeast_osmotic_stress/config.yaml
   - label: dmmmyeast
     node_files: ["prizes1_dummies.txt"]
     edge_files: ["network1.txt"]
     other_files: []
-    data_dir: "datasets/yeast-osmotic-stress/processed"
+    data_dir: "datasets/yeast_osmotic_stress/processed"
   - label: dmmmdiseases_alopecia_areata
     data_dir: datasets/diseases
     edge_files:

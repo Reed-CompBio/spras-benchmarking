@@ -55,4 +55,4 @@ datasets:
     # Placeholder
     other_files: []
     # Relative path from the spras directory
-    data_dir: "datasets/rn-muscle-skeletal/processed"
+    data_dir: "datasets/rn_muscle_skeletal/processed"

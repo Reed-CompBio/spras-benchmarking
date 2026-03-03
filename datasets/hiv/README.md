@@ -13,7 +13,6 @@ Follow the `Snakemake` directive to find the fetched URLs for these.
 
 - `prize_05.tsv`: Prizes files from HIV expressing Jurkat cells grown for 5 minutes, from the original paper above.
 - `prize_060.tsv`: Prizes files from growing for 60 minutes.
-- `ko03250.xml`: KEGG Orthology Pathway ID 03250 (currently unused - was used previously for an attempt at gold standard generation.)
 - `HUMAN_9606_idmapping.tsv`: File provided by UniProt, used for mapping UniProt identifiers for  `name_mapping.py`.
 - `phosphosite-irefindex13.0-uniprot.txt`: The background interactome from the now-gone iRefIndex.
 
