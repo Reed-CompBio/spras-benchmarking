@@ -97,6 +97,7 @@ def main():
         percentage_to_threshold = percentage_to_sample * args.percentage_thresholding_multiplier
 
         output_directory = synthetic_directory / "thresholded" / str(percentage_to_sample) / pathway_name
+        output_directory.mkdir(exist_ok=True)
         output_interactome = output_directory / "interactome.txt"
         output_gold_standard = output_directory / "gold_standard_edges.txt"
 

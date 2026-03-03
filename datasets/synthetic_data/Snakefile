@@ -100,7 +100,7 @@ rule threshold:
         expand("thresholded/{threshold}/{{pathway}}/interactome.txt", threshold=thresholds),
         expand("thresholded/{threshold}/{{pathway}}/gold_standard_edges.txt", threshold=thresholds)
     shell:
-        'uv run scripts/sampling.py "{wildcards.pathway}" --percentage_thresholding_multiplier=0.9'
+        'uv run scripts/sampling.py "{wildcards.pathway}" --percentage_thresholding_multiplier 0.9'
 
 rule make_pathway_map:
     input:
