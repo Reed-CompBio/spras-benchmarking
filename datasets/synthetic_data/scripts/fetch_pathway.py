@@ -4,6 +4,7 @@ from pathlib import Path
 
 from paxtools.fetch import fetch
 from paxtools.sif import toSIF
+import urllib.parse
 
 synthetic_directory = Path(__file__).parent.parent.resolve()
 
@@ -19,7 +20,7 @@ def parser():
 def main():
     args = parser().parse_args()
     curated_pathways_df = json.loads((synthetic_directory / "intermediate" / "curated_pathways_id_mapping.json").read_text())
-    associated_id = curated_pathways_df[args.pathway_name]
+    associated_id = curated_pathways_df[urllib.parse.unquote(args.pathway_name)]
 
     pathway_data_dir = synthetic_directory / "intermediate" / "pathway-pc-data"
     pathway_data_dir.mkdir(exist_ok=True, parents=True)

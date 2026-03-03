@@ -1,7 +1,12 @@
 include: "../../cache/Snakefile"
 from jsonc_parser.parser import JsoncParser
+import urllib.parse
 
-pathways = ["Interleukin signaling pathway"]
+def make_file_safe(input_str: str) -> str:
+    return urllib.parse.quote(input_str, safe='')
+
+pathways = JsoncParser.parse_file("pathways.jsonc")
+file_compatible_pathways = list(map(make_file_safe, pathways))
 
 # TODO: deduplicate from sampling.py
 thresholds = list(map(str, map(lambda x: (x + 1) / 10, range(10))))
@@ -10,9 +15,8 @@ rule all:
     input:
         "raw/9606.protein.links.full.v12.0.txt",
         expand([
-            "thresholded/{threshold}/{pathway}/interactome.txt",
-            "thresholded/{threshold}/{pathway}/gold_standard_edges.txt",
-        ], pathway=pathways, threshold=thresholds)
+            "processed/pathways/{pathway}/node_prizes.txt",
+        ], pathway=file_compatible_pathways)
 
 produce_fetch_rules({
     "raw/9606.protein.links.full.v12.0.txt": FetchConfig(("STRING", "9606", "9606.protein.links.full.txt.gz"), uncompress=True),
@@ -79,22 +83,24 @@ rule process_panther_pathway:
 
 rule make_spras_compatible:
     input:
+        # We use the interactome for trimming
+        "processed/interactome.tsv",
         "intermediate/{pathway}/edges.txt",
         "intermediate/{pathway}/nodes.txt",
         "intermediate/{pathway}/sources.txt",
         "intermediate/{pathway}/targets.txt",
         "intermediate/{pathway}/prizes.txt"
     output:
-        "processed/{pathway}/{pathway}_node_prizes.txt",
-        "processed/{pathway}/{pathway}_gs_edges.txt",
-        "processed/{pathway}/{pathway}_gs_nodes.txt"
+        "processed/pathways/{pathway}/node_prizes.txt",
+        "processed/pathways/{pathway}/gs_edges.txt",
+        "processed/pathways/{pathway}/gs_nodes.txt"
     shell:
         'uv run scripts/panther_spras_formatting.py "{wildcards.pathway}"'
 
 rule threshold:
     input:
-        "processed/{pathway}/{pathway}_node_prizes.txt",
-        "processed/{pathway}/{pathway}_gs_edges.txt",
+        "processed/pathways/{pathway}/node_prizes.txt",
+        "processed/pathways/{pathway}/gs_edges.txt",
         "processed/interactome.tsv"
     output:
         expand("thresholded/{threshold}/{{pathway}}/interactome.txt", threshold=thresholds),

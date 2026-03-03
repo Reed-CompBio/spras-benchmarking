@@ -55,7 +55,7 @@ def attempt_sample(
     returning the connections between {sources} and {targets},
     or None if the target percentage failed.
     """
-    interactome_df = sample_interactome(interactome_df, weight_mapping, percentage_to_sample)
+    sampled_interactome_df = sample_interactome(interactome_df, weight_mapping, percentage_to_sample)
 
     print(f"Merging {pathway_name} with interactome...")
     # While we are merging this graph, we are preparing to compare the connectedness of the prev[ious] and curr[ent] (merged) graph
@@ -65,7 +65,7 @@ def attempt_sample(
 
     # and the current graph is the one restricted to the sampled interactome.
     print("Checking for pathway connectedness...")
-    pathway_df = pathway_df.merge(interactome_df, how="inner", on=["Interactor1", "Interactor2"])
+    pathway_df = pathway_df.merge(sampled_interactome_df, how="inner", on=["Interactor1", "Interactor2"])
     curr_graph = networkx.from_pandas_edgelist(pathway_df, source="Interactor1", target="Interactor2", create_using=networkx.DiGraph)
     curr_connections = find_connected_sources_targets(sources, targets, curr_graph)
 
@@ -75,7 +75,7 @@ def attempt_sample(
     if percentage_to_require <= connection_percentage:
         print(f"Got {connection_percentage * 100:.1f}% connections above the {percentage_to_require * 100:.1f}% required percentage threshold.")
         pathway_df.to_csv(output_gold_standard, sep="\t", index=False, header=False)
-        interactome_df.to_csv(output_interactome, sep="\t", index=False, header=False)
+        sampled_interactome_df.to_csv(output_interactome, sep="\t", index=False, header=False)
         return curr_connections
     print(f"Failed {connection_percentage * 100:.1f}% connections below the {percentage_to_require * 100:.1f}% required percentage threshold.")
     return None

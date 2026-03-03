@@ -2,6 +2,8 @@ import pandas
 from pathlib import Path
 import collections
 from typing import OrderedDict, NamedTuple
+
+import urllib.parse
 from tools.sample import attempt_sample
 from tools.trim import trim_data_file
 from datasets.synthetic_data.scripts.util.parser import parser
@@ -33,7 +35,7 @@ def read_pathway(pathway_name: str) -> pandas.DataFrame:
     with columns Interactor1 -> Interactor2.
     """
     pathway_df = pandas.read_csv(
-        synthetic_directory / "processed" / pathway_name / f"{pathway_name}_gs_edges.txt",
+        synthetic_directory / "processed" / "pathways" / pathway_name / "gs_edges.txt",
         sep="\t",
         names=["Interactor1", "Interactor2", "Weight", "Direction"],
     )
@@ -49,7 +51,7 @@ class SourcesTargets(NamedTuple):
 
 def get_node_data(pathway_name: str) -> pandas.DataFrame:
     return pandas.read_csv(
-        synthetic_directory / "processed" / pathway_name / f"{pathway_name}_node_prizes.txt", sep="\t", usecols=["NODEID", "sources", "targets"]
+        synthetic_directory / "processed" / "pathways" / pathway_name / "node_prizes.txt", sep="\t", usecols=["NODEID", "sources", "targets"]
     )
 
 
@@ -71,7 +73,8 @@ def main():
                             "to unlink the sampling percentage to the actual required percentage of connections", type=float, default=1.0)
 
     args = arg_parser.parse_args()
-    pathway_name = args.pathway
+    pathway_location = args.pathway
+    pathway_name = urllib.parse.unquote(pathway_location)
     if args.seed is not None:
         random.seed(args.seed)
 
@@ -88,16 +91,16 @@ def main():
     weight_mapping = count_weights()
 
     # Get information about the pathway
-    pathway_df = read_pathway(pathway_name)
-    node_data_df = get_node_data(pathway_name)
+    pathway_df = read_pathway(pathway_location)
+    node_data_df = get_node_data(pathway_location)
     sources, targets = sources_and_targets(node_data_df)
 
     percentages = list(map(lambda x: (x + 1) / args.amount, range(args.amount)))
     for percentage_to_sample in percentages:
-        percentage_to_threshold = percentage_to_sample * args.percentage_thresholding_multiplier
+        percentage_to_require = percentage_to_sample * args.percentage_thresholding_multiplier
 
-        output_directory = synthetic_directory / "thresholded" / str(percentage_to_sample) / pathway_name
-        output_directory.mkdir(exist_ok=True)
+        output_directory = synthetic_directory / "thresholded" / str(percentage_to_sample) / pathway_location
+        output_directory.mkdir(exist_ok=True, parents=True)
         output_interactome = output_directory / "interactome.txt"
         output_gold_standard = output_directory / "gold_standard_edges.txt"
 
@@ -108,7 +111,7 @@ def main():
                 pathway_name,
                 pathway_df,
                 percentage_to_sample,
-                percentage_to_threshold,
+                percentage_to_require,
                 weight_mapping,
                 interactome_df,
                 sources,
@@ -123,7 +126,7 @@ def main():
 
         # We're done sampling:
         (output_directory / "attempt-number.txt").write_text(str(attempt_number))
-        # we need to trim our data file as well.
+        # we need to trim our data file as well. We do this already in process_panther_pathway, though.
         trim_data_file(data_df=node_data_df, gold_standard_df=pathway_df).to_csv(output_directory / "node_prizes.tsv", sep="\t", index=False)
 
 
