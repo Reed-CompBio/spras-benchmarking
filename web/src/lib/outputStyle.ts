@@ -30,7 +30,11 @@ const dataCategories = {
   egfr: {
     name: "EGFR",
     directory: "egfr"
-  }
+  },
+  yeast: {
+    name: "Yeast",
+    directory: "yeast_osmotic_stress",
+  },
 };
 
 // TODO: replace this once we have proper dataset categories
