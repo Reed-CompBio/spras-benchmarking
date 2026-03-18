@@ -30,7 +30,11 @@ const dataCategories = {
   egfr: {
     name: "EGFR",
     directory: "egfr"
-  }
+  },
+  hiv: {
+    name: "HIV",
+    directory: "hiv",
+  },
 };
 
 // TODO: replace this once we have proper dataset categories

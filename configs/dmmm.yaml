@@ -43,6 +43,18 @@ algorithms:
         g: 0
 
 datasets:
+  # TODO: use old parameters for datasets
+  # HIV: https://github.com/Reed-CompBio/spras-benchmarking/blob/0293ae4dc0be59502fac06b42cfd9796a4b4413e/hiv-benchmarking/spras-config/config.yaml
+  - label: dmmmhiv_060
+    node_files: ["processed_prizes_060.txt"]
+    edge_files: ["../raw/phosphosite-irefindex13.0-uniprot.txt"]
+    other_files: []
+    data_dir: "datasets/hiv/processed"
+  - label: dmmmhiv_05
+    node_files: ["processed_prizes_05.txt"]
+    edge_files: ["../raw/phosphosite-irefindex13.0-uniprot.txt"]
+    other_files: []
+    data_dir: "datasets/hiv/processed"
   - label: dmmmegfr_string
     data_dir: datasets/egfr
     edge_files: ["processed/interactome.tsv"]
