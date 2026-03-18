@@ -30,7 +30,11 @@ const dataCategories = {
   egfr: {
     name: "EGFR",
     directory: "egfr"
-  }
+  },
+  rn: {
+    name: "ResponseNet",
+    directory: "rn_muscle_skeletal",
+  },
 };
 
 // TODO: replace this once we have proper dataset categories
