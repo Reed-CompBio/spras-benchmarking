@@ -3,6 +3,7 @@ import pandas
 
 diseases_path = Path(__file__).parent.parent.resolve()
 
+
 def main():
     # See /cache/directory.py for information on how this was grabbed.
     # 9606 is the organism code for homo sapiens and the required background interactome of DISEASES.
@@ -14,6 +15,7 @@ def main():
     # though we still keep the weight afterwards
     (diseases_path / "processed").mkdir(exist_ok=True)
     string.to_csv(diseases_path / "processed" / "string_interactome.tsv", sep="\t", index=False, header=False)
+
 
 if __name__ == "__main__":
     main()

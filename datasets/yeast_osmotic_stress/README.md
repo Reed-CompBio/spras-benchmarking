@@ -23,7 +23,7 @@ There are other raw files inside the Snakefile, but we don't use them here. We f
 
 ## Future Work
 
-(_Note: results are from [this `config.yaml`](https://github.com/tristan-f-r/spras-benchmarking/blob/9477d85871024a5e3a4b0b8b9be7e78c0d0ee961/yeast-osmotic-stress/config.yaml)_).
+(_Note: results are from [this `config.yaml`](https://github.com/tristan-f-r/spras-benchmarking/blob/9477d85871024a5e3a4b0b8b9be7e78c0d0ee961/yeast_osmotic_stress/config.yaml)_).
 One huge factor in why my results may have been different than the original case study has to do with the lack of a dummy node parameter implemented in the SPRAS version of Omics Integrator 1, which allows a user to pass a file with a list of dummy nodes that the algorithm has to start its reconstructions through. This feature has since been added to SPRAS.
 
 In the case study they ran the tuned parameters with a Beta of 1.75 and r of 0.01 (to add edge noise) and generated 1000 forests. In my case Omics integrator doesn't have a way to run multiple outputs with the same parameter combination in order to ensemble the results and look at edge frequencies. My work around was to use `np.linspace` with a range between 1 and 2 and running 250 - 1000 parameter combinations. The idea being to run parameters as close to 1.75 as possible and compare the outputs.

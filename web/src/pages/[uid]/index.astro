@@ -36,7 +36,7 @@ const output = parseOutputString(uid);
 // We get the raw files associated to this specific run
 const subPaths = getDataFiles().filter((path) => path.startsWith(asFolderName(output)));
 
-// The paramater config content
+// The parameter config content
 const parametersCode = (
   await import(`../../../../output/logs/parameters-${output.algorithm}-params-${output.paramsHash}.yaml?raw`)
 ).default;

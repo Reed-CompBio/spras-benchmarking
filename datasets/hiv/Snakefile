@@ -7,11 +7,21 @@ rule all:
         "raw/phosphosite-irefindex13.0-uniprot.txt"
 
 produce_fetch_rules({
-    "raw/prize_05.tsv": ["HIV1", "prize_05.tsv"],
-    "raw/prize_060.tsv": ["HIV1", "prize_060.tsv"],
-    "raw/ko03250.xml": ["KEGG", "ko03250.xml"],
-    "raw/phosphosite-irefindex13.0-uniprot.txt": ["iRefIndex", "phosphosite-irefindex13.0-uniprot.txt"],
-    "raw/HUMAN_9606_idmapping.tsv": FetchConfig(["UniProt", "9606", "HUMAN_9606_idmapping.dat.gz"], uncompress=True),
+    # The following files are from https://github.com/gitter-lab/hiv1-aurkb.
+    # While the following files do point to the repository's main branch,
+    # they aren't expected to actually change.
+    "raw/prize_05.tsv": FetchConfig(CacheItem(
+        name="HIV_05 prizes",
+        cached="https://drive.google.com/uc?id=1jVWNRPfYkbqimO44GdzXYB3-7NXhet1m",
+        pinned="https://raw.githubusercontent.com/gitter-lab/hiv1-aurkb/refs/heads/main/Results/base_analysis/prize_05.csv",
+    )),
+    "raw/prize_060.tsv": FetchConfig(CacheItem(
+        name="HIV_060 prizes",
+        cached="https://drive.google.com/uc?id=1Aucgp7pcooGr9oT4m2bvYEuYW6186WxQ",
+        pinned="https://raw.githubusercontent.com/gitter-lab/hiv1-aurkb/refs/heads/main/Results/base_analysis/prize_060.csv",
+    )),
+    "raw/phosphosite-irefindex13.0-uniprot.txt": ("iRefIndex", "phosphosite-irefindex13.0-uniprot.txt"),
+    "raw/HUMAN_9606_idmapping.tsv": FetchConfig(("UniProt", "9606", "HUMAN_9606_idmapping.dat.gz"), uncompress=True),
 })
 
 rule data_prep:
