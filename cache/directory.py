@@ -185,6 +185,20 @@ directory: CacheDirectory = {
                 cached="https://drive.google.com/uc?id=1h2Cl-60qcKse-djcsqlRXm_n60mVY7lk",
                 unpinned="https://rest.uniprot.org/uniprotkb/stream?fields=accession%2Cid%2Cprotein_name%2Cgene_names&format=tsv&query=%28*%29+AND+%28reviewed%3Atrue%29+AND+%28model_organism%3A9606%29",
             ),
+            # Sources
+            "sources.tsv": CacheItem(
+                # Where KW-0675 is the UniProt keyword for receptors
+                name="UniProt-tagged sources (receptors)",
+                unpinned="https://rest.uniprot.org/uniprotkb/stream?fields=accession%2Cid&format=tsv&query=%28%28keyword%3A%22KW-0675%22%29%29+AND+%28reviewed%3Atrue%29+AND+%28model_organism%3A9606%29",
+                cached="https://drive.google.com/uc?id=1VbCLH9yoJ41QhzhsSy9ICAU2MLAAxfJe"
+            ),
+            # Targets
+            "targets.tsv": CacheItem(
+                name="UniProt-tagged targets (transcription factors)",
+                # Where KW-0539 and KW-0805 are the UniProt keywords for the nucleus and transcription regulators, respectively.
+                unpinned="https://rest.uniprot.org/uniprotkb/stream?fields=accession%2Cid&format=tsv&query=%28%28keyword%3AKW-0539%29+OR+%28keyword%3AKW-0805%29%29+AND+%28reviewed%3Atrue%29+AND+%28model_organism%3A9606%29",
+                cached="https://drive.google.com/uc?id=1gg_2IO1xHeho8KkcYVIfqHNWSRZx6gd1"
+            ),
             # idmapping FTP files. See the associated README:
             # https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/idmapping/README
             "HUMAN_9606_idmapping_selected.tab.gz": CacheItem(
