@@ -1,0 +1,37 @@
+include: "../../cache/Snakefile"
+
+rule all:
+    input:
+        "processed/sources.txt",
+        "processed/targets.txt",
+        "processed/interactome.tsv"
+
+produce_fetch_rules({
+    "raw/Muscle_Skeletal-Dec2018.tsv": FetchConfig(CacheItem(
+        name="Muscle Skeletal 2018 data",
+        cached="https://drive.google.com/uc?id=1mkvWrCkeDz1DU-PSEsRaGNM20EcpVLwE",
+    )),
+    # We don't use this in Snakemake, but it's good to know where it is.
+    "raw/ResponseNetNetwork.json": FetchConfig(CacheItem(
+        name="ResponseNet interactome",
+        cached="https://drive.google.com/uc?id=1drn1JC0rQ6NJOA77r4JUrL3PQW-zvoKB",
+    )),
+})
+
+rule process_interactome:
+    input:
+        "raw/Muscle_Skeletal-Dec2018.tsv"
+    output:
+        "processed/interactome.tsv"
+    shell:
+        "uv run process.py"
+
+rule copy_curated:
+    input:
+        "curated/sources.txt",
+        "curated/targets.txt"
+    output:
+        "processed/sources.txt",
+        "processed/targets.txt"
+    shell:
+        "mkdir -p processed && cp curated/* processed"
