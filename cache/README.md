@@ -23,7 +23,65 @@ When a file is requested, `cached`, `pinned`, and `unpinned` are all downloaded:
 - If the URL linking to `pinned` does not match `cached`, we fail.
 - If the URL linking to `unpinned` does not match `cached`, we warn that the data needs updating.
 
-## Layout
+If a file exists for too long (i.e. it expires), we automatically mark it for re-fetching when the file is requested.
+
+## Google Drive
+
+We currently use Google Drive. The hope is to move to [OSDF](https://osg-htc.org/services/osdf), though Drive seems to suffice for now.
+We have been running into the occasional ratelimiting issue, which may become more of a problem in the future.
+
+## Snakemake
+
+We also provide a `Snakefile`, which can be imported in dataset Snakefiles through:
+
+```py
+include: "../../cache/Snakefile"
+```
+
+This imports a function `produce_fetch_rules`, which takes in a dictionary where the keys are file names,
+and the values are either entires in `directory.py`, or `CacheItem`s themselves. For example,
+
+```py
+produce_fetch_rules({
+    "raw/9606.protein.links.full.txt": FetchConfig(("STRING", "9606", "9606.protein.links.full.txt.gz"), uncompress=True),
+})
+```
+
+would produce a Snakemake rule whose output is `raw/9606.protein.links.full.txt`, and would look under `directory.py` by traversing
+the `directory` dictionary, going to `STRING` then `9606` then `9606.protein.links.full.txt.gz`, where the `FetchConfig`
+asks the inner rule to uncompress the file before saving it under `raw/9606.protein.links.full.txt`.
+
+Semantically, this is equivalent to:
+
+```py
+produce_fetch_rules({
+    "raw/9606.protein.links.full.txt": FetchConfig(CacheItem(
+        name="STRING 9606 full protein links",
+        cached="...",
+        pinned="...",
+    ), uncompress=True),
+})
+```
+
+However, the former option saves the file to a cached directory under `cache/artifacts`, while the latter saves the file to a dataset-specific
+folder: that is, if you have a file that's used across multiple datasets, add it to `directory.py`!
+
+## Implementation details
+
+### `.metadata`
+
+All cached files come with an associated `.metadata`: usually, this would be controlled with Snakemake, but since:
+1. This system lives outside of the purview of `Snakemake`
+2. We have file expiration
+
+we instead track file data with an associated `.metadata` file, which preserves information about where the file came from,
+and when it was created, to re-fetch files if any of that associated data changes. This is controlled under `__init__.py`.
+
+### Loggers
+
+Later on, our use of `loguru` will be logged to let maintainers know when data sources are outdated.
+
+### Layout
 
 This folder has:
 - `Snakefile` which only contains a function used for producing fetching rules.

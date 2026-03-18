@@ -71,7 +71,7 @@ def link_with_cache_item(
     # `output` our 'compressed output.'
     uncompressed_output = output
     if uncompress:
-        output = add_suffix(output, ".compresseded")
+        output = add_suffix(output, ".compressed")
 
     # Re-download if the file doesn't exist or the directive has expired.
     # Note that we check for expiration first to trigger metadata creation.
@@ -93,7 +93,7 @@ def link(
     For example,
 
     ```py
-    link("output/ensg-ensp.tsv", FetchConfig(["BioMart", "ensg-ensp.tsv"]))
+    link("output/ensg-ensp.tsv", FetchConfig(("BioMart", "ensg-ensp.tsv")))
     ```
 
     would download and check BioMart's cache for ENSG-ENSP mapping, then:
