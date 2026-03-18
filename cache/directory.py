@@ -96,13 +96,13 @@ def fetch_biomart_service(xml: str) -> Service:
 class CacheItem:
     """
     Class for differentriating between different ways of fetching data.
-    As mentioned in the ./README.md, `cached` is always needed, and we differentriate between service outage (`pinned`)
+    As mentioned in the ./README.md, `cached` is always needed, and we differentiate between service outage (`pinned`)
     and data needing updates (`unpinned`). There is no need to specify both keys at once, but the choice does matter
     for how errors are presented during benchmarking runs.
     """
 
     name: str
-    """The display name of the artifact, used for human-printing."""
+    """The display name of the artifact, used for human-readable logs."""
 
     cached: str
     """
@@ -123,8 +123,6 @@ class CacheItem:
     we say that the file has a new version.
 
     If `pinned` is None and `unpinned` doesn't match `cached`, we warn instead of erroring.
-
-    We will still error if the status code is not 2XX (a successful request).
     """
 
     def __post_init__(self):
@@ -142,11 +140,19 @@ class CacheItem:
         return cls(name=name, cached=cached)
 
     def download(self, output: str | PathLike):
+        """
+        Downloads this `CacheItem` to the desired `output`,
+        comparing the `cached` file to the `pinned` and `unpinned` files,
+        warning when `cached` doesn't match `unpinned`, and erroring when
+        `cached` doesn't match `pinned`.
+        """
         logger.info(f"Fetching {self.name}...")
 
         logger.info(f"Downloading cache {self.cached} to {output}...")
         gdown.download(self.cached, str(output))  # gdown doesn't have a type signature, but it expects a string :/
 
+        # If the file is pinned, we move the file to make sure it never gets used again, and stop the entire workflow if something bad happens.
+        # The converse is in the other branch.
         if self.pinned is not None:
             Service.coerce(self.pinned).download_against_cache(cache=Path(output), downloaded_file_type="pinned", move_output=True)
         if self.unpinned is not None:
@@ -184,20 +190,6 @@ directory: CacheDirectory = {
                 name="UniProt 9606 SwissProt genes",
                 cached="https://drive.google.com/uc?id=1h2Cl-60qcKse-djcsqlRXm_n60mVY7lk",
                 unpinned="https://rest.uniprot.org/uniprotkb/stream?fields=accession%2Cid%2Cprotein_name%2Cgene_names&format=tsv&query=%28*%29+AND+%28reviewed%3Atrue%29+AND+%28model_organism%3A9606%29",
-            ),
-            # Sources
-            "sources.tsv": CacheItem(
-                # Where KW-0675 is the UniProt keyword for receptors
-                name="UniProt-tagged sources (receptors)",
-                unpinned="https://rest.uniprot.org/uniprotkb/stream?fields=accession%2Cid&format=tsv&query=%28%28keyword%3A%22KW-0675%22%29%29+AND+%28reviewed%3Atrue%29+AND+%28model_organism%3A9606%29",
-                cached="https://drive.google.com/uc?id=1VbCLH9yoJ41QhzhsSy9ICAU2MLAAxfJe"
-            ),
-            # Targets
-            "targets.tsv": CacheItem(
-                name="UniProt-tagged targets (transcription factors)",
-                # Where KW-0539 and KW-0805 are the UniProt keywords for the nucleus and transcription regulators, respectively.
-                unpinned="https://rest.uniprot.org/uniprotkb/stream?fields=accession%2Cid&format=tsv&query=%28%28keyword%3AKW-0539%29+OR+%28keyword%3AKW-0805%29%29+AND+%28reviewed%3Atrue%29+AND+%28model_organism%3A9606%29",
-                cached="https://drive.google.com/uc?id=1gg_2IO1xHeho8KkcYVIfqHNWSRZx6gd1"
             ),
             # idmapping FTP files. See the associated README:
             # https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/idmapping/README

@@ -18,13 +18,17 @@ artifacts_dir = dir_path / "artifacts"
 
 @dataclass(frozen=True)
 class FetchConfig:
+    """What directive should be fetched, and how it should be fetched."""
+
     directive: Union[CacheItem, tuple[str, ...]]
     uncompress: bool = False
+    # NOTE: uncompress only unzips `.gz` files. TODO: add support for .zip files.
 
 def get_artifact_name(directive: tuple[str, ...]) -> str:
     return quote_plus("/".join(directive))
 
 def add_suffix(path: Path, suffix: str):
+    """`file.suffix` -> `file.suffix.suffix2`."""
     return path.with_suffix(path.suffix + suffix)
 
 def has_expired(
