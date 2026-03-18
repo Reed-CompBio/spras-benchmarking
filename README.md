@@ -2,12 +2,12 @@
 
 ![example workflow](https://github.com/Reed-CompBio/spras-benchmarking/actions/workflows/publish.yml/badge.svg)
 
-Benchmarking datasets for the [SPRAS](https://github.com/Reed-CompBio/spras) project. This repository contains gold standard datasets to evaluate on as well as paper reproductions & improvements incorporating new methodologies.
+Benchmarking datasets for the [SPRAS](https://github.com/Reed-CompBio/spras) project. This repository contains different dataset collections to evaluate all algorithms in SPRAS.
 The results of every benchmarking run are deployed on GitHub pages. [(See the current web output)](https://reed-compbio.github.io/spras-benchmarking/).
 
 ## Setup
 
-This repository depends on SPRAS. If you want to reproduce the results of benchmarking locally,
+This repository depends on SPRAS. If you want to reproduce the results locally,
 you will need to setup SPRAS. SPRAS depends on [Docker](https://www.docker.com/) and [Conda](https://docs.conda.io/projects/conda/en/stable/). If it is hard to install either of these tools,
 a [devcontainer](https://containers.dev/) is available for easy setup.
 

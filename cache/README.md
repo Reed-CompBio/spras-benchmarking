@@ -27,7 +27,7 @@ If a file exists for too long (i.e. it expires), we automatically mark it for re
 
 ## Google Drive
 
-We currently use Google Drive. The hope is to move to [OSDF](https://osg-htc.org/services/osdf), though Drive seems to suffice for now.
+We currently use Google Drive to store raw data. The hope is to move to [OSDF](https://osg-htc.org/services/osdf), though Drive seems to suffice for now.
 We have been running into the occasional ratelimiting issue, which may become more of a problem in the future.
 
 ## Snakemake
