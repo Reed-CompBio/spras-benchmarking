@@ -39,7 +39,7 @@ include: "../../cache/Snakefile"
 ```
 
 This imports a function `produce_fetch_rules`, which takes in a dictionary where the keys are file names,
-and the values are either entires in `directory.py`, or `CacheItem`s themselves. For example,
+and the values are either entries in `directory.py`, or `CacheItem`s themselves. For example,
 
 ```py
 produce_fetch_rules({
