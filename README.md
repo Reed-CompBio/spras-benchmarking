@@ -34,7 +34,7 @@ uv run snakemake --cores 1
 ```
 
 > [!NOTE]
-> Each one of the dataset categories (at the time of writing, DMMM and PRA) are split into different configuration files.
+> Each one of the dataset categories (at the time of writing, DMMM) are split into different configuration files.
 > Run each one as you would want.
 
 ## Organization

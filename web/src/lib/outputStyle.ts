@@ -19,7 +19,7 @@ function extractPrefix(name: string, prefixName: string, prefixes: string[]): { 
   };
 }
 
-const dataTypes = ["pra", "dmmm"];
+const dataTypes = ["dmmm"];
 
 export function extractDatasetType(name: string): { type: string; name: string } {
   const { prefix, name: newName } = extractPrefix(name, "dataset type", dataTypes);
@@ -27,26 +27,6 @@ export function extractDatasetType(name: string): { type: string; name: string }
 }
 
 const dataCategories = {
-  diseases: {
-    name: "DISEASES",
-    directory: "diseases",
-  },
-  depmap: {
-    name: "DepMap",
-    directory: "depmap",
-  },
-  hiv: {
-    name: "HIV",
-    directory: "hiv",
-  },
-  rn: {
-    name: "ResponseNet",
-    directory: "rn_muscle_skeletal",
-  },
-  yeast: {
-    name: "Yeast",
-    directory: "yeast_osmotic_stress",
-  },
   egfr: {
     name: "EGFR",
     directory: "egfr"

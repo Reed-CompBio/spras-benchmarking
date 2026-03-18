@@ -20,6 +20,7 @@ There are also pages related to different categories of these runs:
 - <code><a href="/spras-benchmarking/type-category-dataset/"><span class="color-1">type</span>-<span class="color-2">category</span>-<span class="color-3">dataset</span></a></code>
 - <code><a href="/spras-benchmarking/type-category/"><span class="color-1">type</span>-<span class="color-2">category</span></a></code>
 
+<!-- Note that PRA does not exist in the current tree -->
 The <code class="color-1">type</code> classifies a dataset and the algorithms it runs on. In this case, PRA datasets run on all algorithms, while disease module datasets only run on DMMM algorithms.
 
 The <code class="color-2">category</code> classifies what provider a dataset comes from.
