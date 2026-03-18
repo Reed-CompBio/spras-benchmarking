@@ -13,6 +13,7 @@ set -o nounset
 cd "$(dirname "$0")"
 
 main() {
+    uv run snakemake --cores 1 -d datasets/depmap -s datasets/depmap/Snakefile
     uv run snakemake --cores 1 -d datasets/egfr -s datasets/egfr/Snakefile
 }
 

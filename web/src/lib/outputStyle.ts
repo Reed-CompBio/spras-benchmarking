@@ -27,6 +27,10 @@ export function extractDatasetType(name: string): { type: string; name: string }
 }
 
 const dataCategories = {
+  depmap: {
+    name: "DepMap",
+    directory: "depmap",
+  },
   egfr: {
     name: "EGFR",
     directory: "egfr"

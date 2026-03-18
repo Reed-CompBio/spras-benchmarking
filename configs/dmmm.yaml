@@ -43,6 +43,11 @@ algorithms:
         g: 0
 
 datasets:
+  - label: dmmmdepmap_cellline_fadu
+    data_dir: datasets/depmap
+    edge_files: ["raw/phosphosite-irefindex13.0-uniprot.txt"]
+    node_files: ["processed/FADU_cell_line_prizes_input_nonzero.txt"]
+    other_files: []
   - label: dmmmegfr_string
     data_dir: datasets/egfr
     edge_files: ["processed/interactome.tsv"]
@@ -54,6 +59,10 @@ datasets:
     node_files: ["processed/prizes-uniprot.txt"]
     other_files: []
 gold_standards:
+  - label: gs_fadu
+    node_files: ["processed/FADU_gold_standard.txt"]
+    data_dir: datasets/depmap
+    dataset_labels: ["dmmmdepmap_cellline_fadu"]
   - label: gs_egfr_string
     node_files: ["processed/gold-standard-nodes.txt"]
     data_dir: datasets/egfr

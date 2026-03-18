@@ -1,0 +1,67 @@
+include: "../../cache/Snakefile"
+
+rule all:
+    # We currently only care about the FADU cell line.
+    input:
+        "processed/FADU_cell_line_prizes_input_nonzero.txt",
+        "processed/FADU_cell_line_prizes.txt",
+        "processed/FADU_gold_standard_thresh_0_5.txt",
+        "raw/phosphosite-irefindex13.0-uniprot.txt"
+
+produce_fetch_rules({
+    "raw/OmicsProfiles.csv": CacheItem(
+        name="DepMap omics metadata",
+        cached="https://drive.google.com/uc?id=1i54aKfO0Ci2QKLTNJnuQ_jgGhH4c9rTL",
+        pinned="https://depmap.org/portal/download/api/download?file_name=downloads-by-canonical-id%2F2025-05-01-master-mapping-table-28c2.12%2Fpublic_release_date.2025-05-01.master_mapping_table.csv&dl_name=OmicsProfiles.csv&bucket=depmap-external-downloads",
+    ),
+    "raw/CRISPRGeneDependency.csv": CacheItem(
+        name="DepMap gene dependency probability estimates",
+        cached="https://drive.google.com/uc?id=122rWNqT_u3M7B_11WYZMtOLiPbBykkaz",
+        pinned="https://depmap.org/portal/download/api/download?file_name=downloads-by-canonical-id%2F25q2-public-557c.3%2FCRISPRGeneDependency.csv&dl_name=CRISPRGeneDependency.csv&bucket=depmap-external-downloads",
+    ),
+    "raw/OmicsSomaticMutationsMatrixDamaging.csv": CacheItem(
+        name="DepMap genotyped matrix",
+        cached="https://drive.google.com/uc?id=1W7N2H0Qi7NwmTmNChcwa2ZZ4WxAuz-Xh",
+        pinned="https://depmap.org/portal/download/api/download?file_name=downloads-by-canonical-id%2Fpublic-25q2-c5ef.87%2FOmicsSomaticMutationsMatrixDamaging.csv&dl_name=OmicsSomaticMutationsMatrixDamaging.csv&bucket=depmap-external-downloads",
+    ),
+    "raw/OmicsExpressionProteinCodingGenesTPMLogp1.csv": CacheItem(
+        name="DepMap model-level TPMs",
+        cached="https://drive.google.com/uc?id=1P0m88eXJ8GPdru8h9oOcHPeXKU7ljIrP",
+        pinned="https://depmap.org/portal/download/api/download?file_name=downloads-by-canonical-id%2Fpublic-25q2-c5ef.73%2FOmicsExpressionProteinCodingGenesTPMLogp1.csv&dl_name=OmicsExpressionProteinCodingGenesTPMLogp1.csv&bucket=depmap-external-downloads",
+    ),
+    "raw/OmicsCNGeneWGS.csv": CacheItem(
+        name="DepMap gene-level copy number data",
+        cached="https://drive.google.com/uc?id=1TPp3cfK7OZUrftucr3fLO-krXSQAA6Ub",
+        pinned="https://depmap.org/portal/download/api/download?file_name=downloads-by-canonical-id%2Fpublic-25q2-c5ef.104%2FOmicsCNGeneWGS.csv&dl_name=OmicsCNGeneWGS.csv&bucket=depmap-external-downloads",
+    ),
+    "raw/HUMAN_9606_idmapping.tsv": FetchConfig(("UniProt", "9606", "HUMAN_9606_idmapping.dat.gz"), uncompress=True),
+    "raw/HUMAN_9606_idmapping_selected.tsv": FetchConfig(("UniProt", "9606", "HUMAN_9606_idmapping_selected.tab.gz"), uncompress=True),
+    "raw/SwissProt_9606.tsv": ("UniProt", "9606", "SwissProt_9606.tsv"),
+    "raw/phosphosite-irefindex13.0-uniprot.txt": ("iRefIndex", "phosphosite-irefindex13.0-uniprot.txt"),
+})
+
+rule mapping:
+    input:
+        "raw/SwissProt_9606.tsv",
+        "raw/HUMAN_9606_idmapping.tsv",
+        "raw/HUMAN_9606_idmapping_selected.tsv",
+        "raw/OmicsSomaticMutationsMatrixDamaging.csv"
+    output:
+        "processed/DamagingMutations_idMapping.tsv"
+    shell:
+        "uv run scripts/uniprot_mapping.py"
+
+rule process:
+    input:
+        "processed/DamagingMutations_idMapping.tsv",
+        "raw/OmicsSomaticMutationsMatrixDamaging.csv",
+        "raw/OmicsProfiles.csv",
+        "raw/OmicsExpressionProteinCodingGenesTPMLogp1.csv",
+        "raw/OmicsCNGeneWGS.csv",
+        "raw/CRISPRGeneDependency.csv"
+    output:
+        "processed/FADU_cell_line_prizes_input_nonzero.txt",
+        "processed/FADU_cell_line_prizes.txt",
+        "processed/FADU_gold_standard_thresh_0_5.txt"
+    shell:
+        "uv run scripts/cell_line_processing.py"
