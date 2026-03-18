@@ -27,6 +27,10 @@ export function extractDatasetType(name: string): { type: string; name: string }
 }
 
 const dataCategories = {
+  diseases: {
+    name: "DISEASES",
+    directory: "diseases",
+  },
   egfr: {
     name: "EGFR",
     directory: "egfr"
