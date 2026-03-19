@@ -13,6 +13,7 @@ Many of the datasets here have been stripped of their extra post-analysis. Here,
 - [`yeast_osmotic_stress`](https://github.com/Reed-CompBio/spras-benchmarking/tree/8f69dcdf4a52607347fe3a962b753df396e44cda/yeast_osmotic_stress)
 - [`responsenet_muscle_skeletal`](https://github.com/Reed-CompBio/spras-benchmarking/tree/33eacc85cc0749c93f497098c5be00051d3b013a)
 - [`egfr`](https://github.com/Reed-CompBio/spras-benchmarking/tree/a80683880a3dc8275ebb6efec16758426bb0f01e)
+- [`synthetic_data`](https://github.com/Reed-CompBio/spras-benchmarking/tree/d882814386d17d819733c268d8731d51c8bd0cea)
 
 ## `explore` folders
 
