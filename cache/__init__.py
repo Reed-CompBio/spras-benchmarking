@@ -24,8 +24,15 @@ class FetchConfig:
     uncompress: bool = False
     # NOTE: uncompress only unzips `.gz` files. TODO: add support for .zip files.
 
-def get_artifact_name(directive: tuple[str, ...]) -> str:
+def stringify_tuple_directive(directive: tuple[str, ...]) -> str:
     return quote_plus("/".join(directive))
+
+def stringify_config(directive: Union[CacheItem, tuple[str, ...]]) -> str:
+    """
+    Directives aren't friendly for Snakemake rules: we use urllib to make a URL-safe string, as Snakemake accepts
+    such strings as rule names. They aren't the most readable, but they suffice for logging purposes.
+    """
+    return quote_plus(directive.name if isinstance(directive, CacheItem) else '/'.join(directive))
 
 def add_suffix(path: Path, suffix: str):
     """`file.suffix` -> `file.suffix.suffix2`."""
@@ -118,7 +125,7 @@ def link(
         )
     else:
         artifacts_dir.mkdir(exist_ok=True)
-        artifact_name = get_artifact_name(config.directive)
+        artifact_name = stringify_tuple_directive(config.directive)
         artifact_output = artifacts_dir / artifact_name
 
         link_with_cache_item(

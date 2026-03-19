@@ -4,26 +4,19 @@ other Snakefiles. This can't be a Python script since it uses rule generation in
 `produce_fetch_rules`.
 """
 
-from cache import FetchConfig, link
+from cache import FetchConfig, link, stringify_config
 from cache.directory import CacheItem # for exposing to Snakefiles that import this Snakefile.
 from cache.util import uncompress
 import urllib.parse
 from typing import Union
 from pathlib import Path
 
-def stringify_directive(directive: Union[CacheItem, FetchConfig]) -> str:
-    """
-    Directives aren't friendly for Snakemake rules: we use urllib to make a URL-safe string, as Snakemake accepts
-    such strings as rule names. They aren't the most readable, but they suffice for logging purposes.
-    """
-    return urllib.parse.quote_plus(directive.name if isinstance(directive, CacheItem) else '/'.join(directive))
-
 def produce_fetch_rules(input_dict: dict[str, Union[FetchConfig, list[str]]]):
     """
     Produces fetch rules based on a dictionary mapping
     output files to their directory.py-based directive.
     """
-    # Map inputs to be wrapped with FetchConfig if list[str] or CacheItem
+    # Map inputs to be wrapped with FetchConfig if tuple[str, ...] or CacheItem
     input_dict = {k: FetchConfig(v) if isinstance(v, tuple) or isinstance(v, CacheItem) else v for k, v in input_dict.items()}
 
     directives = list(input_dict.values())
@@ -34,7 +27,7 @@ def produce_fetch_rules(input_dict: dict[str, Union[FetchConfig, list[str]]]):
         # we pass data using params and output.
         rule:
             name:
-                f"fetch_{stringify_directive(config.directive)}_to_{urllib.parse.quote_plus(output_file)}"
+                f"fetch_{stringify_config(config.directive)}_to_{urllib.parse.quote_plus(output_file)}"
             output: file=output_file
             params:
                 config=config

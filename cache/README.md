@@ -18,10 +18,13 @@ All entries are provided with this template:
 ),
 ```
 
-When a file is requested, `cached`, `pinned`, and `unpinned` are all downloaded:
+When a file is requested, `cached`, `pinned`, and `unpinned` are all downloaded, and we characterize them as follows:
 - If the URLs linking to `pinned` and `unpinned` do not succeed (i.e. do not return a 2XX status code), we fail.
 - If the URL linking to `pinned` does not match `cached`, we fail.
 - If the URL linking to `unpinned` does not match `cached`, we warn that the data needs updating.
+
+Specifically, `unpinned` links to file URLs that constantly update, `pinned` does otherwise, and `cached` links to our
+own copy of the data that should match with the `unpinned` and `pinned` URLs.
 
 If a file exists for too long (i.e. it expires), we automatically mark it for re-fetching when the file is requested.
 
@@ -63,8 +66,9 @@ produce_fetch_rules({
 })
 ```
 
-However, the former option saves the file to a cached directory under `cache/artifacts`, while the latter saves the file to a dataset-specific
-folder: that is, if you have a file that's used across multiple datasets, add it to `directory.py`!
+However, the former option, since it uses items in `directory.py`, saves the file to a cached directory under `cache/artifacts`.
+The latter saves the file to a dataset-specific folder for dataset `Snakefile`s: that is, if you have a file
+that's used across multiple datasets, add it to `directory.py`!
 
 ## Implementation details
 
@@ -85,6 +89,8 @@ Later on, our use of `loguru` will be logged to let maintainers know when data s
 
 This folder has:
 - `Snakefile` which only contains a function used for producing fetching rules.
-- `directory.py`, the actual location of file URLs and their cached counterparts.
+- `directory.py`, where named `CacheItem`s are stored, as well as the code that defines
+the schema (including `CacheItem`!) for the rest of this directory.
 - `cli.py`, a utility for manually fetching specific URLs from `directory.py`.
 - `util.py`, an internal file for use by the other files above.
+- `__init__.py`, which acts as an intermediary between `Snakefile` and `directory.py`, providing utilities for handling file metadata.
