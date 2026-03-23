@@ -26,8 +26,6 @@ When a file is requested, `cached`, `pinned`, and `unpinned` are all downloaded,
 Specifically, `unpinned` links to file URLs that constantly update, `pinned` does otherwise, and `cached` links to our
 own copy of the data that should match with the `unpinned` and `pinned` URLs.
 
-If a file exists for too long (i.e. it expires), we automatically mark it for re-fetching when the file is requested.
-
 ## Google Drive
 
 We currently use Google Drive to store raw data. The hope is to move to [OSDF](https://osg-htc.org/services/osdf), though Drive seems to suffice for now.
@@ -74,12 +72,10 @@ that's used across multiple datasets, add it to `directory.py`!
 
 ### `.metadata`
 
-All cached files come with an associated `.metadata`: usually, this would be controlled with Snakemake, but since:
-1. This system lives outside of the purview of `Snakemake`
-2. We have file expiration
-
-we instead track file data with an associated `.metadata` file, which preserves information about where the file came from,
-and when it was created, to re-fetch files if any of that associated data changes. This is controlled under `__init__.py`.
+All cached files come with an associated `.metadata`: usually, this would be controlled with Snakemake, but since this system lives
+outside of the purview of `Snakemake`, we instead track file data with an associated `.metadata` file, which preserves information
+about where the file came from, and when it was created, to re-fetch files if any of that associated data changes.
+This is controlled under `__init__.py`.
 
 ### Loggers
 
