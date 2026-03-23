@@ -33,7 +33,7 @@ We have been running into the occasional ratelimiting issue, which may become mo
 
 ## Snakemake
 
-We also provide a `Snakefile`, which can be imported in dataset Snakefiles through:
+We also provide a `Snakefile`, which contains dataset fetching functions that can be imported in dataset-specific Snakefiles through:
 
 ```py
 include: "../../cache/Snakefile"
