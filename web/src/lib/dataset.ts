@@ -1,9 +1,9 @@
 import { parse } from "yaml";
 
-import dmmmYaml from "../../public/data/configs/dmmm.yaml?raw";
+import scoresYaml from "../../public/data/configs/scores.yaml?raw";
 
 const configs: Record<string, Record<string, unknown>> = {
-  dmmm: parse(dmmmYaml),
+  scores: parse(scoresYaml),
 };
 
 export const datasets = Object.entries(configs)

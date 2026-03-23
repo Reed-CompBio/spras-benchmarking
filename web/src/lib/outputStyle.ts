@@ -19,7 +19,7 @@ function extractPrefix(name: string, prefixName: string, prefixes: string[]): { 
   };
 }
 
-const dataTypes = ["dmmm"];
+const dataTypes = ["scores"];
 
 export function extractDatasetType(name: string): { type: string; name: string } {
   const { prefix, name: newName } = extractPrefix(name, "dataset type", dataTypes);

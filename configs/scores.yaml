@@ -43,12 +43,12 @@ algorithms:
         g: 0
 
 datasets:
-  - label: dmmmegfr_string
+  - label: scoresegfr_string
     data_dir: datasets/egfr
     edge_files: ["processed/interactome.tsv"]
     node_files: ["processed/prizes.txt"]
     other_files: []
-  - label: dmmmegfr_irefindex
+  - label: scoresegfr_irefindex
     data_dir: datasets/egfr
     edge_files: ["processed/phosphosite-irefindex13.0-uniprot.txt"]
     node_files: ["processed/prizes-uniprot.txt"]
@@ -57,8 +57,8 @@ gold_standards:
   - label: gs_egfr_string
     node_files: ["processed/gold-standard-nodes.txt"]
     data_dir: datasets/egfr
-    dataset_labels: ["dmmmegfr_string"]
+    dataset_labels: ["scoresegfr_string"]
   - label: gs_egfr_irefindex
     node_files: ["processed/gold-standard-nodes-uniprot.txt"]
     data_dir: datasets/egfr
-    dataset_labels: ["dmmmegfr_irefindex"]
+    dataset_labels: ["scoresegfr_irefindex"]

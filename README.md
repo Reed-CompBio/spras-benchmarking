@@ -23,7 +23,7 @@ the `spras` conda environment from the small scripts we have. (on CI, we use [`u
 To run the benchmarking pipeline, use (this example is specifically for disease module mining):
 
 ```sh
-snakemake --cores 1 --configfile configs/dmmm.yaml --show-failed-logs -s spras/Snakefile
+snakemake --cores 1 --configfile configs/scores.yaml --show-failed-logs -s spras/Snakefile
 ```
 
 To run an individual dataset pipeline, run the respective `Snakefile` in the dataset directory using [uv](https://docs.astral.sh/uv/):
@@ -34,7 +34,7 @@ uv run snakemake --cores 1
 ```
 
 > [!NOTE]
-> Each one of the dataset categories (at the time of writing, DMMM) are split into different configuration files.
+> Each one of the dataset categories (at the time of writing, scores) are split into different configuration files.
 > Run each one as you would want.
 
 ## Organization
