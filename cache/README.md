@@ -18,7 +18,9 @@ All entries are provided with this template:
 ),
 ```
 
-When a file is requested, `cached`, `pinned`, and `unpinned` are all downloaded, and we characterize them as follows:
+When a file is requested, `cached`, `pinned`, and `unpinned` are all downloaded. `cached` is the underlying file that we store,
+`pinned` is the versioned file that never changes (we use this to check for uptime!), and `unpinned` is the file we use to check for updates.
+We characterize them as follows:
 - If the URLs linking to `pinned` and `unpinned` do not succeed (i.e. do not return a 2XX status code), we fail.
 - If the URL linking to `pinned` does not match `cached`, we fail.
 - If the URL linking to `unpinned` does not match `cached`, we warn that the data needs updating.
