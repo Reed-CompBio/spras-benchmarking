@@ -1,9 +1,9 @@
-# [SPRAS benchmarking](https://reed-compbio.github.io/spras-benchmarking/)
+# SPRAS benchmarking
 
 ![example workflow](https://github.com/Reed-CompBio/spras-benchmarking/actions/workflows/publish.yml/badge.svg)
 
 Benchmarking datasets for the [SPRAS](https://github.com/Reed-CompBio/spras) project. This repository contains different dataset collections to evaluate all algorithms in SPRAS.
-The results of every benchmarking run are deployed on GitHub pages. [(See the current web output)](https://reed-compbio.github.io/spras-benchmarking/).
+The results of every benchmarking run are deployed on GitHub pages.
 
 ## Setup
 
@@ -47,11 +47,9 @@ There are six primary folders in this repository:
 ├── configs
 ├── datasets
 ├── spras
-└── web
 ```
 
-`spras` is the cloned submodule of [SPRAS](https://github.com/reed-compbio/spras), `web` is an
-[astro](https://astro.build/) app which generates the `spras-benchmarking` [output](https://reed-compbio.github.io/spras-benchmarking/),
+`spras` is the cloned submodule of [SPRAS](https://github.com/reed-compbio/spras),
 `configs` is the YAML file used to talk to SPRAS, and `datasets` contains the raw data. `cache` is utility for `datasets` which provides a convenient
 way to fetch online files for further processing.
 
@@ -60,7 +58,5 @@ The workflow runs as so:
 1. For every dataset, run its inner `Snakefile` with [Snakemake](https://snakemake.readthedocs.io/en/stable/). This is orchestrated
 through the top-level [`run_snakemake.sh`](./run_snakemake.sh) shell script.
 1. Run each config YAML file in `configs/` with SPRAS.
-1. Build the website in `web` with the generated `output` from all of the SPRAS runs, and deploy it on [GitHub Pages](https://pages.github.com/).
-To see how to build the website, go to its [README](./web/README.md).
 
 For more information on how to add a dataset, see [CONTRIBUTING.md](./CONTRIBUTING.md).
