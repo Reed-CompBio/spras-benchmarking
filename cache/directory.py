@@ -172,13 +172,11 @@ directory: CacheDirectory = {
     "STRING": {
         # 9606 is human.
         "9606": {
-            # protein network data (full network, scored links between proteins)
             "9606.protein.links.full.txt.gz": CacheItem(
                 name="STRING 9606 full protein links",
                 cached="https://drive.google.com/uc?id=13tE_-A6g7McZs_lZGz9As7iE-5cBFvqE",
                 pinned="http://stringdb-downloads.org/download/protein.links.full.v12.0/9606.protein.links.full.v12.0.txt.gz",
             ),
-            # aliases for STRING proteins: locus names, accessions, descriptions...
             "9606.protein.aliases.txt.gz": CacheItem(
                 name="STRING 9606 protein aliases",
                 cached="https://drive.google.com/uc?id=1IWrQeTVCcw1A-jDk-4YiReWLnwP0S9bY",
@@ -223,19 +221,6 @@ directory: CacheDirectory = {
             name="BioMart ENSG <-> ENSP mapping",
             cached="https://drive.google.com/uc?id=1-gPrDoluXIGydzWKjWEnW-nWhYu3YkHL",
             unpinned=fetch_biomart_service((dir_path / "biomart" / "ensg-ensp.xml").read_text()),
-        )
-    },
-    "iRefIndex": {
-        # This can also be obtained from the SPRAS repo, though the SPRAS repo removes self loops. We don't.
-        # (https://github.com/Reed-CompBio/spras/blob/b5d7a2499afa8eab14c60ce0f99fa7e8a23a2c64/input/phosphosite-irefindex13.0-uniprot.txt).
-        # iRefIndex has been down for quite some time, so we grab this from a repository instead,
-        # and this also is a seemingly modified version of the iRefIndex interactome.
-        # While the following files do point to the repository's main branch,
-        # they aren't expected to actually change, so we make them `pinned`.
-        "phosphosite-irefindex13.0-uniprot.txt": CacheItem(
-            name="iRefIndex v13.0 UniProt interactome",
-            cached="https://drive.google.com/uc?id=1fQ8Z3FjEwUseEtsExO723zj7mAAtdomo",
-            pinned="https://raw.githubusercontent.com/gitter-lab/tps/refs/heads/master/data/networks/phosphosite-irefindex13.0-uniprot.txt",
         )
     },
     # https://www.pathwaycommons.org/
