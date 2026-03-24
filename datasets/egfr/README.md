@@ -2,11 +2,18 @@
 
 EGFR dataset. This dataset does a lot less processing for raw files, and is mainly focused on creating the new STRING-based interactome.
 
-This data is from [_Synthesizing Signaling Pathways from Temporal Phosphoproteomic Data_](https://doi.org/10.1016/j.celrep.2018.08.085).
-
 ## Overview
 
 This produces two sets of files: one based on the iRefIndex/PhosphoSite directed interactome of closed-source origin based off of UniProt identifiers, and another one based off of the more updated though undirected STRING interactome.
+
+## Data
+
+_See `Snakefile` for specific file locations._
+
+The score data (`egfr-prizes.txt`) and gold standard nodes `eight-egfr-reference-all.txt` are from [_Synthesizing Signaling Pathways from Temporal Phosphoproteomic Data_](https://doi.org/10.1016/j.celrep.2018.08.085).
+
+We also use the benchmarking-standard StringDB interactome and UniProt mapping files,
+along with the deprecated `iRefIndex`-merged interactome, which is also curated from the above TPS paper. See `cache/directory.py` for more info on these.
 
 ## Scripts
 

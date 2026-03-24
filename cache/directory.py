@@ -167,13 +167,18 @@ CacheDirectory = dict[str, Union[CacheItem, "CacheDirectory"]]
 
 # An *unversioned* directory list.
 directory: CacheDirectory = {
+    # STRINGDB: https://string-db.org/
+    # You can see more information about these files at https://string-db.org/cgi/download.
     "STRING": {
+        # 9606 is human.
         "9606": {
+            # protein network data (full network, scored links between proteins)
             "9606.protein.links.full.txt.gz": CacheItem(
                 name="STRING 9606 full protein links",
                 cached="https://drive.google.com/uc?id=13tE_-A6g7McZs_lZGz9As7iE-5cBFvqE",
                 pinned="http://stringdb-downloads.org/download/protein.links.full.v12.0/9606.protein.links.full.v12.0.txt.gz",
             ),
+            # aliases for STRING proteins: locus names, accessions, descriptions...
             "9606.protein.aliases.txt.gz": CacheItem(
                 name="STRING 9606 protein aliases",
                 cached="https://drive.google.com/uc?id=1IWrQeTVCcw1A-jDk-4YiReWLnwP0S9bY",
@@ -181,11 +186,14 @@ directory: CacheDirectory = {
             ),
         }
     },
+    # https://www.uniprot.org/
     "UniProt": {
         # We use FTP when possible, but we delegate to the UniProt REST API in cases that would save significant bandwidth.
         # See https://ftp.uniprot.org/pub/databases/uniprot/current_release/README for the FTP README.
+        # 9606 is human.
         "9606": {
-            # We prefer manually curated, or SwissProt, genes. This URL selects these genes using the REST API.
+            # We prefer manually curated, or SwissProt, genes.
+            # This URL selects these genes using the REST API.
             "SwissProt_9606.tsv": CacheItem(
                 name="UniProt 9606 SwissProt genes",
                 cached="https://drive.google.com/uc?id=1h2Cl-60qcKse-djcsqlRXm_n60mVY7lk",
@@ -193,6 +201,7 @@ directory: CacheDirectory = {
             ),
             # idmapping FTP files. See the associated README:
             # https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/idmapping/README
+            # We use these files as our primary source of identifier mapping.
             "HUMAN_9606_idmapping_selected.tab.gz": CacheItem(
                 name="UniProt 9606 ID external database mapping",
                 cached="https://drive.google.com/uc?id=1Oysa5COq31H771rVeyrs-6KFhE3VJqoX",
@@ -205,7 +214,11 @@ directory: CacheDirectory = {
             ),
         }
     },
+    # https://www.ensembl.org/info/data/biomart/index.html
     "BioMart": {
+        # ENSG to ENSP mapping
+        # we generally prefer UniProt mappings over this, since we usually work over UniProt-compatible
+        # ENSG/ENSP identifiers, but sometimes identifiers live outside of this space.
         "ensg-ensp.tsv": CacheItem(
             name="BioMart ENSG <-> ENSP mapping",
             cached="https://drive.google.com/uc?id=1-gPrDoluXIGydzWKjWEnW-nWhYu3YkHL",
@@ -215,7 +228,8 @@ directory: CacheDirectory = {
     "iRefIndex": {
         # This can also be obtained from the SPRAS repo, though the SPRAS repo removes self loops. We don't.
         # (https://github.com/Reed-CompBio/spras/blob/b5d7a2499afa8eab14c60ce0f99fa7e8a23a2c64/input/phosphosite-irefindex13.0-uniprot.txt).
-        # iRefIndex has been down for quite some time, so we grab this from a repository instead.
+        # iRefIndex has been down for quite some time, so we grab this from a repository instead,
+        # and this also is a seemingly modified version of the iRefIndex interactome.
         # While the following files do point to the repository's main branch,
         # they aren't expected to actually change, so we make them `pinned`.
         "phosphosite-irefindex13.0-uniprot.txt": CacheItem(
@@ -224,6 +238,7 @@ directory: CacheDirectory = {
             pinned="https://raw.githubusercontent.com/gitter-lab/tps/refs/heads/master/data/networks/phosphosite-irefindex13.0-uniprot.txt",
         )
     },
+    # https://www.pathwaycommons.org/
     "PathwayCommons": {
         "pathways.txt.gz": CacheItem(
             name="PathwayCommons Pathway Identifiers",
