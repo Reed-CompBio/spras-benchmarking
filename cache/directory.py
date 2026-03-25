@@ -120,7 +120,7 @@ class CacheItem:
     """
     Analogously to `pinned`, this is a Service (URL + headers) which is 'unpinned,'
     or lacks a dedicated version. When `pinned` matches `cached` but `unpinned` doesn't match `pinned`,
-    we say that the file has a new version.
+    we say that the file has a new version but won't be automatically updated to the new version.
 
     If `pinned` is None and `unpinned` doesn't match `cached`, we warn instead of erroring.
     """
@@ -149,7 +149,7 @@ class CacheItem:
         logger.info(f"Fetching {self.name}...")
 
         logger.info(f"Downloading cache {self.cached} to {output}...")
-        gdown.download(self.cached, str(output))  # gdown doesn't have a type signature, but it expects a string :/
+        gdown.download(self.cached, str(output))  # gdown doesn't have a type signature, but it expects a string
 
         # If the file is pinned, we move the file to make sure it never gets used again, and stop the entire workflow if something bad happens.
         # The converse is in the other branch.

@@ -30,7 +30,7 @@ own copy of the data that should match with the `unpinned` and `pinned` URLs.
 
 ## Google Drive
 
-We currently use Google Drive to store raw data. The hope is to move to [OSDF](https://osg-htc.org/services/osdf), though Drive seems to suffice for now.
+We currently use Google Drive to store raw data. The hope is to move to [OSDF](https://osg-htc.org/services/osdf).
 We have been running into the occasional ratelimiting issue, which may become more of a problem in the future.
 
 ## Snakemake
@@ -88,7 +88,7 @@ Later on, our use of `loguru` will be logged to let maintainers know when data s
 This folder has:
 - `Snakefile` which only contains a function used for producing fetching rules.
 - `directory.py`, where named `CacheItem`s are stored, as well as the code that defines
-the schema (including `CacheItem`!) for the rest of this directory.
+the schema (including `CacheItem`) for the rest of this directory.
 - `cli.py`, a utility for manually fetching specific URLs from `directory.py`.
 - `util.py`, an internal file for use by the other files above.
 - `__init__.py`, which acts as an intermediary between `Snakefile` and `directory.py`, providing utilities for handling file metadata.

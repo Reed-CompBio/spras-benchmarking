@@ -3,7 +3,7 @@
 ![example workflow](https://github.com/Reed-CompBio/spras-benchmarking/actions/workflows/publish.yml/badge.svg)
 
 Benchmarking datasets for the [SPRAS](https://github.com/Reed-CompBio/spras) project. This repository contains different dataset collections to evaluate all algorithms in SPRAS.
-The results of every benchmarking run are deployed on GitHub pages.
+The results of every benchmarking run will be deployed on GitHub pages.
 
 ## Setup
 
@@ -51,7 +51,7 @@ There are six primary folders in this repository:
 
 `spras` is the cloned submodule of [SPRAS](https://github.com/reed-compbio/spras),
 `configs` is the YAML file used to talk to SPRAS, and `datasets` contains the raw data. `cache` is utility for `datasets` which provides a convenient
-way to fetch online files for further processing.
+way to fetch files for further processing.
 
 The workflow runs as so:
 

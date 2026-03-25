@@ -107,7 +107,7 @@ def link(
     link("output/ensg-ensp.tsv", FetchConfig(("BioMart", "ensg-ensp.tsv")))
     ```
 
-    would download and check BioMart's cache for ENSG-ENSP mapping, then:
+    Will download and check BioMart's cache for ENSG-ENSP mapping, then:
     - If `config.directive` is a `CacheItem`, we write the file directly to `output`.
     - Otherwise, we symlink the cached output (lying somewhere in the cache folder) with the desired `output`
     to avoid file duplication.

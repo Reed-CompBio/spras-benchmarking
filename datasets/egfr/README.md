@@ -10,7 +10,7 @@ This produces two sets of files: one based on the iRefIndex/PhosphoSite directed
 
 _See `Snakefile` for specific file locations._
 
-The score data (`egfr-prizes.txt`), gold standard nodes `eight-egfr-reference-all.txt`, and the (now-deprecated) manually edited `iRefIndex`-based interactome are all from [_Synthesizing Signaling Pathways from Temporal Phosphoproteomic Data_](https://doi.org/10.1016/j.celrep.2018.08.085).
+The phosphoproteomic data (`egfr-prizes.txt`), gold standard nodes `eight-egfr-reference-all.txt`, and the `iRefIndex`+ ` PhosphoSitePlus` -based interactome are all from [_Synthesizing Signaling Pathways from Temporal Phosphoproteomic Data_](https://doi.org/10.1016/j.celrep.2018.08.085).
 
 We also use the StringDB human interactome and UniProt mapping files. See `cache/directory.py` for more info on these.
 
