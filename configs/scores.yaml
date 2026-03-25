@@ -1,0 +1,64 @@
+hash_length: 7
+
+containers:
+  registry:
+    base_url: docker.io
+    owner: reedcompbio
+  framework: docker
+  unpack_singularity: false
+
+reconstruction_settings:
+  locations:
+    reconstruction_dir: "output"
+
+analysis:
+  summary:
+    include: false
+  cytoscape:
+    include: false
+  ml:
+    # TODO: we either need at least one non-empty pathway in all algorithm runs,
+    # or we need to get rid of validate_df hard-erroring. The latter seems better.
+    include: false
+    aggregate_per_algorithm: true
+  evaluation:
+    include: false
+
+# Custom settings
+algorithms:
+  - name: "omicsintegrator1"
+    include: true
+    runs:
+      run1:
+        b: 2
+        w: .5
+        d: 10
+        mu: 2
+        # TODO: egfr prefers dummy_mode: ["file"] since we manually specify EGF_HUMAN as one.
+  - name: "omicsintegrator2"
+    include: true
+    runs:
+      run1:
+        b: 4
+        g: 0
+
+datasets:
+  - label: scoresegfr_string
+    data_dir: datasets/egfr
+    edge_files: ["processed/interactome.tsv"]
+    node_files: ["processed/input-nodes.txt"]
+    other_files: []
+  - label: scoresegfr_irefindex
+    data_dir: datasets/egfr
+    edge_files: ["processed/phosphosite-irefindex13.0-uniprot.txt"]
+    node_files: ["processed/input-nodes-uniprot.txt"]
+    other_files: []
+gold_standards:
+  - label: gs_egfr_string
+    node_files: ["processed/gold-standard-nodes.txt"]
+    data_dir: datasets/egfr
+    dataset_labels: ["scoresegfr_string"]
+  - label: gs_egfr_irefindex
+    node_files: ["processed/gold-standard-nodes-uniprot.txt"]
+    data_dir: datasets/egfr
+    dataset_labels: ["scoresegfr_irefindex"]
