@@ -23,14 +23,16 @@ When a file is requested, `cached`, `pinned`, and `unpinned` are all downloaded.
 and `unpinned` is the link to the an arbitrary online service containing an unversioned file we use to check for updates.
 
 We characterize them as follows:
-- If the URLs linking to `pinned` and `unpinned` do not succeed (i.e. do not return a 2XX status code), we fail.
-- If the URL linking to `pinned` does not match `cached`, we fail.
+- If the URL linking to `pinned` does not match `cached`, we fail, as this means that our versioned file updated/errored in some way.
 - If the URL linking to `unpinned` does not match `cached`, we warn that the data needs updating. The data itself will not automatically update.
 
 Specifically, `unpinned` links to file URLs that constantly update, `pinned` does otherwise, and `cached` links to our
 own copy of the data that should match with the `unpinned` and `pinned` URLs. We prefer to have both `pinned` and `unpinned` URLs, but
 there are many situations where the `pinned` URL is not available (e.g. the queried service has no versioning), or the `unpinned` URL is not available
 (e.g. the queried service only has versioning).
+
+If `cache` doesn't match `pinned`, this usually indicates that the service is down: we don't have a way to handle temporary outages at the moment,
+but permanent outages should remove references to `pinned` entirely, noting that the linked service is down forever for some reason.
 
 ## Google Drive
 

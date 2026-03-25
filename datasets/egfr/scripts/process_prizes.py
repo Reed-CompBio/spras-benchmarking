@@ -14,7 +14,7 @@ def main():
     )
     prizes["active"] = "True"
 
-    prizes.to_csv(egfr_directory / "processed" / "prizes-uniprot.txt", index=False, sep="\t")
+    prizes.to_csv(egfr_directory / "processed" / "input-nodes-uniprot.txt", index=False, sep="\t")
 
 
 if __name__ == "__main__":

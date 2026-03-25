@@ -70,7 +70,7 @@ class Service:
                 f"The {downloaded_file_type} file {downloaded_file_path} and "
                 + f"cached file originally at {cache} do not match! "
                 + f"Compare the pinned {downloaded_file_path} and the cached {debug_file_path}. "
-                + f"If this file updated, please update the underlying `cache` file to match."
+                + "If this file updated, please update the underlying `cache` file to match."
             )
         else:
             # Since we don't clean up pinned_file_path for the above branch's debugging,
@@ -205,7 +205,7 @@ directory: CacheDirectory = {
             # idmapping FTP files. See the associated README:
             # https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/idmapping/README
             # We use these files as our primary source of identifier mapping.
-            # Unfortunately, there are no accompanying `pinned` URLs fo these, as the previous releases
+            # Unfortunately, there are no accompanying `pinned` URLs for these, as the previous releases
             # contain files with data magnitudes higher than anything we process.
             "HUMAN_9606_idmapping_selected.tab.gz": CacheItem(
                 name="UniProt 9606 ID external database mapping",
