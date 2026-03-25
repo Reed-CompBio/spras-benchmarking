@@ -15,7 +15,8 @@ from loguru import logger
 
 dir_path = Path(__file__).parent.resolve()
 
-# Our cache emits warnings for files with unpinned versions that don't match the cache.
+# Our cache emits warnings for files with unpinned versions that don't match the cache
+# using loguru, and warnings are added to a local `logs` folder.
 (dir_path / "logs").mkdir(exist_ok=True)
 logger.add(dir_path / "logs" / "cache.log", level="WARNING")
 
@@ -41,7 +42,7 @@ class Service:
             return response
 
     # NOTE: this is slightly yucky code deduplication. The only intended values of `downloaded_file_type` are `pinned` and `unpinned`.
-    def download_against_cache(self, cache: Path, downloaded_file_type: str, move_output: bool):
+    def download_against_cache(self, cache: Path, downloaded_file_type: str, move_output_on_error: bool):
         """
         Downloads `this` Service and checks it against the provided `cache` at path. In logs,
         the file will be referred to as `downloaded_file_type`.
@@ -60,7 +61,7 @@ class Service:
 
             debug_file_path = Path(NamedTemporaryFile(prefix="spras-benchmarking-debug-artifact", delete=False).name)
             # We use shutil over Path#rename since temporary directories can be mounted to a different file system.
-            if move_output:
+            if move_output_on_error:
                 shutil.move(cache, debug_file_path)
             else:
                 shutil.copy(cache, debug_file_path)
@@ -68,7 +69,8 @@ class Service:
             raise DownloadFileCheckException(
                 f"The {downloaded_file_type} file {downloaded_file_path} and "
                 + f"cached file originally at {cache} do not match! "
-                + f"Compare the pinned {downloaded_file_path} and the cached {debug_file_path}."
+                + f"Compare the pinned {downloaded_file_path} and the cached {debug_file_path}. "
+                + f"If this file updated, please update the underlying `cache` file to match."
             )
         else:
             # Since we don't clean up pinned_file_path for the above branch's debugging,
@@ -122,7 +124,7 @@ class CacheItem:
     or lacks a dedicated version. When `pinned` matches `cached` but `unpinned` doesn't match `pinned`,
     we say that the file has a new version but won't be automatically updated to the new version.
 
-    If `pinned` is None and `unpinned` doesn't match `cached`, we warn instead of erroring.
+    If unpinned` doesn't match `cached`, we emit a warning.
     """
 
     def __post_init__(self):
@@ -145,20 +147,22 @@ class CacheItem:
         comparing the `cached` file to the `pinned` and `unpinned` files,
         warning when `cached` doesn't match `unpinned`, and erroring when
         `cached` doesn't match `pinned`.
+
+        The file from `cache` is the file that gets downloaded to `output`.
         """
         logger.info(f"Fetching {self.name}...")
 
         logger.info(f"Downloading cache {self.cached} to {output}...")
         gdown.download(self.cached, str(output))  # gdown doesn't have a type signature, but it expects a string
 
-        # If the file is pinned, we move the file to make sure it never gets used again, and stop the entire workflow if something bad happens.
-        # The converse is in the other branch.
+        # If the file is pinned, we move the file to make sure it doesn't accidentally get used in workflows,
+        # and stop the entire workflow if something bad happens. The converse for unpinned is in the other branch.
         if self.pinned is not None:
-            Service.coerce(self.pinned).download_against_cache(cache=Path(output), downloaded_file_type="pinned", move_output=True)
+            Service.coerce(self.pinned).download_against_cache(cache=Path(output), downloaded_file_type="pinned", move_output_on_error=True)
         if self.unpinned is not None:
             # Normally, download_against_cache raises a DownloadFileCheckException: we catch it and warn instead if that happens.
             try:
-                Service.coerce(self.unpinned).download_against_cache(cache=Path(output), downloaded_file_type="unpinned", move_output=False)
+                Service.coerce(self.unpinned).download_against_cache(cache=Path(output), downloaded_file_type="unpinned", move_output_on_error=False)
             except DownloadFileCheckException as err:
                 logger.warning(err)
 
@@ -192,6 +196,7 @@ directory: CacheDirectory = {
         "9606": {
             # We prefer manually curated, or SwissProt, genes.
             # This URL selects these genes using the REST API.
+            # UniProt REST doesn't seem to have any way to version it, so we only provide the `unpinned` URL.
             "SwissProt_9606.tsv": CacheItem(
                 name="UniProt 9606 SwissProt genes",
                 cached="https://drive.google.com/uc?id=1h2Cl-60qcKse-djcsqlRXm_n60mVY7lk",
@@ -200,6 +205,8 @@ directory: CacheDirectory = {
             # idmapping FTP files. See the associated README:
             # https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/idmapping/README
             # We use these files as our primary source of identifier mapping.
+            # Unfortunately, there are no accompanying `pinned` URLs fo these, as the previous releases
+            # contain files with data magnitudes higher than anything we process.
             "HUMAN_9606_idmapping_selected.tab.gz": CacheItem(
                 name="UniProt 9606 ID external database mapping",
                 cached="https://drive.google.com/uc?id=1Oysa5COq31H771rVeyrs-6KFhE3VJqoX",

@@ -12,21 +12,25 @@ All entries are provided with this template:
 "file-name.ext": CacheItem(
     name="Short File Description",
     cached="https://drive.google.com/uc?id=...",
-    # Either-or
-    pinned=Service("..."),
-    unpinned=Service("..."),
+    # These two are optional, but heavily encouraged to be included.
+    pinned="...",
+    unpinned="...",
 ),
 ```
 
-When a file is requested, `cached`, `pinned`, and `unpinned` are all downloaded. `cached` is the underlying file that we store,
-`pinned` is the versioned file that never changes (we use this to check for uptime!), and `unpinned` is the file we use to check for updates.
+When a file is requested, `cached`, `pinned`, and `unpinned` are all downloaded. `cached` is the link to the underlying file that we store,
+`pinned` is the link to an arbitrary online service containing a versioned file that never changes (we use this to check for uptime),
+and `unpinned` is the link to the an arbitrary online service containing an unversioned file we use to check for updates.
+
 We characterize them as follows:
 - If the URLs linking to `pinned` and `unpinned` do not succeed (i.e. do not return a 2XX status code), we fail.
 - If the URL linking to `pinned` does not match `cached`, we fail.
-- If the URL linking to `unpinned` does not match `cached`, we warn that the data needs updating.
+- If the URL linking to `unpinned` does not match `cached`, we warn that the data needs updating. The data itself will not automatically update.
 
 Specifically, `unpinned` links to file URLs that constantly update, `pinned` does otherwise, and `cached` links to our
-own copy of the data that should match with the `unpinned` and `pinned` URLs.
+own copy of the data that should match with the `unpinned` and `pinned` URLs. We prefer to have both `pinned` and `unpinned` URLs, but
+there are many situations where the `pinned` URL is not available (e.g. the queried service has no versioning), or the `unpinned` URL is not available
+(e.g. the queried service only has versioning).
 
 ## Google Drive
 
@@ -89,6 +93,6 @@ This folder has:
 - `Snakefile` which only contains a function used for producing fetching rules.
 - `directory.py`, where named `CacheItem`s are stored, as well as the code that defines
 the schema (including `CacheItem`) for the rest of this directory.
-- `cli.py`, a utility for manually fetching specific URLs from `directory.py`.
+- `cli.py`, a debugging utility for manually fetching specific data from `directory.py`.
 - `util.py`, an internal file for use by the other files above.
 - `__init__.py`, which acts as an intermediary between `Snakefile` and `directory.py`, providing utilities for handling file metadata.
