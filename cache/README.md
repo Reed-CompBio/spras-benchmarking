@@ -12,23 +12,31 @@ All entries are provided with this template:
 "file-name.ext": CacheItem(
     name="Short File Description",
     cached="https://drive.google.com/uc?id=...",
-    # Either-or
-    pinned=Service("..."),
-    unpinned=Service("..."),
+    # These two are optional, but heavily encouraged to be included.
+    pinned="...",
+    unpinned="...",
 ),
 ```
 
-When a file is requested, `cached`, `pinned`, and `unpinned` are all downloaded, and we characterize them as follows:
-- If the URLs linking to `pinned` and `unpinned` do not succeed (i.e. do not return a 2XX status code), we fail.
-- If the URL linking to `pinned` does not match `cached`, we fail.
-- If the URL linking to `unpinned` does not match `cached`, we warn that the data needs updating.
+When a file is requested, `cached`, `pinned`, and `unpinned` are all downloaded. `cached` is the link to the underlying file that we store,
+`pinned` is the link to an arbitrary online service containing a versioned file that never changes (we use this to check for uptime),
+and `unpinned` is the link to the an arbitrary online service containing an unversioned file we use to check for updates.
+
+We characterize them as follows:
+- If the URL linking to `pinned` does not match `cached`, we fail, as this means that our versioned file updated/errored in some way.
+- If the URL linking to `unpinned` does not match `cached`, we warn that the data needs updating. The data itself will not automatically update.
 
 Specifically, `unpinned` links to file URLs that constantly update, `pinned` does otherwise, and `cached` links to our
-own copy of the data that should match with the `unpinned` and `pinned` URLs.
+own copy of the data that should match with the `unpinned` and `pinned` URLs. We prefer to have both `pinned` and `unpinned` URLs, but
+there are many situations where the `pinned` URL is not available (e.g. the queried service has no versioning), or the `unpinned` URL is not available
+(e.g. the queried service only has versioning).
+
+If `cache` doesn't match `pinned`, this usually indicates that the service is down: we don't have a way to handle temporary outages at the moment,
+but permanent outages should remove references to `pinned` entirely, noting that the linked service is down forever for some reason.
 
 ## Google Drive
 
-We currently use Google Drive to store raw data. The hope is to move to [OSDF](https://osg-htc.org/services/osdf), though Drive seems to suffice for now.
+We currently use Google Drive to store raw data. The hope is to move to [OSDF](https://osg-htc.org/services/osdf).
 We have been running into the occasional ratelimiting issue, which may become more of a problem in the future.
 
 ## Snakemake
@@ -86,7 +94,7 @@ Later on, our use of `loguru` will be logged to let maintainers know when data s
 This folder has:
 - `Snakefile` which only contains a function used for producing fetching rules.
 - `directory.py`, where named `CacheItem`s are stored, as well as the code that defines
-the schema (including `CacheItem`!) for the rest of this directory.
-- `cli.py`, a utility for manually fetching specific URLs from `directory.py`.
+the schema (including `CacheItem`) for the rest of this directory.
+- `cli.py`, a debugging utility for manually fetching specific data from `directory.py`.
 - `util.py`, an internal file for use by the other files above.
 - `__init__.py`, which acts as an intermediary between `Snakefile` and `directory.py`, providing utilities for handling file metadata.

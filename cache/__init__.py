@@ -38,7 +38,7 @@ def add_suffix(path: Path, suffix: str):
     """`file.suffix` -> `file.suffix.suffix2`."""
     return path.with_suffix(path.suffix + suffix)
 
-def has_expired(
+def metadata_has_expired(
         cache_item: CacheItem,
         output: Path
 ) -> bool:
@@ -86,7 +86,7 @@ def link_with_cache_item(
 
     # Re-download if the file doesn't exist or the directive has expired.
     # Note that we check for expiration first to trigger metadata creation.
-    if has_expired(cache_item, output) or not output.exists():
+    if metadata_has_expired(cache_item, output) or not output.exists():
         output.unlink(missing_ok=True)
         cache_item.download(output)
 
@@ -107,14 +107,18 @@ def link(
     link("output/ensg-ensp.tsv", FetchConfig(("BioMart", "ensg-ensp.tsv")))
     ```
 
-    would download and check BioMart's cache for ENSG-ENSP mapping, then:
+    Will download and check BioMart's cache for ENSG-ENSP mapping, then:
     - If `config.directive` is a `CacheItem`, we write the file directly to `output`.
-    - Otherwise, we symlink the cached output (lying somewhere in the cache folder) with the desired `output`
-    to avoid file duplication.
+    - Otherwise, we symlink the cached output (lying in `artifacts_dir`) with the desired `output`
+    to avoid unnecessary file duplication.
 
-    This function wraps around link_with_cache_item and handles symlinking
+    In the above example's case, since the configuration points to an entry in `directory.py`,
+    we would do the latter symlinking option, avoiding querying the BioMart API in case this data
+    is requested again.
+
+    This function wraps around `link_with_cache_item` and handles symlinking
     depending on the type of config.directive.
-    TODO: most likely a nicer way to design this.
+    TODO: there is most likely a nicer way to design this.
     """
 
     if isinstance(config.directive, CacheItem):

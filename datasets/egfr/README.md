@@ -10,13 +10,13 @@ This produces two sets of files: one based on the iRefIndex/PhosphoSite directed
 
 _See `Snakefile` for specific file locations._
 
-The score data (`egfr-prizes.txt`), gold standard nodes `eight-egfr-reference-all.txt`, and the (now-deprecated) manually edited `iRefIndex`-based interactome are all from [_Synthesizing Signaling Pathways from Temporal Phosphoproteomic Data_](https://doi.org/10.1016/j.celrep.2018.08.085).
+The phosphoproteomic data (`egfr-prizes.txt`), gold standard nodes `eight-egfr-reference-all.txt`, and the `iRefIndex`+ ` PhosphoSitePlus`-based interactome are all from [_Synthesizing Signaling Pathways from Temporal Phosphoproteomic Data_](https://doi.org/10.1016/j.celrep.2018.08.085).
 
 We also use the StringDB human interactome and UniProt mapping files. See `cache/directory.py` for more info on these.
 
 ## Scripts
 
-- `process_prizes.py`: produces a `prizes-uniprot.txt` from
+- `process_prizes.py`: produces a `input-nodes-uniprot.txt` from
 [egfr-prizes.txt](https://raw.githubusercontent.com/gitter-lab/tps/refs/heads/master/data/pcsf/egfr-prizes.txt),
 trimming psuedonodes and manually injecting the `EGF_HUMAN` receptor as a dummy node for OmicsIntegrator1.
 - `process_interactome.py`: Produces the STRING `interactome.tsv` file from the STRING links file. Note that the `phosphosite-irefindex13.0-uniprot.txt` is a magic (as in with closed-source origin) directed interactome produced with a combination of the now archived iRefIndex v13 interactome with extra PhosphoSite-provided nodes

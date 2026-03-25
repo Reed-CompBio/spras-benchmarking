@@ -53,7 +53,7 @@ There are six primary folders in this repository:
 `spras` is the cloned submodule of [SPRAS](https://github.com/reed-compbio/spras), `web` is an
 [astro](https://astro.build/) app which generates the `spras-benchmarking` [output](https://reed-compbio.github.io/spras-benchmarking/),
 `configs` is the YAML file used to talk to SPRAS, and `datasets` contains the raw data. `cache` is utility for `datasets` which provides a convenient
-way to fetch online files for further processing.
+way to fetch files for further processing.
 
 The workflow runs as so:
 

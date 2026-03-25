@@ -4,12 +4,12 @@ rule all:
     input:
         # Our UniProt based files over the older iRefIndex interactome
         "processed/gold-standard-nodes-uniprot.txt",
-        "processed/prizes-uniprot.txt",
+        "processed/input-nodes-uniprot.txt",
         "processed/phosphosite-irefindex13.0-uniprot.txt",
 
         # Our Ensembl protein based files over the STRING interactome 
         "processed/gold-standard-nodes.txt",
-        "processed/prizes.txt",
+        "processed/input-nodes.txt",
         "processed/interactome.tsv",
 
 produce_fetch_rules({
@@ -56,7 +56,7 @@ rule process_interactome:
 
 rule process_prizes:
     input: "raw/egfr-prizes.txt"
-    output: "processed/prizes-uniprot.txt"
+    output: "processed/input-nodes-uniprot.txt"
     shell: "uv run scripts/process_prizes.py"
 
 rule map_ensembl:
@@ -64,9 +64,9 @@ rule map_ensembl:
         "raw/HUMAN_9606_idmapping_selected.tsv",
         "processed/interactome.tsv",
         
-        "processed/prizes-uniprot.txt",
+        "processed/input-nodes-uniprot.txt",
         "processed/gold-standard-nodes-uniprot.txt",
     output:
-        "processed/prizes.txt",
+        "processed/input-nodes.txt",
         "processed/gold-standard-nodes.txt"
     shell: "uv run scripts/map_ensembl.py"
