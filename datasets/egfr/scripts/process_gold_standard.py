@@ -9,7 +9,7 @@ def main():
     nodes = list(set([node for node in nodes if not node.endswith("_PSEUDONODE")]))
 
     (egfr_directory / "processed").mkdir(exist_ok=True)
-    (egfr_directory / "processed" / "gold-standard-nodes-uniprot.txt").write_text("\n".join(nodes))
+    (egfr_directory / "processed" / "uniprot" / "gold-standard-nodes.txt").write_text("\n".join(nodes))
 
 
 if __name__ == "__main__":
