@@ -1,5 +1,6 @@
 """
-This is how spras-benchmarking handles artifact caching. `cache` should be used specifically inside `Snakefile`
+This is how spras-benchmarking handles artifact downloading and caching.
+`cache.link` should be used specifically inside `Snakefile`
 """
 
 from dataclasses import dataclass
@@ -7,13 +8,12 @@ from typing import Union
 from cache.util import uncompress as uncompress_file
 from cache.directory import CacheItem, get_cache_item
 from pathlib import Path
-import os
 from urllib.parse import quote_plus
 import pickle
 
 __all__ = ["FetchConfig", "link"]
 
-dir_path = Path(os.path.dirname(os.path.realpath(__file__)))
+dir_path = Path(__file__).parent.resolve()
 artifacts_dir = dir_path / "artifacts"
 
 

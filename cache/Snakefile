@@ -4,7 +4,7 @@ other Snakefiles. This can't be a Python script since it uses rule generation in
 `produce_fetch_rules`.
 """
 
-from cache import FetchConfig, link, stringify_config
+from cache.link import FetchConfig, link, stringify_config
 from cache.directory import CacheItem # for exposing to Snakefiles that import this Snakefile.
 from cache.util import uncompress
 import urllib.parse

@@ -246,11 +246,14 @@ directory: CacheDirectory = {
 }
 
 
-def get_cache_item(path: tuple[str, ...]) -> CacheItem:
-    """Takes a path and gets the underlying cache item."""
+def get_cache_item(path: tuple[str, ...], custom_directory: Optional[CacheDirectory] = None) -> CacheItem:
+    """
+    Takes a path and gets the underlying cache item.
+    If `custom_directory` is `None`, the top-level `directory` is used instead.
+    """
     assert len(path) != 0
 
-    current_item = directory
+    current_item = directory if custom_directory is None else custom_directory
     for entry in path:
         if isinstance(current_item, CacheItem):
             raise ValueError(f"Path {path} leads to a cache item too early!")
