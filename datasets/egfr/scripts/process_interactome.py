@@ -15,7 +15,7 @@ def main():
     interactome_df["Direction"] = "U"
 
     (egfr_directory / "processed").mkdir(exist_ok=True)
-    interactome_df.to_csv(egfr_directory / "processed" / "ensg" / "interactome.tsv", index=False, header=False, sep="\t")
+    interactome_df.to_csv(egfr_directory / "processed" / "ensp" / "interactome.tsv", index=False, header=False, sep="\t")
 
 
 if __name__ == "__main__":
