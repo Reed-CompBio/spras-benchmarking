@@ -9,15 +9,11 @@
 set -o errexit
 set -o nounset
 
-# Forcibly use the current CWD
+# Forcibly use the CWD
 cd "$(dirname "$0")"
 
 main() {
-    uv run snakemake --cores 1 -d datasets/yeast-osmotic-stress -s datasets/yeast-osmotic-stress/Snakefile
-    uv run snakemake --cores 1 -d datasets/hiv -s datasets/hiv/Snakefile
-    uv run snakemake --cores 1 -d datasets/diseases -s datasets/diseases/Snakefile
-    uv run snakemake --cores 1 -d datasets/rn-muscle-skeletal -s datasets/rn-muscle-skeletal/Snakefile
-    uv run snakemake --cores 1 -d datasets/depmap -s datasets/depmap/Snakefile
+    uv run snakemake --cores 1 -d datasets/egfr -s datasets/egfr/Snakefile
 }
 
 main "$@"

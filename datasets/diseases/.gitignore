@@ -1,9 +1,0 @@
-*.tsv
-*.pkl
-data
-
-# prize and gold standard files
-GS_files
-prize_files
-raw
-Pickles

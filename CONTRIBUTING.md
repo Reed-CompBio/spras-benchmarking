@@ -202,7 +202,10 @@ Make sure that your `Snakefile` is run inside the top-level `run_snakemake.sh` f
 
 ### Adding to the SPRAS config
 
-Since this is a pathway problem and not a disease mining problem, we'll mutate `configs/pra.yaml`. Add your dataset and gold standard to the configuration. Since this dataset passes in a mix of raw and processed files, it would be best to make the `data_dir` set to `datasets/example`, then refer to individual files when linking node or edge files in the configuration. Under the `datasets` tag, add lines like this:
+<!-- NOTE: As of now, a `configs/pra.yaml` doesn't exist yet. These are locked behind under changes. -->
+Since this is a pathway problem and not a disease mining problem, we'll mutate `configs/pra.yaml`. Add your dataset and gold standard to the
+configuration. Since this dataset passes in a mix of raw and processed files, it would be best to make the `data_dir` set to `datasets/contributing`,
+then refer to individual files when linking node or edge files in the configuration.
 
 ```yaml
   - label: exampleDataset

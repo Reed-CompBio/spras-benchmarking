@@ -2,222 +2,251 @@ from dataclasses import dataclass
 from typing import Union
 from os import PathLike
 from tempfile import NamedTemporaryFile
-from typing import Optional
-import urllib.request
+from typing import Optional, Mapping
 import filecmp
-import urllib.parse
-import os
 from pathlib import Path
+import warnings
+import requests
+import shutil
+import urllib.parse
 
 import gdown
+from loguru import logger
 
-dir_path = Path(os.path.dirname(os.path.realpath(__file__)))
+dir_path = Path(__file__).parent.resolve()
+
+# Our cache emits warnings for files with unpinned versions that don't match the cache
+# using loguru, and warnings are added to a local `logs` folder.
+(dir_path / "logs").mkdir(exist_ok=True)
+logger.add(dir_path / "logs" / "cache.log", level="WARNING")
 
 
-def fetch_biomart_url(xml: str) -> str:
-    """
-    Access BioMart data through the BioMart REST API:
-    https://useast.ensembl.org/info/data/biomart/biomart_restful.html#biomartxml
-    """
-    ROOT = "http://www.ensembl.org/biomart/martservice?query="
-    return ROOT + urllib.parse.quote_plus(xml)
+class DownloadFileCheckException(RuntimeError):
+    """See Service#download_against_cache for some motivation for this custom error"""
 
 
 @dataclass
+class Service:
+    url: str
+    headers: Optional[Mapping[str, str]] = None
+
+    def download(self, output: str | PathLike) -> requests.Response:
+        """
+        Downloads a URL, returning the response (to be used with `with`) and modifying the output path.
+        """
+        # As per https://stackoverflow.com/a/39217788/7589775 to enable download streaming.
+        with requests.get(self.url, stream=True, headers=self.headers, allow_redirects=True) as response:
+            response.raw.decode_content = True
+            with open(output, "wb") as f:
+                shutil.copyfileobj(response.raw, f)
+            return response
+
+    # NOTE: this is slightly yucky code deduplication. The only intended values of `downloaded_file_type` are `pinned` and `unpinned`.
+    def download_against_cache(self, cache: Path, downloaded_file_type: str, move_output_on_error: bool):
+        """
+        Downloads `this` Service and checks it against the provided `cache` at path. In logs,
+        the file will be referred to as `downloaded_file_type`.
+
+        @param move_output: Whether or not output should be irrecoverably moved instead of just copied.
+        """
+        logger.info(f"Downloading {downloaded_file_type} file {self.url} to check against with artifact at {cache}...")
+        downloaded_file_path = Path(NamedTemporaryFile(delete=False).name)
+
+        self.download(downloaded_file_path)
+        logger.info(f"Checking that the {downloaded_file_type} artifact {downloaded_file_path} matches with cached artifact at {cache}...")
+
+        if not filecmp.cmp(cache, downloaded_file_path):
+            # This entire if-branch is debug shenanigans: we want to be able to easily compare our current cached file to the online file,
+            # especially since some `Service`s have special errors that can make the request hard to compare in the browser.
+
+            debug_file_path = Path(NamedTemporaryFile(prefix="spras-benchmarking-debug-artifact", delete=False).name)
+            # We use shutil over Path#rename since temporary directories can be mounted to a different file system.
+            if move_output_on_error:
+                shutil.move(cache, debug_file_path)
+            else:
+                shutil.copy(cache, debug_file_path)
+            # We use a custom error type to prevent any overlap with RuntimeError. I am not sure if there is any.
+            raise DownloadFileCheckException(
+                f"The {downloaded_file_type} file {downloaded_file_path} and "
+                + f"cached file originally at {cache} do not match! "
+                + f"Compare the pinned {downloaded_file_path} and the cached {debug_file_path}. "
+                + "If this file updated, please update the underlying `cache` file to match."
+            )
+        else:
+            # Since we don't clean up pinned_file_path for the above branch's debugging,
+            # we need to clean it up here.
+            downloaded_file_path.unlink()
+
+    @staticmethod
+    def coerce(obj: "Service | str") -> "Service":
+        # TODO: This could also be replaced by coercing str to Service in CacheItem via pydantic.
+        if isinstance(obj, str):
+            return Service(url=obj)
+        return obj
+
+
+def fetch_biomart_service(xml: str, archived: bool=False) -> Service:
+    """
+    Access BioMart data through the BioMart REST API:
+    https://useast.ensembl.org/info/data/biomart/biomart_restful.html#biomartxml
+
+    We also provide links to the Ensembl archives for pinned files.
+    """
+    ROOT = "http://www.ensembl.org/biomart/martservice?query="
+    ROOT_ARCHIVED = "http://sep2025.archive.ensembl.org/biomart/martservice?query="
+    return Service((ROOT_ARCHIVED if archived else ROOT) + urllib.parse.quote_plus(xml))
+
+
+@dataclass(frozen=True)
 class CacheItem:
     """
-    Class for differentriating between offline and online items in a cache.
-
-    NOTE: If cached is "", we assume that online is a Google Drive URL (for cases where there is no
-    remaining online data source.)
+    Class for differentriating between different ways of fetching data.
+    As mentioned in the ./README.md, `cached` is always needed, and we differentiate between service outage (`pinned`)
+    and data needing updates (`unpinned`). There is no need to specify both keys at once, but the choice does matter
+    for how errors are presented during benchmarking runs.
     """
 
     name: str
-    """The display name of the artifact, used for human-printing."""
+    """The display name of the artifact, used for human-readable logs."""
+
     cached: str
-    online: str
-    online_headers: Optional[list[tuple[str, str]]] = None
+    """
+    The URL of the cached file, which is currently a Google Drive URL.
+    """
+
+    pinned: Optional[Service | str] = None
+    """
+    The Service (URL + headers) of the file, which is the 'pinned' file.
+    By a pinned file, we say that the file has a dedicated version, and should not change.
+    If this is None, we go for the `unpinned` file or `cached` if `unpinned` is None.
+    """
+
+    unpinned: Optional[Service | str] = None
+    """
+    Analogously to `pinned`, this is a Service (URL + headers) which is 'unpinned,'
+    or lacks a dedicated version. When `pinned` matches `cached` but `unpinned` doesn't match `pinned`,
+    we say that the file has a new version but won't be automatically updated to the new version.
+
+    If unpinned` doesn't match `cached`, we emit a warning.
+    """
+
+    def __post_init__(self):
+        # Google Drive validation. TODO: remove if move to OSDF.
+        if "uc?id=" not in self.cached or "/view?usp=sharing" in self.cached:
+            raise RuntimeError(
+                "Make sure your Google Drive URLs are in https://drive.google.com/uc?id=... format "
+                + "with no /view?usp=sharing at the end. See CONTRIBUTING.md for more info."
+            )
 
     @classmethod
+    @warnings.deprecated("Pending for removal after the CONTRIBUTING guide is updated.")
     def cache_only(cls, name: str, cached: str) -> "CacheItem":
         """Wrapper method to explicitly declare a CacheItem as cached only."""
-        return cls(name=name, online=cached, cached="")
-
-    def download_online(self, output: str | PathLike):
-        # https://stackoverflow.com/a/45313194/7589775: this is to add optional headers to requests.
-        # We remove the opener at the end by re-installing the default opener.
-        opener = urllib.request.build_opener()
-        if self.online_headers:
-            opener.addheaders = self.online_headers
-        urllib.request.install_opener(opener)
-        urllib.request.urlretrieve(self.online, output)
-        urllib.request.install_opener(urllib.request.build_opener())
+        return cls(name=name, cached=cached)
 
     def download(self, output: str | PathLike):
-        print(f"Fetching {self.name}...")
-        print(f"Downloading {self.online}...")
+        """
+        Downloads this `CacheItem` to the desired `output`,
+        comparing the `cached` file to the `pinned` and `unpinned` files,
+        warning when `cached` doesn't match `unpinned`, and erroring when
+        `cached` doesn't match `pinned`.
 
-        if self.cached == "":
-            # From CacheItem.cached_only
-            # (gdown doesn't take in Paths for the output_file, so we must stringify it here)
-            gdown.download(self.online, str(output))
-            return
+        The file from `cache` is the file that gets downloaded to `output`.
+        """
+        logger.info(f"Fetching {self.name}...")
 
-        self.download_online(output)
+        logger.info(f"Downloading cache {self.cached} to {output}...")
+        gdown.download(self.cached, str(output))  # gdown doesn't have a type signature, but it expects a string
 
-        with NamedTemporaryFile() as cached_file:
-            print(f"Downloading cache {self.cached}...")
-            gdown.download(self.cached, cached_file)
-            print("Checking that downloaded artifact matches with cached artifact...")
-            filecmp.cmp(output, cached_file.name)
+        # If the file is pinned, we move the file to make sure it doesn't accidentally get used in workflows,
+        # and stop the entire workflow if something bad happens. The converse for unpinned is in the other branch.
+        if self.pinned is not None:
+            Service.coerce(self.pinned).download_against_cache(cache=Path(output), downloaded_file_type="pinned", move_output_on_error=True)
+        if self.unpinned is not None:
+            # Normally, download_against_cache raises a DownloadFileCheckException: we catch it and warn instead if that happens.
+            try:
+                Service.coerce(self.unpinned).download_against_cache(cache=Path(output), downloaded_file_type="unpinned", move_output_on_error=False)
+            except DownloadFileCheckException as err:
+                logger.warning(err)
 
 
 CacheDirectory = dict[str, Union[CacheItem, "CacheDirectory"]]
 
 # An *unversioned* directory list.
 directory: CacheDirectory = {
+    # STRINGDB: https://string-db.org/
+    # You can see more information about these files at https://string-db.org/cgi/download.
     "STRING": {
+        # 9606 is human.
         "9606": {
-            "9606.protein.links.txt.gz": CacheItem(
-                name="STRING 9606 protein links",
-                cached="https://drive.google.com/uc?id=1fvjdIbgzbgJrdJxWRRRwwS1zuegf6DOj",
-                online="http://stringdb-downloads.org/download/protein.links.v12.0/9606.protein.links.v12.0.txt.gz",
+            "9606.protein.links.full.txt.gz": CacheItem(
+                name="STRING 9606 full protein links",
+                cached="https://drive.google.com/uc?id=13tE_-A6g7McZs_lZGz9As7iE-5cBFvqE",
+                pinned="http://stringdb-downloads.org/download/protein.links.full.v12.0/9606.protein.links.full.v12.0.txt.gz",
             ),
             "9606.protein.aliases.txt.gz": CacheItem(
                 name="STRING 9606 protein aliases",
                 cached="https://drive.google.com/uc?id=1IWrQeTVCcw1A-jDk-4YiReWLnwP0S9bY",
-                online="https://stringdb-downloads.org/download/protein.aliases.v12.0/9606.protein.aliases.v12.0.txt.gz",
+                pinned="https://stringdb-downloads.org/download/protein.aliases.v12.0/9606.protein.aliases.v12.0.txt.gz",
             ),
         }
     },
+    # https://www.uniprot.org/
     "UniProt": {
         # We use FTP when possible, but we delegate to the UniProt REST API in cases that would save significant bandwidth.
         # See https://ftp.uniprot.org/pub/databases/uniprot/current_release/README for the FTP README.
+        # 9606 is human.
+        # All of the following data lives under the 2026-03-25 folder, or its retrieval date.
         "9606": {
-            # We prefer manually curated, or SwissProt, genes. This URL selects these genes using the REST API.
+            # We prefer manually curated, or SwissProt, genes.
+            # This URL selects these genes using the REST API.
+            # UniProt REST doesn't seem to have any way to version it, so we only provide the `unpinned` URL.
             "SwissProt_9606.tsv": CacheItem(
                 name="UniProt 9606 SwissProt genes",
-                cached="https://drive.google.com/uc?id=1h2Cl-60qcKse-djcsqlRXm_n60mVY7lk",
-                online="https://rest.uniprot.org/uniprotkb/stream?fields=accession%2Cid%2Cprotein_name%2Cgene_names&format=tsv&query=%28*%29+AND+%28reviewed%3Atrue%29+AND+%28model_organism%3A9606%29",
+                cached="https://drive.google.com/uc?id=1qa5PvyYuc7Sg4NNqlId6MXvKokTls3ND",
+                unpinned="https://rest.uniprot.org/uniprotkb/stream?fields=accession%2Cid%2Cprotein_name%2Cgene_names&format=tsv&query=%28*%29+AND+%28reviewed%3Atrue%29+AND+%28model_organism%3A9606%29",
             ),
             # idmapping FTP files. See the associated README:
             # https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/idmapping/README
+            # We use these files as our primary source of identifier mapping.
+            # Unfortunately, there are no accompanying `pinned` URLs for these, as the previous releases
+            # contain files with data magnitudes higher than anything we process.
             "HUMAN_9606_idmapping_selected.tab.gz": CacheItem(
                 name="UniProt 9606 ID external database mapping",
-                cached="https://drive.google.com/uc?id=1Oysa5COq31H771rVeyrs-6KFhE3VJqoX",
-                online="https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/idmapping/by_organism/HUMAN_9606_idmapping_selected.tab.gz",
+                cached="https://drive.google.com/uc?id=1sKYVSQgTne3fg0pauFno0FjVYElG4VJy",
+                unpinned="https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/idmapping/by_organism/HUMAN_9606_idmapping_selected.tab.gz",
             ),
             "HUMAN_9606_idmapping.dat.gz": CacheItem(
                 name="UniProt 9606 internal id mapping",
-                cached="https://drive.google.com/uc?id=1lGxrx_kGyNdupwIOUXzfIZScc7rQKP-O",
-                online="https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/idmapping/by_organism/HUMAN_9606_idmapping.dat.gz",
+                cached="https://drive.google.com/uc?id=1QfjjVn36PzJx9ZUxtNSCOOwoZbJpLIiZ",
+                unpinned="https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/idmapping/by_organism/HUMAN_9606_idmapping.dat.gz",
             ),
         }
     },
-    "DISEASES": {
-        # Instead of going through https://unmtid-shinyapps.net/shiny/tiga/, we use their
-        # archived files directory instead.
-        "tiga_gene-trait_stats.tsv": CacheItem(
-            name="TIGA data",
-            cached="https://drive.google.com/uc?id=114qyuNDy4qdmYDHHJAW-yBeTxcGTDUnK",
-            online="https://unmtid-dbs.net/download/TIGA/20250916/tiga_gene-trait_stats.tsv",
-        ),
-        "HumanDO.tsv": CacheItem(
-            name="Disease ontology data",
-            cached="https://drive.google.com/uc?id=1lfB1DGJgrXTxP_50L6gGu_Nq6OyDjiIi",
-            online="https://raw.githubusercontent.com/DiseaseOntology/HumanDiseaseOntology/016a4ec33d1a1508d669650086cd92ccebe138e6/DOreports/HumanDO.tsv",
-        ),
-        "human_disease_textmining_filtered.tsv": CacheItem(
-            name="DISEASES textmining channel",
-            cached="https://drive.google.com/uc?id=1vD8KbT9sk04VEJx9r3_LglCTGYJdhN0D",
-            online="https://download.jensenlab.org/human_disease_textmining_filtered.tsv",
-        ),
-        "human_disease_knowledge_filtered.tsv": CacheItem(
-            name="DISEASES knowledge channel",
-            cached="https://drive.google.com/uc?id=1qGUnjVwF9-8p5xvp8_6CfVsbMSM_wkld",
-            online="https://download.jensenlab.org/human_disease_knowledge_filtered.tsv",
-        ),
-    },
+    # https://www.ensembl.org/info/data/biomart/index.html
     "BioMart": {
+        # ENSG to ENSP mapping
+        # we generally prefer UniProt mappings over this, since we usually work over UniProt-compatible
+        # ENSG/ENSP identifiers, but sometimes identifiers live outside of this space.
         "ensg-ensp.tsv": CacheItem(
             name="BioMart ENSG <-> ENSP mapping",
             cached="https://drive.google.com/uc?id=1-gPrDoluXIGydzWKjWEnW-nWhYu3YkHL",
-            online=fetch_biomart_url((dir_path / "biomart" / "ensg-ensp.xml").read_text()),
+            unpinned=fetch_biomart_service((dir_path / "biomart" / "ensg-ensp.xml").read_text()),
+            pinned=fetch_biomart_service((dir_path / "biomart" / "ensg-ensp.xml").read_text(), archived=True),
         )
     },
-    "DepMap": {
-        "OmicsProfiles.csv": CacheItem(
-            name="DepMap omics metadata",
-            cached="https://drive.google.com/uc?id=1i54aKfO0Ci2QKLTNJnuQ_jgGhH4c9rTL",
-            online="https://depmap.org/portal/download/api/download?file_name=downloads-by-canonical-id%2F2025-05-01-master-mapping-table-28c2.12%2Fpublic_release_date.2025-05-01.master_mapping_table.csv&dl_name=OmicsProfiles.csv&bucket=depmap-external-downloads",
-        ),
-        "CRISPRGeneDependency.csv": CacheItem(
-            name="DepMap gene dependency probability estimates",
-            cached="https://drive.google.com/uc?id=122rWNqT_u3M7B_11WYZMtOLiPbBykkaz",
-            online="https://depmap.org/portal/download/api/download?file_name=downloads-by-canonical-id%2F25q2-public-557c.3%2FCRISPRGeneDependency.csv&dl_name=CRISPRGeneDependency.csv&bucket=depmap-external-downloads",
-        ),
-        "OmicsSomaticMutationsMatrixDamaging.csv": CacheItem(
-            name="DepMap genotyped matrix",
-            cached="https://drive.google.com/uc?id=1W7N2H0Qi7NwmTmNChcwa2ZZ4WxAuz-Xh",
-            online="https://depmap.org/portal/download/api/download?file_name=downloads-by-canonical-id%2Fpublic-25q2-c5ef.87%2FOmicsSomaticMutationsMatrixDamaging.csv&dl_name=OmicsSomaticMutationsMatrixDamaging.csv&bucket=depmap-external-downloads",
-        ),
-        "OmicsExpressionProteinCodingGenesTPMLogp1.csv": CacheItem(
-            name="DepMap model-level TPMs",
-            cached="https://drive.google.com/uc?id=1P0m88eXJ8GPdru8h9oOcHPeXKU7ljIrP",
-            online="https://depmap.org/portal/download/api/download?file_name=downloads-by-canonical-id%2Fpublic-25q2-c5ef.73%2FOmicsExpressionProteinCodingGenesTPMLogp1.csv&dl_name=OmicsExpressionProteinCodingGenesTPMLogp1.csv&bucket=depmap-external-downloads",
-        ),
-        "OmicsCNGeneWGS.csv": CacheItem(
-            name="DepMap gene-level copy number data",
-            cached="https://drive.google.com/uc?id=1TPp3cfK7OZUrftucr3fLO-krXSQAA6Ub",
-            online="https://depmap.org/portal/download/api/download?file_name=downloads-by-canonical-id%2Fpublic-25q2-c5ef.104%2FOmicsCNGeneWGS.csv&dl_name=OmicsCNGeneWGS.csv&bucket=depmap-external-downloads",
-        ),
-    },
-    "iRefIndex": {
-        # This can also be obtained from the SPRAS repo
-        # (https://github.com/Reed-CompBio/spras/blob/b5d7a2499afa8eab14c60ce0f99fa7e8a23a2c64/input/phosphosite-irefindex13.0-uniprot.txt).
-        # iRefIndex has been down for quite some time, so this is only from the cache.
-        "phosphosite-irefindex13.0-uniprot.txt": CacheItem.cache_only(
-            name="iRefIndex v13.0 UniProt interactome",
-            cached="https://drive.google.com/uc?id=1fQ8Z3FjEwUseEtsExO723zj7mAAtdomo"
-        )
-    },
-    "OsmoticStress": {
-        "yeast_pcsf_network.sif": CacheItem.cache_only(
-            # In the paper https://doi.org/10.1016/j.celrep.2018.08.085
-            name="Case Study Edge Results, from Supplementary Data 3",
-            cached="https://drive.google.com/uc?id=1Agte0Aezext-8jLhGP4GmaF3tS7gHX-h"
-        ),
-        # The following files are from https://github.com/gitter-lab/osmotic-stress
-        "prizes.txt": CacheItem(
-            name="Osmotic Stress Prizes",
-            online="https://raw.githubusercontent.com/gitter-lab/osmotic-stress/refs/heads/master/Input%20Data/prizes.txt",
-            cached="https://drive.google.com/uc?id=16WDQs0Vjv6rI12-hbifsbnpH31jMGhJg"
-        ),
-        "ChasmanNetwork-DirUndir.txt": CacheItem(
-            name="Network Input",
-            online="https://raw.githubusercontent.com/gitter-lab/osmotic-stress/refs/heads/master/Input%20Data/ChasmanNetwork-DirUndir.txt",
-            cached="https://drive.google.com/uc?id=1qYXPaWcPU72YYME7NaBzD7thYCHRzrLH"
-        ),
-        "dummy.txt": CacheItem(
-            name="Dummy Nodes File",
-            online="https://raw.githubusercontent.com/gitter-lab/osmotic-stress/refs/heads/master/Input%20Data/dummy.txt",
-            cached="https://drive.google.com/uc?id=1dsFIhBrIEahggg0JPxw64JwS51pKxoQU"
-        ),
-        "_edgeFreq.eda ": CacheItem(
-            name="Case Study Omics Integrator Edge Frequencies",
-            online="https://raw.githubusercontent.com/gitter-lab/osmotic-stress/refs/heads/master/Notebooks/Forest-TPS/_edgeFreq.eda",
-            cached="https://drive.google.com/uc?id=1M_rxEzUCo_EVuFyM47OEH2J-4LB3eeCR"
-        ),
-        "goldStandardUnionDetailed.txt": CacheItem(
-            name="Gold Standard Reference Pathways",
-            online="https://raw.githubusercontent.com/gitter-lab/osmotic-stress/refs/heads/master/data/evaluation/goldStandardUnionDetailed.txt",
-            cached="https://drive.google.com/uc?id=1-_zF9oKFCNmJbDCC2vq8OM17HJw80s2T"
+    # https://www.pathwaycommons.org/
+    "PathwayCommons": {
+        "pathways.txt.gz": CacheItem(
+            name="PathwayCommons Pathway Identifiers",
+            cached="https://drive.google.com/uc?id=1SMwuuohuZuNFnTev4zRNJrBnBsLlCHcK",
+            pinned="https://download.baderlab.org/PathwayCommons/PC2/v14/pathways.txt.gz",
         ),
     },
 }
 
 
-def get_cache_item(path: list[str]) -> CacheItem:
+def get_cache_item(path: tuple[str, ...]) -> CacheItem:
     """Takes a path and gets the underlying cache item."""
     assert len(path) != 0
 

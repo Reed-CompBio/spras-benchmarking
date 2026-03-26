@@ -66,49 +66,6 @@ jobs:
         with:
           path: cache/artifacts
           key: cache-artifacts
-      - name: Run Snakemake workflow for DMMMs
+      - name: Run Snakemake workflow for score-based datasets
         shell: bash --login {0}
-        run: snakemake --cores 4 --configfile configs/dmmm.yaml --show-failed-logs -s spras/Snakefile
-      - name: Run Snakemake workflow for PRAs
-        shell: bash --login {0}
-        run: snakemake --cores 4 --configfile configs/pra.yaml --show-failed-logs -s spras/Snakefile
-      - name: Setup PNPM
-        uses: pnpm/action-setup@v4
-        with:
-          version: 10
-      - name: Install web dependencies
-        working-directory: ./web
-        run: pnpm install
-      - name: Run web builder
-        working-directory: ./web
-        run: pnpm build
-      - name: Upload built website distribution folder
-        uses: actions/upload-artifact@v4
-        with:
-          name: build
-          path: web/dist
-  pages:
-    needs: checks
-    if: github.event_name != 'pull_request'
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    concurrency:
-      group: 'pages'
-      cancel-in-progress: true
-    steps:
-      - name: Download Artifacts
-        uses: actions/download-artifact@v4
-        with:
-          name: build
-          path: dist
-      - name: Setup Pages
-        uses: actions/configure-pages@v2
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: dist
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+        run: snakemake --cores 4 --configfile configs/scores.yaml --show-failed-logs -s spras/Snakefile

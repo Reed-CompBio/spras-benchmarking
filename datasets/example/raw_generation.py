@@ -6,13 +6,16 @@ import networkx
 import uuid
 import pandas
 
+
 def random_id() -> str:
     return uuid.uuid4().hex
+
 
 def assign_ids(graph: networkx.DiGraph) -> networkx.DiGraph:
     """Assigns new IDs to a graph based on `random_id`"""
     mapping = {node: random_id() for node in graph}
     return networkx.relabel_nodes(graph, mapping)
+
 
 def gnp_noise(graph: networkx.DiGraph, p: float):
     """
@@ -22,6 +25,7 @@ def gnp_noise(graph: networkx.DiGraph, p: float):
     for e in itertools.permutations(graph.nodes, 2):
         if random.random() < p:
             graph.add_edge(*e)
+
 
 def generate_parser():
     parser = argparse.ArgumentParser(prog='Pathway generator')
@@ -40,6 +44,7 @@ def generate_parser():
                         help="The probability that edges in the larger interactome are connected to each other.")
     parser.add_argument("--interactome-output", type=str, default="interactome.tsv")
     return parser
+
 
 def main():
     args = generate_parser().parse_args()
@@ -68,13 +73,14 @@ def main():
     gold_standard = pandas.DataFrame(((a, b) for a, b, _data in networkx.to_edgelist(graph)), columns=["Source", "Target"])
     # We make the gold standard output a little annoying to force some post-processing with pandas.
     gold_standard.insert(1, "Interaction-Type", "pp")
-    gold_standard.to_csv(args.gold_standard_output, index=False, sep='\t')
+    gold_standard.to_csv(args.gold_standard_output, index=False, sep="\t")
 
     # and we'll follow along similarly to above to build our interactome.
     graph.add_nodes_from((random_id() for _ in range(args.interactome_extra_nodes)))
     gnp_noise(graph, args.interactome_noise)
     interactome = pandas.DataFrame(((a, b) for a, b, _data in networkx.to_edgelist(graph)), columns=["Source", "Target"])
-    interactome.to_csv(args.interactome_output, index=False, sep='\t')
+    interactome.to_csv(args.interactome_output, index=False, sep="\t")
+
 
 if __name__ == "__main__":
     main()
