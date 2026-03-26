@@ -45,7 +45,7 @@ def add_suffix(path: Path, suffix: str):
 
 def metadata_has_expired(cache_item: CacheItem, output: Path) -> bool:
     """
-    Check if the artifact metadata (the serialized `cache_item`) associated with a `cache_item` has expired.
+    Check if the artifact metadata (the serialized `cache_item`) associated with a `cache_item` has expired (i.e. changed or deleted).
     Avoids re-downloading the artifact if nothing has changed.
     """
 
@@ -61,7 +61,7 @@ def metadata_has_expired(cache_item: CacheItem, output: Path) -> bool:
     with open(metadata_file, "rb") as f:
         old_cache_item = pickle.load(f)
 
-    # metadata expired: re-retrieve the item
+    # metadata does not match the `cache_item`: re-retrieve the item
     if old_cache_item != cache_item:
         with open(metadata_file, "wb") as f:
             pickle.dump(cache_item, f)

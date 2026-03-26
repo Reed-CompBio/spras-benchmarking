@@ -35,7 +35,7 @@ class Service:
         Downloads a URL, returning the response (to be used with `with`) and modifying the output path.
         """
         # As per https://stackoverflow.com/a/39217788/7589775 to enable download streaming.
-        with requests.get(self.url, stream=True, headers=self.headers) as response:
+        with requests.get(self.url, stream=True, headers=self.headers, allow_redirects=True) as response:
             response.raw.decode_content = True
             with open(output, "wb") as f:
                 shutil.copyfileobj(response.raw, f)
@@ -85,13 +85,16 @@ class Service:
         return obj
 
 
-def fetch_biomart_service(xml: str) -> Service:
+def fetch_biomart_service(xml: str, archived: bool=False) -> Service:
     """
     Access BioMart data through the BioMart REST API:
     https://useast.ensembl.org/info/data/biomart/biomart_restful.html#biomartxml
+
+    We also provide links to the Ensembl archives for pinned files.
     """
     ROOT = "http://www.ensembl.org/biomart/martservice?query="
-    return Service(ROOT + urllib.parse.quote_plus(xml))
+    ROOT_ARCHIVED = "http://sep2025.archive.ensembl.org/biomart/martservice?query="
+    return Service((ROOT_ARCHIVED if archived else ROOT) + urllib.parse.quote_plus(xml))
 
 
 @dataclass(frozen=True)
@@ -228,6 +231,7 @@ directory: CacheDirectory = {
             name="BioMart ENSG <-> ENSP mapping",
             cached="https://drive.google.com/uc?id=1-gPrDoluXIGydzWKjWEnW-nWhYu3YkHL",
             unpinned=fetch_biomart_service((dir_path / "biomart" / "ensg-ensp.xml").read_text()),
+            pinned=fetch_biomart_service((dir_path / "biomart" / "ensg-ensp.xml").read_text(), archived=True),
         )
     },
     # https://www.pathwaycommons.org/
