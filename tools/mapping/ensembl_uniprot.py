@@ -17,10 +17,10 @@ ENSG or ENSP.
 def handle_ensembl_list(idmapping_df: pandas.DataFrame, column_name: str) -> pandas.DataFrame:
     idmapping_df = idmapping_df[idmapping_df[column_name].notnull()]
     # Handle our ;-delimited list
-    idmapping_df[column_name] = idmapping_df[column_name].str.split("; ")
+    idmapping_df.loc[:, column_name] = idmapping_df[column_name].str.split("; ")
     idmapping_df = idmapping_df.explode(column_name)
     # Drop isoforms
-    idmapping_df[column_name] = idmapping_df[column_name].str.split(".").str[0]
+    idmapping_df.loc[:, column_name] = idmapping_df[column_name].str.split(".").str[0]
     idmapping_df = idmapping_df.reset_index(drop=True)
     return idmapping_df
 

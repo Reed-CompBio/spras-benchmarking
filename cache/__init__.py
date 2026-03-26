@@ -16,6 +16,7 @@ __all__ = ["FetchConfig", "link"]
 dir_path = Path(os.path.dirname(os.path.realpath(__file__)))
 artifacts_dir = dir_path / "artifacts"
 
+
 @dataclass(frozen=True)
 class FetchConfig:
     """What directive should be fetched, and how it should be fetched."""
@@ -24,26 +25,27 @@ class FetchConfig:
     uncompress: bool = False
     # NOTE: uncompress only unzips `.gz` files. TODO: add support for .zip files.
 
+
 def stringify_tuple_directive(directive: tuple[str, ...]) -> str:
     return quote_plus("/".join(directive))
+
 
 def stringify_config(directive: Union[CacheItem, tuple[str, ...]]) -> str:
     """
     Directives aren't friendly for Snakemake rules: we use urllib to make a URL-safe string, as Snakemake accepts
     such strings as rule names. They aren't the most readable, but they suffice for logging purposes.
     """
-    return quote_plus(directive.name if isinstance(directive, CacheItem) else '/'.join(directive))
+    return quote_plus(directive.name if isinstance(directive, CacheItem) else "/".join(directive))
+
 
 def add_suffix(path: Path, suffix: str):
     """`file.suffix` -> `file.suffix.suffix2`."""
     return path.with_suffix(path.suffix + suffix)
 
-def metadata_has_expired(
-        cache_item: CacheItem,
-        output: Path
-) -> bool:
+
+def metadata_has_expired(cache_item: CacheItem, output: Path) -> bool:
     """
-    Check if the artifact metadata associated with a directive has expired.
+    Check if the artifact metadata (the serialized `cache_item`) associated with a `cache_item` has expired.
     Avoids re-downloading the artifact if nothing has changed.
     """
 
@@ -68,11 +70,8 @@ def metadata_has_expired(
     # metadata hasn't changed and already existed: this hasn't expired
     return False
 
-def link_with_cache_item(
-    output: Path,
-    cache_item: CacheItem,
-    uncompress: bool = False
-):
+
+def link_with_cache_item(output: Path, cache_item: CacheItem, uncompress: bool = False):
     """
     Intermediary function for `link`.
     This does almost all of what `link` is characterized to do in its documentation,
@@ -95,10 +94,8 @@ def link_with_cache_item(
         uncompressed_artifact_path.unlink(missing_ok=True)
         uncompress_file(output, uncompressed_output)
 
-def link(
-        output: str,
-        config: FetchConfig
-):
+
+def link(output: str, config: FetchConfig):
     """
     Links output files from cache.directory directives.
     For example,
@@ -122,21 +119,12 @@ def link(
     """
 
     if isinstance(config.directive, CacheItem):
-        link_with_cache_item(
-            Path(output),
-            config.directive,
-            config.uncompress
-        )
+        link_with_cache_item(Path(output), config.directive, config.uncompress)
     else:
         artifacts_dir.mkdir(exist_ok=True)
         artifact_name = stringify_tuple_directive(config.directive)
         artifact_output = artifacts_dir / artifact_name
 
-        link_with_cache_item(
-            artifact_output,
-            get_cache_item(config.directive),
-            config.uncompress
-        )
+        link_with_cache_item(artifact_output, get_cache_item(config.directive), config.uncompress)
 
         Path(output).symlink_to(artifact_output)
-

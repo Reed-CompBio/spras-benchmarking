@@ -18,7 +18,8 @@ We also use the StringDB human interactome and UniProt mapping files. See `cache
 
 - `process_prizes.py`: produces a `input-nodes-uniprot.txt` from
 [egfr-prizes.txt](https://raw.githubusercontent.com/gitter-lab/tps/refs/heads/master/data/pcsf/egfr-prizes.txt),
-trimming psuedonodes and manually injecting the `EGF_HUMAN` receptor as a dummy node for OmicsIntegrator1.
+trimming psuedonodes and manually injecting the `EGF_HUMAN` receptor as a source node (and dummy node for OmicsIntegrator1),
+while making all other nodes targets.
 - `process_interactome.py`: Produces the STRING `interactome.tsv` file from the STRING links file. Note that the `phosphosite-irefindex13.0-uniprot.txt` is a magic (as in with closed-source origin) directed interactome produced with a combination of the now archived iRefIndex v13 interactome with extra PhosphoSite-provided nodes
 - `process_gold_standard.py`: Produces the `gold-standard-nodes-uniprot.txt` file from the [EGFR prize file](https://raw.githubusercontent.com/gitter-lab/tps/ca7cafd1e1c17f45ddea07c3fb54d0d70b86ff45/data/resources/eight-egfr-reference-all.txt) from the above paper.
 - `map_ensembl.py`: Maps UniProt identifiers to STRING-restricted ENSP identifiers for the STRING-based data.

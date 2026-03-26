@@ -8,8 +8,7 @@ egfr_directory = Path(__file__).parent.resolve() / ".."
 def main():
     # We get specifically the STRING nodes, as the mapping from UniProt overeagerly maps
     string_nodes = pandas.read_csv(
-        egfr_directory / "processed" / "ensg" / "interactome.tsv", header=None, sep="\t",
-        names=["Interactor1", "Interactor2", "Weight", "Direction"]
+        egfr_directory / "processed" / "ensg" / "interactome.tsv", header=None, sep="\t", names=["Interactor1", "Interactor2", "Weight", "Direction"]
     )
     interactor_series = pandas.concat([string_nodes["Interactor1"], string_nodes["Interactor2"]], ignore_index=True)
 
@@ -25,9 +24,9 @@ def main():
     idmapping_df = idmapping_df[idmapping_df["Ensembl_PRO"].isin(interactor_series)]
 
     # Then map the gold standard nodes
-    idmapped_gold_standard_nodes_df = pandas.DataFrame(
-        gold_standard_nodes,
-        columns=["UniProtKB-ID"]).merge(idmapping_df, on="UniProtKB-ID", how="left")
+    idmapped_gold_standard_nodes_df = pandas.DataFrame(gold_standard_nodes, columns=["UniProtKB-ID"]).merge(
+        idmapping_df, on="UniProtKB-ID", how="left"
+    )
     idmapped_gold_standard_nodes_df = idmapped_gold_standard_nodes_df.drop(columns=["UniProtKB-ID", "UniProtKB-AC", "Ensembl"])
     idmapped_gold_standard_nodes_df = idmapped_gold_standard_nodes_df[~idmapped_gold_standard_nodes_df["Ensembl_PRO"].isna()]
     gold_standard_nodes = idmapped_gold_standard_nodes_df["Ensembl_PRO"].astype(str).to_list()
