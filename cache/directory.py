@@ -196,13 +196,14 @@ directory: CacheDirectory = {
         # We use FTP when possible, but we delegate to the UniProt REST API in cases that would save significant bandwidth.
         # See https://ftp.uniprot.org/pub/databases/uniprot/current_release/README for the FTP README.
         # 9606 is human.
+        # All of the following data lives under the 2026-03-25 folder, or its retrieval date.
         "9606": {
             # We prefer manually curated, or SwissProt, genes.
             # This URL selects these genes using the REST API.
             # UniProt REST doesn't seem to have any way to version it, so we only provide the `unpinned` URL.
             "SwissProt_9606.tsv": CacheItem(
                 name="UniProt 9606 SwissProt genes",
-                cached="https://drive.google.com/uc?id=1h2Cl-60qcKse-djcsqlRXm_n60mVY7lk",
+                cached="https://drive.google.com/uc?id=1qa5PvyYuc7Sg4NNqlId6MXvKokTls3ND",
                 unpinned="https://rest.uniprot.org/uniprotkb/stream?fields=accession%2Cid%2Cprotein_name%2Cgene_names&format=tsv&query=%28*%29+AND+%28reviewed%3Atrue%29+AND+%28model_organism%3A9606%29",
             ),
             # idmapping FTP files. See the associated README:
@@ -212,12 +213,12 @@ directory: CacheDirectory = {
             # contain files with data magnitudes higher than anything we process.
             "HUMAN_9606_idmapping_selected.tab.gz": CacheItem(
                 name="UniProt 9606 ID external database mapping",
-                cached="https://drive.google.com/uc?id=1Oysa5COq31H771rVeyrs-6KFhE3VJqoX",
+                cached="https://drive.google.com/uc?id=1sKYVSQgTne3fg0pauFno0FjVYElG4VJy",
                 unpinned="https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/idmapping/by_organism/HUMAN_9606_idmapping_selected.tab.gz",
             ),
             "HUMAN_9606_idmapping.dat.gz": CacheItem(
                 name="UniProt 9606 internal id mapping",
-                cached="https://drive.google.com/uc?id=1lGxrx_kGyNdupwIOUXzfIZScc7rQKP-O",
+                cached="https://drive.google.com/uc?id=1QfjjVn36PzJx9ZUxtNSCOOwoZbJpLIiZ",
                 unpinned="https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/idmapping/by_organism/HUMAN_9606_idmapping.dat.gz",
             ),
         }
