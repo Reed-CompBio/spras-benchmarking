@@ -7,15 +7,32 @@ diseases_path = Path(dir_path, "..")
 (diseases_path / "prize_files").mkdir(exist_ok=True, parents=True)
 (diseases_path / "GS_files").mkdir(exist_ok=True, parents=True)
 
-
+'''
+Takes the gold standard disease-gene associations from `gold_standard.py` and
+the GWAS trait-gene SNP values from `inputs.py` and combines them to generate
+SPRAS-formatted prize files and gold standard files.
+'''
 def main():
+    # Gold Standard file from `gold_standard.py`
     GS_string_df = pd.read_csv(diseases_path / "data" / "gold_standard.csv")
+
+    # Inputs file from `inputs.py`
     tiga_string_df = pd.read_csv(diseases_path / "data" / "inputs.csv")
 
+    # Identify the diseases that are in the gold standard and the inputs.
     GS_string_df = GS_string_df[GS_string_df["diseaseID"].isin(tiga_string_df["id"])]
     GS_combined_group = GS_string_df.groupby("diseaseName")
     GS_combined_dict = {str(k): v for k, v in GS_combined_group}
 
+    # Filter the SNP dataset for genes in the disease set.
+
+    # UNRESOLVED ISSUE:
+    # There is a possibility that the TIGA dataset does not have the GENE_SET_SIZE_MINIMUM
+    # requirement for the gold standard diseases because the sources of evidence are different.
+    # However, if there are GENE_SET_SIZE_MINIMUM genes in the gold standard (text mining & knowledge based)
+    # we should run that disease as a dataset, no matter how many disease genes have SNP scores in TIGA.
+    #
+    # Resolving this issue is delayed by the bug in gold_standard.py.
     tiga_filtered = tiga_string_df[tiga_string_df["id"].isin(GS_string_df["diseaseID"])]
     tiga_group = tiga_filtered.groupby("trait")
     tiga_dict = {k: v for k, v in tiga_group}
