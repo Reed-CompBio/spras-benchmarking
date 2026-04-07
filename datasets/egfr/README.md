@@ -23,8 +23,8 @@ for more info on these.
 
 - `process_prizes.py`: produces a `input-nodes-uniprot.txt` from
 [egfr-prizes.txt](https://raw.githubusercontent.com/gitter-lab/tps/refs/heads/master/data/pcsf/egfr-prizes.txt),
-trimming psuedonodes and manually injecting the `EGF_HUMAN` receptor as a source node (and dummy node for OmicsIntegrator1),
-while making all other nodes targets.
+trimming psuedonodes, marking all nodes as active, and manually injecting the `EGF_HUMAN`
+receptor as a source node (and dummy node for OmicsIntegrator1), while making all other nodes targets and dummy nodes.
 - `process_interactome.py`: Produces the STRING `interactome.tsv` file from the STRING links file. Note that
 `phosphosite-irefindex13.0-uniprot.txt` is irreproducible, as it has a closed-source origin. It is a directed interactome produced with a
 combination of the now archived iRefIndex v13 interactome with extra PhosphoSite-provided nodes.
