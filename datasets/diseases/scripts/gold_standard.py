@@ -60,18 +60,20 @@ def main():
 
     # combine all genes that have at least one text mining or knowledge score.
     df_list = [inner, txt_only, kn_only]
-    GS_ids = pd.concat(df_list)
+    GS_ids_df = pd.concat(df_list)
+    GS_ids_df.to_csv("test.tsv", index=False)
 
     # Threshold based on CONFIDENCE_SCORE_MINIMUM
-    GS_score_threshold = GS_ids.loc[(GS_ids["confidenceScore"] >= CONFIDENCE_SCORE_MINIMUM)]
+    GS_ids_score_threshold = GS_ids_df.loc[(GS_ids_df["confidenceScore"] >= CONFIDENCE_SCORE_MINIMUM)]
+    GS_ids_score_threshold.to_csv("test2.tsv", index=False)
 
     # Threshold based on GENE_SET_SIZE_MINIMUM
-    GS_score_group = GS_ids.groupby("diseaseName")
+    GS_score_group = GS_ids_df.groupby("diseaseName")
     GS_score_dict = {k: v for k, v in GS_score_group}
     GS_score_count = {x: len(GS_score_dict[x]) for x in GS_score_dict.keys()}
     GS_count_threshold = {k: v for (k, v) in GS_score_count.items() if (v > GENE_SET_SIZE_MINIMUM)}
     # GS_combined_threshold contains all high confidence disease-gene associations for the thresholded diseases
-    GS_combined_threshold = GS_score_threshold.loc[GS_score_threshold["diseaseName"].isin(list(GS_count_threshold.keys()))]
+    GS_combined_threshold = GS_ids_score_threshold.loc[GS_ids_score_threshold["diseaseName"].isin(list(GS_count_threshold.keys()))]
     
     # Mapping ENSG IDs to ENSP IDs through the STRING aliases file
     # given our ENSG and ENSP (non one-to-one!) mapping `string_aliases`,
@@ -87,10 +89,9 @@ def main():
     GS_string_df = GS_string_df.drop_duplicates(subset=["ENSG", "ENSP", "geneName", "diseaseID", "diseaseName"])
 
     ## THIS HAS A MAJOR ISSUE
-    # mapping removes nearly all the genes. We need to improve maping from ENSP to ENSG, 
-    # and/or modify the GENE_SET_MINIMUM variable. Our goal here is <50 diseases for validation. 
+    # We need to modify the GENE_SET_SIZE_MINIMUM variable. Our goal here is <50 diseases for validation. 
     for k in GS_count_threshold:
-        print(k,GS_count_threshold[k],(GS_string_df["diseaseName"]==k).sum())
+        print(k, GS_count_threshold[k], (GS_combined_threshold["diseaseName"]==k).sum(), (GS_string_df["diseaseName"]==k).sum())
     print(len(list(GS_count_threshold.keys())))
     print(len(GS_string_df))
 

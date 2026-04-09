@@ -13,12 +13,12 @@ TODO: not all of these input node set files are necessary for benchmarking; only
 disease validation sets. That is processed in `files.py`. 
 '''
 def main():
-    # See fetch.py for information on this file's origin
+    # See ../Snakefile for information on this file's origin
     tiga = pd.read_csv(diseases_path / "raw" / "tiga_gene-trait_stats.tsv", sep="\t")
     tiga = tiga[["ensemblId", "trait", "n_snp", "n_snpw"]]
     tiga = tiga.drop_duplicates(subset=["ensemblId", "trait"])
 
-    # See fetch.py for information on this file's origin
+    # See ../Snakefile for information on this file's origin
     human_do = pd.read_csv(diseases_path / "raw" / "HumanDO.tsv", sep="\t")
     human_do = human_do.drop_duplicates(subset="label")
     human_do = human_do[["id", "label"]]
