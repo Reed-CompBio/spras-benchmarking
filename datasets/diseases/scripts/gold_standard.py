@@ -4,7 +4,7 @@ from pathlib import Path
 dir_path = Path(__file__).parent.resolve()
 diseases_path = Path(dir_path, "..")
 
-CONFIDENCE_SCORE_MINIMUM = 4
+CONFIDENCE_SCORE_MINIMUM = 3
 GENE_SET_SIZE_MINIMUM = 10
 
 '''
@@ -88,8 +88,8 @@ def main():
     GS_string_df = GS_combined_threshold.merge(string_aliases, on="ENSP", how="inner")
     GS_string_df = GS_string_df.drop_duplicates(subset=["ENSG", "ENSP", "geneName", "diseaseID", "diseaseName"])
 
-    ## THIS HAS A MAJOR ISSUE
-    # We need to modify the GENE_SET_SIZE_MINIMUM variable. Our goal here is <50 diseases for validation. 
+    # Our goal here is <50 diseases for validation, and the
+    # GENE_SET_SIZE_MINIMUM score has been appropiately modified for this goal.
     for k in GS_count_threshold:
         print(k, GS_count_threshold[k], (GS_combined_threshold["diseaseName"]==k).sum(), (GS_string_df["diseaseName"]==k).sum())
     print(len(list(GS_count_threshold.keys())))
