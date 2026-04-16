@@ -35,7 +35,7 @@ def extract_gene_symbols(input_df: pd.DataFrame) -> pd.DataFrame:
 def main():
     # Load the dataset
     # We only read the first row since we only care about the column names of the matrix
-    input_df = pd.read_csv(dir_path / ".." / "raw" / "OmicsSomaticMutationsMatrixDamaging.csv", index_col=0, nrows=1)
+    input_df = pd.read_csv(dir_path / ".." / "raw" / "OmicsSomaticMutationsMatrixDamaging_25Q3.csv", index_col=0, nrows=1)
 
     gene_symbols_df = extract_gene_symbols(input_df)
 

@@ -10,12 +10,14 @@ Download the following datasets under the primary files section of DepMap and mo
 
 Currently used files:
 
-- `OmicsProfiles.csv`: Omics metadata and ID mapping information for files indexed by Profile ID. This dataset is used for mapping cell line names to DepMap model IDs as a basis for data processing. (file URL: https://depmap.org/portal/data_page/?tab=allData&releasename=DepMap%20Public%2025Q2&filename=OmicsProfiles.csv)
-- `CRISPRGeneDependency.csv`: Gene dependency probability estimates for all models in the integrated gene effect. This dataset is used to identify gold standard genes in each cell line, a dependency probability cutoff of 0.5 is currently used to get the genes with considerable impact on the cell line. (file URL: https://depmap.org/portal/data_page/?tab=allData&releasename=DepMap%20Public%2025Q2&filename=CRISPRGeneDependency.csv)
-- `OmicsSomaticMutationsMatrixDamaging.csv`: Genotyped matrix determining for each cell line whether each gene has at least one damaging mutation. A variant is considered a damaging mutation if LikelyLoF == True. (0 == no mutation; If there is one or more damaging mutations in the same gene for the same cell line, the allele frequencies are summed, and if the sum is greater than 0.95, a value of 2 is assigned and if not, a value of 1 is assigned.). This dataset is used to prepare the input prize file. (file URL: https://depmap.org/portal/data_page/?tab=allData&releasename=DepMap%20Public%2025Q2&filename=OmicsSomaticMutationsMatrixDamaging.csv)
-- `OmicsExpressionProteinCodingGenesTPMLogp1.csv`: Model-level TPMs derived from Salmon v1.10.0 (Patro et al 2017) Rows: Model IDs Columns: Gene names. (file URL: https://depmap.org/portal/data_page/?tab=allData&releasename=DepMap%20Public%2025Q2&filename=OmicsExpressionProteinCodingGenesTPMLogp1.csv)
-- `OmicsCNGeneWGS.csv`: Gene-level copy number data inferred from WGS data only. Additional copy number datasets are available for download as part of the full DepMap Data Release. (file URL: https://depmap.org/portal/data_page/?tab=allData&releasename=DepMap%20Public%2025Q2&filename=OmicsCNGeneWGS.csv)
+- `OmicsProfiles.csv`: Omics metadata and ID mapping information for files indexed by Profile ID. This dataset is used for mapping cell line names to DepMap model IDs as a basis for data processing. (file URL: https://depmap.org/portal/data_page/?tab=allData&releasename=DepMap%20Public%2025Q3&filename=OmicsProfiles.csv)
+# todo: I am using Model.csv and annotations from the ccle data not omics profiles rn
 
+
+- `CRISPRGeneDependency.csv`: Gene dependency probability estimates for all models in the integrated gene effect. This dataset is used to identify gold standard genes in each cell line, a dependency probability cutoff of 0.5 is currently used to get the genes with considerable impact on the cell line. (file URL: https://depmap.org/portal/data_page/?tab=allData&releasename=DepMap%20Public%2025Q3&filename=CRISPRGeneDependency.csv)
+- `OmicsSomaticMutationsMatrixDamaging.csv`: Genotyped matrix determining for each cell line whether each gene has at least one damaging mutation. A variant is considered a damaging mutation if LikelyLoF == True. (0 == no mutation; If there is one or more damaging mutations in the same gene for the same cell line, the allele frequencies are summed, and if the sum is greater than 0.95, a value of 2 is assigned and if not, a value of 1 is assigned.). This dataset is used to prepare the sources and prizes for the input node file. (file URL: https://depmap.org/portal/data_page/?tab=allData&releasename=DepMap%20Public%2025Q3&filename=OmicsSomaticMutationsMatrixDamaging.csv)
+- Add the cn data
+- add the tfs
 
 ## Scripts
 Currently contains:

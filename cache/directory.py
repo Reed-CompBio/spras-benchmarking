@@ -239,6 +239,59 @@ directory: CacheDirectory = {
             pinned="https://download.baderlab.org/PathwayCommons/PC2/v14/pathways.txt.gz",
         ),
     },
+
+    "DepMap_25Q3": {
+        "OmicsProfiles_25Q3.csv": CacheItem(
+            name="DepMap omics metadata",
+            cached="https://drive.google.com/uc?id=10eJ6ZcDlxEBsfHsvkmrgtTEd__71fC_7",
+            # pinned="https://depmap.org/portal/download/api/download?file_name=downloads-by-canonical-id%2F2025-05-01-master-mapping-table-28c2.12%2Fpublic_release_date.2025-05-01.master_mapping_table.csv&dl_name=OmicsProfiles.csv&bucket=depmap-external-downloads",
+        ),
+
+        "CRISPRGeneDependency_25Q3.csv": CacheItem(
+            name="DepMap crispr gene dependency probability estimates",
+            cached="https://drive.google.com/uc?id=18hGSWlWEo_R6FmYziZKEISYCbDqrNty_",
+            # pinned="https://depmap.org/portal/download/api/download?file_name=downloads-by-canonical-id%2F25q2-public-557c.3%2FCRISPRGeneDependency.csv&dl_name=CRISPRGeneDependency.csv&bucket=depmap-external-downloads",
+        ),
+
+        "OmicsSomaticMutationsMatrixDamaging_25Q3.csv": CacheItem(
+            name="DepMap genotyped matrix",
+            cached="https://drive.google.com/uc?id=1M-ybvvKvGbdRhPLGjtBzKJviVecVXbDi",
+            # pinned="https://depmap.org/portal/download/api/download?file_name=downloads-by-canonical-id%2Fpublic-25q2-c5ef.87%2FOmicsSomaticMutationsMatrixDamaging_25Q3.csv&dl_name=OmicsSomaticMutationsMatrixDamaging_25Q3.csv&bucket=depmap-external-downloads",
+        ),
+
+        "Model_25Q3.csv": CacheItem(
+            name="DepMap Metadata describing all cancer models/cell lines which are referenced by a dataset contained within the DepMap portal.",
+            cached="https://drive.google.com/uc?id=1-26H3bvAAEt7UjlxpiK1cxORiAGJnxU9"
+        ),
+    },
+
+    # TODO: update the ccle data once the new pr gets merged: https://github.com/cBioPortal/datahub/pull/2283
+    "cbioportal": {
+        "data_cna_cbioportal_ccle2019.txt": CacheItem(
+            name="Copy number alterations from CCLE",
+            cached="https://drive.google.com/uc?id=1C-OQu80Ptfy0-aBWg6nlULcQQvfzBBPp"
+        ),
+    },
+
+    "CCLE_2019": {
+        "Cell_lines_annotations_20181226_ccle2019.txt": CacheItem(
+            name = "Cell line annotations",
+            cached="https://drive.google.com/uc?id=1MDe_MizqSfaH58UMrwzhorXStMNCNNBy"
+        )
+    },
+
+    "estimateNCA": {
+        "consensus_tfa_march_6.tsv": CacheItem(
+            name = "",
+            cached="https://drive.google.com/uc?id=1haTqjyqkWoYTLw_6tubc0rJUiJIszC6v"
+        ),
+
+        "tfs_beyond_2sd_per_cell_line.csv": CacheItem(
+            name="",
+            cached="https://drive.google.com/uc?id=1vl6t_8bXfbyCYzaw9u2HpU430O_IMHWm"
+        )
+    }
+
 }
 
 
