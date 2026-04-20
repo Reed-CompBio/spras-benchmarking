@@ -19,7 +19,10 @@ artifacts_dir = dir_path / "artifacts"
 
 @dataclass(frozen=True)
 class FetchConfig:
-    """What directive should be fetched, and how it should be fetched."""
+    """
+    What `directive` (a CacheItem or a location in `./directory.py`)
+    should be fetched, and how it should be fetched.
+    """
 
     directive: Union[CacheItem, tuple[str, ...]]
     uncompress: bool = False

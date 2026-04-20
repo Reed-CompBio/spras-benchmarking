@@ -18,16 +18,18 @@ All entries are provided with this template:
 ),
 ```
 
-When a file is requested, `cached`, `pinned`, and `unpinned` are all downloaded. `cached` is the link to the underlying file that we store,
-`pinned` is the link to an arbitrary online service containing a versioned file that never changes (we use this to check for uptime),
-and `unpinned` is the link to the an arbitrary online service containing an unversioned file we use to check for updates.
+When a file is requested, `cached`, `pinned`, and `unpinned` are all downloaded. `cached` is the link to the underlying file that we store in Drive,
+`pinned` is the link to an arbitrary online service containing a versioned static file (we use this to check for uptime and dually to document
+where a file was originally retrieved), and `unpinned` is the link to the an arbitrary online service containing an unversioned
+(which has the capability of becoming newer) file we use to check for updates.
 
 We characterize them as follows:
 - If the URL linking to `pinned` does not match `cached`, we fail, as this means that our versioned file updated/errored in some way.
 - If the URL linking to `unpinned` does not match `cached`, we warn that the data needs updating. The data itself will not automatically update.
 
 Specifically, `unpinned` links to file URLs that constantly update, `pinned` does otherwise, and `cached` links to our
-own copy of the data that should match with the `unpinned` and `pinned` URLs. We prefer to have both `pinned` and `unpinned` URLs, but
+own copy of the data that must match with  the `pinned` URL, and is encouraged to match with the `unpinned` URL to prevent our own copy of the data
+from drifting with respect to its version. We prefer to have both `pinned` and `unpinned` URLs, but
 there are many situations where the `pinned` URL is not available (e.g. the queried service has no versioning), or the `unpinned` URL is not available
 (e.g. the queried service only has versioning).
 
