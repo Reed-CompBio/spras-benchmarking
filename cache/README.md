@@ -82,7 +82,8 @@ produce_fetch_rules({
 
 However, the former option, since it uses items in `directory.py`, saves the file to a cached directory under `cache/artifacts`.
 The latter saves the file to a dataset-specific folder for dataset `Snakefile`s: that is, if you have a file
-that's used across multiple datasets, add it to `directory.py`!
+that's used across multiple datasets, add it to `directory.py`. Otherwise, if you have a file specifically used for a dataset, keep it under that
+respective dataset.
 
 Some datasets also provide an `unversioned` tag, which would point to the latest version under `directory`. For example, at the time of writing
 (when `unversioned` pointed to `v12`), the following are equivalent:
