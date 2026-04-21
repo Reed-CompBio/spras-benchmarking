@@ -170,25 +170,29 @@ class CacheItem:
                 logger.warning(err)
 
 
-CacheDirectory = dict[str, Union[CacheItem, "CacheDirectory"]]
+CacheDirectory = dict[str, Union[CacheItem, "CacheDirectory", str]]
 
-# An *unversioned* directory list.
+# The directory list containing versioned and unversioned files.
 directory: CacheDirectory = {
     # STRINGDB: https://string-db.org/
     # You can see more information about these files at https://string-db.org/cgi/download.
     "STRING": {
-        # 9606 is human.
-        "9606": {
-            "9606.protein.links.full.txt.gz": CacheItem(
-                name="STRING 9606 full protein links",
-                cached="https://drive.google.com/uc?id=13tE_-A6g7McZs_lZGz9As7iE-5cBFvqE",
-                pinned="http://stringdb-downloads.org/download/protein.links.full.v12.0/9606.protein.links.full.v12.0.txt.gz",
-            ),
-            "9606.protein.aliases.txt.gz": CacheItem(
-                name="STRING 9606 protein aliases",
-                cached="https://drive.google.com/uc?id=1IWrQeTVCcw1A-jDk-4YiReWLnwP0S9bY",
-                pinned="https://stringdb-downloads.org/download/protein.aliases.v12.0/9606.protein.aliases.v12.0.txt.gz",
-            ),
+        # Our latest STRING files are v12: datasets use 'latest'
+        # when they intend to use the most up-to-date STRING file.
+        "latest": "v12",
+        "v12": {
+            "9606": {
+                "9606.protein.links.full.txt.gz": CacheItem(
+                    name="STRING 9606 full protein links",
+                    cached="https://drive.google.com/uc?id=13tE_-A6g7McZs_lZGz9As7iE-5cBFvqE",
+                    pinned="http://stringdb-downloads.org/download/protein.links.full.v12.0/9606.protein.links.full.v12.0.txt.gz",
+                ),
+                "9606.protein.aliases.txt.gz": CacheItem(
+                    name="STRING 9606 protein aliases",
+                    cached="https://drive.google.com/uc?id=1IWrQeTVCcw1A-jDk-4YiReWLnwP0S9bY",
+                    pinned="https://stringdb-downloads.org/download/protein.aliases.v12.0/9606.protein.aliases.v12.0.txt.gz",
+                ),
+            }
         }
     },
     # https://www.uniprot.org/
@@ -254,6 +258,9 @@ def get_cache_item(path: tuple[str, ...]) -> CacheItem:
     for entry in path:
         if isinstance(current_item, CacheItem):
             raise ValueError(f"Path {path} leads to a cache item too early!")
+        if isinstance(current_item, str):
+            # This points somewhere else: we use this for explicitly versioning files.
+            entry = current_item
         current_item = current_item[entry]
 
     if not isinstance(current_item, CacheItem):

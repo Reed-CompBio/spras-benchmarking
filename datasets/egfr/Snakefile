@@ -13,7 +13,7 @@ rule all:
         "processed/ensg/interactome.tsv",
 
 produce_fetch_rules({
-    "raw/9606.protein.links.full.txt": FetchConfig(("STRING", "9606", "9606.protein.links.full.txt.gz"), uncompress=True),
+    "raw/9606.protein.links.full.txt": FetchConfig(("STRING", "latest", "9606", "9606.protein.links.full.txt.gz"), uncompress=True),
     "raw/HUMAN_9606_idmapping_selected.tsv": FetchConfig(("UniProt", "9606", "HUMAN_9606_idmapping_selected.tab.gz"), uncompress=True),
 
     # This can also be obtained from the SPRAS repo, though the SPRAS repo removes self loops. We don't.
