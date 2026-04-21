@@ -4,12 +4,14 @@ This is how spras-benchmarking handles artifact downloading and caching.
 """
 
 from dataclasses import dataclass
-from typing import Union
-from cache.util import uncompress as uncompress_file
-from cache.directory import CacheItem, get_cache_item
 from pathlib import Path
-from urllib.parse import quote_plus
 import pickle
+from urllib.parse import quote_plus
+from typing import Optional, Union
+
+from cache.util import PostProcessAction
+from cache.directory import CacheItem, get_cache_item
+
 
 __all__ = ["FetchConfig", "link"]
 
@@ -25,9 +27,8 @@ class FetchConfig:
     """
 
     directive: Union[CacheItem, tuple[str, ...]]
-    uncompress: bool = False
+    post_process: Optional[PostProcessAction] = None
     # NOTE: uncompress only unzips `.gz` files. TODO: add support for .zip files.
-
 
 def stringify_tuple_directive(directive: tuple[str, ...]) -> str:
     return quote_plus("/".join(directive))
@@ -74,7 +75,7 @@ def metadata_has_expired(cache_item: CacheItem, output: Path) -> bool:
     return False
 
 
-def link_with_cache_item(output: Path, cache_item: CacheItem, uncompress: bool = False):
+def link_with_cache_item(output: Path, cache_item: CacheItem, post_process: Optional[PostProcessAction] = None):
     """
     Intermediary function for `link`.
     This does almost all of what `link` is characterized to do in its documentation,
@@ -83,8 +84,8 @@ def link_with_cache_item(output: Path, cache_item: CacheItem, uncompress: bool =
     # If `uncompress` is `True`, we make
     # `output` our 'compressed output.'
     uncompressed_output = output
-    if uncompress:
-        output = add_suffix(output, ".compressed")
+    if post_process is not None:
+        output = add_suffix(output, ".unprocesed")
 
     # Re-download if the file doesn't exist or the directive has expired.
     # Note that we check for expiration first to trigger metadata creation.
@@ -92,10 +93,10 @@ def link_with_cache_item(output: Path, cache_item: CacheItem, uncompress: bool =
         output.unlink(missing_ok=True)
         cache_item.download(output)
 
-    if uncompress:
-        uncompressed_artifact_path = add_suffix(output, ".uncompressed")
-        uncompressed_artifact_path.unlink(missing_ok=True)
-        uncompress_file(output, uncompressed_output)
+    if post_process is not None:
+        processed_artifact_path = add_suffix(output, ".processed")
+        processed_artifact_path.unlink(missing_ok=True)
+        post_process.run_action(output, uncompressed_output)
 
 
 def link(output: str, config: FetchConfig):
@@ -126,12 +127,12 @@ def link(output: str, config: FetchConfig):
     # TODO: there is most likely a nicer way to design this.
 
     if isinstance(config.directive, CacheItem):
-        link_with_cache_item(Path(output), config.directive, config.uncompress)
+        link_with_cache_item(Path(output), config.directive, config.post_process)
     else:
         artifacts_dir.mkdir(exist_ok=True)
         artifact_name = stringify_tuple_directive(config.directive)
         artifact_output = artifacts_dir / artifact_name
 
-        link_with_cache_item(artifact_output, get_cache_item(config.directive), config.uncompress)
+        link_with_cache_item(artifact_output, get_cache_item(config.directive), config.post_process)
 
         Path(output).symlink_to(artifact_output)

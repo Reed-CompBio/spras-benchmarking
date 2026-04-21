@@ -13,8 +13,14 @@ rule all:
         "processed/ensp/interactome.tsv",
 
 produce_fetch_rules({
-    "raw/9606.protein.links.full.txt": FetchConfig(("STRING", "latest", "9606", "9606.protein.links.full.txt.gz"), uncompress=True),
-    "raw/HUMAN_9606_idmapping_selected.tsv": FetchConfig(("UniProt", "9606", "HUMAN_9606_idmapping_selected.tab.gz"), uncompress=True),
+    "raw/9606.protein.links.full.txt": FetchConfig(
+        ("STRING", "latest", "9606", "9606.protein.links.full.txt.gz"),
+        post_process=PostProcessAction.UNCOMPRESS_GZ
+    ),
+    "raw/HUMAN_9606_idmapping_selected.tsv": FetchConfig(
+        ("UniProt", "9606", "HUMAN_9606_idmapping_selected.tab.gz"),
+        post_process=PostProcessAction.UNCOMPRESS_GZ
+    ),
 
     # This can also be obtained from the SPRAS repo, though the SPRAS repo removes self loops. We don't.
     # (https://github.com/Reed-CompBio/spras/blob/b5d7a2499afa8eab14c60ce0f99fa7e8a23a2c64/input/phosphosite-irefindex13.0-uniprot.txt).
@@ -22,26 +28,26 @@ produce_fetch_rules({
     # and this also is a seemingly modified version of the iRefIndex interactome.
     # While the following files do point to the repository's main branch,
     # they aren't expected to actually change, so we make them `pinned`.
-    "processed/uniprot/phosphosite-irefindex13.0.txt": FetchConfig(CacheItem(
+    "processed/uniprot/phosphosite-irefindex13.0.txt": CacheItem(
         name="iRefIndex v13.0 UniProt interactome",
         cached="https://drive.google.com/uc?id=1fQ8Z3FjEwUseEtsExO723zj7mAAtdomo",
         pinned="https://raw.githubusercontent.com/gitter-lab/tps/refs/heads/master/data/networks/phosphosite-irefindex13.0-uniprot.txt",
-    )),
+    ),
 
     # EGFR-specific files.
     # The following files are from https://github.com/gitter-lab/tps.
     # While the following files do point to the repository's main branch,
     # they aren't expected to actually change.
-    "raw/eight-egfr-reference-all.txt": FetchConfig(CacheItem(
+    "raw/eight-egfr-reference-all.txt": CacheItem(
         name="EGFR Gold Standard Reference",
         pinned="https://raw.githubusercontent.com/gitter-lab/tps/refs/heads/master/data/resources/eight-egfr-reference-all.txt",
         cached="https://drive.google.com/uc?id=15MqpIbH1GRA1tq0ZXH9oMnKytoFSzXyw",
-    )),
-    "raw/egfr-prizes.txt": FetchConfig(CacheItem(
+    ),
+    "raw/egfr-prizes.txt": CacheItem(
         name="EGFR prizes",
         pinned="https://raw.githubusercontent.com/gitter-lab/tps/refs/heads/master/data/pcsf/egfr-prizes.txt",
         cached="https://drive.google.com/uc?id=1nI5hw-rYRZPs15UJiqokHpHEAabRq6Xj",
-    )),
+    ),
 })
 
 rule process_gold_standard:

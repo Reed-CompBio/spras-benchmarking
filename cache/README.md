@@ -54,21 +54,19 @@ and the values are either entries in `directory.py`, or `CacheItem`s themselves.
 
 ```py
 produce_fetch_rules({
-    "raw/9606.protein.links.full.txt": FetchConfig(("STRING", "v12", "9606", "9606.protein.links.full.txt.gz"), uncompress=True),
+    "raw/9606.protein.links.full.txt": FetchConfig(
+        ("STRING", "v12", "9606", "9606.protein.links.full.txt.gz"),
+        post_process=PostProcessAction.UNCOMPRESS_GZ
+    ),
 })
 ```
 
 would produce a Snakemake rule whose output is `raw/9606.protein.links.full.txt`, and would look under `directory.py` by traversing
 the `directory` dictionary, going to `STRING` then `v12` then `9606` then `9606.protein.links.full.txt.gz`, where the `FetchConfig`
-asks the inner rule to uncompress the file before saving it under `raw/9606.protein.links.full.txt`.
+asks the inner rule to uncompress the .gz file before saving it under `raw/9606.protein.links.full.txt`.
 
-Some datasets also provide an `unversioned` tag, which would point to the latest version under `directory`. For example, at the time of writing
-(when `unversioned` pointed to `v12`), the following are equivalent:
-
-```py
-FetchConfig(("STRING", "v12", "9606", "9606.protein.links.full.txt.gz"), uncompress=True)
-FetchConfig(("STRING", "unversioned", "9606", "9606.protein.links.full.txt.gz"), uncompress=True)
-```
+> [!NOTE]
+> `FetchConfig` is optional, and is only used to specify the `post_process` option.
 
 Semantically, this is equivalent to:
 
@@ -78,13 +76,21 @@ produce_fetch_rules({
         name="STRING 9606 full protein links",
         cached="...",
         pinned="...",
-    ), uncompress=True),
+    ), post_process=PostProcessAction.UNCOMPRESS_GZ),
 })
 ```
 
 However, the former option, since it uses items in `directory.py`, saves the file to a cached directory under `cache/artifacts`.
 The latter saves the file to a dataset-specific folder for dataset `Snakefile`s: that is, if you have a file
 that's used across multiple datasets, add it to `directory.py`!
+
+Some datasets also provide an `unversioned` tag, which would point to the latest version under `directory`. For example, at the time of writing
+(when `unversioned` pointed to `v12`), the following are equivalent:
+
+```py
+FetchConfig(("STRING", "v12", "9606", "9606.protein.links.full.txt.gz"), post_process=PostProcessAction.UNCOMPRESS_GZ)
+FetchConfig(("STRING", "unversioned", "9606", "9606.protein.links.full.txt.gz"), post_process=PostProcessAction.UNCOMPRESS_GZ)
+```
 
 ## Implementation details
 
@@ -93,7 +99,7 @@ that's used across multiple datasets, add it to `directory.py`!
 All cached files come with an associated `.metadata`: usually, this would be controlled with Snakemake, but since this system lives
 outside of the purview of `Snakemake`, we instead track file data with an associated `.metadata` file, which preserves information
 about where the file came from, and when it was created, to re-fetch files if any of that associated data changes.
-This is controlled under `__init__.py`.
+This is controlled under `link.py`.
 
 ### Loggers
 
@@ -107,4 +113,4 @@ This folder has:
 the schema (including `CacheItem`) for the rest of this directory.
 - `cli.py`, a debugging utility for manually fetching specific data from `directory.py`.
 - `util.py`, an internal file for use by the other files above.
-- `__init__.py`, which acts as an intermediary between `Snakefile` and `directory.py`, providing utilities for handling file metadata.
+- `link.py`, which acts as an intermediary between `Snakefile` and `directory.py`, providing utilities for handling file metadata.
