@@ -4,7 +4,7 @@ egfr_directory = Path(__file__).parent.resolve() / ".."
 
 
 def main():
-    # First, we remove all PSUEDONODES (and any duplicates)
+    # We remove all PSUEDONODES (and any duplicates via `set`)
     nodes = (egfr_directory / "raw" / "eight-egfr-reference-all.txt").read_text().splitlines()
     nodes = list(set([node for node in nodes if not node.endswith("_PSEUDONODE")]))
 
