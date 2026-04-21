@@ -174,12 +174,12 @@ directory: CacheDirectory = {
         "v12": {
             "9606": {
                 "9606.protein.links.full.txt.gz": CacheItem(
-                    name="STRING 9606 full protein links",
+                    name="STRING 9606 full protein links v12",
                     cached="https://drive.google.com/uc?id=13tE_-A6g7McZs_lZGz9As7iE-5cBFvqE",
                     pinned="http://stringdb-downloads.org/download/protein.links.full.v12.0/9606.protein.links.full.v12.0.txt.gz",
                 ),
                 "9606.protein.aliases.txt.gz": CacheItem(
-                    name="STRING 9606 protein aliases",
+                    name="STRING 9606 protein aliases v12",
                     cached="https://drive.google.com/uc?id=1IWrQeTVCcw1A-jDk-4YiReWLnwP0S9bY",
                     pinned="https://stringdb-downloads.org/download/protein.aliases.v12.0/9606.protein.aliases.v12.0.txt.gz",
                 ),
