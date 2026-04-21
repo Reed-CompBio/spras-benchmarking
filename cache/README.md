@@ -54,13 +54,21 @@ and the values are either entries in `directory.py`, or `CacheItem`s themselves.
 
 ```py
 produce_fetch_rules({
-    "raw/9606.protein.links.full.txt": FetchConfig(("STRING", "9606", "9606.protein.links.full.txt.gz"), uncompress=True),
+    "raw/9606.protein.links.full.txt": FetchConfig(("STRING", "v12", "9606", "9606.protein.links.full.txt.gz"), uncompress=True),
 })
 ```
 
 would produce a Snakemake rule whose output is `raw/9606.protein.links.full.txt`, and would look under `directory.py` by traversing
-the `directory` dictionary, going to `STRING` then `9606` then `9606.protein.links.full.txt.gz`, where the `FetchConfig`
+the `directory` dictionary, going to `STRING` then `v12` then `9606` then `9606.protein.links.full.txt.gz`, where the `FetchConfig`
 asks the inner rule to uncompress the file before saving it under `raw/9606.protein.links.full.txt`.
+
+Some datasets also provide an `unversioned` tag, which would point to the latest version under `directory`. For example, at the time of writing
+(when `unversioned` pointed to `v12`), the following are equivalent:
+
+```py
+FetchConfig(("STRING", "v12", "9606", "9606.protein.links.full.txt.gz"), uncompress=True)
+FetchConfig(("STRING", "unversioned", "9606", "9606.protein.links.full.txt.gz"), uncompress=True)
+```
 
 Semantically, this is equivalent to:
 
