@@ -21,10 +21,6 @@ dir_path = Path(__file__).parent.resolve()
 logger.add(dir_path / "logs" / "cache.log", level="WARNING")
 
 
-class DownloadFileCheckException(RuntimeError):
-    """See Service#download_against_cache for some motivation for this custom error"""
-
-
 @dataclass
 class Service:
     url: str
@@ -65,8 +61,7 @@ class Service:
                 shutil.move(cache, debug_file_path)
             else:
                 shutil.copy(cache, debug_file_path)
-            # We use a custom error type to prevent any overlap with RuntimeError. I am not sure if there is any.
-            raise DownloadFileCheckException(
+            logger.warning(
                 f"The {downloaded_file_type} file {downloaded_file_path} and "
                 + f"cached file originally at {cache} do not match! "
                 + f"Compare the pinned {downloaded_file_path} and the cached {debug_file_path}. "
@@ -163,11 +158,7 @@ class CacheItem:
         if self.pinned is not None:
             Service.coerce(self.pinned).download_against_cache(cache=Path(output), downloaded_file_type="pinned", move_output_on_error=True)
         if self.unpinned is not None:
-            # Normally, download_against_cache raises a DownloadFileCheckException: we catch it and warn instead if that happens.
-            try:
-                Service.coerce(self.unpinned).download_against_cache(cache=Path(output), downloaded_file_type="unpinned", move_output_on_error=False)
-            except DownloadFileCheckException as err:
-                logger.warning(err)
+            Service.coerce(self.unpinned).download_against_cache(cache=Path(output), downloaded_file_type="unpinned", move_output_on_error=False)
 
 
 CacheDirectory = dict[str, Union[CacheItem, "CacheDirectory", str]]
@@ -250,11 +241,14 @@ directory: CacheDirectory = {
 }
 
 
-def get_cache_item(path: tuple[str, ...]) -> CacheItem:
-    """Takes a path and gets the underlying cache item."""
+def get_cache_item(path: tuple[str, ...], custom_directory: Optional[CacheDirectory] = None) -> CacheItem:
+    """
+    Takes a path and gets the underlying cache item.
+    If `custom_directory` is `None`, the top-level `directory` is used instead.
+    """
     assert len(path) != 0
 
-    current_item = directory
+    current_item = directory if custom_directory is None else custom_directory
     for entry in path:
         if isinstance(current_item, CacheItem):
             raise ValueError(f"Path {path} leads to a cache item too early!")

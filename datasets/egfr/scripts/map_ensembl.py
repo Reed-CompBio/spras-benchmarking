@@ -8,7 +8,7 @@ egfr_directory = Path(__file__).parent.resolve() / ".."
 def main():
     # We get specifically the STRING nodes, as the mapping from UniProt overeagerly maps
     string_nodes = pandas.read_csv(
-        egfr_directory / "processed" / "ensg" / "interactome.tsv", header=None, sep="\t", names=["Interactor1", "Interactor2", "Weight", "Direction"]
+        egfr_directory / "processed" / "ensp" / "interactome.tsv", header=None, sep="\t", names=["Interactor1", "Interactor2", "Weight", "Direction"]
     )
     interactor_series = pandas.concat([string_nodes["Interactor1"], string_nodes["Interactor2"]], ignore_index=True)
 
@@ -30,7 +30,7 @@ def main():
     idmapped_gold_standard_nodes_df = idmapped_gold_standard_nodes_df.drop(columns=["UniProtKB-ID", "UniProtKB-AC", "Ensembl"])
     idmapped_gold_standard_nodes_df = idmapped_gold_standard_nodes_df[~idmapped_gold_standard_nodes_df["Ensembl_PRO"].isna()]
     gold_standard_nodes = idmapped_gold_standard_nodes_df["Ensembl_PRO"].astype(str).to_list()
-    (egfr_directory / "processed" / "ensg" / "gold-standard-nodes.txt").write_text("\n".join(gold_standard_nodes))
+    (egfr_directory / "processed" / "ensp" / "gold-standard-nodes.txt").write_text("\n".join(gold_standard_nodes))
 
     # Then map the input nodes
     idmapped_input_nodes_df = prizes.merge(idmapping_df, left_on="NODEID", right_on="UniProtKB-ID", how="inner")
@@ -38,7 +38,7 @@ def main():
     idmapped_input_nodes_df = idmapped_input_nodes_df[~idmapped_input_nodes_df["Ensembl_PRO"].isna()]
     idmapped_input_nodes_df = idmapped_input_nodes_df.rename(columns={"Ensembl_PRO": "NODEID"})
     idmapped_input_nodes_df = idmapped_input_nodes_df[["NODEID", "prize", "active", "dummy", "source"]]
-    idmapped_input_nodes_df.to_csv(egfr_directory / "processed" / "ensg" / "input-nodes.txt", sep="\t", index=False)
+    idmapped_input_nodes_df.to_csv(egfr_directory / "processed" / "ensp" / "input-nodes.txt", sep="\t", index=False)
 
 
 if __name__ == "__main__":

@@ -1,5 +1,6 @@
 """
-This is how spras-benchmarking handles artifact caching. `cache` should be used specifically inside `Snakefile`
+This is how spras-benchmarking handles artifact downloading and caching.
+`cache.link` should be used specifically inside `Snakefile`
 """
 
 from dataclasses import dataclass
@@ -7,19 +8,21 @@ from typing import Union
 from cache.util import uncompress as uncompress_file
 from cache.directory import CacheItem, get_cache_item
 from pathlib import Path
-import os
 from urllib.parse import quote_plus
 import pickle
 
 __all__ = ["FetchConfig", "link"]
 
-dir_path = Path(os.path.dirname(os.path.realpath(__file__)))
+dir_path = Path(__file__).parent.resolve()
 artifacts_dir = dir_path / "artifacts"
 
 
 @dataclass(frozen=True)
 class FetchConfig:
-    """What directive should be fetched, and how it should be fetched."""
+    """
+    What `directive` (a CacheItem or a location in `./directory.py`)
+    should be fetched, and how it should be fetched.
+    """
 
     directive: Union[CacheItem, tuple[str, ...]]
     uncompress: bool = False
@@ -97,10 +100,14 @@ def link_with_cache_item(output: Path, cache_item: CacheItem, uncompress: bool =
 
 def link(output: str, config: FetchConfig):
     """
-    Links output files from cache.directory directives.
+    Links output files from the provided `config` to the provided `output`.
+
+    @param output: The output file to write to.
+    @param config: The config to fetch from.
+
     For example,
 
-    ```py
+    ```python
     link("output/ensg-ensp.tsv", FetchConfig(("BioMart", "ensg-ensp.tsv")))
     ```
 
@@ -115,8 +122,8 @@ def link(output: str, config: FetchConfig):
 
     This function wraps around `link_with_cache_item` and handles symlinking
     depending on the type of config.directive.
-    TODO: there is most likely a nicer way to design this.
     """
+    # TODO: there is most likely a nicer way to design this.
 
     if isinstance(config.directive, CacheItem):
         link_with_cache_item(Path(output), config.directive, config.uncompress)

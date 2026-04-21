@@ -8,9 +8,9 @@ rule all:
         "processed/uniprot/phosphosite-irefindex13.0.txt",
 
         # Our Ensembl protein based files over the STRING interactome 
-        "processed/ensg/gold-standard-nodes.txt",
-        "processed/ensg/input-nodes.txt",
-        "processed/ensg/interactome.tsv",
+        "processed/ensp/gold-standard-nodes.txt",
+        "processed/ensp/input-nodes.txt",
+        "processed/ensp/interactome.tsv",
 
 produce_fetch_rules({
     "raw/9606.protein.links.full.txt": FetchConfig(("STRING", "latest", "9606", "9606.protein.links.full.txt.gz"), uncompress=True),
@@ -51,7 +51,7 @@ rule process_gold_standard:
 
 rule process_interactome:
     input: "raw/9606.protein.links.full.txt"
-    output: "processed/ensg/interactome.tsv"
+    output: "processed/ensp/interactome.tsv"
     shell: "uv run scripts/process_interactome.py"
 
 rule process_prizes:
@@ -62,11 +62,11 @@ rule process_prizes:
 rule map_ensembl:
     input:
         "raw/HUMAN_9606_idmapping_selected.tsv",
-        "processed/ensg/interactome.tsv",
+        "processed/ensp/interactome.tsv",
         
         "processed/uniprot/input-nodes.txt",
         "processed/uniprot/gold-standard-nodes.txt",
     output:
-        "processed/ensg/input-nodes.txt",
-        "processed/ensg/gold-standard-nodes.txt"
+        "processed/ensp/input-nodes.txt",
+        "processed/ensp/gold-standard-nodes.txt"
     shell: "uv run scripts/map_ensembl.py"
