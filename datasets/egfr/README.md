@@ -5,7 +5,8 @@ EGFR dataset. This dataset does a lot less processing for raw files, and is main
 ## Overview
 
 This produces two datasets: one based on the iRefIndex/PhosphoSite directed interactome of
-closed-source origin based off of UniProt identifiers, and another dataset based off of the more updated though undirected STRING interactome.
+closed-source origin based off of UniProt identifiers, and another dataset based off of the
+more updated though undirected STRING interactome with ENSP identifiers.
 
 ## Data
 
@@ -16,8 +17,9 @@ The following data is from [_Synthesizing Signaling Pathways from Temporal Phosp
 - Gold standard nodes (`eight-egfr-reference-all.txt`)
 - the `iRefIndex` + `PhosphoSitePlus`-based interactome using UniprotKB IDs.
 
-We also use the StringDB v12 human interactome and UniProt mapping files which are based in ENSP IDs. See `cache/directory.py` and `./Snakefile`
-for more info on these.
+We also use the [StringDB](https://string-db.org/) (preferably latest, currently v12) human interactome and
+[UniProt](https://www.uniprot.org) mapping files which are based in ENSP IDs. See `cache/directory.py` and `./Snakefile` for more info on precisely
+where these were fetched.
 
 ## Scripts
 
