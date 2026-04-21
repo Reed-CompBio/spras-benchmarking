@@ -248,16 +248,24 @@ def get_cache_item(path: tuple[str, ...], custom_directory: Optional[CacheDirect
     """
     assert len(path) != 0
 
-    current_item = directory if custom_directory is None else custom_directory
+    current_item: CacheDirectory | CacheItem = directory if custom_directory is None else custom_directory
     for entry in path:
         if isinstance(current_item, CacheItem):
             raise ValueError(f"Path {path} leads to a cache item too early!")
-        if isinstance(current_item, str):
+
+        # We do this since inlining current_item[entry] scares the type-checker into believing
+        # __getitem__ isn't pure with respect to the unchanging dictionary, and not because we use
+        # next_item later.
+        next_item = current_item[entry]
+        if isinstance(next_item, str):
             # This points somewhere else: we use this for explicitly versioning files.
-            entry = current_item
-        current_item = current_item[entry]
+            entry = next_item
+        next_item = current_item[entry]
+        assert not isinstance(next_item, str), "We don't support nested aliasing! (i.e. no unversioned1 -> unversioned2 -> v1 -> `CacheItem`)"
+
+        current_item = next_item
 
     if not isinstance(current_item, CacheItem):
-        raise ValueError(f"Path {path} doesn't lead to a cache item")
+        raise ValueError(f"Path {path} doesn't lead to a cache item. It instead leads to '{current_item}'")
 
     return current_item
