@@ -1,7 +1,7 @@
 from pathlib import Path
 import pandas
 
-from tools.interactome import normalize_interactome
+from tools.normalize.interactome import normalize_interactome
 
 egfr_directory = Path(__file__).parent.resolve() / ".."
 
@@ -19,9 +19,9 @@ def main():
     interactome_df["Direction"] = "U"
 
     # We normalize the interactome (any final post-processing steps wanted/needed by SPRAS).
-    (egfr_directory / "processed").mkdir(exist_ok=True)
+    (egfr_directory / "preprocessed").mkdir(exist_ok=True)
     interactome_df, _ = normalize_interactome(interactome_df)
-    interactome_df.to_csv(egfr_directory / "processed" / "ensp" / "interactome.tsv", index=False, header=False, sep="\t")
+    interactome_df.to_csv(egfr_directory / "preprocessed" / "ensp" / "interactome.tsv", index=False, header=False, sep="\t")
 
 
 if __name__ == "__main__":

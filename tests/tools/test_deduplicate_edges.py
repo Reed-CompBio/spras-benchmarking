@@ -1,6 +1,6 @@
 import pandas
 import numpy
-from tools.interactome import normalize_interactome
+from tools.normalize.interactome import normalize_interactome
 
 def test_normalize_interactome():
     df = pandas.DataFrame({

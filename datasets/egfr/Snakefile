@@ -28,7 +28,7 @@ produce_fetch_rules({
     # and this also is a seemingly modified version of the iRefIndex interactome.
     # While the following files do point to the repository's main branch,
     # they aren't expected to actually change, so we make them `pinned`.
-    "processed/uniprot/phosphosite-irefindex13.0.txt": CacheItem(
+    "preprocessed/uniprot/phosphosite-irefindex13.0.txt": CacheItem(
         name="iRefIndex v13.0 UniProt interactome",
         cached="https://drive.google.com/uc?id=1fQ8Z3FjEwUseEtsExO723zj7mAAtdomo",
         pinned="https://raw.githubusercontent.com/gitter-lab/tps/refs/heads/master/data/networks/phosphosite-irefindex13.0-uniprot.txt",
@@ -52,27 +52,57 @@ produce_fetch_rules({
 
 rule process_gold_standard:
     input: "raw/eight-egfr-reference-all.txt"
-    output: "processed/uniprot/gold-standard-nodes.txt",
+    output: "preprocessed/uniprot/gold-standard-nodes.txt",
     shell: "uv run scripts/process_gold_standard.py"
 
 rule process_interactome:
     input: "raw/9606.protein.links.full.txt"
-    output: "processed/ensp/interactome.tsv"
+    output: "preprocessed/ensp/interactome.tsv"
     shell: "uv run scripts/process_interactome.py"
 
 rule process_prizes:
     input: "raw/egfr-prizes.txt"
-    output: "processed/uniprot/input-nodes.txt"
+    output: "preprocessed/uniprot/input-nodes.txt"
     shell: "uv run scripts/process_prizes.py"
 
 rule map_ensembl:
     input:
         "raw/HUMAN_9606_idmapping_selected.tsv",
-        "processed/ensp/interactome.tsv",
+        "preprocessed/ensp/interactome.tsv",
         
-        "processed/uniprot/input-nodes.txt",
-        "processed/uniprot/gold-standard-nodes.txt",
+        "preprocessed/uniprot/input-nodes.txt",
+        "preprocessed/uniprot/gold-standard-nodes.txt",
     output:
-        "processed/ensp/input-nodes.txt",
-        "processed/ensp/gold-standard-nodes.txt"
+        "preprocessed/ensp/input-nodes.txt",
+        "preprocessed/ensp/gold-standard-nodes.txt"
     shell: "uv run scripts/map_ensembl.py"
+
+# TODO: collect the following two rules into one generic normalize rule?
+
+rule normalize_uniprot:
+    input:
+        gold_standard="preprocessed/uniprot/gold-standard-nodes.txt",
+        input_nodes="preprocessed/uniprot/input-nodes.txt",
+        interactome="preprocessed/uniprot/phosphosite-irefindex13.0.txt"
+    output:
+        gold_standard="processed/uniprot/gold-standard-nodes.txt",
+        input_nodes="processed/uniprot/input-nodes.txt",
+        interactome="processed/uniprot/phosphosite-irefindex13.0.txt"
+    shell:
+        "uv run ../../tools/normalize/cli.py --interactome={input.interactome} --interactome-output={output.interactome} " \
+        + "--gold-standard={input.gold_standard} --gold-standard-output={output.gold_standard} " \
+        + "--input-nodes={input.input_nodes} --input-nodes-output={output.input_nodes}"
+
+rule normalize_ensp:
+    input:
+        gold_standard="preprocessed/ensp/gold-standard-nodes.txt",
+        input_nodes="preprocessed/ensp/input-nodes.txt",
+        interactome="preprocessed/ensp/interactome.tsv",
+    output:
+        gold_standard="processed/ensp/gold-standard-nodes.txt",
+        input_nodes="processed/ensp/input-nodes.txt",
+        interactome="processed/ensp/interactome.tsv",
+    shell:
+        "uv run ../../tools/normalize/cli.py --interactome={input.interactome} --interactome-output={output.interactome} " \
+        + "--gold-standard={input.gold_standard} --gold-standard-output={output.gold_standard} " \
+        + "--input-nodes={input.input_nodes} --input-nodes-output={output.input_nodes}"
