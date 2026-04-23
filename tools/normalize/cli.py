@@ -43,7 +43,7 @@ def main():
         new_input_nodes = trim_input_nodes_file(interactome_df, pandas.read_csv(args.input_nodes, sep='\t'))
         Path(args.input_nodes_output).parent.mkdir(parents=True, exist_ok=True)
         new_input_nodes.to_csv(args.input_nodes_output, sep='\t', index=False)
-    
+
     if args.gold_standard:
         print("Trimming gold standard nodes list...")
         Path(args.gold_standard_output).parent.mkdir(parents=True, exist_ok=True)

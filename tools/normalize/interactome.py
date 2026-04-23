@@ -31,7 +31,7 @@ def get_interactome_nodes(interactome_df: pandas.DataFrame) -> set[str]:
 
     @param interactome_df: The pandas dataframe with Interactor1 and Interactor2 as columns.
     @return the list of nodes in Interactor1 and Interactor2.
-    
+
     NOTE: This isn't guaranteed to be order stable, not for any externally-required reason.
     """
     return set(list(interactome_df["Interactor1"])).union(list(interactome_df["Interactor2"]))
