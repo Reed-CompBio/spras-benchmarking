@@ -109,6 +109,8 @@ class CacheItem:
     The Service (URL + headers) of the file, which is the 'pinned' file.
     By a pinned file, we say that the file has a dedicated version, and should not change.
     If this is None, we go for the `unpinned` file or `cached` if `unpinned` is None.
+
+    If pinned` doesn't match `cached`, we emit a warning.
     """
 
     unpinned: Optional[Service | str] = None

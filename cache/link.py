@@ -109,7 +109,7 @@ def link(output: str, config: FetchConfig):
     For example,
 
     ```python
-    link("output/ensg-ensp.tsv", FetchConfig(("BioMart", "ensg-ensp.tsv")))
+    link("raw/ensg-ensp.tsv", FetchConfig(("BioMart", "ensg-ensp.tsv")))
     ```
 
     Will download and check BioMart's cache for ENSG-ENSP mapping, then:

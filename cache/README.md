@@ -3,7 +3,7 @@
 Handles artifact fetching and cache. The point of this is to [for the duration that SPRAS is maintained] prevent any kind of
 data rot, to ensure that continuous benchmarking is encouraged to use the latest available data.
 
-During benchmarking runs, data is fetched from all provided URLs in `directory.py`, where we get the most current version of data,
+During benchmarking runs, data is fetched from all provided URLs in `directory.py`, where we get the cached data,
 and compare it to our cached data to check if the data has changed at all.
 
 All entries are provided with this template:

@@ -26,7 +26,8 @@ To run the benchmarking pipeline, use (this example is specifically for disease 
 snakemake --cores 1 --configfile configs/scores.yaml --show-failed-logs -s spras/Snakefile
 ```
 
-To run an individual dataset pipeline, run the respective `Snakefile` in the dataset directory using [uv](https://docs.astral.sh/uv/):
+To download associated raw files for a dataset and run its pipeline,
+run the respective `Snakefile` in the dataset directory using [uv](https://docs.astral.sh/uv/):
 
 ```sh
 cd datasets/[dataset]
