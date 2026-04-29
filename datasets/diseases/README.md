@@ -45,19 +45,29 @@ Briefly the steps are:
 **A. Gold Standard Dataset Generation** (`scripts/gold_standard.py`):
 - Use the text mining and knowledge channels from DISEASES.
 - For every disease-gene association, get the max value from those two channels (we believe the confidence scores aren't averaged, but that would make sense - we should double-check).
-- Remove all disease-gene associations that have a confidence score of less than 3 (retain all w/ scores 3, 4, or 5 out of 5). Call these "high confidence disease-gene pairs."
+- Remove all disease-gene associations that have a confidence score of less than 4 (retain all w/ scores 4 or 5 out of 5). Call these "high confidence disease-gene pairs."
 - Then, remove all disease-gene associations for which there are fewer than 10 high confidence disease-gene pairs for a disease.
 
-By our count, we have 41 diseases that pass these filters, and have 10 or more high confidence disease-gene pairs.
+By our count, we have 108 diseases that have 10 or more high confidence disease-gene pairs (scores of 4-5); and there are 3,936 high-confidence disease-gene pairs for these 108 diseases.
+
+```
+There are 6199 high-confidence disease-gene-pairs (with scores >= 4)
+The high-confidence disease-gene pairs correspond to 1171 distinct diseases.
+There are 108 diseases with at least 10 high-confidence disease-gene pairs
+There are 3936 high-confidence disease-gene pairs from the 108 diseases
+There are 3936 genes mapped from ENSG to ENSP from the 3936 high-confidence disease-gene pairs.
+```
 
 **B. GWAS Dataset Creation** (`scripts/inputs.py`):
 - Take the TIGA trait-gene associations and the Disease Ontology (DO) annotations.
 - Retain all TIGA trait-gene associations where the trait is in the disease ontology. Call these "DO-gene associations". There will be snp_w scores for every gene.
-- Retain the DO-gene associations for the 41 diseases from the gold standard dataset. The code for this step is in `scripts/files.py`.
+- Retain the DO-gene associations for the diseases from the gold standard dataset. The code for this step is in `scripts/files.py`.
+
+_Note:_ We only need to retain the DO-gene associations for the 108 diseases from the gold_standard generation; however the code current generates the DO-gene associatesion for all diseases.
 
 _Note:_ We discussed a version 2 where we also run DO-gene associations for diseases _not_ in the validation set; that's a later project).
 
 **C. SPRAS Inputs**:
 - Use the STRING-DB interactome (there is a benchmark file for the DISEASES database with STRINGv9.1, but we use the most recent STRING version).
-- Each of the 41 diseases will be a separate node prizes dataset. For each disease, convert the snp_w scores into prizes and make a `node-prizes.txt` file. This is done in  `scripts/files.py`.
-- Each of the 41 diseases will have a validation dataset, comprising of the high confidence diseases-gene pairs from the DISEASES text mining and/or knowledge channels. They have a score (a 3, 4 or a 5), but I assumed we would consider them all "high confidence" and thus a gene set. This is done in  `scripts/files.py`.
+- Each of the 108 diseases will be a separate node prizes dataset. For each disease, convert the snp_w scores into prizes and make a `node-prizes.txt` file. This is done in  `scripts/files.py`.
+- Each of the 108 diseases will have a validation dataset, comprising of the high confidence diseases-gene pairs from the DISEASES text mining and/or knowledge channels. They have a score (a 4 or a 5), but I assumed we would consider them all "high confidence" and thus a gene set. This is done in  `scripts/files.py`.

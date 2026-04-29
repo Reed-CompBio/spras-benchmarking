@@ -4,7 +4,7 @@ from pathlib import Path
 dir_path = Path(__file__).parent.resolve()
 diseases_path = Path(dir_path, "..")
 
-CONFIDENCE_SCORE_MINIMUM = 3
+CONFIDENCE_SCORE_MINIMUM = 4
 GENE_SET_SIZE_MINIMUM = 10
 
 '''
@@ -61,20 +61,24 @@ def main():
     # combine all genes that have at least one text mining or knowledge score.
     df_list = [inner, txt_only, kn_only]
     GS_ids_df = pd.concat(df_list)
-    GS_ids_df.to_csv("test.tsv", index=False)
+    #GS_ids_df.to_csv("test.tsv", index=False)
 
-    # Threshold based on CONFIDENCE_SCORE_MINIMUM
-    GS_ids_score_threshold = GS_ids_df.loc[(GS_ids_df["confidenceScore"] >= CONFIDENCE_SCORE_MINIMUM)]
-    GS_ids_score_threshold.to_csv("test2.tsv", index=False)
+    # Threshold disease-gene pairs based on CONFIDENCE_SCORE_MINIMUM
+    GS_ids_high_confidence = GS_ids_df.loc[(GS_ids_df["confidenceScore"] >= CONFIDENCE_SCORE_MINIMUM)]
+    #GS_ids_high_confidence.to_csv("test2.tsv", index=False)
+    print(f'There are {len(GS_ids_high_confidence)} high-confidence disease-gene-pairs (with scores >= {CONFIDENCE_SCORE_MINIMUM})')
 
-    # Threshold based on GENE_SET_SIZE_MINIMUM
-    GS_score_group = GS_ids_df.groupby("diseaseName")
+    # Threshold the high-confidence gene-gene pairs based on GENE_SET_SIZE_MINIMUM
+    GS_score_group = GS_ids_high_confidence.groupby("diseaseName")
+    print(f'The high-confidence disease-gene pairs correspond to {len(GS_score_group)} distinct diseases.')
     GS_score_dict = {k: v for k, v in GS_score_group}
     GS_score_count = {x: len(GS_score_dict[x]) for x in GS_score_dict.keys()}
-    GS_count_threshold = {k: v for (k, v) in GS_score_count.items() if (v > GENE_SET_SIZE_MINIMUM)}
+    GS_count_threshold = {k: v for (k, v) in GS_score_count.items() if (v >= GENE_SET_SIZE_MINIMUM)}
+    print(f'There are {len(GS_count_threshold)} diseases with at least {GENE_SET_SIZE_MINIMUM} high-confidence disease-gene pairs')
     # GS_combined_threshold contains all high confidence disease-gene associations for the thresholded diseases
-    GS_combined_threshold = GS_ids_score_threshold.loc[GS_ids_score_threshold["diseaseName"].isin(list(GS_count_threshold.keys()))]
-    
+    GS_combined_threshold = GS_ids_high_confidence.loc[GS_ids_high_confidence["diseaseName"].isin(list(GS_count_threshold.keys()))]
+    print(f'There are {len(GS_combined_threshold)} high-confidence disease-gene pairs from the {len(GS_count_threshold)} diseases')
+
     # Mapping ENSG IDs to ENSP IDs through the STRING aliases file
     # given our ENSG and ENSP (non one-to-one!) mapping `string_aliases`,
 
@@ -87,14 +91,16 @@ def main():
 
     GS_string_df = GS_combined_threshold.merge(string_aliases, on="ENSP", how="inner")
     GS_string_df = GS_string_df.drop_duplicates(subset=["ENSG", "ENSP", "geneName", "diseaseID", "diseaseName"])
+    print(f'There are {len(GS_string_df)} genes mapped from ENSG to ENSP from the {len(GS_combined_threshold)} high-confidence disease-gene pairs.')
 
     # Our goal here is <50 diseases for validation, and the
-    # GENE_SET_SIZE_MINIMUM score has been appropiately modified for this goal.
+    # GENE_SET_SIZE_MINIMUM score has been appropriately modified for this goal.
+    '''
     for k in GS_count_threshold:
         print(k, GS_count_threshold[k], (GS_combined_threshold["diseaseName"]==k).sum(), (GS_string_df["diseaseName"]==k).sum())
-    print(len(list(GS_count_threshold.keys())))
+    print(len(GS_count_threshold),'')
     print(len(GS_string_df))
-
+    '''
     # Write output file gold_standard.csv
     GS_string_df.to_csv(diseases_path / "data" / "gold_standard.csv", index=False)
 
