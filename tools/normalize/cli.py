@@ -3,6 +3,7 @@ Allows for easy SPRAS post-data processing for any dataset via a CLI callable in
 
 See EGFR for a Snakemake dataset-based example usage of this.
 """
+
 import argparse
 from pathlib import Path
 import pandas
@@ -10,6 +11,7 @@ import pandas
 from tools.normalize.interactome import normalize_interactome
 from tools.normalize.trim_input_nodes import trim_input_nodes_file
 from tools.normalize.trim_list import trim_node_list_file
+
 
 def argparser():
     # The language and setup of `deciding_parser` and `parser` is from
@@ -29,25 +31,27 @@ def argparser():
 
     return parser
 
+
 def main():
     args = argparser().parse_args()
 
     print("Normalizing interactome...")
-    interactome_df = pandas.read_csv(args.interactome, sep='\t', header=None, names=["Interactor1", "Interactor2", "Weight", "Direction"])
+    interactome_df = pandas.read_csv(args.interactome, sep="\t", header=None, names=["Interactor1", "Interactor2", "Weight", "Direction"])
     normalized_interactome, _ = normalize_interactome(interactome_df)
     Path(args.interactome_output).parent.mkdir(parents=True, exist_ok=True)
-    normalized_interactome.to_csv(args.interactome_output, sep='\t', index=False)
+    normalized_interactome.to_csv(args.interactome_output, sep="\t", index=False)
 
     if args.input_nodes:
         print("Trimming input nodes...")
-        new_input_nodes = trim_input_nodes_file(interactome_df, pandas.read_csv(args.input_nodes, sep='\t'))
+        new_input_nodes = trim_input_nodes_file(interactome_df, pandas.read_csv(args.input_nodes, sep="\t"))
         Path(args.input_nodes_output).parent.mkdir(parents=True, exist_ok=True)
-        new_input_nodes.to_csv(args.input_nodes_output, sep='\t', index=False)
+        new_input_nodes.to_csv(args.input_nodes_output, sep="\t", index=False)
 
     if args.gold_standard:
         print("Trimming gold standard nodes list...")
         Path(args.gold_standard_output).parent.mkdir(parents=True, exist_ok=True)
         trim_node_list_file(interactome_df, Path(args.gold_standard), Path(args.gold_standard_output))
+
 
 if __name__ == "__main__":
     main()

@@ -8,7 +8,10 @@ egfr_directory = Path(__file__).parent.resolve() / ".."
 def main():
     # We get specifically the STRING nodes, as the mapping from UniProt overeagerly maps
     string_nodes = pandas.read_csv(
-        egfr_directory / "preprocessed" / "ensp" / "interactome.tsv", header=None, sep="\t", names=["Interactor1", "Interactor2", "Weight", "Direction"]
+        egfr_directory / "preprocessed" / "ensp" / "interactome.tsv",
+        header=None,
+        sep="\t",
+        names=["Interactor1", "Interactor2", "Weight", "Direction"],
     )
     interactor_series = pandas.concat([string_nodes["Interactor1"], string_nodes["Interactor2"]], ignore_index=True)
 

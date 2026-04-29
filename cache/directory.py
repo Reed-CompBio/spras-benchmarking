@@ -80,7 +80,7 @@ class Service:
         return obj
 
 
-def fetch_biomart_service(xml: str, archived: bool=False) -> Service:
+def fetch_biomart_service(xml: str, archived: bool = False) -> Service:
     """
     Access BioMart data through the BioMart REST API:
     https://useast.ensembl.org/info/data/biomart/biomart_restful.html#biomartxml
@@ -184,7 +184,7 @@ directory: CacheDirectory = {
                     pinned="https://stringdb-downloads.org/download/protein.aliases.v12.0/9606.protein.aliases.v12.0.txt.gz",
                 ),
             }
-        }
+        },
     },
     # https://www.uniprot.org/
     "UniProt": {

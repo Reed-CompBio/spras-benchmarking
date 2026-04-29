@@ -6,6 +6,7 @@ import zipfile
 
 __all__ = ["PostProcessAction"]
 
+
 def uncompress_gz(source: Path, target: Path):
     """Uncompresses a .gz file"""
     # https://stackoverflow.com/a/44712152/7589775
@@ -13,11 +14,13 @@ def uncompress_gz(source: Path, target: Path):
         with open(target, "wb") as f_uncompressed:
             shutil.copyfileobj(f_compressed, f_uncompressed)
 
+
 def uncompress_zip(source: Path, target: Path):
     """Uncompress a .zip file"""
     # https://stackoverflow.com/a/3451150/7589775
-    with zipfile.ZipFile(source, 'r') as zip_ref:
+    with zipfile.ZipFile(source, "r") as zip_ref:
         zip_ref.extractall(target)
+
 
 class PostProcessAction(Enum):
     UNCOMPRESS_GZ = "uncompress_gz"

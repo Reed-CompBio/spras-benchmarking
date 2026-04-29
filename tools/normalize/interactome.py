@@ -1,5 +1,6 @@
 import pandas
 
+
 def deduplicate_edges(interactome_df: pandas.DataFrame) -> tuple[pandas.DataFrame, bool]:
     """
     Removes duplicate edges from the input `DataFrame` as an interactome.
@@ -25,6 +26,7 @@ def deduplicate_edges(interactome_df: pandas.DataFrame) -> tuple[pandas.DataFram
 
     return unique_edges_df, not unique_edges_df.equals(interactome_df)
 
+
 def get_interactome_nodes(interactome_df: pandas.DataFrame) -> set[str]:
     """
     Gets all nodes associated with an interactome.
@@ -35,6 +37,7 @@ def get_interactome_nodes(interactome_df: pandas.DataFrame) -> set[str]:
     NOTE: This isn't guaranteed to be order stable, not for any externally-required reason.
     """
     return set(list(interactome_df["Interactor1"])).union(list(interactome_df["Interactor2"]))
+
 
 # TODO: implement in SPRAS? This is the direct analogue of duplicate_edges in util.
 # We should also separate deduplication from the broader normalization if we do any more steps.
