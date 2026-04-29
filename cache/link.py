@@ -28,7 +28,6 @@ class FetchConfig:
 
     directive: Union[CacheItem, tuple[str, ...]]
     post_process: Optional[PostProcessAction] = None
-    # NOTE: uncompress only unzips `.gz` files. TODO: add support for .zip files.
 
 
 def stringify_tuple_directive(directive: tuple[str, ...]) -> str:

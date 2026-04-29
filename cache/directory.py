@@ -38,12 +38,10 @@ class Service:
             return response
 
     # NOTE: this is slightly yucky code deduplication. The only intended values of `downloaded_file_type` are `pinned` and `unpinned`.
-    def download_against_cache(self, cache: Path, downloaded_file_type: str, move_output_on_error: bool):
+    def download_against_cache(self, cache: Path, downloaded_file_type: str):
         """
-        Downloads `this` Service and checks it against the provided `cache` at path. In logs,
+        Downloads `self` Service and checks it against the provided `cache` at path. In logs,
         the file will be referred to as `downloaded_file_type`.
-
-        @param move_output: Whether or not output should be irrecoverably moved instead of just copied.
         """
         logger.info(f"Downloading {downloaded_file_type} file {self.url} to check against with artifact at {cache}...")
         downloaded_file_path = Path(NamedTemporaryFile(delete=False).name)
@@ -57,10 +55,7 @@ class Service:
 
             debug_file_path = Path(NamedTemporaryFile(prefix="spras-benchmarking-debug-artifact", delete=False).name)
             # We use shutil over Path#rename since temporary directories can be mounted to a different file system.
-            if move_output_on_error:
-                shutil.move(cache, debug_file_path)
-            else:
-                shutil.copy(cache, debug_file_path)
+            shutil.copy(cache, debug_file_path)
             logger.warning(
                 f"The {downloaded_file_type} file {downloaded_file_path} and "
                 + f"cached file originally at {cache} do not match! "
@@ -153,12 +148,10 @@ class CacheItem:
         logger.info(f"Downloading cache {self.cached} to {output}...")
         gdown.download(self.cached, str(output))  # gdown doesn't have a type signature, but it expects a string
 
-        # If the file is pinned, we move the file to make sure it doesn't accidentally get used in workflows,
-        # and stop the entire workflow if something bad happens. The converse for unpinned is in the other branch.
         if self.pinned is not None:
-            Service.coerce(self.pinned).download_against_cache(cache=Path(output), downloaded_file_type="pinned", move_output_on_error=True)
+            Service.coerce(self.pinned).download_against_cache(cache=Path(output), downloaded_file_type="pinned")
         if self.unpinned is not None:
-            Service.coerce(self.unpinned).download_against_cache(cache=Path(output), downloaded_file_type="unpinned", move_output_on_error=False)
+            Service.coerce(self.unpinned).download_against_cache(cache=Path(output), downloaded_file_type="unpinned")
 
 
 CacheDirectory = dict[str, Union[CacheItem, "CacheDirectory", str]]
@@ -236,6 +229,10 @@ directory: CacheDirectory = {
             name="PathwayCommons Pathway Identifiers",
             cached="https://drive.google.com/uc?id=1SMwuuohuZuNFnTev4zRNJrBnBsLlCHcK",
             pinned="https://download.baderlab.org/PathwayCommons/PC2/v14/pathways.txt.gz",
+            # While we would like an unpinned version, the PathwayCommons API is deeply unreliable,
+            # nor does it provide a full text file of pathways,
+            # and the FTP server (https://download.baderlab.org/PathwayCommons/PC2/)
+            # does not provide unversioned files.
         ),
     },
 }
