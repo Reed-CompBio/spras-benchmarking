@@ -13,7 +13,7 @@ def trim_node_list(interactome_nodes: list[str], nodes_to_trim: list[str]) -> li
 
 def trim_node_list_file(interactome_df: pandas.DataFrame, node_list: Path, output: Path):
     """
-    Trims a node list file with the desired interactome.0
+    Trims a node list file with the desired interactome.
     """
     return output.write_text(
         "\n".join(

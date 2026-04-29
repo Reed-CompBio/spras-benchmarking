@@ -4,7 +4,6 @@ import pandas
 def deduplicate_edges(interactome_df: pandas.DataFrame) -> tuple[pandas.DataFrame, bool]:
     """
     Removes duplicate edges from the input `DataFrame` as an interactome.
-    - For duplicate edges (based on Node1, Node2, and Direction), the one with the smallest Rank is kept.
     - For undirected edges, the node pair is sorted (e.g., "B-A" becomes "A-B") before removing duplicates.
 
     @param interactome_df: A DataFrame from a raw file pathway.

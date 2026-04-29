@@ -24,8 +24,8 @@ where a file was originally retrieved), and `unpinned` is the link to the an arb
 (which has the capability of becoming newer) file we use to check for updates.
 
 We characterize them as follows:
-- If the URL linking to `pinned` does not match `cached`, we fail, as this means that our versioned file updated/errored in some way.
-- If the URL linking to `unpinned` does not match `cached`, we warn that the data needs updating. The data itself will not automatically update.
+- If the URL linking to `unpinned` or `pinned` does not match `cached`, we warn that the data needs updating.
+The data itself will not automatically update.
 
 Specifically, `unpinned` links to file URLs that constantly update, `pinned` does otherwise, and `cached` links to our
 own copy of the data that must match with  the `pinned` URL, and is encouraged to match with the `unpinned` URL to prevent our own copy of the data
@@ -85,12 +85,12 @@ The latter saves the file to a dataset-specific folder for dataset `Snakefile`s:
 that's used across multiple datasets, add it to `directory.py`. Otherwise, if you have a file specifically used for a dataset, keep it under that
 respective dataset.
 
-Some datasets also provide an `unversioned` tag, which would point to the latest version under `directory`. For example, at the time of writing
-(when `unversioned` pointed to `v12`), the following are equivalent:
+Some datasets also provide a `latest` tag, which would point to the latest version under `directory`. For example, at the time of writing
+(when `latest` pointed to `v12`), the following are equivalent:
 
 ```py
 FetchConfig(("STRING", "v12", "9606", "9606.protein.links.full.txt.gz"), post_process=PostProcessAction.UNCOMPRESS_GZ)
-FetchConfig(("STRING", "unversioned", "9606", "9606.protein.links.full.txt.gz"), post_process=PostProcessAction.UNCOMPRESS_GZ)
+FetchConfig(("STRING", "latest", "9606", "9606.protein.links.full.txt.gz"), post_process=PostProcessAction.UNCOMPRESS_GZ)
 ```
 
 ## Implementation details
