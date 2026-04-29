@@ -104,7 +104,8 @@ This is controlled under `link.py`.
 
 ### Loggers
 
-Later on, our use of `loguru` will be logged to let maintainers know when data sources are outdated.
+Later on ([#72](https://github.com/Reed-CompBio/spras-benchmarking/issues/72)), our use of `loguru`
+will be logged to let maintainers know when data sources are outdated.
 
 ### Layout
 

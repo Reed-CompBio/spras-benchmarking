@@ -6,6 +6,7 @@ from typing import Optional, Mapping
 import filecmp
 from pathlib import Path
 import warnings
+from frozendict import frozendict
 import requests
 import shutil
 import urllib.parse
@@ -156,10 +157,10 @@ class CacheItem:
             Service.coerce(self.unpinned).download_against_cache(cache=Path(output), downloaded_file_type="unpinned")
 
 
-CacheDirectory = dict[str, Union[CacheItem, "CacheDirectory", str]]
+CacheDirectory = frozendict[str, Union[CacheItem, "CacheDirectory", str]]
 
 # The directory list containing versioned and unversioned files.
-directory: CacheDirectory = {
+directory: CacheDirectory = frozendict({
     # STRINGDB: https://string-db.org/
     # You can see more information about these files at https://string-db.org/cgi/download.
     "STRING": {
@@ -237,7 +238,7 @@ directory: CacheDirectory = {
             # does not provide unversioned files.
         ),
     },
-}
+})
 
 
 def get_cache_item(path: tuple[str, ...], custom_directory: Optional[CacheDirectory] = None) -> CacheItem:
@@ -253,7 +254,7 @@ def get_cache_item(path: tuple[str, ...], custom_directory: Optional[CacheDirect
             raise ValueError(f"Path {path} leads to a cache item too early!")
 
         # We do this since inlining current_item[entry] scares the type-checker into believing
-        # __getitem__ isn't pure with respect to the unchanging dictionary, and not because we use
+        # __getitem__ isn't pure with respect to the notably frozen dictionary, and not because we use
         # next_item later.
         next_item = current_item[entry]
         if isinstance(next_item, str):

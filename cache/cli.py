@@ -1,7 +1,7 @@
 """
 Downloads the online variants of cache items.
 
-This may be expanded in the future, so only depend on this file as a debugging utility.
+This can be expanded in the future, so only depend on this file as a debugging utility.
 
 For example, `python cache/cli.py a/b.c b.c` would download the file under `a`, `b.c` in `directory`
 to the file `b.c`: this is especially useful if headers are provided in `directory.py`

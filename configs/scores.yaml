@@ -48,17 +48,8 @@ datasets:
     edge_files: ["processed/ensp/interactome.tsv"]
     node_files: ["processed/ensp/input-nodes.txt"]
     other_files: []
-  - label: scoresegfr_irefindex
-    data_dir: datasets/egfr
-    edge_files: ["processed/uniprot/phosphosite-irefindex13.0.txt"]
-    node_files: ["processed/uniprot/input-nodes.txt"]
-    other_files: []
 gold_standards:
   - label: gs_egfr_string
     node_files: ["processed/ensp/gold-standard-nodes.txt"]
     data_dir: datasets/egfr
     dataset_labels: ["scoresegfr_string"]
-  - label: gs_egfr_irefindex
-    node_files: ["processed/uniprot/gold-standard-nodes.txt"]
-    data_dir: datasets/egfr
-    dataset_labels: ["scoresegfr_irefindex"]

@@ -2,11 +2,6 @@ include: "../../cache/Snakefile"
 
 rule all:
     input:
-        # Our UniProt based files over the older iRefIndex interactome
-        "processed/uniprot/gold-standard-nodes.txt",
-        "processed/uniprot/input-nodes.txt",
-        "processed/uniprot/phosphosite-irefindex13.0.txt",
-
         # Our Ensembl protein based files over the STRING interactome 
         "processed/ensp/gold-standard-nodes.txt",
         "processed/ensp/input-nodes.txt",
@@ -20,18 +15,6 @@ produce_fetch_rules({
     "raw/HUMAN_9606_idmapping_selected.tsv": FetchConfig(
         ("UniProt", "9606", "HUMAN_9606_idmapping_selected.tab.gz"),
         post_process=PostProcessAction.UNCOMPRESS_GZ
-    ),
-
-    # This can also be obtained from the SPRAS repo, though the SPRAS repo removes self loops. We don't.
-    # (https://github.com/Reed-CompBio/spras/blob/b5d7a2499afa8eab14c60ce0f99fa7e8a23a2c64/input/phosphosite-irefindex13.0-uniprot.txt).
-    # iRefIndex has been down for quite some time, so we grab this from a repository instead,
-    # and this also is a seemingly modified version of the iRefIndex interactome.
-    # While the following files do point to the repository's main branch,
-    # they aren't expected to actually change, so we make them `pinned`.
-    "preprocessed/uniprot/phosphosite-irefindex13.0.txt": CacheItem(
-        name="iRefIndex v13.0 UniProt interactome",
-        cached="https://drive.google.com/uc?id=1fQ8Z3FjEwUseEtsExO723zj7mAAtdomo",
-        pinned="https://raw.githubusercontent.com/gitter-lab/tps/refs/heads/master/data/networks/phosphosite-irefindex13.0-uniprot.txt",
     ),
 
     # EGFR-specific files.
@@ -76,22 +59,6 @@ rule map_ensembl:
         "preprocessed/ensp/input-nodes.txt",
         "preprocessed/ensp/gold-standard-nodes.txt"
     shell: "uv run scripts/map_ensembl.py"
-
-# TODO: collect the following two rules into one generic normalize rule?
-
-rule normalize_uniprot:
-    input:
-        gold_standard="preprocessed/uniprot/gold-standard-nodes.txt",
-        input_nodes="preprocessed/uniprot/input-nodes.txt",
-        interactome="preprocessed/uniprot/phosphosite-irefindex13.0.txt"
-    output:
-        gold_standard="processed/uniprot/gold-standard-nodes.txt",
-        input_nodes="processed/uniprot/input-nodes.txt",
-        interactome="processed/uniprot/phosphosite-irefindex13.0.txt"
-    shell:
-        "uv run ../../tools/normalize/cli.py --interactome={input.interactome} --interactome-output={output.interactome} " \
-        + "--gold-standard={input.gold_standard} --gold-standard-output={output.gold_standard} " \
-        + "--input-nodes={input.input_nodes} --input-nodes-output={output.input_nodes}"
 
 rule normalize_ensp:
     input:
