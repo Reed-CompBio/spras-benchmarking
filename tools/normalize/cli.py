@@ -42,7 +42,7 @@ def main():
     interactome_df = pandas.read_csv(args.interactome, sep="\t", header=None, names=["Interactor1", "Interactor2", "Weight", "Direction"])
     normalized_interactome, _ = normalize_interactome(interactome_df)
     Path(args.interactome_output).parent.mkdir(parents=True, exist_ok=True)
-    normalized_interactome.to_csv(args.interactome_output, sep="\t", index=False)
+    normalized_interactome.to_csv(args.interactome_output, sep="\t", index=False, header=False)
 
     if args.input_nodes:
         print("Trimming input nodes...")
