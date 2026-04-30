@@ -6,7 +6,7 @@ data rot, to ensure that continuous benchmarking is encouraged to use the latest
 During benchmarking runs, data is fetched from all provided URLs in `directory.py`, where we get the cached data,
 and compare it to our cached data to check if the data has changed at all.
 
-All entries are provided with this template:
+All entries are provided with this template (where `CacheItem` is a named tuple):
 
 ```py
 "file-name.ext": CacheItem(

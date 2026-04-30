@@ -1,5 +1,8 @@
 """
 Allows for easy SPRAS post-data processing for any dataset via a CLI callable in Snakemake.
+Specifically, this:
+- Trims other input files that aren't the interactome.
+- Removes duplicate edges from the interactome.
 
 See EGFR for a Snakemake dataset-based example usage of this.
 """

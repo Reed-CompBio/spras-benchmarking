@@ -18,12 +18,14 @@ We also use the [StringDB](https://string-db.org/) (preferably latest, currently
 [UniProt](https://www.uniprot.org) mapping files which are based in ENSP IDs. See `cache/directory.py` and `./Snakefile` for more info on precisely
 where these were fetched.
 
-## Scriptsv12
+## Scripts
 
-- `process_prizes.py`: produces a `input-nodes-uniprot.txt` from
+- `process_input_nodes.py`: produces a `input-nodes-uniprot.txt` from
 [egfr-prizes.txt](https://raw.githubusercontent.com/gitter-lab/tps/refs/heads/master/data/pcsf/egfr-prizes.txt),
 trimming psuedonodes, marking all nodes as active, and manually injecting the `EGF_HUMAN`
 receptor as a source node (and dummy node for OmicsIntegrator1), while making all other nodes targets and dummy nodes.
 - `process_interactome.py`: Produces the STRING `interactome.tsv` file from the STRING links file.
 - `process_gold_standard.py`: Produces the `gold-standard-nodes-uniprot.txt` file from the [EGFR prize file](https://raw.githubusercontent.com/gitter-lab/tps/ca7cafd1e1c17f45ddea07c3fb54d0d70b86ff45/data/resources/eight-egfr-reference-all.txt) from the above paper.
 - `map_ensembl.py`: Maps UniProt identifiers to STRING-restricted ENSP identifiers for the STRING-based data.
+
+We finalize this by trimming and otherwise normalizing the interactome, which is more precisely described in `tools/normalize/cli.py`.

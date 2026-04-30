@@ -17,14 +17,11 @@ def main():
 
     # Re-read the uniprot nodes from `process_gold_standard.py`
     gold_standard_nodes = (egfr_directory / "preprocessed" / "uniprot" / "gold-standard-nodes.txt").read_text().splitlines()
-    # and the prizes from `process_prizes.py`
+    # and the input nodes from `process_input_nodes.py`
     prizes = pandas.read_csv(egfr_directory / "preprocessed" / "uniprot" / "input-nodes.txt", sep="\t")
 
     # We grab our UniProt <-> ENSP mapping
     idmapping_df = idmapping_uniprot_mapping(egfr_directory / "raw" / "HUMAN_9606_idmapping_selected.tsv")
-    # Trim it with the interactor series
-    # Note that the Ensembl_PRO column is ENSP, versus Ensembl which is ENSG.
-    idmapping_df = idmapping_df[idmapping_df["Ensembl_PRO"].isin(interactor_series)]
 
     # Then map the gold standard nodes
     idmapped_gold_standard_nodes_df = pandas.DataFrame(gold_standard_nodes, columns=["UniProtKB-ID"]).merge(
