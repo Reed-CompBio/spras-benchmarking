@@ -68,6 +68,8 @@ _Note:_ We only need to retain the DO-gene associations for the 108 diseases fro
 _Note:_ We discussed a version 2 where we also run DO-gene associations for diseases _not_ in the validation set; that's a later project).
 
 **C. SPRAS Inputs**:
-- Use the STRING-DB interactome (there is a benchmark file for the DISEASES database with STRINGv9.1, but we use the most recent STRING version).
-- Each of the 108 diseases will be a separate node prizes dataset. For each disease, convert the snp_w scores into prizes and make a `node-prizes.txt` file. This is done in  `scripts/files.py`.
-- Each of the 108 diseases will have a validation dataset, comprising of the high confidence diseases-gene pairs from the DISEASES text mining and/or knowledge channels. They have a score (a 4 or a 5), but I assumed we would consider them all "high confidence" and thus a gene set. This is done in  `scripts/files.py`.
+- There are 31 diseases that have both TIGA data and also appear in the Gold Standard dataset. 
+- Each of the 31 diseases will be a separate node prizes dataset. For each disease, convert the snp_w scores into prizes and make a `node-prizes.txt` file. This is done in  `scripts/files.py`.
+- Each of the 31 diseases will have a validation dataset, comprising of the high confidence diseases-gene pairs from the DISEASES text mining and/or knowledge channels. They have a score (a 4 or a 5), but I assumed we would consider them all "high confidence" and thus a gene set. This is done in  `scripts/files.py`.
+
+We use the STRING-DB interactome (there is a benchmark file for the DISEASES database with STRINGv9.1, but we use the most recent STRING version).
