@@ -47,29 +47,65 @@ Briefly the steps are:
 - For every disease-gene association, get the max value from those two channels (we believe the confidence scores aren't averaged, but that would make sense - we should double-check).
 - Remove all disease-gene associations that have a confidence score of less than 4 (retain all w/ scores 4 or 5 out of 5). Call these "high confidence disease-gene pairs."
 - Then, remove all disease-gene associations for which there are fewer than 10 high confidence disease-gene pairs for a disease.
-
-By our count, we have 108 diseases that have 10 or more high confidence disease-gene pairs (scores of 4-5); and there are 3,936 high-confidence disease-gene pairs for these 108 diseases.
+- TODO: do we need to filter this data using STRING aliases?
 
 ```
-There are 6199 high-confidence disease-gene-pairs (with scores >= 4)
-The high-confidence disease-gene pairs correspond to 1171 distinct diseases.
-There are 108 diseases with at least 10 high-confidence disease-gene pairs
-There are 3936 high-confidence disease-gene pairs from the 108 diseases
-There are 3936 genes mapped from ENSG to ENSP from the 3936 high-confidence disease-gene pairs.
+Reading data...
+ 287971 text mining and 7734 knowledge associations.
+ 268 text mining and 7683 knowledge associations with confidenceScore >= 4.
+
+Combining Text Mining and Knowledge Channels...
+ 135 associations found in both text mining and knowledge channels. Maximum score retained.
+ 63 associations from text mining only.
+ 7201 associations from knowledge only.
+ 7399 total high confidence disease-gene associations.
+
+Filtering diseases...
+ The high-confidence disease-gene pairs correspond to 1099 distinct diseases.
+ There are 134 diseases with at least 10 high-confidence disease-gene pairs
+ There are 5369 high-confidence disease-gene pairs from the 134 diseases
 ```
 
-**B. GWAS Dataset Creation** (`scripts/inputs.py`):
-- Take the TIGA trait-gene associations and the Disease Ontology (DO) annotations.
-- Retain all TIGA trait-gene associations where the trait is in the disease ontology. Call these "DO-gene associations". There will be snp_w scores for every gene.
-- Retain the DO-gene associations for the diseases from the gold standard dataset. The code for this step is in `scripts/files.py`.
+**B. GWAS Dataset Creation** (`scripts/trait_gene_assoc.py`):
+- Take the TIGA trait-gene associations and the gold standard Disease Ontology (DO) annotations.
+- Map the TIGA traits (in EFO/MONDO/OBA ids) to DOID. Call these "DO-gene associations". There will be snp_w scores for every gene. The mapping is done with [EBI's Ontology xRef Service (OxO)](https://www.ebi.ac.uk/spot/oxo/).
+We use the STRING-DB alias mapping to ensure that all TIGA trait-gene associations are in the STRING interactome. (there is a benchmark file for the DISEASES database with STRINGv9.1, but we use the most recent STRING version).
 
-_Note:_ We only need to retain the DO-gene associations for the 108 diseases from the gold_standard generation; however the code current generates the DO-gene associatesion for all diseases.
+```
+Reading TIGA file...
+. There are 676837 trait-gene snp scores from TIGA.
+. There are 11978 EFO/MONDO/OBA traits.
+Reading gold standard file...
+. There are 134 disease ontology IDs from the gold standard.
+Querying https://www.ebi.ac.uk/spot/oxo/api/search?size=500 in batches of 20:
+.  [0:20/134]
+.  [20:40/134]
+.  [40:60/134]
+.  [60:80/134]
+.  [80:100/134]
+.  [100:120/134]
+.  [120:140/134]
+132/134 DOIDs are mapped.
+41/132 of mapped DOIDs are in TIGA.
+Mapping TIGA entries to DOID:
+. There are 10739 trait-gene snp scores after mapping to DOID and dropping N/As.
+. There are now 40 DROID traits in the TIGA dataset.
+. (Note: two TIGA ids map to a single DOID)
+Mapping STRING IDs:
+.  There are 10715 DOID-gene snp scores.
+```
 
 _Note:_ We discussed a version 2 where we also run DO-gene associations for diseases _not_ in the validation set; that's a later project).
 
-**C. SPRAS Inputs**:
-- There are 31 diseases that have both TIGA data and also appear in the Gold Standard dataset. 
-- Each of the 31 diseases will be a separate node prizes dataset. For each disease, convert the snp_w scores into prizes and make a `node-prizes.txt` file. This is done in  `scripts/files.py`.
-- Each of the 31 diseases will have a validation dataset, comprising of the high confidence diseases-gene pairs from the DISEASES text mining and/or knowledge channels. They have a score (a 4 or a 5), but I assumed we would consider them all "high confidence" and thus a gene set. This is done in  `scripts/files.py`.
+**C. SPRAS Inputs** (`prepare_inputs.py`):
+- There are 40 diseases that have both TIGA data and also appear in the Gold Standard dataset. 
+- Each of the 40 diseases will be a separate node prizes dataset. For each disease, convert the snp_w scores into prizes and make a `node-prizes.txt` file. 
+- Each of the 31 diseases will have a validation dataset, comprising of the high confidence diseases-gene pairs from the DISEASES text mining and/or knowledge channels. They have a score (a 4 or a 5), but they are all considered "high confidence" and thus a gene set. 
 
-We use the STRING-DB interactome (there is a benchmark file for the DISEASES database with STRINGv9.1, but we use the most recent STRING version).
+```
+Reading gold standard and trait-gene assoc files:
+.  Gold Standard: 5369 disease-gene assocations for 134 diseases.
+.  Trait-gene associations (TIGA): 10715 trait-gene associations for 40 diseases.
+There are 40 diseases that are in both the gold standard and in TIGA.
+Done writing prize and gold standard files for 40 diseases.
+```

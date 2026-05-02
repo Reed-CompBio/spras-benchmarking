@@ -37,30 +37,29 @@ produce_fetch_rules({
     "raw/9606.protein.aliases.txt": FetchConfig(("STRING", "9606", "9606.protein.aliases.txt.gz"), uncompress=True),
 })
 
-rule inputs:
+rule trait_gene_assoc:
     input:
-        "raw/HumanDO.tsv",
+        "data/gold_standard.csv"
         "raw/tiga_gene-trait_stats.tsv",
         "raw/9606.protein.aliases.txt"
     output:
-        "data/inputs.csv"
+        "data/trait_gene_assoc.csv"
     shell:
-        "uv run scripts/inputs.py"
+        "uv run scripts/trait_gene_assoc.py"
 
 rule gold_standard:
     input:
         "raw/human_disease_knowledge_filtered.tsv",
         "raw/human_disease_textmining_filtered.tsv",
         "raw/9606.protein.aliases.txt",
-        "raw/ensg-ensp.tsv"
     output:
         "data/gold_standard.csv"
     shell:
         "uv run scripts/gold_standard.py"
 
-rule files:
+rule prepare_inputs:
     input:
-        "data/inputs.csv",
+        "data/trait_gene_assoc.csv",
         "data/gold_standard.csv"
     output:
         # These are the two we use for the SPRAS run for now
@@ -69,7 +68,7 @@ rule files:
         "prize_files/alopecia_areata_prizes.txt",
         "prize_files/diabetes_mellitus_prizes.txt"
     shell:
-        "uv run scripts/files.py"
+        "uv run scripts/prepare_inputs.py"
 
 rule interactome:
     input: "raw/9606.protein.links.full.txt"
