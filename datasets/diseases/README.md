@@ -47,7 +47,7 @@ Briefly the steps are:
 - For every disease-gene association, get the max value from those two channels (we believe the confidence scores aren't averaged, but that would make sense - we should double-check).
 - Remove all disease-gene associations that have a confidence score of less than 4 (retain all w/ scores 4 or 5 out of 5). Call these "high confidence disease-gene pairs."
 - Then, remove all disease-gene associations for which there are fewer than 10 high confidence disease-gene pairs for a disease.
-- TODO: do we need to filter this data using STRING aliases?
+- :TODO: should we ensure that all genes are in STRING-DB? If so, should we require that there are 10 high-confidence disease-gene pairs _in the interactome_?
 
 ```
 Reading data...
@@ -69,7 +69,7 @@ Filtering diseases...
 **B. GWAS Dataset Creation** (`scripts/trait_gene_assoc.py`):
 - Take the TIGA trait-gene associations and the gold standard Disease Ontology (DO) annotations.
 - Map the TIGA traits (in EFO/MONDO/OBA ids) to DOID. Call these "DO-gene associations". There will be snp_w scores for every gene. The mapping is done with [EBI's Ontology xRef Service (OxO)](https://www.ebi.ac.uk/spot/oxo/).
-We use the STRING-DB alias mapping to ensure that all TIGA trait-gene associations are in the STRING interactome. (there is a benchmark file for the DISEASES database with STRINGv9.1, but we use the most recent STRING version).
+- Ensure all genes are present in the STRING interactome (map the `ENSG` ids to `ENSP` ids). We use the STRING-DB alias mapping to ensure that all TIGA trait-gene associations are in the STRING interactome. (there is a benchmark file for the DISEASES database with STRINGv9.1, but we use the most recent STRING version).
 
 ```
 Reading TIGA file...
@@ -98,13 +98,13 @@ Mapping STRING IDs:
 _Note:_ We discussed a version 2 where we also run DO-gene associations for diseases _not_ in the validation set; that's a later project).
 
 **C. SPRAS Inputs** (`prepare_inputs.py`):
-- There are 40 diseases that have both TIGA data and also appear in the Gold Standard dataset. 
-- Each of the 40 diseases will be a separate node prizes dataset. For each disease, convert the snp_w scores into prizes and make a `node-prizes.txt` file. 
-- Each of the 31 diseases will have a validation dataset, comprising of the high confidence diseases-gene pairs from the DISEASES text mining and/or knowledge channels. They have a score (a 4 or a 5), but they are all considered "high confidence" and thus a gene set. 
+- Identify the diseases that have both TIGA data and also appear in the Gold Standard dataset. 
+- Each of the diseases will be a separate node prizes dataset. For each disease, convert the snp_w scores into prizes and make a `node-prizes.txt` file. 
+- Each of the diseases will have a validation dataset, comprising of the high confidence diseases-gene pairs from the DISEASES text mining and/or knowledge channels. They have a score (a 4 or a 5), but they are all considered "high confidence" and thus a gene set. 
 
 ```
 Reading gold standard and trait-gene assoc files:
-.  Gold Standard: 5369 disease-gene assocations for 134 diseases.
+.  Gold Standard: 5369 disease-gene associations for 134 diseases.
 .  Trait-gene associations (TIGA): 10715 trait-gene associations for 40 diseases.
 There are 40 diseases that are in both the gold standard and in TIGA.
 Done writing prize and gold standard files for 40 diseases.

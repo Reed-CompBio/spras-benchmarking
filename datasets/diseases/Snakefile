@@ -3,10 +3,11 @@ include: "../../cache/Snakefile"
 rule all:
     input:
         "processed/string_interactome.tsv",
-        "GS_files/Alopecia_areata_GS.txt",
-        "GS_files/Diabetes_mellitus_GS.txt",
-        "prize_files/alopecia_areata_prizes.txt",
-        "prize_files/diabetes_mellitus_prizes.txt"
+        # These are the two we use for the SPRAS run for now
+        "GS_files/DOID_2841_asthma_GS.txt",
+        "GS_files/DOID_10652_alzheimers_disease_GS.txt",
+        "prize_files/DOID_2841_asthma_prizes.txt",
+        "prize_files/DOID_10652_alzheimers_disease_prizes.txt"
 
 produce_fetch_rules({
     # Instead of going through https://unmtid-shinyapps.net/shiny/tiga/, we use their
@@ -15,12 +16,6 @@ produce_fetch_rules({
         name="TIGA data",
         cached="https://drive.google.com/uc?id=114qyuNDy4qdmYDHHJAW-yBeTxcGTDUnK",
         pinned="https://unmtid-dbs.net/download/TIGA/20250916/tiga_gene-trait_stats.tsv",
-    ),
-    "raw/HumanDO.tsv": CacheItem(
-        name="Disease ontology data",
-        cached="https://drive.google.com/uc?id=1lfB1DGJgrXTxP_50L6gGu_Nq6OyDjiIi",
-        # DiseaseOntology is a decently updating repository! We leave it unpinned
-        unpinned="https://raw.githubusercontent.com/DiseaseOntology/HumanDiseaseOntology/refs/heads/main/DOreports/HumanDO.tsv",
     ),
     "raw/human_disease_textmining_filtered.tsv": CacheItem(
         name="DISEASES textmining channel",
@@ -32,10 +27,18 @@ produce_fetch_rules({
         cached="https://drive.google.com/uc?id=1qGUnjVwF9-8p5xvp8_6CfVsbMSM_wkld",
         unpinned="https://download.jensenlab.org/human_disease_knowledge_filtered.tsv",
     ),
-    "raw/ensg-ensp.tsv": ("BioMart", "ensg-ensp.tsv"),
     "raw/9606.protein.links.full.txt": FetchConfig(("STRING", "9606", "9606.protein.links.full.txt.gz"), uncompress=True),
     "raw/9606.protein.aliases.txt": FetchConfig(("STRING", "9606", "9606.protein.aliases.txt.gz"), uncompress=True),
 })
+
+rule gold_standard:
+    input:
+        "raw/human_disease_knowledge_filtered.tsv",
+        "raw/human_disease_textmining_filtered.tsv"
+    output:
+        "data/gold_standard.csv"
+    shell:
+        "uv run scripts/gold_standard.py"
 
 rule trait_gene_assoc:
     input:
@@ -47,26 +50,16 @@ rule trait_gene_assoc:
     shell:
         "uv run scripts/trait_gene_assoc.py"
 
-rule gold_standard:
-    input:
-        "raw/human_disease_knowledge_filtered.tsv",
-        "raw/human_disease_textmining_filtered.tsv",
-        "raw/9606.protein.aliases.txt",
-    output:
-        "data/gold_standard.csv"
-    shell:
-        "uv run scripts/gold_standard.py"
-
 rule prepare_inputs:
     input:
         "data/trait_gene_assoc.csv",
         "data/gold_standard.csv"
     output:
         # These are the two we use for the SPRAS run for now
-        "GS_files/Alopecia_areata_GS.txt",
-        "GS_files/Diabetes_mellitus_GS.txt",
-        "prize_files/alopecia_areata_prizes.txt",
-        "prize_files/diabetes_mellitus_prizes.txt"
+        "GS_files/DOID_2841_asthma_GS.txt",
+        "GS_files/DOID_10652_alzheimers_disease_GS.txt",
+        "prize_files/DOID_2841_asthma_prizes.txt",
+        "prize_files/DOID_10652_alzheimers_disease_prizes.txt"
     shell:
         "uv run scripts/prepare_inputs.py"
 

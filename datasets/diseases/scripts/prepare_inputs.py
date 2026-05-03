@@ -39,8 +39,9 @@ def main():
         # generate file names as DOID_diseaseName.lower()
         disease_name = gold_standard_df["diseaseName"].iloc[0].lower()
         #print(f' {diseaseID} --> {disease_name}')
-        node_filename = diseaseID.replace(':','_')+'_'+disease_name.replace(' ','_')+"_prizes.txt"
-        gs_filename = diseaseID.replace(':','_')+'_'+disease_name.replace(' ','_')+"_GS.txt"    
+        filename_prefix = diseaseID.replace(':','_')+'_'+disease_name.replace(' ','_').replace("'","")
+        node_filename = f'{filename_prefix}_prizes.txt'
+        gs_filename = f'{filename_prefix}_GS.txt'  
 
         # write the prize file output
         tiga_df = tiga_df[["str_id", "n_snpw"]]
