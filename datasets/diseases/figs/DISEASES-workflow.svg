@@ -1,0 +1,416 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="198.82913mm"
+   height="64.423882mm"
+   viewBox="0 0 198.82913 64.423882"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4.2 (ebf0e940, 2025-05-08)"
+   sodipodi:docname="DISEASES-workflow.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="0.75544332"
+     inkscape:cx="355.42044"
+     inkscape:cy="354.75858"
+     inkscape:window-width="1760"
+     inkscape:window-height="963"
+     inkscape:window-x="94"
+     inkscape:window-y="57"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1">
+    <marker
+       style="overflow:visible"
+       id="ConcaveTriangle"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="Concave triangle arrow"
+       markerWidth="1"
+       markerHeight="1"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="scale(0.7)"
+         d="M -2,-4 9,0 -2,4 c 2,-2.33 2,-5.66 0,-8 z"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:none"
+         id="path7" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="ConcaveTriangle-6"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="Concave triangle arrow"
+       markerWidth="1"
+       markerHeight="1"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="scale(0.7)"
+         d="M -2,-4 9,0 -2,4 c 2,-2.33 2,-5.66 0,-8 z"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:none"
+         id="path7-3" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="ConcaveTriangle-6-9"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="Concave triangle arrow"
+       markerWidth="1"
+       markerHeight="1"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="scale(0.7)"
+         d="M -2,-4 9,0 -2,4 c 2,-2.33 2,-5.66 0,-8 z"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:none"
+         id="path7-3-4" />
+    </marker>
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-4.9498304,-8.3622242)">
+    <rect
+       style="fill:#cea487;fill-opacity:1;stroke:#000000;stroke-width:0.161726;stroke-opacity:1"
+       id="rect66"
+       width="156.96202"
+       height="17.129816"
+       x="5.5596347"
+       y="55.575424" />
+    <rect
+       style="fill:#87c0ce;fill-opacity:1;stroke:#000000;stroke-width:0.225187;stroke-opacity:1"
+       id="rect65"
+       width="156.93755"
+       height="33.216194"
+       x="5.2535377"
+       y="12.28113" />
+    <path
+       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.765;stroke-dasharray:0.765, 0.765;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#ConcaveTriangle-6-9)"
+       d="m 143.63361,38.968924 -0.1599,12.580613 -63.051973,-0.34575 -0.101022,3.883612"
+       id="path73-9-3"
+       sodipodi:nodetypes="cccc" />
+    <rect
+       style="fill:#8ace87;fill-opacity:1;stroke:#000000;stroke-width:0.0920696;stroke-opacity:1"
+       id="rect67"
+       width="25.917439"
+       height="33.622643"
+       x="172.64343"
+       y="32.347244" />
+    <text
+       xml:space="preserve"
+       style="font-size:4.9389px;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman, ';text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#000000;stroke-width:0.264583"
+       x="8.8210077"
+       y="17.848513"
+       id="text1"><tspan
+         sodipodi:role="line"
+         style="stroke-width:0.264583"
+         x="8.8210077"
+         y="17.848513"
+         id="tspan2">DISEASES Channels</tspan><tspan
+         sodipodi:role="line"
+         style="stroke-width:0.264583"
+         x="8.8210077"
+         y="24.022137"
+         id="tspan3">I. Textmining </tspan><tspan
+         sodipodi:role="line"
+         style="stroke-width:0.264583"
+         x="8.8210077"
+         y="30.195763"
+         id="tspan4">II. Knowledge </tspan><tspan
+         sodipodi:role="line"
+         style="fill:#808080;fill-opacity:1;stroke-width:0.264583"
+         x="8.8210077"
+         y="36.369389"
+         id="tspan5">III. Experimental </tspan><tspan
+         sodipodi:role="line"
+         style="stroke-width:0.264583"
+         x="8.8210077"
+         y="42.543015"
+         id="tspan51">(Disease IDs: DOID)</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:Courier;-inkscape-font-specification:Courier;text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#000000;stroke-width:0.264583"
+       x="76.550385"
+       y="27.949902"
+       id="text9"><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:Courier;-inkscape-font-specification:Courier;text-align:center;text-anchor:middle;stroke-width:0.264583"
+         x="76.550385"
+         y="27.949902"
+         id="tspan9">CONFIDENCE</tspan><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:Courier;-inkscape-font-specification:Courier;text-align:center;text-anchor:middle;stroke-width:0.264583"
+         x="76.550385"
+         y="32.359627"
+         id="tspan14">SCORE MINIMUM</tspan><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:Courier;-inkscape-font-specification:Courier;text-align:center;text-anchor:middle;stroke-width:0.264583"
+         x="76.550385"
+         y="36.769352"
+         id="tspan58">(4 out of 5)</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:Courier;-inkscape-font-specification:Courier;text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#000000;stroke-width:0.264583"
+       x="114.86823"
+       y="27.951626"
+       id="text12"><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:Courier;-inkscape-font-specification:Courier;text-align:center;text-anchor:middle;stroke-width:0.264583"
+         x="114.86823"
+         y="27.951626"
+         id="tspan12">GENE SET</tspan><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:Courier;-inkscape-font-specification:Courier;text-align:center;text-anchor:middle;stroke-width:0.264583"
+         x="114.86823"
+         y="32.361351"
+         id="tspan16">SIZE MINIMUM</tspan><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:Courier;-inkscape-font-specification:Courier;text-align:center;text-anchor:middle;stroke-width:0.264583"
+         x="114.86823"
+         y="36.771076"
+         id="tspan57">(10)</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:4.9389px;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman, ';text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#000000;stroke-width:0.264583"
+       x="146.42355"
+       y="24.51651"
+       id="text24"><tspan
+         sodipodi:role="line"
+         style="text-align:center;text-anchor:middle;stroke-width:0.264583"
+         x="146.42355"
+         y="24.51651"
+         id="tspan28">Gold Standard</tspan><tspan
+         sodipodi:role="line"
+         style="text-align:center;text-anchor:middle;stroke-width:0.264583"
+         x="146.42355"
+         y="30.690136"
+         id="tspan27">Diseases &amp; </tspan><tspan
+         sodipodi:role="line"
+         style="text-align:center;text-anchor:middle;stroke-width:0.264583"
+         x="146.42355"
+         y="36.863762"
+         id="tspan50">Associations</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:3.52778px;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman, ';text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#000000;stroke-width:0.264583"
+       x="97.887199"
+       y="18.834326"
+       id="text24-1"><tspan
+         sodipodi:role="line"
+         style="font-size:3.52778px;text-align:center;text-anchor:middle;stroke-width:0.264583"
+         x="97.887199"
+         y="18.834326"
+         id="tspan50-3">Group by</tspan><tspan
+         sodipodi:role="line"
+         style="font-size:3.52778px;text-align:center;text-anchor:middle;stroke-width:0.264583"
+         x="97.887199"
+         y="23.244051"
+         id="tspan75">Disease</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:3.52778px;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman, ';text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#000000;stroke-width:0.264583"
+       x="52.940666"
+       y="23.562752"
+       id="text24-1-4"><tspan
+         sodipodi:role="line"
+         style="font-size:3.52778px;text-align:center;text-anchor:middle;stroke-width:0.264583"
+         x="52.940666"
+         y="23.562752"
+         id="tspan75-2">Combine</tspan><tspan
+         sodipodi:role="line"
+         style="font-size:3.52778px;text-align:center;text-anchor:middle;stroke-width:0.264583"
+         x="52.940666"
+         y="27.972477"
+         id="tspan76">Channels</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:4.9389px;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman, ';text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#000000;stroke-width:0.264583"
+       x="8.7558956"
+       y="63.080338"
+       id="text33"><tspan
+         sodipodi:role="line"
+         style="stroke-width:0.264583"
+         x="8.7558956"
+         y="63.080338"
+         id="tspan38">TIGA GWAS Data</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:4.9389px;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman, ';text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#000000;stroke-width:0.264583"
+       x="147.42639"
+       y="61.795212"
+       id="text41"><tspan
+         sodipodi:role="line"
+         style="text-align:center;text-anchor:middle;stroke-width:0.264583"
+         x="147.42639"
+         y="61.795212"
+         id="tspan41">Data for</tspan><tspan
+         sodipodi:role="line"
+         style="text-align:center;text-anchor:middle;stroke-width:0.264583"
+         x="147.42639"
+         y="67.968834"
+         id="tspan43">Prize Files</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:3.52778px;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman, ';text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#000000;stroke-width:0.264583"
+       x="80.729843"
+       y="65.639954"
+       id="text46"><tspan
+         sodipodi:role="line"
+         style="font-size:3.52778px;text-align:center;text-anchor:middle;stroke-width:0.264583"
+         x="80.729843"
+         y="65.639954"
+         id="tspan48">Map EFO/MONDO</tspan><tspan
+         sodipodi:role="line"
+         style="font-size:3.52778px;text-align:center;text-anchor:middle;stroke-width:0.264583"
+         x="80.729843"
+         y="70.049675"
+         id="tspan49">to DOID</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:3.52778px;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman, ';text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#000000;stroke-width:0.264583"
+       x="115.11742"
+       y="65.612022"
+       id="text54"><tspan
+         sodipodi:role="line"
+         style="font-size:3.52778px;text-align:center;text-anchor:middle;stroke-width:0.264583"
+         x="115.11742"
+         y="65.612022"
+         id="tspan55">Map ENSG </tspan><tspan
+         sodipodi:role="line"
+         style="font-size:3.52778px;text-align:center;text-anchor:middle;stroke-width:0.264583"
+         x="115.11742"
+         y="70.021744"
+         id="tspan77">to ENSP</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:4.9389px;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman, ';text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#000000;stroke-width:0.264583"
+       x="186.10533"
+       y="41.080254"
+       id="text61"><tspan
+         sodipodi:role="line"
+         style="text-align:center;text-anchor:middle;stroke-width:0.264583"
+         x="186.10533"
+         y="41.080254"
+         id="tspan61">Prize &amp; </tspan><tspan
+         sodipodi:role="line"
+         style="text-align:center;text-anchor:middle;stroke-width:0.264583"
+         x="186.10533"
+         y="47.25388"
+         id="tspan64">GS Files </tspan><tspan
+         sodipodi:role="line"
+         style="text-align:center;text-anchor:middle;stroke-width:0.264583"
+         x="186.10533"
+         y="53.427505"
+         id="tspan63">for Each </tspan><tspan
+         sodipodi:role="line"
+         style="text-align:center;text-anchor:middle;stroke-width:0.264583"
+         x="186.10533"
+         y="59.601128"
+         id="tspan65">Disease</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:Courier;-inkscape-font-specification:Courier;text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#000000;stroke-width:0.264583"
+       x="21.656832"
+       y="10.617041"
+       id="text69"><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:Courier;-inkscape-font-specification:Courier;text-align:center;text-anchor:middle;stroke-width:0.264583"
+         x="21.656832"
+         y="10.617041"
+         id="tspan71">gold_standard.py</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:Courier;-inkscape-font-specification:Courier;text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#000000;stroke-width:0.264583"
+       x="25.486586"
+       y="53.867355"
+       id="text72"><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:Courier;-inkscape-font-specification:Courier;text-align:center;text-anchor:middle;stroke-width:0.264583"
+         x="25.486584"
+         y="53.867355"
+         id="tspan72">trait_gene_assoc.py</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:Courier;-inkscape-font-specification:Courier;text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#000000;stroke-width:0.264583"
+       x="185.89459"
+       y="30.557606"
+       id="text73"><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52778px;font-family:Courier;-inkscape-font-specification:Courier;text-align:center;text-anchor:middle;stroke-width:0.264583"
+         x="185.89459"
+         y="30.557606"
+         id="tspan73">prepare_inputs.py</tspan></text>
+    <rect
+       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.565;stroke-dasharray:none;stroke-opacity:1"
+       id="rect73"
+       width="37.125"
+       height="12.60849"
+       x="7.8917451"
+       y="18.920362" />
+    <rect
+       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.565;stroke-dasharray:none;stroke-opacity:1"
+       id="rect73-8"
+       width="39.926888"
+       height="7.3549562"
+       x="8.1707087"
+       y="57.561588" />
+    <path
+       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.765;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#ConcaveTriangle)"
+       d="M 45.180424,24.516509 H 126.43514"
+       id="path73"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.765;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#ConcaveTriangle-6)"
+       d="m 48.32669,61.543612 h 81.25472"
+       id="path73-9"
+       sodipodi:nodetypes="cc" />
+    <text
+       xml:space="preserve"
+       style="font-size:3.52778px;font-family:'Times New Roman';-inkscape-font-specification:'Times New Roman, ';text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#000000;stroke-width:0.264583"
+       x="111.19616"
+       y="49.662708"
+       id="text79"><tspan
+         sodipodi:role="line"
+         style="font-size:3.52778px;text-align:center;text-anchor:middle;stroke-width:0.264583"
+         x="111.19616"
+         y="49.662708"
+         id="tspan79">Retain DOIDs in Gold Standard Dataset</tspan></text>
+    <path
+       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.765;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#ConcaveTriangle)"
+       d="m 156.20519,39.740329 14.00943,4.553066"
+       id="path80"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.765;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#ConcaveTriangle)"
+       d="m 156.20519,57.38005 14.00943,-4.553066"
+       id="path81"
+       sodipodi:nodetypes="cc" />
+  </g>
+</svg>

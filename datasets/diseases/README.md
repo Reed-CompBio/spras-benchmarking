@@ -36,9 +36,13 @@ Finally, we use the Disease Ontology to get from gene-trait associations to gene
 
 ## Putting it all together
 
-We hashed out this pipeline on the whiteboard in July:
+We hashed out this pipeline on the whiteboard in July 2026:
 
 ![whiteboard-image](figs/DISEASES-board.jpg)
+
+Here is an updated version after April/May 2026 refactoring:
+
+![workflow-image](figs/DISEASES-workflow.png) 
 
 Briefly the steps are:
 
