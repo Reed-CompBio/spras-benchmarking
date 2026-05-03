@@ -36,24 +36,24 @@ rule gold_standard:
         "raw/human_disease_knowledge_filtered.tsv",
         "raw/human_disease_textmining_filtered.tsv"
     output:
-        "data/gold_standard.csv"
+        "processed/gold_standard.csv"
     shell:
         "uv run scripts/gold_standard.py"
 
 rule trait_gene_assoc:
     input:
-        "data/gold_standard.csv"
+        "processed/gold_standard.csv",
         "raw/tiga_gene-trait_stats.tsv",
         "raw/9606.protein.aliases.txt"
     output:
-        "data/trait_gene_assoc.csv"
+        "processed/trait_gene_assoc.csv"
     shell:
         "uv run scripts/trait_gene_assoc.py"
 
 rule prepare_inputs:
     input:
-        "data/trait_gene_assoc.csv",
-        "data/gold_standard.csv"
+        "processed/trait_gene_assoc.csv",
+        "processed/gold_standard.csv"
     output:
         # These are the two we use for the SPRAS run for now
         "GS_files/DOID_2841_asthma_GS.txt",

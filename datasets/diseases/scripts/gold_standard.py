@@ -72,7 +72,7 @@ def main():
     ## TODO - do we need to filter by STRING??
 
     # Write output file gold_standard.csv
-    GS_high_conf_retained_diseases.to_csv(diseases_path / "data" / "gold_standard.csv", index=False)
+    GS_high_conf_retained_diseases.to_csv(diseases_path / "processed" / "gold_standard.csv", index=False)
 
 if __name__ == "__main__":
     main()

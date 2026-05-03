@@ -7,7 +7,7 @@ import time
 dir_path = Path(__file__).parent.resolve()
 
 diseases_path = Path(dir_path, "..")
-(diseases_path / "data").mkdir(exist_ok=True, parents=True)
+(diseases_path / "processed").mkdir(exist_ok=True, parents=True)
 
 OXO_URL = "https://www.ebi.ac.uk/spot/oxo/api/search?size=500"
 BATCH_SIZE = 20
@@ -28,7 +28,7 @@ def main():
 
     # Get DOIDs from data/gold_standard.csv
     print('Reading gold standard file...')
-    gold_standard_file = pd.read_csv(diseases_path / "data" / "gold_standard.csv", sep=",")
+    gold_standard_file = pd.read_csv(diseases_path / "processed" / "gold_standard.csv", sep=",")
     DOIDs = gold_standard_file["diseaseID"].unique().tolist()
     print(f'.  There are {len(DOIDs)} disease ontology IDs from the gold standard.')
 
@@ -58,8 +58,7 @@ def main():
     print(f'.  There are {len(tiga)} trait-gene snp scores after mapping to DOID and dropping N/As.')
     
     tiga_ids = tiga["efoId"].unique().tolist()
-    print(f'.  There are now {len(tiga_ids)} DROID traits in the TIGA dataset.')
-    print(f'. (Note: two TIGA ids map to a single DOID)')
+    print(f'.  There are now {len(tiga_ids)} DROID traits in the TIGA dataset. If this is fewer than above, then multiple TIGA ids map to the same DOID.')
 
     # Mapping ENSG IDs to ENSP IDs through the STRING aliases file
     # given our ENSG and ENSP (non one-to-one!) mapping `string_aliases`.
@@ -73,7 +72,7 @@ def main():
     print(f'.  There are {len(tiga_string_df)} DOID-gene snp scores.')
 
     ## Write file to inputs.csv
-    tiga_string_df.to_csv(diseases_path / "data" / "trait_gene_assoc.csv", index=False)
+    tiga_string_df.to_csv(diseases_path / "processed" / "trait_gene_assoc.csv", index=False)
 
 # defined with help from ChatGPT.
 def oxo_search(doids, mapping_targets=["EFO", "MONDO"], distance=1,sleep_seconds = 0.01):

@@ -16,12 +16,12 @@ SPRAS-formatted prize files and gold standard files.
 def main():
     print('Reading gold standard and trait-gene assoc files:')
     # Gold Standard file from `gold_standard.py`
-    gold_standard = pd.read_csv(diseases_path / "data" / "gold_standard.csv")
+    gold_standard = pd.read_csv(diseases_path / "processed" / "gold_standard.csv")
     gold_standard_grouped = gold_standard.groupby("diseaseID")
     print(f'.  Gold Standard: {len(gold_standard)} disease-gene assocations for {len(gold_standard_grouped)} diseases.')
 
     # Inputs file from `trait_gene_assoc.py`
-    tiga = pd.read_csv(diseases_path / "data" / "trait_gene_assoc.csv")
+    tiga = pd.read_csv(diseases_path / "processed" / "trait_gene_assoc.csv")
     tiga_grouped = tiga.groupby("efoId")
     print(f'.  Trait-gene associations (TIGA): {len(tiga)} trait-gene associations for {len(tiga_grouped)} diseases.')
     
