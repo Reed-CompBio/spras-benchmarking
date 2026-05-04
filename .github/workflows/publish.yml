@@ -66,6 +66,6 @@ jobs:
         with:
           path: cache/artifacts
           key: cache-artifacts
-      - name: Run Snakemake workflow for score-based datasets
+      - name: Run Snakemake workflow for EGFR
         shell: bash --login {0}
-        run: snakemake --cores 4 --configfile configs/scores.yaml --show-failed-logs -s spras/Snakefile
+        run: snakemake --cores 4 --configfile configs/egfr.yaml --show-failed-logs -s spras/Snakefile
