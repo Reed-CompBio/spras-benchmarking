@@ -31,7 +31,6 @@ def extract_gene_symbols(input_df: pd.DataFrame) -> pd.DataFrame:
 
     return gene_symbols_df
 
-
 def main():
     # Load the dataset
     # We only read the first row since we only care about the column names of the matrix

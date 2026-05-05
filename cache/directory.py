@@ -290,7 +290,15 @@ directory: CacheDirectory = {
             name="",
             cached="https://drive.google.com/uc?id=1vl6t_8bXfbyCYzaw9u2HpU430O_IMHWm"
         )
-    }
+    },
+
+    "cancer_cellline_misc": {
+        "shared_cell_lines_april_17.txt": CacheItem(
+            name="",
+            cached="https://drive.google.com/uc?id=17K20vyvE7NPv4yRB4WCzE9_PW3mWdLVR"
+        )
+
+    },
 
 }
 

@@ -28,6 +28,8 @@ produce_fetch_rules({
 
     "raw/tfs_beyond_2sd_per_cell_line.csv": ("estimateNCA", "tfs_beyond_2sd_per_cell_line.tsv"),
 
+    "raw/shared_cell_lines_april_17.txt": ("cancer_cellline_misc", "shared_cell_lines_april_17.txt"),
+
     "raw/HUMAN_9606_idmapping.tsv": FetchConfig(("UniProt", "9606", "HUMAN_9606_idmapping.dat.gz"), uncompress=True),
     "raw/HUMAN_9606_idmapping_selected.tsv": FetchConfig(("UniProt", "9606", "HUMAN_9606_idmapping_selected.tab.gz"), uncompress=True),
     "raw/SwissProt_9606.tsv": ("UniProt", "9606", "SwissProt_9606.tsv"),
@@ -48,12 +50,10 @@ rule mapping:
         "raw/CRISPRGeneDependency_25Q3.csv"
         "raw/consensus_tfa_march_6.tsv"
 
-
     output:
         "processed/DamagingMutations_idMapping.tsv"
     shell:
         "uv run scripts/uniprot_mapping.py"
-
 
 rule process:
     input:
