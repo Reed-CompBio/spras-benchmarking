@@ -105,3 +105,4 @@ export function algorithmDocumentationUrl(algorithm: string): string {
   const foundAlgorithm = algorithm in map ? map[algorithm] : algorithm;
   return `https://spras.readthedocs.io/en/latest/prms/${foundAlgorithm}.html`;
 }
+
