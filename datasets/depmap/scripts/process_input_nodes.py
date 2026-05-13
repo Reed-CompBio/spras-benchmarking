@@ -30,8 +30,6 @@ def main():
     df_cna = df_cna[keep_cols]
 
     # change ids HGNC_symbol from to ENSP for copy number alteration data
-
-
     df_cna = (
         df_cna.reset_index()
             .merge(df_hgnc, left_on='Hugo_Symbol', right_on='HGNC_symbol', how='inner')
@@ -124,6 +122,19 @@ def main():
     cols = ["cell_line", "ccle_id"] + [c for c in df_2sd_tfa.columns if c not in ("cell_line", "ccle_id")]
     df_2sd_tfa = df_2sd_tfa[cols]
 
+    # id mapping
+    # TODO: need to also do it to df_tfa
+
+    print(df_hgnc)
+    print(df_tfa)
+    df_tfa = (
+        df_tfa.reset_index()
+            .merge(df_hgnc, left_on='TF', right_on='HGNC_symbol', how='inner')
+            .drop(columns=['TF', 'HGNC_symbol'])
+            .set_index('ENSP')
+    )
+
+    print(df_tfa)
 
     hgnc_to_ensp = dict(zip(df_hgnc['HGNC_symbol'], df_hgnc['ENSP']))
 
@@ -153,6 +164,7 @@ def main():
 
     # format the data into SPRAS formatted data
     # all the data
+    # TODO: refactor make this all in one for loop
     for _, row in df_chosen_cell_lines.iterrows():
         ccle_id = row["ccle_id"]
 
