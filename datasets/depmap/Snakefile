@@ -22,7 +22,7 @@ produce_fetch_rules({
 
     "raw/Cell_lines_annotations_20181226_ccle2019.txt" : ("CCLE_2019", "Cell_lines_annotations_20181226_ccle2019.txt"),
 
-    "raw/data_cna_cbioportal_ccle2019.txt": ("cbioportal", "data_cna_cbioportal_ccle2019.txt"),
+    "raw/data_copy_number_alteractions_cbioportal_ccle2019.txt": ("cbioportal", "data_copy_number_alteractions_cbioportal_ccle2019.txt"),
 
     "raw/consensus_tfa_march_6.tsv": ("estimateNCA", "consensus_tfa_march_6.tsv"),
 
@@ -43,7 +43,7 @@ produce_fetch_rules({
 rule input_nodes: 
     input:
         "raw/OmicsSomaticMutationsMatrixDamaging_25Q3.csv",
-        "raw/data_cna_cbioportal_ccle2019.txt",
+        "raw/data_copy_number_alteractions_cbioportal_ccle2019.txt",
         "raw/consensus_tfa_march_6.tsv",
         "raw/tfs_beyond_2sd_per_cell_line.csv",
         "raw/shared_cell_lines_may_12.txt"

@@ -22,7 +22,7 @@ def main():
     df_chosen_cell_lines = pd.read_csv(depmap_directory / "raw" / "shared_cell_lines_may_12.txt", sep="\t")
     print(df_chosen_cell_lines)
 
-    df_can = pd.read_csv(depmap_directory / "raw" / "data_can_cbioportal_ccle2019.txt", sep="\t", index_col=0)
+    df_can = pd.read_csv(depmap_directory / "raw" / "data_copy_number_alterations_cbioportal_ccle2019.txt", sep="\t", index_col=0)
 
     # restrict can data to the 633 chosen cellines
     # TODO: decide if I want everything to be in ccle ids or in depmap ids; for now do ccle id
