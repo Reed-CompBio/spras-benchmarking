@@ -22,7 +22,7 @@ produce_fetch_rules({
 
     "raw/Cell_lines_annotations_20181226_ccle2019.txt" : ("CCLE_2019", "Cell_lines_annotations_20181226_ccle2019.txt"),
 
-    "raw/data_cna_cbioportal_ccle2019.txt": ("cbioportal", "data_can_cbioportal_ccle2019.txt"),
+    "raw/data_cna_cbioportal_ccle2019.txt": ("cbioportal", "data_cna_cbioportal_ccle2019.txt"),
 
     "raw/consensus_tfa_march_6.tsv": ("estimateNCA", "consensus_tfa_march_6.tsv"),
 
