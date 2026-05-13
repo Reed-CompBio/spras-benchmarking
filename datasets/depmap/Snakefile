@@ -3,15 +3,15 @@ include: "../../cache/Snakefile"
 rule all:
     # We currently only care about the FADU cell line. # TODO: Update to do all cell lines
     input:
-        "processed/FADU_cell_line_prizes_input_nonzero.txt",
-        "processed/FADU_cell_line_prizes.txt",
-        "processed/FADU_gold_standard_thresh_0_5.txt",
-        "raw/phosphosite-irefindex13.0-uniprot.txt" # TODO: update this to String v12
-
+        # "processed/FADU_cell_line_prizes_input_nonzero.txt",
+        # "processed/FADU_cell_line_prizes.txt",
+        # "processed/FADU_gold_standard_thresh_0_5.txt",
+        # "raw/phosphosite-irefindex13.0-uniprot.txt" # TODO: update this to String v12
+        "preprocessed/damaging_mutations.csv",
+        "preprocessed/cna.csv"
 produce_fetch_rules({
 
     # TODO: update everything to be the 25Q3 data
-    # TODO: decide if we want to use the 26Q1 data
     "raw/OmicsProfiles_25Q3.csv": ("DepMap_25Q3", "OmicsProfiles_25Q3.csv"),
 
     "raw/CRISPRGeneDependency_25Q3.csv": ("DepMap_25Q3", "CRISPRGeneDependency_25Q3.csv"),
@@ -26,45 +26,58 @@ produce_fetch_rules({
 
     "raw/consensus_tfa_march_6.tsv": ("estimateNCA", "consensus_tfa_march_6.tsv"),
 
-    "raw/tfs_beyond_2sd_per_cell_line.csv": ("estimateNCA", "tfs_beyond_2sd_per_cell_line.tsv"),
+    "raw/tfs_beyond_2sd_per_cell_line.csv": ("estimateNCA", "tfs_beyond_2sd_per_cell_line.csv"),
 
-    "raw/shared_cell_lines_april_17.txt": ("cancer_cellline_misc", "shared_cell_lines_april_17.txt"),
+    "raw/shared_cell_lines_may_12.txt": ("cancer_cellline_misc", "shared_cell_lines_may_12.txt"),
 
-    "raw/HUMAN_9606_idmapping.tsv": FetchConfig(("UniProt", "9606", "HUMAN_9606_idmapping.dat.gz"), uncompress=True),
-    "raw/HUMAN_9606_idmapping_selected.tsv": FetchConfig(("UniProt", "9606", "HUMAN_9606_idmapping_selected.tab.gz"), uncompress=True),
+    "raw/HUMAN_9606_idmapping.tsv": FetchConfig(("UniProt", "9606", "HUMAN_9606_idmapping.dat.gz"), post_process=PostProcessAction.UNCOMPRESS_GZ),
+    "raw/HUMAN_9606_idmapping_selected.tsv": FetchConfig(("UniProt", "9606", "HUMAN_9606_idmapping_selected.tab.gz"), post_process=PostProcessAction.UNCOMPRESS_GZ),
     "raw/SwissProt_9606.tsv": ("UniProt", "9606", "SwissProt_9606.tsv"),
 
     # TODO: make this the string v12 interactome
     "raw/phosphosite-irefindex13.0-uniprot.txt": ("iRefIndex", "phosphosite-irefindex13.0-uniprot.txt"),
-    "raw/9606.protein.links.full.txt": FetchConfig(("STRING", "9606", "9606.protein.links.full.txt.gz"), uncompress=True),
-    "raw/9606.protein.aliases.txt": FetchConfig(("STRING", "9606", "9606.protein.aliases.txt.gz"), uncompress=True),
+    "raw/9606.protein.links.full.txt": FetchConfig(("STRING", "9606", "9606.protein.links.full.txt.gz"), post_process=PostProcessAction.UNCOMPRESS_GZ),
+    "raw/9606.protein.aliases.txt": FetchConfig(("STRING", "9606", "9606.protein.aliases.txt.gz"), post_process=PostProcessAction.UNCOMPRESS_GZ),
 })
 
-rule mapping:
+rule input_nodes: 
     input:
-        "raw/SwissProt_9606.tsv",
-        "raw/HUMAN_9606_idmapping.tsv",
-        "raw/HUMAN_9606_idmapping_selected.tsv",
-
         "raw/OmicsSomaticMutationsMatrixDamaging_25Q3.csv",
-        "raw/CRISPRGeneDependency_25Q3.csv"
-        "raw/consensus_tfa_march_6.tsv"
-
+        "raw/data_cna_cbioportal_ccle2019.txt",
+        "raw/consensus_tfa_march_6.tsv",
+        "raw/tfs_beyond_2sd_per_cell_line.csv",
+        "raw/shared_cell_lines_may_12.txt"
     output:
-        "processed/DamagingMutations_idMapping.tsv"
+        "preprocessed/damaging_mutations.csv",
+        "preprocessed/cna.csv"
     shell:
-        "uv run scripts/uniprot_mapping.py"
+        "uv run scripts/process_input_nodes.py"
 
-rule process:
-    input:
-        "processed/DamagingMutations_idMapping.tsv",
-        "raw/OmicsSomaticMutationsMatrixDamaging_25Q3.csv",
-        "raw/OmicsProfiles_25Q3.csv",
-        "raw/Model_25Q3.csv",
-        "raw/CRISPRGeneDependency_25Q3.csv"
-    output:
-        "processed/FADU_cell_line_prizes_input_nonzero.txt",
-        "processed/FADU_cell_line_prizes.txt",
-        "processed/FADU_gold_standard_thresh_0_5.txt"
-    shell:
-        "uv run scripts/cell_line_processing.py"
+# rule mapping:
+#     input:
+#         "raw/SwissProt_9606.tsv",
+#         "raw/HUMAN_9606_idmapping.tsv",
+#         "raw/HUMAN_9606_idmapping_selected.tsv",
+
+#         "raw/OmicsSomaticMutationsMatrixDamaging_25Q3.csv",
+#         "raw/CRISPRGeneDependency_25Q3.csv",
+#         "raw/consensus_tfa_march_6.tsv"
+
+#     output:
+#         "processed/DamagingMutations_idMapping.tsv"
+#     shell:
+#         "uv run scripts/uniprot_mapping.py"
+
+# rule process:
+#     input:
+#         "processed/DamagingMutations_idMapping.tsv",
+#         "raw/OmicsSomaticMutationsMatrixDamaging_25Q3.csv",
+#         "raw/OmicsProfiles_25Q3.csv",
+#         "raw/Model_25Q3.csv",
+#         "raw/CRISPRGeneDependency_25Q3.csv"
+#     output:
+#         "processed/FADU_cell_line_prizes_input_nonzero.txt",
+#         "processed/FADU_cell_line_prizes.txt",
+#         "processed/FADU_gold_standard_thresh_0_5.txt"
+#     shell:
+#         "uv run scripts/cell_line_processing.py"
