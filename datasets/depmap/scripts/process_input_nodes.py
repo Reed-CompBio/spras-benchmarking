@@ -47,8 +47,6 @@ def main():
         out_path = cell_dir / "can.csv"
         filtered.rename("score").to_csv(out_path, index=True, header=True, sep="\t")
 
-
-
     df_sm = pd.read_csv(depmap_directory / "raw" / "OmicsSomaticMutationsMatrixDamaging_25Q3.csv", sep=",", index_col=0)
     df_sm.drop(columns=["SequencingID", "ModelConditionID", "IsDefaultEntryForMC"], inplace = True)
 
@@ -147,16 +145,6 @@ def main():
         sm = pd.read_csv(sm_path, sep="\t").rename(columns={"gene_name": "NODEID", "score": "prize"})
         can = pd.read_csv(can_path, sep="\t").rename(columns={"Hugo_Symbol": "NODEID", "score": "prize"})
         tf = pd.read_csv(tf_path, sep="\t").rename(columns={"tf": "NODEID", "tfa": "prize"})
-
-        # tag roles
-        # sm["sources"] = True
-        # can["sources"] = True
-        # tf["targets"] = True
-
-        # # stack and collapse duplicates: keep max prize, OR the role flags
-        # combined = pd.concat([sm, can, tf], ignore_index=True)
-        # combined["sources"] = combined.get("sources", False).fillna(False)
-        # combined["targets"] = combined.get("targets", False).fillna(False)
 
         # tag roles
         sm["sources"] = True
