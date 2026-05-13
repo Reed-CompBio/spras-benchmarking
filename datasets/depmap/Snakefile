@@ -8,7 +8,7 @@ rule all:
         # "processed/FADU_gold_standard_thresh_0_5.txt",
         # "raw/phosphosite-irefindex13.0-uniprot.txt" # TODO: update this to String v12
         "preprocessed/damaging_mutations.csv",
-        "preprocessed/cna.csv"
+        "preprocessed/copy_number_alteration.csv"
 produce_fetch_rules({
 
     # TODO: update everything to be the 25Q3 data
@@ -22,7 +22,7 @@ produce_fetch_rules({
 
     "raw/Cell_lines_annotations_20181226_ccle2019.txt" : ("CCLE_2019", "Cell_lines_annotations_20181226_ccle2019.txt"),
 
-    "raw/data_copy_number_alteractions_cbioportal_ccle2019.txt": ("cbioportal", "data_copy_number_alterations_cbioportal_ccle2019.txt"),
+    "raw/data_copy_number_alterations_cbioportal_ccle2019.txt": ("cbioportal", "data_copy_number_alterations_cbioportal_ccle2019.txt"),
 
     "raw/consensus_tfa_march_6.tsv": ("estimateNCA", "consensus_tfa_march_6.tsv"),
 
@@ -49,7 +49,7 @@ rule input_nodes:
         "raw/shared_cell_lines_may_12.txt"
     output:
         "preprocessed/damaging_mutations.csv",
-        "preprocessed/cna.csv"
+        "preprocessed/copy_number_alteration.csv"
     shell:
         "uv run scripts/process_input_nodes.py"
 
