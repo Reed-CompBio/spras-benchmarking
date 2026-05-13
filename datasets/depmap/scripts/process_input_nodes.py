@@ -1,14 +1,3 @@
-# TODO
-# process sources
-# somatic mutations
-# - keep all the genes that are >= 1.0 (they need to be 1.0 and 2.0)
-# copy number alteration
-# - keep all genes that are -2 or 2s
-# tfa
-# - keeping all genes that are 2sd
-
-# each cellline will have its own folder of input nodes + gold standard
-
 import pandas as pd
 from pathlib import Path
 
@@ -28,11 +17,9 @@ def main():
         .assign(ENSP=lambda x: x['ENSP'].str.removeprefix('9606.'))
         .reset_index(drop=True)
     )
-    print(df_hgnc)
 
 
     df_chosen_cell_lines = pd.read_csv(depmap_directory / "raw" / "shared_cell_lines_may_12.txt", sep="\t")
-    # print(df_chosen_cell_lines)
 
     df_cna = pd.read_csv(depmap_directory / "raw" / "data_cna_cbioportal_ccle2019.txt", sep="\t", index_col=0)
 
@@ -44,7 +31,6 @@ def main():
 
     # change ids HGNC_symbol from to ENSP for copy number alteration data
 
-    print(df_cna)
 
     df_cna = (
         df_cna.reset_index()
@@ -52,8 +38,6 @@ def main():
             .drop(columns=['Hugo_Symbol', 'HGNC_symbol'])
             .set_index('ENSP')
     )
-
-    print(df_cna)
 
 
     for i, cell_line in enumerate(df_cna.columns, start=1):
@@ -97,7 +81,6 @@ def main():
 
     df_sm = df_sm.set_index("ccle_id").drop(columns="ModelID")
 
-    print(df_sm)
 
     # id mapping the columns: HGNC to ENSP
     # hgnc_to_ensp = dict(zip(df_hgnc['HGNC_symbol'], df_hgnc['ENSP']))
@@ -106,8 +89,6 @@ def main():
     hgnc_to_ensp = dict(zip(df_hgnc['HGNC_symbol'], df_hgnc['ENSP']))
     mapped_cols = [c for c in df_sm.columns if c in hgnc_to_ensp]
     df_sm = df_sm[mapped_cols].rename(columns=hgnc_to_ensp)
-
-    print(df_sm)
 
     for cell_line in df_sm.index:
         scores = df_sm.loc[cell_line]
@@ -143,7 +124,6 @@ def main():
     cols = ["cell_line", "ccle_id"] + [c for c in df_2sd_tfa.columns if c not in ("cell_line", "ccle_id")]
     df_2sd_tfa = df_2sd_tfa[cols]
 
-    print(df_2sd_tfa)
 
     hgnc_to_ensp = dict(zip(df_hgnc['HGNC_symbol'], df_hgnc['ENSP']))
 
@@ -154,8 +134,6 @@ def main():
 
     df_2sd_tfa['tfs'] = df_2sd_tfa['tfs'].apply(map_tfs)
     df_2sd_tfa['n_tfs'] = df_2sd_tfa['tfs'].apply(lambda s: 0 if s == '' else len(s.split(',')))
-
-    print(df_2sd_tfa)
 
     for _, row in df_2sd_tfa.iterrows():
         ccle_id = row["ccle_id"]
@@ -184,14 +162,9 @@ def main():
         cna_path = cell_dir / "cna.csv"
         tf_path = cell_dir / "tf.csv"
 
-        if not (sm_path.exists() and cna_path.exists() and tf_path.exists()):
-            print(f"skipping {ccle_id}: missing one or more input files")
-            continue
-
         # read inputs; assumes each has columns
         sm = pd.read_csv(sm_path, sep="\t")
         cna = pd.read_csv(cna_path, sep="\t")
-        print(cna)
         tf = pd.read_csv(tf_path, sep="\t")
 
         # change the node-id column name across files
@@ -209,7 +182,6 @@ def main():
 
         # stack and collapse duplicates: keep max prize, OR the role flags
         combined = pd.concat([sm, cna, tf], ignore_index=True)
-        print(combined)
 
         agg = combined.groupby("NODEID", as_index=False).agg(
             prize=("prize", "max"),
@@ -226,7 +198,6 @@ def main():
         out_path = cell_dir / "input_nodes.tsv"
         agg.to_csv(out_path, sep="\t", index=False)
 
-    # TODO: need to also make a version of the input nodes that doesn't include the copy number alteraction
     # without cna
 
     for _, row in df_chosen_cell_lines.iterrows():
@@ -236,10 +207,6 @@ def main():
 
         sm_path = cell_dir / "sm.csv"
         tf_path = cell_dir / "tf.csv"
-
-        if not (sm_path.exists() and cna_path.exists() and tf_path.exists()):
-            print(f"skipping {ccle_id}: missing one or more input files")
-            continue
 
         # read inputs; assumes each has columns
         sm = pd.read_csv(sm_path, sep="\t")
