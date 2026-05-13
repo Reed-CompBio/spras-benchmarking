@@ -24,7 +24,6 @@ analysis:
   evaluation:
     include: false
 
-
 # Custom settings
 algorithms:
   - name: "omicsintegrator1"
@@ -42,6 +41,6 @@ algorithms:
       run1:
         b: 4
         g: 0
-# TODO add all the rest of the algorithms with defalt parameters for now
+# TODO add all the rest of the algorithms with default parameters for now
 
 # add every cell line to the yaml file
