@@ -73,7 +73,7 @@ def main():
         filtered.rename("score").to_csv(out_path, index=True, header=True, sep="\t")
 
     print("Finished preprocessing copy number alteration input node data")
-    
+
     df_sm = pd.read_csv(depmap_directory / "raw" / "OmicsSomaticMutationsMatrixDamaging_25Q3.csv", sep=",", index_col=0)
     df_sm.drop(columns=["SequencingID", "ModelConditionID", "IsDefaultEntryForMC"], inplace = True)
 
@@ -102,7 +102,7 @@ def main():
     # id mapping the columns: HGNC to ENSP
     # hgnc_to_ensp = dict(zip(df_hgnc['HGNC_symbol'], df_hgnc['ENSP']))
     # df_sm = df_sm.rename(columns=hgnc_to_ensp)
-    
+
     hgnc_to_ensp = dict(zip(df_hgnc['HGNC_symbol'], df_hgnc['ENSP']))
     mapped_cols = [c for c in df_sm.columns if c in hgnc_to_ensp]
     df_sm = df_sm[mapped_cols].rename(columns=hgnc_to_ensp)
@@ -156,7 +156,7 @@ def main():
     df_2sd_tfa['n_tfs'] = df_2sd_tfa['tfs'].apply(lambda s: 0 if s == '' else len(s.split(',')))
 
     print(df_2sd_tfa)
-    
+
     for _, row in df_2sd_tfa.iterrows():
         ccle_id = row["ccle_id"]
         tfs = [tf.strip() for tf in row["tfs"].split(",")]

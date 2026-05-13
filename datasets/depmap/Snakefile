@@ -28,7 +28,7 @@ produce_fetch_rules({
     "raw/SwissProt_9606.tsv": ("UniProt", "9606", "SwissProt_9606.tsv"),
 
     # TODO: make this the string v12 interactome
-    # temporaly will use combined score
+    # temporarily will use combined score
     "raw/9606.protein.links.full.txt": FetchConfig(("STRING", "v12", "9606", "9606.protein.links.full.txt.gz"), post_process=PostProcessAction.UNCOMPRESS_GZ),
     "raw/9606.protein.aliases.txt": FetchConfig(("STRING",  "v12", "9606", "9606.protein.aliases.txt.gz"), post_process=PostProcessAction.UNCOMPRESS_GZ),
 })
