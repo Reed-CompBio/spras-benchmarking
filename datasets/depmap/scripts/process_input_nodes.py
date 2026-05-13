@@ -19,8 +19,20 @@ def main():
     (depmap_directory / "preprocessed").mkdir(exist_ok=True)
     (depmap_directory / "processed").mkdir(exist_ok=True)
 
+    # map the ids from HGNC_Symbol to ENSP
+    idmapping_df = pd.read_csv(depmap_directory / "raw" / "9606.protein.aliases.txt", sep = "\t")
+    df_hgnc = (
+        idmapping_df.loc[idmapping_df['source'] == 'Ensembl_HGNC_symbol']
+        .drop(columns='source')
+        .rename(columns={'#string_protein_id': 'ENSP', 'alias': 'HGNC_symbol'})
+        .assign(ENSP=lambda x: x['ENSP'].str.removeprefix('9606.'))
+        .reset_index(drop=True)
+    )
+    print(df_hgnc)
+
+
     df_chosen_cell_lines = pd.read_csv(depmap_directory / "raw" / "shared_cell_lines_may_12.txt", sep="\t")
-    print(df_chosen_cell_lines)
+    # print(df_chosen_cell_lines)
 
     df_copy_number_alteration = pd.read_csv(depmap_directory / "raw" / "data_copy_number_alterations_cbioportal_ccle2019.txt", sep="\t", index_col=0)
 
@@ -29,6 +41,20 @@ def main():
     chosen_ccle_ids = set(df_chosen_cell_lines["ccle_id"])
     keep_cols = [c for c in df_copy_number_alteration.columns if c in chosen_ccle_ids]
     df_copy_number_alteration = df_copy_number_alteration[keep_cols]
+
+    # change ids HGNC_symbol from to ENSP for copy number alteration data
+
+    print(df_copy_number_alteration)
+
+    df_copy_number_alteration = (
+        df_copy_number_alteration.reset_index()
+            .merge(df_hgnc, left_on='Hugo_Symbol', right_on='HGNC_symbol', how='inner')
+            .drop(columns=['Hugo_Symbol', 'HGNC_symbol'])
+            .set_index('ENSP')
+    )
+
+    print(df_copy_number_alteration)
+
 
     for i, cell_line in enumerate(df_copy_number_alteration.columns, start=1):
         scores = df_copy_number_alteration[cell_line]
@@ -40,13 +66,14 @@ def main():
         filtered = filtered.astype(float)
         filtered[:] = 0.5
 
-
         cell_dir = depmap_directory / "preprocessed" / cell_line
         cell_dir.mkdir(parents=True, exist_ok=True)
 
         out_path = cell_dir / "copy_number_alteration.csv"
         filtered.rename("score").to_csv(out_path, index=True, header=True, sep="\t")
 
+    print("Finished preprocessing copy number alteration input node data")
+    
     df_sm = pd.read_csv(depmap_directory / "raw" / "OmicsSomaticMutationsMatrixDamaging_25Q3.csv", sep=",", index_col=0)
     df_sm.drop(columns=["SequencingID", "ModelConditionID", "IsDefaultEntryForMC"], inplace = True)
 
@@ -65,12 +92,22 @@ def main():
     cols = ["ModelID", "ccle_id"] + [c for c in df_sm.columns if c not in ("ModelID", "ccle_id")]
     df_sm = df_sm[cols]
 
-    # remove (Unknown) from GENE_NAME (Unknown) to get GENE_NAME
+    # remove (NCBI) from GENE_NAME (NCBI) to get GENE_NAME
     df_sm.columns = df_sm.columns.str.replace(r"\s*\(.*\)$", "", regex=True)
 
-
     df_sm = df_sm.set_index("ccle_id").drop(columns="ModelID")
-    # print(df_sm)
+
+    print(df_sm)
+
+    # id mapping the columns: HGNC to ENSP
+    # hgnc_to_ensp = dict(zip(df_hgnc['HGNC_symbol'], df_hgnc['ENSP']))
+    # df_sm = df_sm.rename(columns=hgnc_to_ensp)
+    
+    hgnc_to_ensp = dict(zip(df_hgnc['HGNC_symbol'], df_hgnc['ENSP']))
+    mapped_cols = [c for c in df_sm.columns if c in hgnc_to_ensp]
+    df_sm = df_sm[mapped_cols].rename(columns=hgnc_to_ensp)
+
+    print(df_sm)
 
     for cell_line in df_sm.index:
         scores = df_sm.loc[cell_line]
@@ -82,6 +119,7 @@ def main():
         out_path = cell_dir / "sm.csv"
         filtered.rename("score").rename_axis("gene_name").to_csv(out_path, sep="\t", header=True)
 
+    print("Finished preprocessing somatic mutation input node data")
 
     df_tfa = pd.read_csv(depmap_directory / "raw" / "consensus_tfa_march_6.tsv", sep="\t", index_col=0)
     df_2sd_tfa = pd.read_csv(depmap_directory / "raw" / "tfs_beyond_2sd_per_cell_line.csv", sep="\t")
@@ -93,7 +131,6 @@ def main():
     keep_cols = [c for c in df_tfa.columns if c in depmap_to_ccle]
     df_tfa = df_tfa[keep_cols].rename(columns=depmap_to_ccle)
 
-    # print(df_tfa)
 
     df_2sd_tfa = df_2sd_tfa.merge(
         df_chosen_cell_lines,
@@ -106,6 +143,20 @@ def main():
     cols = ["cell_line", "ccle_id"] + [c for c in df_2sd_tfa.columns if c not in ("cell_line", "ccle_id")]
     df_2sd_tfa = df_2sd_tfa[cols]
 
+    print(df_2sd_tfa)
+
+    hgnc_to_ensp = dict(zip(df_hgnc['HGNC_symbol'], df_hgnc['ENSP']))
+
+    def map_tfs(tf_string):
+        symbols = [s.strip() for s in tf_string.split(',')]
+        mapped = [hgnc_to_ensp[s] for s in symbols if s in hgnc_to_ensp]
+        return ', '.join(mapped)
+
+    df_2sd_tfa['tfs'] = df_2sd_tfa['tfs'].apply(map_tfs)
+    df_2sd_tfa['n_tfs'] = df_2sd_tfa['tfs'].apply(lambda s: 0 if s == '' else len(s.split(',')))
+
+    print(df_2sd_tfa)
+    
     for _, row in df_2sd_tfa.iterrows():
         ccle_id = row["ccle_id"]
         tfs = [tf.strip() for tf in row["tfs"].split(",")]
@@ -120,8 +171,9 @@ def main():
         out_path = cell_dir / "tf.csv"
         scores.rename("tfa").rename_axis("tf").to_csv(out_path, sep="\t", header=True)
 
-    # format the data into SPRAS formatted data
+    print("Finished preprocessing transcription factor input node data")
 
+    # format the data into SPRAS formatted data
     # all the data
     for _, row in df_chosen_cell_lines.iterrows():
         ccle_id = row["ccle_id"]
@@ -139,11 +191,12 @@ def main():
         # read inputs; assumes each has columns
         sm = pd.read_csv(sm_path, sep="\t")
         copy_number_alteration = pd.read_csv(copy_number_alteration_path, sep="\t")
+        print(copy_number_alteration)
         tf = pd.read_csv(tf_path, sep="\t")
 
         # change the node-id column name across files
         sm = pd.read_csv(sm_path, sep="\t").rename(columns={"gene_name": "NODEID", "score": "prize"})
-        copy_number_alteration = pd.read_csv(copy_number_alteration_path, sep="\t").rename(columns={"Hugo_Symbol": "NODEID", "score": "prize"})
+        copy_number_alteration = pd.read_csv(copy_number_alteration_path, sep="\t").rename(columns={"ENSP": "NODEID", "score": "prize"})
         tf = pd.read_csv(tf_path, sep="\t").rename(columns={"tf": "NODEID", "tfa": "prize"})
 
         # tag roles
@@ -156,6 +209,7 @@ def main():
 
         # stack and collapse duplicates: keep max prize, OR the role flags
         combined = pd.concat([sm, copy_number_alteration, tf], ignore_index=True)
+        print(combined)
 
         agg = combined.groupby("NODEID", as_index=False).agg(
             prize=("prize", "max"),
@@ -219,6 +273,7 @@ def main():
         out_path = cell_dir / "input_nodes_no_copy_number_alteration.tsv"
         agg.to_csv(out_path, sep="\t", index=False)
 
+    print("Finished processing input node data into SPRAS format")
 
 if __name__ == "__main__":
     main()

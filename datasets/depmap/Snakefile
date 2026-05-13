@@ -1,31 +1,24 @@
 include: "../../cache/Snakefile"
 
 rule all:
-    # We currently only care about the FADU cell line. # TODO: Update to do all cell lines
     input:
-        # "processed/FADU_cell_line_prizes_input_nonzero.txt",
-        # "processed/FADU_cell_line_prizes.txt",
-        # "processed/FADU_gold_standard_thresh_0_5.txt",
         # "raw/phosphosite-irefindex13.0-uniprot.txt" # TODO: update this to String v12
-        "preprocessed/damaging_mutations.csv",
-        "preprocessed/copy_number_alteration.csv"
+        "processed/A375_SKIN/",
+        "preprocessed/interactome.tsv",
 produce_fetch_rules({
 
     # TODO: update everything to be the 25Q3 data
     "raw/OmicsProfiles_25Q3.csv": ("DepMap_25Q3", "OmicsProfiles_25Q3.csv"),
+    "raw/Model_25Q3.csv": ("DepMap_25Q3", "Model_25Q3.csv"),
 
     "raw/CRISPRGeneDependency_25Q3.csv": ("DepMap_25Q3", "CRISPRGeneDependency_25Q3.csv"),
 
     "raw/OmicsSomaticMutationsMatrixDamaging_25Q3.csv": ("DepMap_25Q3", "OmicsSomaticMutationsMatrixDamaging_25Q3.csv"),
 
-    "raw/Model_25Q3.csv": ("DepMap_25Q3", "Model_25Q3.csv"),
-
     "raw/Cell_lines_annotations_20181226_ccle2019.txt" : ("CCLE_2019", "Cell_lines_annotations_20181226_ccle2019.txt"),
-
     "raw/data_copy_number_alterations_cbioportal_ccle2019.txt": ("cbioportal", "data_copy_number_alterations_cbioportal_ccle2019.txt"),
 
     "raw/consensus_tfa_march_6.tsv": ("estimateNCA", "consensus_tfa_march_6.tsv"),
-
     "raw/tfs_beyond_2sd_per_cell_line.csv": ("estimateNCA", "tfs_beyond_2sd_per_cell_line.csv"),
 
     "raw/shared_cell_lines_may_12.txt": ("cancer_cellline_misc", "shared_cell_lines_may_12.txt"),
@@ -35,9 +28,9 @@ produce_fetch_rules({
     "raw/SwissProt_9606.tsv": ("UniProt", "9606", "SwissProt_9606.tsv"),
 
     # TODO: make this the string v12 interactome
-    "raw/phosphosite-irefindex13.0-uniprot.txt": ("iRefIndex", "phosphosite-irefindex13.0-uniprot.txt"),
-    "raw/9606.protein.links.full.txt": FetchConfig(("STRING", "9606", "9606.protein.links.full.txt.gz"), post_process=PostProcessAction.UNCOMPRESS_GZ),
-    "raw/9606.protein.aliases.txt": FetchConfig(("STRING", "9606", "9606.protein.aliases.txt.gz"), post_process=PostProcessAction.UNCOMPRESS_GZ),
+    # temporaly will use combined score
+    "raw/9606.protein.links.full.txt": FetchConfig(("STRING", "v12", "9606", "9606.protein.links.full.txt.gz"), post_process=PostProcessAction.UNCOMPRESS_GZ),
+    "raw/9606.protein.aliases.txt": FetchConfig(("STRING",  "v12", "9606", "9606.protein.aliases.txt.gz"), post_process=PostProcessAction.UNCOMPRESS_GZ),
 })
 
 rule input_nodes: 
@@ -46,12 +39,21 @@ rule input_nodes:
         "raw/data_copy_number_alterations_cbioportal_ccle2019.txt",
         "raw/consensus_tfa_march_6.tsv",
         "raw/tfs_beyond_2sd_per_cell_line.csv",
-        "raw/shared_cell_lines_may_12.txt"
+        "raw/shared_cell_lines_may_12.txt",
+        "raw/9606.protein.aliases.txt"
     output:
-        "preprocessed/damaging_mutations.csv",
-        "preprocessed/copy_number_alteration.csv"
+        "processed/A375_SKIN/"
     shell:
         "uv run scripts/process_input_nodes.py"
+
+rule interactome: 
+    input:
+        "raw/9606.protein.links.full.txt", 
+         "raw/9606.protein.aliases.txt"
+    output:
+        "preprocessed/interactome.tsv",
+    shell:
+        "uv run scripts/process_interactome.py"
 
 # rule mapping:
 #     input:
