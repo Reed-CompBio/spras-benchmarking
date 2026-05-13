@@ -267,7 +267,7 @@ directory: CacheDirectory = frozendict({
 
     # TODO: update the ccle data once the new pr gets merged: https://github.com/cBioPortal/datahub/pull/2283
     "cbioportal": {
-        "data_copy_number_alteractions_cbioportal_ccle2019.txt": CacheItem(
+        "data_copy_number_alterations_cbioportal_ccle2019.txt": CacheItem(
             name="Copy number alterations from CCLE",
             cached="https://drive.google.com/uc?id=1C-OQu80Ptfy0-aBWg6nlULcQQvfzBBPp"
         ),
