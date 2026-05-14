@@ -5,6 +5,8 @@ def deduplicate_edges(interactome_df: pandas.DataFrame) -> tuple[pandas.DataFram
     """
     Removes duplicate edges from the input `DataFrame` as an interactome.
     - For undirected edges, the node pair is sorted (e.g., "B-A" becomes "A-B") before removing duplicates.
+    - Directed edges are deduplicated by exact (Interactor1, Interactor2) match; "A->B" and "B->A" remain distinct.
+    - When duplicates are found, the row with the highest Weight is retained.
 
     @param interactome_df: A DataFrame from a raw file pathway.
     @return pd.DataFrame: A DataFrame with duplicate edges removed.
@@ -21,9 +23,16 @@ def deduplicate_edges(interactome_df: pandas.DataFrame) -> tuple[pandas.DataFram
     interactome_df.loc[undirected_mask, "Interactor1"] = min_nodes
     interactome_df.loc[undirected_mask, "Interactor2"] = max_nodes
 
+    # sort by Weight descending so keep="first" retains the highest-weight duplicate
+    interactome_df.sort_values("Weight", ascending=False, inplace=True)
+    
+    # remove duplicated edges
     unique_edges_df = interactome_df.drop_duplicates(subset=["Interactor1", "Interactor2", "Direction"], keep="first", ignore_index=True)
 
-    return unique_edges_df, not unique_edges_df.equals(interactome_df)
+    # return True if duplicates edges are removed
+    duplicates_removed = len(unique_edges_df) < len(interactome_df)
+
+    return unique_edges_df, duplicates_removed
 
 
 def get_interactome_nodes(interactome_df: pandas.DataFrame) -> set[str]:
@@ -36,13 +45,3 @@ def get_interactome_nodes(interactome_df: pandas.DataFrame) -> set[str]:
     NOTE: This isn't guaranteed to be order stable, not for any externally-required reason.
     """
     return set(list(interactome_df["Interactor1"])).union(list(interactome_df["Interactor2"]))
-
-
-# TODO: implement in SPRAS? This is the direct analogue of duplicate_edges in util.
-# We should also separate deduplication from the broader normalization if we do any more steps.
-def normalize_interactome(interactome_df: pandas.DataFrame) -> tuple[pandas.DataFrame, bool]:
-    """
-    Applies a number of post-processing steps to an interactome. This currently only includes:
-    - Deduplicating undirected edges
-    """
-    return deduplicate_edges(interactome_df)
