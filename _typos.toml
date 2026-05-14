@@ -13,3 +13,6 @@ extend-exclude = [
 
 [default.extend-words]
 cna = "cna"
+AGS = "AGS"
+HEL = "HEL"
+PANC = "PANC"
