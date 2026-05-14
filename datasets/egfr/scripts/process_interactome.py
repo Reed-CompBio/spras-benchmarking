@@ -7,6 +7,8 @@ egfr_directory = Path(__file__).parent.resolve() / ".."
 
 
 def main():
+
+    # TODO: update to be the physical links interactome
     interactome_df = pandas.read_csv(egfr_directory / "raw" / "9606.protein.links.full.txt", sep=" ")
     # Rename the columns both to stylistically keep it in-line with SPRAS and functionally for `deduplicate_edges`.
     interactome_df = interactome_df.rename(columns={"protein1": "Interactor1", "protein2": "Interactor2", "combined_score": "Weight"})
