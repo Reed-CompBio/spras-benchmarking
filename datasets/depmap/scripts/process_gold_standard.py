@@ -75,9 +75,12 @@ def main():
     print("Finished processing gold standard data")
 
     # write out the list of ccle_ids with empty gs after trimming
-    empty_gs_path = PROCESSED_DIR / "empty_gold_standard.csv"
-    pd.DataFrame({"ccle_id": empty_gs_ccle_ids}).to_csv(empty_gs_path, sep="\t", index=False)
-    print(f"\n{len(empty_gs_ccle_ids)} cell lines with empty gs written to {empty_gs_path}")
+    df_final_cell_lines = df_chosen_cell_lines[~df_chosen_cell_lines["ccle_id"].isin(empty_gs_ccle_ids)]
+    final_path = PROCESSED_DIR / "final_cell_lines.csv"
+    df_final_cell_lines.to_csv(final_path, sep="\t", index=False)
+    print(f"\n{len(empty_gs_ccle_ids)} cell lines dropped due to empty gs; {len(df_final_cell_lines)} cell lines written to {final_path}")
+
+
 
 if __name__ == "__main__":
     main()
