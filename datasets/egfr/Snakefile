@@ -9,7 +9,7 @@ rule all:
 
 produce_fetch_rules({
     "raw/9606.protein.links.full.txt": FetchConfig(
-        ("STRING", "latest", "9606", "9606.protein.links.full.txt.gz"),
+        ("STRING", "v12", "9606", "9606.protein.links.full.txt.gz"),
         post_process=PostProcessAction.UNCOMPRESS_GZ
     ),
     "raw/HUMAN_9606_idmapping_selected.tsv": FetchConfig(

@@ -85,12 +85,8 @@ The latter saves the file to a dataset-specific folder for dataset `Snakefile`s:
 that's used across multiple datasets, add it to `directory.py`. Otherwise, if you have a file specifically used for a dataset, keep it under that
 respective dataset.
 
-Some datasets also provide a `latest` tag, which would point to the latest version under `directory`. For example, at the time of writing
-(when `latest` pointed to `v12`), the following are equivalent:
-
 ```py
 FetchConfig(("STRING", "v12", "9606", "9606.protein.links.full.txt.gz"), post_process=PostProcessAction.UNCOMPRESS_GZ)
-FetchConfig(("STRING", "latest", "9606", "9606.protein.links.full.txt.gz"), post_process=PostProcessAction.UNCOMPRESS_GZ)
 ```
 
 ## Implementation details
