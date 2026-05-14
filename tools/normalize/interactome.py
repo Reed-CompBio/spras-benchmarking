@@ -25,7 +25,7 @@ def deduplicate_edges(interactome_df: pandas.DataFrame) -> tuple[pandas.DataFram
 
     # sort by Weight descending so keep="first" retains the highest-weight duplicate
     interactome_df.sort_values("Weight", ascending=False, inplace=True)
-    
+
     # remove duplicated edges
     unique_edges_df = interactome_df.drop_duplicates(subset=["Interactor1", "Interactor2", "Direction"], keep="first", ignore_index=True)
 
