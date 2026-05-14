@@ -21,6 +21,8 @@ def deduplicate_edges(interactome_df: pandas.DataFrame) -> tuple[pandas.DataFram
     interactome_df.loc[undirected_mask, "Interactor1"] = min_nodes
     interactome_df.loc[undirected_mask, "Interactor2"] = max_nodes
 
+    # TODO: does this also remove directed edges? If yes, the comment needs to be updated to explain how duplicate edges are removed
+    # TODO: does this keep the weight that is the highest first?
     unique_edges_df = interactome_df.drop_duplicates(subset=["Interactor1", "Interactor2", "Direction"], keep="first", ignore_index=True)
 
     return unique_edges_df, not unique_edges_df.equals(interactome_df)
