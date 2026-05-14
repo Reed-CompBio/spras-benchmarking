@@ -14,7 +14,7 @@ The following data is from [_Synthesizing Signaling Pathways from Temporal Phosp
 - Phosphoproteomic prize data (`egfr-prizes.txt`)
 - Gold standard nodes (`eight-egfr-reference-all.txt`)
 
-We also use the [StringDB](https://string-db.org/) (preferably latest, currently v12) human interactome and
+We also use the [StringDB](https://string-db.org/) (v12) full links human interactome and
 [UniProt](https://www.uniprot.org) mapping files which are based in ENSP IDs. See `cache/directory.py` and `./Snakefile` for more info on precisely
 where these were fetched.
 

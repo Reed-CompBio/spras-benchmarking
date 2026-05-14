@@ -164,9 +164,6 @@ directory: CacheDirectory = frozendict({
     # STRINGDB: https://string-db.org/
     # You can see more information about these files at https://string-db.org/cgi/download.
     "STRING": {
-        # Our latest STRING files are v12: datasets use 'latest'
-        # when they intend to use the most up-to-date STRING file.
-        "latest": "v12",
         "v12": {
             "9606": {
                 "9606.protein.links.full.txt.gz": CacheItem(

@@ -11,7 +11,7 @@ import argparse
 from pathlib import Path
 import pandas
 
-from tools.normalize.interactome import normalize_interactome
+from tools.normalize.interactome import deduplicate_edges
 from tools.normalize.trim_input_nodes import trim_input_nodes_file
 from tools.normalize.trim_list import trim_node_list_file
 
@@ -38,11 +38,11 @@ def argparser():
 def main():
     args = argparser().parse_args()
 
-    print("Normalizing interactome...")
+    print("Deduplicating interactome...")
     interactome_df = pandas.read_csv(args.interactome, sep="\t", header=None, names=["Interactor1", "Interactor2", "Weight", "Direction"])
-    normalized_interactome, _ = normalize_interactome(interactome_df)
+    deduplicated_interactome, _ = deduplicate_edges(interactome_df)
     Path(args.interactome_output).parent.mkdir(parents=True, exist_ok=True)
-    normalized_interactome.to_csv(args.interactome_output, sep="\t", index=False, header=False)
+    deduplicated_interactome.to_csv(args.interactome_output, sep="\t", index=False, header=False)
 
     if args.input_nodes:
         print("Trimming input nodes...")
