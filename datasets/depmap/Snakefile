@@ -4,7 +4,7 @@ rule all:
     input:
         # "raw/phosphosite-irefindex13.0-uniprot.txt" # TODO: update this to String v12
         "processed/A375_SKIN/",
-        "preprocessed/interactome.tsv",
+        "processed/interactome.tsv",
 produce_fetch_rules({
 
     # depmap data
@@ -21,13 +21,21 @@ produce_fetch_rules({
     "raw/consensus_tfa_march_6.tsv": ("estimateNCA", "consensus_tfa_march_6.tsv"),
     "raw/tfs_beyond_2sd_per_cell_line.csv": ("estimateNCA", "tfs_beyond_2sd_per_cell_line.csv"),
 
-
     "raw/shared_cell_lines_may_12.txt": ("cancer_cellline_misc", "shared_cell_lines_may_12.txt"),
 
     "raw/9606.protein.physical.links.full.txt": FetchConfig(("STRING", "v12", "9606", "9606.protein.physical.links.v12.0.txt.gz"), post_process=PostProcessAction.UNCOMPRESS_GZ),
     "raw/9606.protein.aliases.txt": FetchConfig(("STRING",  "v12", "9606", "9606.protein.aliases.txt.gz"), post_process=PostProcessAction.UNCOMPRESS_GZ),
 
 })
+
+rule interactome: 
+    input:
+        "raw/9606.protein.physical.links.full.txt", 
+        "raw/9606.protein.aliases.txt"
+    output:
+        "processed/interactome.tsv",
+    shell:
+        "uv run scripts/process_interactome.py"
 
 rule input_nodes: 
     input:
@@ -36,20 +44,12 @@ rule input_nodes:
         "raw/consensus_tfa_march_6.tsv",
         "raw/tfs_beyond_2sd_per_cell_line.csv",
         "raw/shared_cell_lines_may_12.txt",
-        "raw/9606.protein.aliases.txt"
+        "raw/9606.protein.aliases.txt",
+        "processed/interactome.tsv",
     output:
         "processed/A375_SKIN/"
     shell:
-        "uv run scripts/process_input_nodes.py"
-
-rule interactome: 
-    input:
-        "raw/9606.protein.physical.links.full.txt", 
-        "raw/9606.protein.aliases.txt"
-    output:
-        "preprocessed/interactome.tsv",
-    shell:
-        "uv run scripts/process_interactome.py"
+        "uv run scripts/process_input_nodes_update.py"
 
 # rule mapping:
 #     input:

@@ -63,3 +63,19 @@ The DepMap [pipeline documentation](https://storage.googleapis.com/shared-portal
 ## Release Citation
 For DepMap Release data, including CRISPR Screens, PRISM Drug Screens, Copy Number, Mutation, Expression, and Fusions:
 DepMap, Broad (2025). DepMap Public 25Q2. Dataset. depmap.org
+
+
+# ID mapping
+
+All depmap and ccle/cbioportal data uses hgnc gene naming for the proteins
+STRING physical links uses ensp
+Alias gives a mapping from hgnc_symbol to ensp
+Turning everything into ENSP
+
+
+# chosen cell lines
+
+1) for the raw data, chose all the cell lines that were matching 
+- look at the actual code and define mroe
+
+2) then once mapping and trimming was done, removing cell lines that are missing targets or sources (need at least one source and one target)

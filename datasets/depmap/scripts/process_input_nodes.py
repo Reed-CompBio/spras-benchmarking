@@ -101,64 +101,28 @@ def main():
     print("Finished preprocessing somatic mutation input node data")
 
     df_tfa = pd.read_csv(depmap_directory / "raw" / "consensus_tfa_march_6.tsv", sep="\t", index_col=0)
-    df_2sd_tfa = pd.read_csv(depmap_directory / "raw" / "tfs_beyond_2sd_per_cell_line.csv", sep="\t")
+    print(df_tfa)
 
-    # build a depmap_id -> ccle_id mapping
+    # TODO: get the 2sd tfa without using the df_2sd_tfa file
+    # remap columns: depmap_id -> ccle_id, keeping only chosen cell lines
     depmap_to_ccle = dict(zip(df_chosen_cell_lines["depmap_id"], df_chosen_cell_lines["ccle_id"]))
-
-    # keep only chosen cell lines that actually appear in df_tfa
-    keep_cols = [c for c in df_tfa.columns if c in depmap_to_ccle]
-    df_tfa = df_tfa[keep_cols].rename(columns=depmap_to_ccle)
-
-
-    df_2sd_tfa = df_2sd_tfa.merge(
-        df_chosen_cell_lines,
-        left_on="cell_line",
-        right_on="depmap_id",
-        how="inner",
-    ).drop(columns=["depmap_id"])
-
-    # Move ccle_id next to ModelID
-    cols = ["cell_line", "ccle_id"] + [c for c in df_2sd_tfa.columns if c not in ("cell_line", "ccle_id")]
-    df_2sd_tfa = df_2sd_tfa[cols]
-
-    # id mapping
-    # TODO: need to also do it to df_tfa
-
-    print(df_hgnc)
-    print(df_tfa)
-    df_tfa = (
-        df_tfa.reset_index()
-            .merge(df_hgnc, left_on='TF', right_on='HGNC_symbol', how='inner')
-            .drop(columns=['TF', 'HGNC_symbol'])
-            .set_index('ENSP')
-    )
-
-    print(df_tfa)
-
+    df_tfa = df_tfa[[c for c in df_tfa.columns if c in depmap_to_ccle]].rename(columns=depmap_to_ccle)
     hgnc_to_ensp = dict(zip(df_hgnc['HGNC_symbol'], df_hgnc['ENSP']))
+    df_tfa = df_tfa.rename(index=hgnc_to_ensp)
+    df_tfa = df_tfa[df_tfa.index.isin(hgnc_to_ensp.values())]
+    print(df_tfa)
 
-    def map_tfs(tf_string):
-        symbols = [s.strip() for s in tf_string.split(',')]
-        mapped = [hgnc_to_ensp[s] for s in symbols if s in hgnc_to_ensp]
-        return ', '.join(mapped)
+    # per-TF z-score: subtract row mean, divide by row std
+    df_zscore = df_tfa.sub(df_tfa.mean(axis=1), axis=0).div(df_tfa.std(axis=1), axis=0)
 
-    df_2sd_tfa['tfs'] = df_2sd_tfa['tfs'].apply(map_tfs)
-    df_2sd_tfa['n_tfs'] = df_2sd_tfa['tfs'].apply(lambda s: 0 if s == '' else len(s.split(',')))
-
-    for _, row in df_2sd_tfa.iterrows():
-        ccle_id = row["ccle_id"]
-        tfs = [tf.strip() for tf in row["tfs"].split(",")]
-
-        # pull tfs and scores for this cell line
-        # TFs are assigned their corresponding absolute value of the TFA scores
-        scores = df_tfa[ccle_id].reindex(tfs).abs()
+    # for each cell line, keep TFs with |z| > 2.0 (2 standard devations) and write absolute TFA as the score
+    for ccle_id in df_zscore.columns:
+        mask = df_zscore[ccle_id].abs() > 2.0
+        scores = df_tfa.loc[mask, ccle_id].abs()
 
         cell_dir = depmap_directory / "preprocessed" / ccle_id
         cell_dir.mkdir(parents=True, exist_ok=True)
-
-        out_path = cell_dir / "tf.csv"
-        scores.rename("tfa").rename_axis("tf").to_csv(out_path, sep="\t", header=True)
+        scores.rename("tfa").rename_axis("tf").to_csv(cell_dir / "tf.csv", sep="\t", header=True)
 
     print("Finished preprocessing transcription factor input node data")
 
@@ -234,6 +198,7 @@ def main():
         tf["targets"] = True
 
         # stack and collapse duplicates: keep max prize, OR the role flags
+        # TODO: what if any of these are empty?
         combined = pd.concat([sm, tf], ignore_index=True)
 
         # pick the highest prize and if there are duplicates true false, false true for the source target, they are turned into true true with the highest prize
