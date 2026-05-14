@@ -9,7 +9,7 @@ def test_deduplicate_edges():
     )
 
     assert len(df.index) == 4
-    
+
     deduplicated_df, _ = deduplicate_edges(df)
     assert len(deduplicated_df.index) == 3
     assert list(deduplicated_df.iloc[0]) == ["d", "e", numpy.int64(4), "D"]
