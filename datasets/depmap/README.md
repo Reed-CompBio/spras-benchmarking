@@ -75,7 +75,7 @@ Turning everything into ENSP
 
 # chosen cell lines
 
-1) for the raw data, chose all the cell lines that were matching 
-- look at the actual code and define mroe
+1) for the raw data, chose all the cell lines that were matching
+- look at the actual code and define more for the sharedlines
 
 2) then once mapping and trimming was done, removing cell lines that are missing targets or sources (need at least one source and one target)

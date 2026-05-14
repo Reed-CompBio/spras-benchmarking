@@ -3,8 +3,13 @@ include: "../../cache/Snakefile"
 rule all:
     input:
         # "raw/phosphosite-irefindex13.0-uniprot.txt" # TODO: update this to String v12
-        "processed/A375_SKIN/",
+        "processed/A375_SKIN/input_nodes.csv",
         "processed/interactome.tsv",
+        "processed/empty_data_no_cna.csv",
+        "processed/empty_data.csv",
+        "processed/A375_SKIN/gold_standard.csv",
+        # "processed/empty_gold_standard.csv", # this keeps being made and then deleted
+
 produce_fetch_rules({
 
     # depmap data
@@ -47,35 +52,23 @@ rule input_nodes:
         "raw/9606.protein.aliases.txt",
         "processed/interactome.tsv",
     output:
-        "processed/A375_SKIN/"
+        "processed/A375_SKIN/input_nodes.csv",
+        "processed/empty_data_no_cna.csv",
+        "processed/empty_data.csv",
+
     shell:
-        "uv run scripts/process_input_nodes_update.py"
+        "uv run scripts/process_input_nodes.py"
 
-# rule mapping:
-#     input:
-#         "raw/SwissProt_9606.tsv",
-#         "raw/HUMAN_9606_idmapping.tsv",
-#         "raw/HUMAN_9606_idmapping_selected.tsv",
-
-#         "raw/OmicsSomaticMutationsMatrixDamaging_25Q3.csv",
-#         "raw/CRISPRGeneDependency_25Q3.csv",
-#         "raw/consensus_tfa_march_6.tsv"
-
-#     output:
-#         "processed/DamagingMutations_idMapping.tsv"
-#     shell:
-#         "uv run scripts/uniprot_mapping.py"
-
-# rule process:
-#     input:
-#         "processed/DamagingMutations_idMapping.tsv",
-#         "raw/OmicsSomaticMutationsMatrixDamaging_25Q3.csv",
-#         "raw/OmicsProfiles_25Q3.csv",
-#         "raw/Model_25Q3.csv",
-#         "raw/CRISPRGeneDependency_25Q3.csv"
-#     output:
-#         "processed/FADU_cell_line_prizes_input_nonzero.txt",
-#         "processed/FADU_cell_line_prizes.txt",
-#         "processed/FADU_gold_standard_thresh_0_5.txt"
-#     shell:
-#         "uv run scripts/cell_line_processing.py"
+rule gold_standard: 
+    input:
+        "raw/CRISPRGeneDependency_25Q3.csv", # gold standard data
+        "processed/interactome.tsv", # interactome to trim with
+        "raw/9606.protein.aliases.txt", # id mapping HGNC -> ENSP
+        "raw/shared_cell_lines_may_12.txt", # lines to use
+        "processed/empty_data_no_cna.csv", # lines to avoid
+        "processed/empty_data.csv", # lines to avoid
+    output:
+        "processed/A375_SKIN/gold_standard.csv",
+        # "processed/empty_gold_standard.csv",
+    shell:
+        "uv run scripts/process_gold_standard.py"

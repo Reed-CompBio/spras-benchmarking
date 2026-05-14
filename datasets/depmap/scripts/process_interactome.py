@@ -10,13 +10,11 @@ def main():
     (depmap_directory / "processed").mkdir(exist_ok=True)
 
     interactome_df = pandas.read_csv(depmap_directory / "raw" / "9606.protein.physical.links.full.txt", sep=" ")
-    print(interactome_df)
 
-    # rename the columns
     interactome_df = interactome_df.rename(columns={"protein1": "Interactor1", "protein2": "Interactor2", "combined_score": "Weight"})
+    interactome_df = interactome_df[interactome_df["Weight"] > 1]
     interactome_df["Interactor1"] = interactome_df["Interactor1"].astype(str).str.removeprefix("9606.")
     interactome_df["Interactor2"] = interactome_df["Interactor2"].astype(str).str.removeprefix("9606.")
-    interactome_df = interactome_df[["Interactor1", "Interactor2", "Weight"]]
     interactome_df["Direction"] = "U"
 
     # deduplicate edges in the interactome
