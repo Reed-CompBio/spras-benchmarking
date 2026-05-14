@@ -11,7 +11,7 @@ def main():
 
     interactome_df = pandas.read_csv(depmap_directory / "raw" / "9606.protein.physical.links.full.txt", sep=" ")
     print(interactome_df)
-    
+
     # rename the columns
     interactome_df = interactome_df.rename(columns={"protein1": "Interactor1", "protein2": "Interactor2", "combined_score": "Weight"})
     interactome_df["Interactor1"] = interactome_df["Interactor1"].astype(str).str.removeprefix("9606.")
