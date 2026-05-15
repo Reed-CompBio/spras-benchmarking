@@ -26,12 +26,13 @@ def build_hgnc_to_ensp(idmapping_df: pd.DataFrame) -> dict[str, str]:
     return dict(zip(df_hgnc["HGNC_symbol"], df_hgnc["ENSP"]))
 
 def main():
+    PROCESSED_DIR.mkdir(exist_ok=True)
 
     df_idmapping = pd.read_csv(RAW_DIR / "9606.protein.aliases.txt", sep="\t")
 
     df_interactome = pd.read_csv(PROCESSED_DIR / "interactome.tsv", sep="\t", header=None, names=["Interactor1", "Interactor2", "Weight", "Direction"])
 
-    df_chosen_cell_lines = pd.read_csv(RAW_DIR / "shared_cell_lines_may_12.txt", sep="\t")
+    df_chosen_cell_lines = pd.read_csv(PROCESSED_DIR / "shared_cell_lines.txt", sep="\t")
     df_empty = pd.read_csv(PROCESSED_DIR / "empty_data.csv", sep="\t")
     df_empty_no_cna = pd.read_csv(PROCESSED_DIR / "empty_data_no_cna.csv", sep="\t")
     drop_ccle = set(df_empty["ccle_id"]) | set(df_empty_no_cna["ccle_id"])

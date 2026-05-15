@@ -1,6 +1,7 @@
 include: "../../cache/Snakefile"
 
 # 627 final cell lines
+# should match what is in final_cell_lines.csv
 CELL_LINES = [
     "A172_CENTRAL_NERVOUS_SYSTEM",
     "A2058_SKIN",
@@ -633,6 +634,7 @@ CELL_LINES = [
 
 rule all:
     input:
+        "processed/shared_cell_lines.txt",
         "processed/interactome.tsv",
         "processed/empty_data_no_cna.csv",
         "processed/empty_data.csv",
@@ -644,25 +646,37 @@ rule all:
 produce_fetch_rules({
 
     # depmap data
-    "raw/OmicsProfiles_25Q3.csv": ("DepMap_25Q3", "OmicsProfiles_25Q3.csv"),
-    "raw/Model_25Q3.csv": ("DepMap_25Q3", "Model_25Q3.csv"),
     "raw/CRISPRGeneDependency_25Q3.csv": ("DepMap_25Q3", "CRISPRGeneDependency_25Q3.csv"),
     "raw/OmicsSomaticMutationsMatrixDamaging_25Q3.csv": ("DepMap_25Q3", "OmicsSomaticMutationsMatrixDamaging_25Q3.csv"),
 
     # cbioportal data
-    "raw/Cell_lines_annotations_20181226_ccle2019.txt" : ("CCLE_2019", "Cell_lines_annotations_20181226_ccle2019.txt"),
     "raw/data_cna_cbioportal_ccle2019.txt": ("cbioportal", "data_cna_cbioportal_ccle2019.txt"),
 
     # tfa data
     "raw/consensus_tfa_march_6.tsv": ("estimateNCA", "consensus_tfa_march_6.tsv"),
-    "raw/tfs_beyond_2sd_per_cell_line.csv": ("estimateNCA", "tfs_beyond_2sd_per_cell_line.csv"),
 
-    "raw/shared_cell_lines_may_12.txt": ("cancer_cellline_misc", "shared_cell_lines_may_12.txt"),
+    # for shared lines across all raw data
+    "raw/Model_25Q3.csv": ("DepMap_25Q3", "Model_25Q3.csv"),
+    "raw/Cell_lines_annotations_20181226_ccle2019.txt" : ("CCLE_2019", "Cell_lines_annotations_20181226_ccle2019.txt"),
+    "raw/tfs_beyond_2sd_per_cell_line.csv": ("estimateNCA", "tfs_beyond_2sd_per_cell_line.csv"),
 
     "raw/9606.protein.physical.links.full.txt": FetchConfig(("STRING", "v12", "9606", "9606.protein.physical.links.v12.0.txt.gz"), post_process=PostProcessAction.UNCOMPRESS_GZ),
     "raw/9606.protein.aliases.txt": FetchConfig(("STRING",  "v12", "9606", "9606.protein.aliases.txt.gz"), post_process=PostProcessAction.UNCOMPRESS_GZ),
 
 })
+
+rule shared_cell_lines:
+    input:
+        "raw/Model_25Q3.csv",
+        "raw/Cell_lines_annotations_20181226_ccle2019.txt",
+        "raw/tfs_beyond_2sd_per_cell_line.csv",
+        "raw/CRISPRGeneDependency_25Q3.csv",
+        "raw/OmicsSomaticMutationsMatrixDamaging_25Q3.csv",
+        "raw/data_cna_cbioportal_ccle2019.txt"
+    output:
+        "processed/shared_cell_lines.txt"
+    shell:
+        "uv run scripts/process_find_shared_cell_lines.py"
 
 rule interactome: 
     input:
@@ -675,11 +689,10 @@ rule interactome:
 
 rule input_nodes: 
     input:
-        "raw/OmicsSomaticMutationsMatrixDamaging_25Q3.csv",
         "raw/data_cna_cbioportal_ccle2019.txt",
         "raw/consensus_tfa_march_6.tsv",
-        "raw/tfs_beyond_2sd_per_cell_line.csv",
-        "raw/shared_cell_lines_may_12.txt",
+        "raw/OmicsSomaticMutationsMatrixDamaging_25Q3.csv",
+        "processed/shared_cell_lines.txt",
         "raw/9606.protein.aliases.txt",
         "processed/interactome.tsv",
     output:
@@ -696,7 +709,7 @@ rule gold_standard:
         "raw/CRISPRGeneDependency_25Q3.csv", # gold standard data
         "processed/interactome.tsv", # interactome to trim with
         "raw/9606.protein.aliases.txt", # id mapping HGNC -> ENSP
-        "raw/shared_cell_lines_may_12.txt", # lines to use
+        "processed/shared_cell_lines.txt", # lines to use
         "processed/empty_data_no_cna.csv", # lines to avoid
         "processed/empty_data.csv", # lines to avoid
     output:

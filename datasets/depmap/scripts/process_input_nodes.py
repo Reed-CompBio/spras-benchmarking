@@ -75,8 +75,8 @@ def preprocess_somatic_mutations(df_sm: pd.DataFrame, df_chosen_cell_lines: pd.D
     print("Finished preprocessing somatic mutation input node data")
 
 
-def preprocess_tf_activity(df_tfa: pd.DataFrame, df_chosen_cell_lines: pd.DataFrame, hgnc_to_ensp: dict[str, str], z_threshold: float = 2.0) -> None:
-    """Write per-cell-line TF activity scores for TFs whose |z-score| exceeds z_threshold.
+def preprocess_tf_activity(df_tfa: pd.DataFrame, df_chosen_cell_lines: pd.DataFrame, hgnc_to_ensp: dict[str, str]) -> None:
+    """Write per-cell-line TF activity scores for TFs whose |z-score| exceeds 2.0 (2 standard).
 
     Z-scores are computed per TF (row-wise) across all chosen cell lines.
     """
@@ -91,9 +91,9 @@ def preprocess_tf_activity(df_tfa: pd.DataFrame, df_chosen_cell_lines: pd.DataFr
     # per-TF z-score: subtract row mean, divide by row std
     df_zscore = df_tfa.sub(df_tfa.mean(axis=1), axis=0).div(df_tfa.std(axis=1), axis=0)
 
-    # for each cell line, keep TFs with |z| > threshold; score is absolute raw TFA
+    # for each cell line, keep TFs with |z| > 2sd; score is absolute raw TFA
     for ccle_id in df_zscore.columns:
-        mask = df_zscore[ccle_id].abs() > z_threshold
+        mask = df_zscore[ccle_id].abs() > 2.0
         scores = df_tfa.loc[mask, ccle_id].abs()
 
         cell_dir = PREPROCESSED_DIR / ccle_id
@@ -172,7 +172,7 @@ def main():
 
     # load all raw inputs
     df_idmapping = pd.read_csv(RAW_DIR / "9606.protein.aliases.txt", sep="\t")
-    df_chosen_cell_lines = pd.read_csv(RAW_DIR / "shared_cell_lines_may_12.txt", sep="\t")
+    df_chosen_cell_lines = pd.read_csv(PROCESSED_DIR / "shared_cell_lines.txt", sep="\t")
     df_cna = pd.read_csv(RAW_DIR / "data_cna_cbioportal_ccle2019.txt", sep="\t", index_col=0)
     df_sm = pd.read_csv(RAW_DIR / "OmicsSomaticMutationsMatrixDamaging_25Q3.csv", index_col=0)
     df_tfa = pd.read_csv(RAW_DIR / "consensus_tfa_march_6.tsv", sep="\t", index_col=0)
