@@ -43,7 +43,6 @@ def main():
     df_somatic = df_somatic.loc[has_mutation, :]
 
     # remove any cell lines with no tfs
-    before = len(df_tfs)
     df_tfs = df_tfs[df_tfs["n_tfs"] >= 1]
 
     # remove any cell lines with no crispr genes >=0.5
@@ -60,7 +59,7 @@ def main():
     shared_cell_lines = cna_cell_lines & somatic_cell_lines & tfs_cell_lines & crispr_cell_lines
 
     # Check which cell line annotations and model.csv ids don't having matching depmap ids and ccle ids
-    # all of those will be marked as problomatic
+    # all of those will be marked as problematic
 
     # same CCLE ID, different depmap ID
     merged_on_ccle = cell_line_annotations.merge(model_annotations, left_on="CCLE_ID", right_on="CCLEName", how="inner")
@@ -69,13 +68,12 @@ def main():
     # same depmap ID, different CCLE ID
     merged_on_depmap = cell_line_annotations.merge(model_annotations, left_on="depMapID", right_on="ModelID", how="inner")
     depmap_ccle_mismatch = merged_on_depmap[merged_on_depmap["CCLE_ID"] != merged_on_depmap["CCLEName"]]
-   
+
     # union of all problematic depmap IDs
     problematic_depmap_ids = set(ccle_depmap_mismatch["depMapID"]) | set(ccle_depmap_mismatch["ModelID"]) | set(depmap_ccle_mismatch["depMapID"])
 
     # remove problematic dep map ids from total number of shared_cell_lines
     shared_cell_lines = shared_cell_lines - problematic_depmap_ids
-    
 
     shared_df = (
         model_annotations[model_annotations["ModelID"].isin(shared_cell_lines)]
@@ -83,7 +81,7 @@ def main():
         .rename(columns={"ModelID": "depmap_id", "CCLEName": "ccle_id"})
     )
     shared_df.to_csv(PROCESSED_DIR / "shared_cell_lines.txt", index=False, sep= "\t")
-    print(f"Finsihed getting shared cell lines: {len(shared_cell_lines)}")
+    print(f"Finished getting shared cell lines: {len(shared_cell_lines)}")
 
 
 if __name__ == "__main__":
