@@ -14,7 +14,7 @@ cd "$(dirname "$0")"
 
 main() {
     uv run snakemake --cores 1 -d datasets/egfr -s datasets/egfr/Snakefile
-    uv run snakemake --cores 1 -d datasets/synthetic_data -s datasets/synthetic_data/Snakefile
+    uv run snakemake --cores 1 -d datasets/synthetic_data -s datasets/panther_signaling_pathways/Snakefile
 }
 
 main "$@"
