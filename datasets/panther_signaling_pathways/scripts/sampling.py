@@ -4,9 +4,9 @@ import collections
 from typing import OrderedDict, NamedTuple
 
 import urllib.parse
-from tools.sample import attempt_sample
+from tools.sample.sampling import attempt_sample
 from tools.trim import trim_data_file
-from datasets.synthetic_data.scripts.util.parser import parser
+from datasets.panther_signaling_pathways.scripts.parser import parser
 import random
 
 synthetic_directory = Path(__file__).parent.parent.resolve()

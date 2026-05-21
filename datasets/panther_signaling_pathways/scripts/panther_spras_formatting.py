@@ -1,6 +1,6 @@
 import pandas as pd
 from pathlib import Path
-from datasets.synthetic_data.scripts.util.parser import parser
+from datasets.panther_signaling_pathways.scripts.parser import parser
 from tools.trim import trim_data_file
 
 synthetic_directory = Path(__file__).parent.parent.resolve()

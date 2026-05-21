@@ -38,7 +38,7 @@ package = true
 [tool.setuptools.packages.find]
 namespaces = false
 where = ["./"]
-include = ["cache", "tools"]
+include = ["cache", "tools", "datasets"]
 exclude = ["spras*"]
 
 [build-system]

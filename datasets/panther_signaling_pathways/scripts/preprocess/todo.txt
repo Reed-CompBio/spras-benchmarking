@@ -1,0 +1,3 @@
+I thikn the explore and panther pathways folders should go here
+
+all of these seem like preprocessing scripts

@@ -1,13 +1,13 @@
 from pathlib import Path
 from paxtools.fetch import fetch
-from datasets.synthetic_data.util.parse_pc_pathways import parse_pc_pathways
+from datasets.panther_signaling_pathways.util.parse_pc_pathways import parse_pc_pathways
 
 current_directory = Path(__file__).parent.resolve()
 
 
 def main():
     pathways_df = parse_pc_pathways(current_directory / "raw" / "pathways.txt")
-    print("Fetching pathways... [This may take some time. On the author's desktop machine, it took 15 minutes.]")
+    print("Fetching pathways... [This may take some time. Might take ~ 15 minutes.]")
     (current_directory / "output").mkdir(exist_ok=True)
     fetch(
         current_directory / "raw" / "pc-biopax.owl",

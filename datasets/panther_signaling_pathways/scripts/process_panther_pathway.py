@@ -2,7 +2,7 @@ import io
 import pandas as pd
 from pathlib import Path
 
-from datasets.synthetic_data.scripts.util.parser import parser
+from datasets.panther_signaling_pathways.scripts.parser import parser
 
 synthetic_directory = Path(__file__).parent.parent.resolve()
 

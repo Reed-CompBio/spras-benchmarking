@@ -18,16 +18,24 @@ rule all:
             "thresholded/{threshold}/{pathway}/interactome.txt",
             "thresholded/{threshold}/{pathway}/gold_standard_edges.txt",
         ], pathway=file_compatible_pathways, threshold=thresholds)
-
+        
 produce_fetch_rules({
-    "raw/9606.protein.links.full.v12.0.txt": FetchConfig(("STRING", "9606", "9606.protein.links.full.txt.gz"), uncompress=True),
-    "raw/9606.protein.aliases.txt": FetchConfig(("STRING", "9606", "9606.protein.aliases.txt.gz"), uncompress=True),
+   
+    "raw/9606.protein.links.full.v12.0.txt": FetchConfig(
+        ("STRING", "v12", "9606", "9606.protein.links.full.txt.gz"),
+        post_process=PostProcessAction.UNCOMPRESS_GZ
+    ),
 
+    "raw/9606.protein.aliases.txt": FetchConfig(("STRING", "v12", "9606", "9606.protein.aliases.txt.gz"),  post_process=PostProcessAction.UNCOMPRESS_GZ),
+
+    # TODO: rename this file structure
     "raw/human-interactome/table_S3_surfaceome.xlsx": CacheItem(
         name="Human surfaceome",
         unpinned="http://wlab.ethz.ch/surfaceome/table_S3_surfaceome.xlsx",
         cached="https://docs.google.com/uc?id=1cBXYbDnAJVet0lv3BRrizV5FuqfMbBr0",
     ),
+
+     # TODO: rename this file structure
     "raw/human-interactome/Homo_sapiens_TF.tsv": CacheItem(
         name="Human transcription factors",
         # This server has anti-bot protection, so to respect their wishes, we don't download from the server.
@@ -36,18 +44,22 @@ produce_fetch_rules({
         # (also under the Internet Archive as of Feb 2nd, 2026. If the original artifact disappears, the drive link below should suffice.)
         cached="https://drive.google.com/uc?id=1fVi18GpudUlquRPHgUJl3H1jy54gO-uz",
     ),
-    "raw/human-interactome/HUMAN_9606_idmapping_selected.tsv": FetchConfig(("UniProt", "9606", "HUMAN_9606_idmapping_selected.tab.gz"), uncompress=True),
+
+    # TODO: rename this file structure
+    "raw/human-interactome/HUMAN_9606_idmapping_selected.tsv": FetchConfig(("UniProt", "9606", "HUMAN_9606_idmapping_selected.tab.gz"), post_process=PostProcessAction.UNCOMPRESS_GZ),
+    
     # See ./panther_pathways for how this file was generated.
     "raw/pc-panther-biopax.owl": CacheItem(
         name="PathwayCommons PANTHER-only BioPAX file",
         cached="https://drive.google.com/uc?id=1MklrD8CJ1BIjh_wWr_g5rrIJ5XJB7FUI"
     ),
+   
     "raw/denylist.txt": CacheItem(
         name="PathwayCommons small molecule denylist",
         cached="https://drive.google.com/uc?id=1QmISJXPvVljA8oKuNYRUNbJJvZKPa_-u",
         pinned="https://download.baderlab.org/PathwayCommons/PC2/v14/blacklist.txt",
     ),
-    "raw/pathways.txt": FetchConfig(("PathwayCommons", "pathways.txt.gz"), uncompress=True)
+    "raw/pathways.txt": FetchConfig(("PathwayCommons", "pathways.txt.gz"),post_process=PostProcessAction.UNCOMPRESS_GZ)
 })
 
 rule interactome:
