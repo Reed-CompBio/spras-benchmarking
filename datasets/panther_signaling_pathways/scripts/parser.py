@@ -1,5 +1,4 @@
 import argparse
-from pathlib import Path
 
 from jsonc_parser.parser import JsoncParser
 import urllib.parse

@@ -19,7 +19,6 @@ directed = [
     "controls-transport-of-chemical",
     "chemical-affects",
     "used-to-produce",
-    "consumption-controled-by",
 ]
 
 undirected = ["in-complex-with", "interacts-with", "neighbor-of", "reacts-with"]
