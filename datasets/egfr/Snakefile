@@ -34,6 +34,8 @@ produce_fetch_rules({
     ),
 })
 
+# TODO: clean this up to only do the ENSP stuff. get rid of uniprot mappings
+
 rule process_gold_standard:
     input: "raw/eight-egfr-reference-all.txt"
     output: "preprocessed/uniprot/gold-standard-nodes.txt",
