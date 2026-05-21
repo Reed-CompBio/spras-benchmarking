@@ -17,10 +17,10 @@ ENSG or ENSP.
 def handle_ensembl_list(idmapping_df: pandas.DataFrame, column_name: str) -> pandas.DataFrame:
     idmapping_df = idmapping_df[idmapping_df[column_name].notnull()]
     # Handle our ;-delimited list
-    idmapping_df[column_name] = idmapping_df[column_name].str.split("; ")
+    idmapping_df.loc[:, column_name] = idmapping_df[column_name].str.split("; ")
     idmapping_df = idmapping_df.explode(column_name)
     # Drop isoforms
-    idmapping_df[column_name] = idmapping_df[column_name].str.split(".").str[0]
+    idmapping_df.loc[:, column_name] = idmapping_df[column_name].str.split(".").str[0]
     idmapping_df = idmapping_df.reset_index(drop=True)
     return idmapping_df
 
@@ -28,7 +28,8 @@ def handle_ensembl_list(idmapping_df: pandas.DataFrame, column_name: str) -> pan
 def idmapping_uniprot_mapping(path: str | os.PathLike) -> pandas.DataFrame:
     """
     Gets the UniProt mapping file (`*_idmapping_selected`) as a dataframe with columns
-    UniProtKB-AC: High-quality UniProt IDs
+    UniProtKB-AC: UniProt Accession Numbers
+    UniProtKB-ID
     Ensembl: ENSG
     Ensembl_PRO: ENSG (Ensembl Protein IDs)
     """
