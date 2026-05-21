@@ -8,8 +8,9 @@ rule all:
         "processed/ensp/interactome.tsv",
 
 produce_fetch_rules({
-    "raw/9606.protein.links.full.txt": FetchConfig(
-        ("STRING", "v12", "9606", "9606.protein.links.full.txt.gz"),
+
+    "raw/9606.protein.physical.links.txt": FetchConfig(
+        ("STRING", "v12", "9606", "9606.protein.physical.links.v12.0.txt.gz"),
         post_process=PostProcessAction.UNCOMPRESS_GZ
     ),
     "raw/HUMAN_9606_idmapping_selected.tsv": FetchConfig(
@@ -39,7 +40,7 @@ rule process_gold_standard:
     shell: "uv run scripts/process_gold_standard.py"
 
 rule process_interactome:
-    input: "raw/9606.protein.links.full.txt"
+    input: "raw/9606.protein.physical.links.txt"
     output: "preprocessed/ensp/interactome.tsv"
     shell: "uv run scripts/process_interactome.py"
 
