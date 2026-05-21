@@ -1,6 +1,5 @@
 from pathlib import Path
 import pandas as pd
-import sys
 import requests
 import time
 
@@ -50,13 +49,13 @@ def main():
 
     num_in_tiga = len([x for x in namespace_mapping.keys() if x in tiga_ids])
     print(f'.  {num_in_tiga}/{num_mapped_DOIDs} of mapped DOIDs are in TIGA.')
-    
+
     # Replace the EFO/MONDO IDs with DOID IDs and drop the ones that don't map.
     print('Mapping TIGA entries to DOID:')
     tiga["efoId"] = tiga["efoId"].map(namespace_mapping)
     tiga = tiga.dropna(subset=["efoId"])
     print(f'.  There are {len(tiga)} trait-gene snp scores after mapping to DOID and dropping N/As.')
-    
+
     tiga_ids = tiga["efoId"].unique().tolist()
     print(f'.  There are now {len(tiga_ids)} DROID traits in the TIGA dataset. If this is fewer than above, then multiple TIGA ids map to the same DOID.')
 
@@ -77,7 +76,7 @@ def main():
 # defined with help from ChatGPT.
 def oxo_search(doids, mapping_targets=["EFO", "MONDO"], distance=1,sleep_seconds = 0.01):
     """Map a batch of DOIDs to EFO/MONDO IDs using OxO."""
-    
+
     payload = {"ids": doids, "mappingTarget": mapping_targets, "distance": distance}
 
     response = requests.post(
@@ -106,7 +105,7 @@ def oxo_search(doids, mapping_targets=["EFO", "MONDO"], distance=1,sleep_seconds
             mapped_dict[mapped_id] = query_id
 
     time.sleep(sleep_seconds)
-    return mapped_dict    
+    return mapped_dict
 
 if __name__ == "__main__":
     main()

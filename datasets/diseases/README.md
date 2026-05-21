@@ -42,7 +42,7 @@ We hashed out this pipeline on the whiteboard in July 2026:
 
 Here is an updated version after April/May 2026 refactoring:
 
-![workflow-image](figs/DISEASES-workflow.png) 
+![workflow-image](figs/DISEASES-workflow.png)
 
 Briefly the steps are:
 
@@ -129,13 +129,13 @@ Mapping STRING IDs:
 _Note:_ We discussed a version 2 where we also run DO-gene associations for diseases _not_ in the validation set; that's a later project).
 
 **C. SPRAS Inputs** (`prepare_inputs.py`):
-- Identify the diseases that have both TIGA data and also appear in the Gold Standard dataset. 
-- Each of the diseases will be a separate node prizes dataset. For each disease, convert the snp_w scores into prizes and make a `node-prizes.txt` file. 
-- Each of the diseases will have a validation dataset, comprising of the high confidence diseases-gene pairs from the DISEASES text mining and/or knowledge channels. They have a score (a 4 or a 5), but they are all considered "high confidence" and thus a gene set. 
+- Identify the diseases that have both TIGA data and also appear in the Gold Standard dataset.
+- Each of the diseases will be a separate node prizes dataset. For each disease, convert the snp_w scores into prizes and make a `node-prizes.txt` file.
+- Each of the diseases will have a validation dataset, comprising of the high confidence diseases-gene pairs from the DISEASES text mining and/or knowledge channels. They have a score (a 4 or a 5), but they are all considered "high confidence" and thus a gene set.
 
 ```
 Reading gold standard and trait-gene assoc files:
-.  Gold Standard: 84972 disease-gene assocations for 643 diseases.
+.  Gold Standard: 84972 disease-gene associations for 643 diseases.
 .  Trait-gene associations (TIGA): 18368 trait-gene associations for 121 diseases.
 There are 121 diseases that are in both the gold standard and in TIGA.
 Done writing prize and gold standard files for 121 diseases.
@@ -144,5 +144,5 @@ Done writing prize and gold standard files for 121 diseases.
 To make a list of prize files to add to the Snakemake file, use the following command:
 
 ```
-ls prize_files/* GS_files/* | awk '{print "        \""$1"\","}' 
+ls prize_files/* GS_files/* | awk '{print "        \""$1"\","}'
 ```

@@ -10,7 +10,7 @@ GENE_SET_SIZE_MINIMUM = 10
 
 '''
 Generates gold standard disease-gene associations from the DISEASES
-database using the text mining and knowledge channels. It relies on 
+database using the text mining and knowledge channels. It relies on
 a confidence score threshold to establish high confidence disease gene
 pairs and then a size threshold to establish the diseases with enough
 high confidence disease-gene pairs.
@@ -29,7 +29,7 @@ def main():
     text_mining = text_mining[["geneID", "geneName", "diseaseID", "diseaseName", "confidenceScore"]]
     knowledge = knowledge[["geneID", "geneName", "diseaseID", "diseaseName", "confidenceScore"]]
 
-    # drop disease-gene associations if their confidence scores 
+    # drop disease-gene associations if their confidence scores
     # are less than CONFIDENCE_SCORE_MINIMUM
     # doing this here so the dataframes are substantially smaller.
     text_mining = text_mining[text_mining["confidenceScore"] >= CONFIDENCE_SCORE_MINIMUM]
@@ -64,7 +64,7 @@ def main():
     print(f' The high-confidence disease-gene pairs correspond to {len(GS_diseases)} distinct diseases.')
     GS_retained_diseases = set([k for k, v in GS_diseases if (len(v) >= GENE_SET_SIZE_MINIMUM)])
     print(f' There are {len(GS_retained_diseases)} diseases with at least {GENE_SET_SIZE_MINIMUM} high-confidence disease-gene pairs')
-    
+
     # Filter the high-confidence disease-gene pairs to retain only the diseases that have been retained.
     GS_high_conf_retained_diseases = GS_high_conf[GS_high_conf["diseaseID"].isin(GS_retained_diseases)]
     print(f' There are {len(GS_high_conf_retained_diseases)} high-confidence disease-gene pairs from the {len(GS_retained_diseases)} diseases')

@@ -18,19 +18,19 @@ def main():
     # Gold Standard file from `gold_standard.py`
     gold_standard = pd.read_csv(diseases_path / "processed" / "gold_standard.csv")
     gold_standard_grouped = gold_standard.groupby("diseaseID")
-    print(f'.  Gold Standard: {len(gold_standard)} disease-gene assocations for {len(gold_standard_grouped)} diseases.')
+    print(f'.  Gold Standard: {len(gold_standard)} disease-gene associations for {len(gold_standard_grouped)} diseases.')
 
     # Inputs file from `trait_gene_assoc.py`
     tiga = pd.read_csv(diseases_path / "processed" / "trait_gene_assoc.csv")
     tiga_grouped = tiga.groupby("efoId")
     print(f'.  Trait-gene associations (TIGA): {len(tiga)} trait-gene associations for {len(tiga_grouped)} diseases.')
-    
+
     # assert that the TIGA groups are a subset of the gold_standard
     # (this was by construction in this refactor; might change later)
     combined_groups = set(tiga_grouped.groups.keys()).intersection(set(gold_standard_grouped.groups.keys()))
     assert combined_groups==tiga_grouped.groups.keys()
     print(f'There are {len(combined_groups)} diseases that are in both the gold standard and in TIGA.')
-    
+
     # now, generate the per-disease inputs.
     for diseaseID in tiga_grouped.groups.keys():
         tiga_df = tiga_grouped.get_group(diseaseID)
@@ -41,7 +41,7 @@ def main():
         #print(f' {diseaseID} --> {disease_name}')
         filename_prefix = diseaseID.replace(':','_')+'_'+disease_name.replace(' ','_').replace("'","")
         node_filename = f'{filename_prefix}_prizes.txt'
-        gs_filename = f'{filename_prefix}_GS.txt'  
+        gs_filename = f'{filename_prefix}_GS.txt'
 
         # write the prize file output
         tiga_df = tiga_df[["str_id", "n_snpw"]]
