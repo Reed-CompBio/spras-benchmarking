@@ -8,8 +8,9 @@ rule all:
         "processed/ensp/interactome.tsv",
 
 produce_fetch_rules({
-    "raw/9606.protein.links.full.txt": FetchConfig(
-        ("STRING", "v12", "9606", "9606.protein.links.full.txt.gz"),
+
+    "raw/9606.protein.physical.links.txt": FetchConfig(
+        ("STRING", "v12", "9606", "9606.protein.physical.links.v12.0.txt.gz"),
         post_process=PostProcessAction.UNCOMPRESS_GZ
     ),
     "raw/HUMAN_9606_idmapping_selected.tsv": FetchConfig(
@@ -33,13 +34,15 @@ produce_fetch_rules({
     ),
 })
 
+# TODO: clean this up to only do the ENSP stuff. get rid of uniprot mappings
+
 rule process_gold_standard:
     input: "raw/eight-egfr-reference-all.txt"
     output: "preprocessed/uniprot/gold-standard-nodes.txt",
     shell: "uv run scripts/process_gold_standard.py"
 
 rule process_interactome:
-    input: "raw/9606.protein.links.full.txt"
+    input: "raw/9606.protein.physical.links.txt"
     output: "preprocessed/ensp/interactome.tsv"
     shell: "uv run scripts/process_interactome.py"
 

@@ -176,6 +176,11 @@ directory: CacheDirectory = frozendict({
                     cached="https://drive.google.com/uc?id=1IWrQeTVCcw1A-jDk-4YiReWLnwP0S9bY",
                     pinned="https://stringdb-downloads.org/download/protein.aliases.v12.0/9606.protein.aliases.v12.0.txt.gz",
                 ),
+                "9606.protein.physical.links.v12.0.txt.gz": CacheItem(
+                    name="STRING 9606 physical subnetwork, scored links between proteins v12",
+                    cached="https://drive.google.com/uc?id=1qCo9a04IPRCAP0B_jDuOWAWAL7bE5Oz9",
+                    pinned="https://stringdb-downloads.org/download/protein.physical.links.v12.0/9606.protein.physical.links.v12.0.txt.gz"
+                )
             }
         },
     },
