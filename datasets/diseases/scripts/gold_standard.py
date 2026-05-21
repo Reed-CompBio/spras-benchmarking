@@ -18,8 +18,8 @@ high confidence disease-gene pairs.
 def main():
     print('Reading data...')
     # Get our data from `fetch.py`
-    text_mining = pd.read_csv(diseases_path / "raw" / "human_disease_textmining_filtered.tsv", sep="\t")
-    knowledge = pd.read_csv(diseases_path / "raw" / "human_disease_knowledge_filtered.tsv", sep="\t")
+    text_mining = pd.read_csv(diseases_path / "raw" / "human_disease_textmining_full.tsv", sep="\t")
+    knowledge = pd.read_csv(diseases_path / "raw" / "human_disease_knowledge_full.tsv", sep="\t")
     # and correctly map their columns
     text_mining.columns = ["geneID", "geneName", "diseaseID", "diseaseName", "zScore", "confidenceScore", "sourceUrl"]
     knowledge.columns = ["geneID", "geneName", "diseaseID", "diseaseName", "sourceDB", "evidenceType", "confidenceScore"]

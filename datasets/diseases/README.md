@@ -47,7 +47,7 @@ Here is an updated version after April/May 2026 refactoring:
 Briefly the steps are:
 
 **A. Gold Standard Dataset Generation** (`scripts/gold_standard.py`):
-- Use the text mining and knowledge channels from DISEASES.
+- Use the _full_ text mining and knowledge channels from DISEASES.
 - For every disease-gene association, get the max value from those two channels (we believe the confidence scores aren't averaged, but that would make sense - we should double-check).
 - Remove all disease-gene associations that have a confidence score of less than 4 (retain all w/ scores 4 or 5 out of 5). Call these "high confidence disease-gene pairs."
 - Then, remove all disease-gene associations for which there are fewer than 10 high confidence disease-gene pairs for a disease.
@@ -55,20 +55,22 @@ Briefly the steps are:
 
 ```
 Reading data...
- 287971 text mining and 7734 knowledge associations.
- 268 text mining and 7683 knowledge associations with confidenceScore >= 4.
+ 11419274 text mining and 98383 knowledge associations.
+ 1791 text mining and 97540 knowledge associations with confidenceScore >= 4.
 
 Combining Text Mining and Knowledge Channels...
- 135 associations found in both text mining and knowledge channels. Maximum score retained.
- 63 associations from text mining only.
- 7201 associations from knowledge only.
- 7399 total high confidence disease-gene associations.
+ 1884 associations found in both text mining and knowledge channels. Maximum score retained.
+ 444 associations from text mining only.
+ 86628 associations from knowledge only.
+ 88956 total high confidence disease-gene associations.
 
 Filtering diseases...
- The high-confidence disease-gene pairs correspond to 1099 distinct diseases.
- There are 134 diseases with at least 10 high-confidence disease-gene pairs
- There are 5369 high-confidence disease-gene pairs from the 134 diseases
+ The high-confidence disease-gene pairs correspond to 2200 distinct diseases.
+ There are 643 diseases with at least 10 high-confidence disease-gene pairs
+ There are 84972 high-confidence disease-gene pairs from the 643 diseases
 ```
+
+(Note: if you use the filtered datasets, you end with 134 diseases with at least 10 high-confidence disease-gene pairs).
 
 **B. GWAS Dataset Creation** (`scripts/trait_gene_assoc.py`):
 - Take the TIGA trait-gene associations and the gold standard Disease Ontology (DO) annotations.
@@ -78,25 +80,50 @@ Filtering diseases...
 ```
 Reading TIGA file...
 . There are 676837 trait-gene snp scores from TIGA.
-. There are 11978 EFO/MONDO/OBA traits.
+.  There are 11978 EFO/MONDO/OBA traits.
 Reading gold standard file...
-. There are 134 disease ontology IDs from the gold standard.
+.  There are 643 disease ontology IDs from the gold standard.
 Querying https://www.ebi.ac.uk/spot/oxo/api/search?size=500 in batches of 20:
-.  [0:20/134]
-.  [20:40/134]
-.  [40:60/134]
-.  [60:80/134]
-.  [80:100/134]
-.  [100:120/134]
-.  [120:140/134]
-132/134 DOIDs are mapped.
-41/132 of mapped DOIDs are in TIGA.
+.  [0:20/643]
+.  [20:40/643]
+.  [40:60/643]
+.  [60:80/643]
+.  [80:100/643]
+.  [100:120/643]
+.  [120:140/643]
+.  [140:160/643]
+.  [160:180/643]
+.  [180:200/643]
+.  [200:220/643]
+.  [220:240/643]
+.  [240:260/643]
+.  [260:280/643]
+.  [280:300/643]
+.  [300:320/643]
+.  [320:340/643]
+.  [340:360/643]
+.  [360:380/643]
+.  [380:400/643]
+.  [400:420/643]
+.  [420:440/643]
+.  [440:460/643]
+.  [460:480/643]
+.  [480:500/643]
+.  [500:520/643]
+.  [520:540/643]
+.  [540:560/643]
+.  [560:580/643]
+.  [580:600/643]
+.  [600:620/643]
+.  [620:640/643]
+.  [640:660/643]
+.  342/643 DOIDs are mapped.
+.  126/342 of mapped DOIDs are in TIGA.
 Mapping TIGA entries to DOID:
-. There are 10739 trait-gene snp scores after mapping to DOID and dropping N/As.
-. There are now 40 DROID traits in the TIGA dataset.
-. (Note: two TIGA ids map to a single DOID)
+.  There are 18422 trait-gene snp scores after mapping to DOID and dropping N/As.
+.  There are now 121 DROID traits in the TIGA dataset. If this is fewer than above, then multiple TIGA ids map to the same DOID.
 Mapping STRING IDs:
-.  There are 10715 DOID-gene snp scores.
+.  There are 18368 DOID-gene snp scores.
 ```
 
 _Note:_ We discussed a version 2 where we also run DO-gene associations for diseases _not_ in the validation set; that's a later project).
@@ -108,8 +135,14 @@ _Note:_ We discussed a version 2 where we also run DO-gene associations for dise
 
 ```
 Reading gold standard and trait-gene assoc files:
-.  Gold Standard: 5369 disease-gene associations for 134 diseases.
-.  Trait-gene associations (TIGA): 10715 trait-gene associations for 40 diseases.
-There are 40 diseases that are in both the gold standard and in TIGA.
-Done writing prize and gold standard files for 40 diseases.
+.  Gold Standard: 84972 disease-gene assocations for 643 diseases.
+.  Trait-gene associations (TIGA): 18368 trait-gene associations for 121 diseases.
+There are 121 diseases that are in both the gold standard and in TIGA.
+Done writing prize and gold standard files for 121 diseases.
+```
+
+To make a list of prize files to add to the Snakemake file, use the following command:
+
+```
+ls prize_files/* GS_files/* | awk '{print "        \""$1"\","}' 
 ```
