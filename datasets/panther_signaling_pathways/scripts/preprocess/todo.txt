@@ -1,3 +1,6 @@
 I thikn the explore and panther pathways folders should go here
 
 all of these seem like preprocessing scripts
+
+also add the sampling code here
+# we are keeping this static so a user is not rerunning this code and getting different interactomes
