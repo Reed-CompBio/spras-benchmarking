@@ -66,7 +66,7 @@ def main():
     df_final_cell_lines = df_chosen_cell_lines[~df_chosen_cell_lines["ccle_id"].isin(empty_gs_ccle_ids)]
     final_path = PROCESSED_DIR / "final_cell_lines.csv"
     df_final_cell_lines.to_csv(final_path, sep="\t", index=False)
-    
+
     # append empty gold standard cell lines to empty_data.csv
     if empty_gs_ccle_ids:
         df_empty_gs = pd.DataFrame({
