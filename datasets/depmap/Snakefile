@@ -636,12 +636,11 @@ rule all:
     input:
         "processed/shared_cell_lines.txt",
         "processed/interactome.tsv",
-        "processed/empty_data_no_cna.csv",
         "processed/empty_data.csv",
         expand("processed/{ccle_id}/input_nodes.csv", ccle_id=CELL_LINES),
         expand("processed/{ccle_id}/input_nodes_no_cna.csv", ccle_id=CELL_LINES),
         expand("processed/{ccle_id}/gold_standard.csv", ccle_id=CELL_LINES),
-        "processed/final_cell_lines.csv"
+        "processed/final_cell_lines.csv",
 
 produce_fetch_rules({
 
@@ -669,7 +668,7 @@ rule shared_cell_lines:
     input:
         "raw/Model_25Q3.csv",
         "raw/Cell_lines_annotations_20181226_ccle2019.txt",
-        "raw/tfs_beyond_2sd_per_cell_line.csv",
+        "raw/consensus_tfa_march_6.tsv",
         "raw/CRISPRGeneDependency_25Q3.csv",
         "raw/OmicsSomaticMutationsMatrixDamaging_25Q3.csv",
         "raw/data_cna_cbioportal_ccle2019.txt"
@@ -698,7 +697,6 @@ rule input_nodes:
     output:
         expand("processed/{ccle_id}/input_nodes.csv", ccle_id=CELL_LINES),
         expand("processed/{ccle_id}/input_nodes_no_cna.csv", ccle_id=CELL_LINES),
-        "processed/empty_data_no_cna.csv",
         "processed/empty_data.csv",
 
     shell:
@@ -706,12 +704,11 @@ rule input_nodes:
 
 rule gold_standard: 
     input:
-        "raw/CRISPRGeneDependency_25Q3.csv", # gold standard data
-        "processed/interactome.tsv", # interactome to trim with
-        "raw/9606.protein.aliases.txt", # id mapping HGNC -> ENSP
-        "processed/shared_cell_lines.txt", # lines to use
-        "processed/empty_data_no_cna.csv", # lines to avoid
-        "processed/empty_data.csv", # lines to avoid
+        "raw/CRISPRGeneDependency_25Q3.csv",
+        "processed/interactome.tsv",
+        "raw/9606.protein.aliases.txt",
+        "processed/shared_cell_lines.txt",
+        "processed/empty_data.csv",
     output:
         expand("processed/{ccle_id}/gold_standard.csv", ccle_id=CELL_LINES),
         "processed/final_cell_lines.csv"

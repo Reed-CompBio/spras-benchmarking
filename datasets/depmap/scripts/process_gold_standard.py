@@ -1,10 +1,8 @@
-# `CRISPRGeneDependency.csv`: Gene dependency probability estimates for all models in the integrated gene effect.
-# This dataset is used to identify gold standard genes in each cell line, a dependency probability cutoff of 0.5
-# is currently used to get the genes with considerable impact on the cell line.
 import pandas as pd
 from pathlib import Path
 from tools.normalize.trim_list import trim_node_list
 from tools.normalize.interactome import get_interactome_nodes
+from util import build_hgnc_to_ensp
 
 DEPMAP_DIR = Path(__file__).parent.resolve() / ".."
 RAW_DIR = DEPMAP_DIR / "raw"
@@ -12,18 +10,6 @@ PREPROCESSED_DIR = DEPMAP_DIR / "preprocessed"
 PROCESSED_DIR = DEPMAP_DIR / "processed"
 
 DEPENDENCY_CUTOFF = 0.5
-
-def build_hgnc_to_ensp(idmapping_df: pd.DataFrame) -> dict[str, str]:
-    """
-    Build an HGNC symbol -> ENSP id mapping from the STRING aliases file.
-    """
-
-    df_hgnc = (
-        idmapping_df.loc[idmapping_df["source"] == "Ensembl_HGNC_symbol"]
-        .rename(columns={"#string_protein_id": "ENSP", "alias": "HGNC_symbol"})
-        .assign(ENSP=lambda x: x["ENSP"].str.removeprefix("9606."))
-    )
-    return dict(zip(df_hgnc["HGNC_symbol"], df_hgnc["ENSP"]))
 
 def main():
     PROCESSED_DIR.mkdir(exist_ok=True)
@@ -33,9 +19,10 @@ def main():
     df_interactome = pd.read_csv(PROCESSED_DIR / "interactome.tsv", sep="\t", header=None, names=["Interactor1", "Interactor2", "Weight", "Direction"])
 
     df_chosen_cell_lines = pd.read_csv(PROCESSED_DIR / "shared_cell_lines.txt", sep="\t")
+
+    # drop cell line if empty
     df_empty = pd.read_csv(PROCESSED_DIR / "empty_data.csv", sep="\t")
-    df_empty_no_cna = pd.read_csv(PROCESSED_DIR / "empty_data_no_cna.csv", sep="\t")
-    drop_ccle = set(df_empty["ccle_id"]) | set(df_empty_no_cna["ccle_id"])
+    drop_ccle = set(df_empty["ccle_id"])
     df_chosen_cell_lines = df_chosen_cell_lines[~df_chosen_cell_lines["ccle_id"].isin(drop_ccle)]
 
     df_gs = pd.read_csv(RAW_DIR / "CRISPRGeneDependency_25Q3.csv", sep=",", index_col=0, header=0)
@@ -63,7 +50,7 @@ def main():
         trimmed = trim_node_list(interactome_nodes, passing)
 
         if not trimmed:
-            print(f"{ccle_id}: empty goldstandard after interactome trim ({len(passing)} passing before trim)")
+            print(f"{ccle_id} is an empty gold standard after interactome trim ({len(passing)} passing before trim)")
             empty_gs_ccle_ids.append(ccle_id)
             continue
 
@@ -79,6 +66,17 @@ def main():
     df_final_cell_lines = df_chosen_cell_lines[~df_chosen_cell_lines["ccle_id"].isin(empty_gs_ccle_ids)]
     final_path = PROCESSED_DIR / "final_cell_lines.csv"
     df_final_cell_lines.to_csv(final_path, sep="\t", index=False)
+    
+    # append empty gold standard cell lines to empty_data.csv
+    if empty_gs_ccle_ids:
+        df_empty_gs = pd.DataFrame({
+            "ccle_id": empty_gs_ccle_ids,
+            "version": "gold_standard",
+            "empty_data": "no nodes after interactome trim"
+        })
+        empty_path = PROCESSED_DIR / "empty_data.csv"
+        df_empty_gs.to_csv(empty_path, sep="\t", index=False, mode="a")
+
     print(f"\n{len(empty_gs_ccle_ids)} cell lines dropped due to empty gs; {len(df_final_cell_lines)} cell lines written to {final_path}")
 
 

@@ -1,24 +1,12 @@
 import pandas as pd
 from pathlib import Path
 from tools.normalize.trim_input_nodes import trim_input_nodes_file
+from util import build_hgnc_to_ensp
 
 DEPMAP_DIR = Path(__file__).parent.resolve() / ".."
 RAW_DIR = DEPMAP_DIR / "raw"
 PREPROCESSED_DIR = DEPMAP_DIR / "preprocessed"
 PROCESSED_DIR = DEPMAP_DIR / "processed"
-
-
-def build_hgnc_to_ensp(idmapping_df: pd.DataFrame) -> dict[str, str]:
-    """
-    Build an HGNC symbol -> ENSP id mapping from the STRING aliases file.
-    """
-
-    df_hgnc = (
-        idmapping_df.loc[idmapping_df["source"] == "Ensembl_HGNC_symbol"]
-        .rename(columns={"#string_protein_id": "ENSP", "alias": "HGNC_symbol"})
-        .assign(ENSP=lambda x: x["ENSP"].str.removeprefix("9606."))
-    )
-    return dict(zip(df_hgnc["HGNC_symbol"], df_hgnc["ENSP"]))
 
 
 def preprocess_cna(df_cna: pd.DataFrame, df_chosen_cell_lines: pd.DataFrame, hgnc_to_ensp: dict[str, str]) -> None:
@@ -102,68 +90,81 @@ def preprocess_tf_activity(df_tfa: pd.DataFrame, df_chosen_cell_lines: pd.DataFr
 
     print("Finished preprocessing transcription factor input node data")
 
-def build_spras_node_table(ccle_id: str, include_cna: bool, df_interactome: pd.DataFrame) -> None:
-    """Combine per-cell-line preprocessed inputs into a SPRAS node table."""
+def build_spras_node_table(ccle_id: str, df_interactome: pd.DataFrame) -> None:
+    """Combine per-cell-line preprocessed inputs into SPRAS node tables (with and without CNA)."""
     cell_dir = PREPROCESSED_DIR / ccle_id
 
     sm_path = cell_dir / "sm.csv"
     tf_path = cell_dir / "tf.csv"
 
     # read inputs
-     # change the node-id column name across files
-    sm = pd.read_csv(sm_path, sep="\t")
-    tf = pd.read_csv(tf_path, sep="\t")
-
     sm = pd.read_csv(sm_path, sep="\t")
     tf = pd.read_csv(tf_path, sep="\t")
 
     sm["sources"], sm["targets"] = True, False
     tf["sources"], tf["targets"] = False, True
 
-    frames = [sm, tf]
+    # process with CNA
+    cna_path = cell_dir / "cna.csv"
+    cna = pd.read_csv(cna_path, sep="\t")
+    cna["sources"], cna["targets"] = True, False
 
-    if include_cna:
-        cna_path = cell_dir / "cna.csv"
-        cna = pd.read_csv(cna_path, sep="\t")
-        cna["sources"], cna["targets"] = True, False
-        frames.append(cna)
-
-    frames = [df for df in frames if not df.empty]
-    combined = pd.concat(frames, ignore_index=True)
+    frames_with_cna = [sm, tf, cna]
+    frames_with_cna = [df for df in frames_with_cna if not df.empty]
+    combined_with_cna = pd.concat(frames_with_cna, ignore_index=True)
 
     # collapse duplicates: keep the max prize and OR the role flags
-    agg = combined.groupby("NODEID", as_index=False).agg(
+    agg_with_cna = combined_with_cna.groupby("NODEID", as_index=False).agg(
         prize=("prize", "max"),
         sources=("sources", "any"),
         targets=("targets", "any"),
     )
-    agg["active"] = True
-    agg = agg[["NODEID", "sources", "targets", "prize", "active"]]
+    agg_with_cna["active"] = True
+    agg_with_cna = agg_with_cna[["NODEID", "sources", "targets", "prize", "active"]]
 
-    # add the trimming
-    trimmed = trim_input_nodes_file(df_interactome, agg)
+    # trim with interactome
+    trimmed_with_cna = trim_input_nodes_file(df_interactome, agg_with_cna)
 
-    n_sources = trimmed["sources"].sum()
-    n_targets = trimmed["targets"].sum()
-    if n_sources == 0 or n_targets == 0:
-        missing = []
-        if n_sources == 0:
-            missing.append("sources")
-        if n_targets == 0:
-            missing.append("targets")
-        reason = " and ".join(missing)  # "sources", "targets", or "sources and targets"
+    # process without CNA
+    frames_no_cna = [sm, tf]
+    frames_no_cna = [df for df in frames_no_cna if not df.empty]
+    combined_no_cna = pd.concat(frames_no_cna, ignore_index=True)
 
-        print(f"Skipping {ccle_id}: 0 {reason} after trimming")
-        log_path = PROCESSED_DIR / ("empty_data.csv" if include_cna else "empty_data_no_cna.csv")
-        pd.DataFrame([{"ccle_id": ccle_id, "empty_data": reason}]).to_csv(
-            log_path, sep="\t", index=False, mode="a", header=not log_path.exists()
-        )
-        return
+    agg_no_cna = combined_no_cna.groupby("NODEID", as_index=False).agg(
+        prize=("prize", "max"),
+        sources=("sources", "any"),
+        targets=("targets", "any"),
+    )
+    agg_no_cna["active"] = True
+    agg_no_cna = agg_no_cna[["NODEID", "sources", "targets", "prize", "active"]]
 
+    trimmed_no_cna = trim_input_nodes_file(df_interactome, agg_no_cna)
+
+    # Check both versions for empty data
+    empty_rows = []
     out_dir = PROCESSED_DIR / ccle_id
     out_dir.mkdir(parents=True, exist_ok=True)
-    filename = "input_nodes.csv" if include_cna else "input_nodes_no_cna.csv"
-    trimmed.to_csv(out_dir / filename, sep="\t", index=False, header=True)
+
+    for trimmed, version_label in [(trimmed_with_cna, "with_cna"), (trimmed_no_cna, "without_cna")]:
+        n_sources = trimmed["sources"].sum()
+        n_targets = trimmed["targets"].sum()
+        if n_sources == 0 or n_targets == 0:
+            missing = []
+            if n_sources == 0:
+                missing.append("sources")
+            if n_targets == 0:
+                missing.append("targets")
+            reason = " and ".join(missing)
+            empty_rows.append({"ccle_id": ccle_id, "version": version_label, "empty_data": reason})
+            print(f"Skipping {ccle_id} ({version_label}): 0 {reason} after trimming")
+        else:
+            # Save the non-empty version
+            filename = "input_nodes.csv" if version_label == "with_cna" else "input_nodes_no_cna.csv"
+            trimmed.to_csv(out_dir / filename, sep="\t", index=False, header=True)
+
+    if empty_rows:
+        empty_path = PROCESSED_DIR / "empty_data.csv"
+        pd.DataFrame(empty_rows).to_csv(empty_path, sep="\t", index=False, mode="a",)
 
 
 def main():
@@ -185,8 +186,7 @@ def main():
     preprocess_tf_activity(df_tfa, df_chosen_cell_lines, hgnc_to_ensp)
 
     for ccle_id in df_chosen_cell_lines["ccle_id"]:
-        build_spras_node_table(ccle_id=ccle_id, include_cna=True, df_interactome=df_interactome)
-        build_spras_node_table(ccle_id=ccle_id, include_cna=False, df_interactome=df_interactome)
+        build_spras_node_table(ccle_id=ccle_id, df_interactome=df_interactome)
 
     print("Finished processing input node data into SPRAS format")
 

@@ -1,10 +1,38 @@
 import pandas as pd
+import numpy as np
 from pathlib import Path
 
 DEPMAP_DIR = Path(__file__).parent.resolve() / ".."
 RAW_DIR = DEPMAP_DIR / "raw"
-PREPROCESSED_DIR = DEPMAP_DIR / "preprocessed"
 PROCESSED_DIR = DEPMAP_DIR / "processed"
+
+def get_tfs_beyond_thresholds():
+    """
+    Read TFA data and get TFs beyond 2 SD thresholds per cell line.
+    """
+
+    df_tfa = pd.read_csv(RAW_DIR / "consensus_tfa_march_6.tsv", sep="\t", index_col=0)
+
+    mu = df_tfa.mean(axis=1)
+    sigma = df_tfa.std(axis=1).replace(0, np.nan)
+    df_zscore = df_tfa.sub(mu, axis=0).div(sigma, axis=0)
+
+    results = {}
+    for threshold, label in [(2, "2sd")]:
+        rows = []
+        for cell_line in df_zscore.columns:
+            z_vals = df_zscore[cell_line].values
+            z_vals = z_vals[~np.isnan(z_vals)]
+
+            # Count TFs beyond threshold
+            mask = np.abs(z_vals) > threshold
+            n_tfs = np.sum(mask)
+
+            rows.append({"cell_line": cell_line, "n_tfs": n_tfs})
+
+        results[label] = pd.DataFrame(rows).sort_values("n_tfs", ascending=False)
+
+    return results
 
 
 def main():
@@ -15,7 +43,10 @@ def main():
     df_somatic = pd.read_csv(RAW_DIR / "OmicsSomaticMutationsMatrixDamaging_25Q3.csv", index_col=0)
     df_somatic = df_somatic.set_index('ModelID').drop(columns=['SequencingID', 'ModelConditionID','IsDefaultEntryForModel', 'IsDefaultEntryForMC'])
     df_crispr_genes = pd.read_csv(RAW_DIR / "CRISPRGeneDependency_25Q3.csv", sep=",", index_col=0, header=0)
-    df_tfs = pd.read_csv(RAW_DIR / "tfs_beyond_2sd_per_cell_line.csv", sep="\t")
+
+    # Get TFs beyond 2 SD
+    tf_results = get_tfs_beyond_thresholds()
+    df_tfs = tf_results["2sd"]  # Use 2SD for shared cell line filtering
 
     # ccle id -> depmap id; comes from CCLE 2019
     cell_line_annotations = pd.read_csv(RAW_DIR / "Cell_lines_annotations_20181226_ccle2019.txt", sep="\t", header=0)
@@ -82,7 +113,6 @@ def main():
     )
     shared_df.to_csv(PROCESSED_DIR / "shared_cell_lines.txt", index=False, sep= "\t")
     print(f"Finished getting shared cell lines: {len(shared_cell_lines)}")
-
 
 if __name__ == "__main__":
     main()
