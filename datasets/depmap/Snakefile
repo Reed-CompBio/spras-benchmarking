@@ -635,12 +635,12 @@ CELL_LINES = [
 rule all:
     input:
         "processed/shared_cell_lines.txt",
+        "processed/empty_cell_lines.csv",
+        "processed/final_cell_lines.csv",
         "processed/interactome.tsv",
-        "processed/empty_data.csv",
         expand("processed/{ccle_id}/input_nodes.csv", ccle_id=CELL_LINES),
         expand("processed/{ccle_id}/input_nodes_no_cna.csv", ccle_id=CELL_LINES),
         expand("processed/{ccle_id}/gold_standard.csv", ccle_id=CELL_LINES),
-        "processed/final_cell_lines.csv",
 
 produce_fetch_rules({
 
@@ -657,7 +657,6 @@ produce_fetch_rules({
     # for shared lines across all raw data
     "raw/Model_25Q3.csv": ("DepMap_25Q3", "Model_25Q3.csv"),
     "raw/Cell_lines_annotations_20181226_ccle2019.txt" : ("CCLE_2019", "Cell_lines_annotations_20181226_ccle2019.txt"),
-    "raw/tfs_beyond_2sd_per_cell_line.csv": ("estimateNCA", "tfs_beyond_2sd_per_cell_line.csv"),
 
     "raw/9606.protein.physical.links.full.txt": FetchConfig(("STRING", "v12", "9606", "9606.protein.physical.links.v12.0.txt.gz"), post_process=PostProcessAction.UNCOMPRESS_GZ),
     "raw/9606.protein.aliases.txt": FetchConfig(("STRING",  "v12", "9606", "9606.protein.aliases.txt.gz"), post_process=PostProcessAction.UNCOMPRESS_GZ),
@@ -697,7 +696,7 @@ rule input_nodes:
     output:
         expand("processed/{ccle_id}/input_nodes.csv", ccle_id=CELL_LINES),
         expand("processed/{ccle_id}/input_nodes_no_cna.csv", ccle_id=CELL_LINES),
-        "processed/empty_data.csv",
+        "processed/empty_cell_lines.csv",
 
     shell:
         "uv run scripts/process_input_nodes.py"
@@ -708,7 +707,7 @@ rule gold_standard:
         "processed/interactome.tsv",
         "raw/9606.protein.aliases.txt",
         "processed/shared_cell_lines.txt",
-        "processed/empty_data.csv",
+        "processed/empty_cell_lines.csv",
     output:
         expand("processed/{ccle_id}/gold_standard.csv", ccle_id=CELL_LINES),
         "processed/final_cell_lines.csv"

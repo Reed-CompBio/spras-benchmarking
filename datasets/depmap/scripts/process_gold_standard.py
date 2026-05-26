@@ -21,7 +21,7 @@ def main():
     df_chosen_cell_lines = pd.read_csv(PROCESSED_DIR / "shared_cell_lines.txt", sep="\t")
 
     # drop cell line if empty
-    df_empty = pd.read_csv(PROCESSED_DIR / "empty_data.csv", sep="\t")
+    df_empty = pd.read_csv(PROCESSED_DIR / "empty_cell_lines.csv", sep="\t")
     drop_ccle = set(df_empty["ccle_id"])
     df_chosen_cell_lines = df_chosen_cell_lines[~df_chosen_cell_lines["ccle_id"].isin(drop_ccle)]
 
@@ -67,19 +67,17 @@ def main():
     final_path = PROCESSED_DIR / "final_cell_lines.csv"
     df_final_cell_lines.to_csv(final_path, sep="\t", index=False)
 
-    # append empty gold standard cell lines to empty_data.csv
+    # append empty gold standard cell lines to empty_cell_lines.csv
     if empty_gs_ccle_ids:
         df_empty_gs = pd.DataFrame({
             "ccle_id": empty_gs_ccle_ids,
             "version": "gold_standard",
-            "empty_data": "no nodes after interactome trim"
+            "empty_data": "no gold standard nodes after interactome trim"
         })
-        empty_path = PROCESSED_DIR / "empty_data.csv"
-        df_empty_gs.to_csv(empty_path, sep="\t", index=False, mode="a")
+        empty_path = PROCESSED_DIR / "empty_cell_lines.csv"
+        df_empty_gs.to_csv(empty_path, sep="\t", index=False, mode="a", header= not empty_path.exists())
 
     print(f"\n{len(empty_gs_ccle_ids)} cell lines dropped due to empty gs; {len(df_final_cell_lines)} cell lines written to {final_path}")
-
-
 
 if __name__ == "__main__":
     main()

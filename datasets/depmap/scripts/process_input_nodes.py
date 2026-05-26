@@ -145,7 +145,7 @@ def build_spras_node_table(ccle_id: str, df_interactome: pd.DataFrame) -> None:
     out_dir = PROCESSED_DIR / ccle_id
     out_dir.mkdir(parents=True, exist_ok=True)
 
-    for trimmed, version_label in [(trimmed_with_cna, "with_cna"), (trimmed_no_cna, "without_cna")]:
+    for trimmed, version_label in [(trimmed_with_cna, "input_nodes_with_cna"), (trimmed_no_cna, "input_nodes_without_cna")]:
         n_sources = trimmed["sources"].sum()
         n_targets = trimmed["targets"].sum()
         if n_sources == 0 or n_targets == 0:
@@ -159,12 +159,12 @@ def build_spras_node_table(ccle_id: str, df_interactome: pd.DataFrame) -> None:
             print(f"Skipping {ccle_id} ({version_label}): 0 {reason} after trimming")
         else:
             # Save the non-empty version
-            filename = "input_nodes.csv" if version_label == "with_cna" else "input_nodes_no_cna.csv"
+            filename = "input_nodes.csv" if version_label == "input_nodes_with_cna" else "input_nodes_no_cna.csv"
             trimmed.to_csv(out_dir / filename, sep="\t", index=False, header=True)
 
     if empty_rows:
-        empty_path = PROCESSED_DIR / "empty_data.csv"
-        pd.DataFrame(empty_rows).to_csv(empty_path, sep="\t", index=False, mode="a",)
+        empty_path = PROCESSED_DIR / "empty_cell_lines.csv"
+        pd.DataFrame(empty_rows).to_csv(empty_path, sep="\t", index=False, mode="a", header=not empty_path.exists())
 
 
 def main():
