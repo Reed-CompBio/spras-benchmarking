@@ -675,7 +675,7 @@ rule shared_cell_lines:
     output:
         "processed/shared_cell_lines.txt"
     shell:
-        "uv run scripts/process_find_shared_cell_lines.py"
+        "uv run scripts/find_shared_cell_lines.py"
 
 rule interactome: 
     input:
