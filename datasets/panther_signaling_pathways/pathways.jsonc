@@ -1,10 +1,15 @@
+// This is the starting point for the pathways we chose before doing any preprocessing (29 Panther Pathways)
+// One is mssing as it is not in 
+
 [
+    // TODO: maybe remove this and leave it to the code to figure this out
     // All commented out pathways do not have enough sources, targets, or connections.
     // To see more, re-comment in all commented out pathways and run explore/pathway_statistics.py.
 
-    // Commonly known as the "CCKR signaling map", PathwayCommons also does not map this one correctly:
-    // TODO: report to PathwayCommons: see https://apps.pathwaycommons.org/pathways?uri=https%3A%2F%2Fidentifiers.org%2Fpanther.pathway%3AP06959
-    // "Gastrin_CCK2R_240212",
+    // Though commonly known as "CCKR signaling map", PathwayCommons does not map this one to one:
+    // report to PathwayCommons: see https://apps.pathwaycommons.org/pathways?uri=https%3A%2F%2Fidentifiers.org%2Fpanther.pathway%3AP06959
+    "Gastrin_CCK2R_240212",
+    
     "Wnt signaling pathway",
     "VEGF signaling pathway",
     "Toll receptor signaling pathway",
@@ -14,24 +19,26 @@
     "JAK/STAT signaling pathway",
     "Interleukin signaling pathway",
     "Interferon-gamma signaling pathway",
-    // "Integrin signalling pathway",
-    // "Insulin/IGF pathway-protein kinase B signaling cascade",
+    "Integrin signalling pathway",
+    "Insulin/IGF pathway-protein kinase B signaling cascade",
     "Inflammation mediated by chemokine and cytokine signaling pathway",
     "Hedgehog signaling pathway",
-    // "FGF signaling pathway",
+    "FGF signaling pathway",
     "FAS signaling pathway",
-    // TODO: report to PathwayCommons: see https://apps.pathwaycommons.org/pathways?uri=https%3A%2F%2Fidentifiers.org%2Fpanther.pathway%3AP00019.
+
     // We want to add the Endothelin signaling pathway, but it is currently labelled under "untitled."
+    // report to PathwayCommons: see https://apps.pathwaycommons.org/pathways?uri=https%3A%2F%2Fidentifiers.org%2Fpanther.pathway%3AP00019.
+    
     "EGF receptor signaling pathway",
     "Cadherin signaling pathway",
     "Apoptosis signaling pathway",
-    // "Ras Pathway",
+    "Ras Pathway",
     "PI3 kinase pathway",
     "p38 MAPK pathway",
-    // "Insulin/IGF pathway-mitogen activated protein kinase kinase/MAP kinase cascade",
-    // "p53 pathway",
-    // "Hypoxia response via HIF activation",
-    // "Oxidative stress response",
-    "B cell activation"
-    // "T cell activation"
+    "Insulin/IGF pathway-mitogen activated protein kinase kinase/MAP kinase cascade",
+    "p53 pathway",
+    "Hypoxia response via HIF activation",
+    "Oxidative stress response",
+    "B cell activation",
+    "T cell activation"
 ]

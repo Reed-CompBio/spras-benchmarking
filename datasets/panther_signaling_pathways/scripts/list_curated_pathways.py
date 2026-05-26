@@ -5,16 +5,14 @@ from jsonc_parser.parser import JsoncParser
 from io import StringIO
 import pandas
 
-# from datasets.panther_signaling_pathways.util.parse_pc_pathways import parse_pc_pathways
-
 synthetic_directory = Path(__file__).parent.parent.resolve()
 
 def parse_pc_pathways(pathways_txt_path: str | PathLike) -> pandas.DataFrame:
     """
-    Parses a pathways.txt file from the PathwayCommons FTP store into a Dataframe of the sort
+    Parses the pathways.txt file from the PathwayCommons FTP store into a Dataframe of the sort
     PATHWAY_URI\tDISPLAY_NAME
 
-    such that DATASOURCE is filtered by PANTHER. TODO: generalize to other datasources
+    such that DATASOURCE is filtered by PANTHER.
     """
     # We have two tables: the latter actually has more data, so we use that one instead.
     # These two tables are separated by two newlines.
@@ -33,7 +31,7 @@ def main():
     pathways_df = parse_pc_pathways(synthetic_directory / "raw" / "pathways.txt")
 
     # We use the top-level pathways.jsonc, which is a hand-curated list of pathways, as it is not deterministically
-    # automatable to decide whether or not a pathway is a signaling pathway. Yet.
+    # automatable to decide whether or not a pathway is a signaling pathway from Panther Pathways.
     pathway_mapping: dict[str, str] = {}
     curated_pathways = JsoncParser.parse_file(synthetic_directory / "pathways.jsonc")
     for pathway in curated_pathways:
@@ -43,7 +41,6 @@ def main():
             raise RuntimeError(f"{pathway} references {selected_pathways_count} pathways, when we need to uniquely get one!")
         pathway_mapping[pathway] = selected_pathways["PATHWAY_URI"].loc[0]
     (synthetic_directory / "intermediate" / "curated_pathways_id_mapping.json").write_text(json.dumps(pathway_mapping, indent=4))
-
 
 if __name__ == "__main__":
     main()

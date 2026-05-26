@@ -14,10 +14,16 @@ thresholds = list(map(str, map(lambda x: (x + 1) / 10, range(10))))
 rule all:
     input:
         "raw/9606.protein.links.full.v12.0.txt",
+
+        # expand([
+        #     "thresholded/{threshold}/{pathway}/interactome.txt",
+        #     "thresholded/{threshold}/{pathway}/gold_standard_edges.txt",
+        # ], pathway=file_compatible_pathways, threshold=thresholds)
+
+
         expand([
-            "thresholded/{threshold}/{pathway}/interactome.txt",
-            "thresholded/{threshold}/{pathway}/gold_standard_edges.txt",
-        ], pathway=file_compatible_pathways, threshold=thresholds)
+            "processed/pathways/{pathway}/node_prizes.txt"
+        ], pathway=file_compatible_pathways)
         
 produce_fetch_rules({
    
@@ -62,9 +68,30 @@ produce_fetch_rules({
     "raw/pathways.txt": FetchConfig(("PathwayCommons", "pathways.txt.gz"),post_process=PostProcessAction.UNCOMPRESS_GZ)
 })
 
+rule make_pathway_map:
+    input:
+        "raw/pathways.txt"
+    output:
+        "intermediate/curated_pathways_id_mapping.json"
+    shell:
+        "uv run scripts/list_curated_pathways.py"
+
+rule process_pathways:
+    input:
+        "intermediate/curated_pathways_id_mapping.json",
+        "raw/pc-panther-biopax.owl"
+    params:
+        # A little trick from https://stackoverflow.com/a/71327709/7589775
+        pathway=lambda wildcards: wildcards.get("pathway")
+    output:
+        "intermediate/pathway-pc-data/{pathway}.owl",
+        "intermediate/pathway-pc-data/{pathway}.sif"
+    shell:
+        'uv run scripts/fetch_pathway.py "{params.pathway}"'
+
 rule interactome:
     input:
-        "raw/human-interactome/HUMAN_9606_idmapping_selected.tsv",
+        # "raw/human-interactome/HUMAN_9606_idmapping_selected.tsv",
         "raw/9606.protein.links.full.v12.0.txt",
         "raw/9606.protein.aliases.txt"
     output: "processed/interactome.tsv"
@@ -110,34 +137,13 @@ rule make_spras_compatible:
     shell:
         'uv run scripts/panther_spras_formatting.py "{wildcards.pathway}"'
 
-rule threshold:
-    input:
-        "processed/pathways/{pathway}/node_prizes.txt",
-        "processed/pathways/{pathway}/gs_edges.txt",
-        "processed/interactome.tsv"
-    output:
-        expand("thresholded/{threshold}/{{pathway}}/interactome.txt", threshold=thresholds),
-        expand("thresholded/{threshold}/{{pathway}}/gold_standard_edges.txt", threshold=thresholds)
-    shell:
-        'uv run scripts/sampling.py "{wildcards.pathway}" --percentage_thresholding_multiplier 0.9'
-
-rule make_pathway_map:
-    input:
-        "raw/pathways.txt"
-    output:
-        "intermediate/curated_pathways_id_mapping.json"
-    shell:
-        "uv run scripts/list_curated_pathways.py"
-
-rule process_pathways:
-    input:
-        "intermediate/curated_pathways_id_mapping.json",
-        "raw/pc-panther-biopax.owl"
-    params:
-        # A little trick from https://stackoverflow.com/a/71327709/7589775
-        pathway=lambda wildcards: wildcards.get("pathway")
-    output:
-        "intermediate/pathway-pc-data/{pathway}.owl",
-        "intermediate/pathway-pc-data/{pathway}.sif"
-    shell:
-        'uv run scripts/fetch_pathway.py "{params.pathway}"'
+# rule threshold:
+#     input:
+#         "processed/pathways/{pathway}/node_prizes.txt",
+#         "processed/pathways/{pathway}/gs_edges.txt",
+#         "processed/interactome.tsv"
+#     output:
+#         expand("thresholded/{threshold}/{{pathway}}/interactome.txt", threshold=thresholds),
+#         expand("thresholded/{threshold}/{{pathway}}/gold_standard_edges.txt", threshold=thresholds)
+#     shell:
+#         'uv run scripts/sampling.py "{wildcards.pathway}" --percentage_thresholding_multiplier 0.9'
