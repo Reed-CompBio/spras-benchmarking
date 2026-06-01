@@ -19,8 +19,17 @@ rule all:
 
         expand([
             "intermediate/{pathway}/pathway_nodes.txt"
-        ], pathway=file_compatible_pathways)
-        
+        ], pathway=file_compatible_pathways),
+
+        # expand([
+        #     "intermediate/{pathway}/targets.txt"
+        # ], pathway=file_compatible_pathways),
+
+        # expand([
+        #     "intermediate/{pathway}/sources.txt",
+        # ], pathway=file_compatible_pathways),
+    
+
 produce_fetch_rules({
    
     "raw/9606.protein.links.full.v12.0.txt": FetchConfig(
@@ -73,10 +82,10 @@ produce_fetch_rules({
 
 rule make_pathway_map:
     input:
-        "raw/pathways.txt"
-    output:
-        "intermediate/curated_pathways_id_mapping.json",
+        "raw/pathways.txt",
         "pathways.jsonc"
+    output:
+        "intermediate/curated_pathways_id_mapping.json"
     shell:
         "uv run scripts/list_curated_pathways.py"
 
@@ -96,13 +105,24 @@ rule fetch_pathways:
 rule process_pathways:
     input:
         "intermediate/pathway-pc-data/{pathway}.sif",
+        "raw/9606.protein.aliases.txt"
     output:
         "intermediate/{pathway}/pathway.txt",
         "intermediate/{pathway}/pathway_nodes.txt",
     shell:
         'uv run scripts/process_pathway.py "{wildcards.pathway}"'
 
-
+# rule process_input_nodes:
+#     input:
+#         "raw/Homo_sapiens_TF.tsv",
+#         "raw/table_S3_surfaceome.xlsx",
+#         "intermediate/{pathway}/pathway.txt",
+#         "intermediate/{pathway}/pathway_nodes.txt",
+#     output:
+#         "intermediate/{pathway}/sources.txt",
+#         "intermediate/{pathway}/targets.txt",
+#     shell:
+#         'uv run scripts/process_input_nodes.py "{wildcards.pathway}"'
 
 
 # rule interactome:
