@@ -14,37 +14,41 @@ thresholds = list(map(str, map(lambda x: (x + 1) / 10, range(10))))
 rule all:
     input:
         expand([
-            "intermediate/{pathway}/pathway.txt"
+            "intermediate/{pathway}/pathway.csv"
         ], pathway=file_compatible_pathways),
         expand([
-            "intermediate/{pathway}/pathway_nodes.txt"
+            "intermediate/{pathway}/pathway_nodes.csv"
         ], pathway=file_compatible_pathways),
         expand([
-            "intermediate/{pathway}/unmatched_nodes.txt"
+            "intermediate/{pathway}/unmatched_nodes.csv"
         ], pathway=file_compatible_pathways),
         expand([
-            "intermediate/{pathway}/raw_pathway.txt"
+            "intermediate/{pathway}/raw_pathway.csv"
         ], pathway=file_compatible_pathways),
         expand([
-            "intermediate/{pathway}/raw_pathway_nodes.txt"
+            "intermediate/{pathway}/raw_pathway_nodes.csv"
         ], pathway=file_compatible_pathways),
         expand([
-            "intermediate/{pathway}/exploded_edges.txt"
+            "intermediate/{pathway}/exploded_edges.csv"
         ], pathway=file_compatible_pathways),
         expand([
-            "intermediate/{pathway}/dropped_edges.txt"
+            "intermediate/{pathway}/dropped_edges.csv"
         ], pathway=file_compatible_pathways),
 
         "processed/interactome.tsv", 
-        "processed/weight-counts.tsv"
+        "processed/weight-counts.tsv",
 
-        # expand([
-        #     "intermediate/{pathway}/targets.txt"
-        # ], pathway=file_compatible_pathways),
+        expand([
+            "intermediate/{pathway}/targets.csv"
+        ], pathway=file_compatible_pathways),
 
-        # expand([
-        #     "intermediate/{pathway}/sources.txt",
-        # ], pathway=file_compatible_pathways),
+        expand([
+            "intermediate/{pathway}/sources.csv",
+        ], pathway=file_compatible_pathways),
+
+        expand([
+            "intermediate/{pathway}/input_nodes.csv",
+        ], pathway=file_compatible_pathways),
     
 
 produce_fetch_rules({
@@ -124,13 +128,13 @@ rule process_pathways:
         "intermediate/pathway-pc-data/{pathway}.sif",
         "raw/9606.protein.aliases.txt"
     output:
-        "intermediate/{pathway}/pathway.txt",
-        "intermediate/{pathway}/pathway_nodes.txt",
-        "intermediate/{pathway}/unmatched_nodes.txt",
-        "intermediate/{pathway}/raw_pathway.txt",
-        "intermediate/{pathway}/raw_pathway_nodes.txt",
-        "intermediate/{pathway}/exploded_edges.txt",
-        "intermediate/{pathway}/dropped_edges.txt"
+        "intermediate/{pathway}/pathway.csv",
+        "intermediate/{pathway}/pathway_nodes.csv",
+        "intermediate/{pathway}/unmatched_nodes.csv",
+        "intermediate/{pathway}/raw_pathway.csv",
+        "intermediate/{pathway}/raw_pathway_nodes.csv",
+        "intermediate/{pathway}/exploded_edges.csv",
+        "intermediate/{pathway}/dropped_edges.csv"
     shell:
         'uv run scripts/process_pathway.py "{wildcards.pathway}"'
 
@@ -143,31 +147,21 @@ rule interactome:
     shell:
         "uv run scripts/process_interactome.py"
 
-# rule process_input_nodes:
-#     input:
-#         "raw/Homo_sapiens_TF.tsv",
-#         "raw/table_S3_surfaceome.xlsx",
-#         "intermediate/{pathway}/pathway.txt",
-#         "intermediate/{pathway}/pathway_nodes.txt",
-#         "processed/interactome.tsv",
-#         # add each of the interactomes after I get them
-#     output:
-#         "intermediate/{pathway}/sources.txt",
-#         "intermediate/{pathway}/targets.txt",
-#         "processed/{pathway}/input_nodes.txt",
-#         # update to be per interactome
-#     shell:
-#         'uv run scripts/process_input_nodes.py "{wildcards.pathway}"'
-
-
-# rule process_tfs:
-#     input:
-#         "raw/Homo_sapiens_TF.tsv",
-#         "raw/HUMAN_9606_idmapping_selected.tsv"
-#     output:
-#         "raw/Homo_sapiens_TF_Uniprot.tsv"
-#     shell:
-#         "uv run scripts/map_transcription_factors.py"
+rule process_input_nodes:
+    input:
+        "raw/Homo_sapiens_TF.tsv",
+        "raw/table_S3_surfaceome.xlsx",
+        "intermediate/{pathway}/pathway.csv",
+        "raw/9606.protein.aliases.txt",
+        "processed/interactome.tsv",
+        # add each of the interactomes after I get them
+    output:
+        "intermediate/{pathway}/sources.csv",
+        "intermediate/{pathway}/targets.csv",
+        "intermediate/{pathway}/input_nodes.csv", # update to processed once we have all the interactomes
+        # update to be per interactome
+    shell:
+        'uv run scripts/process_input_nodes.py "{wildcards.pathway}"'
 
 # rule process_panther_pathway:
 #     input:

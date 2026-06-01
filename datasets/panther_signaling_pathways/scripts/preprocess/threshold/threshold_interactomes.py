@@ -4,7 +4,7 @@ import collections
 from typing import OrderedDict, NamedTuple
 
 import urllib.parse
-from tools.sample.sampling import attempt_sample
+from sampling import attempt_sample
 from tools.trim import trim_data_file
 from datasets.panther_signaling_pathways.scripts.parser import parser
 import random

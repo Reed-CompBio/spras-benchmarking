@@ -80,7 +80,7 @@ def process_pathway(pathway_file: Path, pathway_folder: Path):
     nodes_df = nodes_df[~nodes_df["UniProt_GN_Name"].str.startswith("chebi:")]
     # and remove the uniprot: prefix
     nodes_df["UniProt_AC"] = nodes_df["UniProt_AC"].str.removeprefix("uniprot:")
-    nodes_df.to_csv(pathway_folder / "raw_pathway_nodes.txt", header=True, index=False, sep="\t")
+    nodes_df.to_csv(pathway_folder / "raw_pathway_nodes.csv", header=True, index=False, sep="\t")
 
     # Get the ENSP id names
     nodes_df["ENSP"] = nodes_df[["UniProt_GN_Name", "UniProt_ID", "UniProt_AC"]].apply(
@@ -96,11 +96,11 @@ def process_pathway(pathway_file: Path, pathway_folder: Path):
     #     lambda s: ",".join(e.removeprefix("9606.") for e in s.split(",") if e)
     # )
 
-    nodes_df.to_csv(pathway_folder / "pathway_nodes.txt", header=True, index=False, sep="\t")
+    nodes_df.to_csv(pathway_folder / "pathway_nodes.csv", header=True, index=False, sep="\t")
 
     # Save nodes with no ENSP mapping for later inspection
     unmatched = nodes_df[nodes_df["ENSP"] == ""]
-    unmatched.to_csv(pathway_folder / "unmatched_nodes.txt", header=True, index=False, sep="\t")
+    unmatched.to_csv(pathway_folder / "unmatched_nodes.csv", header=True, index=False, sep="\t")
 
     # Get the relevant info from the edges
     pathway_df = pathway_df[["PARTICIPANT_A", "INTERACTION_TYPE", "PARTICIPANT_B"]]
@@ -108,7 +108,7 @@ def process_pathway(pathway_file: Path, pathway_folder: Path):
     # removing ChEBI identifiers: these aren't proteins and we therefore are not interested in them.
     pathway_df = pathway_df[~pathway_df["Node1"].str.startswith("chebi:")]
     pathway_df = pathway_df[~pathway_df["Node2"].str.startswith("chebi:")]
-    pathway_df.to_csv(pathway_folder / "raw_pathway.txt", header=True, index=False, sep="\t")
+    pathway_df.to_csv(pathway_folder / "raw_pathway.csv", header=True, index=False, sep="\t")
     pathway_df["Direction"] = pathway_df["INTERACTION_TYPE"].apply(
         lambda x: "D" if x in directed else ("U" if x in undirected else "Unknown Direction")
     )
@@ -128,7 +128,7 @@ def process_pathway(pathway_file: Path, pathway_folder: Path):
     # Log dropped edges (either node has no ENSP mapping), using original names
     dropped_mask = (pathway_df["Node1"].map(len) == 0) | (pathway_df["Node2"].map(len) == 0)
     dropped = original_edges[dropped_mask]
-    dropped.to_csv(pathway_folder / "dropped_edges.txt", header=True, index=False, sep="\t")
+    dropped.to_csv(pathway_folder / "dropped_edges.csv", header=True, index=False, sep="\t")
 
     # Drop edges where either node has no ENSP mapping
     pathway_df = pathway_df[
@@ -143,7 +143,7 @@ def process_pathway(pathway_file: Path, pathway_folder: Path):
     exploded_source = original_edges.loc[pathway_df.index[exploded_mask]].copy()
     exploded_source["Node1_ENSP"] = pathway_df.loc[exploded_mask, "Node1"].map(lambda x: ",".join(x))
     exploded_source["Node2_ENSP"] = pathway_df.loc[exploded_mask, "Node2"].map(lambda x: ",".join(x))
-    exploded_source.to_csv(pathway_folder / "exploded_edges.txt", header=True, index=False, sep="\t")
+    exploded_source.to_csv(pathway_folder / "exploded_edges.csv", header=True, index=False, sep="\t")
 
     # Explode both columns to create all combinations
     pathway_df = pathway_df.explode("Node1").explode("Node2").reset_index(drop=True)
@@ -153,7 +153,7 @@ def process_pathway(pathway_file: Path, pathway_folder: Path):
 
     # TODO: what should the edge weight get? Add that then save (make it the third column)
 
-    pathway_df.to_csv(pathway_folder / "pathway.txt", header=True, index=False, sep="\t")
+    pathway_df.to_csv(pathway_folder / "pathway.csv", header=True, index=False, sep="\t")
 
 if __name__ == "__main__":
     intermediate_directory.mkdir(exist_ok=True)
