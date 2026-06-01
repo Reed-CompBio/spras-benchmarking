@@ -3,7 +3,6 @@ import pandas as pd
 from pathlib import Path
 
 from datasets.panther_signaling_pathways.scripts.parser import parser
-from tools.trim import trim_data_file
 
 panther_directory = Path(__file__).parent.parent.resolve()
 pathway_pc_data_directory = panther_directory / "intermediate" / "pathway-pc-data"
@@ -31,9 +30,34 @@ uniprot_ac_aliases = aliases[aliases["source"] == "UniProt_AC"]
 uniprot_id_aliases = aliases[aliases["source"] == "UniProt_ID"]
 gene_name_aliases = aliases[aliases["source"] == "UniProt_GN_Name"]
 
-ac_to_ensp = uniprot_ac_aliases.groupby("alias")["#string_protein_id"].apply(list).to_dict()
-id_to_ensp = uniprot_id_aliases.groupby("alias")["#string_protein_id"].apply(list).to_dict()
-gn_to_ensp = gene_name_aliases.groupby("alias")["#string_protein_id"].apply(list).to_dict()
+# ac_to_ensp = uniprot_ac_aliases.groupby("alias")["#string_protein_id"].apply(list).to_dict()
+# id_to_ensp = uniprot_id_aliases.groupby("alias")["#string_protein_id"].apply(list).to_dict()
+# gn_to_ensp = gene_name_aliases.groupby("alias")["#string_protein_id"].apply(list).to_dict()
+
+ac_to_ensp = (
+    uniprot_ac_aliases.assign(
+        ensp=uniprot_ac_aliases["#string_protein_id"].str.removeprefix("9606.")
+    )
+    .groupby("alias")["ensp"]
+    .apply(list)
+    .to_dict()
+)
+id_to_ensp = (
+    uniprot_id_aliases.assign(
+        ensp=uniprot_id_aliases["#string_protein_id"].str.removeprefix("9606.")
+    )
+    .groupby("alias")["ensp"]
+    .apply(list)
+    .to_dict()
+)
+gn_to_ensp = (
+    gene_name_aliases.assign(
+        ensp=gene_name_aliases["#string_protein_id"].str.removeprefix("9606.")
+    )
+    .groupby("alias")["ensp"]
+    .apply(list)
+    .to_dict()
+)
 
 def process_pathway(pathway_file: Path, pathway_folder: Path):
 
@@ -68,12 +92,16 @@ def process_pathway(pathway_file: Path, pathway_folder: Path):
         )),
         axis=1
     )
+    # # Drop the prefix "9606." from nodes_df["ENSP"]
+    # nodes_df["ENSP"] = nodes_df["ENSP"].apply(
+    #     lambda s: ",".join(e.removeprefix("9606.") for e in s.split(",") if e)
+    # )
+
     nodes_df.to_csv(pathway_folder / "pathway_nodes.txt", header=True, index=False, sep="\t")
-    # TODO: add a file that has the ids that are empty
-    # Save nodes with no ENSP mapping for inspection
+   
+    # Save nodes with no ENSP mapping for later inspection
     unmatched = nodes_df[nodes_df["ENSP"] == ""]
-    if not unmatched.empty:
-        unmatched.to_csv(pathway_folder / "unmatched_nodes.txt", header=True, index=False, sep="\t")
+    unmatched.to_csv(pathway_folder / "unmatched_nodes.txt", header=True, index=False, sep="\t")
 
     # Get the relevant info from the edges
     pathway_df = pathway_df[["PARTICIPANT_A", "INTERACTION_TYPE", "PARTICIPANT_B"]]
@@ -85,14 +113,23 @@ def process_pathway(pathway_file: Path, pathway_folder: Path):
     pathway_df["Direction"] = pathway_df["INTERACTION_TYPE"].apply(
         lambda x: "D" if x in directed else ("U" if x in undirected else raise_unknown_direction(x))
     )
-    # TODO: convert UniProt_GN_Name to ENSP for the edges
-    # - if there is more than one ENSP for an UniProt_GN_Name id, then add edges to have all the versions of the ENSP conversion
-    
+
     # Convert UniProt_GN_Name to ENSP for the edges
-    # Map each node to its list of ENSPs (empty list if no mapping)
-    pathway_df["Node1"] = pathway_df["Node1"].map(lambda n: gn_to_ensp.get(n, []))
-    pathway_df["Node2"] = pathway_df["Node2"].map(lambda n: gn_to_ensp.get(n, []))
-    print(pathway_df)
+    original_edges = pathway_df.copy()
+    
+    # Dictionary from UniProt_GN_Name to ENSP ids made in nodes_df
+    node_to_ensp = {
+        name: ensp.split(",") if ensp else []
+        for name, ensp in zip(nodes_df["UniProt_GN_Name"], nodes_df["ENSP"])
+    }
+
+    pathway_df["Node1"] = pathway_df["Node1"].map(lambda n: node_to_ensp.get(n, []))
+    pathway_df["Node2"] = pathway_df["Node2"].map(lambda n: node_to_ensp.get(n, []))
+
+    # Log dropped edges (either node has no ENSP mapping), using original names
+    dropped_mask = (pathway_df["Node1"].map(len) == 0) | (pathway_df["Node2"].map(len) == 0)
+    dropped = original_edges[dropped_mask]
+    dropped.to_csv(pathway_folder / "dropped_edges.txt", header=True, index=False, sep="\t")
 
     # Drop edges where either node has no ENSP mapping
     pathway_df = pathway_df[
@@ -102,14 +139,22 @@ def process_pathway(pathway_file: Path, pathway_folder: Path):
         pathway_df["Node2"].map(len) > 0
     ]
 
+   # Log edges that will be exploded (more than one ENSP on either side)
+    exploded_mask = (pathway_df["Node1"].map(len) > 1) | (pathway_df["Node2"].map(len) > 1)
+    exploded_source = original_edges.loc[pathway_df.index[exploded_mask]].copy()
+    exploded_source["Node1_ENSP"] = pathway_df.loc[exploded_mask, "Node1"].map(lambda x: ",".join(x))
+    exploded_source["Node2_ENSP"] = pathway_df.loc[exploded_mask, "Node2"].map(lambda x: ",".join(x))
+    exploded_source.to_csv(pathway_folder / "exploded_edges.txt", header=True, index=False, sep="\t")
+
     # Explode both columns to create all combinations
     pathway_df = pathway_df.explode("Node1").explode("Node2").reset_index(drop=True)
+    
+    # Remove INTERACTION_TYPE column
+    pathway_df = pathway_df.drop(columns=["INTERACTION_TYPE"])
+
+    # TODO: what should the edge weight get? Add that then save (make it the third column)
 
     pathway_df.to_csv(pathway_folder / "pathway.txt", header=True, index=False, sep="\t")
-
-    
-
-   
 
 if __name__ == "__main__":
     pathway = parser().parse_args().pathway

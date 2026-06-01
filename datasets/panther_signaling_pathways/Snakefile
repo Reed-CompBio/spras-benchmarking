@@ -21,6 +21,9 @@ rule all:
             "intermediate/{pathway}/pathway_nodes.txt"
         ], pathway=file_compatible_pathways),
 
+        "processed/interactome.tsv", 
+        "processed/weight-counts.tsv"
+
         # expand([
         #     "intermediate/{pathway}/targets.txt"
         # ], pathway=file_compatible_pathways),
@@ -125,14 +128,14 @@ rule process_pathways:
 #         'uv run scripts/process_input_nodes.py "{wildcards.pathway}"'
 
 
-# rule interactome:
-#     input:
-#         # "raw/HUMAN_9606_idmapping_selected.tsv",
-#         "raw/9606.protein.links.full.v12.0.txt",
-#         "raw/9606.protein.aliases.txt"
-#     output: "processed/interactome.tsv"
-#     shell:
-#         "uv run scripts/interactome.py"
+rule interactome:
+    input:
+        "raw/9606.protein.links.full.v12.0.txt",
+    output: 
+        "processed/interactome.tsv",
+        "processed/weight-counts.tsv"
+    shell:
+        "uv run scripts/process_interactome.py"
 
 # rule process_tfs:
 #     input:
