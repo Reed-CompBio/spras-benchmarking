@@ -46,7 +46,7 @@ def process_sources(sources: pd.DataFrame, pathway_file: pd.DataFrame, interacto
 
     # TODO: trim what is in the interactome(s)
     interactome = pd.read_csv(interactome_file, sep="\t", header=None, names=["Node1", "Node2", "Weight", "Direction"])
-    interactome_ensps = set(pathway["Node1"]) | set(pathway["Node2"])
+    interactome_ensps = set(interactome["Node1"]) | set(interactome["Node2"])
     sources = sources[sources["ENSP"].isin(interactome_ensps)].reset_index(drop=True)
 
     return sources
@@ -70,17 +70,11 @@ def process_targets(targets: pd.DataFrame, pathway_file: pd.DataFrame, interacto
 
     # TODO: trim what is in the interactome(s)
     interactome = pd.read_csv(interactome_file, sep="\t", header=None, names=["Node1", "Node2", "Weight", "Direction"])
-    interactome_ensps = set(pathway["Node1"]) | set(pathway["Node2"])
+    interactome_ensps = set(interactome["Node1"]) | set(interactome["Node2"])
     targets = targets[targets["ENSP"].isin(interactome_ensps)].reset_index(drop=True)
 
     return targets
-    
-def spras_format(sources:pd.DataFrame, targets:pd.DataFrame) -> pd.DataFrame:
-    
-    None
-    # put in SPRAS format
-    # add prizes and actives as well
-    # make the prizes 1.0
+
 
 def spras_format(sources: pd.DataFrame, targets: pd.DataFrame) -> pd.DataFrame:
     source_ensps = set(sources["ENSP"])
@@ -94,14 +88,14 @@ def spras_format(sources: pd.DataFrame, targets: pd.DataFrame) -> pd.DataFrame:
     spras_df["active"] = True
 
     return spras_df
-    
+
 def main():
     processed_directory.mkdir(exist_ok=True)
     intermediate_directory.mkdir(exist_ok=True)
     pathway = parser().parse_args().pathway
 
     # aliases = pd.read_csv(raw_directory / "9606.protein.aliases.txt", sep="\t")
-    
+
     pathway_folder = intermediate_directory / pathway
     pathway_file = pathway_folder / "pathway.csv"
     interactome_file = processed_directory/ "interactome.tsv"
