@@ -16,9 +16,23 @@ rule all:
         expand([
             "intermediate/{pathway}/pathway.txt"
         ], pathway=file_compatible_pathways),
-
         expand([
             "intermediate/{pathway}/pathway_nodes.txt"
+        ], pathway=file_compatible_pathways),
+        expand([
+            "intermediate/{pathway}/unmatched_nodes.txt"
+        ], pathway=file_compatible_pathways),
+        expand([
+            "intermediate/{pathway}/raw_pathway.txt"
+        ], pathway=file_compatible_pathways),
+        expand([
+            "intermediate/{pathway}/raw_pathway_nodes.txt"
+        ], pathway=file_compatible_pathways),
+        expand([
+            "intermediate/{pathway}/exploded_edges.txt"
+        ], pathway=file_compatible_pathways),
+        expand([
+            "intermediate/{pathway}/dropped_edges.txt"
         ], pathway=file_compatible_pathways),
 
         "processed/interactome.tsv", 
@@ -115,19 +129,6 @@ rule process_pathways:
     shell:
         'uv run scripts/process_pathway.py "{wildcards.pathway}"'
 
-# rule process_input_nodes:
-#     input:
-#         "raw/Homo_sapiens_TF.tsv",
-#         "raw/table_S3_surfaceome.xlsx",
-#         "intermediate/{pathway}/pathway.txt",
-#         "intermediate/{pathway}/pathway_nodes.txt",
-#     output:
-#         "intermediate/{pathway}/sources.txt",
-#         "intermediate/{pathway}/targets.txt",
-#     shell:
-#         'uv run scripts/process_input_nodes.py "{wildcards.pathway}"'
-
-
 rule interactome:
     input:
         "raw/9606.protein.links.full.v12.0.txt",
@@ -136,6 +137,23 @@ rule interactome:
         "processed/weight-counts.tsv"
     shell:
         "uv run scripts/process_interactome.py"
+
+rule process_input_nodes:
+    input:
+        "raw/Homo_sapiens_TF.tsv",
+        "raw/table_S3_surfaceome.xlsx",
+        "intermediate/{pathway}/pathway.txt",
+        "intermediate/{pathway}/pathway_nodes.txt",
+        "processed/interactome.tsv",
+        # add each of the interactomes after I get them
+    output:
+        "intermediate/{pathway}/sources.txt",
+        "intermediate/{pathway}/targets.txt",
+        "processed/{pathway}/input_nodes.txt",
+        # update to be per interactome
+    shell:
+        'uv run scripts/process_input_nodes.py "{wildcards.pathway}"'
+
 
 # rule process_tfs:
 #     input:
