@@ -12,7 +12,6 @@ def make_file_safe(input_str: str) -> str:
 def parser():
     parser = argparse.ArgumentParser(prog="PANTHER pathway parser")
 
-
     parser.add_argument("pathway", choices=list(map(make_file_safe, JsoncParser.parse_file("pathways.jsonc"))))
 
     return parser

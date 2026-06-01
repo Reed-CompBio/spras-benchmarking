@@ -1,11 +1,6 @@
 // This is the starting point for the pathways we chose before doing any preprocessing (29 Panther Pathways)
-// One is mssing as it is not in 
 
 [
-    // TODO: maybe remove this and leave it to the code to figure this out
-    // All commented out pathways do not have enough sources, targets, or connections.
-    // To see more, re-comment in all commented out pathways and run explore/pathway_statistics.py.
-
     // Though commonly known as "CCKR signaling map", PathwayCommons does not map this one to one:
     // report to PathwayCommons: see https://apps.pathwaycommons.org/pathways?uri=https%3A%2F%2Fidentifiers.org%2Fpanther.pathway%3AP06959
     "Gastrin_CCK2R_240212",
