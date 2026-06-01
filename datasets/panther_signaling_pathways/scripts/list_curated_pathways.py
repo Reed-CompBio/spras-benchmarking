@@ -28,7 +28,7 @@ def parse_pc_pathways(pathways_txt_path: str | PathLike) -> pandas.DataFrame:
 
 def main():
 
-    # this file is pathway hierachy table from Pathway Commons of metadata is shipped with release v14
+    # this file is pathway hierarchy table from Pathway Commons of metadata is shipped with release v14
     # aggregates the pathways from their sources and assigns each a URL
     pathways_df = parse_pc_pathways(panther_directory / "raw" / "pathways.txt")
 
@@ -42,7 +42,7 @@ def main():
         if selected_pathways_count != 1:
             raise RuntimeError(f"{pathway} references {selected_pathways_count} pathways, when we need to uniquely get one!")
         pathway_mapping[pathway] = selected_pathways["PATHWAY_URI"].loc[0]
-    
+
     (panther_directory / "intermediate" / "curated_pathways_id_mapping.json").write_text(json.dumps(pathway_mapping, indent=4))
 
 if __name__ == "__main__":

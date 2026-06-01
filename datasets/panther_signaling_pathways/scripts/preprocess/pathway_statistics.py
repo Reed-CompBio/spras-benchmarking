@@ -3,16 +3,10 @@ Reports on pathway statistics located under `processed`.
 """
 
 from pathlib import Path
-import networkx
 import pandas
 import urllib.parse
-import collections
 import networkx
 import itertools
-import pandas
-import random
-from typing import OrderedDict, Optional
-import os
 
 # from tools.sample.sampling import find_connected_sources_targets
 

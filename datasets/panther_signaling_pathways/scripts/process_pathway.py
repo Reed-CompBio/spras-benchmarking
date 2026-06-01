@@ -98,7 +98,7 @@ def process_pathway(pathway_file: Path, pathway_folder: Path):
     # )
 
     nodes_df.to_csv(pathway_folder / "pathway_nodes.txt", header=True, index=False, sep="\t")
-   
+
     # Save nodes with no ENSP mapping for later inspection
     unmatched = nodes_df[nodes_df["ENSP"] == ""]
     unmatched.to_csv(pathway_folder / "unmatched_nodes.txt", header=True, index=False, sep="\t")
@@ -111,12 +111,12 @@ def process_pathway(pathway_file: Path, pathway_folder: Path):
     pathway_df = pathway_df[~pathway_df["Node2"].str.startswith("chebi:")]
     pathway_df.to_csv(pathway_folder / "raw_pathway.txt", header=True, index=False, sep="\t")
     pathway_df["Direction"] = pathway_df["INTERACTION_TYPE"].apply(
-        lambda x: "D" if x in directed else ("U" if x in undirected else raise_unknown_direction(x))
+        lambda x: "D" if x in directed else ("U" if x in undirected else "Unknown Direction")
     )
 
     # Convert UniProt_GN_Name to ENSP for the edges
     original_edges = pathway_df.copy()
-    
+
     # Dictionary from UniProt_GN_Name to ENSP ids made in nodes_df
     node_to_ensp = {
         name: ensp.split(",") if ensp else []
@@ -148,7 +148,7 @@ def process_pathway(pathway_file: Path, pathway_folder: Path):
 
     # Explode both columns to create all combinations
     pathway_df = pathway_df.explode("Node1").explode("Node2").reset_index(drop=True)
-    
+
     # Remove INTERACTION_TYPE column
     pathway_df = pathway_df.drop(columns=["INTERACTION_TYPE"])
 

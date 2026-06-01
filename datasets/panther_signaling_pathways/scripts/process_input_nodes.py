@@ -1,7 +1,6 @@
 # convert to SPRAS format for both files?
 
 import pandas as pd
-import pandas as pd
 from pathlib import Path
 from datasets.panther_signaling_pathways.scripts.parser import parser
 
@@ -30,14 +29,16 @@ def main():
 
     pathway_folder = intermediate_directory / pathway
     pathway_file = pathway_folder / "pathway.txt"
+    print(pathway_file)
     pathway_nodes_file = pathway_folder / "pathway_nodes.txt"
+    print(pathway_nodes_file)
 
     targets = pd.read_csv(raw_directory / "Homo_sapiens_TF.tsv", sep="\t")
     print(targets.head())
     sources = pd.read_excel(raw_directory / "table_S3_surfaceome.xlsx", sheet_name="in silico surfaceome only", skiprows=1)
     print(sources.head())
 
-    
+
 
 if __name__ == "__main__":
     main()

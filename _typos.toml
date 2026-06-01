@@ -13,3 +13,4 @@ extend-exclude = [
 
 [default.extend-ignore-words]
 controled = "controled"
+Wnt_signaling_pathway = "Wnt signaling pathway"

@@ -37,7 +37,7 @@ def main():
         pathway_data_dir / Path(args.pathway_name).with_suffix(".owl"),
         pathway_data_dir / Path(args.pathway_name).with_suffix(".sif"),
         # See the paxtools library for information about how these settings were retrieved.
-        # Thes are directly from PathwayCommons.
+        # These are directly from PathwayCommons.
         denylist=str(panther_directory / "raw" / "blacklist.txt"),
         chemDb=["chebi"],
         seqDb=["hgnc"],

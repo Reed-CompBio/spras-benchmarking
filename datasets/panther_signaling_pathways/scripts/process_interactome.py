@@ -1,5 +1,4 @@
 # get each of the interactomes
-import io
 import pandas as pd
 from pathlib import Path
 
@@ -16,7 +15,7 @@ def main():
     interactome_df = pd.read_csv(
         raw_directory / "9606.protein.links.full.v12.0.txt", sep=" ", usecols=["protein1", "protein2", "combined_score"]
     )
-    
+
     interactome_df = interactome_df.rename(columns={"protein1": "Interactor1", "protein2": "Interactor2", "combined_score": "Weight"})
     interactome_df = interactome_df[interactome_df["Weight"] > 1]
     interactome_df["Weight"] = interactome_df["Weight"].div(1000) # combined_scores are between 1-1000: we normalize between 0-1
