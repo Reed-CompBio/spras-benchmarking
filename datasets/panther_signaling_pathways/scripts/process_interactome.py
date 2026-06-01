@@ -6,7 +6,6 @@ from tools.normalize.interactome import deduplicate_edges
 
 panther_directory = Path(__file__).parent.parent.resolve()
 processed_directory = panther_directory / "processed"
-intermediate_directory = panther_directory / "intermediate"
 raw_directory = panther_directory / "raw"
 
 def main():

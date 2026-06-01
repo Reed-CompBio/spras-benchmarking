@@ -60,7 +60,6 @@ gn_to_ensp = (
 )
 
 def process_pathway(pathway_file: Path, pathway_folder: Path):
-
     pathway_file_content = pathway_file.read_text()
     # This file has two csv files stacked on top of each other.
     # This is the header that we are looking for
@@ -157,6 +156,7 @@ def process_pathway(pathway_file: Path, pathway_folder: Path):
     pathway_df.to_csv(pathway_folder / "pathway.txt", header=True, index=False, sep="\t")
 
 if __name__ == "__main__":
+    intermediate_directory.mkdir(exist_ok=True)
     pathway = parser().parse_args().pathway
     pathway_file = pathway_pc_data_directory / Path(pathway).with_suffix(".sif")
     pathway_folder = panther_directory / "intermediate" / pathway

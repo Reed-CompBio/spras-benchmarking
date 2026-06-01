@@ -5,6 +5,7 @@ from pathlib import Path
 from datasets.panther_signaling_pathways.scripts.parser import parser
 
 panther_directory = Path(__file__).parent.parent.resolve()
+processed_directory = panther_directory / "processed"
 intermediate_directory = panther_directory / "intermediate"
 raw_directory = panther_directory / "raw"
 
@@ -25,6 +26,8 @@ def process_targets():
 
 
 def main():
+    processed_directory.mkdir(exist_ok=True)
+    intermediate_directory.mkdir(exist_ok=True)
     pathway = parser().parse_args().pathway
 
     pathway_folder = intermediate_directory / pathway
@@ -37,8 +40,6 @@ def main():
     print(targets.head())
     sources = pd.read_excel(raw_directory / "table_S3_surfaceome.xlsx", sheet_name="in silico surfaceome only", skiprows=1)
     print(sources.head())
-
-
 
 if __name__ == "__main__":
     main()
