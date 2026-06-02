@@ -30,10 +30,6 @@ uniprot_ac_aliases = aliases[aliases["source"] == "UniProt_AC"]
 uniprot_id_aliases = aliases[aliases["source"] == "UniProt_ID"]
 gene_name_aliases = aliases[aliases["source"] == "UniProt_GN_Name"]
 
-# ac_to_ensp = uniprot_ac_aliases.groupby("alias")["#string_protein_id"].apply(list).to_dict()
-# id_to_ensp = uniprot_id_aliases.groupby("alias")["#string_protein_id"].apply(list).to_dict()
-# gn_to_ensp = gene_name_aliases.groupby("alias")["#string_protein_id"].apply(list).to_dict()
-
 ac_to_ensp = (
     uniprot_ac_aliases.assign(
         ensp=uniprot_ac_aliases["#string_protein_id"].str.removeprefix("9606.")
@@ -91,11 +87,7 @@ def process_pathway(pathway_file: Path, pathway_folder: Path):
         )),
         axis=1
     )
-    # # Drop the prefix "9606." from nodes_df["ENSP"]
-    # nodes_df["ENSP"] = nodes_df["ENSP"].apply(
-    #     lambda s: ",".join(e.removeprefix("9606.") for e in s.split(",") if e)
-    # )
-
+    
     nodes_df.to_csv(pathway_folder / "pathway_nodes.csv", header=True, index=False, sep="\t")
 
     # Save nodes with no ENSP mapping for later inspection
@@ -152,6 +144,7 @@ def process_pathway(pathway_file: Path, pathway_folder: Path):
     pathway_df = pathway_df.drop(columns=["INTERACTION_TYPE"])
 
     # TODO: what should the edge weight get? Add that then save (make it the third column)
+    # TODO: need to add in the interactomes
 
     pathway_df.to_csv(pathway_folder / "pathway.csv", header=True, index=False, sep="\t")
 

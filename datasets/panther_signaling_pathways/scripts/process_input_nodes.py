@@ -94,8 +94,6 @@ def main():
     intermediate_directory.mkdir(exist_ok=True)
     pathway = parser().parse_args().pathway
 
-    # aliases = pd.read_csv(raw_directory / "9606.protein.aliases.txt", sep="\t")
-
     pathway_folder = intermediate_directory / pathway
     pathway_file = pathway_folder / "pathway.csv"
     interactome_file = processed_directory/ "interactome.tsv"

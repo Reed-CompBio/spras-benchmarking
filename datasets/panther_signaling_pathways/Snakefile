@@ -8,7 +8,7 @@ def make_file_safe(input_str: str) -> str:
 pathways = JsoncParser.parse_file("pathways.jsonc")
 file_compatible_pathways = list(map(make_file_safe, pathways))
 
-# TODO: deduplicate from sampling.py
+# todo update code to use these once we have the thresholded interactomes
 thresholds = list(map(str, map(lambda x: (x + 1) / 10, range(10))))
 
 rule all:
@@ -162,6 +162,19 @@ rule process_input_nodes:
         # update to be per interactome
     shell:
         'uv run scripts/process_input_nodes.py "{wildcards.pathway}"'
+
+# rule process_gold_standard:
+#     input:
+#         "intermediate/{pathway}/pathway.csv",
+#         "processed/interactome.tsv",
+#         # add each of the interactomes after I get them
+#     output:
+#         "processed/{pathway}/gold_standard.csv",
+#         # update to be per interactome
+#     shell:
+#         'uv run scripts/process_gold_standard.py "{wildcards.pathway}"'
+
+
 
 # rule process_panther_pathway:
 #     input:
