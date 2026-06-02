@@ -132,7 +132,7 @@ def main():
         (output_directory / "attempt-number.txt").write_text(str(attempt_number))
         # we need to trim our data file as well. We do this already in process_panther_pathway, though.
         trim_data_file(data_df=node_data_df, gold_standard_df=pathway_df).to_csv(output_directory / "node_prizes.tsv", sep="\t", index=False)
-    
+
 
 if __name__ == "__main__":
     main()

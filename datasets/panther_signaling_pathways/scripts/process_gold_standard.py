@@ -1,4 +1,3 @@
-import io
 import pandas as pd
 from pathlib import Path
 
@@ -10,7 +9,7 @@ raw_directory = panther_directory / "raw"
 processed_directory = panther_directory / "processed"
 
 def main():
-    
+
     intermediate_directory.mkdir(exist_ok=True)
     processed_directory.mkdir(exist_ok=True)
     pathway = parser().parse_args().pathway
@@ -23,6 +22,8 @@ def main():
     # trim the pathawy to the interactome(s)
     # set as the gold standard
     # save
+
+    interactome_file = processed_directory/ "interactome.tsv"
 
     interactome = pd.read_csv(interactome_file, sep="\t", header=None, names=["Node1", "Node2", "Weight", "Direction"])
     interactome.drop(columns="Weight", inplace=True)

@@ -87,7 +87,7 @@ def process_pathway(pathway_file: Path, pathway_folder: Path):
         )),
         axis=1
     )
-    
+
     nodes_df.to_csv(pathway_folder / "pathway_nodes.csv", header=True, index=False, sep="\t")
 
     # Save nodes with no ENSP mapping for later inspection

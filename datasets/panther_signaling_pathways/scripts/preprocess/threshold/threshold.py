@@ -1,10 +1,9 @@
 import pandas
 from pathlib import Path
 import collections
-from typing import OrderedDict, NamedTuple
+from typing import OrderedDict
 
-import urllib.parse
-from sampling import attempt_sample
+# from sampling import attempt_sample
 import argparse
 import networkx
 
@@ -12,7 +11,7 @@ import itertools
 
 import random
 
-panther_directory = Path("..") / ".." / ".." 
+panther_directory = Path("..") / ".." / ".."
 intermediate_directory = panther_directory / "intermediate"
 processed_directory = panther_directory / "processed"
 
@@ -53,7 +52,7 @@ def check_target_reachability(graph, sources, targets):
     reachable_count = len(reachable_targets & set(targets))
     total_targets = len(targets)
     reachability = reachable_count / total_targets
-    
+
     return reachability, reachable_count, total_targets
 
 def sample_interactome(interactome_df: pandas.DataFrame, weight_mapping: OrderedDict[int, int], percentage: float):
@@ -64,7 +63,7 @@ def sample_interactome(interactome_df: pandas.DataFrame, weight_mapping: Ordered
     # Sampling a percentage of the edges from each weight bucket is equivalent to
     # sampling a percentage of the full interactome such that the weight
     # distribution is preserved, since the buckets partition edges by weight.
-    
+
     percentage is the threshold
     """
     if percentage == 100:
@@ -90,18 +89,18 @@ def attempt_sample(pathway_df, sampled_interactome, sources, targets, threshold_
     median_weight = sampled_interactome["Weight"].median()
     pathway_df["Weight"] = median_weight
 
-    original = networkx.from_pandas_edgelist(pathway_df, source="Node1", target="Node2", create_using=networkx.DiGraph)
-    origianl_connections = find_connected_sources_targets(sources, targets, original)
+    # original = networkx.from_pandas_edgelist(pathway_df, source="Node1", target="Node2", create_using=networkx.DiGraph)
+    # original_connections = find_connected_sources_targets(sources, targets, original)
 
     # merge pathway with sampled interactome
     merged_df = sampled_interactome.merge(
-        pathway_df[["Node1", "Node2"]], 
-        how="left", 
+        pathway_df[["Node1", "Node2"]],
+        how="left",
         on=["Node1", "Node2"]
     )
     print(len(merged_df))
-    
-    # priotize directed edges over undirected edges, then heightest weight
+
+    # prioritize directed edges over undirected edges, then heightest weight
     merged_df = merged_df.sort_values(
         by=["Node1", "Node2", "Direction", "Weight"],
         ascending=[True, True, False, False]  # D comes before U, highest weight first
@@ -109,10 +108,10 @@ def attempt_sample(pathway_df, sampled_interactome, sources, targets, threshold_
     merged_df = merged_df.drop_duplicates(subset=['Node1', 'Node2'], keep='first')
 
     merged_graph = networkx.from_pandas_edgelist(merged_df, source="Node1", target="Node2", create_using=networkx.DiGraph)
-    merged_connections = find_connected_sources_targets(sources, targets, merged_graph)
+    # merged_connections = find_connected_sources_targets(sources, targets, merged_graph)
 
     # We ask that at least `percentage` of the sources and targets are connected with one another.
-    # connection_percentage = float(len(merged_connections)) / float(len(origianl_connections)) if len(origianl_connections) != 0 else 0
+    # connection_percentage = float(len(merged_connections)) / float(len(original_connections)) if len(original_connections) != 0 else 0
 
     # if threshold_connectivity <= connection_percentage:
     #     print(f"Got {connection_percentage * 100:.1f}% connections above the {threshold_connectivity * 100:.1f}% required percentage threshold.")
@@ -120,18 +119,18 @@ def attempt_sample(pathway_df, sampled_interactome, sources, targets, threshold_
     # print(f"Failed {connection_percentage * 100:.1f}% connections below the {threshold_connectivity * 100:.1f}% required percentage threshold.")
     # return None
 
-    
+
     # Check reachability
     reachability, reachable_count, total_targets = check_target_reachability(merged_graph, sources, targets)
     print(f"Target reachability: {reachable_count}/{total_targets} ({reachability*100:.1f}%)")
-    
+
     if reachability >= threshold_connectivity:
-        print(f"Success!")
+        print("Success!")
         return merged_df
-    
+
     print(f"Below threshold ({threshold_connectivity*100:.0f}%), retrying...")
     return None
-    
+
 
 def main():
     arg_parser = create_threshold_parser()
@@ -163,7 +162,7 @@ def main():
     )
 
     weight_mapping = count_weights()
-    
+
     sources = list(pathway_input_nodes_df[pathway_input_nodes_df["sources"] == True]["NODEID"])
     targets = list(pathway_input_nodes_df[pathway_input_nodes_df["targets"] == True]["NODEID"])
 
@@ -171,14 +170,14 @@ def main():
     if not sources or not targets:
         output_dir = processed_directory / pathway / "interactomes"
         output_dir.mkdir(parents=True, exist_ok=True)
-        
+
         empty_df = pandas.DataFrame()
         output_path = output_dir / f"interactome_{args.threshold}.txt"
         empty_df.to_csv(output_path, sep="\t", index=False, header=False)
-        
+
         print(f"No sources or targets found. Wrote empty file to {output_path}")
-        return 
-    
+        return
+
     # Retry loop
     CONNECTIVITY_THRESHOLD = 0.5  # 80%
     attempt = 1
@@ -194,13 +193,13 @@ def main():
         if attempt == 100:
             output_dir = processed_directory / pathway / "interactomes"
             output_dir.mkdir(parents=True, exist_ok=True)
-            
+
             empty_df = pandas.DataFrame()
             output_path = output_dir / f"interactome_{args.threshold}.txt"
             empty_df.to_csv(output_path, sep="\t", index=False, header=False)
-            
+
             print(f"Hit 100 attempts. Wrote empty file to {output_path}")
-            return 
+            return
 
     # Save output
     output_dir = processed_directory / pathway / "interactomes"
