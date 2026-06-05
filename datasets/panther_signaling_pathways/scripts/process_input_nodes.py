@@ -79,7 +79,8 @@ def process_targets(targets: pd.DataFrame, pathway_file: pd.DataFrame, interacto
 def spras_format(sources: pd.DataFrame, targets: pd.DataFrame) -> pd.DataFrame:
     source_ensps = set(sources["ENSP"])
     target_ensps = set(targets["ENSP"])
-    all_ensps = source_ensps | target_ensps
+    all_ensps = source_ensps | target_ensps # TODO make sure this drops the duplicates if there is any
+
 
     spras_df = pd.DataFrame({"NODEID": sorted(all_ensps)})
     spras_df["sources"] = spras_df["NODEID"].isin(source_ensps)

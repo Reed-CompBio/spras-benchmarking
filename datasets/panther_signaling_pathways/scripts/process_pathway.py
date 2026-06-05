@@ -105,6 +105,31 @@ def process_pathway(pathway_file: Path, pathway_folder: Path):
         lambda x: "D" if x in directed else ("U" if x in undirected else "Unknown Direction")
     )
 
+    # TODO: remove duplicate rows
+    # sort by (node1 and node2) to ensure deterministic sorting
+    # edges_df = edges_df.sort_values(by=["Interactor1", "Interactor2"], ascending=True, ignore_index=True)
+    # undirected_mask = edges_df["Direction"] == "U"
+    # min_nodes = edges_df.loc[undirected_mask, ["Interactor1", "Interactor2"]].min(axis=1)
+    # max_nodes = edges_df.loc[undirected_mask, ["Interactor1", "Interactor2"]].max(axis=1)
+    # edges_df.loc[undirected_mask, "Interactor1"] = min_nodes
+    # edges_df.loc[undirected_mask, "Interactor2"] = max_nodes
+
+    # keep 1 directed and 1 undirected edge if both exist
+    # since rank is 1, we don't need to sort by rank.
+    # edges_df = edges_df.sort_values(by=["Interactor1", "Interactor2", "Direction"], ascending=True, ignore_index=True)
+    # edges_df = edges_df.drop_duplicates(keep="first", ignore_index=True)
+    # # We trim the gold standard edges against the interactome
+    # interactome_df = pd.read_csv(
+    #     processed_directory / "interactome.tsv",
+    #     sep="\t",
+    #     header=None,
+    #     names=["Interactor1", "Interactor2", "Weight", "Direction"],
+    #     dtype={"Interactor1": str, "Interactor2": str},
+    # )
+
+    # TODO: trim to what is in the interactome
+    # TODO: add weights as the median weight of the interactome
+
     # Convert UniProt_GN_Name to ENSP for the edges
     original_edges = pathway_df.copy()
 
@@ -142,9 +167,6 @@ def process_pathway(pathway_file: Path, pathway_folder: Path):
 
     # Remove INTERACTION_TYPE column
     pathway_df = pathway_df.drop(columns=["INTERACTION_TYPE"])
-
-    # TODO: what should the edge weight get? Add that then save (make it the third column)
-    # TODO: need to add in the interactomes
 
     pathway_df.to_csv(pathway_folder / "pathway.csv", header=True, index=False, sep="\t")
 

@@ -132,6 +132,7 @@ rule process_pathways:
     input:
         "intermediate/pathway-pc-data/{pathway}.sif",
         "raw/9606.protein.aliases.txt"
+        # TODO: make this dependent on the interactomes existing and have been processed
     output:
         "intermediate/{pathway}/pathway.csv",
         "intermediate/{pathway}/pathway_nodes.csv",
