@@ -2,6 +2,9 @@ from pathlib import Path
 import urllib.parse
 from jsonc_parser.parser import JsoncParser
 
+# TODO: Only change one at a time; upsample the pathway (and have intermediate upsampled pathways), keep interactome the same (100%) and then downsample interactome and keep the pathways the same (100%)
+# so the upsampled ones will onle need threshold 100 if we want to preprocess them with this script
+
 panther_directory = Path("..") / ".." / ".."
 intermediate_directory = panther_directory / "intermediate"
 processed_directory = panther_directory / "processed"

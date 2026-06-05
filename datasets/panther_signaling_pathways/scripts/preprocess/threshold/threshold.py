@@ -11,6 +11,10 @@ import itertools
 
 import random
 
+# TODO: think about directionality
+# - i think treat everything as a directed edge when doing any of the checks
+# - but do keep things as undirected and directed as everything else
+
 panther_directory = Path("..") / ".." / ".."
 intermediate_directory = panther_directory / "intermediate"
 processed_directory = panther_directory / "processed"
@@ -106,6 +110,13 @@ def sample_interactome(interactome_df: pandas.DataFrame, weight_mapping: Ordered
 
     return subset_df
 
+def to_directed_edgelist(df: pandas.DataFrame) -> pandas.DataFrame:
+    directed = df[df["Direction"] == "D"]
+    undirected = df[df["Direction"] == "U"]
+    flipped = undirected.copy()
+    flipped["Node1"], flipped["Node2"] = undirected["Node2"], undirected["Node1"]
+    return pandas.concat([directed, undirected, flipped], ignore_index=True)
+
 def attempt_sample(pathway_df, sampled_interactome, sources, targets, threshold_connectivity=0.8, threshold_overlap=0.25):
     """
     Try to merge pathway with sampled interactome and check if connectivity threshold is met.
@@ -167,6 +178,8 @@ def main():
         sep="\t",
         names=["Node1", "Node2", "Weight", "Direction"],
     )
+
+    
     pathway_df = pandas.read_csv(
         intermediate_directory / pathway / "pathway.csv",
         sep="\t",
@@ -227,7 +240,7 @@ def main():
     output_dir.mkdir(parents=True, exist_ok=True)
     output_path = output_dir / f"interactome_{args.threshold}.txt"
     combined_df.to_csv(output_path, sep="\t", index=False, header=False)
-    print(f"Success on attempt {attempt - 1}")
+    print(f"Success on attempt {attempt}")
 
 if __name__ == "__main__":
     main()
