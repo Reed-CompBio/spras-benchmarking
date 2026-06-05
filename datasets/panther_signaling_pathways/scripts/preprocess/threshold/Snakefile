@@ -6,9 +6,7 @@ panther_directory = Path("..") / ".." / ".."
 intermediate_directory = panther_directory / "intermediate"
 processed_directory = panther_directory / "processed"
 
-thresholds = [50]
-# TODO update to the full list after I know this works
-# thresholds = list(map(str, map(lambda x: (x + 1) / 10, range(10))))
+thresholds = [10, 25, 50, 75, 100] # the percent of the interactome to keep
 
 def make_file_safe(input_str: str) -> str:
     return urllib.parse.quote(input_str, safe='')
@@ -17,15 +15,13 @@ def make_file_safe(input_str: str) -> str:
 pathways = JsoncParser.parse_file(str(panther_directory / "pathways.jsonc"))
 file_compatible_pathways = list(map(make_file_safe, pathways))
 
-
 rule all:
     input:
         expand(
-            str(processed_directory / "{pathway}" / "interactomes" / "interactome_{threshold}.txt"),
+            "processed/{pathway}/interactomes/interactome_{threshold}.txt",
             pathway=file_compatible_pathways,
             threshold=thresholds,
         )
-
 
 rule threshold:
     input:
@@ -34,6 +30,7 @@ rule threshold:
         interactome=str(processed_directory / "interactome.tsv"),
         weight_counts=str(processed_directory / "weight-counts.tsv"),
     output:
-        str(processed_directory / "{pathway}" / "interactomes" / "interactome_{threshold}.txt")
+        # TODO: change this to be saved in this folder not in the main processed folder
+        "processed/{pathway}/interactomes/interactome_{threshold}.txt"
     shell:
         'uv run threshold.py "{wildcards.pathway}" --threshold "{wildcards.threshold}"'

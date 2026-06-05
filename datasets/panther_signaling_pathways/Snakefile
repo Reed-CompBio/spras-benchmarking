@@ -11,6 +11,9 @@ file_compatible_pathways = list(map(make_file_safe, pathways))
 # todo update code to use these once we have the thresholded interactomes
 thresholds = list(map(str, map(lambda x: (x + 1) / 10, range(10))))
 
+PATHWAYS, = glob_wildcards("intermediate/{pathway}/pathway.csv")
+
+
 rule all:
     input:
         expand([
@@ -49,7 +52,9 @@ rule all:
         expand([
             "intermediate/{pathway}/input_nodes.csv",
         ], pathway=file_compatible_pathways),
-    
+
+        "processed/full_stats.tsv",
+        "processed/filtered_stats.tsv",
 
 produce_fetch_rules({
    
@@ -175,44 +180,14 @@ rule process_input_nodes:
 #         'uv run scripts/process_gold_standard.py "{wildcards.pathway}"'
 
 
-
-# rule process_panther_pathway:
-#     input:
-#         "intermediate/pathway-pc-data/{pathway}.sif",
-#         "raw/table_S3_surfaceome.xlsx",
-#         "raw/Homo_sapiens_TF_Uniprot.tsv"
-#     output:
-#         "intermediate/{pathway}/edges.txt",
-#         "intermediate/{pathway}/nodes.txt",
-#         "intermediate/{pathway}/sources.txt",
-#         "intermediate/{pathway}/targets.txt",
-#         "intermediate/{pathway}/prizes.txt"
-#     shell:
-#         'uv run scripts/process_panther_pathway.py "{wildcards.pathway}"'
-
-# rule make_spras_compatible:
-#     input:
-#         # We use the interactome for trimming
-#         "processed/interactome.tsv",
-#         "intermediate/{pathway}/edges.txt",
-#         "intermediate/{pathway}/nodes.txt",
-#         "intermediate/{pathway}/sources.txt",
-#         "intermediate/{pathway}/targets.txt",
-#         "intermediate/{pathway}/prizes.txt"
-#     output:
-#         "processed/pathways/{pathway}/node_prizes.txt",
-#         "processed/pathways/{pathway}/gs_edges.txt",
-#         "processed/pathways/{pathway}/gs_nodes.txt"
-#     shell:
-#         'uv run scripts/panther_spras_formatting.py "{wildcards.pathway}"'
-
-# # rule threshold:
-# #     input:
-# #         "processed/pathways/{pathway}/node_prizes.txt",
-# #         "processed/pathways/{pathway}/gs_edges.txt",
-# #         "processed/interactome.tsv"
-# #     output:
-# #         expand("thresholded/{threshold}/{{pathway}}/interactome.txt", threshold=thresholds),
-# #         expand("thresholded/{threshold}/{{pathway}}/gold_standard_edges.txt", threshold=thresholds)
-# #     shell:
-# #         'uv run scripts/sampling.py "{wildcards.pathway}" --percentage_thresholding_multiplier 0.9'
+rule pathway_stats:
+    input:
+        expand("intermediate/{pathway}/pathway.csv", pathway=PATHWAYS),
+        expand("intermediate/{pathway}/input_nodes.csv", pathway=PATHWAYS),
+    output:
+        "processed/full_stats.tsv",
+        "processed/filtered_stats.tsv",
+    params:
+        pathways = PATHWAYS,
+    shell:
+        'uv run scripts/pathway_statistics.py {params.pathways}'
