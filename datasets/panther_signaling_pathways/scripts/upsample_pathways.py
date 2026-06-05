@@ -1,4 +1,4 @@
-# TODO: Upsample not just all of the pathways together 
+# TODO: Upsample not just all of the pathways together
 # but some that are intermediate values between the pathways and the fully upsampled pathway
 # TODO: Only change one at a time; upsample the pathway (and have intermediate upsampled pathways),
 #  keep interactome the same (100%) and then downsample interactome and keep the pathways the same (100%)

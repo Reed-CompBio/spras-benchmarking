@@ -1,7 +1,6 @@
 import sys
 from pathlib import Path
 import pandas
-import networkx
 
 panther_directory = Path(__file__).parent.parent.resolve()
 intermediate_directory = panther_directory / "intermediate"

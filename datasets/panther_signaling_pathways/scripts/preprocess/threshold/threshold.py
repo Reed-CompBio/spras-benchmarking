@@ -7,8 +7,6 @@ from typing import OrderedDict
 import argparse
 import networkx
 
-import itertools
-
 import random
 
 # TODO: think about directionality
@@ -179,7 +177,7 @@ def main():
         names=["Node1", "Node2", "Weight", "Direction"],
     )
 
-    
+
     pathway_df = pandas.read_csv(
         intermediate_directory / pathway / "pathway.csv",
         sep="\t",
