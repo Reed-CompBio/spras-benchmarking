@@ -56,6 +56,8 @@ rule all:
         "processed/full_stats.tsv",
         "processed/filtered_stats.tsv",
 
+        "processed/mega_pathway.csv",
+
 produce_fetch_rules({
    
     "raw/9606.protein.links.full.v12.0.txt": FetchConfig(
@@ -144,10 +146,34 @@ rule process_pathways:
     shell:
         'uv run scripts/process_pathway.py "{wildcards.pathway}"'
 
+rule pathway_stats:
+    input:
+        expand("intermediate/{pathway}/pathway.csv", pathway=PATHWAYS),
+        expand("intermediate/{pathway}/input_nodes.csv", pathway=PATHWAYS),
+    output:
+        "processed/full_stats.tsv",
+        "processed/filtered_stats.tsv",
+    params:
+        pathways = PATHWAYS,
+    shell:
+        'uv run scripts/pathway_statistics.py {params.pathways}'
+
+rule upsample:
+    input:
+        expand("intermediate/{pathway}/pathway.csv", pathway=PATHWAYS),
+        expand("intermediate/{pathway}/input_nodes.csv", pathway=PATHWAYS),
+        "processed/filtered_stats.tsv",
+    output:
+        "processed/mega_pathway.csv",
+        "processed/mega_input_nodes.csv"
+    params:
+    shell:
+        'uv run scripts/upsample_pathways.py'
+        
 rule interactome:
     input:
         "raw/9606.protein.links.full.v12.0.txt",
-    output: 
+    output:
         "processed/interactome.tsv",
         "processed/weight-counts.tsv"
     shell:
@@ -180,15 +206,3 @@ rule process_input_nodes:
 #     shell:
 #         'uv run scripts/process_gold_standard.py "{wildcards.pathway}"'
 
-
-rule pathway_stats:
-    input:
-        expand("intermediate/{pathway}/pathway.csv", pathway=PATHWAYS),
-        expand("intermediate/{pathway}/input_nodes.csv", pathway=PATHWAYS),
-    output:
-        "processed/full_stats.tsv",
-        "processed/filtered_stats.tsv",
-    params:
-        pathways = PATHWAYS,
-    shell:
-        'uv run scripts/pathway_statistics.py {params.pathways}'

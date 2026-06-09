@@ -101,8 +101,11 @@ algorithms:
     include: true
     runs:
       run1:
-        flow: [1, 5, 10, 25, 50, 100]
+        flow: [1, 5, 10, 25]
         capacity: [1, 5, 10, 100]
+      run2:
+        flow: [50, 100]
+        capacity: [5, 10, 100]
 
   # - name: "netmix2"
 

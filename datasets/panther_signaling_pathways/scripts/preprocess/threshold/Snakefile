@@ -9,7 +9,7 @@ panther_directory = Path("..") / ".." / ".."
 intermediate_directory = panther_directory / "intermediate"
 processed_directory = panther_directory / "processed"
 
-thresholds = [10, 25, 50, 75, 100] # the percent of the interactome to keep
+thresholds = [10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100] # the percent of the interactome to keep
 
 def make_file_safe(input_str: str) -> str:
     return urllib.parse.quote(input_str, safe='')

@@ -3,20 +3,17 @@ from pathlib import Path
 import collections
 from typing import OrderedDict
 
-# from sampling import attempt_sample
 import argparse
 import networkx
 
 import random
 
-# TODO: think about directionality
-# - i think treat everything as a directed edge when doing any of the checks
-# - but do keep things as undirected and directed as everything else
-
 panther_directory = Path("..") / ".." / ".."
 intermediate_directory = panther_directory / "intermediate"
 processed_directory = panther_directory / "processed"
 
+# all the checks are done on directed graphs
+# all the rest of the data will keep the undirected and directd edges
 
 def create_threshold_parser():
     parser = argparse.ArgumentParser(description="Generate thresholded interactomes")
@@ -65,22 +62,34 @@ def check_source_reachability(graph, sources, targets):
     reachability = reachable_sources / total_sources if total_sources else 0.0
     return reachability, reachable_sources, total_sources
 
+
+def to_directed_pairs(df):
+    """
+    Set of directed (Node1, Node2) edges.
+    'D' rows contribute one directed edge. 'U' rows contribute both directions.
+    A frame without a Direction column is treated as fully undirected.
+    """
+    pairs = set(zip(df["Node1"], df["Node2"]))
+    if "Direction" in df.columns:
+        und = df[df["Direction"] == "U"]
+        pairs |= set(zip(und["Node2"], und["Node1"]))
+    else:
+        pairs |= set(zip(df["Node2"], df["Node1"]))
+    return pairs
+
+
 def pathway_overlap(pathway_df, sampled_interactome):
     """
-    Fraction of pathway edges present in the sampled interactome, ignoring direction.
-    Edges are compared as unordered pairs.
+    Fraction of pathway edges present in the sampled interactome, using the
+    directed model the rest of the pipeline uses. A directed pathway edge
+    matches a same-direction background edge or an undirected background edge.
     """
-    pathway_pairs = {
-        frozenset((a, b)) for a, b in zip(pathway_df["Node1"], pathway_df["Node2"])
-    }
+    pathway_pairs = to_directed_pairs(pathway_df)
     if not pathway_pairs:
         return 0.0
-
-    sample_pairs = {
-        frozenset((a, b))
-        for a, b in zip(sampled_interactome["Node1"], sampled_interactome["Node2"])
-    }
+    sample_pairs = to_directed_pairs(sampled_interactome)
     return len(pathway_pairs & sample_pairs) / len(pathway_pairs)
+
 
 def sample_interactome(interactome_df: pandas.DataFrame, weight_mapping: OrderedDict[int, int], percentage: float):
     """
@@ -91,7 +100,7 @@ def sample_interactome(interactome_df: pandas.DataFrame, weight_mapping: Ordered
     # sampling a percentage of the full interactome such that the weight
     # distribution is preserved, since the buckets partition edges by weight.
 
-    percentage is the threshold
+    percentage is the threshold of how much we take from the full interactome
     """
     if percentage == 100:
         return interactome_df
@@ -113,9 +122,13 @@ def to_directed_edgelist(df: pandas.DataFrame) -> pandas.DataFrame:
     undirected = df[df["Direction"] == "U"]
     flipped = undirected.copy()
     flipped["Node1"], flipped["Node2"] = undirected["Node2"], undirected["Node1"]
-    return pandas.concat([directed, undirected, flipped], ignore_index=True)
+    expanded = pandas.concat([directed, undirected, flipped], ignore_index=True)
 
-def attempt_sample(pathway_df, sampled_interactome, sources, targets, threshold_connectivity=0.8, threshold_overlap=0.25):
+    expanded = expanded.sort_values("Weight", ascending=False)
+    expanded = expanded.drop_duplicates(subset=["Node1", "Node2"], keep="first")
+    return expanded.reset_index(drop=True)
+
+def check_sample(pathway_df, sampled_interactome, sources, targets, threshold_connectivity=0.8, threshold_overlap=0.25):
     """
     Try to merge pathway with sampled interactome and check if connectivity threshold is met.
     Returns combined df if successful, None if below threshold.
@@ -129,27 +142,34 @@ def attempt_sample(pathway_df, sampled_interactome, sources, targets, threshold_
     print(f"Got {overlap * 100:.1f}% pathway overlap above the {threshold_overlap * 100:.1f}% threshold.")
 
     # set pathway edges to the median edge weights in the current sampled interactome
-    pathway_edges = pathway_df[["Node1", "Node2"]].copy()
+    pathway_edges = pathway_df[["Node1", "Node2", "Direction"]].copy()
     pathway_edges["Weight"] = sampled_interactome["Weight"].median()
+    pathway_edges = pathway_edges[["Node1", "Node2", "Weight", "Direction"]]
 
-     # concat pathway with sampled interactome
+    # concat pathway with sampled interactome
+    # the full pathway is added to the sampled interactome
     combined = pandas.concat([sampled_interactome, pathway_edges], ignore_index=True)
     combined = combined.sort_values(
         by=["Node1", "Node2", "Direction", "Weight"],
-        ascending=[True, True, True, False],  # 'D' < 'U', so ascending keeps directed first, highest weight first as well
+        ascending=[True, True, True, False],  # want to keep directed edges first (D < U) and then pick highest edge weight for any more duplicate edges
     )
     combined = combined.drop_duplicates(subset=["Node1", "Node2"], keep="first")
 
-    combined_graph = networkx.from_pandas_edgelist(combined, source="Node1", target="Node2", create_using=networkx.DiGraph)
+    # build a directed edge only graph of the combined interactome just for the checks; U -> two bi-directed D edges
+    check_graph = networkx.from_pandas_edgelist(
+        to_directed_edgelist(combined),
+        source="Node1",
+        target="Node2",
+        create_using=networkx.DiGraph,
+    )
 
     # Check reachability
     # asking what fraction of targets are reachable from at least one source and what fraction of sources are reachable from at least one target
-    reachability_targets, reachable_count_targets, total_targets = check_target_reachability(combined_graph, sources, targets)
-    reachability_sources, reachable_count_sources, total_sources = check_source_reachability(combined_graph, sources, targets)
+    reachability_targets, reachable_count_targets, total_targets = check_target_reachability(check_graph, sources, targets)
+    reachability_sources, reachable_count_sources, total_sources = check_source_reachability(check_graph, sources, targets)
     print(f"Target reachability: {reachable_count_targets}/{total_targets} ({reachability_targets*100:.1f}%)")
     print(f"Source reachability: {reachable_count_sources}/{total_sources} ({reachability_sources*100:.1f}%)")
 
-    # TODO: see if I can change the threshold_connectivity to 80% instead of 50%
     if reachability_targets >= threshold_connectivity and reachability_sources >= threshold_connectivity:
         print("Success!")
         return combined
@@ -176,7 +196,6 @@ def main():
         sep="\t",
         names=["Node1", "Node2", "Weight", "Direction"],
     )
-
 
     pathway_df = pandas.read_csv(
         intermediate_directory / pathway / "pathway.csv",
@@ -206,8 +225,8 @@ def main():
         return
 
     # Retry loop
-    CONNECTIVITY_THRESHOLD = 0.8
-    OVERLAP_THRESHOLD = 0.25
+    CONNECTIVITY_THRESHOLD = 1
+    OVERLAP_THRESHOLD = 0.30 # 50% might be too high, maybe we do like 45% or 40%? or go back to 25%
     attempt = 1
     combined_df = None
 
@@ -215,13 +234,13 @@ def main():
         print(f"Attempt {attempt}")
         sampled_interactome = sample_interactome(interactome_df, weight_mapping, args.threshold)
 
-        combined_df = attempt_sample(pathway_df, sampled_interactome, sources, targets, CONNECTIVITY_THRESHOLD, OVERLAP_THRESHOLD)
+        combined_df = check_sample(pathway_df, sampled_interactome, sources, targets, CONNECTIVITY_THRESHOLD, OVERLAP_THRESHOLD)
         if combined_df is not None:
             break
 
         attempt += 1
 
-        if attempt == 15:
+        if attempt == 100:
             # Save unsuccessful output
             output_dir = Path("processed") / pathway / "interactomes"
             output_dir.mkdir(parents=True, exist_ok=True)
@@ -230,7 +249,7 @@ def main():
             output_path = output_dir / f"interactome_{args.threshold}.txt"
             empty_df.to_csv(output_path, sep="\t", index=False, header=False)
 
-            print(f"Hit 15 attempts. Wrote empty file to {output_path}")
+            print(f"Hit 100 attempts. Wrote empty file to {output_path}")
             return
 
     # Save successful output
