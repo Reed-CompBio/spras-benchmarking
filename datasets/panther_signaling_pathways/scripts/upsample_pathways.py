@@ -8,15 +8,14 @@
 # - use filtered_stats.tsv to tell us what pathways to mega combine together that are useable
 # - get the merged pathway and the merged input_nodes
 # 2) want to have some intermediate points that are the values between for the sources and targets
-# - individual source/target counts sum to roughly 350 source-slots and 175 target-slots, 
+# - individual source/target counts sum to roughly 350 source-slots and 175 target-slots,
 # but the mega has only 327 total input nodes, so there's heavy sharing between the pathways
-# - could we make a pathway that focuses more on targets so we add all the pathways together that have targets > 10 other than for Wnt%20signaling%20pathway
-# - could we make more source focused pathway so  we add all pathways that are > 10 except for Cadherin%20signaling%20pathway and Wnt%20signaling%20pathway
+# - could we make a pathway that focuses more on targets so we add all the pathways together that have targets > 10 other than for Want%20signaling%20pathway
+# - could we make more source focused pathway so  we add all pathways that are > 10 except for Cadherin%20signaling%20pathway and Want%20signaling%20pathway
 # - could we make more balanced source and targets pathway and add pathways together to get better ratios of the source to target target to source
 # - need to also pick which pathways to use as plain (I like to choose the Sources/Targets > 3 and Targets/Sources > 3 and see how many I am left with)
 #   - but we can still use the other pathways for the upsampled ones
 
-import sys
 import pandas as pd
 from pathlib import Path
 panther_directory = Path(__file__).parent.parent.resolve()
@@ -26,7 +25,7 @@ processed_directory = panther_directory / "processed"
 
 
 def main():
-    
+
     stats = pd.read_csv(processed_directory / "filtered_stats.tsv", sep="\t")
     print(stats)
     pathways = stats["Name"].tolist()
@@ -82,7 +81,7 @@ def main():
     mega_input_nodes.to_csv(processed_directory / "mega_input_nodes.csv", sep="\t", index=False)
     print(f"Mega pathway: {len(mega_pathway)} edges, {len(mega_input_nodes)} input nodes")
 
-        
+
 
 
 if __name__ == "__main__":

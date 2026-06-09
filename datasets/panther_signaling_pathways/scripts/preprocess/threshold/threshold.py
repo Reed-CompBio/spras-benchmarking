@@ -13,7 +13,7 @@ intermediate_directory = panther_directory / "intermediate"
 processed_directory = panther_directory / "processed"
 
 # all the checks are done on directed graphs
-# all the rest of the data will keep the undirected and directd edges
+# all the rest of the data will keep the undirected and directed edges
 
 def create_threshold_parser():
     parser = argparse.ArgumentParser(description="Generate thresholded interactomes")
