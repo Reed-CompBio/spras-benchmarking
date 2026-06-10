@@ -1,6 +1,9 @@
 {
     "cSpell.ignoreWords": ["Wnt", "WNT", "wnt"],
     "cSpell.words": ["Wnt", "WNT", "wnt"],
+    "editor.autoCorrect": "off",
+    "editor.autoCorrectOnPaste": "off",
+    "github.copilot.editor.enableAutoCompletions": true,
     "editor.rulers": [
         150 // enforced by ruff
     ],
