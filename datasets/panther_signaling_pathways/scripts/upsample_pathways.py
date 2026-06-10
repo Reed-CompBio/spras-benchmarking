@@ -144,6 +144,18 @@ def pathway_stats_row(name, input_nodes):
         "Ratio Targets/Sources": t / s if s != 0 else float("nan"),
     }
 
+def imbalance(n_sources, n_targets):
+    """
+    Symmetric imbalance score. 
+    Returns max/min - 1
+    
+    If sources=100 and targets=125, then 125/100 - 1 = 0.25, 
+    meaning the larger side is 25% bigger than the smaller. 
+    A tolerance of 0.25 allows up to that ratio, and 0.0 would require exact equality.
+
+    """
+    return max(n_sources, n_targets) / min(n_sources, n_targets) - 1.0
+
 # Balanced-subset selection
 def grow_balanced(pathway_names, edges, nodes, tol=0.25):
     """
@@ -170,17 +182,9 @@ def grow_balanced(pathway_names, edges, nodes, tol=0.25):
 
         for candidate in pool:
             merged_nodes = merge_input_nodes([nodes[n] for n in selected + [candidate]])
-            cs = int(merged_nodes["sources"].sum())
-            ct = int(merged_nodes["targets"].sum())
+            cs, ct = count_roles(merged_nodes)
 
-            # Symmetric imbalance score.
-            # Returns max/min - 1
-            # If sources=100 and targets=125, then 125/100 - 1 = 0.25, 
-            # meaning the larger side is 25% bigger than the smaller. 
-            # A tolerance of 0.25 allows up to that ratio, and 0.0 would require exact equality.
-            imbalance_score = max(cs, ct) / min(cs, ct) - 1.0
-
-            if imbalance_score <= tol and len(merged_nodes) > best_node_count:
+            if imbalance(cs, ct) <= tol and len(merged_nodes) > best_node_count:
                 best_candidate  = candidate
                 best_node_count = len(merged_nodes)
 

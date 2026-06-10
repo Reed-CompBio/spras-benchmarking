@@ -109,7 +109,8 @@ def sample_interactome(interactome_df: pandas.DataFrame, weight_mapping: Ordered
     curr_v = 0
 
     for k, v in weight_mapping.items():
-        full_list.extend(map(lambda x: x + curr_v, random.sample(range(1, v), round((percentage/100) * v))))
+        sample_size = min(round((percentage / 100) * v), v)
+        full_list.extend(map(lambda x: x + curr_v, random.sample(range(v), sample_size)))
         curr_v += v
     full_set = set(full_list)
 
@@ -196,6 +197,7 @@ def main():
         sep="\t",
         names=["Node1", "Node2", "Weight", "Direction"],
     )
+
 
     pathway_df = pandas.read_csv(
         intermediate_directory / pathway / "pathway.csv",

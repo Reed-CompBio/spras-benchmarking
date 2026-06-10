@@ -10,6 +10,7 @@ processed_directory = panther_directory / "processed"
 
 def process_pathway(pathway: str) -> dict:
     pathway_folder = intermediate_directory / pathway
+    pathway_file = pandas.read_csv(pathway_folder / "pathway.csv", sep="\t")
     input_nodes = pandas.read_csv(pathway_folder / "input_nodes.csv", sep="\t")
 
     sources = list(input_nodes[input_nodes["sources"] == True]["NODEID"])
@@ -20,6 +21,7 @@ def process_pathway(pathway: str) -> dict:
 
     return {
         "Name": pathway,
+        "Len_pathway": len(pathway_file),
         "Sources": n_sources,
         "Targets": n_targets,
         "Ratio Sources/Targets": (float(n_sources) / float(n_targets)) if n_targets != 0 else float("nan"),
