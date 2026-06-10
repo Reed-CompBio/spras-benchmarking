@@ -11,9 +11,9 @@
 # - individual source/target counts sum to roughly 350 source-slots and 175 target-slots,
 # but the mega has only 327 total input nodes, so there's heavy sharing between the pathways
 
-# - could we make a pathway that focuses more on targets so we add all the pathways together that have targets > 10 other than for Want%20signaling%20pathway
+# - could we make a pathway that focuses more on targets so we add all the pathways together that have targets > 10 other than for Wnt%20signaling%20pathway
 #   - one without the 1 and one with the 1
-# - could we make more source focused pathway so  we add all pathways that are > 10 except for Cadherin%20signaling%20pathway and Want%20signaling%20pathway
+# - could we make more source focused pathway so  we add all pathways that are > 10 except for Cadherin%20signaling%20pathway and Wnt%20signaling%20pathway
 #   - one without those 2 and one with those 2
 
 # - could we make more balanced source and targets pathway and add pathways together to get better ratios of the source to target target to source
@@ -30,11 +30,11 @@ pathways, combined into a single edge list and input-node list.
 
 Output files are written to processed/upsampled/:
     mega_pathway.csv / mega_input_nodes.csv  -- all pathways merged
-    target_focused_pathway.csv / _input_nodes.csv  -- pathways with > TARGET_MIN targets, excluding Want
-    target_focused_with_want_pathway.csv / ...   -- same but includes Want
-    source_focused_pathway.csv / ...     -- pathways with > SOURCE_MIN sources, excluding Cadherin and Want
-    source_focused_with_want_and_cadherin_pathway.csv -- same but includes both
-    target_focused_without_want_and_cadherin_...  -- all pathways with any targets, excluding Want and Cadherin
+    target_focused_pathway.csv / _input_nodes.csv  -- pathways with > TARGET_MIN targets, excluding Wnt
+    target_focused_with_wnt_pathway.csv / ...   -- same but includes Wnt
+    source_focused_pathway.csv / ...     -- pathways with > SOURCE_MIN sources, excluding Cadherin and Wnt
+    source_focused_with_wnt_and_cadherin_pathway.csv -- same but includes both
+    target_focused_without_wnt_and_cadherin_...  -- all pathways with any targets, excluding Wnt and Cadherin
     balanced_pathway.csv / ...    -- greedy-balanced subset (sources ~ targets)
     upsampled_stats.tsv     -- source/target counts for each variant
 """
@@ -42,74 +42,76 @@ Output files are written to processed/upsampled/:
 import pandas as pd
 from pathlib import Path
 
-# Directories
-
 panther_directory   = Path(__file__).parent.parent.resolve()
 intermediate_directory = panther_directory / "intermediate"
 processed_directory    = panther_directory / "processed"
 upsampled_directory    = processed_directory / "upsampled"
 
-# Constants
 
 # URL-encoded names matching the folder names under intermediate/
 CADHERIN = "Cadherin%20signaling%20pathway"
-WANT = "Want%20signaling%20pathway"
+WNT = "Wnt%20signaling%20pathway"
 
 # Thresholds for "source-rich" and "target-rich" pathway selection
 TARGET_MIN = 10
 SOURCE_MIN = 10
 
 
-# Helpers
-
-
 def load_pathway(name):
-    """Load a pathway's edge list and input-node list from intermediate/."""
+    """
+    Load a pathway's edge list and input-node list from intermediate/
+    """
     folder = intermediate_directory / name
     edges = pd.read_csv(folder / "pathway.csv", sep="\t")
     input_nodes = pd.read_csv(folder / "input_nodes.csv", sep="\t")
     return edges, input_nodes
 
-
 def count_roles(input_nodes):
-    """Return (n_sources, n_targets). A dual-role node counts in both."""
+    """
+    Returns amount of sources and targets
+    """
     n_sources = int((input_nodes["sources"]).sum())
     n_targets = int((input_nodes["targets"]).sum())
     return n_sources, n_targets
 
 def merge_edges(edge_frames):
     """
-    Concatenate edge frames and deduplicate by (Node1, Node2). When two pathways
-    have the same edge with different directions, the directed edge ('D') is kept
-    over the undirected one ('U') because 'D' sorts before 'U'.
+    Concatenate edge frames and deduplicate by (Node1, Node2). 
+    When two pathways have the same edge with different directions, 
+    the directed edge is kept over the undirected.
     """
     merged = pd.concat(edge_frames, ignore_index=True)
     merged = merged.sort_values(["Node1", "Node2", "Direction"], ascending=True)
     merged = merged.drop_duplicates(subset=["Node1", "Node2"], keep="first")
     return merged.reset_index(drop=True)
 
+
 def merge_input_nodes(node_frames):
     """
-    Concatenate input-node frames and collapse to one row per NODEID. Boolean
-    columns (sources, targets, active) combine with OR: a node flagged True in
-    any pathway stays True. The prize column takes the max across pathways.
+    Concatenate input-node frames and collapse to one row per NODEID.
+    A node is a source/target/active if it is a source/target/active in any pathway (logical OR).
+    The prize column takes the max across pathways.
     """
     merged = pd.concat(node_frames, ignore_index=True)
 
-    agg = {"sources": "max", "targets": "max"}
-    if "prize" in merged.columns:
-        agg["prize"]  = "max"
-    if "active" in merged.columns:
-        agg["active"] = "max"
+    # "any" is logical OR; a node flagged True in any pathway stays True.
+    # For numeric columns take the max.
+    agg = {
+        "sources": "any",
+        "targets": "any",
+        "prize":   "max",
+        "active":  "any",
+    }
 
     return merged.groupby("NODEID", as_index=False).agg(agg)
 
 def merge_pathways(names, edges, nodes):
-    """Merge edges and input nodes for the given list of pathway names."""
+    """
+    Merge edges and input nodes for the given list of pathway names.
+    """
     merged_edges = merge_edges([edges[n] for n in names])
     merged_nodes = merge_input_nodes([nodes[n] for n in names])
     return merged_edges, merged_nodes
-
 
 def write_variant(tag, names, edges, nodes):
     """
@@ -130,7 +132,9 @@ def write_variant(tag, names, edges, nodes):
 
 
 def pathway_stats_row(name, input_nodes):
-    """Build one row for the summary stats table."""
+    """
+    Build one row for the summary stats table.
+    """
     s, t = count_roles(input_nodes)
     return {
         "Name": name,
@@ -141,18 +145,6 @@ def pathway_stats_row(name, input_nodes):
     }
 
 # Balanced-subset selection
-
-def imbalance(n_sources, n_targets):
-    """
-    Symmetric imbalance score. Returns max/min - 1, so 0 means equal counts and
-    0.25 means the larger side is 1.25x the smaller. Returns inf if either
-    side is empty.
-    """
-    if n_sources == 0 or n_targets == 0:
-        return float("inf")
-    return max(n_sources, n_targets) / min(n_sources, n_targets) - 1.0
-
-
 def grow_balanced(pathway_names, edges, nodes, tol=0.25):
     """
     Build a balanced subset by greedy expansion.
@@ -162,10 +154,7 @@ def grow_balanced(pathway_names, edges, nodes, tol=0.25):
        maximizes merged input-node count while keeping imbalance within `tol`.
     3. Stop when no remaining pathway keeps the merge within tolerance.
 
-    Cadherin and Want tend to fail the tolerance gate because they have extreme
-    source/target ratios, so they are naturally excluded.
-
-    Returns (selected_names, n_sources, n_targets).
+    Returns selected_names.
     """
     pool = list(pathway_names)
 
@@ -174,6 +163,7 @@ def grow_balanced(pathway_names, edges, nodes, tol=0.25):
     selected = [seed]
     pool.remove(seed)
 
+    # TODO: what if we randomize the pool? right now this is based on the order of the pool
     while pool:
         best_candidate = None
         best_node_count = len(merge_input_nodes([nodes[n] for n in selected]))
@@ -183,7 +173,14 @@ def grow_balanced(pathway_names, edges, nodes, tol=0.25):
             cs = int(merged_nodes["sources"].sum())
             ct = int(merged_nodes["targets"].sum())
 
-            if imbalance(cs, ct) <= tol and len(merged_nodes) > best_node_count:
+            # Symmetric imbalance score.
+            # Returns max/min - 1
+            # If sources=100 and targets=125, then 125/100 - 1 = 0.25, 
+            # meaning the larger side is 25% bigger than the smaller. 
+            # A tolerance of 0.25 allows up to that ratio, and 0.0 would require exact equality.
+            imbalance_score = max(cs, ct) / min(cs, ct) - 1.0
+
+            if imbalance_score <= tol and len(merged_nodes) > best_node_count:
                 best_candidate  = candidate
                 best_node_count = len(merged_nodes)
 
@@ -193,11 +190,7 @@ def grow_balanced(pathway_names, edges, nodes, tol=0.25):
         selected.append(best_candidate)
         pool.remove(best_candidate)
 
-    n_sources, n_targets = count_roles(merge_input_nodes([nodes[n] for n in selected]))
-    return selected, n_sources, n_targets
-
-
-# Main
+    return selected
 
 def main():
     upsampled_directory.mkdir(parents=True, exist_ok=True)
@@ -231,17 +224,17 @@ def main():
 
     variants = [
         # Target-focused: pathways with > TARGET_MIN targets
-        # Want clears the cutoff but floods the source side; offer both with and without
-        ("target_focused", [n for n in target_rich if n != WANT]),
-        ("target_focused_with_want", target_rich),
+        # Wnt clears the cutoff but floods the source side; offer both with and without
+        ("target_focused", [n for n in target_rich if n != WNT]),
+        ("target_focused_with_wnt", target_rich),
 
         # Source-focused: pathways with > SOURCE_MIN sources
-        # Cadherin and Want both dominate the source side; offer both with and without
-        ("source_focused",[n for n in source_rich if n not in (CADHERIN, WANT)]),
-        ("source_focused_with_want_and_cadherin",source_rich),
+        # Cadherin and Wnt both dominate the source side; offer both with and without
+        ("source_focused",[n for n in source_rich if n not in (CADHERIN, WNT)]),
+        ("source_focused_with_wnt_and_cadherin",source_rich),
 
         # All pathways that have any targets, excluding the two imbalanced outliers
-        ("target_focused_without_want_and_cadherin", [n for n in any_targets if n not in (WANT, CADHERIN)]),
+        ("target_focused_without_wnt_and_cadherin", [n for n in any_targets if n not in (WNT, CADHERIN)]),
     ]
 
     for tag, names in variants:
@@ -253,8 +246,8 @@ def main():
     # tol=0.15 is stricter;
     # tol=0.25 allows a bit more imbalance
     for tol, tag in [(0.15, "balanced_tight"), (0.25, "balanced_loose")]:
-        balanced_names, bs, bt = grow_balanced(pathway_names, edges, nodes, tol=tol)
-        print(f"{tag} (tol {tol}): {bs} sources / {bt} targets")
+        balanced_names = grow_balanced(pathway_names, edges, nodes, tol=tol)
+        print(f"{tag} (tol {tol})")
         print(f"pathways: {balanced_names}")
         balanced_nodes = write_variant(tag, balanced_names, edges, nodes)
         if balanced_nodes is not None:
