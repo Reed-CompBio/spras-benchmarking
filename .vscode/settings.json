@@ -1,5 +1,7 @@
 {
+    "cSpell.ignoreWords": ["Wnt", "WNT", "wnt"],
+    "cSpell.words": ["Wnt", "WNT", "wnt"],
     "editor.rulers": [
         150 // enforced by ruff
-    ]
+    ],
 }

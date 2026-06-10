@@ -11,6 +11,10 @@ extend-exclude = [
     "datasets/diseases/viz/viz.ipynb"
 ]
 
+
 [default.extend-ignore-words]
 controled = "controled"
 Wnt_signaling_pathway = "Wnt signaling pathway"
+Wnt = "Wnt"
+WNT = "WNT"
+wnt = "wnt"
