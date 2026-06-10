@@ -76,8 +76,8 @@ def count_roles(input_nodes):
 
 def merge_edges(edge_frames):
     """
-    Concatenate edge frames and deduplicate by (Node1, Node2). 
-    When two pathways have the same edge with different directions, 
+    Concatenate edge frames and deduplicate by (Node1, Node2).
+    When two pathways have the same edge with different directions,
     the directed edge is kept over the undirected.
     """
     merged = pd.concat(edge_frames, ignore_index=True)
@@ -146,11 +146,11 @@ def pathway_stats_row(name, input_nodes):
 
 def imbalance(n_sources, n_targets):
     """
-    Symmetric imbalance score. 
+    Symmetric imbalance score.
     Returns max/min - 1
-    
-    If sources=100 and targets=125, then 125/100 - 1 = 0.25, 
-    meaning the larger side is 25% bigger than the smaller. 
+
+    If sources=100 and targets=125, then 125/100 - 1 = 0.25,
+    meaning the larger side is 25% bigger than the smaller.
     A tolerance of 0.25 allows up to that ratio, and 0.0 would require exact equality.
 
     """
