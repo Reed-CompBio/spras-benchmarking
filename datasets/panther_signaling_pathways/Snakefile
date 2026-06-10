@@ -13,7 +13,6 @@ thresholds = list(map(str, map(lambda x: (x + 1) / 10, range(10))))
 
 PATHWAYS, = glob_wildcards("intermediate/{pathway}/pathway.csv")
 
-
 rule all:
     input:
         expand([
@@ -56,7 +55,22 @@ rule all:
         "processed/full_stats.tsv",
         "processed/filtered_stats.tsv",
 
-        "processed/mega_pathway.csv",
+        "processed/upsampled/mega_pathway.csv",
+        "processed/upsampled/mega_input_nodes.csv",
+        "processed/upsampled/target_focused_pathway.csv",
+        "processed/upsampled/target_focused_input_nodes.csv",
+        "processed/upsampled/target_focused_with_wnt_pathway.csv",
+        "processed/upsampled/target_focused_with_wnt_input_nodes.csv",
+        "processed/upsampled/source_focused_pathway.csv",
+        "processed/upsampled/source_focused_input_nodes.csv",
+        "processed/upsampled/source_focused_with_wnt_and_cadherin_pathway.csv",
+        "processed/upsampled/source_focused_with_wnt_and_cadherin_input_nodes.csv",
+        "processed/upsampled/balanced_tight_pathway.csv",
+        "processed/upsampled/balanced_tight_input_nodes.csv",
+        "processed/upsampled/balanced_loose_pathway.csv",
+        "processed/upsampled/balanced_loose_input_nodes.csv",
+        "processed/upsampled/target_focused_without_wnt_and_cadherin_pathway.csv",
+        "processed/upsampled/target_focused_without_wnt_and_cadherin_input_nodes.csv",
 
 produce_fetch_rules({
    
@@ -164,12 +178,28 @@ rule upsample:
         expand("intermediate/{pathway}/input_nodes.csv", pathway=PATHWAYS),
         "processed/filtered_stats.tsv",
     output:
-        "processed/mega_pathway.csv",
-        "processed/mega_input_nodes.csv"
+        "processed/upsampled/mega_pathway.csv",
+        "processed/upsampled/mega_input_nodes.csv",
+        "processed/upsampled/target_focused_pathway.csv",
+        "processed/upsampled/target_focused_input_nodes.csv",
+        "processed/upsampled/target_focused_with_wnt_pathway.csv",
+        "processed/upsampled/target_focused_with_wnt_input_nodes.csv",
+        "processed/upsampled/source_focused_pathway.csv",
+        "processed/upsampled/source_focused_input_nodes.csv",
+        "processed/upsampled/source_focused_with_wnt_and_cadherin_pathway.csv",
+        "processed/upsampled/source_focused_with_wnt_and_cadherin_input_nodes.csv",
+        "processed/upsampled/balanced_tight_pathway.csv",
+        "processed/upsampled/balanced_tight_input_nodes.csv",
+        "processed/upsampled/balanced_loose_pathway.csv",
+        "processed/upsampled/balanced_loose_input_nodes.csv",
+        "processed/upsampled/target_focused_without_wnt_and_cadherin_pathway.csv",
+        "processed/upsampled/target_focused_without_wnt_and_cadherin_input_nodes.csv",
+       
+
     params:
     shell:
         'uv run scripts/upsample_pathways.py'
-        
+
 rule interactome:
     input:
         "raw/9606.protein.links.full.v12.0.txt",
