@@ -30,11 +30,11 @@ pathways, combined into a single edge list and input-node list.
 
 Output files are written to processed/upsampled/:
     mega_pathway.csv / mega_input_nodes.csv  -- all pathways merged
-    target_focused_pathway.csv / _input_nodes.csv  -- pathways with > TARGET_MIN targets, excluding Wnt
-    target_focused_with_wnt_pathway.csv / ...   -- same but includes Wnt
-    source_focused_pathway.csv / ...     -- pathways with > SOURCE_MIN sources, excluding Cadherin and Wnt
-    source_focused_with_wnt_and_cadherin_pathway.csv -- same but includes both
-    target_focused_without_wnt_and_cadherin_...  -- all pathways with any targets, excluding Wnt and Cadherin
+    target_focused_pathway.csv / _input_nodes.csv  -- pathways with > TARGET_MIN targets, excluding Want
+    target_focused_with_want_pathway.csv / ...   -- same but includes Want
+    source_focused_pathway.csv / ...     -- pathways with > SOURCE_MIN sources, excluding Cadherin and Want
+    source_focused_with_want_and_cadherin_pathway.csv -- same but includes both
+    target_focused_without_want_and_cadherin_...  -- all pathways with any targets, excluding Want and Cadherin
     balanced_pathway.csv / ...    -- greedy-balanced subset (sources ~ targets)
     upsampled_stats.tsv     -- source/target counts for each variant
 """
@@ -53,7 +53,7 @@ upsampled_directory    = processed_directory / "upsampled"
 
 # URL-encoded names matching the folder names under intermediate/
 CADHERIN = "Cadherin%20signaling%20pathway"
-WNT = "Wnt%20signaling%20pathway"
+WANT = "Want%20signaling%20pathway"
 
 # Thresholds for "source-rich" and "target-rich" pathway selection
 TARGET_MIN = 10
@@ -97,8 +97,10 @@ def merge_input_nodes(node_frames):
     merged = pd.concat(node_frames, ignore_index=True)
 
     agg = {"sources": "max", "targets": "max"}
-    if "prize"  in merged.columns: agg["prize"]  = "max"
-    if "active" in merged.columns: agg["active"] = "max"
+    if "prize" in merged.columns:
+        agg["prize"]  = "max"
+    if "active" in merged.columns:
+        agg["active"] = "max"
 
     return merged.groupby("NODEID", as_index=False).agg(agg)
 
@@ -115,7 +117,7 @@ def write_variant(tag, names, edges, nodes):
     summary. Returns the merged input-node DataFrame (used for stats), or None
     if the name list is empty.
     """
-    
+
     pathway_df, input_nodes_df = merge_pathways(names, edges, nodes)
     n_sources, n_targets = count_roles(input_nodes_df)
 
@@ -138,7 +140,7 @@ def pathway_stats_row(name, input_nodes):
         "Ratio Targets/Sources": t / s if s != 0 else float("nan"),
     }
 
-# Balanced-subset selection 
+# Balanced-subset selection
 
 def imbalance(n_sources, n_targets):
     """
@@ -160,7 +162,7 @@ def grow_balanced(pathway_names, edges, nodes, tol=0.25):
        maximizes merged input-node count while keeping imbalance within `tol`.
     3. Stop when no remaining pathway keeps the merge within tolerance.
 
-    Cadherin and Wnt tend to fail the tolerance gate because they have extreme
+    Cadherin and Want tend to fail the tolerance gate because they have extreme
     source/target ratios, so they are naturally excluded.
 
     Returns (selected_names, n_sources, n_targets).
@@ -195,7 +197,7 @@ def grow_balanced(pathway_names, edges, nodes, tol=0.25):
     return selected, n_sources, n_targets
 
 
-# Main 
+# Main
 
 def main():
     upsampled_directory.mkdir(parents=True, exist_ok=True)
@@ -212,7 +214,7 @@ def main():
 
     stats_rows = []
 
-    #  Mega: all pathways merged 
+    #  Mega: all pathways merged
     print("\nBuilding variants:")
     mega_edges, mega_nodes = merge_pathways(pathway_names, edges, nodes)
     mega_edges.to_csv(upsampled_directory / "mega_pathway.csv",     sep="\t", index=False)
@@ -222,24 +224,24 @@ def main():
           f"{len(mega_nodes)} nodes ({s} sources, {t} targets)")
     stats_rows.append(pathway_stats_row("mega", mega_nodes))
 
-    # Source or Target variants 
+    # Source or Target variants
     target_rich = [n for n in pathway_names if role_counts[n][1] > TARGET_MIN]
     source_rich = [n for n in pathway_names if role_counts[n][0] > SOURCE_MIN]
     any_targets = [n for n in pathway_names if role_counts[n][1] > 0]
 
     variants = [
         # Target-focused: pathways with > TARGET_MIN targets
-        # Wnt clears the cutoff but floods the source side; offer both with and without
-        ("target_focused", [n for n in target_rich if n != WNT]),
-        ("target_focused_with_wnt", target_rich),
+        # Want clears the cutoff but floods the source side; offer both with and without
+        ("target_focused", [n for n in target_rich if n != WANT]),
+        ("target_focused_with_want", target_rich),
 
         # Source-focused: pathways with > SOURCE_MIN sources
-        # Cadherin and Wnt both dominate the source side; offer both with and without
-        ("source_focused",[n for n in source_rich if n not in (CADHERIN, WNT)]),
-        ("source_focused_with_wnt_and_cadherin",source_rich),
+        # Cadherin and Want both dominate the source side; offer both with and without
+        ("source_focused",[n for n in source_rich if n not in (CADHERIN, WANT)]),
+        ("source_focused_with_want_and_cadherin",source_rich),
 
         # All pathways that have any targets, excluding the two imbalanced outliers
-        ("target_focused_without_wnt_and_cadherin", [n for n in any_targets if n not in (WNT, CADHERIN)]),
+        ("target_focused_without_want_and_cadherin", [n for n in any_targets if n not in (WANT, CADHERIN)]),
     ]
 
     for tag, names in variants:
@@ -247,9 +249,9 @@ def main():
         if variant_nodes is not None:
             stats_rows.append(pathway_stats_row(tag, variant_nodes))
 
-    # Balanced variant 
+    # Balanced variant
     # tol=0.15 is stricter;
-    # tol=0.25 allows a bit more imbalance 
+    # tol=0.25 allows a bit more imbalance
     for tol, tag in [(0.15, "balanced_tight"), (0.25, "balanced_loose")]:
         balanced_names, bs, bt = grow_balanced(pathway_names, edges, nodes, tol=tol)
         print(f"{tag} (tol {tol}): {bs} sources / {bt} targets")
