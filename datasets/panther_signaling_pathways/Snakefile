@@ -11,7 +11,6 @@ file_compatible_pathways = list(map(make_file_safe, pathways))
 # todo update code to use these once we have the thresholded interactomes
 thresholds = list(map(str, map(lambda x: (x + 1) / 10, range(10))))
 
-PATHWAYS, = glob_wildcards("intermediate/{pathway}/pathway.csv")
 
 rule all:
     input:
@@ -71,6 +70,7 @@ rule all:
         "processed/upsampled/balanced_loose_input_nodes.csv",
         "processed/upsampled/target_focused_without_wnt_and_cadherin_pathway.csv",
         "processed/upsampled/target_focused_without_wnt_and_cadherin_input_nodes.csv",
+        "processed/upsampled/upsampled_stats.tsv",
 
 produce_fetch_rules({
    
@@ -162,20 +162,20 @@ rule process_pathways:
 
 rule pathway_stats:
     input:
-        expand("intermediate/{pathway}/pathway.csv", pathway=PATHWAYS),
-        expand("intermediate/{pathway}/input_nodes.csv", pathway=PATHWAYS),
+        expand("intermediate/{pathway}/pathway.csv", pathway=file_compatible_pathways),
+        expand("intermediate/{pathway}/input_nodes.csv", pathway=file_compatible_pathways),
     output:
         "processed/full_stats.tsv",
         "processed/filtered_stats.tsv",
     params:
-        pathways = PATHWAYS,
+        pathways = file_compatible_pathways,
     shell:
         'uv run scripts/pathway_statistics.py {params.pathways}'
 
 rule upsample:
     input:
-        expand("intermediate/{pathway}/pathway.csv", pathway=PATHWAYS),
-        expand("intermediate/{pathway}/input_nodes.csv", pathway=PATHWAYS),
+        expand("intermediate/{pathway}/pathway.csv", pathway=file_compatible_pathways),
+        expand("intermediate/{pathway}/input_nodes.csv", pathway=file_compatible_pathways),
         "processed/filtered_stats.tsv",
     output:
         "processed/upsampled/mega_pathway.csv",
@@ -194,9 +194,7 @@ rule upsample:
         "processed/upsampled/balanced_loose_input_nodes.csv",
         "processed/upsampled/target_focused_without_wnt_and_cadherin_pathway.csv",
         "processed/upsampled/target_focused_without_wnt_and_cadherin_input_nodes.csv",
-       
-
-    params:
+        "processed/upsampled/upsampled_stats.tsv",
     shell:
         'uv run scripts/upsample_pathways.py'
 
