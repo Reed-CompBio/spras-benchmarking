@@ -13,7 +13,7 @@ intermediate_directory = panther_directory / "intermediate"
 processed_directory = panther_directory / "processed"
 
 # all the checks are done on directed graphs
-# all the rest of the data will keep the undirected and directed edges
+# all the rest of the data will keep the undirected and directed edges when dealing with combining the pathways and interactomes
 
 def create_threshold_parser():
     parser = argparse.ArgumentParser(description="Generate thresholded interactomes")
@@ -138,7 +138,7 @@ def check_sample(pathway_df, sampled_interactome, sources, targets, threshold_co
     overlap = pathway_overlap(pathway_df, sampled_interactome)
     if overlap < threshold_overlap:
         print(f"Failed {overlap * 100:.1f}% pathway overlap below the {threshold_overlap * 100:.1f}% threshold.")
-        return None
+        return None, overlap
 
     print(f"Got {overlap * 100:.1f}% pathway overlap above the {threshold_overlap * 100:.1f}% threshold.")
 
@@ -173,10 +173,24 @@ def check_sample(pathway_df, sampled_interactome, sources, targets, threshold_co
 
     if reachability_targets >= threshold_connectivity and reachability_sources >= threshold_connectivity:
         print("Success!")
-        return combined
+        return combined, overlap
 
     print(f"Below threshold ({threshold_connectivity*100:.0f}%), retrying...")
-    return None
+    return None, overlap
+
+
+def write_overlap_record(pathway: str, threshold: int, overlap: float):
+    """
+    Append a single row to interactome-pathway-overlap.txt.
+    Columns: pathway, threshold, overlap
+    """
+
+    overlap_path = processed_directory / pathway / "interactomes" / f"overlap_{threshold}.txt"
+    write_header = not overlap_path.exists()
+    with overlap_path.open("a") as f:
+        if write_header:
+            f.write("pathway\tthreshold\toverlap\n")
+        f.write(f"{pathway}\t{threshold}\t{overlap:.4f}\n")
 
 
 def main():
@@ -197,7 +211,6 @@ def main():
         sep="\t",
         names=["Node1", "Node2", "Weight", "Direction"],
     )
-
 
     pathway_df = pandas.read_csv(
         intermediate_directory / pathway / "pathway.csv",
@@ -227,31 +240,59 @@ def main():
         return
 
     # Retry loop
+    
+    # Retry loop
     CONNECTIVITY_THRESHOLD = 1
-    OVERLAP_THRESHOLD = 0.30 # 50% might be too high, maybe we do like 45% or 40%? or go back to 25%
+    OVERLAP_THRESHOLD = 0.30
     attempt = 1
+    MAX_ATTEMPT = 50
     combined_df = None
+    best_overlap = 0.0 # this is the best overlap of all the attempts
+    best_combined_df = None # this is the best combined interactome of all the attempts
 
     while True:
+
+
         print(f"Attempt {attempt}")
         sampled_interactome = sample_interactome(interactome_df, weight_mapping, args.threshold)
 
-        combined_df = check_sample(pathway_df, sampled_interactome, sources, targets, CONNECTIVITY_THRESHOLD, OVERLAP_THRESHOLD)
+        combined_df, current_overlap = check_sample(pathway_df, sampled_interactome, sources, targets, CONNECTIVITY_THRESHOLD, OVERLAP_THRESHOLD)
+
+        if current_overlap > best_overlap:
+            best_overlap = current_overlap
+            # combined_df is None if connectivity failed but overlap passed;
+            # recompute the merged frame from the sampled interactome in that case
+            if combined_df is not None:
+                best_combined_df = combined_df
+            else:
+                pathway_edges = pathway_df[["Node1", "Node2", "Direction"]].copy()
+                pathway_edges["Weight"] = sampled_interactome["Weight"].median()
+                pathway_edges = pathway_edges[["Node1", "Node2", "Weight", "Direction"]]
+                best_combined_df = pandas.concat([sampled_interactome, pathway_edges], ignore_index=True)
+                best_combined_df = best_combined_df.sort_values(
+                    by=["Node1", "Node2", "Direction", "Weight"],
+                    ascending=[True, True, True, False],
+                ).drop_duplicates(subset=["Node1", "Node2"], keep="first")
+
         if combined_df is not None:
             break
 
         attempt += 1
 
-        if attempt == 100:
-            # Save unsuccessful output
+        if attempt == MAX_ATTEMPT:
             output_dir = Path("processed") / pathway / "interactomes"
             output_dir.mkdir(parents=True, exist_ok=True)
 
-            empty_df = pandas.DataFrame()
             output_path = output_dir / f"interactome_{args.threshold}.txt"
-            empty_df.to_csv(output_path, sep="\t", index=False, header=False)
+            if best_combined_df is not None:
+                best_combined_df.to_csv(output_path, sep="\t", index=False, header=False)
+                print(f"Hit {MAX_ATTEMPT} attempts. Wrote best overlap ({best_overlap*100:.1f}%) attempt to {output_path}")
+            else:
+                pandas.DataFrame().to_csv(output_path, sep="\t", index=False, header=False)
+                print(f"Hit {MAX_ATTEMPT} attempts. Wrote empty file to {output_path}")
 
-            print(f"Hit 100 attempts. Wrote empty file to {output_path}")
+            overlap_to_record = best_overlap
+            write_overlap_record(pathway, args.threshold, overlap_to_record)
             return
 
     # Save successful output
@@ -260,6 +301,46 @@ def main():
     output_path = output_dir / f"interactome_{args.threshold}.txt"
     combined_df.to_csv(output_path, sep="\t", index=False, header=False)
     print(f"Success on attempt {attempt}")
+
+    successful_overlap = pathway_overlap(pathway_df, combined_df)
+    write_overlap_record(pathway, args.threshold, successful_overlap)
+    
+    
+    
+    # CONNECTIVITY_THRESHOLD = 1
+    # OVERLAP_THRESHOLD = 0.30 # 50% might be too high, maybe we do like 45% or 40%? or go back to 25%
+    # attempt = 1
+    # MAX_ATTEMPT = 50
+    # combined_df = None
+
+    # while True:
+    #     print(f"Attempt {attempt}")
+    #     sampled_interactome = sample_interactome(interactome_df, weight_mapping, args.threshold)
+
+    #     combined_df = check_sample(pathway_df, sampled_interactome, sources, targets, CONNECTIVITY_THRESHOLD, OVERLAP_THRESHOLD)
+    #     if combined_df is not None:
+    #         break
+
+    #     attempt += 1
+
+    #     if attempt == MAX_ATTEMPT:
+    #         # Save unsuccessful output
+    #         output_dir = Path("processed") / pathway / "interactomes"
+    #         output_dir.mkdir(parents=True, exist_ok=True)
+
+    #         empty_df = pandas.DataFrame()
+    #         output_path = output_dir / f"interactome_{args.threshold}.txt"
+    #         empty_df.to_csv(output_path, sep="\t", index=False, header=False)
+
+    #         print(f"Hit {MAX_ATTEMPT} attempts. Wrote empty file to {output_path}")
+    #         return
+
+    # # Save successful output
+    # output_dir = Path("processed") / pathway / "interactomes"
+    # output_dir.mkdir(parents=True, exist_ok=True)
+    # output_path = output_dir / f"interactome_{args.threshold}.txt"
+    # combined_df.to_csv(output_path, sep="\t", index=False, header=False)
+    # print(f"Success on attempt {attempt}")
 
 if __name__ == "__main__":
     main()

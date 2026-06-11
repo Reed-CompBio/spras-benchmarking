@@ -23,7 +23,13 @@ rule all:
             "processed/{pathway}/interactomes/interactome_{threshold}.txt",
             pathway=file_compatible_pathways,
             threshold=thresholds,
-        )
+        ),
+        expand(
+            "processed/{pathway}/interactomes/overlap_{threshold}.txt",
+            pathway=file_compatible_pathways,
+            threshold=thresholds,
+        ),
+        "processed/interactome-pathway-overlap.txt",
 
 rule threshold:
     input:
@@ -33,6 +39,21 @@ rule threshold:
         weight_counts=str(processed_directory / "weight-counts.tsv"),
     output:
         # TODO: change this to be saved in this folder not in the main processed folder
-        "processed/{pathway}/interactomes/interactome_{threshold}.txt"
+        "processed/{pathway}/interactomes/interactome_{threshold}.txt",
+        "processed/{pathway}/interactomes/overlap_{threshold}.txt",
     shell:
         'uv run threshold.py "{wildcards.pathway}" --threshold "{wildcards.threshold}"'
+
+rule aggregate_overlaps:
+    input:
+        expand(
+            "processed/{pathway}/interactomes/overlap_{threshold}.txt",
+            pathway=file_compatible_pathways,
+            threshold=thresholds,
+        ),
+    output:
+        "processed/interactome-pathway-overlap.txt",
+    run:
+        import pandas
+        dfs = [pandas.read_csv(f, sep="\t") for f in input]
+        pandas.concat(dfs, ignore_index=True).to_csv(output[0], sep="\t", index=False)
