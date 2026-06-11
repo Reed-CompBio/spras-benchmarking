@@ -25,11 +25,11 @@ rule all:
             threshold=thresholds,
         ),
         expand(
-            "processed/{pathway}/interactomes/overlap_{threshold}.txt",
+            "processed/{pathway}/interactomes/overlap_{threshold}.tsv",
             pathway=file_compatible_pathways,
             threshold=thresholds,
         ),
-        "processed/interactome-pathway-overlap.txt",
+        "processed/interactome-pathway-overlap.tsv",
 
 rule threshold:
     input:
@@ -40,19 +40,19 @@ rule threshold:
     output:
         # TODO: change this to be saved in this folder not in the main processed folder
         "processed/{pathway}/interactomes/interactome_{threshold}.txt",
-        "processed/{pathway}/interactomes/overlap_{threshold}.txt",
+        "processed/{pathway}/interactomes/overlap_{threshold}.tsv",
     shell:
-        'uv run threshold.py "{wildcards.pathway}" --threshold "{wildcards.threshold}"'
+        'uv run downsample.py "{wildcards.pathway}" --threshold "{wildcards.threshold}"'
 
 rule aggregate_overlaps:
     input:
         expand(
-            "processed/{pathway}/interactomes/overlap_{threshold}.txt",
+            "processed/{pathway}/interactomes/overlap_{threshold}.tsv",
             pathway=file_compatible_pathways,
             threshold=thresholds,
         ),
     output:
-        "processed/interactome-pathway-overlap.txt",
+        "processed/interactome-pathway-overlap.tsv",
     run:
         import pandas
         dfs = [pandas.read_csv(f, sep="\t") for f in input]
