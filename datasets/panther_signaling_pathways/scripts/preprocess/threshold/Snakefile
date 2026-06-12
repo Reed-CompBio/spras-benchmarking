@@ -15,7 +15,7 @@ def make_file_safe(input_str: str) -> str:
     return urllib.parse.quote(input_str, safe='')
 
 pathways = JsoncParser.parse_file(str(panther_directory / "pathways.jsonc"))
-file_compatible_pathways = list(map(make_file_safe, pathways))
+file_compatible_pathways = list(map(make_file_safe,pathways))
 
 rule all:
     input:
@@ -53,7 +53,5 @@ rule aggregate_overlaps:
         ),
     output:
         "processed/interactome-pathway-overlap.tsv",
-    run:
-        import pandas
-        dfs = [pandas.read_csv(f, sep="\t") for f in input]
-        pandas.concat(dfs, ignore_index=True).to_csv(output[0], sep="\t", index=False)
+    script:
+        "uv run gather.py"

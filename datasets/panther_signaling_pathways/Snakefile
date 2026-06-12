@@ -234,3 +234,10 @@ rule process_input_nodes:
 #     shell:
 #         'uv run scripts/process_gold_standard.py "{wildcards.pathway}"'
 
+# TODO:
+# 1) put the upsample pathways with the interactome (100% physical interactome)
+# - this can be done on the spot locally, does not need to be done beforehand
+# 2) update to read in each interactome
+# 3) process the input nodes using the interactomes per pathway
+# 4) process the gold standard nodes and edges using the interactoems per pathway
+# for each pathway and upsampled pathway should have an interactome gs and input nodes per downsampling threshold

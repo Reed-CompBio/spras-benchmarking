@@ -1,4 +1,4 @@
-include: "../../../cache/Snakefile"
+include: "../../../../../cache/Snakefile"
 
 rule all:
     input:
