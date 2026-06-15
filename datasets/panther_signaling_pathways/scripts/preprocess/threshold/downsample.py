@@ -238,7 +238,7 @@ def main():
         print(f"No sources or targets found. Wrote empty file to {output_path}")
         return
 
-    
+
     # Retry loop
     CONNECTIVITY_THRESHOLD = 1 # 100%
     OVERLAP_THRESHOLD = 0.30 # 30%
@@ -249,7 +249,7 @@ def main():
     best_combined_df = None # this is the best combined interactome of all the attempts
 
     while True:
-        
+
         print(f"Attempt {attempt}")
         sampled_interactome = sample_interactome(interactome_df, weight_mapping, args.threshold)
 
@@ -261,7 +261,7 @@ def main():
             best_combined_df = combined_df
             break
 
-        # saving the current best incase we don't find an interactome that passes all the propeties  
+        # saving the current best incase we don't find an interactome that passes all the properties
         if combined_df is None and current_overlap > best_overlap:
             best_overlap = current_overlap
             best_combined_df = combine_pathway_interactome(pathway_df, sampled_interactome)
