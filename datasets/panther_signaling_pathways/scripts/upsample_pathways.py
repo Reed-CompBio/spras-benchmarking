@@ -31,10 +31,7 @@ pathways, combined into a single edge list and input-node list.
 Output files are written to processed/upsampled/:
     mega_pathway.csv / mega_input_nodes.csv  -- all pathways merged
     target_focused_pathway.csv / _input_nodes.csv  -- pathways with > TARGET_MIN targets, excluding Wnt
-    target_focused_with_wnt_pathway.csv / ...   -- same but includes Wnt
     source_focused_pathway.csv / ...     -- pathways with > SOURCE_MIN sources, excluding Cadherin and Wnt
-    source_focused_with_wnt_and_cadherin_pathway.csv -- same but includes both
-    target_focused_without_wnt_and_cadherin_...  -- all pathways with any targets, excluding Wnt and Cadherin
     balanced_pathway.csv / ...    -- greedy-balanced subset (sources ~ targets)
     upsampled_stats.tsv     -- source/target counts for each variant
 """
@@ -224,21 +221,15 @@ def main():
     # Source or Target variants
     target_rich = [n for n in pathway_names if role_counts[n][1] > TARGET_MIN]
     source_rich = [n for n in pathway_names if role_counts[n][0] > SOURCE_MIN]
-    any_targets = [n for n in pathway_names if role_counts[n][1] > 0]
 
     variants = [
         # Target-focused: pathways with > TARGET_MIN targets
-        # Wnt clears the cutoff but floods the source side; offer both with and without
+        # Wnt clears the cutoff but floods the source side, so we remove it
         ("target_focused", [n for n in target_rich if n != WNT]),
-        ("target_focused_with_wnt", target_rich),
 
         # Source-focused: pathways with > SOURCE_MIN sources
-        # Cadherin and Wnt both dominate the source side; offer both with and without
+        # Cadherin and Wnt both dominate the source side, so we remove them
         ("source_focused",[n for n in source_rich if n not in (CADHERIN, WNT)]),
-        ("source_focused_with_wnt_and_cadherin",source_rich),
-
-        # All pathways that have any targets, excluding the two imbalanced outliers
-        ("target_focused_without_wnt_and_cadherin", [n for n in any_targets if n not in (WNT, CADHERIN)]),
     ]
 
     for tag, names in variants:
@@ -248,8 +239,7 @@ def main():
 
     # Balanced variant
     # tol=0.15 is stricter;
-    # tol=0.25 allows a bit more imbalance
-    for tol, tag in [(0.15, "balanced_tight"), (0.25, "balanced_loose")]:
+    for tol, tag in [(0.15, "balanced")]:
         balanced_names = grow_balanced(pathway_names, edges, nodes, tol=tol)
         print(f"{tag} (tol {tol})")
         print(f"pathways: {balanced_names}")
