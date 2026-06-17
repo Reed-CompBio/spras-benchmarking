@@ -641,6 +641,7 @@ rule all:
         expand("processed/{ccle_id}/input_nodes.csv", ccle_id=CELL_LINES),
         expand("processed/{ccle_id}/input_nodes_no_cna.csv", ccle_id=CELL_LINES),
         expand("processed/{ccle_id}/gold_standard.csv", ccle_id=CELL_LINES),
+        "processed/input_node_stats.tsv"
 
 produce_fetch_rules({
 
@@ -713,3 +714,14 @@ rule gold_standard:
         "processed/final_cell_lines.csv"
     shell:
         "uv run scripts/process_gold_standard.py"
+
+rule input_node_stats:
+    input:
+        expand("preprocessed/{ccle_id}/tf.csv", ccle_id=CELL_LINES),
+        expand("preprocessed/{ccle_id}/sm.csv", ccle_id=CELL_LINES),
+        expand("preprocessed/{ccle_id}/cna.csv", ccle_id=CELL_LINES),
+        "processed/final_cell_lines.csv",
+    output:
+        "processed/input_node_stats.tsv",
+    shell:
+        "uv run scripts/stats.py"

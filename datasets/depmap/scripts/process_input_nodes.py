@@ -79,9 +79,9 @@ def preprocess_tf_activity(df_tfa: pd.DataFrame, df_chosen_cell_lines: pd.DataFr
     # per-TF z-score: subtract row mean, divide by row std
     df_zscore = df_tfa.sub(df_tfa.mean(axis=1), axis=0).div(df_tfa.std(axis=1), axis=0)
 
-    # for each cell line, keep TFs with |z| > 2sd; score is absolute raw TFA
+    # for each cell line, keep TFs with |z| >= 2sd; score is absolute raw TFA
     for ccle_id in df_zscore.columns:
-        mask = df_zscore[ccle_id].abs() > 2.0
+        mask = df_zscore[ccle_id].abs() >= 2.0
         scores = df_tfa.loc[mask, ccle_id].abs()
 
         cell_dir = PREPROCESSED_DIR / ccle_id
