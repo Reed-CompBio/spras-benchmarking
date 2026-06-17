@@ -30,6 +30,7 @@ rule all:
             threshold=thresholds,
         ),
         "processed/interactome-pathway-overlap.tsv",
+        "processed/interactome-stats.tsv",
 
 rule threshold:
     input:
@@ -53,5 +54,17 @@ rule aggregate_overlaps:
         ),
     output:
         "processed/interactome-pathway-overlap.tsv",
-    script:
+    shell:
         "uv run gather.py"
+
+rule stats:
+    input:
+        expand(
+            "processed/{pathway}/interactomes/overlap_{threshold}.tsv",
+            pathway=file_compatible_pathways,
+            threshold=thresholds,
+        ),
+    output:
+        "processed/interactome-stats.tsv",
+    shell:
+        "uv run stats.py"
