@@ -1,0 +1,25 @@
+Running web
+#Possible error: 
+
+1) npm command not found. 
+    * try deactivating conda with "conda deactivate"
+    * You should make sure that you are downloading the file from the git hub link (the.exe file)
+    * make sure you are in spras-benchmarking-web/web
+
+2) When cloning from git, only the main branch shows up. First run "git branch -a", if the branches show up then it is there, but hidden. If this happens try to run "git checkout yeast-dataset".
+
+3) Sometimes an error occurs when building the website when certain methods arent being used, so use this command "rm -rf /c/Users/HP/spras-benchmarking/web/public/data/output/dmmmegfr_string-omicsintegrator2-params-7SW4MFI" -if not using omicsintegrator2
+        need to create the commands for all of the algorithms
+
+The omicsdata1 ran and showed up on the website. I changed the uid/index.astro file and the paths.ts, no more universal, becasue it was uding dataSync, whcih shoul dmake it work for all types of OS's. , so the issue was in fact in the url. 
+
+------------------------------------------------------------------------------------------------------------------------------------
+Instructions for loading the website
+------------------------------------------------------------------------------------------------------------------------------------
+
+Make a local copy of the the file and all the branches it contains (if other branches dont appear and you only have main then wirte command: ----)
+Make sure you are in web directory (----)
+Download all the necessary packages through the link (----)
+Type command: "conda activate spras". Then type pnpm run build. If you are running only one 
+
+

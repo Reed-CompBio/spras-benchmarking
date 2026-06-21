@@ -3,6 +3,18 @@ import BaseLayout from "../../../layouts/BaseLayout.astro";
 import { getDatasets } from "../../../lib/paths";
 
 export function getStaticPaths() {
+  //console.log("hello2");
+  //console.log(getDatasets()
+  //  .map((obj) => ({ ...obj, id: `${obj.type}-${obj.category}` }))
+  //  .filter(
+  //    (value, index, self) =>
+        // Removing duplicate entries
+  //      index === self.findIndex((t) => t.id === value.id),
+  //  )
+    //.map(({ category, type }) => ({
+     // params: { category, type },
+   // })));
+    //returns without name
   return getDatasets()
     .map((obj) => ({ ...obj, id: `${obj.type}-${obj.category}` }))
     .filter(

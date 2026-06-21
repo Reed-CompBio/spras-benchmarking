@@ -13,14 +13,14 @@ reconstruction_settings:
 
 analysis:
   summary:
-    include: false
+    include: true
   cytoscape:
     include: false
   ml:
     # TODO: we either need at least one non-empty pathway in all algorithm runs,
     # or we need to get rid of validate_df hard-erroring. The latter seems better.
     include: false
-    aggregate_per_algorithm: true
+    aggregate_per_algorithm: false
   evaluation:
     include: false
 

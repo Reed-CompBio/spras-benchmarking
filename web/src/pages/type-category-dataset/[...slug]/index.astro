@@ -4,6 +4,13 @@ import BaseLayout from "../../../layouts/BaseLayout.astro";
 import { getDatasets } from "../../../lib/paths";
 
 export function getStaticPaths() {
+  //console.log("hello");
+  //console.log(getDatasets());
+  //console.log("bye");
+  //console.log(getDatasets().map(({ name, category, type }) => ({
+    //params: { slug: `${type}-${category}${name ? `-${name}` : ""}`, name, category, type },
+  //})));
+  //console.log("done")
   return getDatasets().map(({ name, category, type }) => ({
     params: { slug: `${type}-${category}${name ? `-${name}` : ""}`, name, category, type },
   }));

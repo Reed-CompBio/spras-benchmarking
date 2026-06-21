@@ -5,6 +5,8 @@ import { parseOutputString } from "../lib/outputStyle";
 import { getStaticPaths } from "./[uid]/index.astro";
 
 import Description from "./description.md";
+//console.log("labubu");
+//console.log(getStaticPaths());  //returns empty
 ---
 
 <style is:global>
@@ -38,7 +40,6 @@ import Description from "./description.md";
 <BaseLayout>
   <Colors />
   <Description />
-
   <h2>Runs ({getStaticPaths().length})</h2>
   <ul>
     {
