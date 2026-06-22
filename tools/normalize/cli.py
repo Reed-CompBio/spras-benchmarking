@@ -12,8 +12,7 @@ from pathlib import Path
 import pandas
 
 from tools.normalize.interactome import deduplicate_edges
-from tools.normalize.trim_input_nodes import trim_input_nodes_file
-from tools.normalize.trim_list import trim_node_list_file
+from tools.normalize.trim import trim_input_nodes_file, trim_node_list_file
 
 
 def argparser():
