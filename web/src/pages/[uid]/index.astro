@@ -12,6 +12,23 @@ import { getDataFiles } from "../../lib/paths";
 import { Code } from "astro:components";
 
 export function getStaticPaths() {
+  //const filteredPaths = new Set(
+    //console.log("uid filesssss")
+    //console.log(getDataFiles()
+    //  .filter((path) => !path.startsWith("prepared"))
+    //  .filter((path) => !path.startsWith("logs"))
+    //  .filter((path) => path.includes("/"))
+    //  .map((path) => path.split("/")[0])
+    // .filter((path) => path.split("-").length === 4)
+    //  .map((path) => path.replace("-params", "")),
+  //)
+  // Build a set of known log files so we can skip runs with no matching parameters file
+  const logFiles = new Set(
+    getDataFiles()
+      .filter((path) => path.startsWith("logs/parameters-"))
+      .map((path) => path.replace("logs/parameters-", "").replace(".yaml", ""))
+  );
+
   const filteredPaths = new Set(
     getDataFiles()
       // We can safely filter for these prefixes, as datasets start with their type.
@@ -25,7 +42,14 @@ export function getStaticPaths() {
       // And we want to only have the dataset a-b-c-d params, not analysis ones
       .filter((path) => path.split("-").length === 4)
       // Then, we exclude -params-
-      .map((path) => path.replace("-params", "")),
+      .map((path) => path.replace("-params", ""))
+      // Skip any run that has no matching parameters log file or no pathway.txt (e.g. stale/failed/incomplete folders)
+      .filter((path) => {
+        const output = parseOutputString(path);
+        const hasLog = logFiles.has(`${output.algorithm}-params-${output.paramsHash}`);
+        const hasPathway = getDataFiles().some(f => f === `${asFolderName(output)}/pathway.txt`);
+        return hasLog && hasPathway;
+      }),
   );
 
   return [...filteredPaths].map((path) => ({ params: { uid: styleOutput(parseOutputString(path)) } }));
