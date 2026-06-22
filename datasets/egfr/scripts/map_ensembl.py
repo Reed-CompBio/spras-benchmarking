@@ -28,7 +28,7 @@ def main():
     idmapped_input_nodes_df = idmapped_input_nodes_df.drop(columns=["UniProtKB-ID", "UniProtKB-AC", "Ensembl", "NODEID"])
     idmapped_input_nodes_df = idmapped_input_nodes_df[~idmapped_input_nodes_df["Ensembl_PRO"].isna()]
     idmapped_input_nodes_df = idmapped_input_nodes_df.rename(columns={"Ensembl_PRO": "NODEID"})
-    idmapped_input_nodes_df = idmapped_input_nodes_df[["NODEID", "prize", "active", "dummy", "source"]]
+    idmapped_input_nodes_df = idmapped_input_nodes_df[["NODEID", "prize", "active", "dummy", "source", "target"]]
     idmapped_input_nodes_df.to_csv(egfr_directory / "preprocessed" / "ensp" / "input-nodes.txt", sep="\t", index=False)
 
 
