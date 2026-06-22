@@ -16,7 +16,10 @@ def main():
     interactome_df["Interactor2"] = interactome_df["Interactor2"].astype(str).str.removeprefix("9606.")
     interactome_df = interactome_df[["Interactor1", "Interactor2", "Weight"]]
     interactome_df["Direction"] = "U"
-    # TODO: update the weights to be between 0 - 1 instead of 150 - 999?
+    # TODO: update the weights to be between 0 - 1 instead of 150 - 999 by / 1000? Or should we have this be specific to algorithms fixing this? 
+    # For now I am converting it to be 0 - 1
+    interactome_df["Weight"] = interactome_df["Weight"] / 1000
+
 
     # We normalize the interactome (any final post-processing steps wanted/needed by SPRAS).
     (egfr_directory / "preprocessed").mkdir(exist_ok=True)
