@@ -42,17 +42,39 @@ algorithms:
         b: 4
         g: 0
 
-  # domino requires too much memory for dmmmegfr_string (Docker OOM). Disabled.
+  - name: "pathlinker"
+    include: true
+    runs:
+      run1:
+        k: 100
+
+  #- name: "meo"
+  #  include: true
+  #  runs:
+  #    run1:
+  #      max_path_length: 3
+  #      local_search: true
+  #      rand_restarts: 10
+
+  - name: "allpairs"
+    include: true
+
   - name: "domino"
-    include: false
+    include: true
     runs:
       run1:
         slice_threshold: 0.3
         module_threshold: 0.05
 
-  # diamond requires 'active' column, which yeast dataset lacks. Disabled.
+  - name: "rwr"
+    include: true
+    runs:
+      run1:
+        alpha: 0.85
+        threshold: 100
+        
   - name: "diamond"
-    include: false
+    include: true
     runs:
       run1:
         n: 1
