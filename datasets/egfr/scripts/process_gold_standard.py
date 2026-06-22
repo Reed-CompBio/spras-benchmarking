@@ -1,5 +1,5 @@
 from pathlib import Path
-# TODO add trimming 
+# TODO add trimming
 
 egfr_directory = Path(__file__).parent.resolve() / ".."
 
