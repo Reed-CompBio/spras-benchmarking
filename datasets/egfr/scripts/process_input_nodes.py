@@ -14,10 +14,10 @@ PRIZE_VALUE = 10
 def main():
     prizes = pandas.read_csv(egfr_directory / "raw" / "egfr-prizes.txt", sep="\t", header=None, names=["NODEID", "prize"])
     prizes = prizes.loc[~prizes["NODEID"].str.endswith("_PSEUDONODE")]
-    prizes["target"] = "True"
+    prizes["targets"] = "True"
     # `SOURCE` is designated as the source node and assigned the highest score to anchor reconstruction at the perturbation.
     prizes = pandas.concat(
-        [prizes, pandas.DataFrame({"NODEID": [SOURCE], "prize": [PRIZE_VALUE], "dummy": ["True"], "source": ["True"]})],
+        [prizes, pandas.DataFrame({"NODEID": [SOURCE], "prize": [PRIZE_VALUE], "dummy": ["True"], "sources": ["True"]})],
         ignore_index=True,
     )
     prizes["active"] = "True"

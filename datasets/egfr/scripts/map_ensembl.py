@@ -29,7 +29,7 @@ def main():
     idmapped_input_nodes_df = idmapped_input_nodes_df[~idmapped_input_nodes_df["Ensembl_PRO"].isna()]
     idmapped_input_nodes_df = idmapped_input_nodes_df.rename(columns={"Ensembl_PRO": "NODEID"})
     # TODO: decide if I want to get rid of the dummy node and what settings we want to use for the dummy nodes
-    idmapped_input_nodes_df = idmapped_input_nodes_df[["NODEID", "prize", "active", "dummy", "source", "target"]]
+    idmapped_input_nodes_df = idmapped_input_nodes_df[["NODEID", "prize", "active", "dummy", "sources", "targets"]]
     idmapped_input_nodes_df.to_csv(egfr_directory / "preprocessed" / "ensp" / "input-nodes.txt", sep="\t", index=False)
 
 
