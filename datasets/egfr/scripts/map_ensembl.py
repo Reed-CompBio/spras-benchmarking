@@ -1,6 +1,7 @@
 import pandas
 from pathlib import Path
 from tools.mapping.ensembl_uniprot import idmapping_uniprot_mapping
+# TODO add trimming
 
 egfr_directory = Path(__file__).parent.resolve() / ".."
 

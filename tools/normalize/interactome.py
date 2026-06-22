@@ -1,7 +1,7 @@
-import pandas
+import pandas as pd
 
 
-def deduplicate_edges(interactome_df: pandas.DataFrame) -> tuple[pandas.DataFrame, bool]:
+def deduplicate_edges(interactome_df: pd.DataFrame) -> tuple[pd.DataFrame, bool]:
     """
     Removes duplicate edges from the input `DataFrame` as an interactome.
     - For undirected edges, the node pair is sorted (e.g., "B-A" becomes "A-B") before removing duplicates.
@@ -35,11 +35,11 @@ def deduplicate_edges(interactome_df: pandas.DataFrame) -> tuple[pandas.DataFram
     return unique_edges_df, duplicates_removed
 
 
-def get_interactome_nodes(interactome_df: pandas.DataFrame) -> set[str]:
+def get_interactome_nodes(interactome_df: pd.DataFrame) -> set[str]:
     """
     Gets all nodes associated with an interactome.
 
-    @param interactome_df: The pandas dataframe with Interactor1 and Interactor2 as columns.
+    @param interactome_df: The pd dataframe with Interactor1 and Interactor2 as columns.
     @return the list of nodes in Interactor1 and Interactor2.
 
     NOTE: This isn't guaranteed to be order stable, not for any externally-required reason.

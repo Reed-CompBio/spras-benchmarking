@@ -1,4 +1,4 @@
-import pandas
+import pandas as pd
 from pathlib import Path
 from tools.normalize.interactome import get_interactome_nodes
 
@@ -11,7 +11,7 @@ def trim_node_list(interactome_nodes: list[str], nodes_to_trim: list[str]) -> li
     return list(set(nodes_to_trim).intersection(interactome_nodes))
 
 
-def trim_node_list_file(interactome_df: pandas.DataFrame, node_list: Path, output: Path):
+def trim_node_list_file(interactome_df: pd.DataFrame, node_list: Path, output: Path):
     """
     Trims a node list file with the desired interactome.
     """
@@ -22,3 +22,15 @@ def trim_node_list_file(interactome_df: pandas.DataFrame, node_list: Path, outpu
             )
         )
     )
+
+def trim_input_nodes_file(interactome_df: pd.DataFrame, input_nodes_df: pd.DataFrame) -> pd.DataFrame:
+    """
+    Keep input nodes that appear anywhere in the interactome.
+
+    Nodes absent from the interactome cannot contribute to pathway reconstruction.
+
+    Both inputs must be in SPRAS format. The interactome is expected to have the
+    columns Interactor1, Interactor2, Weight, Direction.
+    """
+    interactome_nodes = set(interactome_df["Interactor1"]).union(interactome_df["Interactor2"])
+    return input_nodes_df.loc[input_nodes_df["NODEID"].isin(interactome_nodes), :]
