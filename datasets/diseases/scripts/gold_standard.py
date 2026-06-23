@@ -1,6 +1,5 @@
 import pandas as pd
 from pathlib import Path
-import sys
 
 dir_path = Path(__file__).parent.resolve()
 diseases_path = Path(dir_path, "..")
