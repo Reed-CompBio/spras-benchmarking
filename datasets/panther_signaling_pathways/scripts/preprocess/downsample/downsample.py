@@ -14,7 +14,7 @@ intermediate_directory = panther_directory / "intermediate"
 processed_directory = panther_directory / "processed"
 
 # directory to put the processed downsampled interactomes
-threshold_processed_directory = Path("processed")
+downsample_processed_directory = Path("processed")
 
 # all the checks are done on directed graphs
 # all the rest of the data will keep the undirected and directed edges when dealing with combining the pathways and interactomes
@@ -190,7 +190,7 @@ def write_overlap_record(pathway: str, threshold: int, overlap: float):
     Append a single row to interactome-pathway-overlap.tsv.
     Columns: pathway, threshold, overlap
     """
-    overlap_path = threshold_processed_directory / pathway / "interactomes" / f"overlap_{threshold}.tsv"
+    overlap_path = downsample_processed_directory / pathway / "interactomes" / f"overlap_{threshold}.tsv"
     row = pandas.DataFrame([{"pathway": pathway, "threshold": threshold, "overlap": overlap}])
     row.to_csv(overlap_path, sep="\t", index=False)
 
@@ -226,7 +226,7 @@ def main():
 
     # if empty sources or targets, then no interactome can be really be used
     if not sources or not targets:
-        output_dir = threshold_processed_directory / pathway / "interactomes"
+        output_dir = downsample_processed_directory / pathway / "interactomes"
         output_dir.mkdir(parents=True, exist_ok=True)
 
         empty_df = pandas.DataFrame()
@@ -270,7 +270,7 @@ def main():
         attempt += 1
 
         if attempt == MAX_ATTEMPTS:
-            output_dir = threshold_processed_directory / pathway / "interactomes"
+            output_dir = downsample_processed_directory / pathway / "interactomes"
             output_dir.mkdir(parents=True, exist_ok=True)
             output_path = output_dir / f"interactome_{args.threshold}.txt"
 
@@ -285,7 +285,7 @@ def main():
             return
 
     # Save successful output
-    output_dir = threshold_processed_directory / pathway / "interactomes"
+    output_dir = downsample_processed_directory / pathway / "interactomes"
     output_dir.mkdir(parents=True, exist_ok=True)
     output_path = output_dir / f"interactome_{args.threshold}.txt"
 
