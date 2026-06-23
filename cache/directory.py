@@ -6,6 +6,7 @@ from typing import Optional, Mapping
 import filecmp
 from pathlib import Path
 import warnings
+from frozendict import frozendict
 import requests
 import shutil
 import urllib.parse
@@ -15,13 +16,10 @@ from loguru import logger
 
 dir_path = Path(__file__).parent.resolve()
 
-# Our cache emits warnings for files with unpinned versions that don't match the cache.
+# Our cache emits warnings for files with unpinned versions that don't match the cache
+# using loguru, and warnings are added to a local `logs` folder.
 (dir_path / "logs").mkdir(exist_ok=True)
 logger.add(dir_path / "logs" / "cache.log", level="WARNING")
-
-
-class DownloadFileCheckException(RuntimeError):
-    """See Service#download_against_cache for some motivation for this custom error"""
 
 
 @dataclass
@@ -34,19 +32,17 @@ class Service:
         Downloads a URL, returning the response (to be used with `with`) and modifying the output path.
         """
         # As per https://stackoverflow.com/a/39217788/7589775 to enable download streaming.
-        with requests.get(self.url, stream=True, headers=self.headers) as response:
+        with requests.get(self.url, stream=True, headers=self.headers, allow_redirects=True) as response:
             response.raw.decode_content = True
             with open(output, "wb") as f:
                 shutil.copyfileobj(response.raw, f)
             return response
 
     # NOTE: this is slightly yucky code deduplication. The only intended values of `downloaded_file_type` are `pinned` and `unpinned`.
-    def download_against_cache(self, cache: Path, downloaded_file_type: str, move_output: bool):
+    def download_against_cache(self, cache: Path, downloaded_file_type: str):
         """
-        Downloads `this` Service and checks it against the provided `cache` at path. In logs,
+        Downloads `self` Service and checks it against the provided `cache` at path. In logs,
         the file will be referred to as `downloaded_file_type`.
-
-        @param move_output: Whether or not output should be irrecoverably moved instead of just copied.
         """
         logger.info(f"Downloading {downloaded_file_type} file {self.url} to check against with artifact at {cache}...")
         downloaded_file_path = Path(NamedTemporaryFile(delete=False).name)
@@ -60,15 +56,12 @@ class Service:
 
             debug_file_path = Path(NamedTemporaryFile(prefix="spras-benchmarking-debug-artifact", delete=False).name)
             # We use shutil over Path#rename since temporary directories can be mounted to a different file system.
-            if move_output:
-                shutil.move(cache, debug_file_path)
-            else:
-                shutil.copy(cache, debug_file_path)
-            # We use a custom error type to prevent any overlap with RuntimeError. I am not sure if there is any.
-            raise DownloadFileCheckException(
+            shutil.copy(cache, debug_file_path)
+            logger.warning(
                 f"The {downloaded_file_type} file {downloaded_file_path} and "
                 + f"cached file originally at {cache} do not match! "
-                + f"Compare the pinned {downloaded_file_path} and the cached {debug_file_path}."
+                + f"Compare the pinned {downloaded_file_path} and the cached {debug_file_path}. "
+                + "If this file updated, please update the underlying `cache` file to match."
             )
         else:
             # Since we don't clean up pinned_file_path for the above branch's debugging,
@@ -83,26 +76,29 @@ class Service:
         return obj
 
 
-def fetch_biomart_service(xml: str) -> Service:
+def fetch_biomart_service(xml: str, archived: bool = False) -> Service:
     """
     Access BioMart data through the BioMart REST API:
     https://useast.ensembl.org/info/data/biomart/biomart_restful.html#biomartxml
+
+    We also provide links to the Ensembl archives for pinned files.
     """
     ROOT = "http://www.ensembl.org/biomart/martservice?query="
-    return Service(ROOT + urllib.parse.quote_plus(xml))
+    ROOT_ARCHIVED = "http://sep2025.archive.ensembl.org/biomart/martservice?query="
+    return Service((ROOT_ARCHIVED if archived else ROOT) + urllib.parse.quote_plus(xml))
 
 
 @dataclass(frozen=True)
 class CacheItem:
     """
     Class for differentriating between different ways of fetching data.
-    As mentioned in the ./README.md, `cached` is always needed, and we differentriate between service outage (`pinned`)
+    As mentioned in the ./README.md, `cached` is always needed, and we differentiate between service outage (`pinned`)
     and data needing updates (`unpinned`). There is no need to specify both keys at once, but the choice does matter
     for how errors are presented during benchmarking runs.
     """
 
     name: str
-    """The display name of the artifact, used for human-printing."""
+    """The display name of the artifact, used for human-readable logs."""
 
     cached: str
     """
@@ -114,17 +110,17 @@ class CacheItem:
     The Service (URL + headers) of the file, which is the 'pinned' file.
     By a pinned file, we say that the file has a dedicated version, and should not change.
     If this is None, we go for the `unpinned` file or `cached` if `unpinned` is None.
+
+    If pinned` doesn't match `cached`, we emit a warning.
     """
 
     unpinned: Optional[Service | str] = None
     """
     Analogously to `pinned`, this is a Service (URL + headers) which is 'unpinned,'
     or lacks a dedicated version. When `pinned` matches `cached` but `unpinned` doesn't match `pinned`,
-    we say that the file has a new version.
+    we say that the file has a new version but won't be automatically updated to the new version.
 
-    If `pinned` is None and `unpinned` doesn't match `cached`, we warn instead of erroring.
-
-    We will still error if the status code is not 2XX (a successful request).
+    If unpinned` doesn't match `cached`, we emit a warning.
     """
 
     def __post_init__(self):
@@ -142,117 +138,136 @@ class CacheItem:
         return cls(name=name, cached=cached)
 
     def download(self, output: str | PathLike):
+        """
+        Downloads this `CacheItem` to the desired `output`,
+        comparing the `cached` file to the `pinned` and `unpinned` files,
+        warning when `cached` doesn't match `unpinned`, and erroring when
+        `cached` doesn't match `pinned`.
+
+        The file from `cache` is the file that gets downloaded to `output`.
+        """
         logger.info(f"Fetching {self.name}...")
 
         logger.info(f"Downloading cache {self.cached} to {output}...")
-        gdown.download(self.cached, str(output))  # gdown doesn't have a type signature, but it expects a string :/
+        gdown.download(self.cached, str(output))  # gdown doesn't have a type signature, but it expects a string
 
         if self.pinned is not None:
-            Service.coerce(self.pinned).download_against_cache(cache=Path(output), downloaded_file_type="pinned", move_output=True)
+            Service.coerce(self.pinned).download_against_cache(cache=Path(output), downloaded_file_type="pinned")
         if self.unpinned is not None:
-            # Normally, download_against_cache raises a DownloadFileCheckException: we catch it and warn instead if that happens.
-            try:
-                Service.coerce(self.unpinned).download_against_cache(cache=Path(output), downloaded_file_type="unpinned", move_output=False)
-            except DownloadFileCheckException as err:
-                logger.warning(err)
+            Service.coerce(self.unpinned).download_against_cache(cache=Path(output), downloaded_file_type="unpinned")
 
 
-CacheDirectory = dict[str, Union[CacheItem, "CacheDirectory"]]
+CacheDirectory = frozendict[str, Union[CacheItem, "CacheDirectory", str]]
 
-# An *unversioned* directory list.
-directory: CacheDirectory = {
+# The directory list containing versioned and unversioned files.
+directory: CacheDirectory = frozendict({
+    # STRINGDB: https://string-db.org/
+    # You can see more information about these files at https://string-db.org/cgi/download.
     "STRING": {
-        "9606": {
-            "9606.protein.links.full.txt.gz": CacheItem(
-                name="STRING 9606 full protein links",
-                cached="https://drive.google.com/uc?id=13tE_-A6g7McZs_lZGz9As7iE-5cBFvqE",
-                pinned="http://stringdb-downloads.org/download/protein.links.full.v12.0/9606.protein.links.full.v12.0.txt.gz",
-            ),
-            "9606.protein.aliases.txt.gz": CacheItem(
-                name="STRING 9606 protein aliases",
-                cached="https://drive.google.com/uc?id=1IWrQeTVCcw1A-jDk-4YiReWLnwP0S9bY",
-                pinned="https://stringdb-downloads.org/download/protein.aliases.v12.0/9606.protein.aliases.v12.0.txt.gz",
-            ),
-        }
+        "v12": {
+            "9606": {
+                "9606.protein.links.full.txt.gz": CacheItem(
+                    name="STRING 9606 full protein links v12",
+                    cached="https://drive.google.com/uc?id=13tE_-A6g7McZs_lZGz9As7iE-5cBFvqE",
+                    pinned="http://stringdb-downloads.org/download/protein.links.full.v12.0/9606.protein.links.full.v12.0.txt.gz",
+                ),
+                "9606.protein.aliases.txt.gz": CacheItem(
+                    name="STRING 9606 protein aliases v12",
+                    cached="https://drive.google.com/uc?id=1IWrQeTVCcw1A-jDk-4YiReWLnwP0S9bY",
+                    pinned="https://stringdb-downloads.org/download/protein.aliases.v12.0/9606.protein.aliases.v12.0.txt.gz",
+                ),
+                "9606.protein.physical.links.v12.0.txt.gz": CacheItem(
+                    name="STRING 9606 physical subnetwork, scored links between proteins v12",
+                    cached="https://drive.google.com/uc?id=1qCo9a04IPRCAP0B_jDuOWAWAL7bE5Oz9",
+                    pinned="https://stringdb-downloads.org/download/protein.physical.links.v12.0/9606.protein.physical.links.v12.0.txt.gz"
+                )
+            }
+        },
     },
+    # https://www.uniprot.org/
     "UniProt": {
         # We use FTP when possible, but we delegate to the UniProt REST API in cases that would save significant bandwidth.
         # See https://ftp.uniprot.org/pub/databases/uniprot/current_release/README for the FTP README.
+        # 9606 is human.
+        # All of the following data lives under the 2026-03-25 folder, or its retrieval date.
         "9606": {
-            # We prefer manually curated, or SwissProt, genes. This URL selects these genes using the REST API.
+            # We prefer manually curated, or SwissProt, genes.
+            # This URL selects these genes using the REST API.
+            # UniProt REST doesn't seem to have any way to version it, so we only provide the `unpinned` URL.
             "SwissProt_9606.tsv": CacheItem(
                 name="UniProt 9606 SwissProt genes",
-                cached="https://drive.google.com/uc?id=1h2Cl-60qcKse-djcsqlRXm_n60mVY7lk",
+                cached="https://drive.google.com/uc?id=1qa5PvyYuc7Sg4NNqlId6MXvKokTls3ND",
                 unpinned="https://rest.uniprot.org/uniprotkb/stream?fields=accession%2Cid%2Cprotein_name%2Cgene_names&format=tsv&query=%28*%29+AND+%28reviewed%3Atrue%29+AND+%28model_organism%3A9606%29",
-            ),
-            # Sources
-            "sources.tsv": CacheItem(
-                # Where KW-0675 is the UniProt keyword for receptors
-                name="UniProt-tagged sources (receptors)",
-                unpinned="https://rest.uniprot.org/uniprotkb/stream?fields=accession%2Cid&format=tsv&query=%28%28keyword%3A%22KW-0675%22%29%29+AND+%28reviewed%3Atrue%29+AND+%28model_organism%3A9606%29",
-                cached="https://drive.google.com/uc?id=1VbCLH9yoJ41QhzhsSy9ICAU2MLAAxfJe"
-            ),
-            # Targets
-            "targets.tsv": CacheItem(
-                name="UniProt-tagged targets (transcription factors)",
-                # Where KW-0539 and KW-0805 are the UniProt keywords for the nucleus and transcription regulators, respectively.
-                unpinned="https://rest.uniprot.org/uniprotkb/stream?fields=accession%2Cid&format=tsv&query=%28%28keyword%3AKW-0539%29+OR+%28keyword%3AKW-0805%29%29+AND+%28reviewed%3Atrue%29+AND+%28model_organism%3A9606%29",
-                cached="https://drive.google.com/uc?id=1gg_2IO1xHeho8KkcYVIfqHNWSRZx6gd1"
             ),
             # idmapping FTP files. See the associated README:
             # https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/idmapping/README
+            # We use these files as our primary source of identifier mapping.
+            # Unfortunately, there are no accompanying `pinned` URLs for these, as the previous releases
+            # contain files with data magnitudes higher than anything we process.
             "HUMAN_9606_idmapping_selected.tab.gz": CacheItem(
                 name="UniProt 9606 ID external database mapping",
-                cached="https://drive.google.com/uc?id=1Oysa5COq31H771rVeyrs-6KFhE3VJqoX",
+                cached="https://drive.google.com/uc?id=1sKYVSQgTne3fg0pauFno0FjVYElG4VJy",
                 unpinned="https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/idmapping/by_organism/HUMAN_9606_idmapping_selected.tab.gz",
             ),
             "HUMAN_9606_idmapping.dat.gz": CacheItem(
                 name="UniProt 9606 internal id mapping",
-                cached="https://drive.google.com/uc?id=1lGxrx_kGyNdupwIOUXzfIZScc7rQKP-O",
+                cached="https://drive.google.com/uc?id=1QfjjVn36PzJx9ZUxtNSCOOwoZbJpLIiZ",
                 unpinned="https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/idmapping/by_organism/HUMAN_9606_idmapping.dat.gz",
             ),
         }
     },
+    # https://www.ensembl.org/info/data/biomart/index.html
     "BioMart": {
+        # ENSG to ENSP mapping
+        # we generally prefer UniProt mappings over this, since we usually work over UniProt-compatible
+        # ENSG/ENSP identifiers, but sometimes identifiers live outside of this space.
         "ensg-ensp.tsv": CacheItem(
             name="BioMart ENSG <-> ENSP mapping",
             cached="https://drive.google.com/uc?id=1-gPrDoluXIGydzWKjWEnW-nWhYu3YkHL",
             unpinned=fetch_biomart_service((dir_path / "biomart" / "ensg-ensp.xml").read_text()),
+            pinned=fetch_biomart_service((dir_path / "biomart" / "ensg-ensp.xml").read_text(), archived=True),
         )
     },
-    "iRefIndex": {
-        # This can also be obtained from the SPRAS repo, though the SPRAS repo removes self loops. We don't.
-        # (https://github.com/Reed-CompBio/spras/blob/b5d7a2499afa8eab14c60ce0f99fa7e8a23a2c64/input/phosphosite-irefindex13.0-uniprot.txt).
-        # iRefIndex has been down for quite some time, so we grab this from a repository instead.
-        # While the following files do point to the repository's main branch,
-        # they aren't expected to actually change, so we make them `pinned`.
-        "phosphosite-irefindex13.0-uniprot.txt": CacheItem(
-            name="iRefIndex v13.0 UniProt interactome",
-            cached="https://drive.google.com/uc?id=1fQ8Z3FjEwUseEtsExO723zj7mAAtdomo",
-            pinned="https://raw.githubusercontent.com/gitter-lab/tps/refs/heads/master/data/networks/phosphosite-irefindex13.0-uniprot.txt",
-        )
-    },
+    # https://www.pathwaycommons.org/
     "PathwayCommons": {
         "pathways.txt.gz": CacheItem(
             name="PathwayCommons Pathway Identifiers",
             cached="https://drive.google.com/uc?id=1SMwuuohuZuNFnTev4zRNJrBnBsLlCHcK",
             pinned="https://download.baderlab.org/PathwayCommons/PC2/v14/pathways.txt.gz",
+            # While we would like an unpinned version, the PathwayCommons API is deeply unreliable,
+            # nor does it provide a full text file of pathways,
+            # and the FTP server (https://download.baderlab.org/PathwayCommons/PC2/)
+            # does not provide unversioned files.
         ),
     },
-}
+})
 
 
-def get_cache_item(path: tuple[str, ...]) -> CacheItem:
-    """Takes a path and gets the underlying cache item."""
+def get_cache_item(path: tuple[str, ...], custom_directory: Optional[CacheDirectory] = None) -> CacheItem:
+    """
+    Takes a path and gets the underlying cache item.
+    If `custom_directory` is `None`, the top-level `directory` is used instead.
+    """
     assert len(path) != 0
 
-    current_item = directory
+    current_item: CacheDirectory | CacheItem = directory if custom_directory is None else custom_directory
     for entry in path:
         if isinstance(current_item, CacheItem):
             raise ValueError(f"Path {path} leads to a cache item too early!")
-        current_item = current_item[entry]
+
+        # We do this since inlining current_item[entry] scares the type-checker into believing
+        # __getitem__ isn't pure with respect to the notably frozen dictionary, and not because we use
+        # next_item later.
+        next_item = current_item[entry]
+        if isinstance(next_item, str):
+            # This points somewhere else: we use this for explicitly versioning files.
+            entry = next_item
+        next_item = current_item[entry]
+        assert not isinstance(next_item, str), "We don't support nested aliasing! (i.e. no unversioned1 -> unversioned2 -> v1 -> `CacheItem`)"
+
+        current_item = next_item
 
     if not isinstance(current_item, CacheItem):
-        raise ValueError(f"Path {path} doesn't lead to a cache item")
+        raise ValueError(f"Path {path} doesn't lead to a cache item. It instead leads to '{current_item}'")
 
     return current_item
