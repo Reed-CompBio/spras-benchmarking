@@ -17,18 +17,32 @@ produce_fetch_rules({
         cached="https://drive.google.com/uc?id=114qyuNDy4qdmYDHHJAW-yBeTxcGTDUnK",
         pinned="https://unmtid-dbs.net/download/TIGA/20250916/tiga_gene-trait_stats.tsv",
     ),
-    "raw/human_disease_textmining_full.tsv": CacheItem(
-        name="DISEASES textmining channel",
-        cached="https://drive.google.com/uc?id=1RlSD6aNlp6WphmWB8jYcnMJeuYOrJe6j",
-        unpinned="https://download.jensenlab.org/human_disease_textmining_full.tsv",
+
+    "raw/human_disease_textmining_full.tsv": FetchConfig(
+        CacheItem(
+            name="DISEASES textmining channel gunzipped",
+            cached="https://drive.google.com/uc?id=1JEFfYzRtxZTn0518anm1oPKWAFK1pUNC",
+            unpinned="https://download.jensenlab.org/human_disease_textmining_full.tsv",
+        ), 
+        post_process=PostProcessAction.UNCOMPRESS_GZ
     ),
+
     "raw/human_disease_knowledge_full.tsv": CacheItem(
         name="DISEASES knowledge channel",
-        cached="https://drive.google.com/uc?id=1urhXWLS070Oqs92H2u86NFAt7EkaZEd5",
+        cached="https://drive.google.com/uc?id=1o9hHDfP-Orb78oBWzU41SrDKyj39GlCB",
         unpinned="https://download.jensenlab.org/human_disease_knowledge_full.tsv",
     ),
-    "raw/9606.protein.links.full.txt": FetchConfig(("STRING", "9606", "9606.protein.links.full.txt.gz"), uncompress=True),
-    "raw/9606.protein.aliases.txt": FetchConfig(("STRING", "9606", "9606.protein.aliases.txt.gz"), uncompress=True),
+
+
+    "raw/9606.protein.links.full.txt": FetchConfig(
+        ("STRING", "v12", "9606", "9606.protein.links.full.txt.gz"), 
+        post_process=PostProcessAction.UNCOMPRESS_GZ
+    ),
+
+    "raw/9606.protein.aliases.txt": FetchConfig(
+        ("STRING", "v12", "9606", "9606.protein.aliases.txt.gz"),
+        post_process=PostProcessAction.UNCOMPRESS_GZ
+    ),
 })
 
 rule gold_standard:
@@ -38,7 +52,7 @@ rule gold_standard:
     output:
         "processed/gold_standard.csv"
     shell:
-        "uv run scripts/gold_standard.py"
+        "uv run scripts/prepare_gold_standard.py"
 
 rule trait_gene_assoc:
     input:
@@ -55,7 +69,7 @@ rule prepare_inputs:
         "processed/trait_gene_assoc.csv",
         "processed/gold_standard.csv"
     output:
-         "GS_files/DOID_0014667_disease_of_metabolism_GS.txt",
+        "GS_files/DOID_0014667_disease_of_metabolism_GS.txt",
         "GS_files/DOID_0050117_disease_by_infectious_agent_GS.txt",
         "GS_files/DOID_0050451_brugada_syndrome_GS.txt",
         "GS_files/DOID_0050589_inflammatory_bowel_disease_GS.txt",
@@ -298,9 +312,9 @@ rule prepare_inputs:
         "prize_files/DOID_9970_obesity_prizes.txt",
         "prize_files/DOID_9974_drug_dependence_prizes.txt"
     shell:
-        "uv run scripts/prepare_inputs.py"
+        "uv run scripts/process_inputs_and_gold_standard.py"
 
 rule interactome:
     input: "raw/9606.protein.links.full.txt"
     output: "processed/string_interactome.tsv"
-    shell: "uv run scripts/interactome.py"
+    shell: "uv run scripts/process_interactome.py"

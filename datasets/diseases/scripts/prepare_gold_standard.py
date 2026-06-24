@@ -69,6 +69,7 @@ def main():
     print(f' There are {len(GS_high_conf_retained_diseases)} high-confidence disease-gene pairs from the {len(GS_retained_diseases)} diseases')
 
     ## TODO - do we need to filter by STRING??
+    # Yes this can also happen in the trait_gene_assoc.py file
 
     # Write output file gold_standard.csv
     GS_high_conf_retained_diseases.to_csv(diseases_path / "processed" / "gold_standard.csv", index=False)

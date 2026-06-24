@@ -21,7 +21,6 @@ def uncompress_zip(source: Path, target: Path):
     with zipfile.ZipFile(source, "r") as zip_ref:
         zip_ref.extractall(target)
 
-
 class PostProcessAction(Enum):
     UNCOMPRESS_GZ = "uncompress_gz"
     """Uncompresses a .gz file. The `out_path` here is a file."""
