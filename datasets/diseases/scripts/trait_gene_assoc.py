@@ -6,14 +6,16 @@ import time
 dir_path = Path(__file__).parent.resolve()
 
 diseases_path = Path(dir_path, "..")
-(diseases_path / "processed").mkdir(exist_ok=True, parents=True)
+(diseases_path / "intermediate").mkdir(exist_ok=True, parents=True)
 
 OXO_URL = "https://www.ebi.ac.uk/spot/oxo/api/search?size=500"
 BATCH_SIZE = 20
 
 '''
-Processes TIGA trait-gene associations into disease-gene associations through namespace mapping. Relies on `gold_standard.csv` to pull the relevant DOIDs.
+Processes TIGA trait-gene associations into disease-gene associations through namespace mapping.
+Relies on `gold_standard.csv` to pull the relevant DOIDs.
 '''
+
 def main():
     print('Reading TIGA file...')
     # See ../Snakefile for information on this file's origin
@@ -27,7 +29,7 @@ def main():
 
     # Get DOIDs from data/gold_standard.csv
     print('Reading gold standard file...')
-    gold_standard_file = pd.read_csv(diseases_path / "processed" / "gold_standard.csv", sep=",")
+    gold_standard_file = pd.read_csv(diseases_path / "intermediate" / "gold_standard.csv", sep=",")
     DOIDs = gold_standard_file["diseaseID"].unique().tolist()
     print(f'.  There are {len(DOIDs)} disease ontology IDs from the gold standard.')
 
@@ -71,7 +73,7 @@ def main():
     print(f'.  There are {len(tiga_string_df)} DOID-gene snp scores.')
 
     ## Write file to inputs.csv
-    tiga_string_df.to_csv(diseases_path / "processed" / "trait_gene_assoc.csv", index=False)
+    tiga_string_df.to_csv(diseases_path / "intermediate" / "trait_gene_assoc.csv", index=False)
 
 # defined with help from ChatGPT.
 def oxo_search(doids, mapping_targets=["EFO", "MONDO"], distance=1,sleep_seconds = 0.01):
@@ -90,7 +92,7 @@ def oxo_search(doids, mapping_targets=["EFO", "MONDO"], distance=1,sleep_seconds
     )
 
     if response.status_code != 200:
-        print(f"WARNING: OxO failed for {doids}: {response.status_code}")
+        print(f"WARNING: OxO failed for {doids}: response status code {response.status_code}")
         print(response.text[:500])
         return []
 
