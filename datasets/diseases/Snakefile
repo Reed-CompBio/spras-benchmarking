@@ -282,29 +282,30 @@ produce_fetch_rules({
     ),
 })
 
-rule gold_standard:
+rule prepare_gold_standard:
     input:
         "raw/human_disease_knowledge_full.tsv",
         "raw/human_disease_textmining_full.tsv"
     output:
-        "processed/gold_standard.csv"
+        "intermediate/gold_standard.csv"
     shell:
         "uv run scripts/prepare_gold_standard.py"
 
 rule trait_gene_assoc:
     input:
-        "processed/gold_standard.csv",
+        "intermediate/gold_standard.csv",
         "raw/tiga_gene-trait_stats.tsv",
         "raw/9606.protein.aliases.txt"
     output:
-        "processed/trait_gene_assoc.csv"
+        "intermediate/trait_gene_assoc.csv"
     shell:
         "uv run scripts/trait_gene_assoc.py"
 
-rule prepare_inputs:
+rule process_inputs_and_gold_standard:
     input:
-        "processed/trait_gene_assoc.csv",
-        "processed/gold_standard.csv"
+        "intermediate/trait_gene_assoc.csv",
+        "intermediate/gold_standard.csv"
+        # TODO: add in the interactome as well and trim here?
     output:
         "GS_files/DOID_0014667_disease_of_metabolism_GS.txt",
         "GS_files/DOID_0050117_disease_by_infectious_agent_GS.txt",
@@ -551,7 +552,10 @@ rule prepare_inputs:
     shell:
         "uv run scripts/process_inputs_and_gold_standard.py"
 
-rule interactome:
-    input: "raw/9606.protein.links.full.txt"
-    output: "processed/string_interactome.tsv"
-    shell: "uv run scripts/process_interactome.py"
+rule process_interactome:
+    input: 
+        "raw/9606.protein.links.full.txt"
+    output: 
+        "processed/string_interactome.tsv"
+    shell: 
+        "uv run scripts/process_interactome.py"

@@ -15,12 +15,12 @@ SPRAS-formatted prize files and gold standard files.
 def main():
     print('Reading gold standard and trait-gene assoc files:')
     # Gold Standard file from `gold_standard.py`
-    gold_standard = pd.read_csv(diseases_path / "processed" / "gold_standard.csv")
+    gold_standard = pd.read_csv(diseases_path / "intermediate" / "gold_standard.csv")
     gold_standard_grouped = gold_standard.groupby("diseaseID")
     print(f'.  Gold Standard: {len(gold_standard)} disease-gene associations for {len(gold_standard_grouped)} diseases.')
 
     # Inputs file from `trait_gene_assoc.py`
-    tiga = pd.read_csv(diseases_path / "processed" / "trait_gene_assoc.csv")
+    tiga = pd.read_csv(diseases_path / "intermediate" / "trait_gene_assoc.csv")
     tiga_grouped = tiga.groupby("efoId")
     print(f'.  Trait-gene associations (TIGA): {len(tiga)} trait-gene associations for {len(tiga_grouped)} diseases.')
 
@@ -41,6 +41,9 @@ def main():
         filename_prefix = diseaseID.replace(':','_')+'_'+disease_name.replace(' ','_').replace("'","")
         node_filename = f'{filename_prefix}_prizes.txt'
         gs_filename = f'{filename_prefix}_GS.txt'
+
+        # TODO: trim the input data and gs data to what is in the interactome
+        # TODO: add actives if they aren't included yet
 
         # write the prize file output
         tiga_df = tiga_df[["str_id", "n_snpw"]]

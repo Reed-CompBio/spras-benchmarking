@@ -3,6 +3,7 @@ from pathlib import Path
 
 dir_path = Path(__file__).parent.resolve()
 diseases_path = Path(dir_path, "..")
+(diseases_path / "intermediate").mkdir(exist_ok=True, parents=True)
 
 CONFIDENCE_SCORE_MINIMUM = 4
 GENE_SET_SIZE_MINIMUM = 10
@@ -69,10 +70,10 @@ def main():
     print(f' There are {len(GS_high_conf_retained_diseases)} high-confidence disease-gene pairs from the {len(GS_retained_diseases)} diseases')
 
     ## TODO - do we need to filter by STRING??
-    # Yes this can also happen in the trait_gene_assoc.py file
+    # Yes, but this can happen in process_inputs_and_gold_standard.py
 
     # Write output file gold_standard.csv
-    GS_high_conf_retained_diseases.to_csv(diseases_path / "processed" / "gold_standard.csv", index=False)
+    GS_high_conf_retained_diseases.to_csv(diseases_path / "intermediate" / "gold_standard.csv", index=False)
 
 if __name__ == "__main__":
     main()
