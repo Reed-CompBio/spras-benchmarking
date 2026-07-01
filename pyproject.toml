@@ -5,10 +5,12 @@ description = "SPRAS Benchmarking Repository"
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
+    "adjusttext>=1.4.0",
     "frozendict>=2.4.7",
     "gdown>=5.2.0",
     "jsonc-parser>=1.1.5",
     "loguru>=0.7.3",
+    "matplotlib>=3.11.0",
     "more-itertools>=10.7.0",
     "networkx>=3.6.1",
     "openpyxl>=3.1.5",
