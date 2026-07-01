@@ -91,7 +91,7 @@ def fetch_biomart_service(xml: str, archived: bool = False) -> Service:
 @dataclass(frozen=True)
 class CacheItem:
     """
-    Class for differentriating between different ways of fetching data.
+    Class for differentiating between different ways of fetching data.
     As mentioned in the ./README.md, `cached` is always needed, and we differentiate between service outage (`pinned`)
     and data needing updates (`unpinned`). There is no need to specify both keys at once, but the choice does matter
     for how errors are presented during benchmarking runs.

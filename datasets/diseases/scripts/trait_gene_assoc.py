@@ -1,15 +1,10 @@
 from pathlib import Path
 import pandas as pd
-import requests
-import time
 
 dir_path = Path(__file__).parent.resolve()
 
 diseases_path = Path(dir_path, "..")
 (diseases_path / "intermediate").mkdir(exist_ok=True, parents=True)
-
-OXO_URL = "https://www.ebi.ac.uk/spot/oxo/api/search?size=500"
-BATCH_SIZE = 20
 
 '''
 Processes TIGA trait-gene associations into disease-gene associations through namespace mapping.
@@ -33,16 +28,16 @@ def main():
     DOIDs = gold_standard_file["diseaseID"].unique().tolist()
     print(f'.  There are {len(DOIDs)} disease ontology IDs from the gold standard.')
 
-    # Querying EBI's OxO ontology mapper to get DOID-to-TIGA namespaces mapped.
-    print(f'Querying https://www.ebi.ac.uk/spot/oxo/api/search?size=500 in batches of {BATCH_SIZE}:')
-    namespace_mapping = {} # EFO/MONDO -> DOID
-    for i in range(0, len(DOIDs), BATCH_SIZE):
-        batch = DOIDs[i:i+BATCH_SIZE]
-        print(f".  [{i}:{i+BATCH_SIZE}/{len(DOIDs)}]")
-        if BATCH_SIZE < 15:
-            print(f' --> Mapping {batch}')
-        namespace_mapping.update(oxo_search(batch))
-
+    # Using mapping files from OXO2 to map DOID-to-TIGA namespaces.
+    # This previously used an API to OXO, which has been taken down.
+    # An API for OXO2 is in progress as of June 30, 2026.
+    mapping_df = pd.read_csv(diseases_path / "raw" / "oxo2-mappings-inferred.tsv", sep="\t", comment="#")
+    # Keep only the DOIDs of interest
+    mapping_df = mapping_df[mapping_df["subject_id"].isin(DOIDs)]
+    # Keep only EFO and MONDO mappings
+    mapping_df = mapping_df[mapping_df["object_id"].str.startswith(("EFO:", "MONDO:"))]
+    # Create reverse mapping: EFO/MONDO -> DOID
+    namespace_mapping = dict(zip(mapping_df["object_id"], mapping_df["subject_id"]))
     # TIGA uses underscores ('_') instead of colons (':')
     namespace_mapping = {k.replace(':','_'):v for k,v in namespace_mapping.items()}
 
@@ -74,40 +69,6 @@ def main():
 
     ## Write file to inputs.csv
     tiga_string_df.to_csv(diseases_path / "intermediate" / "trait_gene_assoc.csv", index=False)
-
-# defined with help from ChatGPT.
-def oxo_search(doids, mapping_targets=["EFO", "MONDO"], distance=1,sleep_seconds = 0.01):
-    """Map a batch of DOIDs to EFO/MONDO IDs using OxO."""
-
-    payload = {"ids": doids, "mappingTarget": mapping_targets, "distance": distance}
-
-    response = requests.post(
-        OXO_URL,
-        json=payload,
-        headers={
-            "Content-Type": "application/json",
-            "Accept": "application/json",
-        },
-        timeout=60,
-    )
-
-    if response.status_code != 200:
-        print(f"WARNING: OxO failed for {doids}: response status code {response.status_code}")
-        print(response.text[:500])
-        return []
-
-    data = response.json()
-    mapped_dict = {}
-    for result in data.get("_embedded", {}).get("searchResults", []):
-        query_id = result.get("queryId")
-        for mapping in result.get("mappingResponseList", []):
-            mapped_id = mapping.get("curie")
-            if mapped_id is None:
-                continue
-            mapped_dict[mapped_id] = query_id
-
-    time.sleep(sleep_seconds)
-    return mapped_dict
 
 if __name__ == "__main__":
     main()

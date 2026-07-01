@@ -1,6 +1,6 @@
 from pathlib import Path
 import pandas
-from tools.interactome import deduplicate_edges
+from tools.normalize.interactome import deduplicate_edges
 
 diseases_path = Path(__file__).parent.parent.resolve()
 

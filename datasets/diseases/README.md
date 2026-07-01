@@ -74,7 +74,7 @@ Filtering diseases...
 
 **B. GWAS Dataset Creation** (`scripts/trait_gene_assoc.py`):
 - Take the TIGA trait-gene associations and the gold standard Disease Ontology (DO) annotations.
-- Map the TIGA traits (in EFO/MONDO/OBA ids) to DOID. Call these "DO-gene associations". There will be snp_w scores for every gene. The mapping is done with [EBI's Ontology xRef Service (OxO)](https://www.ebi.ac.uk/spot/oxo/).
+- Map the TIGA traits (in EFO/MONDO/OBA ids) to DOID. Call these "DO-gene associations". There will be snp_w scores for every gene. [EBI's Ontology xRef Service (OxO)](https://www.ebi.ac.uk/spot/oxo/) is no longer available; we now use mapping files provided by EBI as part of their OXO2 service, which is still in development. Refer to the [oxo2 file provenance](https://docs.google.com/document/d/1TjM6czX-TNQUwFxwFTQlBaKJZhFkXFXqwqxuJ_kMBRs/edit?usp=sharing) on Google Drive.
 - Ensure all genes are present in the STRING interactome (map the `ENSG` ids to `ENSP` ids). We use the STRING-DB alias mapping to ensure that all TIGA trait-gene associations are in the STRING interactome. (there is a benchmark file for the DISEASES database with STRINGv9.1, but we use the most recent STRING version).
 
 ```
@@ -83,47 +83,13 @@ Reading TIGA file...
 .  There are 11978 EFO/MONDO/OBA traits.
 Reading gold standard file...
 .  There are 643 disease ontology IDs from the gold standard.
-Querying https://www.ebi.ac.uk/spot/oxo/api/search?size=500 in batches of 20:
-.  [0:20/643]
-.  [20:40/643]
-.  [40:60/643]
-.  [60:80/643]
-.  [80:100/643]
-.  [100:120/643]
-.  [120:140/643]
-.  [140:160/643]
-.  [160:180/643]
-.  [180:200/643]
-.  [200:220/643]
-.  [220:240/643]
-.  [240:260/643]
-.  [260:280/643]
-.  [280:300/643]
-.  [300:320/643]
-.  [320:340/643]
-.  [340:360/643]
-.  [360:380/643]
-.  [380:400/643]
-.  [400:420/643]
-.  [420:440/643]
-.  [440:460/643]
-.  [460:480/643]
-.  [480:500/643]
-.  [500:520/643]
-.  [520:540/643]
-.  [540:560/643]
-.  [560:580/643]
-.  [580:600/643]
-.  [600:620/643]
-.  [620:640/643]
-.  [640:660/643]
-.  342/643 DOIDs are mapped.
-.  126/342 of mapped DOIDs are in TIGA.
+.  348/643 DOIDs are mapped.
+.  132/348 of mapped DOIDs are in TIGA.
 Mapping TIGA entries to DOID:
-.  There are 18422 trait-gene snp scores after mapping to DOID and dropping N/As.
-.  There are now 121 DROID traits in the TIGA dataset. If this is fewer than above, then multiple TIGA ids map to the same DOID.
+.  There are 19462 trait-gene snp scores after mapping to DOID and dropping N/As.
+.  There are now 124 DROID traits in the TIGA dataset. If this is fewer than above, then multiple TIGA ids map to the same DOID.
 Mapping STRING IDs:
-.  There are 18368 DOID-gene snp scores.
+.  There are 19407 DOID-gene snp scores.
 ```
 
 _Note:_ We discussed a version 2 where we also run DO-gene associations for diseases _not_ in the validation set; that's a later project).
@@ -136,9 +102,9 @@ _Note:_ We discussed a version 2 where we also run DO-gene associations for dise
 ```
 Reading gold standard and trait-gene assoc files:
 .  Gold Standard: 84972 disease-gene associations for 643 diseases.
-.  Trait-gene associations (TIGA): 18368 trait-gene associations for 121 diseases.
-There are 121 diseases that are in both the gold standard and in TIGA.
-Done writing prize and gold standard files for 121 diseases.
+.  Trait-gene associations (TIGA): 19407 trait-gene associations for 124 diseases.
+There are 124 diseases that are in both the gold standard and in TIGA.
+Done writing prize and gold standard files for 124 diseases.
 ```
 
 To make a list of prize files to add to the Snakemake file, use the following command:
