@@ -318,7 +318,7 @@ rule process_inputs_and_gold_standard:
         "intermediate/gold_standard.csv"
         # TODO: add in the interactome as well and trim here?
     output:
-                "GS_files/DOID_0014667_disease_of_metabolism_GS.txt",
+        "GS_files/DOID_0014667_disease_of_metabolism_GS.txt",
         "GS_files/DOID_0050117_disease_by_infectious_agent_GS.txt",
         "GS_files/DOID_0050451_brugada_syndrome_GS.txt",
         "GS_files/DOID_0050589_inflammatory_bowel_disease_GS.txt",
