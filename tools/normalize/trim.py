@@ -30,7 +30,19 @@ def trim_input_nodes_file(interactome_df: pd.DataFrame, input_nodes_df: pd.DataF
     Nodes absent from the interactome cannot contribute to pathway reconstruction.
 
     Both inputs must be in SPRAS format. The interactome is expected to have the
-    columns Interactor1, Interactor2, Weight, Direction.
+    columns Interactor1, Interactor2, Weight, Direction as the header. The input nodes is expected to at least have one column of NODEID as the header.
     """
     interactome_nodes = set(interactome_df["Interactor1"]).union(interactome_df["Interactor2"])
     return input_nodes_df.loc[input_nodes_df["NODEID"].isin(interactome_nodes), :]
+
+def trim_gold_standard_nodes_file(interactome_df: pd.DataFrame, gs_df: pd.DataFrame) -> pd.DataFrame:
+    """
+    Keep gold standard nodes that appear anywhere in the interactome.
+
+    Nodes absent from the interactome cannot contribute to pathway reconstruction.
+
+    Both inputs must be in SPRAS format. The interactome is expected to have the
+    columns Interactor1, Interactor2, Weight, Direction as the header. The gold standard nodes is expected to have one column of NODEID as the header.
+    """
+    interactome_nodes = set(interactome_df["Interactor1"]).union(interactome_df["Interactor2"])
+    return gs_df.loc[gs_df["NODEID"].isin(interactome_nodes), :]
