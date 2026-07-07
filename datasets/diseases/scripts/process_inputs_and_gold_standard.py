@@ -33,7 +33,7 @@ def main():
     print('Reading processed interactome file for trimming gold standard and trait-gene files')
     interactome = pd.read_csv(processed_dir / "string_interactome.tsv", sep="\t")
     interactome.columns = ['Interactor1', 'Interactor2', 'Weight', 'Direction']
-    
+
     # now, generate the per-disease inputs.
     for diseaseID in tiga_grouped.groups.keys():
         tiga_df = tiga_grouped.get_group(diseaseID)
@@ -52,13 +52,13 @@ def main():
         tiga_df["NODEID"] = tiga_df["NODEID"].astype(str).str.removeprefix("9606.")
         tiga_df = trim_input_nodes_file(interactome, tiga_df)
         tiga_df.to_csv(diseases_path / "prize_files" / node_filename, sep="\t", index=False)
-        
+
         # write the gold standard output
         gold_standard_df = gold_standard_df[["geneID"]]
         gold_standard_df = gold_standard_df.rename(columns={"geneID": "NODEID"})
         gold_standard_df = trim_gold_standard_nodes_file(interactome, gold_standard_df)
         gold_standard_df.to_csv(diseases_path / "GS_files" / gs_filename, sep="\t", index=False, header=False)
-        
+
     print(f'Done writing prize and gold standard files for {len(tiga_grouped.groups.keys())} diseases.')
 
 
