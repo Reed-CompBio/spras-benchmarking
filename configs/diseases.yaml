@@ -43,6 +43,8 @@ algorithms:
         g: 0
 
 datasets:
+# TODO: fix these file paths to the data
+# TODO: change this whole config file to be diseases.yaml and fill out with all the datasets/gs
   - label: scoresegfr_string
     data_dir: datasets/egfr
     edge_files: ["processed/ensp/interactome.tsv"]
