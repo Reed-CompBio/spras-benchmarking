@@ -1,0 +1,70 @@
+from pathlib import Path
+import urllib.parse
+from jsonc_parser.parser import JsoncParser
+
+# TODO: Only change one at a time; upsample the pathway (and have intermediate upsampled pathways), keep interactome the same (100%) and then downsample interactome and keep the pathways the same (100%)
+# so the upsampled ones will onle need threshold 100 if we want to preprocess them with this script
+
+panther_directory = Path("..") / ".." / ".."
+intermediate_directory = panther_directory / "intermediate"
+processed_directory = panther_directory / "processed"
+
+thresholds = [10, 30, 50, 70, 100] # the percent of the interactome to keep
+
+def make_file_safe(input_str: str) -> str:
+    return urllib.parse.quote(input_str, safe='')
+
+pathways = JsoncParser.parse_file(str(panther_directory / "pathways.jsonc"))
+file_compatible_pathways = list(map(make_file_safe,pathways))
+
+rule all:
+    input:
+        expand(
+            "processed/{pathway}/interactomes/interactome_{threshold}.txt",
+            pathway=file_compatible_pathways,
+            threshold=thresholds,
+        ),
+        expand(
+            "processed/{pathway}/interactomes/overlap_{threshold}.tsv",
+            pathway=file_compatible_pathways,
+            threshold=thresholds,
+        ),
+        "processed/interactome-pathway-overlap.tsv",
+        "processed/interactome-stats.tsv",
+
+rule threshold:
+    input:
+        input_nodes=str(intermediate_directory / "{pathway}" / "input_nodes.csv"),
+        pathway=str(intermediate_directory / "{pathway}" / "pathway.csv"),
+        interactome=str(processed_directory / "interactome.tsv"),
+        weight_counts=str(processed_directory / "weight-counts.tsv"),
+    output:
+        # TODO: change this to be saved in this folder not in the main processed folder
+        "processed/{pathway}/interactomes/interactome_{threshold}.txt",
+        "processed/{pathway}/interactomes/overlap_{threshold}.tsv",
+    shell:
+        'uv run downsample.py "{wildcards.pathway}" --threshold "{wildcards.threshold}"'
+
+rule aggregate_overlaps:
+    input:
+        expand(
+            "processed/{pathway}/interactomes/overlap_{threshold}.tsv",
+            pathway=file_compatible_pathways,
+            threshold=thresholds,
+        ),
+    output:
+        "processed/interactome-pathway-overlap.tsv",
+    shell:
+        "uv run gather.py"
+
+rule stats:
+    input:
+        expand(
+            "processed/{pathway}/interactomes/overlap_{threshold}.tsv",
+            pathway=file_compatible_pathways,
+            threshold=thresholds,
+        ),
+    output:
+        "processed/interactome-stats.tsv",
+    shell:
+        "uv run stats.py"

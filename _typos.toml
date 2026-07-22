@@ -1,0 +1,19 @@
+[type.txt]
+# Ignore data files
+extend-glob = ["*.jsonc", "*.json"]
+check-file = false
+
+[files]
+extend-exclude = [
+    # Bad variable names in this file that may be removed later
+    "datasets/diseases/viz/viz.ipynb",
+    # typos breaks on the WNT word
+    "datasets/panther_signaling_pathways/scripts/upsample_pathways.py"
+]
+
+[default.extend-ignore-words]
+controled = "controled"
+Wnt_signaling_pathway = "Wnt signaling pathway"
+Wnt = "Wnt"
+WNT = "WNT"
+wnt = "wnt"

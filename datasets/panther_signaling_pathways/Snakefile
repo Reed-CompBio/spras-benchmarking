@@ -1,0 +1,227 @@
+include: "../../cache/Snakefile"
+from jsonc_parser.parser import JsoncParser
+import urllib.parse
+
+def make_file_safe(input_str: str) -> str:
+    return urllib.parse.quote(input_str, safe='')
+
+pathways = JsoncParser.parse_file("pathways.jsonc")
+file_compatible_pathways = list(map(make_file_safe, pathways))
+
+# todo update code to use these once we have the thresholded interactomes
+thresholds = list(map(str, map(lambda x: (x + 1) / 10, range(10))))
+
+
+rule all:
+    input:
+        expand([
+            "intermediate/{pathway}/pathway.csv"
+        ], pathway=file_compatible_pathways),
+        expand([
+            "intermediate/{pathway}/pathway_nodes.csv"
+        ], pathway=file_compatible_pathways),
+        expand([
+            "intermediate/{pathway}/unmatched_nodes.csv"
+        ], pathway=file_compatible_pathways),
+        expand([
+            "intermediate/{pathway}/raw_pathway.csv"
+        ], pathway=file_compatible_pathways),
+        expand([
+            "intermediate/{pathway}/raw_pathway_nodes.csv"
+        ], pathway=file_compatible_pathways),
+        expand([
+            "intermediate/{pathway}/exploded_edges.csv"
+        ], pathway=file_compatible_pathways),
+        expand([
+            "intermediate/{pathway}/dropped_edges.csv"
+        ], pathway=file_compatible_pathways),
+
+        "processed/interactome.tsv", 
+        "processed/weight-counts.tsv",
+
+        expand([
+            "intermediate/{pathway}/targets.csv"
+        ], pathway=file_compatible_pathways),
+
+        expand([
+            "intermediate/{pathway}/sources.csv",
+        ], pathway=file_compatible_pathways),
+
+        expand([
+            "intermediate/{pathway}/input_nodes.csv",
+        ], pathway=file_compatible_pathways),
+
+        "processed/full_stats.tsv",
+        "processed/filtered_stats.tsv",
+
+        "processed/upsampled/mega_pathway.csv",
+        "processed/upsampled/mega_input_nodes.csv",
+        "processed/upsampled/target_focused_pathway.csv",
+        "processed/upsampled/target_focused_input_nodes.csv",
+        "processed/upsampled/source_focused_pathway.csv",
+        "processed/upsampled/source_focused_input_nodes.csv",
+        "processed/upsampled/balanced_pathway.csv",
+        "processed/upsampled/balanced_input_nodes.csv",
+        "processed/upsampled/upsampled_stats.tsv",
+
+produce_fetch_rules({
+   
+    "raw/9606.protein.physical.links.v12.0.txt": FetchConfig(
+        ("STRING", "v12", "9606", "9606.protein.physical.links.v12.0.txt.gz"),
+        post_process=PostProcessAction.UNCOMPRESS_GZ
+    ),
+
+    "raw/9606.protein.aliases.txt": FetchConfig(
+        ("STRING", "v12", "9606", "9606.protein.aliases.txt.gz"),
+        post_process=PostProcessAction.UNCOMPRESS_GZ
+    ),
+
+    "raw/table_S3_surfaceome.xlsx": CacheItem(
+        name="Human surfaceome",
+        unpinned="http://wlab.ethz.ch/surfaceome/table_S3_surfaceome.xlsx",
+        cached="https://docs.google.com/uc?id=1cBXYbDnAJVet0lv3BRrizV5FuqfMbBr0",
+    ),
+
+    "raw/Homo_sapiens_TF.tsv": CacheItem(
+        name="Human transcription factors",
+        # This server has anti-bot protection, so to respect their wishes, we don't download from the server.
+        # The original URL is https://guolab.wchscu.cn/AnimalTFDB4_static/download/TF_list_final/Homo_sapiens_TF,
+        # which is accessible from https://guolab.wchscu.cn/AnimalTFDB4//#/Download -> Homo sapiens
+        # (also under the Internet Archive as of Feb 2nd, 2026. If the original artifact disappears, the drive link below should suffice.)
+        cached="https://drive.google.com/uc?id=1fVi18GpudUlquRPHgUJl3H1jy54gO-uz",
+    ),
+
+    "raw/HUMAN_9606_idmapping_selected.tsv": FetchConfig(
+        ("UniProt", "9606", "HUMAN_9606_idmapping_selected.tab.gz"), 
+        post_process=PostProcessAction.UNCOMPRESS_GZ
+    ),
+    
+    # See ./panther_pathways for how this file was generated.
+    "raw/pc-panther-biopax.owl": CacheItem(
+        name="PathwayCommons PANTHER-only BioPAX file",
+        cached="https://drive.google.com/uc?id=1MklrD8CJ1BIjh_wWr_g5rrIJ5XJB7FUI"
+    ),
+
+    "raw/denylist.txt": CacheItem(
+        name="PathwayCommons small molecule denylist",
+        cached="https://drive.google.com/uc?id=1QmISJXPvVljA8oKuNYRUNbJJvZKPa_-u",
+        pinned="https://download.baderlab.org/PathwayCommons/PC2/v14/blacklist.txt",
+    ),
+
+    "raw/pathways.txt": FetchConfig(
+        ("PathwayCommons", "pathways.txt.gz"),
+        post_process=PostProcessAction.UNCOMPRESS_GZ
+    )
+})
+
+rule make_pathway_map:
+    input:
+        "raw/pathways.txt",
+        "pathways.jsonc"
+    output:
+        "intermediate/curated_pathways_id_mapping.json"
+    shell:
+        "uv run scripts/list_curated_pathways.py"
+
+rule fetch_pathways:
+    input:
+        "intermediate/curated_pathways_id_mapping.json",
+        "raw/pc-panther-biopax.owl"
+    params:
+        # from https://stackoverflow.com/a/71327709/7589775
+        pathway=lambda wildcards: wildcards.get("pathway")
+    output:
+        "intermediate/pathway-pc-data/{pathway}.owl",
+        "intermediate/pathway-pc-data/{pathway}.sif"
+    shell:
+        'uv run scripts/fetch_pathway.py "{params.pathway}"'
+
+rule process_pathways:
+    input:
+        "intermediate/pathway-pc-data/{pathway}.sif",
+        "raw/9606.protein.aliases.txt"
+        # TODO: make this dependent on the interactomes existing and have been processed
+    output:
+        "intermediate/{pathway}/pathway.csv",
+        "intermediate/{pathway}/pathway_nodes.csv",
+        "intermediate/{pathway}/unmatched_nodes.csv",
+        "intermediate/{pathway}/raw_pathway.csv",
+        "intermediate/{pathway}/raw_pathway_nodes.csv",
+        "intermediate/{pathway}/exploded_edges.csv",
+        "intermediate/{pathway}/dropped_edges.csv"
+    shell:
+        'uv run scripts/process_pathway.py "{wildcards.pathway}"'
+
+rule pathway_stats:
+    input:
+        expand("intermediate/{pathway}/pathway.csv", pathway=file_compatible_pathways),
+        expand("intermediate/{pathway}/input_nodes.csv", pathway=file_compatible_pathways),
+    output:
+        "processed/full_stats.tsv",
+        "processed/filtered_stats.tsv",
+    params:
+        pathways = file_compatible_pathways,
+    shell:
+        'uv run scripts/pathway_statistics.py {params.pathways}'
+
+rule upsample:
+    input:
+        expand("intermediate/{pathway}/pathway.csv", pathway=file_compatible_pathways),
+        expand("intermediate/{pathway}/input_nodes.csv", pathway=file_compatible_pathways),
+        "processed/filtered_stats.tsv",
+    output:
+        "processed/upsampled/mega_pathway.csv",
+        "processed/upsampled/mega_input_nodes.csv",
+        "processed/upsampled/target_focused_pathway.csv",
+        "processed/upsampled/target_focused_input_nodes.csv",
+        "processed/upsampled/source_focused_pathway.csv",
+        "processed/upsampled/source_focused_input_nodes.csv",
+        "processed/upsampled/balanced_pathway.csv",
+        "processed/upsampled/balanced_input_nodes.csv",
+        "processed/upsampled/upsampled_stats.tsv",
+    shell:
+        'uv run scripts/upsample_pathways.py'
+
+rule interactome:
+    input:
+        "raw/9606.protein.physical.links.v12.0.txt",
+    output:
+        "processed/interactome.tsv",
+        "processed/weight-counts.tsv"
+    shell:
+        "uv run scripts/process_interactome.py"
+
+rule process_input_nodes:
+    input:
+        "raw/Homo_sapiens_TF.tsv",
+        "raw/table_S3_surfaceome.xlsx",
+        "intermediate/{pathway}/pathway.csv",
+        "raw/9606.protein.aliases.txt",
+        "processed/interactome.tsv",
+        # add each of the interactomes after I get them
+    output:
+        "intermediate/{pathway}/sources.csv",
+        "intermediate/{pathway}/targets.csv",
+        "intermediate/{pathway}/input_nodes.csv", # update to processed once we have all the interactomes
+        # update to be per interactome
+    shell:
+        'uv run scripts/process_input_nodes.py "{wildcards.pathway}"'
+
+# rule process_gold_standard:
+#     input:
+#         "intermediate/{pathway}/pathway.csv",
+#         "processed/interactome.tsv",
+#         # add each of the interactomes after I get them
+#     output:
+#         "processed/{pathway}/gold_standard.csv",
+#         # update to be per interactome
+#     shell:
+#         'uv run scripts/process_gold_standard.py "{wildcards.pathway}"'
+
+# TODO:
+# 1) put the upsample pathways with the interactome (100% physical interactome)
+# - this can be done on the spot locally, does not need to be done beforehand
+# 2) update to read in each interactome
+# 3) process the input nodes using the interactomes per pathway
+# 4) process the gold standard nodes and edges using the interactoems per pathway
+# for each pathway and upsampled pathway should have an interactome gs and input nodes per downsampling threshold
