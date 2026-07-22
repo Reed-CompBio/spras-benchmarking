@@ -66,8 +66,8 @@ rule all:
 
 produce_fetch_rules({
    
-    "raw/9606.protein.links.full.v12.0.txt": FetchConfig(
-        ("STRING", "v12", "9606", "9606.protein.links.full.txt.gz"),
+    "raw/9606.protein.physical.links.v12.0.txt": FetchConfig(
+        ("STRING", "v12", "9606", "9606.protein.physical.links.v12.0.txt.gz"),
         post_process=PostProcessAction.UNCOMPRESS_GZ
     ),
 
@@ -184,7 +184,7 @@ rule upsample:
 
 rule interactome:
     input:
-        "raw/9606.protein.links.full.v12.0.txt",
+        "raw/9606.protein.physical.links.v12.0.txt",
     output:
         "processed/interactome.tsv",
         "processed/weight-counts.tsv"

@@ -12,7 +12,7 @@ def main():
     (processed_directory).mkdir(exist_ok=True)
 
     interactome_df = pd.read_csv(
-        raw_directory / "9606.protein.links.full.v12.0.txt", sep=" ", usecols=["protein1", "protein2", "combined_score"]
+        raw_directory / "9606.protein.physical.links.v12.0.txt", sep=" ", usecols=["protein1", "protein2", "combined_score"]
     )
 
     interactome_df = interactome_df.rename(columns={"protein1": "Interactor1", "protein2": "Interactor2", "combined_score": "Weight"})
