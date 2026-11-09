@@ -1,0 +1,126 @@
+PARTICIPANT_A	INTERACTION_TYPE	PARTICIPANT_B	INTERACTION_DATA_SOURCE	INTERACTION_PUBMED_ID	PATHWAY_NAMES	MEDIATOR_IDS
+BPNT1	controls-production-of	CHEBI:16761	KEGG		Sulfur metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_81f16587ed653efa8149784f478b28d5;http://pathwaycommons.org/pc12/Catalysis_2b064402c5f720fcc725ea202191ddf9
+BPNT1	controls-production-of	CHEBI:17709	KEGG		Sulfur metabolism	http://pathwaycommons.org/pc12/Catalysis_5e60007365e777676987536818f6e74b;http://pathwaycommons.org/pc12/BiochemicalReaction_b4c1452e8dbdd5e7775f0d37e4efe6e3
+BPNT1	controls-production-of	CHEBI:17980	KEGG		Sulfur metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_81f16587ed653efa8149784f478b28d5;http://pathwaycommons.org/pc12/Catalysis_2b064402c5f720fcc725ea202191ddf9
+BPNT1	controls-production-of	CHEBI:26078	KEGG		Sulfur metabolism	http://pathwaycommons.org/pc12/Catalysis_5e60007365e777676987536818f6e74b;http://pathwaycommons.org/pc12/BiochemicalReaction_b4c1452e8dbdd5e7775f0d37e4efe6e3
+BPNT1	catalysis-precedes	CHST11	KEGG		Sulfur metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_3baf57a766ae0f3858b19357f9286cef;http://pathwaycommons.org/pc12/BiochemicalReaction_81f16587ed653efa8149784f478b28d5;http://pathwaycommons.org/pc12/Catalysis_084ceda2ed695a49127f1261b03b77ff;http://pathwaycommons.org/pc12/Catalysis_2b064402c5f720fcc725ea202191ddf9
+BPNT1	catalysis-precedes	PAPSS2	KEGG		Sulfur metabolism	http://pathwaycommons.org/pc12/Catalysis_5e60007365e777676987536818f6e74b;http://pathwaycommons.org/pc12/BiochemicalReaction_81f16587ed653efa8149784f478b28d5;http://pathwaycommons.org/pc12/BiochemicalReaction_b4c1452e8dbdd5e7775f0d37e4efe6e3;http://pathwaycommons.org/pc12/Catalysis_2b064402c5f720fcc725ea202191ddf9
+BPNT1	catalysis-precedes	SULT1A1	KEGG		Sulfur metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_b8bf7e8c72d4cf4b0f56c9f2e1faed96;http://pathwaycommons.org/pc12/Catalysis_8c5db38e06d625639d556e3fb8168bb2;http://pathwaycommons.org/pc12/BiochemicalReaction_81f16587ed653efa8149784f478b28d5;http://pathwaycommons.org/pc12/Catalysis_2b064402c5f720fcc725ea202191ddf9
+BPNT1	catalysis-precedes	SULT1A2	KEGG		Sulfur metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_b8bf7e8c72d4cf4b0f56c9f2e1faed96;http://pathwaycommons.org/pc12/Catalysis_8c5db38e06d625639d556e3fb8168bb2;http://pathwaycommons.org/pc12/BiochemicalReaction_81f16587ed653efa8149784f478b28d5;http://pathwaycommons.org/pc12/Catalysis_2b064402c5f720fcc725ea202191ddf9
+BPNT1	catalysis-precedes	SULT1A3	KEGG		Sulfur metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_b8bf7e8c72d4cf4b0f56c9f2e1faed96;http://pathwaycommons.org/pc12/Catalysis_8c5db38e06d625639d556e3fb8168bb2;http://pathwaycommons.org/pc12/BiochemicalReaction_81f16587ed653efa8149784f478b28d5;http://pathwaycommons.org/pc12/Catalysis_2b064402c5f720fcc725ea202191ddf9
+BPNT1	catalysis-precedes	SULT1A4	KEGG		Sulfur metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_b8bf7e8c72d4cf4b0f56c9f2e1faed96;http://pathwaycommons.org/pc12/Catalysis_8c5db38e06d625639d556e3fb8168bb2;http://pathwaycommons.org/pc12/BiochemicalReaction_81f16587ed653efa8149784f478b28d5;http://pathwaycommons.org/pc12/Catalysis_2b064402c5f720fcc725ea202191ddf9
+BPNT1	catalysis-precedes	SULT2B1	KEGG		Sulfur metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_2d8e4c350c38037835450016310fe590;http://pathwaycommons.org/pc12/Catalysis_5eee7247bd938b5fb0bdd07a4fb06945;http://pathwaycommons.org/pc12/BiochemicalReaction_81f16587ed653efa8149784f478b28d5;http://pathwaycommons.org/pc12/Catalysis_2b064402c5f720fcc725ea202191ddf9
+CHEBI:15377	consumption-controlled-by	BPNT1	KEGG		Sulfur metabolism	http://pathwaycommons.org/pc12/Catalysis_5e60007365e777676987536818f6e74b;http://pathwaycommons.org/pc12/BiochemicalReaction_b4c1452e8dbdd5e7775f0d37e4efe6e3
+CHEBI:15377	reacts-with	CHEBI:15379	KEGG		Sulfur metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_acbeb74df547c4d0759b9a09c025ca7e
+CHEBI:15377	used-to-produce	CHEBI:16240	KEGG		Sulfur metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_acbeb74df547c4d0759b9a09c025ca7e
+CHEBI:15377	used-to-produce	CHEBI:17709	KEGG		Sulfur metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_b4c1452e8dbdd5e7775f0d37e4efe6e3
+CHEBI:15377	reacts-with	CHEBI:17980	KEGG		Sulfur metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_b4c1452e8dbdd5e7775f0d37e4efe6e3
+CHEBI:15377	used-to-produce	CHEBI:26078	KEGG		Sulfur metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_b4c1452e8dbdd5e7775f0d37e4efe6e3
+CHEBI:15377	used-to-produce	CHEBI:26836	KEGG		Sulfur metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_acbeb74df547c4d0759b9a09c025ca7e
+CHEBI:15377	reacts-with	CHEBI:48854	KEGG		Sulfur metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_acbeb74df547c4d0759b9a09c025ca7e
+CHEBI:15377	consumption-controlled-by	SUOX	KEGG		Sulfur metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_acbeb74df547c4d0759b9a09c025ca7e;http://pathwaycommons.org/pc12/Catalysis_c07d06462f05d5ceb95057af68f3d33d
+CHEBI:15379	used-to-produce	CHEBI:16240	KEGG		Sulfur metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_acbeb74df547c4d0759b9a09c025ca7e
+CHEBI:15379	used-to-produce	CHEBI:26836	KEGG		Sulfur metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_acbeb74df547c4d0759b9a09c025ca7e
+CHEBI:15379	reacts-with	CHEBI:48854	KEGG		Sulfur metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_acbeb74df547c4d0759b9a09c025ca7e
+CHEBI:15379	consumption-controlled-by	SUOX	KEGG		Sulfur metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_acbeb74df547c4d0759b9a09c025ca7e;http://pathwaycommons.org/pc12/Catalysis_c07d06462f05d5ceb95057af68f3d33d
+CHEBI:15422	consumption-controlled-by	BPNT1	KEGG		Sulfur metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_81f16587ed653efa8149784f478b28d5;http://pathwaycommons.org/pc12/Catalysis_2b064402c5f720fcc725ea202191ddf9
+CHEBI:15422	used-to-produce	CHEBI:16761	KEGG		Sulfur metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_81f16587ed653efa8149784f478b28d5
+CHEBI:15422	reacts-with	CHEBI:17709	KEGG		Sulfur metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_81f16587ed653efa8149784f478b28d5
+CHEBI:15422	used-to-produce	CHEBI:17709	KEGG		Sulfur metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_3d27ee3f46c028de6a2ed184720827dd
+CHEBI:15422	used-to-produce	CHEBI:17980	KEGG		Sulfur metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_81f16587ed653efa8149784f478b28d5
+CHEBI:15422	reacts-with	CHEBI:26836	KEGG		Sulfur metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_3d27ee3f46c028de6a2ed184720827dd
+CHEBI:15422	used-to-produce	CHEBI:29888	KEGG		Sulfur metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_3d27ee3f46c028de6a2ed184720827dd
+CHEBI:15422	consumption-controlled-by	PAPSS2	KEGG		Sulfur metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_3d27ee3f46c028de6a2ed184720827dd;http://pathwaycommons.org/pc12/BiochemicalReaction_81f16587ed653efa8149784f478b28d5;http://pathwaycommons.org/pc12/Catalysis_4189e7270bfa32fd731cf4dc326ea9d5;http://pathwaycommons.org/pc12/Catalysis_2b064402c5f720fcc725ea202191ddf9
+CHEBI:16137	reacts-with	CHEBI:17980	KEGG		Sulfur metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_3baf57a766ae0f3858b19357f9286cef
+CHEBI:16137	used-to-produce	CHEBI:17985	KEGG		Sulfur metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_3baf57a766ae0f3858b19357f9286cef
+CHEBI:16137	used-to-produce	CHEBI:18250	KEGG		Sulfur metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_3baf57a766ae0f3858b19357f9286cef
+CHEBI:16137	consumption-controlled-by	CHST11	KEGG		Sulfur metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_3baf57a766ae0f3858b19357f9286cef;http://pathwaycommons.org/pc12/Catalysis_084ceda2ed695a49127f1261b03b77ff
+CHEBI:17709	consumption-controlled-by	BPNT1	KEGG		Sulfur metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_81f16587ed653efa8149784f478b28d5;http://pathwaycommons.org/pc12/Catalysis_2b064402c5f720fcc725ea202191ddf9
+CHEBI:17709	used-to-produce	CHEBI:16761	KEGG		Sulfur metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_81f16587ed653efa8149784f478b28d5
+CHEBI:17709	used-to-produce	CHEBI:17980	KEGG		Sulfur metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_81f16587ed653efa8149784f478b28d5
+CHEBI:17709	consumption-controlled-by	PAPSS2	KEGG		Sulfur metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_81f16587ed653efa8149784f478b28d5;http://pathwaycommons.org/pc12/Catalysis_2b064402c5f720fcc725ea202191ddf9
+CHEBI:17980	consumption-controlled-by	BPNT1	KEGG		Sulfur metabolism	http://pathwaycommons.org/pc12/Catalysis_5e60007365e777676987536818f6e74b;http://pathwaycommons.org/pc12/BiochemicalReaction_b4c1452e8dbdd5e7775f0d37e4efe6e3
+CHEBI:17980	used-to-produce	CHEBI:17709	KEGG		Sulfur metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_b4c1452e8dbdd5e7775f0d37e4efe6e3
+CHEBI:17980	used-to-produce	CHEBI:17985	KEGG		Sulfur metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_2d8e4c350c38037835450016310fe590;http://pathwaycommons.org/pc12/BiochemicalReaction_b8bf7e8c72d4cf4b0f56c9f2e1faed96;http://pathwaycommons.org/pc12/BiochemicalReaction_3baf57a766ae0f3858b19357f9286cef
+CHEBI:17980	used-to-produce	CHEBI:18250	KEGG		Sulfur metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_3baf57a766ae0f3858b19357f9286cef
+CHEBI:17980	used-to-produce	CHEBI:26078	KEGG		Sulfur metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_b4c1452e8dbdd5e7775f0d37e4efe6e3
+CHEBI:17980	used-to-produce	CHEBI:29281	KEGG		Sulfur metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_2d8e4c350c38037835450016310fe590
+CHEBI:17980	reacts-with	CHEBI:30879	KEGG		Sulfur metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_2d8e4c350c38037835450016310fe590
+CHEBI:17980	reacts-with	CHEBI:33853	KEGG		Sulfur metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_b8bf7e8c72d4cf4b0f56c9f2e1faed96
+CHEBI:17980	used-to-produce	CHEBI:37919	KEGG		Sulfur metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_b8bf7e8c72d4cf4b0f56c9f2e1faed96
+CHEBI:17980	consumption-controlled-by	CHST11	KEGG		Sulfur metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_3baf57a766ae0f3858b19357f9286cef;http://pathwaycommons.org/pc12/Catalysis_084ceda2ed695a49127f1261b03b77ff
+CHEBI:17980	consumption-controlled-by	SULT1A1	KEGG		Sulfur metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_b8bf7e8c72d4cf4b0f56c9f2e1faed96;http://pathwaycommons.org/pc12/Catalysis_8c5db38e06d625639d556e3fb8168bb2
+CHEBI:17980	consumption-controlled-by	SULT1A2	KEGG		Sulfur metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_b8bf7e8c72d4cf4b0f56c9f2e1faed96;http://pathwaycommons.org/pc12/Catalysis_8c5db38e06d625639d556e3fb8168bb2
+CHEBI:17980	consumption-controlled-by	SULT1A3	KEGG		Sulfur metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_b8bf7e8c72d4cf4b0f56c9f2e1faed96;http://pathwaycommons.org/pc12/Catalysis_8c5db38e06d625639d556e3fb8168bb2
+CHEBI:17980	consumption-controlled-by	SULT1A4	KEGG		Sulfur metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_b8bf7e8c72d4cf4b0f56c9f2e1faed96;http://pathwaycommons.org/pc12/Catalysis_8c5db38e06d625639d556e3fb8168bb2
+CHEBI:17980	consumption-controlled-by	SULT2B1	KEGG		Sulfur metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_2d8e4c350c38037835450016310fe590;http://pathwaycommons.org/pc12/Catalysis_5eee7247bd938b5fb0bdd07a4fb06945
+CHEBI:26836	used-to-produce	CHEBI:17709	KEGG		Sulfur metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_3d27ee3f46c028de6a2ed184720827dd
+CHEBI:26836	used-to-produce	CHEBI:29888	KEGG		Sulfur metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_3d27ee3f46c028de6a2ed184720827dd
+CHEBI:26836	consumption-controlled-by	PAPSS2	KEGG		Sulfur metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_3d27ee3f46c028de6a2ed184720827dd;http://pathwaycommons.org/pc12/Catalysis_4189e7270bfa32fd731cf4dc326ea9d5
+CHEBI:30879	used-to-produce	CHEBI:17985	KEGG		Sulfur metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_2d8e4c350c38037835450016310fe590
+CHEBI:30879	used-to-produce	CHEBI:29281	KEGG		Sulfur metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_2d8e4c350c38037835450016310fe590
+CHEBI:30879	consumption-controlled-by	SULT2B1	KEGG		Sulfur metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_2d8e4c350c38037835450016310fe590;http://pathwaycommons.org/pc12/Catalysis_5eee7247bd938b5fb0bdd07a4fb06945
+CHEBI:33853	used-to-produce	CHEBI:17985	KEGG		Sulfur metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_b8bf7e8c72d4cf4b0f56c9f2e1faed96
+CHEBI:33853	used-to-produce	CHEBI:37919	KEGG		Sulfur metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_b8bf7e8c72d4cf4b0f56c9f2e1faed96
+CHEBI:33853	consumption-controlled-by	SULT1A1	KEGG		Sulfur metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_b8bf7e8c72d4cf4b0f56c9f2e1faed96;http://pathwaycommons.org/pc12/Catalysis_8c5db38e06d625639d556e3fb8168bb2
+CHEBI:33853	consumption-controlled-by	SULT1A2	KEGG		Sulfur metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_b8bf7e8c72d4cf4b0f56c9f2e1faed96;http://pathwaycommons.org/pc12/Catalysis_8c5db38e06d625639d556e3fb8168bb2
+CHEBI:33853	consumption-controlled-by	SULT1A3	KEGG		Sulfur metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_b8bf7e8c72d4cf4b0f56c9f2e1faed96;http://pathwaycommons.org/pc12/Catalysis_8c5db38e06d625639d556e3fb8168bb2
+CHEBI:33853	consumption-controlled-by	SULT1A4	KEGG		Sulfur metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_b8bf7e8c72d4cf4b0f56c9f2e1faed96;http://pathwaycommons.org/pc12/Catalysis_8c5db38e06d625639d556e3fb8168bb2
+CHEBI:48854	used-to-produce	CHEBI:16240	KEGG		Sulfur metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_acbeb74df547c4d0759b9a09c025ca7e
+CHEBI:48854	used-to-produce	CHEBI:26836	KEGG		Sulfur metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_acbeb74df547c4d0759b9a09c025ca7e
+CHEBI:48854	consumption-controlled-by	SUOX	KEGG		Sulfur metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_acbeb74df547c4d0759b9a09c025ca7e;http://pathwaycommons.org/pc12/Catalysis_c07d06462f05d5ceb95057af68f3d33d
+CHST11	controls-production-of	CHEBI:17985	KEGG		Sulfur metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_3baf57a766ae0f3858b19357f9286cef;http://pathwaycommons.org/pc12/Catalysis_084ceda2ed695a49127f1261b03b77ff
+CHST11	controls-production-of	CHEBI:18250	KEGG		Sulfur metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_3baf57a766ae0f3858b19357f9286cef;http://pathwaycommons.org/pc12/Catalysis_084ceda2ed695a49127f1261b03b77ff
+PAPSS2	catalysis-precedes	BPNT1	KEGG		Sulfur metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_3d27ee3f46c028de6a2ed184720827dd;http://pathwaycommons.org/pc12/Catalysis_5e60007365e777676987536818f6e74b;http://pathwaycommons.org/pc12/BiochemicalReaction_81f16587ed653efa8149784f478b28d5;http://pathwaycommons.org/pc12/Catalysis_4189e7270bfa32fd731cf4dc326ea9d5;http://pathwaycommons.org/pc12/BiochemicalReaction_b4c1452e8dbdd5e7775f0d37e4efe6e3;http://pathwaycommons.org/pc12/Catalysis_2b064402c5f720fcc725ea202191ddf9
+PAPSS2	controls-production-of	CHEBI:16761	KEGG		Sulfur metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_81f16587ed653efa8149784f478b28d5;http://pathwaycommons.org/pc12/Catalysis_2b064402c5f720fcc725ea202191ddf9
+PAPSS2	controls-production-of	CHEBI:17709	KEGG		Sulfur metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_3d27ee3f46c028de6a2ed184720827dd;http://pathwaycommons.org/pc12/Catalysis_4189e7270bfa32fd731cf4dc326ea9d5
+PAPSS2	controls-production-of	CHEBI:17980	KEGG		Sulfur metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_81f16587ed653efa8149784f478b28d5;http://pathwaycommons.org/pc12/Catalysis_2b064402c5f720fcc725ea202191ddf9
+PAPSS2	controls-production-of	CHEBI:29888	KEGG		Sulfur metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_3d27ee3f46c028de6a2ed184720827dd;http://pathwaycommons.org/pc12/Catalysis_4189e7270bfa32fd731cf4dc326ea9d5
+PAPSS2	catalysis-precedes	CHST11	KEGG		Sulfur metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_3baf57a766ae0f3858b19357f9286cef;http://pathwaycommons.org/pc12/BiochemicalReaction_81f16587ed653efa8149784f478b28d5;http://pathwaycommons.org/pc12/Catalysis_084ceda2ed695a49127f1261b03b77ff;http://pathwaycommons.org/pc12/Catalysis_2b064402c5f720fcc725ea202191ddf9
+PAPSS2	catalysis-precedes	SULT1A1	KEGG		Sulfur metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_b8bf7e8c72d4cf4b0f56c9f2e1faed96;http://pathwaycommons.org/pc12/Catalysis_8c5db38e06d625639d556e3fb8168bb2;http://pathwaycommons.org/pc12/BiochemicalReaction_81f16587ed653efa8149784f478b28d5;http://pathwaycommons.org/pc12/Catalysis_2b064402c5f720fcc725ea202191ddf9
+PAPSS2	catalysis-precedes	SULT1A2	KEGG		Sulfur metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_b8bf7e8c72d4cf4b0f56c9f2e1faed96;http://pathwaycommons.org/pc12/Catalysis_8c5db38e06d625639d556e3fb8168bb2;http://pathwaycommons.org/pc12/BiochemicalReaction_81f16587ed653efa8149784f478b28d5;http://pathwaycommons.org/pc12/Catalysis_2b064402c5f720fcc725ea202191ddf9
+PAPSS2	catalysis-precedes	SULT1A3	KEGG		Sulfur metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_b8bf7e8c72d4cf4b0f56c9f2e1faed96;http://pathwaycommons.org/pc12/Catalysis_8c5db38e06d625639d556e3fb8168bb2;http://pathwaycommons.org/pc12/BiochemicalReaction_81f16587ed653efa8149784f478b28d5;http://pathwaycommons.org/pc12/Catalysis_2b064402c5f720fcc725ea202191ddf9
+PAPSS2	catalysis-precedes	SULT1A4	KEGG		Sulfur metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_b8bf7e8c72d4cf4b0f56c9f2e1faed96;http://pathwaycommons.org/pc12/Catalysis_8c5db38e06d625639d556e3fb8168bb2;http://pathwaycommons.org/pc12/BiochemicalReaction_81f16587ed653efa8149784f478b28d5;http://pathwaycommons.org/pc12/Catalysis_2b064402c5f720fcc725ea202191ddf9
+PAPSS2	catalysis-precedes	SULT2B1	KEGG		Sulfur metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_2d8e4c350c38037835450016310fe590;http://pathwaycommons.org/pc12/Catalysis_5eee7247bd938b5fb0bdd07a4fb06945;http://pathwaycommons.org/pc12/BiochemicalReaction_81f16587ed653efa8149784f478b28d5;http://pathwaycommons.org/pc12/Catalysis_2b064402c5f720fcc725ea202191ddf9
+SULT1A1	controls-production-of	CHEBI:17985	KEGG		Sulfur metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_b8bf7e8c72d4cf4b0f56c9f2e1faed96;http://pathwaycommons.org/pc12/Catalysis_8c5db38e06d625639d556e3fb8168bb2
+SULT1A1	controls-production-of	CHEBI:37919	KEGG		Sulfur metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_b8bf7e8c72d4cf4b0f56c9f2e1faed96;http://pathwaycommons.org/pc12/Catalysis_8c5db38e06d625639d556e3fb8168bb2
+SULT1A2	controls-production-of	CHEBI:17985	KEGG		Sulfur metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_b8bf7e8c72d4cf4b0f56c9f2e1faed96;http://pathwaycommons.org/pc12/Catalysis_8c5db38e06d625639d556e3fb8168bb2
+SULT1A2	controls-production-of	CHEBI:37919	KEGG		Sulfur metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_b8bf7e8c72d4cf4b0f56c9f2e1faed96;http://pathwaycommons.org/pc12/Catalysis_8c5db38e06d625639d556e3fb8168bb2
+SULT1A3	controls-production-of	CHEBI:17985	KEGG		Sulfur metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_b8bf7e8c72d4cf4b0f56c9f2e1faed96;http://pathwaycommons.org/pc12/Catalysis_8c5db38e06d625639d556e3fb8168bb2
+SULT1A3	controls-production-of	CHEBI:37919	KEGG		Sulfur metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_b8bf7e8c72d4cf4b0f56c9f2e1faed96;http://pathwaycommons.org/pc12/Catalysis_8c5db38e06d625639d556e3fb8168bb2
+SULT1A4	controls-production-of	CHEBI:17985	KEGG		Sulfur metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_b8bf7e8c72d4cf4b0f56c9f2e1faed96;http://pathwaycommons.org/pc12/Catalysis_8c5db38e06d625639d556e3fb8168bb2
+SULT1A4	controls-production-of	CHEBI:37919	KEGG		Sulfur metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_b8bf7e8c72d4cf4b0f56c9f2e1faed96;http://pathwaycommons.org/pc12/Catalysis_8c5db38e06d625639d556e3fb8168bb2
+SULT2B1	controls-production-of	CHEBI:17985	KEGG		Sulfur metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_2d8e4c350c38037835450016310fe590;http://pathwaycommons.org/pc12/Catalysis_5eee7247bd938b5fb0bdd07a4fb06945
+SULT2B1	controls-production-of	CHEBI:29281	KEGG		Sulfur metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_2d8e4c350c38037835450016310fe590;http://pathwaycommons.org/pc12/Catalysis_5eee7247bd938b5fb0bdd07a4fb06945
+SUOX	controls-production-of	CHEBI:16240	KEGG		Sulfur metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_acbeb74df547c4d0759b9a09c025ca7e;http://pathwaycommons.org/pc12/Catalysis_c07d06462f05d5ceb95057af68f3d33d
+SUOX	controls-production-of	CHEBI:26836	KEGG		Sulfur metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_acbeb74df547c4d0759b9a09c025ca7e;http://pathwaycommons.org/pc12/Catalysis_c07d06462f05d5ceb95057af68f3d33d
+SUOX	catalysis-precedes	PAPSS2	KEGG		Sulfur metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_3d27ee3f46c028de6a2ed184720827dd;http://pathwaycommons.org/pc12/BiochemicalReaction_acbeb74df547c4d0759b9a09c025ca7e;http://pathwaycommons.org/pc12/Catalysis_c07d06462f05d5ceb95057af68f3d33d;http://pathwaycommons.org/pc12/Catalysis_4189e7270bfa32fd731cf4dc326ea9d5
+
+PARTICIPANT	PARTICIPANT_TYPE	PARTICIPANT_NAME	UNIFICATION_XREF	RELATIONSHIP_XREF
+CHEBI:37919	SmallMoleculeReference	aryl sulfate	chebi:CHEBI:37919	
+CHEBI:17709	SmallMoleculeReference	5'-adenylyl sulfate	chebi:CHEBI:17709	
+CHEBI:33853	SmallMoleculeReference	Phenol	kegg compound:C15584	
+PAPSS2	ProteinReference	PAPS2_HUMAN	uniprot knowledgebase:O95340	hgnc symbol:PAPSS2
+SULT1A1	ProteinReference	SULT1A		uniprot:P0DMM9;uniprot:P0DMN0
+CHEBI:15377	SmallMoleculeReference	H2O	cas:7732-18-5	
+CHEBI:15379	SmallMoleculeReference	dioxygen	chebi:CHEBI:15379	
+CHST11	ProteinReference	CHSTB_HUMAN	uniprot knowledgebase:Q9NPF2	hgnc symbol:CHST11
+CHEBI:16761	SmallMoleculeReference	ADP	chebi:CHEBI:16761	
+CHEBI:26836	SmallMoleculeReference	sulfuric acid	chebi:CHEBI:26836	
+BPNT1	ProteinReference	BPNT1_HUMAN	uniprot knowledgebase:O95861	hgnc symbol:BPNT1
+CHEBI:16240	SmallMoleculeReference	hydrogen peroxide	chebi:CHEBI:16240	
+SULT1A4	ProteinReference	SULT1A		uniprot:P0DMM9;uniprot:P0DMN0
+SULT1A3	ProteinReference	SULT1A		uniprot:P0DMM9;uniprot:P0DMN0
+SULT1A2	ProteinReference	SULT1A		uniprot:P0DMM9;uniprot:P0DMN0
+CHEBI:26078	SmallMoleculeReference	phosphoric acid	chebi:CHEBI:26078	
+CHEBI:29888	SmallMoleculeReference	diphosphoric acid	chebi:CHEBI:29888	
+CHEBI:29281	SmallMoleculeReference	alkyl sulfate	chebi:CHEBI:29281	
+SUOX	ProteinReference	SUOX_HUMAN	uniprot knowledgebase:P51687	hgnc symbol:SUOX
+CHEBI:30879	SmallMoleculeReference	alcohol	chebi:CHEBI:30879	
+SULT2B1	ProteinReference	ST2B1_HUMAN	uniprot knowledgebase:O00204	hgnc symbol:SULT2B1
+CHEBI:15422	SmallMoleculeReference	ATP	chebi:CHEBI:15422	
+CHEBI:16137	SmallMoleculeReference	chondroitin D-glucuronate	chebi:CHEBI:16137	
+CHEBI:17985	SmallMoleculeReference	adenosine 3',5'-bismonophosphate	chebi:CHEBI:17985	
+CHEBI:17980	SmallMoleculeReference	3'-phospho-5'-adenylyl sulfate	chebi:CHEBI:17980	
+CHEBI:48854	SmallMoleculeReference	sulfurous acid	chebi:CHEBI:48854	
+CHEBI:18250	SmallMoleculeReference	chondroitin 4'-sulfate	chebi:CHEBI:18250	

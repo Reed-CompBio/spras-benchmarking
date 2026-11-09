@@ -1,0 +1,13 @@
+PARTICIPANT_A	INTERACTION_TYPE	PARTICIPANT_B
+AKR1B10	controls-production-of	CHEBI:15378
+AKR1B10	controls-production-of	CHEBI:16908
+AKR1B10	controls-production-of	CHEBI:68947
+CHEBI:15846	consumption-controlled-by	AKR1B10
+CHEBI:15846	used-to-produce	CHEBI:15378
+CHEBI:15846	used-to-produce	CHEBI:16908
+CHEBI:15846	reacts-with	CHEBI:34154
+CHEBI:15846	used-to-produce	CHEBI:68947
+CHEBI:34154	consumption-controlled-by	AKR1B10
+CHEBI:34154	used-to-produce	CHEBI:15378
+CHEBI:34154	used-to-produce	CHEBI:16908
+CHEBI:34154	used-to-produce	CHEBI:68947
