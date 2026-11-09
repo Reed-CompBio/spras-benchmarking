@@ -1,0 +1,37 @@
+PARTICIPANT_A	INTERACTION_TYPE	PARTICIPANT_B	INTERACTION_DATA_SOURCE	INTERACTION_PUBMED_ID	PATHWAY_NAMES	MEDIATOR_IDS
+CHEBI:15422	used-to-produce	CHEBI:16761	KEGG		Butirosin and neomycin biosynthesis	http://pathwaycommons.org/pc12/BiochemicalReaction_b90f0a8573f291f797cc5bb185ea4e1e
+CHEBI:15422	reacts-with	CHEBI:4167	KEGG		Butirosin and neomycin biosynthesis	http://pathwaycommons.org/pc12/BiochemicalReaction_b90f0a8573f291f797cc5bb185ea4e1e
+CHEBI:15422	used-to-produce	CHEBI:4170	KEGG		Butirosin and neomycin biosynthesis	http://pathwaycommons.org/pc12/BiochemicalReaction_b90f0a8573f291f797cc5bb185ea4e1e
+CHEBI:15422	consumption-controlled-by	GCK	KEGG		Butirosin and neomycin biosynthesis	http://pathwaycommons.org/pc12/BiochemicalReaction_b90f0a8573f291f797cc5bb185ea4e1e;http://pathwaycommons.org/pc12/Catalysis_c72cfde80306bbca57254e59c9938a21
+CHEBI:15422	consumption-controlled-by	HK1	KEGG		Butirosin and neomycin biosynthesis	http://pathwaycommons.org/pc12/BiochemicalReaction_b90f0a8573f291f797cc5bb185ea4e1e;http://pathwaycommons.org/pc12/Catalysis_c72cfde80306bbca57254e59c9938a21
+CHEBI:15422	consumption-controlled-by	HK2	KEGG		Butirosin and neomycin biosynthesis	http://pathwaycommons.org/pc12/BiochemicalReaction_b90f0a8573f291f797cc5bb185ea4e1e;http://pathwaycommons.org/pc12/Catalysis_c72cfde80306bbca57254e59c9938a21
+CHEBI:15422	consumption-controlled-by	HK3	KEGG		Butirosin and neomycin biosynthesis	http://pathwaycommons.org/pc12/BiochemicalReaction_b90f0a8573f291f797cc5bb185ea4e1e;http://pathwaycommons.org/pc12/Catalysis_c72cfde80306bbca57254e59c9938a21
+CHEBI:15422	consumption-controlled-by	HKDC1	KEGG		Butirosin and neomycin biosynthesis	http://pathwaycommons.org/pc12/BiochemicalReaction_b90f0a8573f291f797cc5bb185ea4e1e;http://pathwaycommons.org/pc12/Catalysis_c72cfde80306bbca57254e59c9938a21
+CHEBI:4167	used-to-produce	CHEBI:16761	KEGG		Butirosin and neomycin biosynthesis	http://pathwaycommons.org/pc12/BiochemicalReaction_b90f0a8573f291f797cc5bb185ea4e1e
+CHEBI:4167	used-to-produce	CHEBI:4170	KEGG		Butirosin and neomycin biosynthesis	http://pathwaycommons.org/pc12/BiochemicalReaction_b90f0a8573f291f797cc5bb185ea4e1e
+CHEBI:4167	consumption-controlled-by	GCK	KEGG		Butirosin and neomycin biosynthesis	http://pathwaycommons.org/pc12/BiochemicalReaction_b90f0a8573f291f797cc5bb185ea4e1e;http://pathwaycommons.org/pc12/Catalysis_c72cfde80306bbca57254e59c9938a21
+CHEBI:4167	consumption-controlled-by	HK1	KEGG		Butirosin and neomycin biosynthesis	http://pathwaycommons.org/pc12/BiochemicalReaction_b90f0a8573f291f797cc5bb185ea4e1e;http://pathwaycommons.org/pc12/Catalysis_c72cfde80306bbca57254e59c9938a21
+CHEBI:4167	consumption-controlled-by	HK2	KEGG		Butirosin and neomycin biosynthesis	http://pathwaycommons.org/pc12/BiochemicalReaction_b90f0a8573f291f797cc5bb185ea4e1e;http://pathwaycommons.org/pc12/Catalysis_c72cfde80306bbca57254e59c9938a21
+CHEBI:4167	consumption-controlled-by	HK3	KEGG		Butirosin and neomycin biosynthesis	http://pathwaycommons.org/pc12/BiochemicalReaction_b90f0a8573f291f797cc5bb185ea4e1e;http://pathwaycommons.org/pc12/Catalysis_c72cfde80306bbca57254e59c9938a21
+CHEBI:4167	consumption-controlled-by	HKDC1	KEGG		Butirosin and neomycin biosynthesis	http://pathwaycommons.org/pc12/BiochemicalReaction_b90f0a8573f291f797cc5bb185ea4e1e;http://pathwaycommons.org/pc12/Catalysis_c72cfde80306bbca57254e59c9938a21
+GCK	controls-production-of	CHEBI:16761	KEGG		Butirosin and neomycin biosynthesis	http://pathwaycommons.org/pc12/BiochemicalReaction_b90f0a8573f291f797cc5bb185ea4e1e;http://pathwaycommons.org/pc12/Catalysis_c72cfde80306bbca57254e59c9938a21
+GCK	controls-production-of	CHEBI:4170	KEGG		Butirosin and neomycin biosynthesis	http://pathwaycommons.org/pc12/BiochemicalReaction_b90f0a8573f291f797cc5bb185ea4e1e;http://pathwaycommons.org/pc12/Catalysis_c72cfde80306bbca57254e59c9938a21
+HK1	controls-production-of	CHEBI:16761	KEGG		Butirosin and neomycin biosynthesis	http://pathwaycommons.org/pc12/BiochemicalReaction_b90f0a8573f291f797cc5bb185ea4e1e;http://pathwaycommons.org/pc12/Catalysis_c72cfde80306bbca57254e59c9938a21
+HK1	controls-production-of	CHEBI:4170	KEGG		Butirosin and neomycin biosynthesis	http://pathwaycommons.org/pc12/BiochemicalReaction_b90f0a8573f291f797cc5bb185ea4e1e;http://pathwaycommons.org/pc12/Catalysis_c72cfde80306bbca57254e59c9938a21
+HK2	controls-production-of	CHEBI:16761	KEGG		Butirosin and neomycin biosynthesis	http://pathwaycommons.org/pc12/BiochemicalReaction_b90f0a8573f291f797cc5bb185ea4e1e;http://pathwaycommons.org/pc12/Catalysis_c72cfde80306bbca57254e59c9938a21
+HK2	controls-production-of	CHEBI:4170	KEGG		Butirosin and neomycin biosynthesis	http://pathwaycommons.org/pc12/BiochemicalReaction_b90f0a8573f291f797cc5bb185ea4e1e;http://pathwaycommons.org/pc12/Catalysis_c72cfde80306bbca57254e59c9938a21
+HK3	controls-production-of	CHEBI:16761	KEGG		Butirosin and neomycin biosynthesis	http://pathwaycommons.org/pc12/BiochemicalReaction_b90f0a8573f291f797cc5bb185ea4e1e;http://pathwaycommons.org/pc12/Catalysis_c72cfde80306bbca57254e59c9938a21
+HK3	controls-production-of	CHEBI:4170	KEGG		Butirosin and neomycin biosynthesis	http://pathwaycommons.org/pc12/BiochemicalReaction_b90f0a8573f291f797cc5bb185ea4e1e;http://pathwaycommons.org/pc12/Catalysis_c72cfde80306bbca57254e59c9938a21
+HKDC1	controls-production-of	CHEBI:16761	KEGG		Butirosin and neomycin biosynthesis	http://pathwaycommons.org/pc12/BiochemicalReaction_b90f0a8573f291f797cc5bb185ea4e1e;http://pathwaycommons.org/pc12/Catalysis_c72cfde80306bbca57254e59c9938a21
+HKDC1	controls-production-of	CHEBI:4170	KEGG		Butirosin and neomycin biosynthesis	http://pathwaycommons.org/pc12/BiochemicalReaction_b90f0a8573f291f797cc5bb185ea4e1e;http://pathwaycommons.org/pc12/Catalysis_c72cfde80306bbca57254e59c9938a21
+
+PARTICIPANT	PARTICIPANT_TYPE	PARTICIPANT_NAME	UNIFICATION_XREF	RELATIONSHIP_XREF
+CHEBI:15422	SmallMoleculeReference	ATP	chebi:CHEBI:15422	
+HK3	ProteinReference	HKDC1		
+CHEBI:4170	SmallMoleculeReference	D-glucopyranose 6-phosphate	chebi:CHEBI:4170	
+HKDC1	ProteinReference	HKDC1		
+CHEBI:16761	SmallMoleculeReference	ADP	chebi:CHEBI:16761	
+CHEBI:4167	SmallMoleculeReference	Glucose	cas:50-99-7	
+GCK	ProteinReference	HXK4_HUMAN	uniprot knowledgebase:P35557	hgnc symbol:GCK
+HK2	ProteinReference	HKDC1		
+HK1	ProteinReference	HKDC1		

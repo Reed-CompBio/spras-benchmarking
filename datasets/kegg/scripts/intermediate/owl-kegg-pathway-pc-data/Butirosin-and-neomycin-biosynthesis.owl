@@ -1,0 +1,1008 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF
+ xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+ xmlns:owl="http://www.w3.org/2002/07/owl#"
+ xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+ xmlns:bp="http://www.biopax.org/release/biopax-level3.owl#"
+ xml:base="http://pathwaycommons.org/pc12/">
+<owl:Ontology rdf:about="">
+ <owl:imports rdf:resource="http://www.biopax.org/release/biopax-level3.owl#" />
+</owl:Ontology>
+
+<bp:RelationshipXref rdf:about="http://pathwaycommons.org/pc12/RelationshipXref_4bc4f83d-5067-4b20-8b2a-003df99d4959ThreeDMET_B04623_2">
+ <bp:comment rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">REPLACED http://pathwaycommons.org/pc12/RelationshipXref_4bc4f83d-5067-4b20-8b2a-003df99d4959ThreeDMET_B04623_2</bp:comment>
+ <bp:id rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">B04623</bp:id>
+ <bp:db rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">3dmet</bp:db>
+</bp:RelationshipXref>
+
+<bp:UnificationXref rdf:about="http://pathwaycommons.org/pc12/UnificationXref_chebi_CHEBI_16761">
+ <bp:id rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">CHEBI:16761</bp:id>
+ <bp:db rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">chebi</bp:db>
+</bp:UnificationXref>
+
+<bp:Provenance rdf:about="http://pathwaycommons.org/pc12/Provenance_7f56dcb833d61e9a798ef3c386d927b7">
+ <bp:standardName rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">KEGG Pathway</bp:standardName>
+ <bp:displayName rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">KEGG</bp:displayName>
+ <bp:comment rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">Source http://www.cogsys.cs.uni-tuebingen.de/mitarb/draeger/BioPAX.zip type: BIOPAX, KEGG 07/2011 (only human, hsa* files), converted to BioPAX by BioModels (http://www.ebi.ac.uk/biomodels-main/) team</bp:comment>
+ <bp:comment rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">REPLACED http://pathwaycommons.org/pc12/Provenance_7f56dcb833d61e9a798ef3c386d927b7</bp:comment>
+</bp:Provenance>
+
+<bp:RelationshipXref rdf:about="http://pathwaycommons.org/pc12/RelationshipXref_chebi_CHEBI_14314_multiple_parent_reference">
+ <bp:relationshipType rdf:resource="http://identifiers.org/psimi/MI:0829" />
+ <bp:id rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">CHEBI:14314</bp:id>
+ <bp:db rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">chebi</bp:db>
+</bp:RelationshipXref>
+
+<bp:RelationshipXref rdf:about="http://pathwaycommons.org/pc12/RelationshipXref_4c231fe1-5b6d-40a8-a1a3-12df6c826571KEGG_Reaction_R04949_2">
+ <bp:comment rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">REPLACED http://pathwaycommons.org/pc12/RelationshipXref_4c231fe1-5b6d-40a8-a1a3-12df6c826571KEGG_Reaction_R04949_2</bp:comment>
+ <bp:id rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">R04949</bp:id>
+ <bp:db rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">kegg reaction</bp:db>
+</bp:RelationshipXref>
+
+<bp:UnificationXref rdf:about="http://pathwaycommons.org/pc12/UnificationXref_molecular_interactions_ontology_MI_0829">
+ <bp:id rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">MI:0829</bp:id>
+ <bp:db rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">molecular interactions ontology</bp:db>
+</bp:UnificationXref>
+
+<bp:RelationshipTypeVocabulary rdf:about="http://identifiers.org/psimi/MI:0829">
+ <bp:xref rdf:resource="http://pathwaycommons.org/pc12/UnificationXref_molecular_interactions_ontology_MI_0829" />
+ <bp:term rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">multiple parent reference</bp:term>
+ <bp:term rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">multiple parent</bp:term>
+</bp:RelationshipTypeVocabulary>
+
+<bp:Stoichiometry rdf:about="http://pathwaycommons.org/pc12/Stoichiometry_699e9f256112224b7dc90b528ac7417c">
+ <bp:physicalEntity rdf:resource="http://pathwaycommons.org/pc12/SmallMolecule_aad98f59ac01f1b0532d0f7423259296" />
+ <bp:comment rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">REPLACED http://pathwaycommons.org/pc12/Stoichiometry_699e9f256112224b7dc90b528ac7417c</bp:comment>
+ <bp:stoichiometricCoefficient rdf:datatype = "http://www.w3.org/2001/XMLSchema#float">1.0</bp:stoichiometricCoefficient>
+</bp:Stoichiometry>
+
+<bp:RelationshipXref rdf:about="http://pathwaycommons.org/pc12/RelationshipXref_da71dca4-1288-47c2-886b-9c51c320bf5bCHEBI_4167_2">
+ <bp:comment rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">REPLACED http://pathwaycommons.org/pc12/RelationshipXref_da71dca4-1288-47c2-886b-9c51c320bf5bCHEBI_4167_2</bp:comment>
+ <bp:id rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">CHEBI:4167</bp:id>
+ <bp:db rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">chebi</bp:db>
+</bp:RelationshipXref>
+
+<bp:RelationshipXref rdf:about="http://pathwaycommons.org/pc12/RelationshipXref_71fe41d6-14f3-46bc-8649-c9c8774d8fbaKEGG_Reaction_R01718_2">
+ <bp:comment rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">REPLACED http://pathwaycommons.org/pc12/RelationshipXref_71fe41d6-14f3-46bc-8649-c9c8774d8fbaKEGG_Reaction_R01718_2</bp:comment>
+ <bp:id rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">R01718</bp:id>
+ <bp:db rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">kegg reaction</bp:db>
+</bp:RelationshipXref>
+
+<bp:SmallMolecule rdf:about="http://pathwaycommons.org/pc12/SmallMolecule_a4728f127f601d39b103cd57292cf90d">
+ <bp:displayName rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">ATP</bp:displayName>
+ <bp:entityReference rdf:resource="http://identifiers.org/chebi/CHEBI:15422" />
+ <bp:name rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">C00002</bp:name>
+ <bp:name rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">Adenosine 5&apos;-triphosphate</bp:name>
+ <bp:comment rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">REPLACED http://pathwaycommons.org/pc12/SmallMolecule_a4728f127f601d39b103cd57292cf90d</bp:comment>
+ <bp:dataSource rdf:resource="http://pathwaycommons.org/pc12/Provenance_7f56dcb833d61e9a798ef3c386d927b7" />
+</bp:SmallMolecule>
+
+<bp:RelationshipXref rdf:about="http://pathwaycommons.org/pc12/RelationshipXref_chebi_CHEBI_10789_secondary-ac">
+ <bp:relationshipType rdf:resource="http://identifiers.org/psimi/MI:0360" />
+ <bp:id rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">CHEBI:10789</bp:id>
+ <bp:db rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">chebi</bp:db>
+</bp:RelationshipXref>
+
+<bp:ProteinReference rdf:about="http://identifiers.org/uniprot/A8K7J7">
+ <bp:standardName rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">HKDC1</bp:standardName>
+ <bp:xref rdf:resource="http://pathwaycommons.org/pc12/RelationshipXref_d5ff4620-b6ad-4941-92ad-1872f4ba7200OMIM_601125_2" />
+ <bp:xref rdf:resource="http://pathwaycommons.org/pc12/RelationshipXref_6483469e-16ea-45e1-b2bc-bd0a820d3015HGNC_4922_2" />
+ <bp:xref rdf:resource="http://pathwaycommons.org/pc12/RelationshipXref_6ed804df-1bec-4f5b-9cad-e83d3c551376UniProt_AC_P52789_2" />
+ <bp:xref rdf:resource="http://pathwaycommons.org/pc12/RelationshipXref_4d2b7c8f-de48-47c7-9261-0614bda598c6KEGG_Reaction_R01326_2" />
+ <bp:xref rdf:resource="http://pathwaycommons.org/pc12/RelationshipXref_bdb97f46-291b-40eb-b5d3-f51a237a69fdKEGG_Genes_hsa3099_2" />
+ <bp:xref rdf:resource="http://pathwaycommons.org/pc12/RelationshipXref_5182b7ea-39c0-43f1-a389-096157a3f8e8KEGG_Reaction_R01600_2" />
+ <bp:xref rdf:resource="http://pathwaycommons.org/pc12/RelationshipXref_5d59d068-9efe-4996-b84f-e4a3c077c5cfKEGG_Reaction_R00299_2" />
+ <bp:xref rdf:resource="http://pathwaycommons.org/pc12/RelationshipXref_3bffe384-ec48-421b-a0bb-24ceb4de5968HGNC_4923_2" />
+ <bp:xref rdf:resource="http://pathwaycommons.org/pc12/RelationshipXref_hgnc_symbol_HK2_see-also" />
+ <bp:xref rdf:resource="http://pathwaycommons.org/pc12/RelationshipXref_9805809d-4ba3-44b7-9067-35e1185dd489Ensembl_ENSG00000159399_2" />
+ <bp:xref rdf:resource="http://pathwaycommons.org/pc12/RelationshipXref_075453e8-94fd-4e8a-a71f-477de8cca778KEGG_Reaction_R01786_2" />
+ <bp:xref rdf:resource="http://pathwaycommons.org/pc12/RelationshipXref_a6ca0ec6-b3d6-40f6-9f2e-e1a27e2146f3EntrezGene_3101_2" />
+ <bp:xref rdf:resource="http://pathwaycommons.org/pc12/RelationshipXref_4ff591b7-66d0-428d-88c2-ed689b7620b4UniProt_AC_P52790_2" />
+ <bp:xref rdf:resource="http://pathwaycommons.org/pc12/RelationshipXref_717aeef6-8517-47e7-b63b-4ebd68c808a3KEGG_Reaction_R03920_2" />
+ <bp:xref rdf:resource="http://pathwaycommons.org/pc12/RelationshipXref_4eb736ed-9cf4-4f8f-b548-da58c0d1c721Ensembl_ENSG00000156515_2" />
+ <bp:xref rdf:resource="http://pathwaycommons.org/pc12/RelationshipXref_1067ef28-9d7d-450e-8893-1edc538caeadEnsembl_ENSG00000156510_2" />
+ <bp:xref rdf:resource="http://pathwaycommons.org/pc12/RelationshipXref_21c23bb8-4e5b-4475-a3da-04cebc68e524EntrezGene_3099_2" />
+ <bp:xref rdf:resource="http://pathwaycommons.org/pc12/RelationshipXref_01444aa4-0b9a-4559-ad9f-d88ff947e879KEGG_Genes_hsa3101_2" />
+ <bp:xref rdf:resource="http://pathwaycommons.org/pc12/RelationshipXref_191b29c3-18d9-41dd-9f0e-a4f7a62c9eafUniProt_AC_Q2TB90_2" />
+ <bp:xref rdf:resource="http://pathwaycommons.org/pc12/RelationshipXref_hgnc_symbol_HK1_see-also" />
+ <bp:xref rdf:resource="http://pathwaycommons.org/pc12/RelationshipXref_b05a693f-21bd-4fd9-919f-16102d7b9bbbKEGG_Genes_hsa80201_2" />
+ <bp:xref rdf:resource="http://pathwaycommons.org/pc12/RelationshipXref_6676a89e-082e-4a87-90d6-c49984c59fe8OMIM_142570_2" />
+ <bp:xref rdf:resource="http://pathwaycommons.org/pc12/RelationshipXref_563d2374-7cb6-4367-a4e1-b0804a0e4cd0HGNC_4925_2" />
+ <bp:xref rdf:resource="http://pathwaycommons.org/pc12/RelationshipXref_d5cb702e-7985-472e-aeb3-6e65c273677fKEGG_Reaction_R00867_2" />
+ <bp:xref rdf:resource="http://pathwaycommons.org/pc12/RelationshipXref_hgnc_symbol_HKDC1_see-also" />
+ <bp:xref rdf:resource="http://pathwaycommons.org/pc12/RelationshipXref_c720bc7b-1a71-4013-9785-d6cc02f1bb3bOMIM_142600_2" />
+ <bp:xref rdf:resource="http://pathwaycommons.org/pc12/RelationshipXref_a6fc05d2-87fd-4616-ba88-52210fa0fa7dHGNC_23302_2" />
+ <bp:xref rdf:resource="http://pathwaycommons.org/pc12/RelationshipXref_3c4bd5e1-866b-4653-be6b-0e0d42e19311EntrezGene_80201_2" />
+ <bp:xref rdf:resource="http://pathwaycommons.org/pc12/RelationshipXref_3cae3f10-40d2-42ea-b253-6be40631a602UniProt_AC_P19367_2" />
+ <bp:xref rdf:resource="http://pathwaycommons.org/pc12/RelationshipXref_4c6b9483-3611-4bfb-8864-8dc9d9956b1cEnsembl_ENSG00000160883_2" />
+ <bp:xref rdf:resource="http://pathwaycommons.org/pc12/RelationshipXref_1efcbf78-f8ae-4b98-973f-33f807bcb8a1EntrezGene_3098_2" />
+ <bp:xref rdf:resource="http://pathwaycommons.org/pc12/RelationshipXref_17c5f902-9145-4a42-a684-6c9579ec72abKEGG_Genes_hsa3098_2" />
+ <bp:xref rdf:resource="http://pathwaycommons.org/pc12/RelationshipXref_147c3b0c-38bb-450e-80ea-25d3d4c0f0c2EC_code_2711_2" />
+ <bp:xref rdf:resource="http://pathwaycommons.org/pc12/RelationshipXref_hgnc_symbol_HK3_see-also" />
+ <bp:organism rdf:resource="http://identifiers.org/taxonomy/9606" />
+ <bp:displayName rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">HKDC1</bp:displayName>
+ <bp:name rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">HKD</bp:name>
+ <bp:name rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">HKII</bp:name>
+ <bp:name rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">HKI</bp:name>
+ <bp:name rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">HMSNR</bp:name>
+ <bp:name rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">HK2</bp:name>
+ <bp:name rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">HK1</bp:name>
+ <bp:name rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">HK3</bp:name>
+ <bp:name rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">HXK1</bp:name>
+ <bp:name rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">HXK2</bp:name>
+ <bp:name rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">HK1-ta</bp:name>
+ <bp:name rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">HK1, HK1-ta, HK1-tb, HK1-tc, HKI, HXK1...</bp:name>
+ <bp:name rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">HK1-tb</bp:name>
+ <bp:name rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">HK1-tc</bp:name>
+ <bp:name rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">HXK3</bp:name>
+ <bp:name rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">HKIII</bp:name>
+</bp:ProteinReference>
+
+<bp:RelationshipXref rdf:about="http://pathwaycommons.org/pc12/RelationshipXref_a6ca0ec6-b3d6-40f6-9f2e-e1a27e2146f3EntrezGene_3101_2">
+ <bp:comment rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">REPLACED http://pathwaycommons.org/pc12/RelationshipXref_a6ca0ec6-b3d6-40f6-9f2e-e1a27e2146f3EntrezGene_3101_2</bp:comment>
+ <bp:id rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">3101</bp:id>
+ <bp:db rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">ncbi gene</bp:db>
+</bp:RelationshipXref>
+
+<bp:RelationshipXref rdf:about="http://pathwaycommons.org/pc12/RelationshipXref_4eb736ed-9cf4-4f8f-b548-da58c0d1c721Ensembl_ENSG00000156515_2">
+ <bp:comment rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">REPLACED http://pathwaycommons.org/pc12/RelationshipXref_4eb736ed-9cf4-4f8f-b548-da58c0d1c721Ensembl_ENSG00000156515_2</bp:comment>
+ <bp:id rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">ENSG00000156515</bp:id>
+ <bp:db rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">ensembl</bp:db>
+</bp:RelationshipXref>
+
+<bp:RelationshipXref rdf:about="http://pathwaycommons.org/pc12/RelationshipXref_459bca1c-8c58-44ce-9824-4f3347ac31f9KEGG_Reaction_R01101_2">
+ <bp:comment rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">REPLACED http://pathwaycommons.org/pc12/RelationshipXref_459bca1c-8c58-44ce-9824-4f3347ac31f9KEGG_Reaction_R01101_2</bp:comment>
+ <bp:id rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">R01101</bp:id>
+ <bp:db rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">kegg reaction</bp:db>
+</bp:RelationshipXref>
+
+<bp:RelationshipXref rdf:about="http://pathwaycommons.org/pc12/RelationshipXref_b5c17807-93ad-4078-8415-4a462286bd5cKEGG_Pathway_rn01110_2">
+ <bp:comment rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">REPLACED http://pathwaycommons.org/pc12/RelationshipXref_b5c17807-93ad-4078-8415-4a462286bd5cKEGG_Pathway_rn01110_2</bp:comment>
+ <bp:id rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">rn01110</bp:id>
+ <bp:db rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">kegg pathway</bp:db>
+</bp:RelationshipXref>
+
+<bp:RelationshipXref rdf:about="http://pathwaycommons.org/pc12/RelationshipXref_191b29c3-18d9-41dd-9f0e-a4f7a62c9eafUniProt_AC_Q2TB90_2">
+ <bp:comment rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">REPLACED http://pathwaycommons.org/pc12/RelationshipXref_191b29c3-18d9-41dd-9f0e-a4f7a62c9eafUniProt_AC_Q2TB90_2</bp:comment>
+ <bp:comment rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">PRIMARY</bp:comment>
+ <bp:id rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">Q2TB90</bp:id>
+ <bp:db rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">uniprot knowledgebase</bp:db>
+</bp:RelationshipXref>
+
+<bp:SmallMoleculeReference rdf:about="http://identifiers.org/chebi/CHEBI:16761">
+ <bp:standardName rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">adenosine 5&apos;-(trihydrogen diphosphate)</bp:standardName>
+ <bp:xref rdf:resource="http://pathwaycommons.org/pc12/RelationshipXref_chebi_CHEBI_40553_secondary-ac" />
+ <bp:xref rdf:resource="http://pathwaycommons.org/pc12/UnificationXref_chebi_CHEBI_16761" />
+ <bp:xref rdf:resource="http://pathwaycommons.org/pc12/RelationshipXref_chebi_CHEBI_13222_secondary-ac" />
+ <bp:xref rdf:resource="http://pathwaycommons.org/pc12/RelationshipXref_chebi_CHEBI_78675_see-also" />
+ <bp:xref rdf:resource="http://pathwaycommons.org/pc12/RelationshipXref_chebi_CHEBI_2342_secondary-ac" />
+ <bp:xref rdf:resource="http://pathwaycommons.org/pc12/RelationshipXref_chebi_CHEBI_87518_see-also" />
+ <bp:xref rdf:resource="http://pathwaycommons.org/pc12/RelationshipXref_chebi_CHEBI_37038_multiple_parent_reference" />
+ <bp:xref rdf:resource="http://pathwaycommons.org/pc12/RelationshipXref_chebi_CHEBI_77746_see-also" />
+ <bp:xref rdf:resource="http://pathwaycommons.org/pc12/RelationshipXref_chebi_CHEBI_22244_secondary-ac" />
+ <bp:xref rdf:resource="http://pathwaycommons.org/pc12/RelationshipXref_chebi_CHEBI_456216_see-also" />
+ <bp:xref rdf:resource="http://pathwaycommons.org/pc12/RelationshipXref_chebi_CHEBI_37096_multiple_parent_reference" />
+ <bp:displayName rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">ADP</bp:displayName>
+ <bp:name rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">Adenosine 5&apos;-diphosphate</bp:name>
+ <bp:name rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">ADENOSINE-5&apos;-DIPHOSPHATE</bp:name>
+ <bp:name rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">5&apos;-adenylphosphoric acid</bp:name>
+ <bp:name rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">H3adp</bp:name>
+ <bp:comment rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">is_conjugate_acid_of CHEBI:456216</bp:comment>
+ <bp:comment rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">has_role CHEBI:77746</bp:comment>
+ <bp:comment rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">is_a CHEBI:37096</bp:comment>
+ <bp:comment rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">REPLACED http://pathwaycommons.org/pc12/SmallMoleculeReference_bind_14_identity</bp:comment>
+ <bp:comment rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">REPLACED http://www.ra.cs.uni-tuebingen.de/software/KEGGtranslator/cpdC00008.eref</bp:comment>
+ <bp:comment rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">REPLACED http://pid.nci.nih.gov/biopax#pid_2133</bp:comment>
+ <bp:comment rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">has_role CHEBI:78675</bp:comment>
+ <bp:comment rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">A purine ribonucleoside 5&apos;-diphosphate having adenine as the nucleobase.</bp:comment>
+ <bp:comment rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">is_a CHEBI:37038</bp:comment>
+ <bp:comment rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">REPLACED http://pathwaycommons.org/pc12/SmallMoleculeReference_chebi_CHEBI_16761_identity</bp:comment>
+ <bp:comment rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">is_conjugate_acid_of CHEBI:87518</bp:comment>
+</bp:SmallMoleculeReference>
+
+<bp:ModificationFeature rdf:about="http://pathwaycommons.org/pc12/ModificationFeature_217ff310921fd8079ba0864abcd8a3ad">
+ <bp:modificationType rdf:resource="http://pathwaycommons.org/pc12/SequenceModificationVocabulary_c76a5e84e4bdee527e274ea30c680d79" />
+ <bp:comment rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">REPLACED http://pathwaycommons.org/pc12/ModificationFeature_217ff310921fd8079ba0864abcd8a3ad</bp:comment>
+</bp:ModificationFeature>
+
+<bp:RelationshipXref rdf:about="http://pathwaycommons.org/pc12/RelationshipXref_b2d54137-d12f-41e4-8bd0-d58f52b5cea7PubChem_substance_3333_2">
+ <bp:comment rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">REPLACED http://pathwaycommons.org/pc12/RelationshipXref_b2d54137-d12f-41e4-8bd0-d58f52b5cea7PubChem_substance_3333_2</bp:comment>
+ <bp:id rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">3333</bp:id>
+ <bp:db rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">pubchem-substance</bp:db>
+</bp:RelationshipXref>
+
+<bp:RelationshipXref rdf:about="http://pathwaycommons.org/pc12/RelationshipXref_hgnc_symbol_HKDC1_see-also">
+ <bp:relationshipType rdf:resource="http://identifiers.org/psimi/MI:0361" />
+ <bp:id rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">HKDC1</bp:id>
+ <bp:db rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">hgnc symbol</bp:db>
+</bp:RelationshipXref>
+
+<bp:RelationshipXref rdf:about="http://pathwaycommons.org/pc12/RelationshipXref_c720bc7b-1a71-4013-9785-d6cc02f1bb3bOMIM_142600_2">
+ <bp:comment rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">REPLACED http://pathwaycommons.org/pc12/RelationshipXref_c720bc7b-1a71-4013-9785-d6cc02f1bb3bOMIM_142600_2</bp:comment>
+ <bp:id rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">142600</bp:id>
+ <bp:db rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">omim</bp:db>
+</bp:RelationshipXref>
+
+<bp:RelationshipXref rdf:about="http://pathwaycommons.org/pc12/RelationshipXref_chebi_CHEBI_37038_multiple_parent_reference">
+ <bp:relationshipType rdf:resource="http://identifiers.org/psimi/MI:0829" />
+ <bp:id rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">CHEBI:37038</bp:id>
+ <bp:db rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">chebi</bp:db>
+</bp:RelationshipXref>
+
+<bp:RelationshipXref rdf:about="http://pathwaycommons.org/pc12/RelationshipXref_chebi_CHEBI_37045_multiple_parent_reference">
+ <bp:relationshipType rdf:resource="http://identifiers.org/psimi/MI:0829" />
+ <bp:id rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">CHEBI:37045</bp:id>
+ <bp:db rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">chebi</bp:db>
+</bp:RelationshipXref>
+
+<bp:UnificationXref rdf:about="http://pathwaycommons.org/pc12/UnificationXref_chebi_CHEBI_4170">
+ <bp:id rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">CHEBI:4170</bp:id>
+ <bp:db rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">chebi</bp:db>
+</bp:UnificationXref>
+
+<bp:RelationshipXref rdf:about="http://pathwaycommons.org/pc12/RelationshipXref_hgnc_symbol_HK3_see-also">
+ <bp:relationshipType rdf:resource="http://identifiers.org/psimi/MI:0361" />
+ <bp:id rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">HK3</bp:id>
+ <bp:db rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">hgnc symbol</bp:db>
+</bp:RelationshipXref>
+
+<bp:RelationshipXref rdf:about="http://pathwaycommons.org/pc12/RelationshipXref_chebi_CHEBI_13236_secondary-ac">
+ <bp:relationshipType rdf:resource="http://identifiers.org/psimi/MI:0360" />
+ <bp:id rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">CHEBI:13236</bp:id>
+ <bp:db rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">chebi</bp:db>
+</bp:RelationshipXref>
+
+<bp:ProteinReference rdf:about="http://identifiers.org/uniprot/P35557">
+ <bp:entityFeature rdf:resource="http://pathwaycommons.org/pc12/ModificationFeature_217ff310921fd8079ba0864abcd8a3ad" />
+ <bp:entityFeature rdf:resource="http://pathwaycommons.org/pc12/ModificationFeature_6c04efd28602524d7153b66f908bdded" />
+ <bp:standardName rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">Hexokinase-4</bp:standardName>
+ <bp:xref rdf:resource="http://pathwaycommons.org/pc12/UnificationXref_uniprot_knowledgebase_P35557" />
+ <bp:xref rdf:resource="http://pathwaycommons.org/pc12/RelationshipXref_hgnc_symbol_GCK_identity" />
+ <bp:organism rdf:resource="http://identifiers.org/taxonomy/9606" />
+ <bp:displayName rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">HXK4_HUMAN</bp:displayName>
+ <bp:name rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">HK4</bp:name>
+ <bp:name rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">2.7.1.1</bp:name>
+ <bp:name rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">HK IV</bp:name>
+ <bp:name rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">Hexokinase-D</bp:name>
+ <bp:name rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">Glucokinase</bp:name>
+ <bp:name rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">Hexokinase type IV</bp:name>
+ <bp:name rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">GCK</bp:name>
+ <bp:comment rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">REPLACED http://pathwaycommons.org/pc12/ProteinReference_HPRD_00680_identity</bp:comment>
+ <bp:comment rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">FUNCTION: Catalyzes the phosphorylation of hexose, such as D-glucose, D-fructose and D-mannose, to hexose 6-phosphate (D-glucose 6-phosphate, D-fructose 6-phosphate and D-mannose 6-phosphate, respectively) (PubMed:7742312, PubMed:11916951,PubMed:15277402, PubMed:17082186, PubMed:18322640,PubMed:19146401, PubMed:25015100, PubMed:8325892). Compared toother hexokinases, has a weak affinity for D-glucose, and iseffective only when glucose is abundant (By similarity). Mainlyexpressed in pancreatic beta cells and the liver and constitutes arate-limiting step in glucose metabolism in these tissues(PubMed:18322640, PubMed:25015100, PubMed:8325892,PubMed:11916951, PubMed:15277402). Since insulin secretionparallels glucose metabolism and the low glucose affinity of GCKensures that it can change its enzymatic activity within thephysiological range of glucose concentrations, GCK acts as aglucose sensor in the pancreatic beta cell (By similarity). Inpancreas, plays an important role in modulating insulin secretion(By similarity). In liver, helps to facilitate the uptake andconversion of glucose by acting as an insulin-sensitivedeterminant of hepatic glucose usage (By similarity). Required toprovide D-glucose 6-phosphate for the synthesis of glycogen(PubMed:8878425). Mediates the initial step of glycolysis bycatalyzing phosphorylation of D-glucose to D-glucose 6-phosphate(PubMed:7742312). {ECO:0000250|UniProtKB:P17712,ECO:0000250|UniProtKB:P52792, ECO:0000269|PubMed:11916951,ECO:0000269|PubMed:15277402, ECO:0000269|PubMed:17082186,ECO:0000269|PubMed:18322640, ECO:0000269|PubMed:19146401,ECO:0000269|PubMed:25015100, ECO:0000269|PubMed:7742312,ECO:0000269|PubMed:8325892, ECO:0000269|PubMed:8878425}.CATALYTIC ACTIVITY:Reaction=ATP + D-hexose = ADP + D-hexose 6-phosphate + H(+);Xref=Rhea:RHEA:22740, ChEBI:CHEBI:4194, ChEBI:CHEBI:15378,ChEBI:CHEBI:30616, ChEBI:CHEBI:61567, ChEBI:CHEBI:456216;EC=2.7.1.1; Evidence={ECO:0000269|PubMed:11916951,ECO:0000269|PubMed:15277402, ECO:0000269|PubMed:17082186,ECO:0000269|PubMed:18322640, ECO:0000269|PubMed:19146401,ECO:0000269|PubMed:25015100, ECO:0000269|PubMed:8325892};PhysiologicalDirection=left-to-right; Xref=Rhea:RHEA:22741;Evidence={ECO:0000269|PubMed:11916951,ECO:0000269|PubMed:15277402, ECO:0000269|PubMed:17082186,ECO:0000269|PubMed:18322640, ECO:0000269|PubMed:19146401,ECO:0000269|PubMed:25015100, ECO:0000269|PubMed:8325892};CATALYTIC ACTIVITY:Reaction=ATP + D-fructose = ADP + D-fructose 6-phosphate + H(+);Xref=Rhea:RHEA:16125, ChEBI:CHEBI:15378, ChEBI:CHEBI:30616,ChEBI:CHEBI:37721, ChEBI:CHEBI:61527, ChEBI:CHEBI:456216;EC=2.7.1.1; Evidence={ECO:0000269|PubMed:7742312};PhysiologicalDirection=left-to-right; Xref=Rhea:RHEA:16126;Evidence={ECO:0000269|PubMed:7742312};CATALYTIC ACTIVITY:Reaction=ATP + D-glucose = ADP + D-glucose 6-phosphate + H(+);Xref=Rhea:RHEA:17825, ChEBI:CHEBI:4167, ChEBI:CHEBI:15378,ChEBI:CHEBI:30616, ChEBI:CHEBI:61548, ChEBI:CHEBI:456216;EC=2.7.1.1; Evidence={ECO:0000269|PubMed:7742312};PhysiologicalDirection=left-to-right; Xref=Rhea:RHEA:17826;Evidence={ECO:0000269|PubMed:7742312};CATALYTIC ACTIVITY:Reaction=ATP + D-mannose = ADP + D-mannose 6-phosphate + H(+);Xref=Rhea:RHEA:11028, ChEBI:CHEBI:4208, ChEBI:CHEBI:15378,ChEBI:CHEBI:30616, ChEBI:CHEBI:58735, ChEBI:CHEBI:456216;EC=2.7.1.1; Evidence={ECO:0000269|PubMed:7742312};PhysiologicalDirection=left-to-right; Xref=Rhea:RHEA:11029;Evidence={ECO:0000269|PubMed:7742312};ACTIVITY REGULATION: Subject to allosteric regulation(PubMed:15016359). Low glucose and high fructose-6-phosphatetriggers association with the inhibitor GCKR followed bysequestration in the nucleus (PubMed:10456334).{ECO:0000269|PubMed:10456334, ECO:0000269|PubMed:15016359}.PATHWAY: Carbohydrate metabolism; hexose metabolism.{ECO:0000305|PubMed:7742312}.PATHWAY: Carbohydrate degradation; glycolysis; D-glyceraldehyde 3-phosphate and glycerone phosphate from D-glucose: step 1/4.{ECO:0000305|PubMed:7742312}.SUBUNIT: Monomer (PubMed:15016359, PubMed:19362831,PubMed:23957911). Interacts with MIDN; the interaction occurspreferentially at low glucose levels and results in inhibition ofhexokinase activity (PubMed:24187134). Interacts with GCKR;leading to sequestration in the nucleus (PubMed:10456334).{ECO:0000269|PubMed:10456334, ECO:0000269|PubMed:15016359,ECO:0000269|PubMed:19362831, ECO:0000269|PubMed:23957911,ECO:0000269|PubMed:24187134}.SUBCELLULAR LOCATION: Cytoplasm {ECO:0000269|PubMed:10456334,ECO:0000269|PubMed:24187134}. Nucleus{ECO:0000269|PubMed:10456334, ECO:0000269|PubMed:24187134}.Mitochondrion {ECO:0000250|UniProtKB:P17712}. Note=Under lowglucose concentrations, GCK associates with GCKR and the inactivecomplex is recruited to the hepatocyte nucleus.{ECO:0000269|PubMed:10456334}.ALTERNATIVE PRODUCTS:Event=Alternative splicing; Named isoforms=3;Comment=A number of isoforms are produced by alternativepromoter usage. The use of alternative promoters apparentlyenables the type IV hexokinase gene to be regulated by insulinin the liver and glucose in the beta cell. This may constitutean important feedback loop for maintaining glucose homeostasis.{ECO:0000305|PubMed:1871135};Name=1;IsoId=P35557-1; Sequence=Displayed;Name=2;IsoId=P35557-2; Sequence=VSP_002074;Name=3;IsoId=P35557-3; Sequence=VSP_002075;DISEASE: Maturity-onset diabetes of the young 2 (MODY2)[MIM:125851]: A form of diabetes that is characterized by anautosomal dominant mode of inheritance, onset in childhood orearly adulthood (usually before 25 years of age), a primary defectin insulin secretion and frequent insulin-independence at thebeginning of the disease. {ECO:0000269|PubMed:10588527,ECO:0000269|PubMed:10694920, ECO:0000269|PubMed:11106831,ECO:0000269|PubMed:11372010, ECO:0000269|PubMed:1303265,ECO:0000269|PubMed:1464666, ECO:0000269|PubMed:1502186,ECO:0000269|PubMed:16965331, ECO:0000269|PubMed:17573900,ECO:0000269|PubMed:18322640, ECO:0000269|PubMed:19884385,ECO:0000269|PubMed:22611063, ECO:0000269|PubMed:25015100,ECO:0000269|PubMed:8168652, ECO:0000269|PubMed:8325892,ECO:0000269|PubMed:8446612, ECO:0000269|PubMed:8495817,ECO:0000269|PubMed:8878425, ECO:0000269|PubMed:9049484,ECO:0000269|PubMed:9662401}. Note=The disease is caused bymutations affecting the gene represented in this entry.DISEASE: Familial hyperinsulinemic hypoglycemia 3 (HHF3)[MIM:602485]: Most common cause of persistent hypoglycemia ininfancy. Unless early and aggressive intervention is undertaken,brain damage from recurrent episodes of hypoglycemia may occur.{ECO:0000269|PubMed:11916951, ECO:0000269|PubMed:12941786,ECO:0000269|PubMed:15277402, ECO:0000269|PubMed:17082186,ECO:0000269|PubMed:19884385, ECO:0000269|PubMed:20375417,ECO:0000269|PubMed:28247534, ECO:0000269|PubMed:9435328}. Note=Thedisease is caused by mutations affecting the gene represented inthis entry.DISEASE: Diabetes mellitus, non-insulin-dependent (NIDDM)[MIM:125853]: A multifactorial disorder of glucose homeostasiscaused by a lack of sensitivity to the body&apos;s own insulin.Affected individuals usually have an obese body habitus andmanifestations of a metabolic syndrome characterized by diabetes,insulin resistance, hypertension and hypertriglyceridemia. Thedisease results in long-term complications that affect the eyes,kidneys, nerves, and blood vessels. {ECO:0000269|PubMed:1360036}.Note=Disease susceptibility is associated with variationsaffecting the gene represented in this entry.DISEASE: Diabetes mellitus, permanent neonatal (PNDM)[MIM:606176]: A rare form of diabetes distinct from childhood-onset autoimmune diabetes mellitus type 1. It is characterized byinsulin-requiring hyperglycemia that is diagnosed within the firstmonths of life. Permanent neonatal diabetes requires lifelongtherapy. {ECO:0000269|PubMed:11372010,ECO:0000269|PubMed:25015100}. Note=The disease is caused bymutations affecting the gene represented in this entry.SIMILARITY: Belongs to the hexokinase family.{ECO:0000255|PROSITE-ProRule:PRU01084, ECO:0000305}.SEQUENCE CAUTION:Sequence=AAA67541.1; Type=Erroneous gene model prediction; Evidence={ECO:0000305};Sequence=AAA67542.1; Type=Erroneous gene model prediction; Evidence={ECO:0000305};WEB RESOURCE: Name=Wikipedia; Note=Glucokinase entry;URL=&quot;https://en.wikipedia.org/wiki/Glucokinase&quot;; COPYRIGHT: UniProt Consortium (www.uniprot.org). Distributed under the Creative Commons Attribution-NoDerivs License.</bp:comment>
+ <bp:comment rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">REPLACED http://pathwaycommons.org/pc12/ProteinReference_uniprotkb_P35557_identity</bp:comment>
+ <bp:comment rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">REPLACED http://pathwaycommons.org/pc12/ProteinReference_rcsb_pdb_1V4S_see-also</bp:comment>
+ <bp:comment rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">REPLACED http://www.ctdbase.org/#ref_protein_gene_2645</bp:comment>
+ <bp:comment rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">REPLACED http://mirtarbase.mbc.nctu.edu.tw/#ref_2645</bp:comment>
+ <bp:comment rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">REPLACED http://identifiers.org/uniprot/Q53Y25</bp:comment>
+ <bp:comment rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">REPLACED http://identifiers.org/refseq/NP_277042</bp:comment>
+ <bp:comment rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">HXK4_HUMAN Reviewed; 465 AA.</bp:comment>
+ <bp:comment rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">REPLACED http://biocyc.org/biopax/biopax-level3ProteinReference108421</bp:comment>
+</bp:ProteinReference>
+
+<bp:RelationshipXref rdf:about="http://pathwaycommons.org/pc12/RelationshipXref_71b46fac-0eae-4039-9dd4-f7fd5388a7c5PDBeChem_GLC_2">
+ <bp:comment rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">REPLACED http://pathwaycommons.org/pc12/RelationshipXref_71b46fac-0eae-4039-9dd4-f7fd5388a7c5PDBeChem_GLC_2</bp:comment>
+ <bp:id rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">GLC</bp:id>
+ <bp:db rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">chemical component dictionary</bp:db>
+</bp:RelationshipXref>
+
+<bp:SmallMolecule rdf:about="http://pathwaycommons.org/pc12/SmallMolecule_039c508c2cfcd36cfa46cba872eb6d17">
+ <bp:standardName rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">C00092</bp:standardName>
+ <bp:displayName rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">Robison ester</bp:displayName>
+ <bp:entityReference rdf:resource="http://identifiers.org/chebi/CHEBI:4170" />
+ <bp:name rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">Glucose 6-phosphate</bp:name>
+ <bp:name rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">D-Glucose 6-phosphate</bp:name>
+ <bp:comment rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">REPLACED http://pathwaycommons.org/pc12/SmallMolecule_039c508c2cfcd36cfa46cba872eb6d17</bp:comment>
+ <bp:dataSource rdf:resource="http://pathwaycommons.org/pc12/Provenance_7f56dcb833d61e9a798ef3c386d927b7" />
+</bp:SmallMolecule>
+
+<bp:SmallMoleculeReference rdf:about="http://identifiers.org/chebi/CHEBI:4170">
+ <bp:standardName rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">D-glucopyranose 6-(dihydrogen phosphate)</bp:standardName>
+ <bp:xref rdf:resource="http://pathwaycommons.org/pc12/RelationshipXref_chebi_CHEBI_4167_see-also" />
+ <bp:xref rdf:resource="http://pathwaycommons.org/pc12/RelationshipXref_chebi_CHEBI_14314_multiple_parent_reference" />
+ <bp:xref rdf:resource="http://pathwaycommons.org/pc12/RelationshipXref_chebi_CHEBI_61548_see-also" />
+ <bp:xref rdf:resource="http://pathwaycommons.org/pc12/UnificationXref_chebi_CHEBI_4170" />
+ <bp:xref rdf:resource="http://pathwaycommons.org/pc12/RelationshipXref_chebi_CHEBI_61667_multiple_parent_reference" />
+ <bp:displayName rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">D-glucopyranose 6-phosphate</bp:displayName>
+ <bp:name rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">Glc6P</bp:name>
+ <bp:name rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">6-O-phosphono-D-glucopyranose</bp:name>
+ <bp:name rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">CHEBI:4170</bp:name>
+ <bp:name rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">Robison ester</bp:name>
+ <bp:name rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">D-Glucose 6-phosphate</bp:name>
+ <bp:comment rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">is_conjugate_acid_of CHEBI:61548</bp:comment>
+ <bp:comment rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">is_a CHEBI:14314</bp:comment>
+ <bp:comment rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">A glucopyranose ring with a phosphate replacing the hydroxy in the hydroxymethyl group at position 6.</bp:comment>
+ <bp:comment rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">REPLACED http://biocyc.org/biopax/biopax-level3SmallMoleculeReference105727</bp:comment>
+ <bp:comment rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">is_a CHEBI:61667</bp:comment>
+ <bp:comment rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">REPLACED http://www.ra.cs.uni-tuebingen.de/software/KEGGtranslator/cpdC00092.eref</bp:comment>
+ <bp:comment rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">has_functional_parent CHEBI:4167</bp:comment>
+</bp:SmallMoleculeReference>
+
+<bp:Catalysis rdf:about="http://pathwaycommons.org/pc12/Catalysis_c72cfde80306bbca57254e59c9938a21">
+ <bp:controller rdf:resource="http://pathwaycommons.org/pc12/Protein_3a6f28c338441b381ba2027339b2e2aa" />
+ <bp:controller rdf:resource="http://pathwaycommons.org/pc12/Protein_8c780cddcf8e25aff181699755ea64bf" />
+ <bp:displayName rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">rn:R00299_Catalysis</bp:displayName>
+ <bp:controlled rdf:resource="http://pathwaycommons.org/pc12/BiochemicalReaction_b90f0a8573f291f797cc5bb185ea4e1e" />
+ <bp:comment rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">REPLACED http://pathwaycommons.org/pc12/Catalysis_c72cfde80306bbca57254e59c9938a21</bp:comment>
+ <bp:dataSource rdf:resource="http://pathwaycommons.org/pc12/Provenance_7f56dcb833d61e9a798ef3c386d927b7" />
+</bp:Catalysis>
+
+<bp:RelationshipXref rdf:about="http://pathwaycommons.org/pc12/RelationshipXref_bdb97f46-291b-40eb-b5d3-f51a237a69fdKEGG_Genes_hsa3099_2">
+ <bp:comment rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">REPLACED http://pathwaycommons.org/pc12/RelationshipXref_bdb97f46-291b-40eb-b5d3-f51a237a69fdKEGG_Genes_hsa3099_2</bp:comment>
+ <bp:id rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">hsa:3099</bp:id>
+ <bp:db rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">kegg genes</bp:db>
+</bp:RelationshipXref>
+
+<bp:UnificationXref rdf:about="http://pathwaycommons.org/pc12/UnificationXref_kegg_pathway_hsa00524">
+ <bp:id rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">hsa00524</bp:id>
+ <bp:db rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">kegg pathway</bp:db>
+</bp:UnificationXref>
+
+<bp:Pathway rdf:about="http://identifiers.org/kegg.pathway/hsa00524">
+ <bp:pathwayComponent rdf:resource="http://pathwaycommons.org/pc12/Pathway_9fd5692ba8a6c71ee5b89247d8aecd86" />
+ <bp:pathwayComponent rdf:resource="http://pathwaycommons.org/pc12/BiochemicalReaction_b90f0a8573f291f797cc5bb185ea4e1e" />
+ <bp:pathwayComponent rdf:resource="http://pathwaycommons.org/pc12/Catalysis_c72cfde80306bbca57254e59c9938a21" />
+ <bp:standardName rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">Butirosin and neomycin biosynthesis</bp:standardName>
+ <bp:xref rdf:resource="http://pathwaycommons.org/pc12/UnificationXref_kegg_pathway_hsa00524" />
+ <bp:displayName rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">Butirosin and neomycin biosynthesis</bp:displayName>
+ <bp:name rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">Butirosin and neomycin biosynthesis - Homo sapiens (human)</bp:name>
+ <bp:name rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">Butirosin and...</bp:name>
+ <bp:comment rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">REPLACED http://identifiers.org/kegg.pathway/hsa00524</bp:comment>
+ <bp:availability rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">This file has been generated by KEGGtranslator version 2.3.0</bp:availability>
+ <bp:dataSource rdf:resource="http://pathwaycommons.org/pc12/Provenance_7f56dcb833d61e9a798ef3c386d927b7" />
+</bp:Pathway>
+
+<bp:RelationshipXref rdf:about="http://pathwaycommons.org/pc12/RelationshipXref_chebi_CHEBI_4167_see-also">
+ <bp:relationshipType rdf:resource="http://identifiers.org/psimi/MI:0361" />
+ <bp:id rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">CHEBI:4167</bp:id>
+ <bp:db rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">chebi</bp:db>
+</bp:RelationshipXref>
+
+<bp:RelationshipXref rdf:about="http://pathwaycommons.org/pc12/RelationshipXref_chebi_CHEBI_78675_see-also">
+ <bp:relationshipType rdf:resource="http://identifiers.org/psimi/MI:0361" />
+ <bp:id rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">CHEBI:78675</bp:id>
+ <bp:db rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">chebi</bp:db>
+</bp:RelationshipXref>
+
+<bp:RelationshipXref rdf:about="http://pathwaycommons.org/pc12/RelationshipXref_chebi_CHEBI_13222_secondary-ac">
+ <bp:relationshipType rdf:resource="http://identifiers.org/psimi/MI:0360" />
+ <bp:id rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">CHEBI:13222</bp:id>
+ <bp:db rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">chebi</bp:db>
+</bp:RelationshipXref>
+
+<bp:RelationshipXref rdf:about="http://pathwaycommons.org/pc12/RelationshipXref_075453e8-94fd-4e8a-a71f-477de8cca778KEGG_Reaction_R01786_2">
+ <bp:comment rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">REPLACED http://pathwaycommons.org/pc12/RelationshipXref_075453e8-94fd-4e8a-a71f-477de8cca778KEGG_Reaction_R01786_2</bp:comment>
+ <bp:id rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">R01786</bp:id>
+ <bp:db rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">kegg reaction</bp:db>
+</bp:RelationshipXref>
+
+<bp:RelationshipTypeVocabulary rdf:about="http://identifiers.org/psimi/MI:0361">
+ <bp:xref rdf:resource="http://pathwaycommons.org/pc12/UnificationXref_molecular_interactions_ontology_MI_0361" />
+ <bp:term rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">see-also</bp:term>
+</bp:RelationshipTypeVocabulary>
+
+<bp:RelationshipTypeVocabulary rdf:about="http://identifiers.org/psimi/MI:0360">
+ <bp:xref rdf:resource="http://pathwaycommons.org/pc12/UnificationXref_molecular_interactions_ontology_MI_0360" />
+ <bp:term rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">secondary-ac</bp:term>
+</bp:RelationshipTypeVocabulary>
+
+<bp:UnificationXref rdf:about="http://pathwaycommons.org/pc12/UnificationXref_chebi_CHEBI_15422">
+ <bp:id rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">CHEBI:15422</bp:id>
+ <bp:db rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">chebi</bp:db>
+</bp:UnificationXref>
+
+<bp:SequenceModificationVocabulary rdf:about="http://pathwaycommons.org/pc12/SequenceModificationVocabulary_19d3894f53ce79c3f836f26cf8a3be3b">
+ <bp:term rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">inactive</bp:term>
+</bp:SequenceModificationVocabulary>
+
+<bp:RelationshipXref rdf:about="http://pathwaycommons.org/pc12/RelationshipXref_169952a4-df7b-4477-b5d5-613df86c14acKEGG_Reaction_R05979_2">
+ <bp:comment rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">REPLACED http://pathwaycommons.org/pc12/RelationshipXref_169952a4-df7b-4477-b5d5-613df86c14acKEGG_Reaction_R05979_2</bp:comment>
+ <bp:id rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">R05979</bp:id>
+ <bp:db rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">kegg reaction</bp:db>
+</bp:RelationshipXref>
+
+<bp:RelationshipTypeVocabulary rdf:about="http://identifiers.org/psimi/MI:0356">
+ <bp:xref rdf:resource="http://pathwaycommons.org/pc12/UnificationXref_molecular_interactions_ontology_MI_0356" />
+ <bp:term rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">identity</bp:term>
+</bp:RelationshipTypeVocabulary>
+
+<bp:RelationshipXref rdf:about="http://pathwaycommons.org/pc12/RelationshipXref_b6fc0791-7a33-460d-b581-8f69cae4f299KEGG_Reaction_R01006_2">
+ <bp:comment rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">REPLACED http://pathwaycommons.org/pc12/RelationshipXref_b6fc0791-7a33-460d-b581-8f69cae4f299KEGG_Reaction_R01006_2</bp:comment>
+ <bp:id rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">R01006</bp:id>
+ <bp:db rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">kegg reaction</bp:db>
+</bp:RelationshipXref>
+
+<bp:RelationshipXref rdf:about="http://pathwaycommons.org/pc12/RelationshipXref_21c23bb8-4e5b-4475-a3da-04cebc68e524EntrezGene_3099_2">
+ <bp:comment rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">REPLACED http://pathwaycommons.org/pc12/RelationshipXref_21c23bb8-4e5b-4475-a3da-04cebc68e524EntrezGene_3099_2</bp:comment>
+ <bp:id rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">3099</bp:id>
+ <bp:db rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">ncbi gene</bp:db>
+</bp:RelationshipXref>
+
+<bp:RelationshipXref rdf:about="http://pathwaycommons.org/pc12/RelationshipXref_01444aa4-0b9a-4559-ad9f-d88ff947e879KEGG_Genes_hsa3101_2">
+ <bp:comment rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">REPLACED http://pathwaycommons.org/pc12/RelationshipXref_01444aa4-0b9a-4559-ad9f-d88ff947e879KEGG_Genes_hsa3101_2</bp:comment>
+ <bp:id rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">hsa:3101</bp:id>
+ <bp:db rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">kegg genes</bp:db>
+</bp:RelationshipXref>
+
+<bp:RelationshipXref rdf:about="http://pathwaycommons.org/pc12/RelationshipXref_hgnc_symbol_GCK_identity">
+ <bp:relationshipType rdf:resource="http://identifiers.org/psimi/MI:0356" />
+ <bp:id rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">GCK</bp:id>
+ <bp:db rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">hgnc symbol</bp:db>
+</bp:RelationshipXref>
+
+<bp:RelationshipXref rdf:about="http://pathwaycommons.org/pc12/RelationshipXref_chebi_CHEBI_22244_secondary-ac">
+ <bp:relationshipType rdf:resource="http://identifiers.org/psimi/MI:0360" />
+ <bp:id rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">CHEBI:22244</bp:id>
+ <bp:db rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">chebi</bp:db>
+</bp:RelationshipXref>
+
+<bp:RelationshipXref rdf:about="http://pathwaycommons.org/pc12/RelationshipXref_713df9f1-a9ad-433f-a98b-df9d5d4f2daaKEGG_Compound_C00031_2">
+ <bp:comment rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">REPLACED http://pathwaycommons.org/pc12/RelationshipXref_713df9f1-a9ad-433f-a98b-df9d5d4f2daaKEGG_Compound_C00031_2</bp:comment>
+ <bp:id rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">C00031</bp:id>
+ <bp:db rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">kegg compound</bp:db>
+</bp:RelationshipXref>
+
+<bp:RelationshipXref rdf:about="http://pathwaycommons.org/pc12/RelationshipXref_hgnc_symbol_HK1_see-also">
+ <bp:relationshipType rdf:resource="http://identifiers.org/psimi/MI:0361" />
+ <bp:id rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">HK1</bp:id>
+ <bp:db rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">hgnc symbol</bp:db>
+</bp:RelationshipXref>
+
+<bp:RelationshipXref rdf:about="http://pathwaycommons.org/pc12/RelationshipXref_chebi_CHEBI_40553_secondary-ac">
+ <bp:relationshipType rdf:resource="http://identifiers.org/psimi/MI:0360" />
+ <bp:id rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">CHEBI:40553</bp:id>
+ <bp:db rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">chebi</bp:db>
+</bp:RelationshipXref>
+
+<bp:UnificationXref rdf:about="http://pathwaycommons.org/pc12/UnificationXref_cas_50-99-7">
+ <bp:id rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">50-99-7</bp:id>
+ <bp:db rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">cas</bp:db>
+</bp:UnificationXref>
+
+<bp:RelationshipXref rdf:about="http://pathwaycommons.org/pc12/RelationshipXref_563d2374-7cb6-4367-a4e1-b0804a0e4cd0HGNC_4925_2">
+ <bp:comment rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">REPLACED http://pathwaycommons.org/pc12/RelationshipXref_563d2374-7cb6-4367-a4e1-b0804a0e4cd0HGNC_4925_2</bp:comment>
+ <bp:id rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">HGNC:4925</bp:id>
+ <bp:db rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">hgnc</bp:db>
+</bp:RelationshipXref>
+
+<bp:UnificationXref rdf:about="http://pathwaycommons.org/pc12/UnificationXref_taxonomy_9606">
+ <bp:id rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">9606</bp:id>
+ <bp:db rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">taxonomy</bp:db>
+</bp:UnificationXref>
+
+<bp:RelationshipXref rdf:about="http://pathwaycommons.org/pc12/RelationshipXref_3c4bd5e1-866b-4653-be6b-0e0d42e19311EntrezGene_80201_2">
+ <bp:comment rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">REPLACED http://pathwaycommons.org/pc12/RelationshipXref_3c4bd5e1-866b-4653-be6b-0e0d42e19311EntrezGene_80201_2</bp:comment>
+ <bp:id rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">80201</bp:id>
+ <bp:db rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">ncbi gene</bp:db>
+</bp:RelationshipXref>
+
+<bp:RelationshipXref rdf:about="http://pathwaycommons.org/pc12/RelationshipXref_3cae3f10-40d2-42ea-b253-6be40631a602UniProt_AC_P19367_2">
+ <bp:comment rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">REPLACED http://pathwaycommons.org/pc12/RelationshipXref_3cae3f10-40d2-42ea-b253-6be40631a602UniProt_AC_P19367_2</bp:comment>
+ <bp:comment rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">PRIMARY</bp:comment>
+ <bp:id rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">P19367</bp:id>
+ <bp:db rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">uniprot knowledgebase</bp:db>
+</bp:RelationshipXref>
+
+<bp:RelationshipXref rdf:about="http://pathwaycommons.org/pc12/RelationshipXref_38dcf28b-9105-4366-962d-24af4449b543KEGG_Reaction_R05981_2">
+ <bp:comment rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">REPLACED http://pathwaycommons.org/pc12/RelationshipXref_38dcf28b-9105-4366-962d-24af4449b543KEGG_Reaction_R05981_2</bp:comment>
+ <bp:id rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">R05981</bp:id>
+ <bp:db rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">kegg reaction</bp:db>
+</bp:RelationshipXref>
+
+<bp:Pathway rdf:about="http://pathwaycommons.org/pc12/Pathway_9fd5692ba8a6c71ee5b89247d8aecd86">
+ <bp:standardName rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">Streptomycin biosynthesis</bp:standardName>
+ <bp:xref rdf:resource="http://pathwaycommons.org/pc12/RelationshipXref_128cad98-c008-4480-bff9-b6bb51da1704GeneOntology_GO0019872_2" />
+ <bp:xref rdf:resource="http://pathwaycommons.org/pc12/UnificationXref_kegg_pathway_map00521" />
+ <bp:displayName rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">Streptomycin biosynthesis</bp:displayName>
+ <bp:name rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">Streptomycin...</bp:name>
+ <bp:comment rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">REPLACED http://pathwaycommons.org/pc12/Pathway_9fd5692ba8a6c71ee5b89247d8aecd86</bp:comment>
+ <bp:dataSource rdf:resource="http://pathwaycommons.org/pc12/Provenance_7f56dcb833d61e9a798ef3c386d927b7" />
+</bp:Pathway>
+
+<bp:RelationshipXref rdf:about="http://pathwaycommons.org/pc12/RelationshipXref_d5ff4620-b6ad-4941-92ad-1872f4ba7200OMIM_601125_2">
+ <bp:comment rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">REPLACED http://pathwaycommons.org/pc12/RelationshipXref_d5ff4620-b6ad-4941-92ad-1872f4ba7200OMIM_601125_2</bp:comment>
+ <bp:id rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">601125</bp:id>
+ <bp:db rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">omim</bp:db>
+</bp:RelationshipXref>
+
+<bp:RelationshipXref rdf:about="http://pathwaycommons.org/pc12/RelationshipXref_ea9cba52-7ce8-45cb-8c90-261eb7fe7a08KEGG_Reaction_R01498_2">
+ <bp:comment rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">REPLACED http://pathwaycommons.org/pc12/RelationshipXref_ea9cba52-7ce8-45cb-8c90-261eb7fe7a08KEGG_Reaction_R01498_2</bp:comment>
+ <bp:id rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">R01498</bp:id>
+ <bp:db rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">kegg reaction</bp:db>
+</bp:RelationshipXref>
+
+<bp:RelationshipXref rdf:about="http://pathwaycommons.org/pc12/RelationshipXref_chebi_CHEBI_23357_see-also">
+ <bp:relationshipType rdf:resource="http://identifiers.org/psimi/MI:0361" />
+ <bp:id rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">CHEBI:23357</bp:id>
+ <bp:db rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">chebi</bp:db>
+</bp:RelationshipXref>
+
+<bp:UnificationXref rdf:about="http://pathwaycommons.org/pc12/UnificationXref_kegg_pathway_map00521">
+ <bp:id rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">map00521</bp:id>
+ <bp:db rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">kegg pathway</bp:db>
+</bp:UnificationXref>
+
+<bp:RelationshipXref rdf:about="http://pathwaycommons.org/pc12/RelationshipXref_chebi_CHEBI_40938_secondary-ac">
+ <bp:relationshipType rdf:resource="http://identifiers.org/psimi/MI:0360" />
+ <bp:id rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">CHEBI:40938</bp:id>
+ <bp:db rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">chebi</bp:db>
+</bp:RelationshipXref>
+
+<bp:RelationshipXref rdf:about="http://pathwaycommons.org/pc12/RelationshipXref_6483469e-16ea-45e1-b2bc-bd0a820d3015HGNC_4922_2">
+ <bp:comment rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">REPLACED http://pathwaycommons.org/pc12/RelationshipXref_6483469e-16ea-45e1-b2bc-bd0a820d3015HGNC_4922_2</bp:comment>
+ <bp:id rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">HGNC:4922</bp:id>
+ <bp:db rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">hgnc</bp:db>
+</bp:RelationshipXref>
+
+<bp:RelationshipXref rdf:about="http://pathwaycommons.org/pc12/RelationshipXref_44fc50e1-e5f0-4a82-9134-57f24813aaa0KEGG_Reaction_R05980_2">
+ <bp:comment rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">REPLACED http://pathwaycommons.org/pc12/RelationshipXref_44fc50e1-e5f0-4a82-9134-57f24813aaa0KEGG_Reaction_R05980_2</bp:comment>
+ <bp:id rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">R05980</bp:id>
+ <bp:db rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">kegg reaction</bp:db>
+</bp:RelationshipXref>
+
+<bp:RelationshipXref rdf:about="http://pathwaycommons.org/pc12/RelationshipXref_6ed804df-1bec-4f5b-9cad-e83d3c551376UniProt_AC_P52789_2">
+ <bp:comment rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">REPLACED http://pathwaycommons.org/pc12/RelationshipXref_6ed804df-1bec-4f5b-9cad-e83d3c551376UniProt_AC_P52789_2</bp:comment>
+ <bp:comment rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">PRIMARY</bp:comment>
+ <bp:id rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">P52789</bp:id>
+ <bp:db rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">uniprot knowledgebase</bp:db>
+</bp:RelationshipXref>
+
+<bp:RelationshipXref rdf:about="http://pathwaycommons.org/pc12/RelationshipXref_1b07cf6c-6cd9-4f56-bfcf-39dd102f539bKEGG_Pathway_rn00521_2">
+ <bp:comment rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">REPLACED http://pathwaycommons.org/pc12/RelationshipXref_1b07cf6c-6cd9-4f56-bfcf-39dd102f539bKEGG_Pathway_rn00521_2</bp:comment>
+ <bp:id rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">rn00521</bp:id>
+ <bp:db rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">kegg pathway</bp:db>
+</bp:RelationshipXref>
+
+<bp:RelationshipXref rdf:about="http://pathwaycommons.org/pc12/RelationshipXref_chebi_CHEBI_456216_see-also">
+ <bp:relationshipType rdf:resource="http://identifiers.org/psimi/MI:0361" />
+ <bp:id rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">CHEBI:456216</bp:id>
+ <bp:db rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">chebi</bp:db>
+</bp:RelationshipXref>
+
+<bp:RelationshipXref rdf:about="http://pathwaycommons.org/pc12/RelationshipXref_f20f7ac0-a566-4fd9-b98f-77ab57c9a4edCAS_2280446_2">
+ <bp:comment rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">REPLACED http://pathwaycommons.org/pc12/RelationshipXref_f20f7ac0-a566-4fd9-b98f-77ab57c9a4edCAS_2280446_2</bp:comment>
+ <bp:id rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">2280-44-6</bp:id>
+ <bp:db rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">cas</bp:db>
+</bp:RelationshipXref>
+
+<bp:BioSource rdf:about="http://identifiers.org/taxonomy/9606">
+ <bp:xref rdf:resource="http://pathwaycommons.org/pc12/UnificationXref_taxonomy_9606" />
+ <bp:displayName rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">Homo sapiens (human)</bp:displayName>
+</bp:BioSource>
+
+<bp:RelationshipXref rdf:about="http://pathwaycommons.org/pc12/RelationshipXref_5d59d068-9efe-4996-b84f-e4a3c077c5cfKEGG_Reaction_R00299_2">
+ <bp:comment rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">REPLACED http://pathwaycommons.org/pc12/RelationshipXref_5d59d068-9efe-4996-b84f-e4a3c077c5cfKEGG_Reaction_R00299_2</bp:comment>
+ <bp:id rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">R00299</bp:id>
+ <bp:db rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">kegg reaction</bp:db>
+</bp:RelationshipXref>
+
+<bp:RelationshipXref rdf:about="http://pathwaycommons.org/pc12/RelationshipXref_3bffe384-ec48-421b-a0bb-24ceb4de5968HGNC_4923_2">
+ <bp:comment rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">REPLACED http://pathwaycommons.org/pc12/RelationshipXref_3bffe384-ec48-421b-a0bb-24ceb4de5968HGNC_4923_2</bp:comment>
+ <bp:id rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">HGNC:4923</bp:id>
+ <bp:db rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">hgnc</bp:db>
+</bp:RelationshipXref>
+
+<bp:RelationshipXref rdf:about="http://pathwaycommons.org/pc12/RelationshipXref_chebi_CHEBI_50733_see-also">
+ <bp:relationshipType rdf:resource="http://identifiers.org/psimi/MI:0361" />
+ <bp:id rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">CHEBI:50733</bp:id>
+ <bp:db rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">chebi</bp:db>
+</bp:RelationshipXref>
+
+<bp:Protein rdf:about="http://pathwaycommons.org/pc12/Protein_3a6f28c338441b381ba2027339b2e2aa">
+ <bp:standardName rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">GCK, FGQTL3, GK, GLK, HHF3, HK4, HKIV, HXKP, LGLK, MODY2</bp:standardName>
+ <bp:displayName rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">GCK</bp:displayName>
+ <bp:entityReference rdf:resource="http://identifiers.org/uniprot/P35557" />
+ <bp:name rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">HK4</bp:name>
+ <bp:name rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">HKIV</bp:name>
+ <bp:name rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">GK</bp:name>
+ <bp:name rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">GLK</bp:name>
+ <bp:name rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">HXKP</bp:name>
+ <bp:name rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">MODY2</bp:name>
+ <bp:name rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">LGLK</bp:name>
+ <bp:name rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">FGQTL3</bp:name>
+ <bp:name rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">HHF3</bp:name>
+ <bp:comment rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">glucokinase (hexokinase 4) (EC:2.7.1.2)</bp:comment>
+ <bp:comment rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">REPLACED http://pathwaycommons.org/pc12/Protein_3a6f28c338441b381ba2027339b2e2aa</bp:comment>
+ <bp:dataSource rdf:resource="http://pathwaycommons.org/pc12/Provenance_7f56dcb833d61e9a798ef3c386d927b7" />
+</bp:Protein>
+
+<bp:ModificationFeature rdf:about="http://pathwaycommons.org/pc12/ModificationFeature_6c04efd28602524d7153b66f908bdded">
+ <bp:modificationType rdf:resource="http://pathwaycommons.org/pc12/SequenceModificationVocabulary_19d3894f53ce79c3f836f26cf8a3be3b" />
+ <bp:comment rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">REPLACED http://pathwaycommons.org/pc12/ModificationFeature_6c04efd28602524d7153b66f908bdded</bp:comment>
+</bp:ModificationFeature>
+
+<bp:UnificationXref rdf:about="http://pathwaycommons.org/pc12/UnificationXref_molecular_interactions_ontology_MI_0356">
+ <bp:id rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">MI:0356</bp:id>
+ <bp:db rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">mi</bp:db>
+</bp:UnificationXref>
+
+<bp:RelationshipXref rdf:about="http://pathwaycommons.org/pc12/RelationshipXref_chebi_CHEBI_61667_multiple_parent_reference">
+ <bp:relationshipType rdf:resource="http://identifiers.org/psimi/MI:0829" />
+ <bp:id rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">CHEBI:61667</bp:id>
+ <bp:db rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">chebi</bp:db>
+</bp:RelationshipXref>
+
+<bp:RelationshipXref rdf:about="http://pathwaycommons.org/pc12/RelationshipXref_chebi_CHEBI_10841_secondary-ac">
+ <bp:relationshipType rdf:resource="http://identifiers.org/psimi/MI:0360" />
+ <bp:id rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">CHEBI:10841</bp:id>
+ <bp:db rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">chebi</bp:db>
+</bp:RelationshipXref>
+
+<bp:RelationshipXref rdf:about="http://pathwaycommons.org/pc12/RelationshipXref_a4b2d2bc-92b6-43da-b008-a8018d320c0eKEGG_Reaction_R00010_2">
+ <bp:comment rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">REPLACED http://pathwaycommons.org/pc12/RelationshipXref_a4b2d2bc-92b6-43da-b008-a8018d320c0eKEGG_Reaction_R00010_2</bp:comment>
+ <bp:id rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">R00010</bp:id>
+ <bp:db rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">kegg reaction</bp:db>
+</bp:RelationshipXref>
+
+<bp:UnificationXref rdf:about="http://pathwaycommons.org/pc12/UnificationXref_kegg_reaction_R00299">
+ <bp:id rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">R00299</bp:id>
+ <bp:db rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">kegg reaction</bp:db>
+</bp:UnificationXref>
+
+<bp:RelationshipXref rdf:about="http://pathwaycommons.org/pc12/RelationshipXref_chebi_CHEBI_2359_secondary-ac">
+ <bp:relationshipType rdf:resource="http://identifiers.org/psimi/MI:0360" />
+ <bp:id rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">CHEBI:2359</bp:id>
+ <bp:db rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">chebi</bp:db>
+</bp:RelationshipXref>
+
+<bp:Protein rdf:about="http://pathwaycommons.org/pc12/Protein_8c780cddcf8e25aff181699755ea64bf">
+ <bp:standardName rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">HKDC1</bp:standardName>
+ <bp:displayName rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">HKDC1</bp:displayName>
+ <bp:entityReference rdf:resource="http://identifiers.org/uniprot/A8K7J7" />
+ <bp:name rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">HKD</bp:name>
+ <bp:name rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">HKII</bp:name>
+ <bp:name rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">HKI</bp:name>
+ <bp:name rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">HMSNR</bp:name>
+ <bp:name rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">HK2</bp:name>
+ <bp:name rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">HK1</bp:name>
+ <bp:name rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">HK3</bp:name>
+ <bp:name rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">HXK1</bp:name>
+ <bp:name rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">HXK2</bp:name>
+ <bp:name rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">HK1-ta</bp:name>
+ <bp:name rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">HK1, HK1-ta, HK1-tb, HK1-tc, HKI, HXK1...</bp:name>
+ <bp:name rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">HK1-tb</bp:name>
+ <bp:name rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">HK1-tc</bp:name>
+ <bp:name rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">HXK3</bp:name>
+ <bp:name rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">HKIII</bp:name>
+ <bp:comment rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">hexokinase 1 (EC:2.7.1.1)</bp:comment>
+ <bp:comment rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">hexokinase 2 (EC:2.7.1.1)</bp:comment>
+ <bp:comment rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">hexokinase 3 (white cell) (EC:2.7.1.1)</bp:comment>
+ <bp:comment rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">REPLACED http://pathwaycommons.org/pc12/Protein_8c780cddcf8e25aff181699755ea64bf</bp:comment>
+ <bp:comment rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">hexokinase domain containing 1 (EC:2.7.1.1)</bp:comment>
+ <bp:dataSource rdf:resource="http://pathwaycommons.org/pc12/Provenance_7f56dcb833d61e9a798ef3c386d927b7" />
+</bp:Protein>
+
+<bp:RelationshipXref rdf:about="http://pathwaycommons.org/pc12/RelationshipXref_1067ef28-9d7d-450e-8893-1edc538caeadEnsembl_ENSG00000156510_2">
+ <bp:comment rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">REPLACED http://pathwaycommons.org/pc12/RelationshipXref_1067ef28-9d7d-450e-8893-1edc538caeadEnsembl_ENSG00000156510_2</bp:comment>
+ <bp:id rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">ENSG00000156510</bp:id>
+ <bp:db rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">ensembl</bp:db>
+</bp:RelationshipXref>
+
+<bp:Stoichiometry rdf:about="http://pathwaycommons.org/pc12/Stoichiometry_b096da312a547c7477e27c169589ecf6">
+ <bp:physicalEntity rdf:resource="http://pathwaycommons.org/pc12/SmallMolecule_039c508c2cfcd36cfa46cba872eb6d17" />
+ <bp:comment rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">REPLACED http://pathwaycommons.org/pc12/Stoichiometry_b096da312a547c7477e27c169589ecf6</bp:comment>
+ <bp:stoichiometricCoefficient rdf:datatype = "http://www.w3.org/2001/XMLSchema#float">1.0</bp:stoichiometricCoefficient>
+</bp:Stoichiometry>
+
+<bp:Stoichiometry rdf:about="http://pathwaycommons.org/pc12/Stoichiometry_689945e4170774d95071caf2f2ce1c14">
+ <bp:physicalEntity rdf:resource="http://pathwaycommons.org/pc12/SmallMolecule_a4728f127f601d39b103cd57292cf90d" />
+ <bp:comment rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">REPLACED http://pathwaycommons.org/pc12/Stoichiometry_689945e4170774d95071caf2f2ce1c14</bp:comment>
+ <bp:stoichiometricCoefficient rdf:datatype = "http://www.w3.org/2001/XMLSchema#float">1.0</bp:stoichiometricCoefficient>
+</bp:Stoichiometry>
+
+<bp:RelationshipXref rdf:about="http://pathwaycommons.org/pc12/RelationshipXref_4c6b9483-3611-4bfb-8864-8dc9d9956b1cEnsembl_ENSG00000160883_2">
+ <bp:comment rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">REPLACED http://pathwaycommons.org/pc12/RelationshipXref_4c6b9483-3611-4bfb-8864-8dc9d9956b1cEnsembl_ENSG00000160883_2</bp:comment>
+ <bp:id rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">ENSG00000160883</bp:id>
+ <bp:db rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">ensembl</bp:db>
+</bp:RelationshipXref>
+
+<bp:SmallMoleculeReference rdf:about="http://pathwaycommons.org/pc12/SmallMoleculeReference_153381ca1699ab63c9450f6302531b2d">
+ <bp:xref rdf:resource="http://pathwaycommons.org/pc12/RelationshipXref_d8ed261d-c7ff-4f38-ab19-cf09a7640b70KEGG_Drug_D00009_2" />
+ <bp:xref rdf:resource="http://pathwaycommons.org/pc12/RelationshipXref_89364d5a-326d-46d0-810a-c6b547b75886KEGG_Reaction_R00503_2" />
+ <bp:xref rdf:resource="http://pathwaycommons.org/pc12/RelationshipXref_4bc4f83d-5067-4b20-8b2a-003df99d4959ThreeDMET_B04623_2" />
+ <bp:xref rdf:resource="http://pathwaycommons.org/pc12/RelationshipXref_459bca1c-8c58-44ce-9824-4f3347ac31f9KEGG_Reaction_R01101_2" />
+ <bp:xref rdf:resource="http://pathwaycommons.org/pc12/RelationshipXref_a4b2d2bc-92b6-43da-b008-a8018d320c0eKEGG_Reaction_R00010_2" />
+ <bp:xref rdf:resource="http://pathwaycommons.org/pc12/RelationshipXref_169952a4-df7b-4477-b5d5-613df86c14acKEGG_Reaction_R05979_2" />
+ <bp:xref rdf:resource="http://pathwaycommons.org/pc12/RelationshipXref_ea9cba52-7ce8-45cb-8c90-261eb7fe7a08KEGG_Reaction_R01498_2" />
+ <bp:xref rdf:resource="http://pathwaycommons.org/pc12/RelationshipXref_44fc50e1-e5f0-4a82-9134-57f24813aaa0KEGG_Reaction_R05980_2" />
+ <bp:xref rdf:resource="http://pathwaycommons.org/pc12/RelationshipXref_4c231fe1-5b6d-40a8-a1a3-12df6c826571KEGG_Reaction_R04949_2" />
+ <bp:xref rdf:resource="http://pathwaycommons.org/pc12/RelationshipXref_b6fc0791-7a33-460d-b581-8f69cae4f299KEGG_Reaction_R01006_2" />
+ <bp:xref rdf:resource="http://pathwaycommons.org/pc12/RelationshipXref_71b46fac-0eae-4039-9dd4-f7fd5388a7c5PDBeChem_GLC_2" />
+ <bp:xref rdf:resource="http://pathwaycommons.org/pc12/RelationshipXref_713df9f1-a9ad-433f-a98b-df9d5d4f2daaKEGG_Compound_C00031_2" />
+ <bp:xref rdf:resource="http://pathwaycommons.org/pc12/RelationshipXref_6bd01e95-55a1-4f17-a8b9-74d1543d5517PDBeChem_BGC_2" />
+ <bp:xref rdf:resource="http://pathwaycommons.org/pc12/RelationshipXref_da71dca4-1288-47c2-886b-9c51c320bf5bCHEBI_4167_2" />
+ <bp:xref rdf:resource="http://pathwaycommons.org/pc12/RelationshipXref_2a76eeb6-2fa1-4922-a2ca-647c99ff32d4KEGG_Reaction_R05196_2" />
+ <bp:xref rdf:resource="http://pathwaycommons.org/pc12/RelationshipXref_71fe41d6-14f3-46bc-8649-c9c8774d8fbaKEGG_Reaction_R01718_2" />
+ <bp:xref rdf:resource="http://pathwaycommons.org/pc12/UnificationXref_cas_50-99-7" />
+ <bp:xref rdf:resource="http://pathwaycommons.org/pc12/RelationshipXref_f20f7ac0-a566-4fd9-b98f-77ab57c9a4edCAS_2280446_2" />
+ <bp:xref rdf:resource="http://pathwaycommons.org/pc12/RelationshipXref_5d59d068-9efe-4996-b84f-e4a3c077c5cfKEGG_Reaction_R00299_2" />
+ <bp:xref rdf:resource="http://pathwaycommons.org/pc12/RelationshipXref_b2d54137-d12f-41e4-8bd0-d58f52b5cea7PubChem_substance_3333_2" />
+ <bp:xref rdf:resource="http://pathwaycommons.org/pc12/RelationshipXref_ca0e2103-7420-4d0f-a505-eef12b65c43dKEGG_Reaction_R00801_2" />
+ <bp:xref rdf:resource="http://pathwaycommons.org/pc12/RelationshipXref_38dcf28b-9105-4366-962d-24af4449b543KEGG_Reaction_R05981_2" />
+ <bp:chemicalFormula rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">C6H12O6</bp:chemicalFormula>
+ <bp:displayName rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">Glucose</bp:displayName>
+ <bp:name rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">D-Glucopyranose</bp:name>
+ <bp:name rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">D-Glucose</bp:name>
+ <bp:name rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">C00031</bp:name>
+ <bp:name rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">Grape sugar</bp:name>
+ <bp:name rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">Dextrose</bp:name>
+ <bp:molecularWeight rdf:datatype = "http://www.w3.org/2001/XMLSchema#float">180.1559</bp:molecularWeight>
+ <bp:comment rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">REPLACED http://pathwaycommons.org/pc12/SmallMoleculeReference_153381ca1699ab63c9450f6302531b2d</bp:comment>
+</bp:SmallMoleculeReference>
+
+<bp:RelationshipXref rdf:about="http://pathwaycommons.org/pc12/RelationshipXref_17c5f902-9145-4a42-a684-6c9579ec72abKEGG_Genes_hsa3098_2">
+ <bp:comment rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">REPLACED http://pathwaycommons.org/pc12/RelationshipXref_17c5f902-9145-4a42-a684-6c9579ec72abKEGG_Genes_hsa3098_2</bp:comment>
+ <bp:id rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">hsa:3098</bp:id>
+ <bp:db rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">kegg genes</bp:db>
+</bp:RelationshipXref>
+
+<bp:SmallMolecule rdf:about="http://pathwaycommons.org/pc12/SmallMolecule_aad98f59ac01f1b0532d0f7423259296">
+ <bp:displayName rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">ADP</bp:displayName>
+ <bp:entityReference rdf:resource="http://identifiers.org/chebi/CHEBI:16761" />
+ <bp:name rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">Adenosine 5&apos;-diphosphate</bp:name>
+ <bp:name rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">C00008</bp:name>
+ <bp:comment rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">REPLACED http://pathwaycommons.org/pc12/SmallMolecule_aad98f59ac01f1b0532d0f7423259296</bp:comment>
+ <bp:dataSource rdf:resource="http://pathwaycommons.org/pc12/Provenance_7f56dcb833d61e9a798ef3c386d927b7" />
+</bp:SmallMolecule>
+
+<bp:RelationshipXref rdf:about="http://pathwaycommons.org/pc12/RelationshipXref_chebi_CHEBI_37096_multiple_parent_reference">
+ <bp:relationshipType rdf:resource="http://identifiers.org/psimi/MI:0829" />
+ <bp:id rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">CHEBI:37096</bp:id>
+ <bp:db rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">chebi</bp:db>
+</bp:RelationshipXref>
+
+<bp:RelationshipXref rdf:about="http://pathwaycommons.org/pc12/RelationshipXref_147c3b0c-38bb-450e-80ea-25d3d4c0f0c2EC_code_2711_2">
+ <bp:comment rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">REPLACED http://pathwaycommons.org/pc12/RelationshipXref_147c3b0c-38bb-450e-80ea-25d3d4c0f0c2EC_code_2711_2</bp:comment>
+ <bp:id rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">2.7.1.1</bp:id>
+ <bp:db rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">enzyme nomenclature</bp:db>
+</bp:RelationshipXref>
+
+<bp:SmallMolecule rdf:about="http://pathwaycommons.org/pc12/SmallMolecule_a4bf1e612aaa7d43a2cb3beaffdda42a">
+ <bp:displayName rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">Glucose</bp:displayName>
+ <bp:entityReference rdf:resource="http://pathwaycommons.org/pc12/SmallMoleculeReference_153381ca1699ab63c9450f6302531b2d" />
+ <bp:name rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">D-Glucopyranose</bp:name>
+ <bp:name rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">D-Glucose</bp:name>
+ <bp:name rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">C00031</bp:name>
+ <bp:name rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">Grape sugar</bp:name>
+ <bp:name rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">Dextrose</bp:name>
+ <bp:comment rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">REPLACED http://pathwaycommons.org/pc12/SmallMolecule_a4bf1e612aaa7d43a2cb3beaffdda42a</bp:comment>
+ <bp:dataSource rdf:resource="http://pathwaycommons.org/pc12/Provenance_7f56dcb833d61e9a798ef3c386d927b7" />
+</bp:SmallMolecule>
+
+<bp:RelationshipXref rdf:about="http://pathwaycommons.org/pc12/RelationshipXref_89364d5a-326d-46d0-810a-c6b547b75886KEGG_Reaction_R00503_2">
+ <bp:comment rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">REPLACED http://pathwaycommons.org/pc12/RelationshipXref_89364d5a-326d-46d0-810a-c6b547b75886KEGG_Reaction_R00503_2</bp:comment>
+ <bp:id rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">R00503</bp:id>
+ <bp:db rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">kegg reaction</bp:db>
+</bp:RelationshipXref>
+
+<bp:RelationshipXref rdf:about="http://pathwaycommons.org/pc12/RelationshipXref_chebi_CHEBI_87518_see-also">
+ <bp:relationshipType rdf:resource="http://identifiers.org/psimi/MI:0361" />
+ <bp:id rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">CHEBI:87518</bp:id>
+ <bp:db rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">chebi</bp:db>
+</bp:RelationshipXref>
+
+<bp:RelationshipXref rdf:about="http://pathwaycommons.org/pc12/RelationshipXref_chebi_CHEBI_2342_secondary-ac">
+ <bp:relationshipType rdf:resource="http://identifiers.org/psimi/MI:0360" />
+ <bp:id rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">CHEBI:2342</bp:id>
+ <bp:db rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">chebi</bp:db>
+</bp:RelationshipXref>
+
+<bp:RelationshipXref rdf:about="http://pathwaycommons.org/pc12/RelationshipXref_4d2b7c8f-de48-47c7-9261-0614bda598c6KEGG_Reaction_R01326_2">
+ <bp:comment rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">REPLACED http://pathwaycommons.org/pc12/RelationshipXref_4d2b7c8f-de48-47c7-9261-0614bda598c6KEGG_Reaction_R01326_2</bp:comment>
+ <bp:id rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">R01326</bp:id>
+ <bp:db rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">kegg reaction</bp:db>
+</bp:RelationshipXref>
+
+<bp:RelationshipXref rdf:about="http://pathwaycommons.org/pc12/RelationshipXref_5182b7ea-39c0-43f1-a389-096157a3f8e8KEGG_Reaction_R01600_2">
+ <bp:comment rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">REPLACED http://pathwaycommons.org/pc12/RelationshipXref_5182b7ea-39c0-43f1-a389-096157a3f8e8KEGG_Reaction_R01600_2</bp:comment>
+ <bp:id rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">R01600</bp:id>
+ <bp:db rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">kegg reaction</bp:db>
+</bp:RelationshipXref>
+
+<bp:RelationshipXref rdf:about="http://pathwaycommons.org/pc12/RelationshipXref_1b7b9e89-802e-49f8-9529-5670b576654bKEGG_Pathway_rn00524_2">
+ <bp:comment rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">REPLACED http://pathwaycommons.org/pc12/RelationshipXref_1b7b9e89-802e-49f8-9529-5670b576654bKEGG_Pathway_rn00524_2</bp:comment>
+ <bp:id rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">rn00524</bp:id>
+ <bp:db rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">kegg pathway</bp:db>
+</bp:RelationshipXref>
+
+<bp:SequenceModificationVocabulary rdf:about="http://pathwaycommons.org/pc12/SequenceModificationVocabulary_c76a5e84e4bdee527e274ea30c680d79">
+ <bp:term rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">active</bp:term>
+</bp:SequenceModificationVocabulary>
+
+<bp:SmallMoleculeReference rdf:about="http://identifiers.org/chebi/CHEBI:15422">
+ <bp:standardName rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">adenosine 5&apos;-(tetrahydrogen triphosphate)</bp:standardName>
+ <bp:xref rdf:resource="http://pathwaycommons.org/pc12/UnificationXref_chebi_CHEBI_15422" />
+ <bp:xref rdf:resource="http://pathwaycommons.org/pc12/RelationshipXref_chebi_CHEBI_27027_see-also" />
+ <bp:xref rdf:resource="http://pathwaycommons.org/pc12/RelationshipXref_chebi_CHEBI_13236_secondary-ac" />
+ <bp:xref rdf:resource="http://pathwaycommons.org/pc12/RelationshipXref_chebi_CHEBI_10841_secondary-ac" />
+ <bp:xref rdf:resource="http://pathwaycommons.org/pc12/RelationshipXref_chebi_CHEBI_23357_see-also" />
+ <bp:xref rdf:resource="http://pathwaycommons.org/pc12/RelationshipXref_chebi_CHEBI_40938_secondary-ac" />
+ <bp:xref rdf:resource="http://pathwaycommons.org/pc12/RelationshipXref_chebi_CHEBI_2359_secondary-ac" />
+ <bp:xref rdf:resource="http://pathwaycommons.org/pc12/RelationshipXref_chebi_CHEBI_57299_see-also" />
+ <bp:xref rdf:resource="http://pathwaycommons.org/pc12/RelationshipXref_chebi_CHEBI_78675_see-also" />
+ <bp:xref rdf:resource="http://pathwaycommons.org/pc12/RelationshipXref_chebi_CHEBI_50733_see-also" />
+ <bp:xref rdf:resource="http://pathwaycommons.org/pc12/RelationshipXref_chebi_CHEBI_10789_secondary-ac" />
+ <bp:xref rdf:resource="http://pathwaycommons.org/pc12/RelationshipXref_chebi_CHEBI_22249_secondary-ac" />
+ <bp:xref rdf:resource="http://pathwaycommons.org/pc12/RelationshipXref_chebi_CHEBI_37045_multiple_parent_reference" />
+ <bp:xref rdf:resource="http://pathwaycommons.org/pc12/RelationshipXref_chebi_CHEBI_37096_multiple_parent_reference" />
+ <bp:displayName rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">ATP</bp:displayName>
+ <bp:name rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">CHEBI:15422</bp:name>
+ <bp:name rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">ADENOSINE-5&apos;-TRIPHOSPHATE</bp:name>
+ <bp:name rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">Adenosine 5&apos;-triphosphate</bp:name>
+ <bp:name rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">H4atp</bp:name>
+ <bp:name rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">Adenosine triphosphate</bp:name>
+ <bp:comment rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">REPLACED http://pathwaycommons.org/pc12/SmallMoleculeReference_bind_13_identity</bp:comment>
+ <bp:comment rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">is_a CHEBI:37045</bp:comment>
+ <bp:comment rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">has_role CHEBI:27027</bp:comment>
+ <bp:comment rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">is_conjugate_acid_of CHEBI:57299</bp:comment>
+ <bp:comment rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">has_role CHEBI:23357</bp:comment>
+ <bp:comment rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">is_a CHEBI:37096</bp:comment>
+ <bp:comment rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">REPLACED http://pid.nci.nih.gov/biopax#pid_2127</bp:comment>
+ <bp:comment rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">An adenosine 5&apos;-phosphate in which the 5&apos;-phosphate is a triphosphate group. It is involved in the transportation of chemical energy during metabolic pathways.</bp:comment>
+ <bp:comment rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">has_role CHEBI:50733</bp:comment>
+ <bp:comment rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">has_role CHEBI:78675</bp:comment>
+ <bp:comment rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">REPLACED http://pathwaycommons.org/pc12/SmallMoleculeReference_chebi_CHEBI_15422_identity</bp:comment>
+ <bp:comment rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">REPLACED http://www.ra.cs.uni-tuebingen.de/software/KEGGtranslator/cpdC00002.eref</bp:comment>
+</bp:SmallMoleculeReference>
+
+<bp:RelationshipXref rdf:about="http://pathwaycommons.org/pc12/RelationshipXref_hgnc_symbol_HK2_see-also">
+ <bp:relationshipType rdf:resource="http://identifiers.org/psimi/MI:0361" />
+ <bp:id rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">HK2</bp:id>
+ <bp:db rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">hgnc symbol</bp:db>
+</bp:RelationshipXref>
+
+<bp:RelationshipXref rdf:about="http://pathwaycommons.org/pc12/RelationshipXref_9805809d-4ba3-44b7-9067-35e1185dd489Ensembl_ENSG00000159399_2">
+ <bp:comment rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">REPLACED http://pathwaycommons.org/pc12/RelationshipXref_9805809d-4ba3-44b7-9067-35e1185dd489Ensembl_ENSG00000159399_2</bp:comment>
+ <bp:id rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">ENSG00000159399</bp:id>
+ <bp:db rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">ensembl</bp:db>
+</bp:RelationshipXref>
+
+<bp:RelationshipXref rdf:about="http://pathwaycommons.org/pc12/RelationshipXref_chebi_CHEBI_77746_see-also">
+ <bp:relationshipType rdf:resource="http://identifiers.org/psimi/MI:0361" />
+ <bp:id rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">CHEBI:77746</bp:id>
+ <bp:db rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">chebi</bp:db>
+</bp:RelationshipXref>
+
+<bp:RelationshipXref rdf:about="http://pathwaycommons.org/pc12/RelationshipXref_4ff591b7-66d0-428d-88c2-ed689b7620b4UniProt_AC_P52790_2">
+ <bp:comment rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">REPLACED http://pathwaycommons.org/pc12/RelationshipXref_4ff591b7-66d0-428d-88c2-ed689b7620b4UniProt_AC_P52790_2</bp:comment>
+ <bp:comment rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">PRIMARY</bp:comment>
+ <bp:id rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">P52790</bp:id>
+ <bp:db rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">uniprot knowledgebase</bp:db>
+</bp:RelationshipXref>
+
+<bp:UnificationXref rdf:about="http://pathwaycommons.org/pc12/UnificationXref_uniprot_knowledgebase_P35557">
+ <bp:comment rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">PRIMARY</bp:comment>
+ <bp:id rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">P35557</bp:id>
+ <bp:db rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">uniprot knowledgebase</bp:db>
+</bp:UnificationXref>
+
+<bp:RelationshipXref rdf:about="http://pathwaycommons.org/pc12/RelationshipXref_d8ed261d-c7ff-4f38-ab19-cf09a7640b70KEGG_Drug_D00009_2">
+ <bp:comment rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">REPLACED http://pathwaycommons.org/pc12/RelationshipXref_d8ed261d-c7ff-4f38-ab19-cf09a7640b70KEGG_Drug_D00009_2</bp:comment>
+ <bp:id rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">D00009</bp:id>
+ <bp:db rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">kegg drug</bp:db>
+</bp:RelationshipXref>
+
+<bp:BiochemicalReaction rdf:about="http://pathwaycommons.org/pc12/BiochemicalReaction_b90f0a8573f291f797cc5bb185ea4e1e">
+ <bp:participantStoichiometry rdf:resource="http://pathwaycommons.org/pc12/Stoichiometry_1a7ccb0322d8cbdaed4962cc8050d747" />
+ <bp:participantStoichiometry rdf:resource="http://pathwaycommons.org/pc12/Stoichiometry_b096da312a547c7477e27c169589ecf6" />
+ <bp:participantStoichiometry rdf:resource="http://pathwaycommons.org/pc12/Stoichiometry_689945e4170774d95071caf2f2ce1c14" />
+ <bp:participantStoichiometry rdf:resource="http://pathwaycommons.org/pc12/Stoichiometry_699e9f256112224b7dc90b528ac7417c" />
+ <bp:xref rdf:resource="http://pathwaycommons.org/pc12/RelationshipXref_1b7b9e89-802e-49f8-9529-5670b576654bKEGG_Pathway_rn00524_2" />
+ <bp:xref rdf:resource="http://pathwaycommons.org/pc12/UnificationXref_kegg_reaction_R00299" />
+ <bp:xref rdf:resource="http://pathwaycommons.org/pc12/RelationshipXref_b5c17807-93ad-4078-8415-4a462286bd5cKEGG_Pathway_rn01110_2" />
+ <bp:xref rdf:resource="http://pathwaycommons.org/pc12/RelationshipXref_1b07cf6c-6cd9-4f56-bfcf-39dd102f539bKEGG_Pathway_rn00521_2" />
+ <bp:displayName rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">rn:R00299</bp:displayName>
+ <bp:right rdf:resource="http://pathwaycommons.org/pc12/SmallMolecule_039c508c2cfcd36cfa46cba872eb6d17" />
+ <bp:right rdf:resource="http://pathwaycommons.org/pc12/SmallMolecule_aad98f59ac01f1b0532d0f7423259296" />
+ <bp:eCNumber rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">2.7.1.2</bp:eCNumber>
+ <bp:eCNumber rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">2.7.1.1</bp:eCNumber>
+ <bp:left rdf:resource="http://pathwaycommons.org/pc12/SmallMolecule_a4bf1e612aaa7d43a2cb3beaffdda42a" />
+ <bp:left rdf:resource="http://pathwaycommons.org/pc12/SmallMolecule_a4728f127f601d39b103cd57292cf90d" />
+ <bp:comment rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">REPLACED http://pathwaycommons.org/pc12/BiochemicalReaction_b90f0a8573f291f797cc5bb185ea4e1e</bp:comment>
+ <bp:comment rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">There are no missing atoms in this reaction.</bp:comment>
+ <bp:comment rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">Definition of RN:R00299: ATP + D-Glucose &lt;=&gt; ADP + D-Glucose 6-phosphate</bp:comment>
+ <bp:comment rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">Occurs in: Streptomycin biosynthesis,Butirosin and neomycin biosynthesis,Biosynthesis of secondary metabolites</bp:comment>
+ <bp:comment rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">Equation: C00002 &amp;#043; C00031 &amp;#60;&amp;#061;&amp;#62; C00008 &amp;#043; C00092</bp:comment>
+ <bp:dataSource rdf:resource="http://pathwaycommons.org/pc12/Provenance_7f56dcb833d61e9a798ef3c386d927b7" />
+ <bp:conversionDirection rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">LEFT_TO_RIGHT</bp:conversionDirection>
+</bp:BiochemicalReaction>
+
+<bp:RelationshipXref rdf:about="http://pathwaycommons.org/pc12/RelationshipXref_chebi_CHEBI_27027_see-also">
+ <bp:relationshipType rdf:resource="http://identifiers.org/psimi/MI:0361" />
+ <bp:id rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">CHEBI:27027</bp:id>
+ <bp:db rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">chebi</bp:db>
+</bp:RelationshipXref>
+
+<bp:RelationshipXref rdf:about="http://pathwaycommons.org/pc12/RelationshipXref_717aeef6-8517-47e7-b63b-4ebd68c808a3KEGG_Reaction_R03920_2">
+ <bp:comment rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">REPLACED http://pathwaycommons.org/pc12/RelationshipXref_717aeef6-8517-47e7-b63b-4ebd68c808a3KEGG_Reaction_R03920_2</bp:comment>
+ <bp:id rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">R03920</bp:id>
+ <bp:db rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">kegg reaction</bp:db>
+</bp:RelationshipXref>
+
+<bp:UnificationXref rdf:about="http://pathwaycommons.org/pc12/UnificationXref_molecular_interactions_ontology_MI_0360">
+ <bp:id rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">MI:0360</bp:id>
+ <bp:db rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">molecular interactions ontology</bp:db>
+</bp:UnificationXref>
+
+<bp:UnificationXref rdf:about="http://pathwaycommons.org/pc12/UnificationXref_molecular_interactions_ontology_MI_0361">
+ <bp:id rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">MI:0361</bp:id>
+ <bp:db rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">mi</bp:db>
+</bp:UnificationXref>
+
+<bp:RelationshipXref rdf:about="http://pathwaycommons.org/pc12/RelationshipXref_chebi_CHEBI_61548_see-also">
+ <bp:relationshipType rdf:resource="http://identifiers.org/psimi/MI:0361" />
+ <bp:id rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">CHEBI:61548</bp:id>
+ <bp:db rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">chebi</bp:db>
+</bp:RelationshipXref>
+
+<bp:RelationshipXref rdf:about="http://pathwaycommons.org/pc12/RelationshipXref_6bd01e95-55a1-4f17-a8b9-74d1543d5517PDBeChem_BGC_2">
+ <bp:comment rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">REPLACED http://pathwaycommons.org/pc12/RelationshipXref_6bd01e95-55a1-4f17-a8b9-74d1543d5517PDBeChem_BGC_2</bp:comment>
+ <bp:id rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">BGC</bp:id>
+ <bp:db rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">chemical component dictionary</bp:db>
+</bp:RelationshipXref>
+
+<bp:RelationshipXref rdf:about="http://pathwaycommons.org/pc12/RelationshipXref_chebi_CHEBI_57299_see-also">
+ <bp:relationshipType rdf:resource="http://identifiers.org/psimi/MI:0361" />
+ <bp:id rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">CHEBI:57299</bp:id>
+ <bp:db rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">chebi</bp:db>
+</bp:RelationshipXref>
+
+<bp:RelationshipXref rdf:about="http://pathwaycommons.org/pc12/RelationshipXref_128cad98-c008-4480-bff9-b6bb51da1704GeneOntology_GO0019872_2">
+ <bp:comment rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">REPLACED http://pathwaycommons.org/pc12/RelationshipXref_128cad98-c008-4480-bff9-b6bb51da1704GeneOntology_GO0019872_2</bp:comment>
+ <bp:id rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">GO:0019872</bp:id>
+ <bp:db rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">gene ontology</bp:db>
+</bp:RelationshipXref>
+
+<bp:RelationshipXref rdf:about="http://pathwaycommons.org/pc12/RelationshipXref_2a76eeb6-2fa1-4922-a2ca-647c99ff32d4KEGG_Reaction_R05196_2">
+ <bp:comment rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">REPLACED http://pathwaycommons.org/pc12/RelationshipXref_2a76eeb6-2fa1-4922-a2ca-647c99ff32d4KEGG_Reaction_R05196_2</bp:comment>
+ <bp:id rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">R05196</bp:id>
+ <bp:db rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">kegg reaction</bp:db>
+</bp:RelationshipXref>
+
+<bp:RelationshipXref rdf:about="http://pathwaycommons.org/pc12/RelationshipXref_6676a89e-082e-4a87-90d6-c49984c59fe8OMIM_142570_2">
+ <bp:comment rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">REPLACED http://pathwaycommons.org/pc12/RelationshipXref_6676a89e-082e-4a87-90d6-c49984c59fe8OMIM_142570_2</bp:comment>
+ <bp:id rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">142570</bp:id>
+ <bp:db rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">omim</bp:db>
+</bp:RelationshipXref>
+
+<bp:Stoichiometry rdf:about="http://pathwaycommons.org/pc12/Stoichiometry_1a7ccb0322d8cbdaed4962cc8050d747">
+ <bp:physicalEntity rdf:resource="http://pathwaycommons.org/pc12/SmallMolecule_a4bf1e612aaa7d43a2cb3beaffdda42a" />
+ <bp:comment rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">REPLACED http://pathwaycommons.org/pc12/Stoichiometry_1a7ccb0322d8cbdaed4962cc8050d747</bp:comment>
+ <bp:stoichiometricCoefficient rdf:datatype = "http://www.w3.org/2001/XMLSchema#float">1.0</bp:stoichiometricCoefficient>
+</bp:Stoichiometry>
+
+<bp:RelationshipXref rdf:about="http://pathwaycommons.org/pc12/RelationshipXref_b05a693f-21bd-4fd9-919f-16102d7b9bbbKEGG_Genes_hsa80201_2">
+ <bp:comment rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">REPLACED http://pathwaycommons.org/pc12/RelationshipXref_b05a693f-21bd-4fd9-919f-16102d7b9bbbKEGG_Genes_hsa80201_2</bp:comment>
+ <bp:id rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">hsa:80201</bp:id>
+ <bp:db rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">kegg genes</bp:db>
+</bp:RelationshipXref>
+
+<bp:RelationshipXref rdf:about="http://pathwaycommons.org/pc12/RelationshipXref_d5cb702e-7985-472e-aeb3-6e65c273677fKEGG_Reaction_R00867_2">
+ <bp:comment rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">REPLACED http://pathwaycommons.org/pc12/RelationshipXref_d5cb702e-7985-472e-aeb3-6e65c273677fKEGG_Reaction_R00867_2</bp:comment>
+ <bp:id rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">R00867</bp:id>
+ <bp:db rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">kegg reaction</bp:db>
+</bp:RelationshipXref>
+
+<bp:RelationshipXref rdf:about="http://pathwaycommons.org/pc12/RelationshipXref_ca0e2103-7420-4d0f-a505-eef12b65c43dKEGG_Reaction_R00801_2">
+ <bp:comment rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">REPLACED http://pathwaycommons.org/pc12/RelationshipXref_ca0e2103-7420-4d0f-a505-eef12b65c43dKEGG_Reaction_R00801_2</bp:comment>
+ <bp:id rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">R00801</bp:id>
+ <bp:db rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">kegg reaction</bp:db>
+</bp:RelationshipXref>
+
+<bp:RelationshipXref rdf:about="http://pathwaycommons.org/pc12/RelationshipXref_a6fc05d2-87fd-4616-ba88-52210fa0fa7dHGNC_23302_2">
+ <bp:comment rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">REPLACED http://pathwaycommons.org/pc12/RelationshipXref_a6fc05d2-87fd-4616-ba88-52210fa0fa7dHGNC_23302_2</bp:comment>
+ <bp:id rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">HGNC:23302</bp:id>
+ <bp:db rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">hgnc</bp:db>
+</bp:RelationshipXref>
+
+<bp:RelationshipXref rdf:about="http://pathwaycommons.org/pc12/RelationshipXref_chebi_CHEBI_22249_secondary-ac">
+ <bp:relationshipType rdf:resource="http://identifiers.org/psimi/MI:0360" />
+ <bp:id rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">CHEBI:22249</bp:id>
+ <bp:db rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">chebi</bp:db>
+</bp:RelationshipXref>
+
+<bp:RelationshipXref rdf:about="http://pathwaycommons.org/pc12/RelationshipXref_1efcbf78-f8ae-4b98-973f-33f807bcb8a1EntrezGene_3098_2">
+ <bp:comment rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">REPLACED http://pathwaycommons.org/pc12/RelationshipXref_1efcbf78-f8ae-4b98-973f-33f807bcb8a1EntrezGene_3098_2</bp:comment>
+ <bp:id rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">3098</bp:id>
+ <bp:db rdf:datatype = "http://www.w3.org/2001/XMLSchema#string">ncbi gene</bp:db>
+</bp:RelationshipXref>
+</rdf:RDF>

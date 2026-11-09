@@ -1,0 +1,57 @@
+PARTICIPANT_A	INTERACTION_TYPE	PARTICIPANT_B	INTERACTION_DATA_SOURCE	INTERACTION_PUBMED_ID	PATHWAY_NAMES	MEDIATOR_IDS
+CHEBI:15377	reacts-with	CHEBI:15379	KEGG		D-Arginine and D-ornithine metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_c5741f567404d1c685126aae5deaa75c;http://pathwaycommons.org/pc12/BiochemicalReaction_795251c33aa4dba46e6392f8e5fe09a5
+CHEBI:15377	reacts-with	CHEBI:15816	KEGG		D-Arginine and D-ornithine metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_795251c33aa4dba46e6392f8e5fe09a5
+CHEBI:15377	used-to-produce	CHEBI:16134	KEGG		D-Arginine and D-ornithine metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_c5741f567404d1c685126aae5deaa75c;http://pathwaycommons.org/pc12/BiochemicalReaction_795251c33aa4dba46e6392f8e5fe09a5
+CHEBI:15377	reacts-with	CHEBI:16176	KEGG		D-Arginine and D-ornithine metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_c5741f567404d1c685126aae5deaa75c
+CHEBI:15377	used-to-produce	CHEBI:16240	KEGG		D-Arginine and D-ornithine metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_c5741f567404d1c685126aae5deaa75c;http://pathwaycommons.org/pc12/BiochemicalReaction_795251c33aa4dba46e6392f8e5fe09a5
+CHEBI:15377	used-to-produce	CHEBI:17572	KEGG		D-Arginine and D-ornithine metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_c5741f567404d1c685126aae5deaa75c
+CHEBI:15377	used-to-produce	CHEBI:28116	KEGG		D-Arginine and D-ornithine metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_795251c33aa4dba46e6392f8e5fe09a5
+CHEBI:15377	consumption-controlled-by	DAO	KEGG		D-Arginine and D-ornithine metabolism	http://pathwaycommons.org/pc12/Catalysis_7f47ff2b1c6c8cb091c27ce61e431fe3;http://pathwaycommons.org/pc12/BiochemicalReaction_c5741f567404d1c685126aae5deaa75c;http://pathwaycommons.org/pc12/Catalysis_5b59394711d1658cdd701b72d8149c00;http://pathwaycommons.org/pc12/BiochemicalReaction_795251c33aa4dba46e6392f8e5fe09a5
+CHEBI:15379	reacts-with	CHEBI:15816	KEGG		D-Arginine and D-ornithine metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_795251c33aa4dba46e6392f8e5fe09a5
+CHEBI:15379	used-to-produce	CHEBI:16134	KEGG		D-Arginine and D-ornithine metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_c5741f567404d1c685126aae5deaa75c;http://pathwaycommons.org/pc12/BiochemicalReaction_795251c33aa4dba46e6392f8e5fe09a5
+CHEBI:15379	reacts-with	CHEBI:16176	KEGG		D-Arginine and D-ornithine metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_c5741f567404d1c685126aae5deaa75c
+CHEBI:15379	used-to-produce	CHEBI:16240	KEGG		D-Arginine and D-ornithine metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_c5741f567404d1c685126aae5deaa75c;http://pathwaycommons.org/pc12/BiochemicalReaction_795251c33aa4dba46e6392f8e5fe09a5
+CHEBI:15379	used-to-produce	CHEBI:17572	KEGG		D-Arginine and D-ornithine metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_c5741f567404d1c685126aae5deaa75c
+CHEBI:15379	used-to-produce	CHEBI:28116	KEGG		D-Arginine and D-ornithine metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_795251c33aa4dba46e6392f8e5fe09a5
+CHEBI:15379	consumption-controlled-by	DAO	KEGG		D-Arginine and D-ornithine metabolism	http://pathwaycommons.org/pc12/Catalysis_7f47ff2b1c6c8cb091c27ce61e431fe3;http://pathwaycommons.org/pc12/BiochemicalReaction_c5741f567404d1c685126aae5deaa75c;http://pathwaycommons.org/pc12/Catalysis_5b59394711d1658cdd701b72d8149c00;http://pathwaycommons.org/pc12/BiochemicalReaction_795251c33aa4dba46e6392f8e5fe09a5
+CHEBI:15816	used-to-produce	CHEBI:16134	KEGG		D-Arginine and D-ornithine metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_795251c33aa4dba46e6392f8e5fe09a5
+CHEBI:15816	used-to-produce	CHEBI:16240	KEGG		D-Arginine and D-ornithine metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_795251c33aa4dba46e6392f8e5fe09a5
+CHEBI:15816	used-to-produce	CHEBI:28116	KEGG		D-Arginine and D-ornithine metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_795251c33aa4dba46e6392f8e5fe09a5
+CHEBI:15816	consumption-controlled-by	DAO	KEGG		D-Arginine and D-ornithine metabolism	http://pathwaycommons.org/pc12/Catalysis_5b59394711d1658cdd701b72d8149c00;http://pathwaycommons.org/pc12/BiochemicalReaction_795251c33aa4dba46e6392f8e5fe09a5
+CHEBI:16134	used-to-produce	CHEBI:15377	KEGG		D-Arginine and D-ornithine metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_c5741f567404d1c685126aae5deaa75c
+CHEBI:16134	used-to-produce	CHEBI:15379	KEGG		D-Arginine and D-ornithine metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_c5741f567404d1c685126aae5deaa75c
+CHEBI:16134	used-to-produce	CHEBI:16176	KEGG		D-Arginine and D-ornithine metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_c5741f567404d1c685126aae5deaa75c
+CHEBI:16134	reacts-with	CHEBI:16240	KEGG		D-Arginine and D-ornithine metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_c5741f567404d1c685126aae5deaa75c
+CHEBI:16134	reacts-with	CHEBI:17572	KEGG		D-Arginine and D-ornithine metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_c5741f567404d1c685126aae5deaa75c
+CHEBI:16134	consumption-controlled-by	DAO	KEGG		D-Arginine and D-ornithine metabolism	http://pathwaycommons.org/pc12/Catalysis_7f47ff2b1c6c8cb091c27ce61e431fe3;http://pathwaycommons.org/pc12/BiochemicalReaction_c5741f567404d1c685126aae5deaa75c
+CHEBI:16176	used-to-produce	CHEBI:16134	KEGG		D-Arginine and D-ornithine metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_c5741f567404d1c685126aae5deaa75c
+CHEBI:16176	used-to-produce	CHEBI:16240	KEGG		D-Arginine and D-ornithine metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_c5741f567404d1c685126aae5deaa75c
+CHEBI:16176	used-to-produce	CHEBI:17572	KEGG		D-Arginine and D-ornithine metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_c5741f567404d1c685126aae5deaa75c
+CHEBI:16176	consumption-controlled-by	DAO	KEGG		D-Arginine and D-ornithine metabolism	http://pathwaycommons.org/pc12/Catalysis_7f47ff2b1c6c8cb091c27ce61e431fe3;http://pathwaycommons.org/pc12/BiochemicalReaction_c5741f567404d1c685126aae5deaa75c
+CHEBI:16240	used-to-produce	CHEBI:15377	KEGG		D-Arginine and D-ornithine metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_c5741f567404d1c685126aae5deaa75c
+CHEBI:16240	used-to-produce	CHEBI:15379	KEGG		D-Arginine and D-ornithine metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_c5741f567404d1c685126aae5deaa75c
+CHEBI:16240	used-to-produce	CHEBI:16176	KEGG		D-Arginine and D-ornithine metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_c5741f567404d1c685126aae5deaa75c
+CHEBI:16240	reacts-with	CHEBI:17572	KEGG		D-Arginine and D-ornithine metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_c5741f567404d1c685126aae5deaa75c
+CHEBI:16240	consumption-controlled-by	DAO	KEGG		D-Arginine and D-ornithine metabolism	http://pathwaycommons.org/pc12/Catalysis_7f47ff2b1c6c8cb091c27ce61e431fe3;http://pathwaycommons.org/pc12/BiochemicalReaction_c5741f567404d1c685126aae5deaa75c
+CHEBI:17572	used-to-produce	CHEBI:15377	KEGG		D-Arginine and D-ornithine metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_c5741f567404d1c685126aae5deaa75c
+CHEBI:17572	used-to-produce	CHEBI:15379	KEGG		D-Arginine and D-ornithine metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_c5741f567404d1c685126aae5deaa75c
+CHEBI:17572	used-to-produce	CHEBI:16176	KEGG		D-Arginine and D-ornithine metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_c5741f567404d1c685126aae5deaa75c
+CHEBI:17572	consumption-controlled-by	DAO	KEGG		D-Arginine and D-ornithine metabolism	http://pathwaycommons.org/pc12/Catalysis_7f47ff2b1c6c8cb091c27ce61e431fe3;http://pathwaycommons.org/pc12/BiochemicalReaction_c5741f567404d1c685126aae5deaa75c
+DAO	controls-production-of	CHEBI:15377	KEGG		D-Arginine and D-ornithine metabolism	http://pathwaycommons.org/pc12/Catalysis_7f47ff2b1c6c8cb091c27ce61e431fe3;http://pathwaycommons.org/pc12/BiochemicalReaction_c5741f567404d1c685126aae5deaa75c
+DAO	controls-production-of	CHEBI:15379	KEGG		D-Arginine and D-ornithine metabolism	http://pathwaycommons.org/pc12/Catalysis_7f47ff2b1c6c8cb091c27ce61e431fe3;http://pathwaycommons.org/pc12/BiochemicalReaction_c5741f567404d1c685126aae5deaa75c
+DAO	controls-production-of	CHEBI:16134	KEGG		D-Arginine and D-ornithine metabolism	http://pathwaycommons.org/pc12/Catalysis_7f47ff2b1c6c8cb091c27ce61e431fe3;http://pathwaycommons.org/pc12/BiochemicalReaction_c5741f567404d1c685126aae5deaa75c;http://pathwaycommons.org/pc12/Catalysis_5b59394711d1658cdd701b72d8149c00;http://pathwaycommons.org/pc12/BiochemicalReaction_795251c33aa4dba46e6392f8e5fe09a5
+DAO	controls-production-of	CHEBI:16176	KEGG		D-Arginine and D-ornithine metabolism	http://pathwaycommons.org/pc12/Catalysis_7f47ff2b1c6c8cb091c27ce61e431fe3;http://pathwaycommons.org/pc12/BiochemicalReaction_c5741f567404d1c685126aae5deaa75c
+DAO	controls-production-of	CHEBI:16240	KEGG		D-Arginine and D-ornithine metabolism	http://pathwaycommons.org/pc12/Catalysis_7f47ff2b1c6c8cb091c27ce61e431fe3;http://pathwaycommons.org/pc12/BiochemicalReaction_c5741f567404d1c685126aae5deaa75c;http://pathwaycommons.org/pc12/Catalysis_5b59394711d1658cdd701b72d8149c00;http://pathwaycommons.org/pc12/BiochemicalReaction_795251c33aa4dba46e6392f8e5fe09a5
+DAO	controls-production-of	CHEBI:17572	KEGG		D-Arginine and D-ornithine metabolism	http://pathwaycommons.org/pc12/Catalysis_7f47ff2b1c6c8cb091c27ce61e431fe3;http://pathwaycommons.org/pc12/BiochemicalReaction_c5741f567404d1c685126aae5deaa75c
+DAO	controls-production-of	CHEBI:28116	KEGG		D-Arginine and D-ornithine metabolism	http://pathwaycommons.org/pc12/Catalysis_5b59394711d1658cdd701b72d8149c00;http://pathwaycommons.org/pc12/BiochemicalReaction_795251c33aa4dba46e6392f8e5fe09a5
+
+PARTICIPANT	PARTICIPANT_TYPE	PARTICIPANT_NAME	UNIFICATION_XREF	RELATIONSHIP_XREF
+CHEBI:15377	SmallMoleculeReference	H2O	cas:7732-18-5	
+CHEBI:28116	SmallMoleculeReference	5-guanidino-2-oxopentanoic acid	chebi:CHEBI:28116	
+CHEBI:15379	SmallMoleculeReference	dioxygen	chebi:CHEBI:15379	
+DAO	ProteinReference	OXDA_HUMAN	uniprot knowledgebase:P14920	hgnc symbol:DAO
+CHEBI:16176	SmallMoleculeReference	D-ornithine	chebi:CHEBI:16176	
+CHEBI:16134	SmallMoleculeReference	ammonia	chebi:CHEBI:16134	
+CHEBI:17572	SmallMoleculeReference	2-Oxo-5-aminovalerate	kegg compound:C01110	
+CHEBI:15816	SmallMoleculeReference	D-arginine	chebi:CHEBI:15816	
+CHEBI:16240	SmallMoleculeReference	hydrogen peroxide	chebi:CHEBI:16240	

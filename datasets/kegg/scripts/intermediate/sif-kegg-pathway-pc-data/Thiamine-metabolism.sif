@@ -1,0 +1,79 @@
+PARTICIPANT_A	INTERACTION_TYPE	PARTICIPANT_B	INTERACTION_DATA_SOURCE	INTERACTION_PUBMED_ID	PATHWAY_NAMES	MEDIATOR_IDS
+CHEBI:15377	used-to-produce	CHEBI:26078	KEGG		Thiamine metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_1a88210f2cf370a8069e4862cf5f44d6;http://pathwaycommons.org/pc12/BiochemicalReaction_b405151d31442c6c6dcf9b6f85d8be09
+CHEBI:15377	reacts-with	CHEBI:9532	KEGG		Thiamine metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_1a88210f2cf370a8069e4862cf5f44d6
+CHEBI:15377	used-to-produce	CHEBI:9532	KEGG		Thiamine metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_b405151d31442c6c6dcf9b6f85d8be09
+CHEBI:15377	used-to-produce	CHEBI:9533	KEGG		Thiamine metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_1a88210f2cf370a8069e4862cf5f44d6
+CHEBI:15377	reacts-with	CHEBI:9534	KEGG		Thiamine metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_b405151d31442c6c6dcf9b6f85d8be09
+CHEBI:15377	consumption-controlled-by	NTPCR	KEGG		Thiamine metabolism	http://pathwaycommons.org/pc12/Catalysis_745adcc01371d970964f76be7c1a244c;http://pathwaycommons.org/pc12/BiochemicalReaction_1a88210f2cf370a8069e4862cf5f44d6
+CHEBI:15377	consumption-controlled-by	THTPA	KEGG		Thiamine metabolism	http://pathwaycommons.org/pc12/Catalysis_69631809a26dd7e942cfb0635aa764b3;http://pathwaycommons.org/pc12/BiochemicalReaction_b405151d31442c6c6dcf9b6f85d8be09
+CHEBI:15377	consumption-controlled-by	TPK1	KEGG		Thiamine metabolism	http://pathwaycommons.org/pc12/Catalysis_69631809a26dd7e942cfb0635aa764b3;http://pathwaycommons.org/pc12/BiochemicalReaction_b405151d31442c6c6dcf9b6f85d8be09
+CHEBI:15422	used-to-produce	CHEBI:16761	KEGG		Thiamine metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_e2321173204334a655345621b7660fb7
+CHEBI:15422	reacts-with	CHEBI:9532	KEGG		Thiamine metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_e2321173204334a655345621b7660fb7
+CHEBI:15422	used-to-produce	CHEBI:9534	KEGG		Thiamine metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_e2321173204334a655345621b7660fb7
+CHEBI:15422	consumption-controlled-by	TPK1	KEGG		Thiamine metabolism	http://pathwaycommons.org/pc12/Catalysis_54eeeb54b23d7b9d01c2d53c9dbd4460;http://pathwaycommons.org/pc12/BiochemicalReaction_e2321173204334a655345621b7660fb7
+CHEBI:16761	used-to-produce	CHEBI:15422	KEGG		Thiamine metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_e2321173204334a655345621b7660fb7
+CHEBI:16761	used-to-produce	CHEBI:9532	KEGG		Thiamine metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_e2321173204334a655345621b7660fb7
+CHEBI:16761	reacts-with	CHEBI:9534	KEGG		Thiamine metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_e2321173204334a655345621b7660fb7
+CHEBI:16761	consumption-controlled-by	TPK1	KEGG		Thiamine metabolism	http://pathwaycommons.org/pc12/Catalysis_54eeeb54b23d7b9d01c2d53c9dbd4460;http://pathwaycommons.org/pc12/BiochemicalReaction_e2321173204334a655345621b7660fb7
+CHEBI:17561	used-to-produce	CHEBI:16977	KEGG		Thiamine metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_9f470efff324ce728f0417a8c85a12b7
+CHEBI:17561	consumption-controlled-by	NFS1	KEGG		Thiamine metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_9f470efff324ce728f0417a8c85a12b7;http://pathwaycommons.org/pc12/Catalysis_47742084006a74b636a43447f62aad3c
+CHEBI:26078	used-to-produce	CHEBI:15377	KEGG		Thiamine metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_1a88210f2cf370a8069e4862cf5f44d6;http://pathwaycommons.org/pc12/BiochemicalReaction_b405151d31442c6c6dcf9b6f85d8be09
+CHEBI:26078	reacts-with	CHEBI:9532	KEGG		Thiamine metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_b405151d31442c6c6dcf9b6f85d8be09
+CHEBI:26078	used-to-produce	CHEBI:9532	KEGG		Thiamine metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_1a88210f2cf370a8069e4862cf5f44d6
+CHEBI:26078	reacts-with	CHEBI:9533	KEGG		Thiamine metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_1a88210f2cf370a8069e4862cf5f44d6
+CHEBI:26078	used-to-produce	CHEBI:9534	KEGG		Thiamine metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_b405151d31442c6c6dcf9b6f85d8be09
+CHEBI:26078	consumption-controlled-by	NTPCR	KEGG		Thiamine metabolism	http://pathwaycommons.org/pc12/Catalysis_745adcc01371d970964f76be7c1a244c;http://pathwaycommons.org/pc12/BiochemicalReaction_1a88210f2cf370a8069e4862cf5f44d6
+CHEBI:26078	consumption-controlled-by	THTPA	KEGG		Thiamine metabolism	http://pathwaycommons.org/pc12/Catalysis_69631809a26dd7e942cfb0635aa764b3;http://pathwaycommons.org/pc12/BiochemicalReaction_b405151d31442c6c6dcf9b6f85d8be09
+CHEBI:26078	consumption-controlled-by	TPK1	KEGG		Thiamine metabolism	http://pathwaycommons.org/pc12/Catalysis_69631809a26dd7e942cfb0635aa764b3;http://pathwaycommons.org/pc12/BiochemicalReaction_b405151d31442c6c6dcf9b6f85d8be09
+CHEBI:9532	used-to-produce	CHEBI:15377	KEGG		Thiamine metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_b405151d31442c6c6dcf9b6f85d8be09
+CHEBI:9532	used-to-produce	CHEBI:16761	KEGG		Thiamine metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_e2321173204334a655345621b7660fb7
+CHEBI:9532	used-to-produce	CHEBI:26078	KEGG		Thiamine metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_1a88210f2cf370a8069e4862cf5f44d6
+CHEBI:9532	used-to-produce	CHEBI:9533	KEGG		Thiamine metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_1a88210f2cf370a8069e4862cf5f44d6
+CHEBI:9532	used-to-produce	CHEBI:9534	KEGG		Thiamine metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_b405151d31442c6c6dcf9b6f85d8be09;http://pathwaycommons.org/pc12/BiochemicalReaction_e2321173204334a655345621b7660fb7
+CHEBI:9532	consumption-controlled-by	NTPCR	KEGG		Thiamine metabolism	http://pathwaycommons.org/pc12/Catalysis_745adcc01371d970964f76be7c1a244c;http://pathwaycommons.org/pc12/BiochemicalReaction_1a88210f2cf370a8069e4862cf5f44d6
+CHEBI:9532	consumption-controlled-by	THTPA	KEGG		Thiamine metabolism	http://pathwaycommons.org/pc12/Catalysis_69631809a26dd7e942cfb0635aa764b3;http://pathwaycommons.org/pc12/BiochemicalReaction_b405151d31442c6c6dcf9b6f85d8be09
+CHEBI:9532	consumption-controlled-by	TPK1	KEGG		Thiamine metabolism	http://pathwaycommons.org/pc12/Catalysis_54eeeb54b23d7b9d01c2d53c9dbd4460;http://pathwaycommons.org/pc12/Catalysis_69631809a26dd7e942cfb0635aa764b3;http://pathwaycommons.org/pc12/BiochemicalReaction_b405151d31442c6c6dcf9b6f85d8be09;http://pathwaycommons.org/pc12/BiochemicalReaction_e2321173204334a655345621b7660fb7
+CHEBI:9533	used-to-produce	CHEBI:15377	KEGG		Thiamine metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_1a88210f2cf370a8069e4862cf5f44d6
+CHEBI:9533	used-to-produce	CHEBI:9532	KEGG		Thiamine metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_1a88210f2cf370a8069e4862cf5f44d6
+CHEBI:9533	consumption-controlled-by	NTPCR	KEGG		Thiamine metabolism	http://pathwaycommons.org/pc12/Catalysis_745adcc01371d970964f76be7c1a244c;http://pathwaycommons.org/pc12/BiochemicalReaction_1a88210f2cf370a8069e4862cf5f44d6
+CHEBI:9534	used-to-produce	CHEBI:15422	KEGG		Thiamine metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_e2321173204334a655345621b7660fb7
+CHEBI:9534	used-to-produce	CHEBI:26078	KEGG		Thiamine metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_b405151d31442c6c6dcf9b6f85d8be09
+CHEBI:9534	used-to-produce	CHEBI:9532	KEGG		Thiamine metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_b405151d31442c6c6dcf9b6f85d8be09;http://pathwaycommons.org/pc12/BiochemicalReaction_e2321173204334a655345621b7660fb7
+CHEBI:9534	consumption-controlled-by	THTPA	KEGG		Thiamine metabolism	http://pathwaycommons.org/pc12/Catalysis_69631809a26dd7e942cfb0635aa764b3;http://pathwaycommons.org/pc12/BiochemicalReaction_b405151d31442c6c6dcf9b6f85d8be09
+CHEBI:9534	consumption-controlled-by	TPK1	KEGG		Thiamine metabolism	http://pathwaycommons.org/pc12/Catalysis_54eeeb54b23d7b9d01c2d53c9dbd4460;http://pathwaycommons.org/pc12/Catalysis_69631809a26dd7e942cfb0635aa764b3;http://pathwaycommons.org/pc12/BiochemicalReaction_b405151d31442c6c6dcf9b6f85d8be09;http://pathwaycommons.org/pc12/BiochemicalReaction_e2321173204334a655345621b7660fb7
+NFS1	controls-production-of	CHEBI:16977	KEGG		Thiamine metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_9f470efff324ce728f0417a8c85a12b7;http://pathwaycommons.org/pc12/Catalysis_47742084006a74b636a43447f62aad3c
+NTPCR	controls-production-of	CHEBI:15377	KEGG		Thiamine metabolism	http://pathwaycommons.org/pc12/Catalysis_745adcc01371d970964f76be7c1a244c;http://pathwaycommons.org/pc12/BiochemicalReaction_1a88210f2cf370a8069e4862cf5f44d6
+NTPCR	controls-production-of	CHEBI:26078	KEGG		Thiamine metabolism	http://pathwaycommons.org/pc12/Catalysis_745adcc01371d970964f76be7c1a244c;http://pathwaycommons.org/pc12/BiochemicalReaction_1a88210f2cf370a8069e4862cf5f44d6
+NTPCR	controls-production-of	CHEBI:9532	KEGG		Thiamine metabolism	http://pathwaycommons.org/pc12/Catalysis_745adcc01371d970964f76be7c1a244c;http://pathwaycommons.org/pc12/BiochemicalReaction_1a88210f2cf370a8069e4862cf5f44d6
+NTPCR	controls-production-of	CHEBI:9533	KEGG		Thiamine metabolism	http://pathwaycommons.org/pc12/Catalysis_745adcc01371d970964f76be7c1a244c;http://pathwaycommons.org/pc12/BiochemicalReaction_1a88210f2cf370a8069e4862cf5f44d6
+NTPCR	catalysis-precedes	THTPA	KEGG		Thiamine metabolism	http://pathwaycommons.org/pc12/Catalysis_745adcc01371d970964f76be7c1a244c;http://pathwaycommons.org/pc12/BiochemicalReaction_1a88210f2cf370a8069e4862cf5f44d6;http://pathwaycommons.org/pc12/Catalysis_69631809a26dd7e942cfb0635aa764b3;http://pathwaycommons.org/pc12/BiochemicalReaction_b405151d31442c6c6dcf9b6f85d8be09
+NTPCR	catalysis-precedes	TPK1	KEGG		Thiamine metabolism	http://pathwaycommons.org/pc12/Catalysis_745adcc01371d970964f76be7c1a244c;http://pathwaycommons.org/pc12/Catalysis_54eeeb54b23d7b9d01c2d53c9dbd4460;http://pathwaycommons.org/pc12/BiochemicalReaction_1a88210f2cf370a8069e4862cf5f44d6;http://pathwaycommons.org/pc12/Catalysis_69631809a26dd7e942cfb0635aa764b3;http://pathwaycommons.org/pc12/BiochemicalReaction_b405151d31442c6c6dcf9b6f85d8be09;http://pathwaycommons.org/pc12/BiochemicalReaction_e2321173204334a655345621b7660fb7
+THTPA	controls-production-of	CHEBI:15377	KEGG		Thiamine metabolism	http://pathwaycommons.org/pc12/Catalysis_69631809a26dd7e942cfb0635aa764b3;http://pathwaycommons.org/pc12/BiochemicalReaction_b405151d31442c6c6dcf9b6f85d8be09
+THTPA	controls-production-of	CHEBI:26078	KEGG		Thiamine metabolism	http://pathwaycommons.org/pc12/Catalysis_69631809a26dd7e942cfb0635aa764b3;http://pathwaycommons.org/pc12/BiochemicalReaction_b405151d31442c6c6dcf9b6f85d8be09
+THTPA	controls-production-of	CHEBI:9532	KEGG		Thiamine metabolism	http://pathwaycommons.org/pc12/Catalysis_69631809a26dd7e942cfb0635aa764b3;http://pathwaycommons.org/pc12/BiochemicalReaction_b405151d31442c6c6dcf9b6f85d8be09
+THTPA	controls-production-of	CHEBI:9534	KEGG		Thiamine metabolism	http://pathwaycommons.org/pc12/Catalysis_69631809a26dd7e942cfb0635aa764b3;http://pathwaycommons.org/pc12/BiochemicalReaction_b405151d31442c6c6dcf9b6f85d8be09
+THTPA	catalysis-precedes	NTPCR	KEGG		Thiamine metabolism	http://pathwaycommons.org/pc12/Catalysis_745adcc01371d970964f76be7c1a244c;http://pathwaycommons.org/pc12/Catalysis_69631809a26dd7e942cfb0635aa764b3;http://pathwaycommons.org/pc12/BiochemicalReaction_1a88210f2cf370a8069e4862cf5f44d6;http://pathwaycommons.org/pc12/BiochemicalReaction_b405151d31442c6c6dcf9b6f85d8be09
+THTPA	catalysis-precedes	TPK1	KEGG		Thiamine metabolism	http://pathwaycommons.org/pc12/Catalysis_54eeeb54b23d7b9d01c2d53c9dbd4460;http://pathwaycommons.org/pc12/Catalysis_69631809a26dd7e942cfb0635aa764b3;http://pathwaycommons.org/pc12/BiochemicalReaction_b405151d31442c6c6dcf9b6f85d8be09;http://pathwaycommons.org/pc12/BiochemicalReaction_e2321173204334a655345621b7660fb7
+TPK1	controls-production-of	CHEBI:15377	KEGG		Thiamine metabolism	http://pathwaycommons.org/pc12/Catalysis_69631809a26dd7e942cfb0635aa764b3;http://pathwaycommons.org/pc12/BiochemicalReaction_b405151d31442c6c6dcf9b6f85d8be09
+TPK1	controls-production-of	CHEBI:15422	KEGG		Thiamine metabolism	http://pathwaycommons.org/pc12/Catalysis_54eeeb54b23d7b9d01c2d53c9dbd4460;http://pathwaycommons.org/pc12/BiochemicalReaction_e2321173204334a655345621b7660fb7
+TPK1	controls-production-of	CHEBI:16761	KEGG		Thiamine metabolism	http://pathwaycommons.org/pc12/Catalysis_54eeeb54b23d7b9d01c2d53c9dbd4460;http://pathwaycommons.org/pc12/BiochemicalReaction_e2321173204334a655345621b7660fb7
+TPK1	controls-production-of	CHEBI:26078	KEGG		Thiamine metabolism	http://pathwaycommons.org/pc12/Catalysis_69631809a26dd7e942cfb0635aa764b3;http://pathwaycommons.org/pc12/BiochemicalReaction_b405151d31442c6c6dcf9b6f85d8be09
+TPK1	controls-production-of	CHEBI:9532	KEGG		Thiamine metabolism	http://pathwaycommons.org/pc12/Catalysis_54eeeb54b23d7b9d01c2d53c9dbd4460;http://pathwaycommons.org/pc12/Catalysis_69631809a26dd7e942cfb0635aa764b3;http://pathwaycommons.org/pc12/BiochemicalReaction_b405151d31442c6c6dcf9b6f85d8be09;http://pathwaycommons.org/pc12/BiochemicalReaction_e2321173204334a655345621b7660fb7
+TPK1	controls-production-of	CHEBI:9534	KEGG		Thiamine metabolism	http://pathwaycommons.org/pc12/Catalysis_54eeeb54b23d7b9d01c2d53c9dbd4460;http://pathwaycommons.org/pc12/Catalysis_69631809a26dd7e942cfb0635aa764b3;http://pathwaycommons.org/pc12/BiochemicalReaction_b405151d31442c6c6dcf9b6f85d8be09;http://pathwaycommons.org/pc12/BiochemicalReaction_e2321173204334a655345621b7660fb7
+TPK1	catalysis-precedes	NTPCR	KEGG		Thiamine metabolism	http://pathwaycommons.org/pc12/Catalysis_54eeeb54b23d7b9d01c2d53c9dbd4460;http://pathwaycommons.org/pc12/Catalysis_745adcc01371d970964f76be7c1a244c;http://pathwaycommons.org/pc12/BiochemicalReaction_1a88210f2cf370a8069e4862cf5f44d6;http://pathwaycommons.org/pc12/Catalysis_69631809a26dd7e942cfb0635aa764b3;http://pathwaycommons.org/pc12/BiochemicalReaction_b405151d31442c6c6dcf9b6f85d8be09;http://pathwaycommons.org/pc12/BiochemicalReaction_e2321173204334a655345621b7660fb7
+TPK1	catalysis-precedes	THTPA	KEGG		Thiamine metabolism	http://pathwaycommons.org/pc12/Catalysis_54eeeb54b23d7b9d01c2d53c9dbd4460;http://pathwaycommons.org/pc12/Catalysis_69631809a26dd7e942cfb0635aa764b3;http://pathwaycommons.org/pc12/BiochemicalReaction_b405151d31442c6c6dcf9b6f85d8be09;http://pathwaycommons.org/pc12/BiochemicalReaction_e2321173204334a655345621b7660fb7
+
+PARTICIPANT	PARTICIPANT_TYPE	PARTICIPANT_NAME	UNIFICATION_XREF	RELATIONSHIP_XREF
+CHEBI:26078	SmallMoleculeReference	phosphoric acid	chebi:CHEBI:26078	
+TPK1	ProteinReference	TPK1_HUMAN	uniprot knowledgebase:Q9H3S4	hgnc symbol:TPK1
+NTPCR	ProteinReference	NTPCR_HUMAN	uniprot knowledgebase:Q9BSD7	hgnc symbol:NTPCR
+CHEBI:9532	SmallMoleculeReference	thiamine(1+) diphosphate	chebi:CHEBI:9532	
+CHEBI:16977	SmallMoleculeReference	L-alanine	chebi:CHEBI:16977	
+CHEBI:9533	SmallMoleculeReference	thiamine(1+) monophosphate	chebi:CHEBI:9533	
+THTPA	ProteinReference	THTPA_HUMAN	uniprot knowledgebase:Q9BU02	hgnc symbol:THTPA
+CHEBI:15422	SmallMoleculeReference	ATP	chebi:CHEBI:15422	
+CHEBI:15377	SmallMoleculeReference	H2O	cas:7732-18-5	
+NFS1	ProteinReference	NFS1_HUMAN	uniprot knowledgebase:Q9Y697	hgnc symbol:NFS1
+CHEBI:9534	SmallMoleculeReference	Thiamin triphosphate	cas:15666-52-1	
+CHEBI:16761	SmallMoleculeReference	ADP	chebi:CHEBI:16761	
+CHEBI:17561	SmallMoleculeReference	L-cysteine	chebi:CHEBI:17561	

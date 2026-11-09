@@ -1,0 +1,92 @@
+PARTICIPANT_A	INTERACTION_TYPE	PARTICIPANT_B	INTERACTION_DATA_SOURCE	INTERACTION_PUBMED_ID	PATHWAY_NAMES	MEDIATOR_IDS
+ACP6	catalysis-precedes	BLVRB	KEGG		Riboflavin metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_c88bb31bb02a4c432f6d1524678ef2d1;http://pathwaycommons.org/pc12/Catalysis_087f759fecc4ffed6d910ad4399ec7a8;http://pathwaycommons.org/pc12/Catalysis_f34904519d357341d7ac23fb01862887;http://pathwaycommons.org/pc12/BiochemicalReaction_8015ce1c62612855f9a3bffd8eaab14d
+ACP6	controls-production-of	CHEBI:17015	KEGG		Riboflavin metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_c88bb31bb02a4c432f6d1524678ef2d1;http://pathwaycommons.org/pc12/Catalysis_087f759fecc4ffed6d910ad4399ec7a8
+ACP6	controls-production-of	CHEBI:26078	KEGG		Riboflavin metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_c88bb31bb02a4c432f6d1524678ef2d1;http://pathwaycommons.org/pc12/Catalysis_087f759fecc4ffed6d910ad4399ec7a8
+ACP6	catalysis-precedes	RFK	KEGG		Riboflavin metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_c88bb31bb02a4c432f6d1524678ef2d1;http://pathwaycommons.org/pc12/Catalysis_087f759fecc4ffed6d910ad4399ec7a8;http://pathwaycommons.org/pc12/BiochemicalReaction_7005be650932a10443fd59c5cffc661d;http://pathwaycommons.org/pc12/Catalysis_56b28c95ca8f49b39bd1b02833750a69
+BLVRB	controls-production-of	CHEBI:15378	KEGG		Riboflavin metabolism	http://pathwaycommons.org/pc12/Catalysis_f34904519d357341d7ac23fb01862887;http://pathwaycommons.org/pc12/BiochemicalReaction_8015ce1c62612855f9a3bffd8eaab14d
+BLVRB	controls-production-of	CHEBI:16474	KEGG		Riboflavin metabolism	http://pathwaycommons.org/pc12/Catalysis_f34904519d357341d7ac23fb01862887;http://pathwaycommons.org/pc12/BiochemicalReaction_8015ce1c62612855f9a3bffd8eaab14d
+BLVRB	controls-production-of	CHEBI:17015	KEGG		Riboflavin metabolism	http://pathwaycommons.org/pc12/Catalysis_f34904519d357341d7ac23fb01862887;http://pathwaycommons.org/pc12/BiochemicalReaction_8015ce1c62612855f9a3bffd8eaab14d
+BLVRB	controls-production-of	CHEBI:17607	KEGG		Riboflavin metabolism	http://pathwaycommons.org/pc12/Catalysis_f34904519d357341d7ac23fb01862887;http://pathwaycommons.org/pc12/BiochemicalReaction_8015ce1c62612855f9a3bffd8eaab14d
+BLVRB	controls-production-of	CHEBI:18009	KEGG		Riboflavin metabolism	http://pathwaycommons.org/pc12/Catalysis_f34904519d357341d7ac23fb01862887;http://pathwaycommons.org/pc12/BiochemicalReaction_8015ce1c62612855f9a3bffd8eaab14d
+BLVRB	catalysis-precedes	RFK	KEGG		Riboflavin metabolism	http://pathwaycommons.org/pc12/Catalysis_f34904519d357341d7ac23fb01862887;http://pathwaycommons.org/pc12/BiochemicalReaction_7005be650932a10443fd59c5cffc661d;http://pathwaycommons.org/pc12/BiochemicalReaction_8015ce1c62612855f9a3bffd8eaab14d;http://pathwaycommons.org/pc12/Catalysis_56b28c95ca8f49b39bd1b02833750a69
+CHEBI:15377	consumption-controlled-by	ACP6	KEGG		Riboflavin metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_c88bb31bb02a4c432f6d1524678ef2d1;http://pathwaycommons.org/pc12/Catalysis_087f759fecc4ffed6d910ad4399ec7a8
+CHEBI:15377	used-to-produce	CHEBI:16027	KEGG		Riboflavin metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_d74a4ecfc34ce99789000009d0b2b218
+CHEBI:15377	reacts-with	CHEBI:16238	KEGG		Riboflavin metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_d74a4ecfc34ce99789000009d0b2b218
+CHEBI:15377	used-to-produce	CHEBI:17015	KEGG		Riboflavin metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_c88bb31bb02a4c432f6d1524678ef2d1
+CHEBI:15377	reacts-with	CHEBI:17621	KEGG		Riboflavin metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_c88bb31bb02a4c432f6d1524678ef2d1
+CHEBI:15377	used-to-produce	CHEBI:17621	KEGG		Riboflavin metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_d74a4ecfc34ce99789000009d0b2b218
+CHEBI:15377	used-to-produce	CHEBI:26078	KEGG		Riboflavin metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_c88bb31bb02a4c432f6d1524678ef2d1
+CHEBI:15377	consumption-controlled-by	ENPP1	KEGG		Riboflavin metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_d74a4ecfc34ce99789000009d0b2b218;http://pathwaycommons.org/pc12/Catalysis_adae0ccdd1fe7d361ad78d633f010e94
+CHEBI:15378	consumption-controlled-by	BLVRB	KEGG		Riboflavin metabolism	http://pathwaycommons.org/pc12/Catalysis_f34904519d357341d7ac23fb01862887;http://pathwaycommons.org/pc12/BiochemicalReaction_8015ce1c62612855f9a3bffd8eaab14d
+CHEBI:15378	reacts-with	CHEBI:16474	KEGG		Riboflavin metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_8015ce1c62612855f9a3bffd8eaab14d
+CHEBI:15378	reacts-with	CHEBI:17015	KEGG		Riboflavin metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_8015ce1c62612855f9a3bffd8eaab14d
+CHEBI:15378	used-to-produce	CHEBI:17607	KEGG		Riboflavin metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_8015ce1c62612855f9a3bffd8eaab14d
+CHEBI:15378	used-to-produce	CHEBI:18009	KEGG		Riboflavin metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_8015ce1c62612855f9a3bffd8eaab14d
+CHEBI:15379	used-to-produce	CHEBI:15377	KEGG		Riboflavin metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_d8cf77ba1fb4f1b3df74f51f122c0401
+CHEBI:15379	used-to-produce	CHEBI:16509	KEGG		Riboflavin metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_d8cf77ba1fb4f1b3df74f51f122c0401
+CHEBI:15379	reacts-with	CHEBI:17594	KEGG		Riboflavin metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_d8cf77ba1fb4f1b3df74f51f122c0401
+CHEBI:15379	consumption-controlled-by	TYR	KEGG		Riboflavin metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_d8cf77ba1fb4f1b3df74f51f122c0401;http://pathwaycommons.org/pc12/Catalysis_21ad2505b0cf9e1035a1c15e8732ee02
+CHEBI:15422	used-to-produce	CHEBI:16761	KEGG		Riboflavin metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_7005be650932a10443fd59c5cffc661d
+CHEBI:15422	reacts-with	CHEBI:17015	KEGG		Riboflavin metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_7005be650932a10443fd59c5cffc661d
+CHEBI:15422	used-to-produce	CHEBI:17621	KEGG		Riboflavin metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_7005be650932a10443fd59c5cffc661d
+CHEBI:15422	consumption-controlled-by	RFK	KEGG		Riboflavin metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_7005be650932a10443fd59c5cffc661d;http://pathwaycommons.org/pc12/Catalysis_56b28c95ca8f49b39bd1b02833750a69
+CHEBI:16238	used-to-produce	CHEBI:16027	KEGG		Riboflavin metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_d74a4ecfc34ce99789000009d0b2b218
+CHEBI:16238	used-to-produce	CHEBI:17621	KEGG		Riboflavin metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_d74a4ecfc34ce99789000009d0b2b218
+CHEBI:16238	consumption-controlled-by	ENPP1	KEGG		Riboflavin metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_d74a4ecfc34ce99789000009d0b2b218;http://pathwaycommons.org/pc12/Catalysis_adae0ccdd1fe7d361ad78d633f010e94
+CHEBI:16474	consumption-controlled-by	BLVRB	KEGG		Riboflavin metabolism	http://pathwaycommons.org/pc12/Catalysis_f34904519d357341d7ac23fb01862887;http://pathwaycommons.org/pc12/BiochemicalReaction_8015ce1c62612855f9a3bffd8eaab14d
+CHEBI:16474	reacts-with	CHEBI:17015	KEGG		Riboflavin metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_8015ce1c62612855f9a3bffd8eaab14d
+CHEBI:16474	used-to-produce	CHEBI:17607	KEGG		Riboflavin metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_8015ce1c62612855f9a3bffd8eaab14d
+CHEBI:16474	used-to-produce	CHEBI:18009	KEGG		Riboflavin metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_8015ce1c62612855f9a3bffd8eaab14d
+CHEBI:17015	consumption-controlled-by	BLVRB	KEGG		Riboflavin metabolism	http://pathwaycommons.org/pc12/Catalysis_f34904519d357341d7ac23fb01862887;http://pathwaycommons.org/pc12/BiochemicalReaction_8015ce1c62612855f9a3bffd8eaab14d
+CHEBI:17015	used-to-produce	CHEBI:16761	KEGG		Riboflavin metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_7005be650932a10443fd59c5cffc661d
+CHEBI:17015	used-to-produce	CHEBI:17607	KEGG		Riboflavin metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_8015ce1c62612855f9a3bffd8eaab14d
+CHEBI:17015	used-to-produce	CHEBI:17621	KEGG		Riboflavin metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_7005be650932a10443fd59c5cffc661d
+CHEBI:17015	used-to-produce	CHEBI:18009	KEGG		Riboflavin metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_8015ce1c62612855f9a3bffd8eaab14d
+CHEBI:17015	consumption-controlled-by	RFK	KEGG		Riboflavin metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_7005be650932a10443fd59c5cffc661d;http://pathwaycommons.org/pc12/Catalysis_56b28c95ca8f49b39bd1b02833750a69
+CHEBI:17594	used-to-produce	CHEBI:15377	KEGG		Riboflavin metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_d8cf77ba1fb4f1b3df74f51f122c0401
+CHEBI:17594	used-to-produce	CHEBI:16509	KEGG		Riboflavin metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_d8cf77ba1fb4f1b3df74f51f122c0401
+CHEBI:17594	consumption-controlled-by	TYR	KEGG		Riboflavin metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_d8cf77ba1fb4f1b3df74f51f122c0401;http://pathwaycommons.org/pc12/Catalysis_21ad2505b0cf9e1035a1c15e8732ee02
+CHEBI:17607	consumption-controlled-by	BLVRB	KEGG		Riboflavin metabolism	http://pathwaycommons.org/pc12/Catalysis_f34904519d357341d7ac23fb01862887;http://pathwaycommons.org/pc12/BiochemicalReaction_8015ce1c62612855f9a3bffd8eaab14d
+CHEBI:17607	used-to-produce	CHEBI:15378	KEGG		Riboflavin metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_8015ce1c62612855f9a3bffd8eaab14d
+CHEBI:17607	used-to-produce	CHEBI:16474	KEGG		Riboflavin metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_8015ce1c62612855f9a3bffd8eaab14d
+CHEBI:17607	used-to-produce	CHEBI:17015	KEGG		Riboflavin metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_8015ce1c62612855f9a3bffd8eaab14d
+CHEBI:17607	reacts-with	CHEBI:18009	KEGG		Riboflavin metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_8015ce1c62612855f9a3bffd8eaab14d
+CHEBI:17621	consumption-controlled-by	ACP6	KEGG		Riboflavin metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_c88bb31bb02a4c432f6d1524678ef2d1;http://pathwaycommons.org/pc12/Catalysis_087f759fecc4ffed6d910ad4399ec7a8
+CHEBI:17621	used-to-produce	CHEBI:17015	KEGG		Riboflavin metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_c88bb31bb02a4c432f6d1524678ef2d1
+CHEBI:17621	used-to-produce	CHEBI:26078	KEGG		Riboflavin metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_c88bb31bb02a4c432f6d1524678ef2d1
+CHEBI:18009	consumption-controlled-by	BLVRB	KEGG		Riboflavin metabolism	http://pathwaycommons.org/pc12/Catalysis_f34904519d357341d7ac23fb01862887;http://pathwaycommons.org/pc12/BiochemicalReaction_8015ce1c62612855f9a3bffd8eaab14d
+CHEBI:18009	used-to-produce	CHEBI:15378	KEGG		Riboflavin metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_8015ce1c62612855f9a3bffd8eaab14d
+CHEBI:18009	used-to-produce	CHEBI:16474	KEGG		Riboflavin metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_8015ce1c62612855f9a3bffd8eaab14d
+CHEBI:18009	used-to-produce	CHEBI:17015	KEGG		Riboflavin metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_8015ce1c62612855f9a3bffd8eaab14d
+ENPP1	catalysis-precedes	ACP6	KEGG		Riboflavin metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_c88bb31bb02a4c432f6d1524678ef2d1;http://pathwaycommons.org/pc12/Catalysis_087f759fecc4ffed6d910ad4399ec7a8;http://pathwaycommons.org/pc12/BiochemicalReaction_d74a4ecfc34ce99789000009d0b2b218;http://pathwaycommons.org/pc12/Catalysis_adae0ccdd1fe7d361ad78d633f010e94
+ENPP1	controls-production-of	CHEBI:16027	KEGG		Riboflavin metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_d74a4ecfc34ce99789000009d0b2b218;http://pathwaycommons.org/pc12/Catalysis_adae0ccdd1fe7d361ad78d633f010e94
+ENPP1	controls-production-of	CHEBI:17621	KEGG		Riboflavin metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_d74a4ecfc34ce99789000009d0b2b218;http://pathwaycommons.org/pc12/Catalysis_adae0ccdd1fe7d361ad78d633f010e94
+RFK	catalysis-precedes	ACP6	KEGG		Riboflavin metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_c88bb31bb02a4c432f6d1524678ef2d1;http://pathwaycommons.org/pc12/Catalysis_087f759fecc4ffed6d910ad4399ec7a8;http://pathwaycommons.org/pc12/BiochemicalReaction_7005be650932a10443fd59c5cffc661d;http://pathwaycommons.org/pc12/Catalysis_56b28c95ca8f49b39bd1b02833750a69
+RFK	controls-production-of	CHEBI:16761	KEGG		Riboflavin metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_7005be650932a10443fd59c5cffc661d;http://pathwaycommons.org/pc12/Catalysis_56b28c95ca8f49b39bd1b02833750a69
+RFK	controls-production-of	CHEBI:17621	KEGG		Riboflavin metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_7005be650932a10443fd59c5cffc661d;http://pathwaycommons.org/pc12/Catalysis_56b28c95ca8f49b39bd1b02833750a69
+TYR	catalysis-precedes	ACP6	KEGG		Riboflavin metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_c88bb31bb02a4c432f6d1524678ef2d1;http://pathwaycommons.org/pc12/Catalysis_087f759fecc4ffed6d910ad4399ec7a8;http://pathwaycommons.org/pc12/BiochemicalReaction_d8cf77ba1fb4f1b3df74f51f122c0401;http://pathwaycommons.org/pc12/Catalysis_21ad2505b0cf9e1035a1c15e8732ee02
+TYR	controls-production-of	CHEBI:15377	KEGG		Riboflavin metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_d8cf77ba1fb4f1b3df74f51f122c0401;http://pathwaycommons.org/pc12/Catalysis_21ad2505b0cf9e1035a1c15e8732ee02
+TYR	controls-production-of	CHEBI:16509	KEGG		Riboflavin metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_d8cf77ba1fb4f1b3df74f51f122c0401;http://pathwaycommons.org/pc12/Catalysis_21ad2505b0cf9e1035a1c15e8732ee02
+TYR	catalysis-precedes	ENPP1	KEGG		Riboflavin metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_d8cf77ba1fb4f1b3df74f51f122c0401;http://pathwaycommons.org/pc12/BiochemicalReaction_d74a4ecfc34ce99789000009d0b2b218;http://pathwaycommons.org/pc12/Catalysis_adae0ccdd1fe7d361ad78d633f010e94;http://pathwaycommons.org/pc12/Catalysis_21ad2505b0cf9e1035a1c15e8732ee02
+
+PARTICIPANT	PARTICIPANT_TYPE	PARTICIPANT_NAME	UNIFICATION_XREF	RELATIONSHIP_XREF
+CHEBI:26078	SmallMoleculeReference	phosphoric acid	chebi:CHEBI:26078	
+CHEBI:17607	SmallMoleculeReference	1,5-dihydroriboflavin	chebi:CHEBI:17607	
+CHEBI:16509	SmallMoleculeReference	1,4-benzoquinone	chebi:CHEBI:16509	
+TYR	ProteinReference	TYRO_HUMAN	uniprot knowledgebase:P14679	hgnc symbol:TYR
+CHEBI:16027	SmallMoleculeReference	adenosine 5'-monophosphate	chebi:CHEBI:16027	
+CHEBI:15378	SmallMoleculeReference	H+	kegg compound:C00080	
+CHEBI:15422	SmallMoleculeReference	ATP	chebi:CHEBI:15422	
+CHEBI:18009	SmallMoleculeReference	TPN	cas:53-59-8	
+CHEBI:15377	SmallMoleculeReference	H2O	cas:7732-18-5	
+CHEBI:16238	SmallMoleculeReference	FAD	chebi:CHEBI:16238	
+CHEBI:17621	SmallMoleculeReference	FMN	chebi:CHEBI:17621	
+CHEBI:15379	SmallMoleculeReference	dioxygen	chebi:CHEBI:15379	
+CHEBI:16474	SmallMoleculeReference	NADPH	chebi:CHEBI:16474	
+CHEBI:17015	SmallMoleculeReference	riboflavin	chebi:CHEBI:17015	
+RFK	ProteinReference	RIFK_HUMAN	uniprot knowledgebase:Q969G6	hgnc symbol:RFK
+ACP6	ProteinReference	PPA6_HUMAN	uniprot knowledgebase:Q9NPH0	hgnc symbol:ACP6
+CHEBI:16761	SmallMoleculeReference	ADP	chebi:CHEBI:16761	
+BLVRB	ProteinReference	BLVRB_HUMAN	uniprot knowledgebase:P30043	hgnc symbol:BLVRB
+ENPP1	ProteinReference	ENPP1_HUMAN	uniprot knowledgebase:P22413	hgnc symbol:ENPP1
+CHEBI:17594	SmallMoleculeReference	hydroquinone	chebi:CHEBI:17594	

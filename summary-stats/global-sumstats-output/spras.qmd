@@ -1,0 +1,36 @@
+---
+title: "spras poster 2026"
+author: "iris jan"
+format: html
+editor: visual
+---
+
+
+```{r}
+library(tidyverse)
+library(ggplot2)
+library(dplyr)
+
+sumstats <- read_csv("kegg_sumstats.csv")
+```
+
+You can add options to executable code like this
+
+```{r}
+
+ggplot(data=sumstats, mapping = aes(x = Edges, y = Nodes)) +
+  geom_jitter(alpha=0.5) +
+  scale_x_log10() +
+  scale_y_log10() +
+  geom_point(
+      data = filter(sumstats, Edges == 149),
+      shape = 1,
+      size = 7, 
+      color = "#720F32",
+      stroke = 1.5 
+      ) +
+  labs(title="Log-log plot of Edge vs. Node Counts per KEGG Metabolic Pathway", x="Number of Edges", y="Number of Nodes")
+
+```
+
+The `echo: false` option disables the printing of code (only output is displayed).

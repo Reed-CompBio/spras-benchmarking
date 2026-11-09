@@ -1,0 +1,21 @@
+PARTICIPANT_A	INTERACTION_TYPE	PARTICIPANT_B	INTERACTION_DATA_SOURCE	INTERACTION_PUBMED_ID	PATHWAY_NAMES	MEDIATOR_IDS
+AKR1B10	controls-production-of	CHEBI:15378	KEGG		Linoleic acid metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_7fe01e70329caa0a65c503ac1d51b503;http://pathwaycommons.org/pc12/Catalysis_68cd3841d3ddf41232542efe52c794dd
+AKR1B10	controls-production-of	CHEBI:16908	KEGG		Linoleic acid metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_7fe01e70329caa0a65c503ac1d51b503;http://pathwaycommons.org/pc12/Catalysis_68cd3841d3ddf41232542efe52c794dd
+AKR1B10	controls-production-of	CHEBI:68947	KEGG		Linoleic acid metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_7fe01e70329caa0a65c503ac1d51b503;http://pathwaycommons.org/pc12/Catalysis_68cd3841d3ddf41232542efe52c794dd
+CHEBI:15846	consumption-controlled-by	AKR1B10	KEGG		Linoleic acid metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_7fe01e70329caa0a65c503ac1d51b503;http://pathwaycommons.org/pc12/Catalysis_68cd3841d3ddf41232542efe52c794dd
+CHEBI:15846	used-to-produce	CHEBI:15378	KEGG		Linoleic acid metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_7fe01e70329caa0a65c503ac1d51b503
+CHEBI:15846	used-to-produce	CHEBI:16908	KEGG		Linoleic acid metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_7fe01e70329caa0a65c503ac1d51b503
+CHEBI:15846	reacts-with	CHEBI:34154	KEGG		Linoleic acid metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_7fe01e70329caa0a65c503ac1d51b503
+CHEBI:15846	used-to-produce	CHEBI:68947	KEGG		Linoleic acid metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_7fe01e70329caa0a65c503ac1d51b503
+CHEBI:34154	consumption-controlled-by	AKR1B10	KEGG		Linoleic acid metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_7fe01e70329caa0a65c503ac1d51b503;http://pathwaycommons.org/pc12/Catalysis_68cd3841d3ddf41232542efe52c794dd
+CHEBI:34154	used-to-produce	CHEBI:15378	KEGG		Linoleic acid metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_7fe01e70329caa0a65c503ac1d51b503
+CHEBI:34154	used-to-produce	CHEBI:16908	KEGG		Linoleic acid metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_7fe01e70329caa0a65c503ac1d51b503
+CHEBI:34154	used-to-produce	CHEBI:68947	KEGG		Linoleic acid metabolism	http://pathwaycommons.org/pc12/BiochemicalReaction_7fe01e70329caa0a65c503ac1d51b503
+
+PARTICIPANT	PARTICIPANT_TYPE	PARTICIPANT_NAME	UNIFICATION_XREF	RELATIONSHIP_XREF
+CHEBI:15378	SmallMoleculeReference	H+	kegg compound:C00080	
+CHEBI:68947	SmallMoleculeReference	13-oxo-9Z,11E-ODE	chebi:CHEBI:68947	
+AKR1B10	ProteinReference	AK1BA_HUMAN	uniprot knowledgebase:O60218	hgnc symbol:AKR1B10
+CHEBI:16908	SmallMoleculeReference	NADH	chebi:CHEBI:16908	
+CHEBI:34154	SmallMoleculeReference	13(S)-HODE	chebi:CHEBI:34154	
+CHEBI:15846	SmallMoleculeReference	NAD	cas:53-84-9	

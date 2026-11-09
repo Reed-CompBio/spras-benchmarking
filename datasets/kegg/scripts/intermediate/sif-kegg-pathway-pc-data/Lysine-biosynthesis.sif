@@ -1,0 +1,51 @@
+PARTICIPANT_A	INTERACTION_TYPE	PARTICIPANT_B	INTERACTION_DATA_SOURCE	INTERACTION_PUBMED_ID	PATHWAY_NAMES	MEDIATOR_IDS
+ALDH7A1	controls-production-of	CHEBI:10211	KEGG		Lysine biosynthesis	http://pathwaycommons.org/pc12/Catalysis_d3f366eb2e20cf5352422adf6b590cc0;http://pathwaycommons.org/pc12/BiochemicalReaction_f0f01b4265abe39d15d9f28099d9bd39
+ALDH7A1	controls-production-of	CHEBI:16027	KEGG		Lysine biosynthesis	http://pathwaycommons.org/pc12/Catalysis_d3f366eb2e20cf5352422adf6b590cc0;http://pathwaycommons.org/pc12/BiochemicalReaction_f0f01b4265abe39d15d9f28099d9bd39
+ALDH7A1	controls-production-of	CHEBI:17917	KEGG		Lysine biosynthesis	http://pathwaycommons.org/pc12/Catalysis_7a60f01cb07bd618c3e64f99f089679e;http://pathwaycommons.org/pc12/BiochemicalReaction_b057a1f1e053d2d71094c86f076c70c4
+ALDH7A1	controls-production-of	CHEBI:18009	KEGG		Lysine biosynthesis	http://pathwaycommons.org/pc12/Catalysis_7a60f01cb07bd618c3e64f99f089679e;http://pathwaycommons.org/pc12/BiochemicalReaction_b057a1f1e053d2d71094c86f076c70c4
+ALDH7A1	controls-production-of	CHEBI:29888	KEGG		Lysine biosynthesis	http://pathwaycommons.org/pc12/BiochemicalReaction_23cac44a7e7c9875a828bf506b612f18;http://pathwaycommons.org/pc12/Catalysis_cbf2b6d8d0c0d433629458962679c304
+ALDH7A1	controls-production-of	CHEBI:5743	KEGG		Lysine biosynthesis	http://pathwaycommons.org/pc12/Catalysis_7a60f01cb07bd618c3e64f99f089679e;http://pathwaycommons.org/pc12/BiochemicalReaction_b057a1f1e053d2d71094c86f076c70c4
+ALDH7A1	controls-production-of	CHEBI:6163	KEGG		Lysine biosynthesis	http://pathwaycommons.org/pc12/BiochemicalReaction_23cac44a7e7c9875a828bf506b612f18;http://pathwaycommons.org/pc12/Catalysis_cbf2b6d8d0c0d433629458962679c304
+CHEBI:10211	consumption-controlled-by	ALDH7A1	KEGG		Lysine biosynthesis	http://pathwaycommons.org/pc12/Catalysis_7a60f01cb07bd618c3e64f99f089679e;http://pathwaycommons.org/pc12/BiochemicalReaction_b057a1f1e053d2d71094c86f076c70c4
+CHEBI:10211	reacts-with	CHEBI:15378	KEGG		Lysine biosynthesis	http://pathwaycommons.org/pc12/BiochemicalReaction_b057a1f1e053d2d71094c86f076c70c4
+CHEBI:10211	reacts-with	CHEBI:16474	KEGG		Lysine biosynthesis	http://pathwaycommons.org/pc12/BiochemicalReaction_b057a1f1e053d2d71094c86f076c70c4
+CHEBI:10211	used-to-produce	CHEBI:17917	KEGG		Lysine biosynthesis	http://pathwaycommons.org/pc12/BiochemicalReaction_b057a1f1e053d2d71094c86f076c70c4
+CHEBI:10211	used-to-produce	CHEBI:18009	KEGG		Lysine biosynthesis	http://pathwaycommons.org/pc12/BiochemicalReaction_b057a1f1e053d2d71094c86f076c70c4
+CHEBI:10211	used-to-produce	CHEBI:5743	KEGG		Lysine biosynthesis	http://pathwaycommons.org/pc12/BiochemicalReaction_b057a1f1e053d2d71094c86f076c70c4
+CHEBI:15378	consumption-controlled-by	ALDH7A1	KEGG		Lysine biosynthesis	http://pathwaycommons.org/pc12/Catalysis_7a60f01cb07bd618c3e64f99f089679e;http://pathwaycommons.org/pc12/BiochemicalReaction_b057a1f1e053d2d71094c86f076c70c4
+CHEBI:15378	reacts-with	CHEBI:16474	KEGG		Lysine biosynthesis	http://pathwaycommons.org/pc12/BiochemicalReaction_b057a1f1e053d2d71094c86f076c70c4
+CHEBI:15378	used-to-produce	CHEBI:17917	KEGG		Lysine biosynthesis	http://pathwaycommons.org/pc12/BiochemicalReaction_b057a1f1e053d2d71094c86f076c70c4
+CHEBI:15378	used-to-produce	CHEBI:18009	KEGG		Lysine biosynthesis	http://pathwaycommons.org/pc12/BiochemicalReaction_b057a1f1e053d2d71094c86f076c70c4
+CHEBI:15378	used-to-produce	CHEBI:5743	KEGG		Lysine biosynthesis	http://pathwaycommons.org/pc12/BiochemicalReaction_b057a1f1e053d2d71094c86f076c70c4
+CHEBI:15422	consumption-controlled-by	ALDH7A1	KEGG		Lysine biosynthesis	http://pathwaycommons.org/pc12/BiochemicalReaction_23cac44a7e7c9875a828bf506b612f18;http://pathwaycommons.org/pc12/Catalysis_cbf2b6d8d0c0d433629458962679c304
+CHEBI:15422	used-to-produce	CHEBI:29888	KEGG		Lysine biosynthesis	http://pathwaycommons.org/pc12/BiochemicalReaction_23cac44a7e7c9875a828bf506b612f18
+CHEBI:15422	reacts-with	CHEBI:37023	KEGG		Lysine biosynthesis	http://pathwaycommons.org/pc12/BiochemicalReaction_23cac44a7e7c9875a828bf506b612f18
+CHEBI:15422	used-to-produce	CHEBI:6163	KEGG		Lysine biosynthesis	http://pathwaycommons.org/pc12/BiochemicalReaction_23cac44a7e7c9875a828bf506b612f18
+CHEBI:16474	consumption-controlled-by	ALDH7A1	KEGG		Lysine biosynthesis	http://pathwaycommons.org/pc12/Catalysis_7a60f01cb07bd618c3e64f99f089679e;http://pathwaycommons.org/pc12/BiochemicalReaction_b057a1f1e053d2d71094c86f076c70c4
+CHEBI:16474	used-to-produce	CHEBI:17917	KEGG		Lysine biosynthesis	http://pathwaycommons.org/pc12/BiochemicalReaction_b057a1f1e053d2d71094c86f076c70c4
+CHEBI:16474	used-to-produce	CHEBI:18009	KEGG		Lysine biosynthesis	http://pathwaycommons.org/pc12/BiochemicalReaction_b057a1f1e053d2d71094c86f076c70c4
+CHEBI:16474	used-to-produce	CHEBI:5743	KEGG		Lysine biosynthesis	http://pathwaycommons.org/pc12/BiochemicalReaction_b057a1f1e053d2d71094c86f076c70c4
+CHEBI:37023	consumption-controlled-by	ALDH7A1	KEGG		Lysine biosynthesis	http://pathwaycommons.org/pc12/BiochemicalReaction_23cac44a7e7c9875a828bf506b612f18;http://pathwaycommons.org/pc12/Catalysis_cbf2b6d8d0c0d433629458962679c304
+CHEBI:37023	used-to-produce	CHEBI:29888	KEGG		Lysine biosynthesis	http://pathwaycommons.org/pc12/BiochemicalReaction_23cac44a7e7c9875a828bf506b612f18
+CHEBI:37023	used-to-produce	CHEBI:6163	KEGG		Lysine biosynthesis	http://pathwaycommons.org/pc12/BiochemicalReaction_23cac44a7e7c9875a828bf506b612f18
+CHEBI:5743	consumption-controlled-by	ALDH7A1	KEGG		Lysine biosynthesis	http://pathwaycommons.org/pc12/Catalysis_d3f366eb2e20cf5352422adf6b590cc0;http://pathwaycommons.org/pc12/BiochemicalReaction_f0f01b4265abe39d15d9f28099d9bd39
+CHEBI:5743	used-to-produce	CHEBI:10211	KEGG		Lysine biosynthesis	http://pathwaycommons.org/pc12/BiochemicalReaction_f0f01b4265abe39d15d9f28099d9bd39
+CHEBI:5743	used-to-produce	CHEBI:16027	KEGG		Lysine biosynthesis	http://pathwaycommons.org/pc12/BiochemicalReaction_f0f01b4265abe39d15d9f28099d9bd39
+CHEBI:5743	reacts-with	CHEBI:6163	KEGG		Lysine biosynthesis	http://pathwaycommons.org/pc12/BiochemicalReaction_f0f01b4265abe39d15d9f28099d9bd39
+CHEBI:6163	consumption-controlled-by	ALDH7A1	KEGG		Lysine biosynthesis	http://pathwaycommons.org/pc12/Catalysis_d3f366eb2e20cf5352422adf6b590cc0;http://pathwaycommons.org/pc12/BiochemicalReaction_f0f01b4265abe39d15d9f28099d9bd39
+CHEBI:6163	used-to-produce	CHEBI:10211	KEGG		Lysine biosynthesis	http://pathwaycommons.org/pc12/BiochemicalReaction_f0f01b4265abe39d15d9f28099d9bd39
+CHEBI:6163	used-to-produce	CHEBI:16027	KEGG		Lysine biosynthesis	http://pathwaycommons.org/pc12/BiochemicalReaction_f0f01b4265abe39d15d9f28099d9bd39
+
+PARTICIPANT	PARTICIPANT_TYPE	PARTICIPANT_NAME	UNIFICATION_XREF	RELATIONSHIP_XREF
+CHEBI:15422	SmallMoleculeReference	ATP	chebi:CHEBI:15422	
+CHEBI:15378	SmallMoleculeReference	H+	kegg compound:C00080	
+CHEBI:16027	SmallMoleculeReference	adenosine 5'-monophosphate	chebi:CHEBI:16027	
+CHEBI:37023	SmallMoleculeReference	L-2-Aminoadipate	cas:542-32-5	
+CHEBI:18009	SmallMoleculeReference	TPN	cas:53-59-8	
+CHEBI:29888	SmallMoleculeReference	diphosphoric acid	chebi:CHEBI:29888	
+CHEBI:16474	SmallMoleculeReference	NADPH	chebi:CHEBI:16474	
+CHEBI:5743	SmallMoleculeReference	Holo-Lys2	chebi:CHEBI:5743	
+CHEBI:17917	SmallMoleculeReference	L-allysine	chebi:CHEBI:17917	
+CHEBI:10211	SmallMoleculeReference	alpha-Aminoadipoyl-S-acyl enzyme	chebi:CHEBI:10211	
+CHEBI:6163	SmallMoleculeReference	L-2-Aminoadipate adenylate	chebi:CHEBI:6163	
+ALDH7A1	ProteinReference	AL7A1_HUMAN	uniprot knowledgebase:P49419	hgnc symbol:ALDH7A1
